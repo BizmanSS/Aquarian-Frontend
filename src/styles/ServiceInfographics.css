@@ -1,0 +1,219 @@
+.main-div {
+  width: 1190px;
+  overflow: hidden;
+  max-height: 600px;
+  background-image: url(../Assets/mapService.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-left: 7%;
+  margin-top: 5rem;
+}
+
+.infographics .consulation {
+  position: relative;
+  left: 165px;
+  top: 160px;
+  width: 140px;
+  cursor: pointer;
+}
+.infographics .regular {
+  position: relative;
+  left: 320px;
+  bottom: 360px;
+  width: 140px;
+  cursor: pointer;
+}
+.infographics .preparation {
+  position: relative;
+  left: 510px;
+  bottom: 830px;
+  width: 160px;
+  cursor: pointer;
+}
+.infographics .post {
+  position: relative;
+  left: 715px;
+  width: 140px;
+  bottom: 1155px;
+  cursor: pointer;
+}
+.infographics .assistance {
+  position: relative;
+  left: 865px;
+  bottom: 1425px;
+  width: 140px;
+  cursor: pointer;
+}
+.content {
+  position: relative;
+  bottom: 1550px;
+}
+.service-title {
+  color: #000;
+  font-size: 60px;
+  text-align: center;
+  font-family: "TT Chocolates";
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.contentConsulation,
+.contentRegular,
+.contentAssistance,
+.contentPost,
+.contentPreparation {
+  color: #000;
+  position: relative;
+  text-align: center;
+  font-family: "TT Chocolates";
+  font-size: 22px;
+  font-style: normal;
+  width: 500px;
+  line-height: 1.32rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+.contentPreparation {
+  margin-top: -10px;
+}
+@media (max-width: 1600px) {
+  .main-div {
+    width: 1000px;
+    height: 500px;
+  }
+  .infographics .consulation {
+    left: 140px;
+    top: 130px;
+    width: 120px;
+  }
+  .infographics .regular {
+    width: 120px;
+    left: 270px;
+    bottom: 315px;
+  }
+  .infographics .preparation {
+    width: 140px;
+    left: 425px;
+    bottom: 720px;
+  }
+  .infographics .post {
+    width: 120px;
+    left: 600px;
+    bottom: 1005px;
+  }
+  .infographics .assistance {
+    width: 120px;
+    left: 725px;
+    bottom: 1240px;
+  }
+  .content {
+    position: relative;
+    bottom: 1350px;
+  }
+  .service-title {
+    font-size: 55px;
+  }
+  .contentConsulation,
+  .contentRegular,
+  .contentAssistance,
+  .contentPost,
+  .contentPreparation {
+    font-size: 17px;
+    width: 400px;
+    line-height: 1.2rem;
+  }
+}
+@media (max-width: 1370px) {
+  .main-div {
+    width: 900px;
+    height: 450px;
+  }
+  .infographics .consulation {
+    left: 120px;
+    top: 120px;
+    width: 110px;
+  }
+  .infographics .regular {
+    width: 110px;
+    left: 240px;
+    bottom: 295px;
+  }
+  .infographics .preparation {
+    width: 130px;
+    left: 380px;
+    bottom: 670px;
+  }
+  .infographics .post {
+    width: 110px;
+    left: 540px;
+    bottom: 935px;
+  }
+  .infographics .assistance {
+    width: 110px;
+    left: 655px;
+    bottom: 1145px;
+  }
+  .content {
+    position: relative;
+    bottom: 1245px;
+  }
+  .service-title {
+    font-size: 55px;
+  }
+  .contentConsulation,
+  .contentRegular,
+  .contentAssistance,
+  .contentPost,
+  .contentPreparation {
+    font-size: 15px;
+    width: 350px;
+    line-height: 1rem;
+  }
+}
+@media (max-width: 1200px) {
+  .main-div {
+    width: 800px;
+    height: 400px;
+  }
+  .infographics .consulation {
+    left: 100px;
+    top: 55px;
+    width: 120px;
+  }
+  .infographics .regular {
+    width: 100px;
+    left: 210px;
+    bottom: 325px;
+  }
+  .infographics .preparation {
+    width: 120px;
+    left: 335px;
+    bottom: 670px;
+  }
+  .infographics .post {
+    width: 100px;
+    left: 480px;
+    bottom: 915px;
+  }
+  .infographics .assistance {
+    width: 100px;
+    left: 580px;
+    bottom: 1105px;
+  }
+  .content {
+    position: relative;
+    bottom: 1215px;
+  }
+  .service-title {
+    font-size: 55px;
+  }
+  .contentConsulation,
+  .contentRegular,
+  .contentAssistance,
+  .contentPost,
+  .contentPreparation {
+    font-size: 14px;
+    width: 300px;
+    line-height: 1rem;
+  }
+}

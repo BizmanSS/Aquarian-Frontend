@@ -1,0 +1,509 @@
+.ServicesHeader {
+  margin-top: 10rem;
+  z-index: 1;
+  position: relative;
+  display: block;
+  background-repeat: no-repeat;
+  background-size: auto;
+  width: 95%;
+  top: -80px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 0px 0px 25px 25px;
+  background: url("../Assets/Rectangle 156.png") lightgray 20% / cover no-repeat;
+  box-shadow: 0px 4px 24.9px 0px rgba(0, 0, 0, 0.5);
+}
+.ServicesHeader .link {
+  color: #e2e2e2;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  padding-top: 65px;
+  padding-left: 3%;
+}
+.ServicesHeader .header-content {
+  padding-top: 6%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 2rem;
+  width: 50%;
+}
+.text-area {
+  padding: 0rem 3rem;
+  padding-bottom: 10rem;
+  background-color: #eaeaea;
+  border-radius: 0px 45px 0px 0px;
+  width: 100%;
+}
+.buttonGet {
+  width: 244px;
+  height: 52px;
+  flex-shrink: 0;
+  border-radius: 26px;
+  background: #000;
+  padding: 10px 20px;
+  color: #01f9e1;
+  text-align: center;
+  font-family: "Goudy Old Style";
+  font-size: 25.241px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+.text-area a {
+  font-weight: 600;
+  cursor: pointer;
+}
+.text-area h2 {
+  color: #000;
+  font-size: 35px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  display: block;
+  margin-bottom: 1rem;
+  margin-top: 3rem;
+}
+.text-area .line {
+  height: 5px;
+  border-radius: 3.5px;
+}
+.text-area p2 {
+  color: #000;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.content-below-services {
+  display: flex;
+  width: 100%;
+}
+.content-below-services img {
+  width: 20%;
+}
+.BackgroundImagePI {
+  position: absolute;
+  margin-left: 33rem;
+  z-index: 0;
+  margin-top: -2rem;
+}
+.BackgroundImageSpecialized {
+  position: absolute;
+  width: 1100px;
+  margin-left: 400px;
+  z-index: 0;
+  margin-top: -2rem;
+}
+.PermanentImmigration {
+  display: flex;
+  margin-bottom: 5rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+.SpecializedService {
+  display: flex;
+  margin-bottom: 5rem;
+}
+.hex1SS,
+.hex2SS,
+.hex3SS,
+.hex4SS,
+.hex5SS {
+  z-index: 9;
+  position: relative;
+}
+.hex1SS {
+  margin-left: 15rem;
+}
+.hex2SS,
+.hex4SS {
+  align-self: flex-end;
+  margin-left: -2rem;
+}
+.hex3SS,
+.hex5SS {
+  align-self: center;
+  margin-left: -2rem;
+}
+.hex5SS {
+  padding-bottom: 5rem;
+}
+.hex1PI {
+  z-index: 9;
+  position: relative;
+  margin-left: 18rem;
+}
+.hex2PI {
+  margin-top: 193px;
+  position: relative;
+  z-index: 9;
+}
+.hex3PI {
+  margin-top: 53px;
+  z-index: 9;
+  position: relative;
+}
+.hex4PI {
+  margin-top: 196px;
+  z-index: 9;
+  position: relative;
+}
+
+.hex2PI img:hover,
+.hex3PI img:hover,
+.hex4PI img:hover,
+.hex5PI img:hover,
+.hex1visa img:hover,
+.hex2visa img:hover,
+.hex3visa img:hover,
+.hex4visa img:hover,
+.hex5visa img:hover,
+.hex6visa img:hover,
+.hex2SS img:hover,
+.hex3SS img:hover,
+.hex4SS img:hover,
+.hex5SS img:hover {
+  transform: scale(1.18);
+  transition: 0.3s ease;
+}
+
+.BackgroundImageVisa {
+  position: absolute;
+  width: 1088.5px;
+  height: 303px;
+
+  z-index: 0;
+  margin-top: 2rem;
+}
+.Visa {
+  display: flex;
+  padding-bottom: 5rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  flex-shrink: 0;
+}
+.hex1visa {
+  z-index: 9;
+  position: relative;
+  align-self: center;
+  margin-left: 89.5px;
+}
+.hex2visa {
+  z-index: 9;
+  position: relative;
+  margin-left: -3rem;
+  align-self: center;
+}
+.hex3visa {
+  z-index: 9;
+  position: relative;
+  align-self: center;
+  margin-left: -3rem;
+}
+.hex4visa {
+  z-index: 9;
+  position: relative;
+  margin-left: -3rem;
+  align-self: center;
+}
+.hex5visa {
+  z-index: 9;
+  position: relative;
+  margin-left: -3rem;
+  align-self: center;
+}
+.hex6visa {
+  z-index: 9;
+  position: relative;
+  margin-left: -3rem;
+  margin-top: 171px;
+  align-self: center;
+}
+.hex1visa img,
+.hex2visa img,
+.hex3visa img,
+.hex4visa img,
+.hex5visa img,
+.hex6visa img,
+.hex2PI img,
+.hex3PI img,
+.hex4PI img,
+.hex5PI img,
+.hex2SS img,
+.hex3SS img,
+.hex4SS img,
+.hex5SS img {
+  width: 211px;
+  height: 171px;
+}
+.hex7visa {
+  z-index: 9;
+  position: relative;
+  align-self: center;
+  margin-left: -3rem;
+}
+.hex7visa img,
+.hex1PI img,
+.hex1SS img {
+  width: 449px;
+  height: 364px;
+}
+@media (max-width: 1800px) {
+  .BackgroundImageVisa {
+    width: 900px;
+    height: 260px;
+  }
+  .content-below-services img {
+    width: 25%;
+  }
+  .BackgroundImagePI {
+    width: 900px;
+    margin-left: 23rem;
+    margin-top: -1rem;
+  }
+  .BackgroundImageSpecialized {
+    width: 900px;
+    margin-left: 350px;
+  }
+  .hex1visa {
+    margin-left: 60px;
+  }
+  .hex1visa img,
+  .hex2visa img,
+  .hex3visa img,
+  .hex4visa img,
+  .hex5visa img,
+  .hex6visa img,
+  .hex1PI img,
+  .hex2PI img,
+  .hex3PI img,
+  .hex4PI img,
+  .hex2SS img,
+  .hex3SS img,
+  .hex4SS img,
+  .hex5SS img {
+    width: 175px;
+    height: 155px;
+  }
+  .hex1PI {
+    margin-left: 18rem;
+  }
+  .hex2PI {
+    margin-top: 163px;
+  }
+  .hex3PI {
+    margin-left: -1.5rem;
+  }
+  .hex4PI {
+    margin-top: 163px;
+    margin-left: -1.5rem;
+  }
+
+  .hex7visa img,
+  .hex1PI img,
+  .hex1SS img {
+    width: 370px;
+    height: 314px;
+  }
+}
+
+@media (max-width: 1400px) {
+  .hex1PI,
+  .hex1SS {
+    margin-left: 10rem;
+  }
+  .BackgroundImageSpecialized {
+    margin-left: 200px;
+  }
+  .BackgroundImagePI {
+    margin-left: 15rem;
+    margin-top: -1rem;
+  }
+  .BackgroundImageVisa {
+    width: 710px;
+  }
+}
+@media (max-width: 768px) {
+  .ServicesHeader .link {
+    padding-top: 20px;
+    padding-left: 3%;
+    font-size: x-small;
+  }
+  .ServicesHeader .header-content {
+    padding-top: 80px;
+    width: 80%;
+  }
+  .buttonGet {
+    width: 50%;
+    height: auto;
+    font-size: 15.241px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+  .text-area {
+    padding: 0rem 2rem;
+    padding-bottom: 5rem;
+    background-color: #eaeaea;
+    border-radius: 0px 45px 45px 0px;
+    width: 90%;
+  }
+
+  .text-area h2 {
+    color: #000;
+    font-size: 20px;
+    margin-bottom: 1rem;
+    padding-top: 3rem;
+    margin-top: 0rem;
+  }
+  .text-area .line {
+    height: 5px;
+    border-radius: 3.5px;
+  }
+  .text-area p2 {
+    font-size: 16px;
+  }
+  .content-below-services {
+    display: block;
+    width: 100%;
+  }
+  .content-below-services img {
+    width: 100%;
+  }
+  .PermanentImmigration {
+    display: block;
+  }
+  .hex1visa {
+    z-index: 9;
+    position: relative;
+    align-self: center;
+    margin-left: auto;
+    margin-top: -2rem;
+    margin-right: auto;
+  }
+  .hex1PI {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hex1PI img,
+  .hex7visa img {
+    width: 80%;
+    display: block;
+    margin-left: auto;
+
+    margin-right: auto;
+  }
+  .hex7visa {
+    margin-left: 0rem;
+  }
+  .hex2PI,
+  .hex3PI,
+  .hex4PI {
+    margin-top: auto;
+  }
+  .hex2PI img,
+  .hex4PI img,
+  .hex6visa img {
+    width: 40%;
+    margin-left: 15%;
+  }
+  .hex3PI img,
+  .hex1visa {
+    width: 40%;
+    margin-left: 45%;
+  }
+  .hex2visa {
+    width: 100%;
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hex2visa img,
+  .hex3visa img,
+  .hex4visa img,
+  .hex5visa img {
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .MobilePIBackground {
+    width: 50%;
+    position: absolute;
+    left: 25%;
+    height: 500px;
+    z-index: 0;
+    flex-shrink: 0;
+    margin-top: 15rem;
+  }
+  .Visa {
+    display: block;
+    width: 100%;
+  }
+  .hex2visa,
+  .hex4visa {
+    display: flex;
+    margin-top: -2rem;
+  }
+  .hex4visa {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hex3visa,
+  .hex5visa,
+  .hex6visa {
+    margin-left: auto;
+    margin-top: -2rem;
+    margin-right: auto;
+  }
+
+  .MobileVisaBackground {
+    margin-top: 8rem;
+    width: 80%;
+    margin-left: 10%;
+    height: 980px;
+    position: absolute;
+  }
+  .BackgroundImageSpecializedMobile {
+    margin-top: 6rem;
+    width: 70%;
+    margin-left: 15%;
+    height: 800px;
+    position: absolute;
+  }
+  .hex1SS img {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hex1SS {
+    margin-left: auto;
+    width: 100%;
+  }
+  .hex2SS,
+  .hex3SS,
+  .hex4SS,
+  .hex5SS {
+    margin-left: auto;
+    margin-left: auto;
+    margin-top: -2rem;
+  }
+  .hex2SS img,
+  .hex4SS img {
+    width: 40%;
+
+    margin-left: 10%;
+  }
+  .hex3SS img,
+  .hex5SS img {
+    margin-left: 40%;
+    width: 40%;
+  }
+  .SpecializedService {
+    display: block;
+  }
+}

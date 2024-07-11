@@ -1,0 +1,197 @@
+.address-content {
+  position: fixed;
+  z-index: 9;
+  top: 30vh;
+  width: 20%;
+  display: block;
+  margin-left: 4%;
+  border-radius: 25px;
+  background: #fff;
+  box-shadow: 0px 4px 23.6px 0px rgba(0, 0, 0, 0.5);
+}
+.address-heading {
+  color: #009889;
+  font-family: "TT Chocolates";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-block-end: 0.5em;
+}
+.logosContact {
+  display: flex;
+  align-items: center;
+}
+.registration-form {
+  width: 50%;
+  margin: 3rem 30%;
+}
+.form-row {
+  display: flex;
+  justify-content: gap-between;
+  gap: 12rem;
+}
+.form-row .form-group {
+  margin-bottom: 20px;
+}
+
+.form-row label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.form-row input,
+.form-row select {
+  width: 23.8rem;
+  padding: 10px;
+  border: 1px solid #009889;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+.form-group textarea {
+  max-width: 23.8rem;
+  height: 2.875rem;
+  padding: 10px;
+  border: 1px solid #009889;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+.form-row .error {
+  border-color: #b90124;
+  background-color: "#ffe6e6";
+  width: 23.8rem;
+}
+.registration-form .submit-btn {
+  background-color: #009889;
+  color: #fff;
+  padding: 10px 60px;
+  border: none;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.error-message {
+  color: #b90124;
+  font-size: 12;
+}
+
+.form-date input {
+  padding: 10px 2.5rem;
+}
+@media (max-width: 1700px) {
+  .form-row input,
+  .form-row select,
+  .form-row .error {
+    width: 20.8rem;
+  }
+  .form-group textarea {
+    width: 20.8rem;
+  }
+  .form-row {
+    gap: 10.8rem;
+  }
+}
+@media (max-width: 1590px) {
+  .form-row input,
+  .form-row select,
+  .form-row .error {
+    width: 19.8rem;
+  }
+  .form-group textarea {
+    width: 19.8rem;
+  }
+  .form-row {
+    gap: 10.4rem;
+  }
+}
+@media (max-width: 1400px) {
+  .form-row input,
+  .form-row select,
+  .form-row .error {
+    width: 17.8rem;
+  }
+  .form-group textarea {
+    width: 17.8rem;
+  }
+
+  .form-row {
+    gap: 8.8rem;
+  }
+}
+
+@media (max-width: 1300px) {
+  .form-row input,
+  .form-row select,
+  .form-row .error {
+    width: 14.8rem;
+  }
+  .form-group textarea {
+    width: 37.4rem;
+  }
+
+  .form-row {
+    gap: 7.8rem;
+  }
+}
+@media (max-width: 1000px) {
+  .form-row input,
+  .form-row select,
+  .form-row .error {
+    width: 12.8rem;
+  }
+  .form-group textarea {
+    width: 30.7rem;
+  }
+
+  .form-row {
+    gap: 5.1rem;
+  }
+}
+@media (max-width: 768px) {
+  .registration-form {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+  }
+
+  .form-row {
+    display: block;
+    justify-content: gap-between;
+    gap: 20%;
+  }
+  .ContactUsHeader .header-content {
+    padding-top: 25%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 1rem;
+    width: 50%;
+  }
+  .ContactUsHeader {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .form-row input,
+  .form-row select,
+  .form-row .error,
+  .form-group textarea {
+    width: 100%;
+  }
+
+  .address-content {
+    position: relative;
+    top: 0px;
+    width: 95%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2rem;
+  }
+}

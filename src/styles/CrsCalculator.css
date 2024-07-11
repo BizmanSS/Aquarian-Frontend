@@ -1,0 +1,66 @@
+.crs-form-container {
+  max-width: 600px;
+  margin: 0.5rem 4rem 4rem 4rem;
+  padding: 20px;
+}
+
+.crs-label {
+  font-size: 16px;
+  display: block;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.crs-score-display {
+  font-size: 18px;
+  font-weight: bold;
+  color: #555;
+  padding: 6rem;
+  padding-top: 10rem;
+  width: 30rem;
+  text-align: center;
+}
+
+.crs-final-score-display {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #000000;
+}
+
+.crs-question {
+  margin-bottom: 1rem;
+}
+
+.crs-information {
+  margin-right: 10rem;
+}
+
+.crs-errorValidation {
+  border: 2px solid red; /* Error indication */
+}
+
+.crs-select {
+  padding: 6px;
+}
+
+.crs input,
+.crs select {
+  width: 35rem;
+  padding: 10px;
+  border: 1px solid #009889;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+/*@media (min-width: 1000px) {
+   Specific selector to override the width for select 
+  select {
+    width: 35rem;
+  }
+}*/
+
+@media (max-width: 1000px) {
+  .crs select {
+    width: 100%;
+  }
+}
