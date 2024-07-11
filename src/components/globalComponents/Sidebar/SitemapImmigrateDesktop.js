@@ -94,16 +94,8 @@ function SitemapImmigrateDesktop() {
         <li key={index}>
           <div className="flex-div">
             <Link to={link.linkTo}>
-              <span
-                className={
-                  isExpanded || isExpand || isExpandedIndex
-                    ? "extended-title"
-                    : ""
-                }
-              >
-                <p8 className={isActive ? "extended-color" : ""}>
-                  {link.title}
-                </p8>
+              <span className={`title ${isActive ? "extended-title" : ""}`}>
+                {link.title}
               </span>
             </Link>
             {link.nestedLinks && (
@@ -151,7 +143,7 @@ function SitemapImmigrateDesktop() {
 
   return (
     <div className="sidebar-main-div-global">
-      <ul>
+      <vl>
         {sitemapImmigrate.map((section, index) => {
           const currentIndex = `${index}`;
           const isExpanded = expanded === currentIndex;
@@ -163,17 +155,9 @@ function SitemapImmigrateDesktop() {
             <li key={index}>
               <div className="flex-div">
                 <Link to={section.linkTo}>
-                  <span
-                    className={
-                      isExpanded || isExpand || isExpandedIndex
-                        ? "extended-title"
-                        : ""
-                    }
-                  >
+                  <span className={`title ${isActive ? "extended-title" : ""}`}>
                     <div className="side"></div>
-                    <p8 className={isActive ? "extended-color" : ""}>
-                      {section.title}
-                    </p8>
+                    {section.title}
                   </span>
                 </Link>
 
@@ -228,7 +212,7 @@ function SitemapImmigrateDesktop() {
             </li>
           );
         })}
-      </ul>
+      </vl>
     </div>
   );
 }

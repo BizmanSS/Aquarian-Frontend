@@ -93,16 +93,8 @@ function SitemapBusinessDesktop() {
         <li key={index}>
           <div className="flex-div">
             <Link to={link.linkTo}>
-              <span
-                className={
-                  isExpanded || isExpand || isExpandedIndex || isActive
-                    ? "extended-title"
-                    : ""
-                }
-              >
-                <p8 className={isActive ? "extended-color" : ""}>
-                  {link.title}
-                </p8>
+              <span className={`title ${isActive ? "extended-title" : ""}`}>
+                {link.title}
               </span>
             </Link>
             {link.nestedLinks && (
@@ -150,7 +142,7 @@ function SitemapBusinessDesktop() {
 
   return (
     <div className="sidebar-main-div-global">
-      <ul>
+      <vl>
         {sitemapBusiness.map((section, index) => {
           const currentIndex = `${index}`;
           const isExpanded = expanded === currentIndex;
@@ -162,17 +154,9 @@ function SitemapBusinessDesktop() {
             <li key={index}>
               <div className="flex-div">
                 <Link to={section.linkTo}>
-                  <span
-                    className={
-                      isExpanded || isExpand || isExpandedIndex || isActive
-                        ? "extended-title"
-                        : ""
-                    }
-                  >
+                  <span className={`title ${isActive ? "extended-title" : ""}`}>
                     <div className="side"></div>
-                    <p8 className={isActive ? "extended-color" : ""}>
-                      {section.title}
-                    </p8>
+                    {section.title}
                   </span>
                 </Link>
 
@@ -227,7 +211,7 @@ function SitemapBusinessDesktop() {
             </li>
           );
         })}
-      </ul>
+      </vl>
     </div>
   );
 }
