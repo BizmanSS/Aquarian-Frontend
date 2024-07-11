@@ -88,7 +88,7 @@ const Banner = () => {
       ) : (
         <>
           {!showThumbnail ? (
-            <div className='w-full h-full object-cover flex items-start justify-center overflow-hidden'>
+            <div className='w-full h-full object-cover flex items-start pointer-events-auto justify-center overflow-hidden'>
               <video
                 ref={videoRef}
                 autoPlay
@@ -106,7 +106,7 @@ const Banner = () => {
           )}
         </>
       )}
-      <div className='hidden lg:flex flex-col items-center justify-center gap-4 absolute left-[9rem] lg:top-[50vh]'>
+      <div className='hidden lg:flex flex-col items-center pointer-events-auto justify-center gap-4 absolute left-[9rem] lg:top-[50vh]'>
         <div className=' text-white px-4 text-lg md:text-[2.5rem] lg:text-[3rem] xl:text-[3.5rem] font-bold mb-3'>
           Our goal is to help <br /> <br /> you achieve yours
         </div>
@@ -132,8 +132,8 @@ const Banner = () => {
         </div>
       </div>
 
-      <div className='z-30 absolute w-full h-full flex flex-col py-10 items-center justify-end gap-[4rem]'>
-        <div className='flex  lg:hidden flex-col items-center justify-center gap-4 w-full h-fit'>
+      <div className='z-30 lg:hidden absolute w-full h-full flex flex-col py-10 items-center justify-end gap-[4rem]'>
+        <div className='flex  flex-col items-center justify-center gap-4 w-full h-fit'>
           <div className='pl-10 text-white text-[25px] sm:text-[28px] font-light mb-3 tracking-wide w-full flex flex-col items-start justify-center leading-tight'>
             Aquarian is a{' '}
             <span className=' text-[32px] block font-semibold'>
