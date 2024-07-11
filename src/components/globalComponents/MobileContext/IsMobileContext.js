@@ -4,9 +4,11 @@ const MobileContext = createContext();
 
 export const MobileProvider = ({ children }) => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [ vw, setVw ] = useState(window.innerWidth)
 
   const handleResize = () => {
     setIsMobile(window.innerWidth < 768);
+    setVw(window.innerWidth)
   };
 
   useEffect(() => {
@@ -18,7 +20,7 @@ export const MobileProvider = ({ children }) => {
   }, []);
 
   return (
-    <MobileContext.Provider value={{ isMobile }}>
+    <MobileContext.Provider value={{ isMobile, vw }}>
       {children}
     </MobileContext.Provider>
   );

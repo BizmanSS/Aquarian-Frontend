@@ -8,15 +8,15 @@ const Component1 = () => {
       <div className='w-[20rem] h-[10rem] sm:w-[18rem] md:h-[17rem] flex flex-col items-center justify-center px-8 py-2 rounded-2xl md:border-[1px] border-[#38AB9F] hover:border-transparent hover:scale-105 md:shadow-xl transition ease-in delay-50 duration-300 cursor-pointer'>
         <img src={img1} alt={'logo'} className='w-[15rem] scale-125 lg:scale-100 lg:w-[13rem] -mt-2' />
 
-        <p className='hidden sm:block text-[12px] md:text-[15px] mt-2 text-center mb-4'>
+        <p className='hidden md:block text-[12px] md:text-[15px] mt-2 text-center mb-4'>
           Our RCIC certified experts will provide you with the best counsel for
           your immigration journey.
         </p>
       </div>
       <div className='w-[15rem] h-[10rem] md:w-[18rem] md:h-[17rem] flex flex-col items-center justify-center px-8 py-2 rounded-2xl md:border-[1px] border-[#38AB9F] hover:border-transparent hover:scale-105 md:shadow-xl transition ease-in delay-50 duration-300 cursor-pointer'>
-        <img src={img3} alt={'logo'} className='w-[10rem] scale-125 lg:scale-100 lg:w-[7rem]' />
+        <img src={img3} alt={'logo'} className='w-[10rem] scale-115 lg:scale-100 lg:w-[7rem]' />
 
-        <p className='hidden sm:block text-[12px] md:text-[15px] mt-2 text-center mb-4'>
+        <p className='hidden md:block text-[12px] md:text-[15px] mt-2 text-center mb-4'>
           With 30+ years of experience, we aim to continually provide aspiring
           immigrants with outstanding services.
         </p>

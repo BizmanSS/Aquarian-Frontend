@@ -1,14 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useMobile } from '../globalComponents/MobileContext/IsMobileContext';
 
 const CardElement = ({ data }) => {
   const { isMobile } = useMobile();
+  const navigate = useNavigate()
+
   return (
-    <a href={data.link} alt='box'>
-      {' '}
+    <div className='w-full h-full flex items-center justify-center'>
       {isMobile ? (
-        <div className='relative max-w-[28rem] h-[19rem] overflow-hidden transition-all ease-in delay-100 duration-300 group'>
+        <div 
+          onClick={() => navigate(data.link)} 
+          className='relative max-w-[28rem] h-[19rem] overflow-hidden transition-all ease-in delay-100 duration-300 group'
+        >
           <img
             className='w-full h-full absolute'
             src={data.img}
@@ -33,9 +37,12 @@ const CardElement = ({ data }) => {
           </div>
         </div>
       ) : (
-        <div className='max-w-[21rem] h-[30rem] rounded-2xl overflow-hidden border-[2px] border-[#939293] hover:border-transparent hover:bg-[#55FBEB] hover:shadow-lg mb-10 transition-all ease-in delay-100 duration-300 group'>
+        <div 
+          onClick={() => navigate(data.link)} 
+          className='max-w-[21rem] h-[30rem] rounded-2xl overflow-hidden border-[2px] border-[#939293] hover:border-transparent hover:bg-[#55FBEB] hover:shadow-lg mb-10 transition-all ease-in delay-100 duration-300 group'
+        >
           <img
-            className='w-[100%] h-[15rem] p-2'
+            className='w-[100%] h-[15rem] p-2 rounded-2xl'
             src={data.img}
             alt='amenities'
           />
@@ -49,7 +56,7 @@ const CardElement = ({ data }) => {
           </div>
         </div>
       )}
-    </a>
+    </div>
   );
 };
 

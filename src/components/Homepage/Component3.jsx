@@ -6,14 +6,15 @@ import { useMobile } from '../globalComponents/MobileContext/IsMobileContext';
 
 const Component3 = () => {
   const [showAppointmentModel, setShowAppointmentModel] = useState(false);
-  const { isMobile } = useMobile();
+  const { isMobile, vw } = useMobile();
+
 
   const handleAppointmentClick = () => {
     setShowAppointmentModel(true); // Show the BookAppointmentModel component when the button is clicked
   };
   return (
     <div className='flex flex-col items-center justify-center mt-10'>
-      {isMobile ? (
+      {(vw < 800) ? (
         <div className='w-[99%] lg:w-[70%] mt-10'>
           <div className='text-[1.8rem] md:text-[3rem] font-semibold flex items-center justify-center md:block -mb-4'>
             Why Choose <span className='text-[#019989]'>Us</span>
@@ -55,7 +56,7 @@ const Component3 = () => {
           </div>
         </div>
       ) : (
-        <div className='w-[96%] lg:w-[70%] '>
+        <div className='w-[96%] lg:w-[80%] xl:w-[70%]'>
           <div className='text-[1.8rem] md:text-[3rem] font-semibold flex items-center justify-center md:block -mb-4'>
             Why Choose <span className='text-[#019989]'>Us</span>
           </div>
@@ -67,12 +68,13 @@ const Component3 = () => {
                 className='w-[95%] mt-[3rem] rounded-3xl z-10'
               />
             </div>
-            <div className='bg-[#343436] w-full md:w-[60%] rounded-3xl pl-6 md:px-14 py-12 relative -top-[4rem] md:top-[9rem] md:right-[6rem]'>
+            <div className='bg-[#343436] w-full md:w-[60%] rounded-3xl pl-6 px-6 pr-3 xl:px-14 py-0 xl:py-12 relative -top-[4rem] md:top-[9rem] md:right-[6rem]'>
               <div className='text-[#FEFFFE] my-[4rem] text-xl'>
-                <span className='text-[#019989]'>Aquarian</span> is a Canadian
-                immigration Firm.
+                <span className='text-[#019989]'>
+                  Aquarian
+                </span> is a Canadian immigration Firm.
               </div>
-              <div className='text-[#EEEEEE] mt-10 mb-20 font-light text-lg pr-14'>
+              <div className='text-[#EEEEEE] mt-10 mb-20 font-light text-lg pr-4 lg:pr-14'>
                 With an absolute commitment to efficiency and transparency,
                 Aquarian Immigration offers an all-encompassing and
                 revolutionary immigration service through our certified team of

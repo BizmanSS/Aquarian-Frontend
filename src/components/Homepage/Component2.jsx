@@ -12,12 +12,14 @@ import cardimg9 from '../../Assets/Refusal.png';
 import { useMobile } from '../globalComponents/MobileContext/IsMobileContext';
 
 const Component2 = () => {
-  const [exploreMOre, setExploreMore] = useState(false);
   const { isMobile } = useMobile();
+  const [ exploreMOre, setExploreMore ] = useState(false);
+
   const toggleWxploreMore = () => {
     window.location.href = '#program';
     setExploreMore((prev) => !prev);
   };
+
   const array = [
     {
       link: '/immigrate/permanent-residency',
@@ -106,33 +108,28 @@ const Component2 = () => {
         'Enjoy hassle-free family visits! The Super Visa allows parents and grandparents of Canadian Citizens and Permanent Residents to stay for up to two years per visit, with multiple entries.',
     },
   ];
+
   return (
-    <div>
+    <>
       <div
         id='program'
-        className='w-[100%] text-[1.5rem] md:text-[3rem] font-semibold flex items-center justify-center mt-0 -mb-10'
+        className='w-full lg:w-[calc(100%-5rem)] text-[1.5rem] md:text-[3rem] font-semibold flex items-center justify-center mt-0 -mb-10'
       >
         Choose Your <span className='text-[#2FAB9E] mx-2 '>Program</span>
       </div>
-      <div className='w-full flex flex-col items-center justify-center'>
+      <div className='w-full md:w-[calc(100vw-5rem)] flex flex-col items-center justify-center'>
         <div className='flex items-center justify-center flex-wrap lg:ml-8 w-[99%] lg:w-[80%] gap-10 mt-16 md:grid md:grid-cols-2 xl:grid-cols-3'>
           {isMobile ? (
             <div className='flex flex-col items-center justify-center gap-6'>
-              {' '}
-              {exploreMOre ? (
-                <>
-                  {array.map((item, index) => (
-                    <Card key={index} data={item} />
-                  ))}
-                </>
-              ) : (
-                <>
-                  {' '}
-                  {arrayMobile.map((item, index) => (
-                    <Card key={index} data={item} />
-                  ))}
-                </>
-              )}
+              
+              {exploreMOre && array.map((item, index) => (
+                <Card key={index} data={item} />
+              ))}
+
+              {!exploreMOre && arrayMobile.map((item, index) => (
+                <Card key={index} data={item} />
+              ))}
+
               {!exploreMOre && (
                 <div
                   onClick={toggleWxploreMore}
@@ -144,7 +141,7 @@ const Component2 = () => {
             </div>
           ) : (
             <>
-              {' '}
+              {/* {' '} */}
               {array.map((item, index) => (
                 <Card key={index} data={item} />
               ))}
@@ -152,7 +149,7 @@ const Component2 = () => {
           )}
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
