@@ -17,7 +17,6 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
   const [submitAttemptedEducation, setSubmitAttemptedEducation] =
     useState(false);
   const [submitAttemptedWork, setSubmitAttemptedWork] = useState(false);
-
   const [submitAttemptedOther, setSubmitAttemptedOther] = useState(false);
 
   const [errors, setErrors] = useState({});
@@ -96,17 +95,19 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
       ],
     }));
   };
-  const handleExperienceChange = (index, e) => {
-    const { name, value } = e.target;
+
+  const handleExperienceChange = (index, selectedOption, actionMeta) => {
+    const { name, value } = actionMeta; // Getting the action name and value
     const updatedQualifications = formData.workexperiences.map(
       (experience, i) =>
-        i === index ? { ...experience, [name]: value } : experience
+        i === index ? { ...experience, [name]: selectedOption } : experience
     );
     setFormData({
       ...formData,
       workexperiences: updatedQualifications,
     });
   };
+
   const validate = (showErrors = false) => {
     let tempErrors = {};
     if (!formData.firstname) tempErrors.firstname = "First Name is required";
@@ -981,8 +982,7 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
             <div
               id="education"
               onClick={() => {
-                if (formData.educationqualification1)
-                  setSelectForm("Education");
+                if (formData.haveLmiaJoboffer) setSelectForm("Education");
               }}
               className="text-xl font-semibold tracking-[8px] bg-[#01997E] text-white w-full px-10 py-2 rounded-md flex items-center justify-between"
             >
@@ -1237,11 +1237,6 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
                   <>
                     {formData.workexperiences.map((experience, index) => (
                       <div key={index} className="mb-6">
-                        <div className="font-semibold text-lg mb-4">
-                          {" "}
-                          Work Experience *
-                        </div>
-
                         <div className="block sm:flex items-center justify-between w-full">
                           <div className="w-full sm:w-[45%] flex flex-col items-center justify-center">
                             <div class="mb-3 w-full">
@@ -1344,8 +1339,12 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
                                 name="workCountry"
                                 options={options}
                                 value={experience.workCountry}
-                                onChange={(e) =>
-                                  handleExperienceChange(index, e)
+                                onChange={(selectedOption, actionMeta) =>
+                                  handleExperienceChange(
+                                    index,
+                                    selectedOption,
+                                    actionMeta
+                                  )
                                 }
                                 styles={customStyles}
                                 className="w-full"
