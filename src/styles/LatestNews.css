@@ -239,12 +239,22 @@
     font-size: 12.418px;
   }
 }
+
+@media (max-width: 1000px) {
+  .news-card-upper {
+    display: block;
+    width: 90%;
+    margin-left: 2.5%;
+  }
+}
+
 @media (max-width: 758px) {
   .news-card-upper {
     display: block;
     width: 95%;
     margin-left: 2.5%;
   }
+  
   .news-upper-card .content-card {
     width: 100%;
     padding: 0.3rem;

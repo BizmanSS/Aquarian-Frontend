@@ -23,7 +23,7 @@ const LatestNews = () => {
   const newsPerPage = 5; // Adjust as needed
   const blogContainerRef = useRef(null);
 
-  const { isMobile } = useMobile();
+  const { isMobile, vw } = useMobile();
   const handleChange = (event) => {
     setShort(event.target.value);
   };
@@ -358,7 +358,7 @@ const LatestNews = () => {
         </div>
       </div>
       <div className="left-blog">
-        {!isMobile && (
+        {(vw>1250) && (
           <div className="recent-blogs-container">
             <h1 className="title-heading">Recent Blogs</h1>
             <div class="blog-card-container">

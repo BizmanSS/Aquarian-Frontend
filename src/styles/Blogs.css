@@ -80,6 +80,7 @@ th:last-child {
 }
 .left-blog {
   display: flex;
+  width: 100%;
   margin-left: 10%;
 }
 .similar-blog {
@@ -473,6 +474,10 @@ h1 {
 @media (max-width: 1250px) {
   .post-card-inner {
     width: 650px;
+  }
+  .blog-cards {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
   }
 }
 @media (max-width: 768px) {

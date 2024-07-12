@@ -8,7 +8,10 @@ import TipsSide from "../../Assets/Blogs/TIPS AND TRICKSside.jpg";
 import Everything from "../../Assets/Blogs/EVERYTHING YOU NEED.jpg";
 import Tips from "../../Assets/Blogs/TIPS AND TRICKS.jpg";
 import Top10 from "../../Assets/Blogs/TOP 10 UNIVERSITIES.jpg";
+import { useMobile } from "../globalComponents/MobileContext/IsMobileContext";
+
 const TopInDemandJobs = () => {
+  const { vw } = useMobile()
   const [showBackToTop, setShowBackToTop] = useState(false);
   const bubbleRef = useRef();
 
@@ -335,6 +338,7 @@ const TopInDemandJobs = () => {
         </div>
 
         <div className="left-blog">
+        {(vw>1250) &&
           <div>
             <h1 className="title-heading">Recent Blogs</h1>
             <div class="blog-card-container">
@@ -344,16 +348,7 @@ const TopInDemandJobs = () => {
                 ))}
               </div>
             </div>
-            {/*
-            <LatestNews />
-            <h1 className="title-heading">Keywords</h1>
-            <div className="blog-card-recent">
-              {keywords.map((post, index) => (
-                <Keywords key={index} {...post} />
-              ))}
-            </div>
-             */}
-          </div>
+          </div>}
           <div className="blog-cards-container">
             <div className="blog-cards">
               {innerPosts.map((post, index) => (

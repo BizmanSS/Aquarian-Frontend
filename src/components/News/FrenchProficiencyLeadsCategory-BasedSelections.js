@@ -8,6 +8,7 @@ import Working from "../../Assets/News/working hours increased.png";
 import Changes from "../../Assets/News/processing time and backlog.jpg";
 import Major from "../../Assets/News/Major provinces issue PNP invitations.jpg";
 import { FaArrowRightLong } from "react-icons/fa6";
+import { useMobile } from "../globalComponents/MobileContext/IsMobileContext";
 const Table = () => {
   const data = [
     { name: "French proficiency", ct: "30%" },
@@ -38,6 +39,7 @@ const Table = () => {
   );
 };
 const FrenchProficiency = () => {
+  const { vw } = useMobile()
   const [showBackToTop, setShowBackToTop] = useState(false);
   const bubbleRef = useRef();
 
@@ -332,23 +334,18 @@ const FrenchProficiency = () => {
         </div>
 
         <div className="left-blog">
+          {(vw>1250) &&
           <div>
-            <h1 className="title-heading">Latest News</h1>
-            <div className="blog-card-recent">
-              {latestNews.map((post, index) => (
-                <LatestNews key={index} {...post} />
-              ))}
+            <h1 className="title-heading">Recent Blogs</h1>
+            <div class="blog-card-container">
+              <div className="blog-card-recent">
+                {latestNews.map((post, index) => (
+                  <LatestNews key={index} {...post} />
+                ))}
+              </div>
             </div>
-            {/*
-            <RecentBlogs />
-            <h1 className="title-heading">Keywords</h1>
-            <div className="blog-card-recent">
-              {keywords.map((post, index) => (
-                <Keywords key={index} {...post} />
-              ))}
-            </div>
-            */}
-          </div>
+          </div>}
+
           <div className="blog-cards-container">
             <div className="blog-cards">
               {innerPosts.map((post, index) => (

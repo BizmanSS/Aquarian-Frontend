@@ -15,6 +15,7 @@ import { useMobile } from '../../globalComponents/MobileContext/IsMobileContext'
 import BannerPages from '../Banner/BannerPages';
 
 const BlogPosts = () => {
+  const { vw } = useMobile()
   const [searchBlogs, setSearchBlogs] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const { isMobile } = useMobile();
@@ -181,6 +182,7 @@ const BlogPosts = () => {
       path: '/blogs/what-is-category-based-selection-everything-you-need-to-know',
     },
   ];
+
   const RecentBlogs = ({ title, image, path }) => {
     return (
       <div className='post-card-recent'>
@@ -203,7 +205,7 @@ const BlogPosts = () => {
     <div  style={{ background: "#FFF" }}>
       <div
         ref={blogContainerRef}
-        className='flex flex-col justify-center w-full md:w-[95%] mb-10'
+        className='flex flex-col justify-center w-full md:w-[calc(100vw-5rem)] mb-10'
       >
         <BannerPages
           link={'blogs'}
@@ -233,6 +235,7 @@ const BlogPosts = () => {
       </div>
 
       <div className='left-blog'>
+        {(vw>1250) && 
         <div>
           <input
             className='search-blogs'
@@ -259,7 +262,8 @@ const BlogPosts = () => {
               </div>
             </>
           )}
-        </div>
+        </div>}
+
         <div className='blog-cards-container'>
           <div className='blog-cards'>
             {filteredPosts.length > 0 ? (

@@ -29,6 +29,7 @@ import { useNavigate } from 'react-router-dom';
 import { useMobile } from '../globalComponents/MobileContext/IsMobileContext';
 import BannerPages from '../Pages/Banner/BannerPages';
 import { Bounce } from 'react-reveal';
+import examData from './data/examData';
 
 const ResourcesAndTools = () => {
   const navigate = useNavigate();
@@ -264,7 +265,7 @@ const ResourcesAndTools = () => {
 
       <Bounce>
         <div
-            className='hidden xl:block w-[19rem] h-[18rem] xl:w-[18rem] 2xl:w-[17rem] xl:h-[18rem] fixed top-[13rem] left-14 rounded-3xl bg-white'
+            className='hidden xl:block w-[19rem] h-[18rem] xl:w-[16rem] 2xl:w-[17rem] xl:h-[18rem] fixed top-[13rem] left-12 rounded-3xl bg-white'
             style={{
               boxShadow:
                 '0px 4px 23.6px 0px rgba(0, 0, 0, 0.5)',
@@ -943,104 +944,28 @@ const ResourcesAndTools = () => {
 
       {/* exams section */}
       <div id='exams' ref={examGuidesRef} className='w-[90%] flex flex-col items-end'>
-        <div className='w-[95%] sm:w-[76%] flex flex-col items-start justify-center mt-8'>
-          <div className='font-medium text-3xl ml-20'>
+        <div className='w-[95%] lg:w-[76%] flex flex-col items-start justify-center mt-8'>
+          <div className='font-medium text-3xl ml-5 lg:ml-20'>
             Exam Guides
           </div>
-          <div className='w-[90%] h-1 bg-[#019989] ml-20'></div>
-          <div className='w-full h-auto rounded-3xl mt-14 flex items-center justify-center gap-4 ml-0 xl:ml-20 flex-wrap xl:flex-nowrap'>
-            <div className='flex flex-col items-start justify-center rounded-xl px-4 py-2 w-full md:min-w-[21rem] border border-gray-300 shadow-2xl'>
-              <img src={ielts} alt='icon' className='w-[6rem] mx-4 my-2' />
+          <div className='w-[90%] h-1 bg-[#019989] ml-5 lg:ml-20'></div>
+          <div className='w-full ml-0 pt-0 xl:pt-0 h-auto rounded-3xl mt-14 flex items-center justify-center gap-4 xl:ml-20 flex-wrap'>
+            {examData.map((item, id) => (
+            <div key={id} className='lg:max-w-[18rem] flex flex-col items-start justify-center rounded-xl px-4 py-2 w-full md:min-w-[21rem] border border-gray-300 shadow-2xl'>
+              <img src={item.imgSrc} alt='icon' className='w-[6rem] mx-4 my-2' />
               <div className='flex items-center justify-between w-full px-4 py-2'>
                 <div className='text-[12px] text-gray-500 font-normal underline mt-2 tracking-wider flex flex-col items-start justify-center gap-2'>
-                  <p className='cursor-pointer'>IELTS Overview</p>
-                  <p className='cursor-pointer'>IELTS Syllabus</p>
-                  <p className='cursor-pointer'>IELTS Results</p>
+                  <p className='cursor-pointer'>{item.items[0]}</p>
+                  <p className='cursor-pointer'>{item.items[1]}</p>
+                  <p className='cursor-pointer'>{item.items[2]}</p>
                 </div>
                 <div className='text-[12px] text-gray-500 font-normal underline mt-2 tracking-wider flex flex-col items-start justify-center gap-2'>
-                  <p className='cursor-pointer'>IELTS Exam Pattern</p>
-                  <p className='cursor-pointer'>IELTS Registration</p>
-                  <p className='cursor-pointer'>IELTS Exam Dates</p>
+                  <p className='cursor-pointer'>{item.items[3]}</p>
+                  <p className='cursor-pointer'>{item.items[4]}</p>
+                  <p className='cursor-pointer'>{item.items[5]}</p>
                 </div>
               </div>
-            </div>
-            <div className='flex flex-col items-start justify-center rounded-xl px-4 py-2 w-full md:min-w-[21rem] border border-gray-300 shadow-2xl'>
-              <img src={toefl} alt='icon' className='w-[6rem] mx-4 my-2' />
-              <div className='flex items-center justify-between w-full px-4 py-2'>
-                <div className='text-[12px] text-gray-500 font-normal underline mt-2 tracking-wider flex flex-col items-start justify-center gap-2'>
-                  <p className='cursor-pointer'>TOEFL Overview</p>
-                  <p className='cursor-pointer'>TOEFL Exam Dates</p>
-                  <p className='cursor-pointer'>TOEFL Results</p>
-                </div>
-                <div className='text-[12px] text-gray-500 font-normal underline mt-2 tracking-wider flex flex-col items-start justify-center gap-2'>
-                  <p className='cursor-pointer'>TOEFL Exam Pattern</p>
-                  <p className='cursor-pointer'>TOEFL Registration</p>
-                  <p className='cursor-pointer'>TOEFL Vouchers</p>
-                </div>
-              </div>
-            </div>
-            <div className='flex flex-col items-start justify-center rounded-xl px-4 py-2 w-full md:min-w-[21rem] border border-gray-300 shadow-2xl'>
-              <img src={duolingo} alt='icon' className='w-[6rem] mx-4 my-2' />
-              <div className='flex items-center justify-between w-full px-4 py-2'>
-                <div className='text-[12px] text-gray-500 font-normal underline mt-2 tracking-wider flex flex-col items-start justify-center gap-2'>
-                  <p className='cursor-pointer'>Duolingo Overview</p>
-                  <p className='cursor-pointer'>Duolingo Syllabus</p>
-                  <p className='cursor-pointer'>Duolingo Results</p>
-                </div>
-                <div className='text-[12px] text-gray-500 font-normal underline mt-2 tracking-wider flex flex-col items-start justify-center gap-2'>
-                  <p className='cursor-pointer'>Duolingo Exam Pattern</p>
-                  <p className='cursor-pointer'>Duolingo Registration</p>
-                  <p className='cursor-pointer'>Duolingo Vouchers</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className='w-full h-auto rounded-3xl mt-14 flex items-center justify-center gap-4 xl:ml-20 mb-20 flex-wrap xl:flex-nowrap'>
-            <div className='flex flex-col items-start justify-center rounded-xl px-4 py-2 w-full md:min-w-[21rem] border border-gray-300 shadow-2xl'>
-              <img src={pearson} alt='icon' className='w-[6rem] mx-4 my-2' />
-              <div className='flex items-center justify-between w-full px-4 py-2'>
-                <div className='text-[12px] text-gray-500 font-normal underline mt-2 tracking-wider flex flex-col items-start justify-center gap-2'>
-                  <p className='cursor-pointer'>PTE Overview</p>
-                  <p className='cursor-pointer'>PTE Exam Dates</p>
-                  <p className='cursor-pointer'>PTE Results</p>
-                </div>
-                <div className='text-[12px] text-gray-500 font-normal underline mt-2 tracking-wider flex flex-col items-start justify-center gap-2'>
-                  <p className='cursor-pointer'>PTE Exam Pattern</p>
-                  <p className='cursor-pointer'>PTE Registration</p>
-                  <p className='cursor-pointer'>PTE Vouchers</p>
-                </div>
-              </div>
-            </div>
-            <div className='flex flex-col items-start justify-center rounded-xl px-4 py-2 w-full md:min-w-[21rem] border border-gray-300 shadow-2xl'>
-              <img src={gre} alt='icon' className='w-[6rem] mx-4 my-2' />
-              <div className='flex items-center justify-between w-full px-4 py-2'>
-                <div className='text-[12px] text-gray-500 font-normal underline mt-2 tracking-wider flex flex-col items-start justify-center gap-2'>
-                  <p className='cursor-pointer'>GRE Overview</p>
-                  <p className='cursor-pointer'>GRE Syllabus</p>
-                  <p className='cursor-pointer'>GRE Results</p>
-                </div>
-                <div className='text-[12px] text-gray-500 font-normal underline mt-2 tracking-wider flex flex-col items-start justify-center gap-2'>
-                  <p className='cursor-pointer'>GRE Exam Pattern</p>
-                  <p className='cursor-pointer'>GRE Registration</p>
-                  <p className='cursor-pointer'>GRE Vouchers</p>
-                </div>
-              </div>
-            </div>
-            <div className='flex flex-col items-start justify-center rounded-xl px-4 py-2 flex-wrap w-full md:min-w-[21rem] border border-gray-300 shadow-2xl'>
-              <img src={celpip} alt='icon' className='w-[6rem] mx-4 my-2' />
-              <div className='flex items-center justify-between w-full px-4 py-2'>
-                <div className='text-[12px] text-gray-500 font-normal underline mt-2 tracking-wider flex flex-col items-start justify-center gap-2'>
-                  <p className='cursor-pointer'>CELPIP Overview</p>
-                  <p className='cursor-pointer'>CELPIP Syllabus</p>
-                  <p className='cursor-pointer'>CELPIP Results</p>
-                </div>
-                <div className='text-[12px] text-gray-500 font-normal underline mt-2 tracking-wider flex flex-col items-start justify-center gap-2'>
-                  <p className='cursor-pointer'>CELPIP Exam Pattern</p>
-                  <p className='cursor-pointer'>CELPIP Registration</p>
-                  <p className='cursor-pointer'>CELPIP Exam Dates</p>
-                </div>
-              </div>
-            </div>
+            </div>))}
           </div>
         </div>
       </div>
