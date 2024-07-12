@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { GoArrowDownRight, GoArrowUpRight } from 'react-icons/go';
 import { educationOptions } from '../data/formSelectOptions';
+import countryList from 'react-select-country-list';
+import Select from 'react-select';
 
 const EducationDetails = ({
     formData, 
@@ -10,8 +12,39 @@ const EducationDetails = ({
     validateEducation, 
     setSelectForm,
     setFormData,
-    setSubmitAttemptedEducation
+    setSubmitAttemptedEducation,
+    handleSelectChange
 }) => {
+
+  const customStyles = {
+    control: (provided, state) => ({
+      ...provided,
+      border: state.isFocused ? "1px solid #01997E" : "1px solid black",
+      boxShadow: state.isFocused ? "0 0 0 1px #01997E" : "none",
+      "&:hover": {
+        border: state.isFocused ? "1px solid #01997E" : "1px solid black",
+      },
+      borderRadius: "0.375rem",
+      padding: "0.375rem",
+      backgroundColor: "white",
+    }),
+    option: (provided, state) => ({
+      ...provided,
+      backgroundColor: state.isFocused ? "#f0f0f0" : "white",
+      color: "#333",
+    }),
+    menu: (provided) => ({
+      ...provided,
+      borderRadius: "0.375rem",
+      zIndex: 2,
+    }),
+    singleValue: (provided) => ({
+      ...provided,
+      color: "#6B7280",
+    }),
+  };
+
+  const countries = useMemo(() => countryList().getData(), []);
 
   return (
     <div className='w-full h-fit'>
@@ -93,8 +126,8 @@ const EducationDetails = ({
                 </div>
 
 
-                {formData.educationqualification1 && 
-                <>
+                {formData.educationqualification1 === "yes" && 
+                <>  
                   <label
                     for='educationqualification'
                     className='font-semibold text-lg mb-4'
@@ -195,13 +228,22 @@ const EducationDetails = ({
                         >
                           Country<span className='text-red-400'>*</span>
                         </label>
-                        <input
+                        {/* <input
                           type='text'
                           id='country'
                           name='country'
                           onChange={handleInputChange}
                           class='w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md'
-                        />
+                        /> */}
+                        <Select
+                        options={countries}
+                        value={countries.find(
+                          (option) => option.value === formData.country
+                        )}
+                        onChange={(selectedOption) => handleSelectChange((selectedOption), "country")}
+                        styles={customStyles}
+                        className="w-full"
+                      />
                         {eduErrors.country && (
                           <p className='text-red-500'>{eduErrors.country}</p>
                         )}

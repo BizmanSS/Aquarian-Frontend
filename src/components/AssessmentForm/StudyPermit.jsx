@@ -277,10 +277,10 @@ const StudyPermit = ({ selectedForm }) => {
     });
   };
 
-  const handleSelectChange = (selectedOption) => {
+  const handleSelectChange = (selectedOption, key) => {
     setFormData((prevState) => ({
       ...prevState,
-      nationality: selectedOption.value,
+      [key]: selectedOption.value,
     }));
   };
 
@@ -344,6 +344,7 @@ const StudyPermit = ({ selectedForm }) => {
           setSelectForm={setSelectForm}
           setFormData={setFormData}
           setSubmitAttemptedEducation={setSubmitAttemptedEducation}
+          handleSelectChange={handleSelectChange}
         />
 
         <WorkExperienceForm

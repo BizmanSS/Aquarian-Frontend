@@ -228,7 +228,7 @@ const PersonalInformation = ({
                         value={countries.find(
                           (option) => option.value === formData.nationality
                         )}
-                        onChange={handleSelectChange}
+                        onChange={(selectedOption) => handleSelectChange(selectedOption, "nationality")}
                         styles={customStyles}
                         className="w-full"
                       />

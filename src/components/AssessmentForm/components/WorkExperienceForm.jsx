@@ -14,7 +14,7 @@ const WorkExperienceForm = ({
 
   return (
     <div className='w-full h-fit'>
-        <div className='text-xl font-semibold tracking-[8px] bg-[#01997E] text-white w-full px-10 py-2 rounded-md flex items-center justify-between'>
+        <div onClick={() => setSelectForm("work-experience")} className='text-xl font-semibold tracking-[8px] bg-[#01997E] text-white w-full px-10 py-2 rounded-md flex items-center justify-between'>
               Work Experience
               <span className='text-black'>
                 {selectForm === 'work-experience' ? (
