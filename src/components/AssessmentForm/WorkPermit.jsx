@@ -961,6 +961,7 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
                       if (validate(true)) {
                         setSelectForm("Education");
                       }
+                      // console.log(workPermitRef)
                       const element = workPermitRef.current;
                       const elementPosition =
                         element.getBoundingClientRect().top +
