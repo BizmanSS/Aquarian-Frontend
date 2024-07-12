@@ -1348,7 +1348,7 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
                                   handleExperienceChange(index, e)
                                 }
                                 styles={customStyles}
-                                className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
+                                className="w-full"
                               />
 
                               {workErrors[`workCountry-${index}`] && (
