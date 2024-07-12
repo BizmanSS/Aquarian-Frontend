@@ -1,17 +1,22 @@
-input[type='radio'] + label span {
+input[type="radio"] + label span {
   transition: background 0.2s, transform 0.2s;
 }
 
-input[type='radio'] + label span:hover,
-input[type='radio'] + label:hover span {
+input[type="radio"] + label span:hover,
+input[type="radio"] + label:hover span {
   transform: scale(1.2);
 }
 
-input[type='radio']:checked + label span {
+input[type="radio"]:checked + label span {
   background-color: #01997e;
   box-shadow: 0px 0px 0px 2px white inset;
 }
 
-input[type='radio']:checked + label {
+input[type="radio"]:checked + label {
   color: #01997e;
+}
+.react-tel-input .flag-dropdown {
+  border: 1px solid black !important;
+  border-right: none !important;
+  border-radius: 0.375rem;
 }
