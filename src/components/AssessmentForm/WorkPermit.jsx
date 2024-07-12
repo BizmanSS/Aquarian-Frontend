@@ -9,6 +9,7 @@ import countryList from "react-select-country-list";
 import SearchableDropdown from "../SearchableDropdown/SearchableDropdown";
 import { FaPlus } from "react-icons/fa";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import { ageOptions, maritalStatusOptions } from "./data/formSelectOptions";
 
 const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
   const [selectForm, setSelectForm] = useState("PersonalInformation");
@@ -443,24 +444,11 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
                         <option disabled selected>
                           Select
                         </option>
-                        <option className="text-black" value="married">
-                          Married/Common Law
-                        </option>
-                        <option className="text-black" value="unmarried">
-                          Never Married/Single
-                        </option>
-                        <option className="text-black" value="divorced">
-                          Divorced/Seperated
-                        </option>
-                        <option className="text-black" value="widowed">
-                          Widowed
-                        </option>
-                        <option className="text-black" value="seperated">
-                          Legally Seperated
-                        </option>
-                        <option className="text-black" value="anulledmarriage">
-                          Anulled Marriage
-                        </option>
+                        {maritalStatusOptions.map(option => (
+                          <option key={option.value} className='text-black' value={option.value}>
+                            {option.label}
+                          </option>
+                        ))}
                       </select>
                       {errors.maritalStatus && (
                         <p className="text-red-500">{errors.maritalStatus}</p>
@@ -764,69 +752,11 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
                         <option disabled selected>
                           Select
                         </option>
-                        <option className="text-black" value="17_or_less">
-                          17 years of age or less
-                        </option>
-                        <option className="text-black" value="18">
-                          18 years of age
-                        </option>
-                        <option className="text-black" value="19">
-                          19 years of age
-                        </option>
-                        <option className="text-black" value="20_to_29">
-                          20 to 29 years of age
-                        </option>
-                        <option className="text-black" value="30">
-                          30 years of age
-                        </option>
-                        <option className="text-black" value="31">
-                          31 years of age
-                        </option>
-                        <option className="text-black" value="32">
-                          32 years of age
-                        </option>
-                        <option className="text-black" value="33">
-                          33 years of age
-                        </option>
-                        <option className="text-black" value="34">
-                          34 years of age
-                        </option>
-                        <option className="text-black" value="35">
-                          35 years of age
-                        </option>
-                        <option className="text-black" value="36">
-                          36 years of age
-                        </option>
-                        <option className="text-black" value="37">
-                          37 years of age
-                        </option>
-                        <option className="text-black" value="38">
-                          38 years of age
-                        </option>
-                        <option className="text-black" value="39">
-                          39 years of age
-                        </option>
-                        <option className="text-black" value="40">
-                          40 years of age
-                        </option>
-                        <option className="text-black" value="41">
-                          41 years of age
-                        </option>
-                        <option className="text-black" value="42">
-                          42 years of age
-                        </option>
-                        <option className="text-black" value="43">
-                          43 years of age
-                        </option>
-                        <option className="text-black" value="44">
-                          44 years of age
-                        </option>
-                        <option className="text-black" value="45">
-                          45 years of age
-                        </option>
-                        <option className="text-black" value="45_or_more">
-                          45 years of age or more
-                        </option>
+                        {ageOptions.map(option => (
+                          <option key={option.value} className='text-black' value={option.value}>
+                            {option.label}
+                          </option>
+                        ))}
                       </select>
                       {errors.age && (
                         <p className="text-red-500">{errors.age}</p>
@@ -979,6 +909,8 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
                 </div>
               </form>
             )}
+
+            {/* education section */}
             <div
               id="education"
               onClick={() => {
@@ -1147,6 +1079,8 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
                 </div>
               </form>
             )}
+
+            {/* work experience section */}
             <div
               id="workExperience"
               onClick={() => {
