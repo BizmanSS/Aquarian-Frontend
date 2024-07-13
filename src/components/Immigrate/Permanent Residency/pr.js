@@ -228,13 +228,13 @@ export default function PR() {
               in a skilled trade; or
             </li>
             <li>
-              one or more diploma/certificate/attestation where the following
+              one or more diploma/ certificate/ attestation where the following
               conditions are met:
             </li>
             <br />
             <ul>
               <li>
-                For diplomas/certificates/attestations, each program of study
+                For diplomas/ certificates/ attestations, each program of study
                 must be at least 8 months in duration and the combined length of
                 the credential(s) must be equivalent to a two-year credential
                 (at least 16 months in duration).
