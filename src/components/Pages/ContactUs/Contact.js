@@ -348,37 +348,34 @@ const ContactUsPage = () => {
               {errors.service && (
                 <div className="error-message">{errors.service}</div>
               )}
-              {service === "Other" && (
-                <div>
-                  <label>
-                    Please Specify Your Service<x style={{ color: "red" }}>*</x>
-                  </label>
-                  <textarea
-                    type="text"
-                    placeholder="Please Specify Your Service"
-                    value={serviceOther}
-                    onChange={handleInputChange(
-                      setServiceOther,
-                      "serviceOther"
-                    )}
-                    className={errors.serviceOther ? "error" : ""}
-                  />
-                  {errors.serviceOther && (
-                    <div className="error-message">{errors.serviceOther}</div>
-                  )}
-                </div>
-              )}
             </div>
-              {service !== "Other" && (
-                <div className="form-group">
-                  <label>Comments (Optional)</label>
-                  <textarea
-                    value={comments}
-                    placeholder="Comments"
-                    onChange={handleInputChange(setComments, "comments")}
-                  />
-                </div>
-              )}
+            {service === "Other" && (
+              <div className="form-group">
+                <label>
+                  Please Specify Your Service<x style={{ color: "red" }}>*</x>
+                </label>
+                <textarea
+                  type="text"
+                  placeholder="Please Specify Your Service"
+                  value={serviceOther}
+                  onChange={handleInputChange(setServiceOther, "serviceOther")}
+                  className={errors.serviceOther ? "error" : ""}
+                />
+                {errors.serviceOther && (
+                  <div className="error-message">{errors.serviceOther}</div>
+                )}
+              </div>
+            )}
+            {service !== "Other" && (
+              <div className="form-group">
+                <label>Comments (Optional)</label>
+                <textarea
+                  value={comments}
+                  placeholder="Comments"
+                  onChange={handleInputChange(setComments, "comments")}
+                />
+              </div>
+            )}
           </div>
           <button type="submit" className="submit-btn">
             Submit
