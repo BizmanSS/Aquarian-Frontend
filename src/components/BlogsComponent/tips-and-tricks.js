@@ -15,7 +15,7 @@ import { useMobile } from "../globalComponents/MobileContext/IsMobileContext";
 //import LatestNews from "../Pages/Blogs/LatestNews.js";
 
 const TipsAndTricks = () => {
-  const { vw } = useMobile()
+  const { vw } = useMobile();
   const [showBackToTop, setShowBackToTop] = useState(false);
   const bubbleRef = useRef();
 
@@ -363,17 +363,18 @@ const TipsAndTricks = () => {
         </div>
 
         <div className="left-blog">
-          {(vw>1250) &&
-          <div>
-            <h1 className="title-heading">Recent Blogs</h1>
-            <div class="blog-card-container">
-              <div className="blog-card-recent">
-                {recentBlogs.map((post, index) => (
-                  <RecentBlogs key={index} {...post} />
-                ))}
+          {vw > 1250 && (
+            <div>
+              <h1 className="title-heading">Recent Blogs</h1>
+              <div class="blog-card-container">
+                <div className="blog-card-recent">
+                  {recentBlogs.map((post, index) => (
+                    <RecentBlogs key={index} {...post} />
+                  ))}
+                </div>
               </div>
             </div>
-          </div>}
+          )}
           <div className="blog-cards-container">
             <div className="blog-cards">
               {innerPosts.map((post, index) => (

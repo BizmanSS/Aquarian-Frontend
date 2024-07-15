@@ -10,7 +10,7 @@ import { useMobile } from "../globalComponents/MobileContext/IsMobileContext";
 const MajorProvinces = () => {
   const [showBackToTop, setShowBackToTop] = useState(false);
   const bubbleRef = useRef();
-  const { vw } = useMobile()
+  const { vw } = useMobile();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -351,17 +351,18 @@ const MajorProvinces = () => {
         </div>
 
         <div className="left-blog">
-          {(vw>1250) &&
-          <div>
-            <h1 className="title-heading">Recent Blogs</h1>
-            <div class="blog-card-container">
-              <div className="blog-card-recent">
-                {latestNews.map((post, index) => (
-                  <LatestNews key={index} {...post} />
-                ))}
+          {vw > 1250 && (
+            <div>
+              <h1 className="title-heading">Recent Blogs</h1>
+              <div class="blog-card-container">
+                <div className="blog-card-recent">
+                  {latestNews.map((post, index) => (
+                    <LatestNews key={index} {...post} />
+                  ))}
+                </div>
               </div>
             </div>
-          </div>}
+          )}
 
           <div className="blog-cards-container">
             <div className="blog-cards">
