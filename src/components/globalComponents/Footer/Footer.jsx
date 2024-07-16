@@ -43,7 +43,7 @@ const Footer = ({ bottomComponentRef }) => {
             <img src={logo} alt="logo" className="w-[10rem] mt-6" />
             {/* <img src={logo4} alt='logo' className='w-[10rem] -mt-6 -mr-0' /> */}
           </div>
-          <div className="flex flex-col items-start md:items-center justify-center ml-2 sm:ml-0">
+          <div className="flex flex-col items-start md:items-center justify-center pl-2 sm:ml-0">
             <img
               src={logoccic}
               alt="logo"
@@ -171,8 +171,8 @@ const Footer = ({ bottomComponentRef }) => {
             Contact us
           </li> */}
         </ul>
-        <ul className="text-[#B4B5B4] flex flex-col items-start justify-center gap-1 md:gap-0">
-          <span className="relative md:top-10"> Follow</span>
+        <ul className="text-[#B4B5B4] flex flex-col items-start justify-center gap-1 md:gap-0 pr-2">
+          <span className="relative md:top-10 text-[10px]"> Follow</span>
           {!isMobile && (
             <>
               <br />

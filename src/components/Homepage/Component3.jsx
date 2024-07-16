@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import banner from "../../Assets/Rectangle 133.png";
+import bannerMobile from "../../Assets/Rectangle 133Mobile.png";
 import { ToastContainer } from "react-toastify";
 import BookAppointmentModel from "../globalComponents/Model/BookAppointment";
 import { useMobile } from "../globalComponents/MobileContext/IsMobileContext";
@@ -21,24 +22,24 @@ const Component3 = () => {
           <div className="flex items-center justify-center relative">
             <div className="w-full max-w-[32rem] relative">
               <img
-                src={banner}
+                src={bannerMobile}
                 alt="banner"
                 className="w-full mt-[3rem] rounded-3xl z-10"
               />
-              <div className="w-full h-[93.2%] bg-gradient-to-b from-black to-black absolute top-12 opacity-40 rounded-3xl"></div>
-              <div className=" w-full  rounded-3xl absolute bottom-[0rem] pl-8 flex flex-col items-start justify-center gap-6">
+              <div className="w-full h-[91%] bg-gradient-to-b from-black to-black absolute top-12 opacity-40 rounded-3xl"></div>
+              <div className=" w-full rounded-3xl absolute bottom-[0rem] px-4 flex flex-col items-start justify-center gap-6">
                 <div className="text-[#FEFFFE] text-[22px] text-center">
                   <span className="text-[#019989] text-[28px]">Aquarian</span> -
                   Canadian immigration Firm
                 </div>
-                <div className="text-[#EEEEEE] font-normal text-[15px] px-5 text-center -mt-4">
+                <div className="text-[#EEEEEE] font-normal text-[15px]  text-center -mt-4">
                   With an absolute commitment to efficiency and transparency,
                   Aquarian Immigration offers an all-encompassing and
                   revolutionary immigration service through our certified team
                   of industry experts, while forging lifelong relationships with
                   our clients.
                 </div>
-                <div className="w-full flex items-center justify-center gap-14 pr-5 mb-10">
+                <div className="w-full flex items-center justify-between mb-2">
                   <button
                     onClick={handleAppointmentClick}
                     className="bg-[#fefeff] text-[#01A392] px-8 py-3 rounded-full text-[15px] "
