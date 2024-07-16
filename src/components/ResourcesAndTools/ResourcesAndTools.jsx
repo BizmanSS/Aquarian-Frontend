@@ -226,7 +226,7 @@ const ResourcesAndTools = () => {
         id="calculator"
         className="flex flex-col w-full md:w-[95%] items-end justify-center relative right-[2rem] lg:right-[4rem]"
       >
-        <div className="w-[90%] lg:w-[70%] flex flex-col items-center lg:items-start justify-center">
+        <div className="w-[90%] lg:w-[68%] flex flex-col items-center lg:items-start justify-center">
           <div className="font-semibold text-[30px] lg:text-[40px] border-b-[4px] border-[#019989] border-w-[50%] mt-8">
             Calculators & Tools
           </div>
@@ -344,7 +344,7 @@ const ResourcesAndTools = () => {
           {/* calculators section */}
           <div
             ref={calcRef}
-            className="border-[2px] border-[#E0E0E0] w-[99%]  h-auto rounded-[50px] mt-6 mb-10"
+            className="border-[2px] border-[#E0E0E0] w-[95%]  h-auto rounded-[50px] mt-6 mb-10"
           >
             <div className="font-semibold text-3xl mt-8 ml-[4rem] mb-8">
               General Calculators
