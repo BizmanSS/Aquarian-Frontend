@@ -187,3 +187,8 @@
     padding: 25px 0px;
   }
 }
+@media (max-width: 825px) {
+  .why-choose-us {
+    width: 95%;
+  }
+}
