@@ -565,7 +565,11 @@
     width: 100%;
   }
 }
-
+@media (max-width: 1024px) {
+  .sub-heading-content {
+    display: none;
+  }
+}
 @media (max-width: 768px) {
   .footer {
     width: 100%;

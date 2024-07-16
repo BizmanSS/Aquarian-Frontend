@@ -241,7 +241,7 @@ const ResourcesAndTools = () => {
       </div>
 
       <Bounce>
-        <div className="sub-heading-content" ref={subHeadingContentRef}>
+        <div className="sub-heading-content hidden" ref={subHeadingContentRef}>
           <div
             style={{
               display: "flex",
@@ -349,7 +349,7 @@ const ResourcesAndTools = () => {
             <div className="font-semibold text-3xl mt-8 ml-[4rem] mb-8">
               General Calculators
             </div>
-            <div className="hidden lg:flex items-center justify-center gap-4">
+            <div className="hidden xl:flex items-center justify-center gap-4">
               <div className="bg-[#EBE6EF] w-[12rem] h-[18rem] relative rounded-xl flex flex-col items-center justify-start pt-6 gap-3 px-2 group hover:bg-[#F5F5F5] hover:shadow-2xl transition-all ease-in-out delay-50 duration-200">
                 <div className="font-semibold text-lg tracking-tight ">
                   CRS Calculator
@@ -372,7 +372,7 @@ const ResourcesAndTools = () => {
                 </button>
               </div>
               <div className="flex flex-col items-center justify-center gap-4">
-                <div className="bg-[#EFEDE6] w-[27rem] h-[8.5rem] relative rounded-xl flex flex-col items-start justify-start pt-6 gap-3 px-4 group hover:bg-[#F5F5F5] hover:shadow-2xl transition-all ease-in-out delay-50 duration-200">
+                <div className="bg-[#EFEDE6]  w-[27rem] h-[8.5rem] relative rounded-xl flex flex-col items-start justify-start pt-6 gap-3 px-4 group hover:bg-[#F5F5F5] hover:shadow-2xl transition-all ease-in-out delay-50 duration-200">
                   <div className="font-semibold text-lg tracking-tight ">
                     Super Visa Eligibility Calculator
                   </div>
@@ -432,7 +432,7 @@ const ResourcesAndTools = () => {
                 </button>
               </div>
             </div>
-            <div className="flex lg:hidden flex-col items-center justify-center gap-4">
+            <div className="flex xl:hidden flex-col items-center justify-center gap-4">
               <div className="bg-[#EBE6EF] w-[90%] h-[8.5rem] relative rounded-xl flex flex-col items-start justify-start pt-6 gap-3 px-4 group  hover:shadow-2xl transition-all ease-in-out delay-50 duration-200">
                 <div className="font-semibold text-lg tracking-tight ">
                   CRS Calculator
