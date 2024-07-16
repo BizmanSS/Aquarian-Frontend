@@ -172,7 +172,7 @@ const Footer = ({ bottomComponentRef }) => {
           </li> */}
         </ul>
         <ul className="text-[#B4B5B4] flex flex-col items-start justify-center gap-1 md:gap-0 pr-2">
-          <span className="relative md:top-10 text-[10px]"> Follow</span>
+          <li className="relative md:top-10"> Follow</li>
           {!isMobile && (
             <>
               <br />
