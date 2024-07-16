@@ -1,15 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import logo from "../../../Assets/logo1.png";
 import logo3 from "../../../Assets/logo3.png";
-import logo2 from "../../../Assets/logo2.png";
 import { RiMenu2Fill } from "react-icons/ri";
 import Instagram from "../../../Assets/Instagram_logo.svg";
 import Youtube from "../../../Assets/youtube.png";
 import Twitter from "../../../Assets/Thread.jpg";
-import Twitter1 from "../../../Assets/Twitter.png";
 import LinkedIn from "../../../Assets/LinkedIn.png";
 import facebook from "../../../Assets/Facebook.png";
-import { CiSearch } from "react-icons/ci";
 import clipart1 from "../../../Assets/clipart/immigrate 1.png";
 import clipart2 from "../../../Assets/clipart/work1.png";
 import clipart3 from "../../../Assets/clipart/study 1.png";
@@ -29,13 +26,7 @@ import sitemapBusiness from "../../../sitemapBusiness";
 import sitemapVisit from "../../../sitemapVisit";
 import sitemapEmployers from "../../../sitemapEmployers";
 import { IoMdClose } from "react-icons/io";
-import {
-  FaFacebook,
-  FaInstagram,
-  FaLinkedin,
-  FaTwitter,
-  FaYoutube,
-} from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaLinkedin, FaYoutube } from "react-icons/fa";
 import { FaThreads } from "react-icons/fa6";
 
 const Header = ({ setShowPopUp }) => {
@@ -2361,7 +2352,7 @@ const Header = ({ setShowPopUp }) => {
               {" "}
               <div className="flex items-start justify-start mt-3">
                 <img
-                  src={logo3}
+                  src={logo}
                   alt="logo"
                   className="cursor-pointer w-[10rem]"
                 />
