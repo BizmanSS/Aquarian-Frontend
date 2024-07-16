@@ -269,132 +269,133 @@ const FreeAssessment = () => {
   }, [selectedForm.workPermit, workPermitRef]);
 
   return (
-    <div>
+    <>
       <BannerPages
         link={"assessment"}
         title={"Assessment"}
         description={"Canadian Immigration Assessment Form"}
       />
-
-      <div className="px-4  mt-8 md:mt-[4rem] lg:px-20 flex items-center w-full md:w-[95%] justify-start">
-        {/* <IoArrowForwardSharp size={30} className='relative -top-2' /> */}
-        <div class="mb-4 ml-2 block text-3xl font-medium text-[#07074D] py-2">
-          Choose your evaluation form
+      <div className="w-[100%] md:w-[94%]">
+        <div className="px-4  mt-8 md:mt-[4rem] lg:px-20 flex items-center w-full md:w-[95%] justify-start">
+          {/* <IoArrowForwardSharp size={30} className='relative -top-2' /> */}
+          <div class="mb-4 ml-2 block text-3xl font-medium text-[#07074D] py-2">
+            Choose your evaluation form
+          </div>
         </div>
+        <div className="pl-8 w-[85%] border border-l-[7px] border-l-[#01997e] mx-6 lg:mx-20 mb-10 py-6 grid grid-cols-2 lg:grid-cols-3 gap-8 rounded-xl">
+          <div class="flex items-center">
+            <input
+              id="radio5"
+              type="radio"
+              name="radio"
+              class="hidden"
+              onChange={() => {
+                handleRadioChange("permanentImmigration");
+              }}
+            />
+            <label for="radio5" class="flex items-center cursor-pointer">
+              <span class="w-4 h-4 inline-block mr-1 border border-black"></span>
+              Permanent Immigration
+            </label>
+          </div>
+          <div class="flex items-center">
+            <input
+              id="radio6"
+              type="radio"
+              name="radio"
+              class="hidden"
+              onChange={() => handleRadioChange("workPermit")}
+            />
+            <label for="radio6" class="flex items-center cursor-pointer">
+              <span class="w-4 h-4 inline-block mr-1 border border-black"></span>
+              Work Permit
+            </label>
+          </div>
+          <div class="flex items-center">
+            <input
+              id="radio3"
+              type="radio"
+              name="radio"
+              class="hidden"
+              onChange={() => handleRadioChange("studyPermit")}
+            />
+            <label for="radio3" class="flex items-center cursor-pointer">
+              <span class="w-4 h-4 inline-block mr-1 border border-black"></span>
+              Study Permit/Visa
+            </label>
+          </div>
+          <div class="flex items-center">
+            <input
+              id="radio4"
+              type="radio"
+              name="radio"
+              class="hidden"
+              onChange={() => handleRadioChange("touristVisa")}
+            />
+            <label for="radio4" class="flex items-center cursor-pointer">
+              <span class="w-4 h-4 inline-block mr-1 border border-black"></span>
+              Tourist Visa
+            </label>
+          </div>
+          <div class="flex items-center">
+            <input id="radio24" type="radio" name="radio" class="hidden" />
+            <label for="radio24" class="flex items-center cursor-pointer">
+              <span class="w-4 h-4 inline-block mr-1 border border-black"></span>
+              Business Visa
+            </label>
+          </div>
+          <div class="flex items-center">
+            <input id="radio25" type="radio" name="radio" class="hidden" />
+            <label for="radio25" class="flex items-center cursor-pointer">
+              <span class="w-4 h-4 inline-block mr-1 border border-black"></span>
+              Business Immigration
+            </label>
+          </div>
+          <div class="flex items-center">
+            <input id="radio26" type="radio" name="radio" class="hidden" />
+            <label for="radio26" class="flex items-center cursor-pointer">
+              <span class="w-4 h-4 inline-block mr-1 border border-black"></span>
+              Family Sponsorship
+            </label>
+          </div>
+          <div class="flex items-center">
+            <input id="radio27" type="radio" name="radio" class="hidden" />
+            <label for="radio27" class="flex items-center cursor-pointer">
+              <span class="w-4 h-4 inline-block mr-1 border border-black"></span>
+              Dependent Visa
+            </label>
+          </div>
+          <div class="flex items-center">
+            <input id="radio28" type="radio" name="radio" class="hidden" />
+            <label for="radio28" class="flex items-center cursor-pointer">
+              <span class="w-4 h-4 inline-block mr-1 border border-black"></span>
+              LMIA
+            </label>
+          </div>
+          <div class="flex items-center">
+            <input id="radio29" type="radio" name="radio" class="hidden" />
+            <label for="radio29" class="flex items-center cursor-pointer">
+              <span class="w-4 h-4 inline-block mr-1 border border-black"></span>
+              Others
+            </label>
+          </div>
+        </div>
+        <PermanentImigration
+          selectedForm={selectedForm}
+          formType={"Permanent Immigration"}
+          personalInfoRef={personalInfoRef}
+          ref={personalInfoRef}
+        />
+        <WorkPermit
+          selectedForm={selectedForm}
+          formType={"Work Permit"}
+          personalInfoRef={workPermitRef}
+          workPermitRef={workPermitRef}
+        />
+        <StudyPermit selectedForm={selectedForm} formType={"Study Permit"} />
+        <TouristVisa selectedForm={selectedForm} formType={"Tourist Visa"} />
       </div>
-      <div className="pl-8 w-[85%] border border-l-[7px] border-l-[#01997e] mx-6 lg:mx-20 mb-10 py-6 grid grid-cols-2 lg:grid-cols-3 gap-8 rounded-xl">
-        <div class="flex items-center">
-          <input
-            id="radio5"
-            type="radio"
-            name="radio"
-            class="hidden"
-            onChange={() => {
-              handleRadioChange("permanentImmigration");
-            }}
-          />
-          <label for="radio5" class="flex items-center cursor-pointer">
-            <span class="w-4 h-4 inline-block mr-1 border border-grey"></span>
-            Permanent Immigration
-          </label>
-        </div>
-        <div class="flex items-center">
-          <input
-            id="radio6"
-            type="radio"
-            name="radio"
-            class="hidden"
-            onChange={() => handleRadioChange("workPermit")}
-          />
-          <label for="radio6" class="flex items-center cursor-pointer">
-            <span class="w-4 h-4 inline-block mr-1 border border-grey"></span>
-            Work Permit
-          </label>
-        </div>
-        <div class="flex items-center">
-          <input
-            id="radio3"
-            type="radio"
-            name="radio"
-            class="hidden"
-            onChange={() => handleRadioChange("studyPermit")}
-          />
-          <label for="radio3" class="flex items-center cursor-pointer">
-            <span class="w-4 h-4 inline-block mr-1 border border-grey"></span>
-            Study Permit/Visa
-          </label>
-        </div>
-        <div class="flex items-center">
-          <input
-            id="radio4"
-            type="radio"
-            name="radio"
-            class="hidden"
-            onChange={() => handleRadioChange("touristVisa")}
-          />
-          <label for="radio4" class="flex items-center cursor-pointer">
-            <span class="w-4 h-4 inline-block mr-1 border border-grey"></span>
-            Tourist Visa
-          </label>
-        </div>
-        <div class="flex items-center">
-          <input id="radio24" type="radio" name="radio" class="hidden" />
-          <label for="radio24" class="flex items-center cursor-pointer">
-            <span class="w-4 h-4 inline-block mr-1 border border-grey"></span>
-            Business Visa
-          </label>
-        </div>
-        <div class="flex items-center">
-          <input id="radio25" type="radio" name="radio" class="hidden" />
-          <label for="radio25" class="flex items-center cursor-pointer">
-            <span class="w-4 h-4 inline-block mr-1 border border-grey"></span>
-            Business Immigration
-          </label>
-        </div>
-        <div class="flex items-center">
-          <input id="radio26" type="radio" name="radio" class="hidden" />
-          <label for="radio26" class="flex items-center cursor-pointer">
-            <span class="w-4 h-4 inline-block mr-1 border border-grey"></span>
-            Family Sponsorship
-          </label>
-        </div>
-        <div class="flex items-center">
-          <input id="radio27" type="radio" name="radio" class="hidden" />
-          <label for="radio27" class="flex items-center cursor-pointer">
-            <span class="w-4 h-4 inline-block mr-1 border border-grey"></span>
-            Dependent Visa
-          </label>
-        </div>
-        <div class="flex items-center">
-          <input id="radio28" type="radio" name="radio" class="hidden" />
-          <label for="radio28" class="flex items-center cursor-pointer">
-            <span class="w-4 h-4 inline-block mr-1 border border-grey"></span>
-            LMIA
-          </label>
-        </div>
-        <div class="flex items-center">
-          <input id="radio29" type="radio" name="radio" class="hidden" />
-          <label for="radio29" class="flex items-center cursor-pointer">
-            <span class="w-4 h-4 inline-block mr-1 border border-grey"></span>
-            Others
-          </label>
-        </div>
-      </div>
-      <PermanentImigration
-        selectedForm={selectedForm}
-        formType={"Permanent Immigration"}
-        personalInfoRef={personalInfoRef}
-        ref={personalInfoRef}
-      />
-      <WorkPermit
-        selectedForm={selectedForm}
-        formType={"Work Permit"}
-        personalInfoRef={workPermitRef}
-        workPermitRef={workPermitRef}
-      />
-      <StudyPermit selectedForm={selectedForm} formType={"Study Permit"} />
-      <TouristVisa selectedForm={selectedForm} formType={"Tourist Visa"} />
-    </div>
+    </>
   );
 };
 
