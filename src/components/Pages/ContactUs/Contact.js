@@ -155,10 +155,7 @@ const ContactUsPage = () => {
           >
             <div className="flex flex-col justify-between pl-4 md:pl-8 md:px-12 lg:px-16 h-full">
               <p className="text-gray-400 lg:pb-10 pt-12 cursor-pointer relative top-5 lg:top-10">
-                <a
-                  href="/"
-                  className="text-gray-400 hover:underline text-[13px]"
-                >
+                <a href="/" className="text-gray-400  text-[13px]">
                   Home
                 </a>{" "}
                 &gt; <p1 className="text-gray-400 text-[13px]">Contact Us</p1>

@@ -1,40 +1,45 @@
-import React, { useState, useEffect } from 'react';
-import '../../../styles/BookAppointmentModal.css';
-import 'react-toastify/dist/ReactToastify.css';
-import formLogo from '../../../Assets/formLogo.png';
-import { toast } from 'react-toastify';
-import axios from 'axios';
-import { AiOutlineClose } from 'react-icons/ai';
-import Datepicker from 'tailwind-datepicker-react';
-import SubmitPopUp from '../../AssessmentForm/Ui/SubmitPopUp';
+import React, { useState, useEffect } from "react";
+import "../../../styles/BookAppointmentModal.css";
+import "react-toastify/dist/ReactToastify.css";
+import formLogo from "../../../Assets/formLogo.png";
+import { toast } from "react-toastify";
+import axios from "axios";
+import { AiOutlineClose } from "react-icons/ai";
+import Datepicker from "tailwind-datepicker-react";
+//import SubmitPopUp from '../../AssessmentForm/Ui/SubmitPopUp';
 
-const BookAppointmentModel = ({ showForm, setShowForm, dataForm, setShowPopUp }) => {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [contactNumber, setContactNumber] = useState('');
-  const [timeSlot, setTimeSlot] = useState('');
-  const [service, setService] = useState('');
-  const [serviceOther, setServiceOther] = useState('');
-  const [comments, setComments] = useState('');
+const BookAppointmentModel = ({
+  showForm,
+  setShowForm,
+  dataForm,
+  setShowPopUp,
+}) => {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [contactNumber, setContactNumber] = useState("");
+  const [timeSlot, setTimeSlot] = useState("");
+  const [service, setService] = useState("");
+  const [serviceOther, setServiceOther] = useState("");
+  const [comments, setComments] = useState("");
   const [errors, setErrors] = useState({});
   const [show, setShow] = useState(false);
   const [selectedDate, setSelectedDate] = useState(null);
 
   useEffect(() => {
     if (showForm) {
-      document.addEventListener('mousedown', handleOutsideClick);
+      document.addEventListener("mousedown", handleOutsideClick);
     } else {
-      document.removeEventListener('mousedown', handleOutsideClick);
+      document.removeEventListener("mousedown", handleOutsideClick);
     }
 
     return () => {
-      document.removeEventListener('mousedown', handleOutsideClick);
+      document.removeEventListener("mousedown", handleOutsideClick);
     };
   }, [showForm]);
 
   const handleOutsideClick = (event) => {
-    if (event.target.closest('.modal') === null) {
+    if (event.target.closest(".modal") === null) {
       setShowForm(false);
     }
   };
@@ -44,45 +49,45 @@ const BookAppointmentModel = ({ showForm, setShowForm, dataForm, setShowPopUp })
     if (errors[field]) {
       setErrors((prevErrors) => ({
         ...prevErrors,
-        [field]: '',
+        [field]: "",
       }));
     }
   };
 
   const options = {
-    title: 'Preferred Date Slot',
+    title: "Preferred Date Slot",
     autoHide: false,
     todayBtn: true,
     clearBtn: true,
-    clearBtnText: 'Clear',
-    maxDate: new Date('2030-01-01'),
+    clearBtnText: "Clear",
+    maxDate: new Date("2030-01-01"),
     minDate: new Date(),
     theme: {
-      background: 'bg-white',
-      todayBtn: '',
-      clearBtn: '',
-      icons: '',
-      text: '',
-      input: '',
-      inputIcon: '',
-      selected: '',
+      background: "bg-white",
+      todayBtn: "",
+      clearBtn: "",
+      icons: "",
+      text: "",
+      input: "",
+      inputIcon: "",
+      selected: "",
     },
     icons: {
       prev: () => <span>Previous</span>,
       next: () => <span>Next</span>,
     },
-    datepickerClassNames: 'top-12',
-    language: 'en',
+    datepickerClassNames: "top-12",
+    language: "en",
     defaultDate: new Date(),
     disabledDates: [],
-    weekDays: ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'],
-    inputNameProp: 'date',
-    inputIdProp: 'date',
-    inputPlaceholderProp: 'Select Date',
+    weekDays: ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"],
+    inputNameProp: "date",
+    inputIdProp: "date",
+    inputPlaceholderProp: "Select Date",
     inputDateFormatProp: {
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric',
+      day: "numeric",
+      month: "long",
+      year: "numeric",
     },
   };
 
@@ -101,42 +106,42 @@ const BookAppointmentModel = ({ showForm, setShowForm, dataForm, setShowPopUp })
     const errorObject = {};
 
     if (!firstName) {
-      errorObject.firstName = 'First Name is required';
+      errorObject.firstName = "First Name is required";
     }
     if (!lastName) {
-      errorObject.lastName = 'Last Name is required';
+      errorObject.lastName = "Last Name is required";
     }
     if (!email) {
-      errorObject.email = 'Email Address is required';
+      errorObject.email = "Email Address is required";
     }
     if (!contactNumber) {
-      errorObject.contactNumber = 'Contact Number is required';
+      errorObject.contactNumber = "Contact Number is required";
     }
     if (!timeSlot) {
-      errorObject.timeSlot = 'Time Slot is required';
+      errorObject.timeSlot = "Time Slot is required";
     }
     if (!service) {
-      errorObject.service = 'Service is required';
+      errorObject.service = "Service is required";
     }
 
     // Custom condition for timeSlot and selectedDate
-    if (selectedDate === 'Select Date') {
+    if (selectedDate === "Select Date") {
       errorObject.timeSlot =
         "Time Slot cannot be 'Anytime' if a date is selected";
     }
 
     if (Object.keys(errorObject).length > 0) {
       setErrors(errorObject);
-      toast.error('Please fill out all required fields.');
+      toast.error("Please fill out all required fields.");
     } else {
-      setFirstName('');
-      setLastName('');
-      setEmail('');
-      setContactNumber('');
-      setTimeSlot('');
-      setService('');
-      setServiceOther('');
-      setComments('');
+      setFirstName("");
+      setLastName("");
+      setEmail("");
+      setContactNumber("");
+      setTimeSlot("");
+      setService("");
+      setServiceOther("");
+      setComments("");
       setErrors({});
 
       // toast.success('You have successfully booked your appointment!');
@@ -164,19 +169,19 @@ const BookAppointmentModel = ({ showForm, setShowForm, dataForm, setShowPopUp })
         JSON.stringify(formData),
         {
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
         }
       );
       console.log(response);
       if (response.status === 200) {
         const data = response.data;
-        toast.success('You have successfully submited your form!');
-        console.log('Successfully submited form', data.message);
+        toast.success("You have successfully submited your form!");
+        console.log("Successfully submited form", data.message);
       }
     } catch (error) {
-      console.log('Error during form submission', error);
-      toast.error('Internal server errror!');
+      console.log("Error during form submission", error);
+      toast.error("Internal server errror!");
     }
   };
   return (
@@ -186,117 +191,116 @@ const BookAppointmentModel = ({ showForm, setShowForm, dataForm, setShowPopUp })
           <div
             onClick={(event) => event.stopPropagation()}
             style={{
-              borderRadius: '15px',
-              backgroundSize: 'cover',
-              backgroundRepeat: 'no-repeat',
-              justifyContent: 'center',
-              alignItems: 'center',
-              position: 'fixed',
-              inset: '0px',
-              zIndex: '99',
-              outline: '2px solid transparent',
-              outlineOffset: '2px',
-              marginLeft: 'auto',
-              marginRight: 'auto',
-              marginTop: 'auto',
-              marginBottom: 'auto',
+              borderRadius: "15px",
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+              justifyContent: "center",
+              alignItems: "center",
+              position: "fixed",
+              inset: "0px",
+              zIndex: "99",
+              outline: "2px solid transparent",
+              outlineOffset: "2px",
+              marginLeft: "auto",
+              marginRight: "auto",
+              marginTop: "auto",
+              marginBottom: "auto",
             }}
-            className='modal'
+            className="modal"
           >
-
-            <div className='form-field'>
+            <div className="form-field">
               <AiOutlineClose
-                className='closeIcon'
+                className="closeIcon"
                 onClick={() => setShowForm(false)}
               />
               <div
-                className='icon-heading'
-                style={{ display: 'flex', marginBottom: '1rem' }}
+                className="icon-heading"
+                style={{ display: "flex", marginBottom: "1rem" }}
               >
-                <img src={formLogo} alt='form logo' />
+                <img src={formLogo} alt="form logo" />
                 <h2>Book Your Appointment</h2>
               </div>
-              <form className='form-fields' onSubmit={handleSubmit}>
-                <div className='form-row-popup'>
-                  <div className='form-group'>
-                    <label className={errors.firstName ? 'error-label' : ''}>
+              <form className="form-fields" onSubmit={handleSubmit}>
+                <div className="form-row-popup">
+                  <div className="form-group">
+                    <label className={errors.firstName ? "error-label" : ""}>
                       First Name *
                     </label>
                     <input
-                      type='text'
-                      placeholder='First Name'
+                      type="text"
+                      placeholder="First Name"
                       value={firstName}
-                      onChange={handleInputChange(setFirstName, 'firstName')}
-                      className={errors.firstName ? 'error' : ''}
+                      onChange={handleInputChange(setFirstName, "firstName")}
+                      className={errors.firstName ? "error" : ""}
                     />
                   </div>
 
-                  <div className='form-group'>
-                    <label className={errors.lastName ? 'error-label' : ''}>
+                  <div className="form-group">
+                    <label className={errors.lastName ? "error-label" : ""}>
                       Last Name *
                     </label>
                     <input
-                      type='text'
-                      placeholder='Last Name'
+                      type="text"
+                      placeholder="Last Name"
                       value={lastName}
-                      onChange={handleInputChange(setLastName, 'lastName')}
-                      className={errors.lastName ? 'error' : ''}
+                      onChange={handleInputChange(setLastName, "lastName")}
+                      className={errors.lastName ? "error" : ""}
                     />
                   </div>
                 </div>
 
-                <div className='form-row-popup'>
-                  <div className='form-group'>
-                    <label className={errors.email ? 'error-label' : ''}>
+                <div className="form-row-popup">
+                  <div className="form-group">
+                    <label className={errors.email ? "error-label" : ""}>
                       Email Address *
                     </label>
                     <input
-                      type='email'
-                      placeholder='Email-ID'
+                      type="email"
+                      placeholder="Email-ID"
                       value={email}
-                      onChange={handleInputChange(setEmail, 'email')}
-                      className={errors.email ? 'error' : ''}
+                      onChange={handleInputChange(setEmail, "email")}
+                      className={errors.email ? "error" : ""}
                     />
                   </div>
 
-                  <div className='form-group'>
+                  <div className="form-group">
                     <label
-                      className={errors.contactNumber ? 'error-label' : ''}
+                      className={errors.contactNumber ? "error-label" : ""}
                     >
                       Contact Number *
                     </label>
                     <input
-                      type='tel'
-                      placeholder='Phone Number'
+                      type="tel"
+                      placeholder="Phone Number"
                       value={contactNumber}
                       onChange={handleInputChange(
                         setContactNumber,
-                        'contactNumber'
+                        "contactNumber"
                       )}
-                      className={errors.contactNumber ? 'error' : ''}
+                      className={errors.contactNumber ? "error" : ""}
                     />
                   </div>
                 </div>
 
-                <div className='form-row-popup'>
-                  <div className='form-group'>
-                    <label className={errors.timeSlot ? 'error-label' : ''}>
+                <div className="form-row-popup">
+                  <div className="form-group">
+                    <label className={errors.timeSlot ? "error-label" : ""}>
                       Preferred Time Slot *
                     </label>
                     <select
                       value={timeSlot}
-                      className={errors.timeSlot ? 'error' : ''}
-                      onChange={handleInputChange(setTimeSlot, 'timeSlot')}
+                      className={errors.timeSlot ? "error" : ""}
+                      onChange={handleInputChange(setTimeSlot, "timeSlot")}
                     >
-                      <option value=''>Select Time Slot</option>
-                      <option value='9 A.M. - 12 P.M.'>9 A.M. - 12 P.M.</option>
-                      <option value='12 P.M. - 3 P.M.'>12 P.M. - 3 P.M.</option>
-                      <option value='3 P.M. - 6 P.M.'>3 P.M. - 6 P.M.</option>
-                      <option value='Anytime'>Anytime</option>
+                      <option value="">Select Time Slot</option>
+                      <option value="9 A.M. - 12 P.M.">9 A.M. - 12 P.M.</option>
+                      <option value="12 P.M. - 3 P.M.">12 P.M. - 3 P.M.</option>
+                      <option value="3 P.M. - 6 P.M.">3 P.M. - 6 P.M.</option>
+                      <option value="Anytime">Anytime</option>
                     </select>
                   </div>
 
-                  <div className='form-group-date'>
+                  <div className="form-group-date">
                     <label>Preferred Date</label>
                     <Datepicker
                       options={options}
@@ -306,51 +310,51 @@ const BookAppointmentModel = ({ showForm, setShowForm, dataForm, setShowPopUp })
                     />
                   </div>
                 </div>
-                <div className='form-row-popup'>
-                  <div className='form-group'>
-                    <label className={errors.service ? 'error-label' : ''}>
+                <div className="form-row-popup">
+                  <div className="form-group">
+                    <label className={errors.service ? "error-label" : ""}>
                       Which Service you are interested in ? *
                     </label>
                     <select
                       value={service}
-                      className={errors.service ? 'error' : ''}
-                      onChange={handleInputChange(setService, 'service')}
+                      className={errors.service ? "error" : ""}
+                      onChange={handleInputChange(setService, "service")}
                     >
-                      <option value=''>Select Service</option>
-                      <option value='Permanent Immigration'>
+                      <option value="">Select Service</option>
+                      <option value="Permanent Immigration">
                         Permanent Immigration
                       </option>
-                      <option value='Business visit'>Business visit</option>
-                      <option value='Study'>Study</option>
-                      <option value='Work'>Work</option>
-                      <option value='Visit'>Visit</option>
-                      <option value='Other'>Other</option>
+                      <option value="Business visit">Business visit</option>
+                      <option value="Study">Study</option>
+                      <option value="Work">Work</option>
+                      <option value="Visit">Visit</option>
+                      <option value="Other">Other</option>
                     </select>
                   </div>
-                  {service === 'Other' && (
+                  {service === "Other" && (
                     <div>
                       <label
-                        className={errors.serviceOther ? 'error-label' : ''}
+                        className={errors.serviceOther ? "error-label" : ""}
                       >
                         Please Specify Your Service *
                       </label>
                       <input
-                        placeholder='Please Specify Your Service'
-                        type='text'
+                        placeholder="Please Specify Your Service"
+                        type="text"
                         value={serviceOther}
                         onChange={handleInputChange(
                           setServiceOther,
-                          'serviceOther'
+                          "serviceOther"
                         )}
-                        className={errors.serviceOther ? 'error' : ''}
+                        className={errors.serviceOther ? "error" : ""}
                       />
                     </div>
                   )}
-                  {service !== 'Other' && (
+                  {service !== "Other" && (
                     <div>
                       <label>Comments (Optional)</label>
                       <input
-                        placeholder='Comments'
+                        placeholder="Comments"
                         value={comments}
                         onChange={(e) => setComments(e.target.value)}
                       />
@@ -358,13 +362,17 @@ const BookAppointmentModel = ({ showForm, setShowForm, dataForm, setShowPopUp })
                   )}
                 </div>
 
-                <button onClick={() => setShowPopUp(true)} className='Submitbutton' type='submit'>
+                <button
+                  onClick={() => setShowPopUp(true)}
+                  className="Submitbutton"
+                  type="submit"
+                >
                   Submit
                 </button>
               </form>
             </div>
           </div>
-          <div className='opacity-50 fixed inset-0 z-40 bg-black'></div>
+          <div className="opacity-50 fixed inset-0 z-40 bg-black"></div>
         </>
       )}
     </>

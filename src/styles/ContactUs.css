@@ -82,6 +82,21 @@
 .form-date input {
   padding: 10px 2.5rem;
 }
+@media (max-height: 700px) {
+  .address-content {
+    top: 40vh;
+  }
+}
+@media (max-height: 600px) {
+  .address-content {
+    top: 45vh;
+  }
+}
+@media (max-height: 500px) {
+  .address-content {
+    top: 50vh;
+  }
+}
 @media (max-width: 1700px) {
   .form-row input,
   .form-row select,

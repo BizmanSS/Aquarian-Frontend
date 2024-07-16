@@ -1,13 +1,12 @@
-import { useCallback, useState } from 'react';
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
-import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
+import { useCallback, useState } from "react";
+import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 
 export function Button2({ content, onClick, active, disabled }) {
   return (
     <button
       className={`flex flex-col items-center justify-center w-9 h-9 shadow-[0_4px_10px_rgba(0,0,0,0.03)] text-sm font-normal transition-colors rounded-lg
-      ${active ? ' ' : ''}
-      ${!disabled ? ' ' : ' cursor-not-allowed'}
+      ${active ? " " : ""}
+      ${!disabled ? " " : " cursor-not-allowed"}
       `}
       onClick={onClick}
       disabled={disabled}
@@ -54,13 +53,13 @@ function PaginationNav1({
     ));
   }, [pageCount, pageIndex]);
   return (
-    <ul className='flex gap-2'>
+    <ul className="flex gap-2">
       <li>
         <Button2
           content={
-            <div className='flex ml-1'>
-              <MdChevronLeft size='0.6rem' />
-              <MdChevronLeft size='0.6rem' className='-translate-x-1/2' />
+            <div className="flex ml-1">
+              <MdChevronLeft size="0.6rem" />
+              <MdChevronLeft size="0.6rem" className="-translate-x-1/2" />
             </div>
           }
           onClick={() => gotoPage(0)}
@@ -71,9 +70,9 @@ function PaginationNav1({
       <li>
         <Button2
           content={
-            <div className='flex ml-1'>
-              <MdChevronRight size='0.6rem' />
-              <MdChevronRight size='0.6rem' className='-translate-x-1/2' />
+            <div className="flex ml-1">
+              <MdChevronRight size="0.6rem" />
+              <MdChevronRight size="0.6rem" className="-translate-x-1/2" />
             </div>
           }
           onClick={() => gotoPage(pageCount - 1)}
@@ -89,7 +88,7 @@ function PaginationNav1Presentation() {
   const pageCount = 3;
   // console.log(pageIndex);
   return (
-    <div className='flex gap-3 flex-wrap p-6 py-12'>
+    <div className="flex gap-3 flex-wrap p-6 py-12">
       <PaginationNav1
         gotoPage={setPageIndex}
         canPreviousPage={pageIndex > 0}

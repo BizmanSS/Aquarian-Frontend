@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import banner from "../../../Assets/Rectangle156.png";
 import QuestionCrs from "./QuestionCrs";
 import questionConfig from "./questionConfig";
 import "../../../styles/CrsCalculator.css";
@@ -83,7 +82,7 @@ const CrsForm = () => {
 
     let eng = undefined;
     let fr = undefined;
-    if (answers[5.5] == "ENG") {
+    if (answers[5.5] === "ENG") {
       //default French?
       eng = "FL";
       fr = "SL";
@@ -263,9 +262,9 @@ const CrsForm = () => {
       secE += 30; //e
     }
 
-    if (answers[15] == "A") {
+    if (answers[15] === "A") {
       secE += 200;
-    } else if (answers[15] == "B") {
+    } else if (answers[15] === "B") {
       secE += 50;
     }
 
@@ -283,7 +282,7 @@ const CrsForm = () => {
   };
 
   useEffect(() => {
-    if (answers.length != 0) {
+    if (answers.length !== 0) {
       calculateScore();
     } // Recalculate the score whenever answers change
   }, [answers]);

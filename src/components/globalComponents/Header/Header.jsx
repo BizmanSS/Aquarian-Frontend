@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import logo from "../../../Assets/logo1.png";
-import logo3 from "../../../Assets/logo3.png";
 import { RiMenu2Fill } from "react-icons/ri";
 import Instagram from "../../../Assets/Instagram_logo.svg";
 import Youtube from "../../../Assets/youtube.png";
@@ -18,7 +17,7 @@ import BookAppointmentModel from "../../globalComponents/Model/BookAppointment";
 import { ToastContainer } from "react-toastify";
 import { FiMinus, FiPlus } from "react-icons/fi";
 import { Link } from "react-router-dom";
-import sitemapImmigrate, { subheaders } from "../../../sitemapImmigrate";
+import sitemapImmigrate from "../../../sitemapImmigrate";
 import sitemapWork from "../../../sitemapWork";
 import sitemapStudy from "../../../sitemapStudy";
 import sitemapSponsorship from "../../../sitemapSponsorship";

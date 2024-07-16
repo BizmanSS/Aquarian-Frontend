@@ -2,9 +2,6 @@ import React from "react";
 import CrsForm from "./CrsForm";
 import BannerPages from "../Banner/BannerPages";
 const CrsCalculator = () => {
-  const description =
-    "The following tool is for skilled immigrants (Express Entry), which will provide you with a real-time score and automatically update as you answer each question. This will let you recognise how changes in circumstances can improve your score and, consequently, your chances of immigration.";
-
   return (
     <div>
       <BannerPages

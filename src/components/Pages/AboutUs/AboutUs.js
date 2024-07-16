@@ -12,7 +12,6 @@ import OurServices from "../../AboutUs/OurServices.js";
 import TheAquarian from "../../AboutUs/TheAquarian.js";
 import { useMobile } from "../../globalComponents/MobileContext/IsMobileContext.js";
 import { Bounce } from "react-reveal";
-import BannerPages from "../Banner/BannerPages";
 
 const AboutUsPage = () => {
   const { isMobile } = useMobile();
@@ -25,7 +24,7 @@ const AboutUsPage = () => {
   const [activeSection, setActiveSection] = useState(null);
 
   const scrollToRef = (ref) => {
-    const scrollTop = ref.current.offsetTop - window.innerHeight * 0.25; // 10% of the window height
+    const scrollTop = ref.current.offsetTop - window.innerHeight * 0.25; // 25% of the window height
     window.scrollTo({ top: scrollTop, behavior: "smooth" });
   };
 
@@ -70,10 +69,7 @@ const AboutUsPage = () => {
           <div className="w-[95%] mx-auto bg-banner text-white bg-cover bg-center bg-no-repeat h-[12rem] -mt-12 rounded-3xl">
             <div className="flex flex-col justify-between pl-4 md:pl-8 md:px-12 lg:px-16 h-full">
               <p className="text-gray-400 lg:pb-10 pt-12 cursor-pointer relative top-5 lg:top-10">
-                <a
-                  href="/"
-                  className="text-gray-400 hover:underline text-[13px]"
-                >
+                <a href="/" className="text-gray-400  text-[13px]">
                   Home
                 </a>{" "}
                 &gt; <p1 className="text-gray-400 text-[13px]">About Us</p1>

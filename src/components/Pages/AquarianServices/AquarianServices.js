@@ -236,9 +236,9 @@ export default function AquarianServices() {
             <a href="/immigrate/express-entry">Express Entry</a> profile, guide
             you through the complexities and ensure that your profile stands out
             from the rest. Contact Aquarian Immigration today and{" "}
-            <a onClick={handleAppointmentClick}>
+            <span onClick={handleAppointmentClick}>
               get your first counselling session.{" "}
-            </a>
+            </span>
           </p2>
           <h2 ref={pnpRef}>
             Provincial Nominee Program (PNP)

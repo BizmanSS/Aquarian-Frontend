@@ -20,7 +20,7 @@
 
 .line-heading {
   width: 1%;
-  border-radius: 3.5px;
+  border-radius: 2px;
   background: #009889;
 }
 .sub-heading {
@@ -361,7 +361,21 @@
   font-size: large;
   margin-bottom: 3%;
 }
-
+@media (max-height: 700px) {
+  .sub-heading-content {
+    top: 40vh;
+  }
+}
+@media (max-height: 600px) {
+  .sub-heading-content {
+    top: 45vh;
+  }
+}
+@media (max-height: 500px) {
+  .sub-heading-content {
+    top: 50vh;
+  }
+}
 @media (max-width: 1800px) {
   .button,
   .button2 {
@@ -488,9 +502,6 @@
 }
 
 @media (max-width: 1400px) {
-  .sub-heading-content {
-    width: 20%;
-  }
   .sub-heading {
     font-size: 17px;
   }

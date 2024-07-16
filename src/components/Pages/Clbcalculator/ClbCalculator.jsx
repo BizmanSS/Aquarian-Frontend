@@ -16,7 +16,6 @@ import CelpipTable from "../../ClbCalculator.jsx/CelpipTable";
 import TcfTable from "../../ClbCalculator.jsx/TcfTable";
 import TefTable from "../../ClbCalculator.jsx/TefTable";
 import PteTable from "../../ClbCalculator.jsx/PteTable";
-import { useNavigate } from "react-router-dom";
 
 const ClbCalculator = () => {
   const [isDisabled, setIsDisabled] = useState(true);
@@ -30,7 +29,6 @@ const ClbCalculator = () => {
     speaking: null,
   });
   const [showResult, setShowResult] = useState(false);
-  const navigate = useNavigate();
 
   const handleInputChangeMinMax = (e) => {
     const inputValue = parseFloat(e.target.value);
@@ -158,14 +156,11 @@ const ClbCalculator = () => {
           <div className="flex items-center justify-between w-full flex-wrap md:flex-nowrap">
             <div className="flex flex-col items-start justify-between pl-8 md:px-14 lg:px-20">
               <p className=" text-gray-400 lg:pb-20 pt-10 lg:pt-10 text-[13px] cursor-pointer relative top-10">
-                <a href="/" className="text-gray-400 hover:underline">
+                <a href="/" className="text-gray-400 ">
                   Home
                 </a>{" "}
                 &gt;{" "}
-                <a
-                  href="/clb-calculator"
-                  className="text-gray-400  hover:underline"
-                >
+                <a href="/clb-calculator" className="text-gray-400  ">
                   CLB Score Calculator
                 </a>
               </p>

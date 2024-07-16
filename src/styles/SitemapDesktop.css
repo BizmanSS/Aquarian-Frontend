@@ -3,7 +3,7 @@
   top: 35vh;
   width: 20%;
   z-index: 9;
-  max-height: 60vh;
+  max-height: 55vh;
   background-color: #fff;
   margin-left: 4%;
   padding: 2rem 0rem 2rem 0rem;
@@ -90,7 +90,24 @@
   border-radius: 0px 13px 16px 0px;
   background-color: #009889;
 }
-
+@media (max-height: 700px) {
+  .sidebar-main-div-global {
+    top: 40vh;
+    max-height: 55vh;
+  }
+}
+@media (max-height: 600px) {
+  .sidebar-main-div-global {
+    top: 45vh;
+    max-height: 50vh;
+  }
+}
+@media (max-height: 500px) {
+  .sidebar-main-div-global {
+    top: 50vh;
+    max-height: 45vh;
+  }
+}
 @media (max-width: 1600px) {
   .sidebar-main-div-global {
     padding: 1.7rem 0rem 1.7rem 0rem;

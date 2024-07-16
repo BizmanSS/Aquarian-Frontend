@@ -1,11 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import ielts from "../../Assets/exam-logo/ielts.png";
-import toefl from "../../Assets/exam-logo/toefl.png";
-import duolingo from "../../Assets/exam-logo/duolingo.png";
-import pearson from "../../Assets/exam-logo/pearson.png";
-import gre from "../../Assets/exam-logo/gre.png";
-import celpip from "../../Assets/exam-logo/celpip.png";
-import logo_calc2 from "../../Assets/exam-logo/Mask group (1).png";
 import crs from "../../Assets/exam-logo/crs.png";
 import clb from "../../Assets/exam-logo/clb.png";
 import svec from "../../Assets/exam-logo/svec.png";
@@ -20,34 +13,18 @@ import saskatchewan1234 from "../../Assets/exam-logo/saskatchewan 1234.png";
 import yukon from "../../Assets/exam-logo/yukon.png";
 import Instagram from "../../Assets/Instagram_logo.svg";
 import Youtube from "../../Assets/youtube.png";
-import Twitter from "../../Assets/Thread.jpg";
-
 import LinkedIn from "../../Assets/LinkedIn.png";
+import Thread from "../../Assets/Thread.jpg";
 import facebook from "../../Assets/Facebook.png";
 import { BsArrowRight } from "react-icons/bs";
-import { useNavigate } from "react-router-dom";
 import { useMobile } from "../globalComponents/MobileContext/IsMobileContext";
 import BannerPages from "../Pages/Banner/BannerPages";
 import { Bounce } from "react-reveal";
 import examData from "./data/examData";
 
 const ResourcesAndTools = () => {
-  const navigate = useNavigate();
   const { isMobile } = useMobile();
-  const [hovering, setHovering] = useState({
-    bc: false,
-    anip: false,
-    mpnp: false,
-    mswop: false,
-    nspnp: false,
-    nt: false,
-    pei: false,
-    rnip: false,
-    snip: false,
-    onip: false,
-  });
 
-  // console.log(hovering);
   const calculatorData = [
     {
       description: "Immigirant Nominee Program point calculator",
@@ -202,23 +179,24 @@ const ResourcesAndTools = () => {
   const calcRef = useRef(null);
   const quickLinkRef = useRef(null);
   const examGuidesRef = useRef(null);
+  const subHeadingContentRef = useRef(null);
 
-  const sectionRefs = [
-    { section: "calculators", ref: calcRef },
-    { section: "quickLinks", ref: quickLinkRef },
-    { section: "examGuides", ref: examGuidesRef },
-  ];
-
-  const [activeSection, setActiveSection] = useState(sectionRefs[0].section);
+  const [activeSection, setActiveSection] = useState(null);
 
   const scrollToRef = (ref) => {
-    const scrollTop = ref.current.offsetTop - window.innerHeight * 0.25; // 10% of the window height
+    const scrollTop = ref.current.offsetTop - window.innerHeight * 0.1; // 10% of the window height
     window.scrollTo({ top: scrollTop, behavior: "smooth" });
   };
 
   useEffect(() => {
+    const sectionRefs = [
+      { section: "calculators", ref: calcRef },
+      { section: "quickLinks", ref: quickLinkRef },
+      { section: "examGuides", ref: examGuidesRef },
+    ];
+
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + window.innerHeight * 0.5; // 50% of the window height
+      const scrollPosition = window.scrollY + window.innerHeight * 0.1; // 10% of the window height
       const currentSection = sectionRefs.find(({ ref }) =>
         ref.current.offsetTop <= scrollPosition &&
         ref.current.offsetTop + ref.current.offsetHeight > scrollPosition
@@ -263,92 +241,100 @@ const ResourcesAndTools = () => {
       </div>
 
       <Bounce>
-        <div
-          className="hidden xl:block w-[19rem] h-[18rem] xl:w-[16rem] 2xl:w-[17rem] xl:h-[18rem] fixed top-[13rem] left-12 rounded-3xl bg-white"
-          style={{
-            boxShadow: "0px 4px 23.6px 0px rgba(0, 0, 0, 0.5)",
-          }}
-        >
-          <div className="mx-8 mt-14 font-serif border-l-[5px] border-[#009889] flex flex-col items-start justify-center gap-4">
-            <a
-              // href='#calculator'
-              onClick={() => scrollToRef(calcRef)}
-              className={`text-[#009889] text-md px-4 text-nowrap cursor-pointer hover:underline ${
-                activeSection === "calculators" && "font-bold"
-              }`}
-            >
-              Calculators and Tools
-            </a>
-            <a
-              onClick={() => scrollToRef(quickLinkRef)}
-              className={`text-[#009889] text-md px-4 cursor-pointer hover:underline ${
-                activeSection === "quickLinks" && "font-bold"
-              }`}
-            >
-              Quick Links
-            </a>
-            <a
-              onClick={() => scrollToRef(examGuidesRef)}
-              className={`text-[#009889] text-md px-4 cursor-pointer hover:underline ${
-                activeSection === "examGuides" && "font-bold"
-              }`}
-            >
-              Exam Guides
-            </a>
+        <div className="sub-heading-content" ref={subHeadingContentRef}>
+          <div
+            style={{
+              display: "flex",
+              marginLeft: "2%",
+              paddingTop: "20%",
+              width: "80%",
+              justifyContent: "center",
+              gap: "1rem",
+            }}
+          >
+            <div className="line-heading"></div>
+            <div style={{ display: "block" }}>
+              <p
+                onClick={() => scrollToRef(calcRef)}
+                className={`sub-heading ${
+                  activeSection === "calculators" ? "active" : ""
+                }`}
+              >
+                Calculators and Tools
+              </p>
+              <p
+                onClick={() => scrollToRef(quickLinkRef)}
+                className={`sub-heading ${
+                  activeSection === "quickLinks" ? "active" : ""
+                }`}
+              >
+                Quick Links
+              </p>
+              <p
+                onClick={() => scrollToRef(examGuidesRef)}
+                className={`sub-heading ${
+                  activeSection === "examGuides" ? "active" : ""
+                }`}
+              >
+                Exam Guides
+              </p>
+            </div>
           </div>
-          <div className="flex flex-col items-start justify-center ml-6 mt-6">
-            <span className="font-medium ml-4 mb-2">Follow Us</span>
-            <div className="flex items-center justify-center gap-0 ">
-              <a
-                href="https://www.linkedin.com/company/aquarian-immigration-services/"
-                className="mx-0 p-2"
-              >
-                <img
-                  alt=""
-                  src={LinkedIn}
-                  className="cursor-pointer w-[1.8rem]"
-                />
-              </a>
-              <a
-                href="https://www.facebook.com/people/Aquarian-Immigration/61558242973262/"
-                className="mx-0 p-2"
-              >
-                <img
-                  alt=""
-                  src={facebook}
-                  className="cursor-pointer w-[1.8rem]"
-                />
-              </a>
-
-              <a
-                href="https://www.threads.net/@aquarian_immigration"
-                className="mx-0 p-2"
-              >
+          <div>
+            <h1 className="follow">Follow Us</h1>
+          </div>
+          <div className="logos">
+            <a
+              href="https://www.linkedin.com/company/aquarian-immigration-services/"
+              className="mx-0 p-2"
+            >
+              <img
+                alt=""
+                src={LinkedIn}
+                className="cursor-pointer w-[2.2rem]"
+              />
+            </a>
+            <a
+              href="https://www.facebook.com/people/Aquarian-Immigration/61558242973262/"
+              className="mx-0 p-2"
+            >
+              <img
+                alt=""
+                src={facebook}
+                className="cursor-pointer w-[2.2rem]"
+              />
+            </a>
+            {/* <a href="https://www.twitter.com" className="mx-0 p-2">
                 <img
                   alt=""
                   src={Twitter}
-                  style={{ borderRadius: "5px" }}
-                  className="cursor-pointer w-[1.8rem]"
+                  className="cursor-pointer w-[2.2rem]"
                 />
-              </a>
-              <a
-                href="https://www.instagram.com/aquarian_immigration/"
-                className="mx-0 p-2"
-              >
-                <img
-                  alt=""
-                  src={Instagram}
-                  className="cursor-pointer w-[1.8rem]"
-                />
-              </a>
-              <a href="https://youtube.com" className="mx-0 p-2">
-                <img
-                  alt=""
-                  src={Youtube}
-                  className="cursor-pointer w-[1.8rem]"
-                />
-              </a>
-            </div>
+              </a> */}
+            <a
+              href="https://www.threads.net/@aquarian_immigration"
+              className="mx-0 p-2"
+            >
+              <img
+                alt=""
+                src={Thread}
+                style={{ borderRadius: "5px" }}
+                className="cursor-pointer w-[2.2rem]"
+              />
+            </a>
+            <a
+              href="https://www.instagram.com/aquarian_immigration/"
+              className="mx-0 p-2"
+            >
+              <img
+                alt=""
+                src={Instagram}
+                className="cursor-pointer w-[2.2rem]"
+              />
+            </a>
+            <a href="https://youtube.com" className="mx-0 p-2">
+              <img alt="" src={Youtube} className="cursor-pointer w-[2.2rem]" />
+            </a>
           </div>
         </div>
       </Bounce>
@@ -648,7 +634,7 @@ const ResourcesAndTools = () => {
                     onClick={() => {
                       window.open("https://www.canada.ca/", "_blank");
                     }}
-                    className="cursor-pointer hover:underline"
+                    className="cursor-pointer "
                   >
                     Canadian Federal Government
                   </li>
@@ -656,7 +642,7 @@ const ResourcesAndTools = () => {
                     onClick={() => {
                       window.open("https://ircc.canada.ca/", "_blank");
                     }}
-                    className="cursor-pointer hover:underline "
+                    className="cursor-pointer  "
                   >
                     Department of Citizenship and Immigration Canada
                   </li>
@@ -664,7 +650,7 @@ const ResourcesAndTools = () => {
                     onClick={() => {
                       window.open("https://www.cbsa-asfc.gc.ca/", "_blank");
                     }}
-                    className="cursor-pointer hover:underline "
+                    className="cursor-pointer  "
                   >
                     Canada Border Services Agency
                   </li>
@@ -675,7 +661,7 @@ const ResourcesAndTools = () => {
                         "_blank"
                       );
                     }}
-                    className="cursor-pointer hover:underline "
+                    className="cursor-pointer  "
                   >
                     Canadian Tax Office - Home Page
                   </li>
@@ -690,7 +676,7 @@ const ResourcesAndTools = () => {
                     onClick={() => {
                       window.open("http://www.fin.gc.ca/", "_blank");
                     }}
-                    className="cursor-pointer hover:underline"
+                    className="cursor-pointer "
                   >
                     CanadianTax Information
                   </li>
@@ -698,7 +684,7 @@ const ResourcesAndTools = () => {
                     onClick={() => {
                       window.open("https://www.international.gc.ca/", "_blank");
                     }}
-                    className="cursor-pointer hover:underline"
+                    className="cursor-pointer "
                   >
                     Canadian Dept of Foreign Affairs and Trade
                   </li>
@@ -706,7 +692,7 @@ const ResourcesAndTools = () => {
                     onClick={() => {
                       window.open("https://www.hc-sc.gc.ca/", "_blank");
                     }}
-                    className="cursor-pointer hover:underline"
+                    className="cursor-pointer "
                   >
                     Canadian Dept of Health and Aged Care
                   </li>
@@ -714,7 +700,7 @@ const ResourcesAndTools = () => {
                     onClick={() => {
                       window.open("http://www.fin.gc.ca/", "_blank");
                     }}
-                    className="cursor-pointer hover:underline"
+                    className="cursor-pointer "
                   >
                     Canadian Dept Of Finance
                   </li>
@@ -744,7 +730,7 @@ const ResourcesAndTools = () => {
                     onClick={() => {
                       window.open("https://www.pm.gc.ca/", "_blank");
                     }}
-                    className="cursor-pointer hover:underline"
+                    className="cursor-pointer "
                   >
                     Prime Minister Of Canada
                   </li>
@@ -755,7 +741,7 @@ const ResourcesAndTools = () => {
                         "_blank"
                       );
                     }}
-                    className="cursor-pointer hover:underline"
+                    className="cursor-pointer "
                   >
                     Canadian Heritage
                   </li>
@@ -763,7 +749,7 @@ const ResourcesAndTools = () => {
                     onClick={() => {
                       window.open("http://direct.srv.gc.ca/", "_blank");
                     }}
-                    className="cursor-pointer hover:underline"
+                    className="cursor-pointer "
                   >
                     Government Electronic Directory Services
                   </li>
@@ -778,7 +764,7 @@ const ResourcesAndTools = () => {
                     onClick={() => {
                       window.open("https://www.international.gc.ca/", "_blank");
                     }}
-                    className="cursor-pointer hover:underline"
+                    className="cursor-pointer "
                   >
                     Foreign Affairs and International Trade
                   </li>
@@ -786,7 +772,7 @@ const ResourcesAndTools = () => {
                     onClick={() => {
                       window.open("https://www.tbs-sct.canada.ca/", "_blank");
                     }}
-                    className="cursor-pointer hover:underline"
+                    className="cursor-pointer "
                   >
                     Treasury Board Secretariat
                   </li>
@@ -797,7 +783,7 @@ const ResourcesAndTools = () => {
                         "_blank"
                       );
                     }}
-                    className="cursor-pointer hover:underline"
+                    className="cursor-pointer "
                   >
                     Natural Resources Canada
                   </li>
@@ -826,7 +812,7 @@ const ResourcesAndTools = () => {
                     onClick={() => {
                       window.open("https://nationalpost.com/", "_blank");
                     }}
-                    className="cursor-pointer hover:underline"
+                    className="cursor-pointer "
                   >
                     National Post
                   </li>
@@ -834,7 +820,7 @@ const ResourcesAndTools = () => {
                     onClick={() => {
                       window.open("https://www.theglobeandmail.com/", "_blank");
                     }}
-                    className="cursor-pointer hover:underline"
+                    className="cursor-pointer "
                   >
                     The Globe and Mail
                   </li>
@@ -842,7 +828,7 @@ const ResourcesAndTools = () => {
                     onClick={() => {
                       window.open("https://www.thestar.com/", "_blank");
                     }}
-                    className="cursor-pointer hover:underline"
+                    className="cursor-pointer "
                   >
                     Toronto Star
                   </li>
@@ -850,7 +836,7 @@ const ResourcesAndTools = () => {
                     onClick={() => {
                       window.open("https://ottawacitizen.com/", "_blank");
                     }}
-                    className="cursor-pointer hover:underline"
+                    className="cursor-pointer "
                   >
                     Ottawa Citizen
                   </li>
@@ -858,7 +844,7 @@ const ResourcesAndTools = () => {
                     onClick={() => {
                       window.open("https://ottawasun.com/", "_blank");
                     }}
-                    className="cursor-pointer hover:underline"
+                    className="cursor-pointer "
                   >
                     Ottawa Sun
                   </li>
@@ -866,7 +852,7 @@ const ResourcesAndTools = () => {
                     onClick={() => {
                       window.open("https://calgaryherald.com/", "_blank");
                     }}
-                    className="cursor-pointer hover:underline"
+                    className="cursor-pointer "
                   >
                     Calgary Herald
                   </li>
@@ -877,7 +863,7 @@ const ResourcesAndTools = () => {
                         "_blank"
                       );
                     }}
-                    className="cursor-pointer hover:underline"
+                    className="cursor-pointer "
                   >
                     The Spectator
                   </li>
@@ -892,7 +878,7 @@ const ResourcesAndTools = () => {
                     onClick={() => {
                       window.open("https://edmontonjournal.com/", "_blank");
                     }}
-                    className="cursor-pointer hover:underline"
+                    className="cursor-pointer "
                   >
                     Edmonton Journal
                   </li>
@@ -900,7 +886,7 @@ const ResourcesAndTools = () => {
                     onClick={() => {
                       window.open("https://vancouversun.com/", "_blank");
                     }}
-                    className="cursor-pointer hover:underline"
+                    className="cursor-pointer "
                   >
                     Vancouver Sun
                   </li>
@@ -908,7 +894,7 @@ const ResourcesAndTools = () => {
                     onClick={() => {
                       window.open("https://vancouversun.com/", "_blank");
                     }}
-                    className="cursor-pointer hover:underline"
+                    className="cursor-pointer "
                   >
                     Province
                   </li>
@@ -916,7 +902,7 @@ const ResourcesAndTools = () => {
                     onClick={() => {
                       window.open("https://calgaryherald.com/", "_blank");
                     }}
-                    className="cursor-pointer hover:underline"
+                    className="cursor-pointer "
                   >
                     Edmonton Sun
                   </li>
@@ -924,7 +910,7 @@ const ResourcesAndTools = () => {
                     onClick={() => {
                       window.open("https://montrealgazette.com/", "_blank");
                     }}
-                    className="cursor-pointer hover:underline"
+                    className="cursor-pointer "
                   >
                     Montreal Gazette
                   </li>
@@ -935,7 +921,7 @@ const ResourcesAndTools = () => {
                         "_blank"
                       );
                     }}
-                    className="cursor-pointer hover:underline"
+                    className="cursor-pointer "
                   >
                     Winnipeg Free Press
                   </li>
@@ -943,7 +929,7 @@ const ResourcesAndTools = () => {
                     onClick={() => {
                       window.open("https://calgaryherald.com/", "_blank");
                     }}
-                    className="cursor-pointer hover:underline"
+                    className="cursor-pointer "
                   >
                     Calgary Herald
                   </li>
