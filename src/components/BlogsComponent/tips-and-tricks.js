@@ -329,81 +329,61 @@ const TipsAndTricks = () => {
   return (
     <>
       <div style={{ background: "#FFF" }}>
-        <div className="flex flex-col justify-center w-full md:w-[95%] mb-10">
-          <div className="mt-[5rem] lg:mt-[6rem]">
-            <div className="w-[95%] mx-auto bg-banner text-white bg-cover bg-center bg-no-repeat h-[12rem] -mt-12 rounded-3xl">
-              <div className="flex flex-col justify-between pl-4 md:pl-8 md:px-12 lg:px-16 h-full">
-                <p className="text-gray-400 lg:pb-10 pt-12 cursor-pointer relative top-5 lg:top-10">
-                  <a
-                    href="/"
-                    className="text-gray-400 hover:underline text-[13px]"
-                  >
-                    Home
-                  </a>{" "}
-                  &gt;{" "}
-                  <a
-                    className="text-gray-400 hover:underline text-[13px]"
-                    href="/blogs"
-                  >
-                    Blogs
-                  </a>{" "}
-                  &gt;{" "}
-                  <p1 className="text-gray-400 text-[13px]">
-                    Tips and Tricks on Preparing for IELTS
-                  </p1>
-                </p>
-                <div className="flex w-full h-full items-end">
-                  <div className="text-[30px] md:text-[40px] lg:text-[45px] font-normal font-serif leading-normal text-center mx-auto my-0 pb-3">
-                    Welcome to Our Blogs
+        <div className="AboutUsHeader">
+          <p className="link">
+            <a href="/">Home</a>
+            {" > "}
+            <a href="/blogs">Blogs</a>
+            {" > "}Tips and Tricks on Preparing for IELTS
+          </p>
+          <div className="header-content">
+            <h1 className="heading-about">Welcome to Our Blogs</h1>
+          </div>
+        </div>
+        <div className="mt-[2.5rem]">
+          <div className="left-blog">
+            {vw > 1250 && (
+              <div>
+                <h1 className="title-heading">Recent Blogs</h1>
+                <div class="blog-card-container">
+                  <div className="blog-card-recent">
+                    {recentBlogs.map((post, index) => (
+                      <RecentBlogs key={index} {...post} />
+                    ))}
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="left-blog">
-          {vw > 1250 && (
-            <div>
-              <h1 className="title-heading">Recent Blogs</h1>
-              <div class="blog-card-container">
-                <div className="blog-card-recent">
-                  {recentBlogs.map((post, index) => (
-                    <RecentBlogs key={index} {...post} />
-                  ))}
-                </div>
+            )}
+            <div className="blog-cards-container">
+              <div className="blog-cards">
+                {innerPosts.map((post, index) => (
+                  <InnerBlog key={index} {...post} />
+                ))}
               </div>
             </div>
-          )}
-          <div className="blog-cards-container">
-            <div className="blog-cards">
-              {innerPosts.map((post, index) => (
-                <InnerBlog key={index} {...post} />
+          </div>
+          <div className="similar-blog">
+            <div className="similar-div-heading">
+              <h1 className="title-heading">Similar Blogs</h1>
+              <a href="/blogs">All Articles</a>
+            </div>
+            <br />
+            <div className="blog-cards-similar">
+              {posts.map((post, index) => (
+                <BlogPost key={index} {...post} />
               ))}
             </div>
           </div>
         </div>
-        <div className="similar-blog">
-          <div className="similar-div-heading">
-            <h1 className="title-heading">Similar Blogs</h1>
-            <a href="/blogs">All Articles</a>
+        {showBackToTop && (
+          <div
+            className={makeDivRelative ? "relativeDiv" : "backToTop"}
+            onClick={scrollToTop}
+          >
+            BACK TO TOP
           </div>
-          <br />
-          <div className="blog-cards-similar">
-            {posts.map((post, index) => (
-              <BlogPost key={index} {...post} />
-            ))}
-          </div>
-        </div>
+        )}{" "}
       </div>
-      {showBackToTop && (
-        <div
-          className={makeDivRelative ? "relativeDiv" : "backToTop"}
-          onClick={scrollToTop}
-        >
-          BACK TO TOP
-        </div>
-      )}
       <div ref={bubbleRef}></div>
     </>
   );

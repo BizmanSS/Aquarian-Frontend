@@ -303,62 +303,42 @@ const LatestNews = () => {
 
   return (
     <div style={{ background: "#FFF" }}>
-      <div className="flex flex-col justify-center w-full md:w-[95%] mb-10">
-        <BannerPages
-          link={"latest-news"}
-          title={"Newsroom"}
-          description={"Welcome to the Newsroom"}
-        />
-        {/* <div className="mt-[5rem] lg:mt-[6rem]">
-          <div className="w-[95%] mx-auto bg-banner text-white bg-cover bg-center bg-no-repeat h-[12rem] -mt-12 rounded-3xl">
-            <div className="flex flex-col justify-between pl-4 md:pl-8 md:px-12 lg:px-16 h-full">
-              <p className="text-gray-400 lg:pb-10 pt-12 cursor-pointer relative top-5 lg:top-10">
-                <a
-                  href="/"
-                  className="text-gray-400 hover:underline text-[13px]"
-                >
-                  Home
-                </a>{" "}
-                &gt; <p1 className="text-gray-400 text-[13px]">Newsroom</p1>
-              </p>
-              <div className="flex w-full h-full items-end">
-                <div className="text-[30px] md:text-[40px] lg:text-[45px] font-normal font-serif leading-normal text-center mx-auto my-0 pb-3">
-                  Welcome to the Newsroom
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> */}
-      </div>
+      <BannerPages
+        link={"latest-news"}
+        title={"Newsroom"}
+        description={"Welcome to the Newsroom"}
+      />
 
-      <div class="news-card-container">
-        <div className="news-card-upper">
-          {news.map((news) => (
-            <a key={news.id} href={news.path}>
-              <div className="news-upper-card">
-                <img style={{ cursor: "pointer" }} alt="" src={news.image} />
-                <div className="content-card">
-                  <div>
-                    <p3>{news.date}</p3>
+      <div className="mt-10">
+        <div class="news-card-container">
+          <div className="news-card-upper">
+            {news.map((news) => (
+              <a key={news.id} href={news.path}>
+                <div className="news-upper-card">
+                  <img style={{ cursor: "pointer" }} alt="" src={news.image} />
+                  <div className="content-card">
+                    <div>
+                      <p3>{news.date}</p3>
 
+                      <a href={news.path}>
+                        <h1>{news.title}</h1>
+                      </a>
+
+                      <p2>{news.description} </p2>
+                    </div>
                     <a href={news.path}>
-                      <h1>{news.title}</h1>
+                      Read more...{" "}
+                      <FaArrowRightLong style={{ alignSelf: "center" }} />
                     </a>
-
-                    <p2>{news.description} </p2>
                   </div>
-                  <a href={news.path}>
-                    Read more...{" "}
-                    <FaArrowRightLong style={{ alignSelf: "center" }} />
-                  </a>
                 </div>
-              </div>
-            </a>
-          ))}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
       <div className="left-blog">
-        {(vw>1250) && (
+        {vw > 1250 && (
           <div className="recent-blogs-container">
             <h1 className="title-heading">Recent Blogs</h1>
             <div class="blog-card-container">

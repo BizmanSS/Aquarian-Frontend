@@ -41,7 +41,11 @@
 }
 
 .crs-select {
+  border: 1px solid #009889;
+  border-radius: 5px;
   padding: 6px;
+  margin-bottom: 10px;
+  width: 100%;
 }
 
 .crs input,

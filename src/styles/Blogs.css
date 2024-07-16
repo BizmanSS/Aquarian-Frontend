@@ -81,7 +81,7 @@ th:last-child {
 .left-blog {
   display: flex;
   width: 100%;
-  margin-left: 10%;
+  padding-left: 10%;
 }
 .similar-blog {
   display: block;
@@ -291,7 +291,7 @@ h1 {
 }
 @media (max-width: 1780px) {
   .left-blog {
-    margin-left: 6%;
+    padding-left: 6%;
   }
   .similar-blog {
     margin-left: 6%;
@@ -323,7 +323,7 @@ h1 {
 
 @media (max-width: 1600px) {
   .left-blog {
-    margin-left: 4%;
+    padding-left: 4%;
   }
   .similar-blog {
     margin-left: 4%;
@@ -357,7 +357,7 @@ h1 {
     width: 370px;
   }
   .left-blog {
-    margin-left: 6.7%;
+    padding-left: 6.7%;
   }
   .similar-blog {
     margin-left: 6.7%;
@@ -404,7 +404,7 @@ h1 {
 }
 @media (max-width: 1460px) {
   .left-blog {
-    margin-left: 4%;
+    padding-left: 4%;
   }
   .similar-blog {
     margin-left: 4%;
@@ -422,7 +422,7 @@ h1 {
     width: 320px;
   }
   .left-blog {
-    margin-left: 8%;
+    padding-left: 8%;
   }
   .similar-blog {
     margin-left: 8%;
@@ -465,7 +465,7 @@ h1 {
 }
 @media (max-width: 1310px) {
   .left-blog {
-    margin-left: 4%;
+    padding-left: 4%;
   }
   .similar-blog {
     margin-left: 4%;
@@ -505,7 +505,7 @@ h1 {
   .left-blog {
     display: block;
     width: 90%;
-    margin-left: 5%;
+    padding-left: 5%;
   }
   .blog-cards {
     display: grid;

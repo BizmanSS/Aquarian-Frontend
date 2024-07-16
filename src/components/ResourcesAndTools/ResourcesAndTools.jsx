@@ -238,7 +238,7 @@ const ResourcesAndTools = () => {
   }, []);
 
   return (
-    <div className="flex flex-col justify-center w-full md:w-[95%]">
+    <div>
       <BannerPages
         link={"resources"}
         title={"Resources And Tools"}
@@ -246,7 +246,7 @@ const ResourcesAndTools = () => {
       />
       <div
         id="calculator"
-        className="flex flex-col items-end justify-center relative right-[2rem] lg:right-[4rem]"
+        className="flex flex-col w-full md:w-[95%] items-end justify-center relative right-[2rem] lg:right-[4rem]"
       >
         <div className="w-[90%] lg:w-[70%] flex flex-col items-center lg:items-start justify-center">
           <div className="font-semibold text-[30px] lg:text-[40px] border-b-[4px] border-[#019989] border-w-[50%] mt-8">

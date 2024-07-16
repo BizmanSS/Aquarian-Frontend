@@ -252,11 +252,11 @@ const FreeAssessment = () => {
         top: elementPosition - 100, // Adjust the offset here (100px)
         behavior: "smooth",
       });
-    } 
+    }
   }, [selectedForm.permanentImmigration]);
 
   useEffect(() => {
-   if (selectedForm.workPermit && workPermitRef.current) {
+    if (selectedForm.workPermit && workPermitRef.current) {
       const element = workPermitRef.current;
       const elementPosition =
         element.getBoundingClientRect().top + window.pageYOffset;
@@ -269,20 +269,20 @@ const FreeAssessment = () => {
   }, [selectedForm.workPermit, workPermitRef]);
 
   return (
-    <div className="flex flex-col justify-center w-full md:w-[95%]">
+    <div>
       <BannerPages
         link={"assessment"}
         title={"Assessment"}
         description={"Canadian Immigration Assessment Form"}
       />
 
-      <div className="px-4 lg:px-20 flex items-center justify-start">
+      <div className="px-4  mt-8 md:mt-[4rem] lg:px-20 flex items-center w-full md:w-[95%] justify-start">
         {/* <IoArrowForwardSharp size={30} className='relative -top-2' /> */}
         <div class="mb-4 ml-2 block text-3xl font-medium text-[#07074D] py-2">
           Choose your evaluation form
         </div>
       </div>
-      <div className="pl-8 w-[89%] border border-l-[7px] border-l-[#01997e] mx-6 lg:mx-20 mb-10 py-6 grid grid-cols-2 lg:grid-cols-3 gap-8 rounded-xl">
+      <div className="pl-8 w-[85%] border border-l-[7px] border-l-[#01997e] mx-6 lg:mx-20 mb-10 py-6 grid grid-cols-2 lg:grid-cols-3 gap-8 rounded-xl">
         <div class="flex items-center">
           <input
             id="radio5"

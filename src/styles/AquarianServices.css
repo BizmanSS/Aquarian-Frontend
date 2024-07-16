@@ -1,34 +1,3 @@
-.ServicesHeader {
-  margin-top: 10rem;
-  z-index: 1;
-  position: relative;
-  display: block;
-  background-repeat: no-repeat;
-  background-size: auto;
-  width: 95%;
-  top: -80px;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 0px 0px 25px 25px;
-  background: url("../Assets/Rectangle 156.png") lightgray 20% / cover no-repeat;
-  box-shadow: 0px 4px 24.9px 0px rgba(0, 0, 0, 0.5);
-}
-.ServicesHeader .link {
-  color: #e2e2e2;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-  padding-top: 65px;
-  padding-left: 3%;
-}
-.ServicesHeader .header-content {
-  padding-top: 6%;
-  margin-left: auto;
-  margin-right: auto;
-  padding-bottom: 2rem;
-  width: 50%;
-}
 .text-area {
   padding: 0rem 3rem;
   padding-bottom: 10rem;
@@ -329,15 +298,6 @@
   }
 }
 @media (max-width: 768px) {
-  .ServicesHeader .link {
-    padding-top: 20px;
-    padding-left: 3%;
-    font-size: x-small;
-  }
-  .ServicesHeader .header-content {
-    padding-top: 80px;
-    width: 80%;
-  }
   .buttonGet {
     width: 50%;
     height: auto;
