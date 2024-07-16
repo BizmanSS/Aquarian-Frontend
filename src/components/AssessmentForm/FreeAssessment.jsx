@@ -1,7 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-
-import { IoArrowForwardSharp } from "react-icons/io5";
-
 import "../AssessmentForm/Freeassessment.css";
 import WorkPermit from "./WorkPermit";
 import PermanentImigration from "./PermanentImigration";
@@ -221,13 +218,6 @@ const FreeAssessment = () => {
     workPermit: false,
     studyPermit: false,
     touristVisa: false,
-  });
-
-  const [selectedFormchecked, setselectedFormchecked] = useState({
-    work: false,
-    languageTest: false,
-    languageTestB: false,
-    martialStatus: false,
   });
 
   const handleRadioChange = (formType) => {
