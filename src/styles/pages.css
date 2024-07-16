@@ -114,6 +114,8 @@
     margin-left: 2.5%;
   }
   .heading-about {
-    font-size: 25px;
+    font-size: 22px;
+    width: 90%;
+    margin: auto;
   }
 }

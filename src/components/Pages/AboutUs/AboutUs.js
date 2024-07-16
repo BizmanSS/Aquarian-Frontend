@@ -12,6 +12,7 @@ import OurServices from "../../AboutUs/OurServices.js";
 import TheAquarian from "../../AboutUs/TheAquarian.js";
 import { useMobile } from "../../globalComponents/MobileContext/IsMobileContext.js";
 import { Bounce } from "react-reveal";
+import BannerPages from "../Banner/BannerPages.jsx";
 
 const AboutUsPage = () => {
   const { isMobile } = useMobile();
@@ -64,25 +65,11 @@ const AboutUsPage = () => {
         paddingBottom: "3rem",
       }}
     >
-      <div className="flex flex-col justify-center w-full md:w-[95%]">
-        <div className="mt-[5rem] lg:mt-[6rem]">
-          <div className="w-[95%] mx-auto bg-banner text-white bg-cover bg-center bg-no-repeat h-[12rem] -mt-12 rounded-3xl">
-            <div className="flex flex-col justify-between pl-4 md:pl-8 md:px-12 lg:px-16 h-full">
-              <p className="text-gray-400 lg:pb-10 pt-12 cursor-pointer relative top-5 lg:top-10">
-                <a href="/" className="text-gray-400  text-[13px]">
-                  Home
-                </a>{" "}
-                &gt; <p1 className="text-gray-400 text-[13px]">About Us</p1>
-              </p>
-              <div className="flex w-full h-full items-end">
-                <div className="text-[30px] md:text-[40px] lg:text-[45px] font-normal font-serif leading-normal text-center mx-auto my-0 pb-3">
-                  About Us
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <BannerPages
+        link={"about-us"}
+        title={"About Us"}
+        description={"About Us"}
+      />
 
       {!isMobile && (
         <Bounce>
