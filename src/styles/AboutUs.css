@@ -1,7 +1,7 @@
 .sub-heading-content {
   position: fixed;
   z-index: 9;
-  top: 30vh;
+  top: 35vh;
   width: 20%;
   display: block;
   margin-left: 3%;
@@ -361,7 +361,6 @@
   font-size: large;
   margin-bottom: 3%;
 }
-
 
 @media (max-width: 1800px) {
   .button,
