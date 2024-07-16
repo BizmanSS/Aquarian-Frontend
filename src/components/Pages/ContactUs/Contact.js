@@ -5,6 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { toast } from "react-toastify";
 import Datepicker from "tailwind-datepicker-react";
+import BannerPages from "../Banner/BannerPages";
 const ContactUsPage = () => {
   const { isMobile } = useMobile();
   const [firstName, setFirstName] = useState("");
@@ -147,28 +148,11 @@ const ContactUsPage = () => {
   };
   return (
     <div style={{ background: "#FFF" }}>
-      <div className="flex flex-col justify-center w-full md:w-[95%]">
-        <div className="mt-[5rem] lg:mt-[6rem]">
-          <div
-            href="https://www.google.com/maps/place/Aquarian+Immigration+Services/@28.4082328,77.070377,15z/data=!4m6!3m5!1s0x390d23f44c7f8021:0x589c7dd32b5c2779!8m2!3d28.4082328!4d77.070377!16s%2Fg%2F11vqm85pq7?entry=ttu"
-            className="w-[95%] mx-auto text-white bg-banner bg-cover bg-center bg-no-repeat h-[12rem] -mt-12 rounded-3xl"
-          >
-            <div className="flex flex-col justify-between pl-4 md:pl-8 md:px-12 lg:px-16 h-full">
-              <p className="text-gray-400 lg:pb-10 pt-12 cursor-pointer relative top-5 lg:top-10">
-                <a href="/" className="text-gray-400  text-[13px]">
-                  Home
-                </a>{" "}
-                &gt; <p1 className="text-gray-400 text-[13px]">Contact Us</p1>
-              </p>
-              <div className="flex w-full h-full items-end">
-                <div className="text-[30px] md:text-[40px] lg:text-[45px] font-normal font-serif leading-normal text-center mx-auto my-0 pb-3">
-                  Contact Us
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <BannerPages
+        title={"Contact Us"}
+        link={"contact-us"}
+        description={"Contact Us"}
+      />
 
       {!isMobile && (
         <div className="address-content">
