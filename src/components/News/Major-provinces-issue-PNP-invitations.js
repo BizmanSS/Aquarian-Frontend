@@ -325,14 +325,14 @@ const MajorProvinces = () => {
             {" > "}Major Provinces Issue PNP Invitations
           </p>
           <div className="header-content">
-            <h1 className="heading-about">Welcome to Our Blogs</h1>
+            <h1 className="heading-about">Welcome to Our Newsroom</h1>
           </div>
         </div>
         <div className="mt-[2.5rem]">
           <div className="left-blog">
             {vw > 1250 && (
               <div>
-                <h1 className="title-heading">Recent Blogs</h1>
+                <h1 className="title-heading">Recent News</h1>
                 <div class="blog-card-container">
                   <div className="blog-card-recent">
                     {latestNews.map((post, index) => (
