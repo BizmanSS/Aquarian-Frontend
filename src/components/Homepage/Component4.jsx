@@ -89,7 +89,7 @@ const Component4 = () => {
         <div
           ref={sliderRef}
           id="slider"
-          className="overflow-hidden overflow-x-scroll scroll scroll-smooth flex items-center justify-around w-full gap-10 scrollbar-hide"
+          className="overflow-hidden overflow-x-scroll scroll scroll-smooth flex items-center justify-around w-full gap-10 scrollbar-hide pr-20"
         >
           {newsData.map((item, index) => (
             <NewsCard key={index} data={item} />
