@@ -3044,8 +3044,24 @@ const Header = ({ setShowPopUp }) => {
                   )}
                 </li>
                 <li className="relative">
+                  <div className="flex flex-row justify-between max-lg:py-1 px-3">
+                    <a
+                      href="/about-us"
+                      className="cursor-pointer hover:text-[#01F9E1] text-[#ffffff] flex items-center justify-between font-medium my-4"
+                    >
+                      About Us
+                    </a>
+                    <a
+                      href="/contact-us"
+                      className="cursor-pointer hover:text-[#01F9E1] text-[#ffffff] flex items-center justify-between font-medium my-4"
+                    >
+                      Contact Us
+                    </a>
+                  </div>
+                </li>
+                <li className="relative">
                   {" "}
-                  <div className="px-4 py-1 text-[#939393] flex items-center justify-center text-[0.6rem] gap-6 absolute -bottom-[8rem]">
+                  <div className="px-4 py-1 text-[#939393] flex items-center justify-center text-[0.6rem] gap-6 absolute -bottom-[3rem]">
                     <a
                       href="https://www.linkedin.com/company/aquarian-immigration-services/"
                       className="mx-0 p-2"

@@ -5,7 +5,7 @@ import img3 from "../../Assets/image 56.png";
 const Component1 = () => {
   return (
     <div className="w-full lg:w-[97%] flex items-center justify-center gap-0 md:gap-[4rem] py-5 lg:py-28  transition-all ease-in duration-300 delay-75">
-      <div className="w-[20rem] h-[10rem] sm:w-[18rem] md:h-[17rem] flex flex-col items-center justify-center px-8 py-2 rounded-2xl hover:border-transparent hover:scale-105 md:shadow-xl transition ease-in delay-50 duration-300 cursor-pointer">
+      <div className="w-[20rem] h-[10rem] sm:w-[18rem] md:h-[17rem] flex flex-col items-center justify-center px-8 py-2 rounded-2xl hover:border-transparent hover:scale-105 md:shadow-xl md:hover:shadow-4xl transition ease-in delay-50 duration-300 cursor-pointer">
         <img
           src={img1}
           alt={"logo"}

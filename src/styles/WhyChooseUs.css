@@ -71,6 +71,10 @@
   text-align: left;
   border-radius: 22.4px;
 }
+.grey-text-box button:hover {
+  background: #00a292;
+  color: #ffffff;
+}
 .grey-text-box button2 {
   background: #00a292;
   padding: 14.93px 29.86px 14.93px 29.86px;
@@ -82,6 +86,10 @@
   line-height: 14.93px;
   text-align: left;
   border-radius: 22.4px;
+}
+.grey-text-box button2:hover {
+  background: #ffffff;
+  color: #00a292;
 }
 @media (max-width: 1680px) {
   .why-choose-us {
