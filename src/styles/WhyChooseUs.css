@@ -24,7 +24,7 @@
   align-self: flex-end;
   background: #343436;
   width: 547px;
-  padding: 107px 88.41px 90.78px 88px;
+  padding: 84px 88.41px 90.78px 88px;
   border-radius: 36px;
   margin-bottom: -61px;
   margin-left: -114px;
@@ -51,7 +51,8 @@
   font-family: Poppins;
   font-size: 16px;
   font-weight: 300;
-  padding: 30px 0px;
+  padding: 42px 0px;
+  padding-bottom: 64px;
   line-height: 23.5px;
   text-align: left;
 }
@@ -99,7 +100,7 @@
   .grey-text-box {
     width: 509px;
     margin-left: -100px;
-    padding: 67px 68.41px 70.78px 68px;
+    padding: 70px 68.41px 70.78px 70px;
   }
   .grey-text-box h3 {
     font-size: 55px;
@@ -128,6 +129,7 @@
     width: 409px;
     margin-left: -60px;
     margin-bottom: -40px;
+    padding: 50px 68.41px 70.78px 65px;
   }
   .grey-text-box h3 {
     font-size: 50px;
@@ -139,7 +141,8 @@
   .grey-text-box h6 {
     font-size: 11.82px;
     line-height: normal;
-    padding: 25px 0px;
+    padding: 30px 0px;
+    padding-bottom: 55px;
   }
   .grey-text-box button {
     padding: 12.93px 25.86px 12.93px 25.86px;
@@ -172,7 +175,7 @@
   .grey-text-box {
     width: 359px;
     margin-left: -50px;
-    padding: 67px 65.41px 67px 65.41px;
+    padding: 46px 65.41px 52px 65.41px;
   }
   .grey-text-box h3 {
     font-size: 45px;
@@ -184,7 +187,6 @@
   .grey-text-box h6 {
     font-size: 9.9px;
     line-height: normal;
-    padding: 25px 0px;
   }
 }
 @media (max-width: 825px) {

@@ -326,10 +326,7 @@ const LatestNews = () => {
 
                       <p2>{news.description} </p2>
                     </div>
-                    <a href={news.path}>
-                      Read more...{" "}
-                      <FaArrowRightLong style={{ alignSelf: "center" }} />
-                    </a>
+                    <a href={news.path}>Read more... </a>
                   </div>
                 </div>
               </a>
@@ -420,10 +417,7 @@ const LatestNews = () => {
                           {!isMobile && <br />}
                           <p2>{news.description} </p2>
                         </div>
-                        <a href={news.path}>
-                          Read more...{" "}
-                          <FaArrowRightLong style={{ alignSelf: "center" }} />
-                        </a>
+                        <a href={news.path}>Read more... </a>
                       </div>
                     </div>
                   </a>

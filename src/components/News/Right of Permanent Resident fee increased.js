@@ -409,12 +409,13 @@ const RightOfPermanent = () => {
       path: "/latest-news/french-proficiency-leads-category-based-selection",
     },
     {
-      title: "AVERAGED LANGUAGE SCORES NOW ACCEPTED UN",
+      title:
+        "Averaged Language Scores now Accepted under Express Entry for Disabled Candidates",
       image: Averaged,
       path: "/latest-news/averaged-language-scores-now-accepted-under-express-entry-for-disabled-candidates",
     },
     {
-      title: "WORKING HOURS INCREASED FOR STUDENTS IN",
+      title: "Working hours Increased for Students in Canada",
       image: Working,
       path: "/latest-news/working-hours-increased-for-students-in-canada",
     },
@@ -427,7 +428,7 @@ const RightOfPermanent = () => {
         </a>
         <div className="title-recent">
           <a href={path}>
-            <h1>{title}</h1>
+            <h1 className="line-clamp-2">{title}</h1>
           </a>
           <p2>
             <a href={path}>Know more{" >"}</a>
@@ -443,7 +444,7 @@ const RightOfPermanent = () => {
           <p className="link">
             <a href="/">Home</a>
             {" > "}
-            <a href="/blogs">Blogs</a>
+            <a href="/latest-news">Newsroom</a>
             {" > "}Right of Permanent Resident fee increased
           </p>
           <div className="header-content">
@@ -500,10 +501,7 @@ const RightOfPermanent = () => {
 
                         <p2>{news.description} </p2>
                       </div>
-                      <a href={news.path}>
-                        Read more...{" "}
-                        <FaArrowRightLong style={{ alignSelf: "center" }} />
-                      </a>
+                      <a href={news.path}>Read more... </a>
                     </div>
                   </div>
                 </a>

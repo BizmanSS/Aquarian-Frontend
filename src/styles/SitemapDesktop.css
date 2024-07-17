@@ -46,13 +46,13 @@
 
 .sidebar-main-div-global ul li span {
   cursor: pointer;
-
   font-style: normal;
   line-height: normal;
 }
-/* .sidebar-main-div-global ul li span:hover {
+.sidebar-main-div-global ul li span:hover,
+.sidebar-main-div-global .flex-div:hover {
   color: #009889;
-} */
+}
 .flex-div {
   display: flex;
   justify-content: space-between;
@@ -113,9 +113,7 @@
     padding: 1.7rem 0rem 1.7rem 0rem;
     width: 23%;
   }
-  .sidebar-main-div-global ul li span {
-    font-size: 17px;
-  }
+
   .sidebar-main-div-global vl {
     padding-right: 1.7rem;
     padding-left: 1.7rem;
@@ -127,9 +125,6 @@
   }
 }
 @media (max-width: 1400px) {
-  .sidebar-main-div-global ul li span {
-    font-size: 15px;
-  }
   .sidebar-main-div-global {
     padding: 1.5rem 0rem 1.5rem 0rem;
   }
@@ -167,9 +162,7 @@
     padding-right: 1.2rem;
     padding-left: 1.2rem;
   }
-  .sidebar-main-div-global ul li span {
-    font-size: 13.5px;
-  }
+
   .flex-div {
     margin-bottom: 0.1rem;
     /* Aligns items to start and end of the flex container */

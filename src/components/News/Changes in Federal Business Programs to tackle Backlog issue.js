@@ -17,17 +17,18 @@ const ChangesInFederal = () => {
 
   const latestNews = [
     {
-      title: "RIGHT OF PERMANENT RESIDENT FEE INCREASE",
+      title: "Right of Permanent Resident fee increased",
       image: Right,
       path: "/latest-news/right-of-permanent-resident-fee-increased",
     },
     {
-      title: "AVERAGED LANGUAGE SCORES NOW ACCEPTED UN",
+      title:
+        "Averaged Language Scores now Accepted under Express Entry for Disabled Candidates",
       image: Averaged,
       path: "/latest-news/averaged-language-scores-now-accepted-under-express-entry-for-disabled-candidates",
     },
     {
-      title: "WORKING HOURS INCREASED FOR STUDENTS IN",
+      title: "Working hours Increased for Students in Canada",
       image: Working,
       path: "/latest-news/working-hours-increased-for-students-in-canada",
     },
@@ -40,7 +41,7 @@ const ChangesInFederal = () => {
         </a>
         <div className="title-recent">
           <a href={path}>
-            <h1>{title}</h1>
+            <h1 className="line-clamp-2">{title}</h1>
           </a>
           <p2>
             <a href={path}>Know more{" >"}</a>
@@ -301,7 +302,7 @@ const ChangesInFederal = () => {
           <p className="link">
             <a href="/">Home</a>
             {" > "}
-            <a href="/blogs">Blogs</a>
+            <a href="/latest-news">Newsroom</a>
             {" > "} Changes in Federal Business Programs to tackle Backlog issue
           </p>
           <div className="header-content">
@@ -358,10 +359,7 @@ const ChangesInFederal = () => {
 
                         <p2>{news.description} </p2>
                       </div>
-                      <a href={news.path}>
-                        Read more...{" "}
-                        <FaArrowRightLong style={{ alignSelf: "center" }} />
-                      </a>
+                      <a href={news.path}>Read more... </a>
                     </div>
                   </div>
                 </a>

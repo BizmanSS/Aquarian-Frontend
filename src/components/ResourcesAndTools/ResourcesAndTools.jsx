@@ -232,10 +232,9 @@ const ResourcesAndTools = () => {
           </div>
           <p className="py-4 text-center lg:text-left">
             Introducing our suite of calculators and tools tailored to transform
-            your Canadian dream into reality. From <br /> immigration
-            eligibility to language preparedness, our comprehensive scoring
-            system provides the insights <br /> you need to navigate your
-            journey confidently.
+            your Canadian dream into reality. From immigration eligibility to
+            language preparedness, our comprehensive scoring system provides the
+            insights you need to navigate your journey confidently.
           </p>
         </div>
       </div>
@@ -944,12 +943,12 @@ const ResourcesAndTools = () => {
       <div
         id="exams"
         ref={examGuidesRef}
-        className="w-[90%] flex flex-col items-end"
+        className="w-[90%] flex flex-col items-end mb-14"
       >
-        <div className="w-[95%] lg:w-[76%] flex flex-col items-start justify-center mt-8">
+        <div className="w-[95%] lg:w-[75%] flex flex-col items-start justify-center mt-8">
           <div className="font-medium text-3xl ml-5 lg:ml-20">Exam Guides</div>
           <div className="w-[90%] h-1 bg-[#019989] ml-5 lg:ml-20"></div>
-          <div className="w-full ml-0 pt-0 xl:pt-0 h-auto rounded-3xl mt-14 flex items-center justify-center gap-4 xl:ml-20 flex-wrap">
+          <div className="w-full ml-0 pt-0 xl:pt-0 h-auto rounded-3xl mt-14 flex items-center justify-center gap-4 xl:ml-10 flex-wrap">
             {examData.map((item, id) => (
               <div
                 key={id}
@@ -960,16 +959,28 @@ const ResourcesAndTools = () => {
                   alt="icon"
                   className="w-[6rem] mx-4 my-2"
                 />
-                <div className="flex items-center justify-between w-full px-4 py-2">
-                  <div className="text-[12px] text-gray-500 font-normal underline mt-2 tracking-wider flex flex-col items-start justify-center gap-2">
-                    <p className="cursor-pointer">{item.items[0]}</p>
-                    <p className="cursor-pointer">{item.items[1]}</p>
-                    <p className="cursor-pointer">{item.items[2]}</p>
+                <div className="flex items-center justify-between w-full px-4 py-2 gap-5 ">
+                  <div className="text-[12px] text-gray-500 font-normal underline mt-2 tracking-wider flex flex-col items-start justify-center  gap-2">
+                    <p className="cursor-pointer text-nowrap">
+                      {item.items[0]}
+                    </p>
+                    <p className="cursor-pointer text-nowrap">
+                      {item.items[1]}
+                    </p>
+                    <p className="cursor-pointer text-nowrap">
+                      {item.items[2]}
+                    </p>
                   </div>
-                  <div className="text-[12px] text-gray-500 font-normal underline mt-2 tracking-wider flex flex-col items-start justify-center gap-2">
-                    <p className="cursor-pointer">{item.items[3]}</p>
-                    <p className="cursor-pointer">{item.items[4]}</p>
-                    <p className="cursor-pointer">{item.items[5]}</p>
+                  <div className="text-[12px] text-gray-500 font-normal underline mt-2 tracking-wider flex flex-col items-end justify-center gap-2">
+                    <p className="cursor-pointer text-nowrap">
+                      {item.items[3]}
+                    </p>
+                    <p className="cursor-pointer text-nowrap">
+                      {item.items[4]}
+                    </p>
+                    <p className="cursor-pointer text-nowrap">
+                      {item.items[5]}
+                    </p>
                   </div>
                 </div>
               </div>

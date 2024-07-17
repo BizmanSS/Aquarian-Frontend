@@ -15,7 +15,7 @@ module.exports = {
         "2lg": "1350px",
       },
       backgroundImage: {
-        banner: "url('/src/Assets/Rectangle156.png')",
+        banner: "url('/src/Assets/AboutUsHeader.png')",
       },
       skew: {
         30: "30deg",

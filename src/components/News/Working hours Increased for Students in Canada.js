@@ -235,7 +235,8 @@ const WorkingHoursIncreased = () => {
       path: "/latest-news/french-proficiency-leads-category-based-selection",
     },
     {
-      title: "AVERAGED LANGUAGE SCORES NOW ACCEPTED UN",
+      title:
+        "Averaged Language Scores now Accepted under Express Entry for Disabled Candidates",
       image: Averaged,
       path: "/latest-news/averaged-language-scores-now-accepted-under-express-entry-for-disabled-candidates",
     },
@@ -253,7 +254,7 @@ const WorkingHoursIncreased = () => {
         </a>
         <div className="title-recent">
           <a href={path}>
-            <h1>{title}</h1>
+            <h1 className="line-clamp-2">{title}</h1>
           </a>
           <p2>
             <a href={path}>Know more{" >"}</a>
@@ -270,7 +271,7 @@ const WorkingHoursIncreased = () => {
           <p className="link">
             <a href="/">Home</a>
             {" > "}
-            <a href="/blogs">Blogs</a>
+            <a href="/latest-news">Newsroom</a>
             {" > "}Working hours Increased for Students in Canada
           </p>
           <div className="header-content">
@@ -327,10 +328,7 @@ const WorkingHoursIncreased = () => {
 
                         <p2>{news.description} </p2>
                       </div>
-                      <a href={news.path}>
-                        Read more...{" "}
-                        <FaArrowRightLong style={{ alignSelf: "center" }} />
-                      </a>
+                      <a href={news.path}>Read more... </a>
                     </div>
                   </div>
                 </a>

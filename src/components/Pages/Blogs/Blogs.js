@@ -137,7 +137,8 @@ const BlogPosts = () => {
       path: "/latest-news/right-of-permanent-resident-fee-increased",
     },
     {
-      title: "Averaged Language Scores now Accepted under Express Entry...",
+      title:
+        "Averaged Language Scores now Accepted under Express Entry for Disabled Candidates",
       image: newsTwo,
       path: "/latest-news/averaged-language-scores-now-accepted-under-express-entry-for-disabled-candidates",
     },
@@ -155,7 +156,7 @@ const BlogPosts = () => {
         </a>
         <div className="title-recent">
           <a href={path}>
-            <h1>{title}</h1>
+            <h1 className="line-clamp-2">{title}</h1>
           </a>
           <p2>
             <a href={path}>Know more{" >"}</a>
