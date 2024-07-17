@@ -392,7 +392,7 @@ const Header = ({ setShowPopUp }) => {
 
   return (
     <div className="">
-      <div className="bg-black h-[6rem] xl:h-[6.5rem] fixed z-40 top-0 flex flex-col items-center justify-start w-full md:w-[94%] 7xl:w-[96%] 7xl:-ml-[1.2rem] max-w-[140rem] 8xl:-ml-[3rem]">
+      <div className="bg-black h-[5rem] xl:h-[6.5rem] fixed z-40 top-0 flex flex-col items-center justify-start w-full md:w-[94%] 7xl:w-[96%] 7xl:-ml-[1.2rem] max-w-[140rem] 8xl:-ml-[3rem]">
         {!ismobile ? (
           <>
             {" "}
@@ -2332,7 +2332,7 @@ const Header = ({ setShowPopUp }) => {
             </div>
           </>
         ) : (
-          <div className="w-[99%] flex items-center justify-around sm:justify-between gap-10 sm:px-10">
+          <div className="w-[99%] h-full flex items-center justify-around sm:justify-between gap-10 sm:px-10">
             <div
               className="flex items-center mt-3 justify-start p-2 bg-transparent cursor-pointer rounded-lg transition ease-in delay-50 duration-200"
               onClick={handleMenuClick}
