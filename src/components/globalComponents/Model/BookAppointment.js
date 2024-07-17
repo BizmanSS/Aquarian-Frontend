@@ -178,6 +178,7 @@ const BookAppointmentModel = ({
         const data = response.data;
         toast.success("You have successfully submited your form!");
         console.log("Successfully submited form", data.message);
+        setShowPopUp(true);
       }
     } catch (error) {
       console.log("Error during form submission", error);
@@ -362,11 +363,7 @@ const BookAppointmentModel = ({
                   )}
                 </div>
 
-                <button
-                  onClick={() => setShowPopUp(true)}
-                  className="Submitbutton"
-                  type="submit"
-                >
+                <button className="Submitbutton" type="submit">
                   Submit
                 </button>
               </form>
