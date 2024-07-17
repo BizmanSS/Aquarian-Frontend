@@ -408,12 +408,16 @@ const LatestNews = () => {
                       <div className="content-card">
                         <div>
                           <p3>{news.date}</p3>
-                          <br />
-                          <br />
+                          {!isMobile && (
+                            <>
+                              <br />
+                              <br />
+                            </>
+                          )}
                           <a href={news.path}>
                             <h1>{news.title}</h1>
                           </a>
-                          <br />
+                          {!isMobile && <br />}
                           <p2>{news.description} </p2>
                         </div>
                         <a href={news.path}>

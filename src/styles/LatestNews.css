@@ -254,7 +254,7 @@
     width: 95%;
     margin-left: 2.5%;
   }
-  
+
   .news-upper-card .content-card {
     width: 100%;
     padding: 0.3rem;
@@ -270,9 +270,21 @@
   }
   .news-upper-card .content-card h1 {
     font-size: 16px;
+    display: -webkit-box;
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .news-upper-card .content-card p2 {
     font-size: 12px;
+    display: -webkit-box;
+    line-clamp: 3;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .news-upper-card .content-card a {
     gap: 3px;
