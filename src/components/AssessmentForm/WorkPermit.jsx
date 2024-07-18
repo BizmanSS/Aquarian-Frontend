@@ -76,14 +76,14 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
     }
     if (!formData.maritalStatus)
       tempErrors.maritalStatus = "Marital Status is required";
-    if (!formData.age) tempErrors.age = "Age is required";
+    if (formData.age === "") tempErrors.age = "Age is required";
     if (!formData.nationality)
       tempErrors.nationality = "Nationality is required";
-    if (!formData.region) tempErrors.region = "Region is required";
-    if (formData.region === "In Canada" && !formData.status) {
+    if (formData.region === "") tempErrors.region = "Region is required";
+    if (formData.region === "In Canada" && formData.status === "") {
       tempErrors.status = "Current status in Canada is required";
     }
-    if (!formData.EducationLevel)
+    if (formData.EducationLevel === "")
       tempErrors.EducationLevel = "Please specify Your Level of Education";
     if (!formData.children)
       tempErrors.children = "Please specify if you have any children under 22";
@@ -95,7 +95,7 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
     if (
       formData.maritalStatus === "married" &&
       formData.isSpouseinCanada === "yes" &&
-      !formData.statusOfWife
+      formData.statusOfWife === ""
     ) {
       tempErrors.statusOfWife = "Please specify the status of your wife";
     }
@@ -458,7 +458,7 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
                       value={formData.age}
                       className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
                     >
-                      <option disabled selected>
+                      <option value="" selected>
                         Select
                       </option>
                       {ageOptions.map((option) => (
@@ -488,7 +488,7 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
                       value={formData.maritalStatus}
                       className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
                     >
-                      <option disabled selected>
+                      <option value="" selected>
                         Select
                       </option>
                       {maritalStatusOptions.map((option) => (
@@ -576,7 +576,7 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
                           value={formData.statusOfWife}
                           className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
                         >
-                          <option disabled selected>
+                          <option value="" selected>
                             Select
                           </option>
                           <option className="text-black" value="PR">
@@ -624,7 +624,7 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
                       value={formData.region}
                       className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
                     >
-                      <option disabled selected>
+                      <option value="" selected>
                         Select
                       </option>
                       <option className="text-black" value="In Canada">
@@ -652,7 +652,7 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
                         value={formData.status}
                         className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
                       >
-                        <option disabled selected>
+                        <option value="" selected>
                           Select
                         </option>
                         <option className="text-black" value="Student PSWP">
@@ -692,7 +692,7 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
                       value={formData.EducationLevel}
                       className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
                     >
-                      <option disabled selected>
+                      <option value="" selected>
                         Select
                       </option>
                       <option
@@ -1188,7 +1188,7 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
                                 apiEndpoint={`${process.env.REACT_APP_API}/occupations`}
                                 onSelect={(option) =>
                                   handleWorkSelect(index, option)
-                                }
+                                }5
                                 id={`occupation-${index}`}
                                 name={`occupation-${index}`}
                                 value={
