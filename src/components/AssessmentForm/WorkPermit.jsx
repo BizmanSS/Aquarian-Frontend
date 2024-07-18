@@ -444,8 +444,12 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
                         <option disabled selected>
                           Select
                         </option>
-                        {maritalStatusOptions.map(option => (
-                          <option key={option.value} className='text-black' value={option.value}>
+                        {maritalStatusOptions.map((option) => (
+                          <option
+                            key={option.value}
+                            className="text-black"
+                            value={option.value}
+                          >
                             {option.label}
                           </option>
                         ))}
@@ -713,7 +717,7 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
                             name: "phone",
                             id: "phone",
                             required: true,
-                            autoFocus: true,
+                            autoFocus: false,
                           }}
                           inputStyle={{
                             width: "100%",
@@ -752,8 +756,12 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
                         <option disabled selected>
                           Select
                         </option>
-                        {ageOptions.map(option => (
-                          <option key={option.value} className='text-black' value={option.value}>
+                        {ageOptions.map((option) => (
+                          <option
+                            key={option.value}
+                            className="text-black"
+                            value={option.value}
+                          >
                             {option.label}
                           </option>
                         ))}
