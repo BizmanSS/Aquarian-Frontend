@@ -575,18 +575,15 @@ const App = () => {
               {!showQuickLinks && (
                 <div
                   onClick={toggleQuickLinks}
-                  className="md:hidden fixed z-50 top-[45vh] right-0 bg-black cursor-pointer "
+                  className="md:hidden fixed z-50 top-[45vh] right-0  cursor-pointer "
                 >
-                  <img src={img4} alt={"logo"} className="w-10 p-1" />
+                  <img src={img4} alt={"logo"} className="w-8" />
                 </div>
               )}
               {showQuickLinks && (
                 <div className="md:hidden fixed bottom-0 w-full flex items-center z-40">
                   <div className="bg-[#282928] h-[50vh] w-full flex flex-col items-center rounded-t-[30px] pl-8 py-4">
-                    <div class="w-full flex items-center justify-between">
-                      <span className="text-[14px] text-gray-400">
-                        Quick links
-                      </span>
+                    <div class="w-full flex items-center justify-end">
                       <div
                         onClick={toggleQuickLinks}
                         className="relative left-0"

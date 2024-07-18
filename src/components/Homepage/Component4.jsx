@@ -78,7 +78,7 @@ const Component4 = () => {
   return (
     <div className="h-auto mt-[0rem] lg:mt-[7rem] px-4 pt-4 lg:pt-20 lg:px-20 pb-10 bg-gradient-to-r from-white to-slate-50">
       <div className="w-full lg:w-[70%]">
-        <div className="text-[1.8rem] md:text-[3rem] font-semibold flex items-center justify-center md:block mt-14 mb-8">
+        <div className="text-[1.8rem] md:text-[3rem] font-semibold flex items-center gap-[6px] justify-center md:block mt-14 mb-8">
           Latest <span className="text-[#019989]"> News</span>
         </div>
         {/* <div className='text-[3rem] font-semibold mx-[0.2rem] lg:mx-[3.8rem] my-4'>

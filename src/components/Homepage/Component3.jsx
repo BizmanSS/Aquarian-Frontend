@@ -16,7 +16,7 @@ const Component3 = () => {
     <div className="flex flex-col items-center justify-center mt-10">
       {isMobile ? (
         <div className="w-[99%] lg:w-[70%] mt-10">
-          <div className="text-[1.8rem] md:text-[3rem] font-semibold flex items-center justify-center md:block -mb-4">
+          <div className="text-[1.8rem] md:text-[3rem] font-semibold gap-[6px] flex items-center justify-center md:block -mb-4">
             Why Choose <span className="text-[#019989]">Us</span>
           </div>
           <div className="flex items-center justify-center relative">
@@ -39,7 +39,7 @@ const Component3 = () => {
                   of industry experts, while forging lifelong relationships with
                   our clients.
                 </div>
-                <div className="w-full flex items-center justify-between mb-2">
+                <div className="w-full flex items-center justify-between mb-3">
                   <button
                     onClick={handleAppointmentClick}
                     className="bg-[#fefeff] text-[#01A392] px-8 py-3 rounded-full text-[15px] "
