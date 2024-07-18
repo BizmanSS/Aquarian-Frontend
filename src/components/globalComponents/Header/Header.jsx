@@ -2370,7 +2370,7 @@ const Header = ({ setShowPopUp }) => {
               <ul
                 className={`fixed text-white top-0 left-0 h-screen py-10 text-[17px] px-6 font-medium w-full md:w-[70%] bg-[#646767] bg-opacity-95 z-50 mr-[15rem] overflow-y-scroll scroll scroll-smooth scrollbar-hide`}
               >
-                <li class="mb-6 flex items-center justify-between">
+                <li className="mb-6 flex items-center justify-between">
                   <span className="text-[16px] ml-4">Menu</span>
                   <div onClick={() => setShowMobileHeader(false)} className="">
                     <button
@@ -2383,10 +2383,10 @@ const Header = ({ setShowPopUp }) => {
                 </li>
 
                 <li
-                  class="max-lg:border-b border-gray-400 max-lg:py-1 px-3"
+                  className="max-lg:border-b border-gray-400 max-lg:py-1 px-3"
                   onClick={toggleImmigrateSubmenu}
                 >
-                  <span class="cursor-pointer hover:text-[#01F9E1] text-[#ffffff]  font-medium my-4 flex items-center justify-between">
+                  <span className="cursor-pointer hover:text-[#01F9E1] text-[#ffffff]  font-medium my-4 flex items-center justify-between">
                     Immigrate
                     {showHeadersSubmenu.immigrate ? (
                       <FiMinus
@@ -2478,10 +2478,10 @@ const Header = ({ setShowPopUp }) => {
                   )}
                 </li>
                 <li
-                  class="max-lg:border-b border-gray-400 max-lg:py-1 px-3"
+                  className="max-lg:border-b border-gray-400 max-lg:py-1 px-3"
                   onClick={toggleWorkSubmenu}
                 >
-                  <span class="cursor-pointer hover:text-[#01F9E1] text-[#ffffff] font-medium my-4 flex items-center justify-between">
+                  <span className="cursor-pointer hover:text-[#01F9E1] text-[#ffffff] font-medium my-4 flex items-center justify-between">
                     Work
                     {showHeadersSubmenu.work ? (
                       <FiMinus
@@ -2573,10 +2573,10 @@ const Header = ({ setShowPopUp }) => {
                   )}
                 </li>
                 <li
-                  class="max-lg:border-b border-gray-400 max-lg:py-1 px-3 "
+                  className="max-lg:border-b border-gray-400 max-lg:py-1 px-3 "
                   onClick={toggleStudySubmenu}
                 >
-                  <span class="cursor-pointer hover:text-[#01F9E1] text-[#ffffff] font-medium my-4 flex items-center justify-between">
+                  <span className="cursor-pointer hover:text-[#01F9E1] text-[#ffffff] font-medium my-4 flex items-center justify-between">
                     Study
                     {showHeadersSubmenu.study ? (
                       <FiMinus
@@ -2668,10 +2668,10 @@ const Header = ({ setShowPopUp }) => {
                   )}
                 </li>
                 <li
-                  class="max-lg:border-b border-gray-400 max-lg:py-1 px-3"
+                  className="max-lg:border-b border-gray-400 max-lg:py-1 px-3"
                   onClick={toggleSponsorshipSubmenu}
                 >
-                  <span class="cursor-pointer hover:text-[#01F9E1] text-[#ffffff] font-medium my-4 flex items-center justify-between">
+                  <span className="cursor-pointer hover:text-[#01F9E1] text-[#ffffff] font-medium my-4 flex items-center justify-between">
                     Sponsorship
                     {showHeadersSubmenu.sponsorship ? (
                       <FiMinus
@@ -2762,10 +2762,10 @@ const Header = ({ setShowPopUp }) => {
                   )}
                 </li>
                 <li
-                  class="max-lg:border-b border-gray-400 max-lg:py-1 px-3"
+                  className="max-lg:border-b border-gray-400 max-lg:py-1 px-3"
                   onClick={toggleBusinessSubmenu}
                 >
-                  <span class="cursor-pointer hover:text-[#01F9E1] text-[#ffffff] flex items-center justify-between font-medium my-4">
+                  <span className="cursor-pointer hover:text-[#01F9E1] text-[#ffffff] flex items-center justify-between font-medium my-4">
                     Business
                     {showHeadersSubmenu.business ? (
                       <FiMinus
@@ -2856,10 +2856,10 @@ const Header = ({ setShowPopUp }) => {
                   )}
                 </li>
                 <li
-                  class="max-lg:border-b border-gray-400 max-lg:py-1 px-3"
+                  className="max-lg:border-b border-gray-400 max-lg:py-1 px-3"
                   onClick={toggleVisitSubmenu}
                 >
-                  <span class="cursor-pointer hover:text-[#01F9E1] text-[#ffffff] flex items-center justify-between font-medium my-4">
+                  <span className="cursor-pointer hover:text-[#01F9E1] text-[#ffffff] flex items-center justify-between font-medium my-4">
                     Visit
                     {showHeadersSubmenu.visit ? (
                       <FiMinus
@@ -2950,10 +2950,10 @@ const Header = ({ setShowPopUp }) => {
                   )}
                 </li>
                 <li
-                  class="max-lg:border-b border-gray-400 max-lg:py-1 px-3"
+                  className="max-lg:border-b border-gray-400 max-lg:py-1 px-3"
                   onClick={toggleEmployersSubmenu}
                 >
-                  <span class="cursor-pointer hover:text-[#01F9E1] text-[#ffffff] flex items-center justify-between font-medium my-4">
+                  <span className="cursor-pointer hover:text-[#01F9E1] text-[#ffffff] flex items-center justify-between font-medium my-4">
                     Employers
                     {showHeadersSubmenu.employer ? (
                       <FiMinus

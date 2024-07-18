@@ -310,7 +310,7 @@ const LatestNews = () => {
       />
 
       <div className="mt-10">
-        <div class="news-card-container">
+        <div className="news-card-container">
           <div className="news-card-upper">
             {news.map((news) => (
               <a key={news.id} href={news.path}>
@@ -338,7 +338,7 @@ const LatestNews = () => {
         {vw > 1250 && (
           <div className="recent-blogs-container">
             <h1 className="title-heading">Recent Blogs</h1>
-            <div class="blog-card-container">
+            <div className="blog-card-container">
               <div className="blog-card-recent">
                 {recentBlogs.map((post, index) => (
                   <RecentBlogs key={index} {...post} />
@@ -486,7 +486,7 @@ const LatestNews = () => {
         {isMobile && (
           <div className="recent-blogs-container">
             <h1 className="title-heading">Recent Blogs</h1>
-            <div class="blog-card-container">
+            <div className="blog-card-container">
               <div className="blog-card-recent">
                 {recentBlogs.map((post, index) => (
                   <RecentBlogs key={index} {...post} />

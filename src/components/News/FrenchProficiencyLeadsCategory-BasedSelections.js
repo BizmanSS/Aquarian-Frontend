@@ -317,7 +317,7 @@ const FrenchProficiency = () => {
             {vw > 1250 && (
               <div>
                 <h1 className="title-heading">Recent News</h1>
-                <div class="blog-card-container">
+                <div className="blog-card-container">
                   <div className="blog-card-recent">
                     {latestNews.map((post, index) => (
                       <LatestNews key={index} {...post} />
@@ -342,7 +342,7 @@ const FrenchProficiency = () => {
             </div>
             <br />
           </div>
-          <div class="news-card-container">
+          <div className="news-card-container">
             <div className="news-card-upper">
               {newsData.map((news) => (
                 <a key={news.id} href={news.path}>

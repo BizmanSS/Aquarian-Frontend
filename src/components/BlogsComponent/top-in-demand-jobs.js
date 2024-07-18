@@ -320,7 +320,7 @@ const TopInDemandJobs = () => {
             {vw > 1250 && (
               <div>
                 <h1 className="title-heading">Recent Blogs</h1>
-                <div class="blog-card-container">
+                <div className="blog-card-container">
                   <div className="blog-card-recent">
                     {recentBlogs.map((post, index) => (
                       <RecentBlogs key={index} {...post} />

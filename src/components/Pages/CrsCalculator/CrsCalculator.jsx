@@ -41,13 +41,13 @@ const CrsCalculator = () => {
         </div>
 
         <p className="mt-10">This tool is useful only if:</p>
-        <ul class="list-disc ">
-          <ul class="list-disc pl-10">
+        <ul className="list-disc ">
+          <ul className="list-disc pl-10">
             <li>
               You meet the eligibility criteria for at least one of the Express
               Entry programs, which are:
             </li>
-            <ul class="list-disc pl-14">
+            <ul className="list-disc pl-14">
               <li>Federal Skilled Worker Program</li>
               <li>Federal Skilled Trades Program</li>
               <li>Canadian Experience Class</li>

@@ -272,7 +272,7 @@ const FreeAssessment = () => {
             Choose your evaluation form
           </div>
         </div>
-        <div className="pl-8 w-[85%] border border-l-[7px] border-l-[#01997e] mx-6 lg:mx-20 mb-10 py-6 grid grid-cols-2 lg:grid-cols-3 gap-8 rounded-xl">
+        <div className="pl-8 w-[88%] border border-l-[7px] border-l-[#01997e] mx-6 lg:mx-20 mb-10 py-6 grid grid-cols-2 lg:grid-cols-3 gap-8 rounded-xl">
           <div class="flex items-center">
             <input
               id="radio5"

@@ -583,7 +583,7 @@ const App = () => {
               {showQuickLinks && (
                 <div className="md:hidden fixed bottom-0 w-full flex items-center z-40">
                   <div className="bg-[#282928] h-[50vh] w-full flex flex-col items-center rounded-t-[30px] pl-8 py-4">
-                    <div class="w-full flex items-center justify-end">
+                    <div className="w-full flex items-center justify-end">
                       <div
                         onClick={toggleQuickLinks}
                         className="relative left-0"
