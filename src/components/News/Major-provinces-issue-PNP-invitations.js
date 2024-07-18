@@ -5,7 +5,6 @@ import FrenchImg from "../../Assets/News/french proficiency.png";
 import Right from "../../Assets/News/application fee hiked.png";
 import Working from "../../Assets/News/working hours increased.png";
 import Changes from "../../Assets/News/processing time and backlog.jpg";
-import { FaArrowRightLong } from "react-icons/fa6";
 import { useMobile } from "../globalComponents/MobileContext/IsMobileContext";
 const MajorProvinces = () => {
   const [showBackToTop, setShowBackToTop] = useState(false);
@@ -102,39 +101,36 @@ const MajorProvinces = () => {
     },
   ];
 
-  {
-    /*
-   const keywords = [
-    {
-      title: "New Year Edition",
-    },
-    {
-      title: "New Year Edition",
-    },
-    {
-      title: "New Year Edition",
-    },
-    {
-      title: "New Year Edition",
-    },
-    {
-      title: "New Year Edition",
-    },
-    {
-      title: "New Year Edition",
-    },
-  ];
-  const Keywords = ({ title }) => {
-    return (
-      <div className="post-card-keywords">
-        <div>
-          <h1>{title}</h1>
-        </div>
-      </div>
-    );
-  };
- */
-  }
+  //  const keywords = [
+  //   {
+  //     title: "New Year Edition",
+  //   },
+  //   {
+  //     title: "New Year Edition",
+  //   },
+  //   {
+  //     title: "New Year Edition",
+  //   },
+  //   {
+  //     title: "New Year Edition",
+  //   },
+  //   {
+  //     title: "New Year Edition",
+  //   },
+  //   {
+  //     title: "New Year Edition",
+  //   },
+  // ];
+  // const Keywords = ({ title }) => {
+  //   return (
+  //     <div className="post-card-keywords">
+  //       <div>
+  //         <h1>{title}</h1>
+  //       </div>
+  //     </div>
+  //   );
+  // };
+
   const innerPosts = [
     {
       title: "Major Provinces Issue PNP Invitations",

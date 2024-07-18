@@ -7,7 +7,6 @@ import Right from "../../Assets/News/application fee hiked.png";
 import Working from "../../Assets/News/working hours increased.png";
 import Changes from "../../Assets/News/processing time and backlog.jpg";
 import Major from "../../Assets/News/Major provinces issue PNP invitations.jpg";
-import { FaArrowRightLong } from "react-icons/fa6";
 import { useMobile } from "../globalComponents/MobileContext/IsMobileContext";
 const Table = () => {
   const data = [
@@ -93,40 +92,35 @@ const FrenchProficiency = () => {
 
   const makeDivRelative = useIsInViewport(bubbleRef);
 
-  {
-    /*
-    const keywords = [
-    {
-      title: "New Year Edition",
-    },
-    {
-      title: "New Year Edition",
-    },
-    {
-      title: "New Year Edition",
-    },
-    {
-      title: "New Year Edition",
-    },
-    {
-      title: "New Year Edition",
-    },
-    {
-      title: "New Year Edition",
-    },
-  ];
-  const Keywords = ({ title }) => {
-    return (
-      <div className="post-card-keywords">
-        <div>
-          <h1>{title}</h1>
-        </div>
-      </div>
-    );
-  };
-
-    */
-  }
+  //   const keywords = [
+  //   {
+  //     title: "New Year Edition",
+  //   },
+  //   {
+  //     title: "New Year Edition",
+  //   },
+  //   {
+  //     title: "New Year Edition",
+  //   },
+  //   {
+  //     title: "New Year Edition",
+  //   },
+  //   {
+  //     title: "New Year Edition",
+  //   },
+  //   {
+  //     title: "New Year Edition",
+  //   },
+  // ];
+  // const Keywords = ({ title }) => {
+  //   return (
+  //     <div className="post-card-keywords">
+  //       <div>
+  //         <h1>{title}</h1>
+  //       </div>
+  //     </div>
+  //   );
+  // };
 
   const newsData = [
     {

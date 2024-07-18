@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import NewsCard from "./NewsCard";
 import FrenchImg from "../../Assets/french proficiency.png";
 import Averaged from "../../Assets/average scores accepted.png";

@@ -6,9 +6,9 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import Select from "react-select";
 import countryList from "react-select-country-list";
-import SearchableDropdown from "../SearchableDropdown/SearchableDropdown";
-import { FaPlus } from "react-icons/fa";
-import { RiDeleteBin6Line } from "react-icons/ri";
+// import SearchableDropdown from "../SearchableDropdown/SearchableDropdown";
+// import { FaPlus } from "react-icons/fa";
+// import { RiDeleteBin6Line } from "react-icons/ri";
 import { ageOptions, maritalStatusOptions } from "./data/formSelectOptions";
 
 const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {

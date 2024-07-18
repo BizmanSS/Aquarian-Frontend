@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useMemo, useRef } from "react";
 import "../../../styles/LatestNews.css";
-import { FaArrowRightLong } from "react-icons/fa6";
 import Averaged from "../../../Assets/News/average scores accepted.png";
 import Right from "../../../Assets/News/application fee hiked.png";
 import Working from "../../../Assets/News/working hours increased.png";

@@ -93,38 +93,35 @@ const EverythingYouNeed = () => {
 
   const makeDivRelative = useIsInViewport(bubbleRef);
 
-  {
-    /*
-    const keywords = [
-    {
-      title: "New Year Edition",
-    },
-    {
-      title: "New Year Edition",
-    },
-    {
-      title: "New Year Edition",
-    },
-    {
-      title: "New Year Edition",
-    },
-    {
-      title: "New Year Edition",
-    },
-    {
-      title: "New Year Edition",
-    },
-  ];
-  const Keywords = ({ title }) => {
-    return (
-      <div className="post-card-keywords">
-        <div>
-          <h1>{title}</h1>
-        </div>
-      </div>
-    );
-  }; */
-  }
+  //   const keywords = [
+  //   {
+  //     title: "New Year Edition",
+  //   },
+  //   {
+  //     title: "New Year Edition",
+  //   },
+  //   {
+  //     title: "New Year Edition",
+  //   },
+  //   {
+  //     title: "New Year Edition",
+  //   },
+  //   {
+  //     title: "New Year Edition",
+  //   },
+  //   {
+  //     title: "New Year Edition",
+  //   },
+  // ];
+  // const Keywords = ({ title }) => {
+  //   return (
+  //     <div className="post-card-keywords">
+  //       <div>
+  //         <h1>{title}</h1>
+  //       </div>
+  //     </div>
+  //   );
+  // };
 
   const innerPosts = [
     {
