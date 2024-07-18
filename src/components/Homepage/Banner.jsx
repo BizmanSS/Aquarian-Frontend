@@ -111,7 +111,7 @@ const Banner = () => {
 
         <Link to={"/immigrate/permanent-residency"}>
           <button className="mr-10 bg-black text-white px-4 md:px-10 py-3 rounded-xl text-sm md:text-lg border-[2px] border-[#01F9E1] font-bold transition ease-in-out delay-70 hover:scale-y-[1.1] hover:scale-x-[1.1] duration-300">
-            I want to immigrate permanently to Canada
+            ⁠I WANT TO IMMIGRATE PERMANENTLY TO CANADA
           </button>
         </Link>
 
@@ -119,12 +119,12 @@ const Banner = () => {
           {" "}
           <Link to={"/study/study-in-canada"}>
             <button className="mr-6 bg-transparent text-white px-4 md:px-10 py-3 rounded-xl text-sm md:text-lg border-[2px] border-[#01F9E1] font-bold transition ease-in-out delay-70 hover:scale-y-[1.1] hover:scale-x-[1.1] duration-300">
-              ⁠I want to study
+              ⁠I WANT TO STUDY
             </button>
           </Link>
           <Link to={"/work/work-in-canada"}>
             <button className="mr-10 bg-transparent text-white px-4 md:px-12 py-3 rounded-xl text-sm md:text-lg border-[2px] border-[#01F9E1] font-bold transition ease-in-out delay-70 hover:scale-y-[1.1] hover:scale-x-[1.1] duration-300">
-              I want to work
+              ⁠I WANT TO WORK
             </button>
           </Link>
         </div>
@@ -146,13 +146,13 @@ const Banner = () => {
           <div className="flex items-center justify-center gap-4 w-full">
             {" "}
             <Link to={"/study/study-in-canada"}>
-              <button className=" bg-[#00A292] absolute left-0 text-white px-8  py-3 rounded-r-3xl text-[14px] md:text-lg font-bold transition ease-in-out delay-70 hover:scale-y-[1.1] hover:scale-x-[1.1] duration-300">
-                ⁠I want to study
+              <button className=" bg-[#00A292] absolute left-0 text-white px-5  py-3 rounded-r-3xl text-[14px] md:text-lg font-bold transition ease-in-out delay-70 hover:scale-y-[1.1] hover:scale-x-[1.1] duration-300">
+                ⁠I WANT TO STUDY
               </button>
             </Link>
             <Link to={"/work/work-in-canada"}>
-              <button className=" bg-white text-[#00A292] absolute right-0 px-8  py-3 rounded-l-3xl text-[14px] md:text-lg font-bold transition ease-in-out delay-70 hover:scale-y-[1.1] hover:scale-x-[1.1] duration-300">
-                I want to work
+              <button className=" bg-white text-[#00A292] absolute right-0 px-5  py-3 rounded-l-3xl text-[14px] md:text-lg font-bold transition ease-in-out delay-70 hover:scale-y-[1.1] hover:scale-x-[1.1] duration-300">
+                ⁠I WANT TO WORK
               </button>
             </Link>
           </div>
@@ -160,7 +160,7 @@ const Banner = () => {
 
         <Link to={"/immigrate/permanent-residency"}>
           <button className="bg-gray-400 text-nowrap lg:hidden bg-opacity-85  text-white px-6 py-3 rounded-3xl text-[14px] md:text-lg font-bold transition ease-in-out delay-70 hover:scale-y-[1.1] hover:scale-x-[1.1] duration-300">
-            Immigrate to Canada permanently
+            IMMIGRATE TO CANADA PERMANENTLY
           </button>
         </Link>
       </div>
