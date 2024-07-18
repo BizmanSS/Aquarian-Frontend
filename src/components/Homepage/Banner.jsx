@@ -111,7 +111,7 @@ const Banner = () => {
 
         <Link to={"/immigrate/permanent-residency"}>
           <button className="mr-10 bg-black text-white px-4 md:px-10 py-3 rounded-xl text-sm md:text-lg border-[2px] border-[#01F9E1] font-bold transition ease-in-out delay-70 hover:scale-y-[1.1] hover:scale-x-[1.1] duration-300">
-            ⁠I WANT TO IMMIGRATE PERMANENTLY TO CANADA
+            ⁠I want to Immigrate Permanently to Canada
           </button>
         </Link>
 
@@ -119,12 +119,12 @@ const Banner = () => {
           {" "}
           <Link to={"/study/study-in-canada"}>
             <button className="mr-6 bg-transparent text-white px-4 md:px-10 py-3 rounded-xl text-sm md:text-lg border-[2px] border-[#01F9E1] font-bold transition ease-in-out delay-70 hover:scale-y-[1.1] hover:scale-x-[1.1] duration-300">
-              ⁠I WANT TO STUDY
+              ⁠I want to Study
             </button>
           </Link>
           <Link to={"/work/work-in-canada"}>
             <button className="mr-10 bg-transparent text-white px-4 md:px-12 py-3 rounded-xl text-sm md:text-lg border-[2px] border-[#01F9E1] font-bold transition ease-in-out delay-70 hover:scale-y-[1.1] hover:scale-x-[1.1] duration-300">
-              ⁠I WANT TO WORK
+              ⁠I want to Work
             </button>
           </Link>
         </div>
