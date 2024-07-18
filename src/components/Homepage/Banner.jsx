@@ -159,7 +159,7 @@ const Banner = () => {
         </div>
 
         <Link to={"/immigrate/permanent-residency"}>
-          <button className="bg-gray-400 text-nowrap lg:hidden bg-opacity-85  text-white px-6 py-3 rounded-3xl text-[12px] md:text-lg font-bold transition ease-in-out delay-70 hover:scale-y-[1.1] hover:scale-x-[1.1] duration-300">
+          <button className="bg-gray-400 text-nowrap lg:hidden bg-opacity-85  text-white px-8 py-3 rounded-3xl text-[12px] md:text-lg font-bold transition ease-in-out delay-70 hover:scale-y-[1.1] hover:scale-x-[1.1] duration-300">
             IMMIGRATE TO CANADA PERMANENTLY
           </button>
         </Link>
