@@ -257,9 +257,9 @@ const EducationDetails = ({
               onClick={() => {
                 setSubmitAttemptedEducation(true);
                 // setSelectForm('work-experience');
-                if (validateEducation(true)) {
+                // if (validateEducation(true)) {
                   setSelectForm("work-experience");
-                }
+                // }
               }}
             >
               Next

@@ -41,11 +41,17 @@ const StudyPermit = ({ selectedForm }) => {
     board: '',
     stream: '',
     country: '',
-    workexperience: '',
-    workexperience1: '',
-    occupation: '',
-    employmentHistory: '',
-    workCountry: '',
+    // workexperience: '',
+    // workexperience1: '',
+    // occupation: '',
+    // employmentHistory: '',
+    // workCountry: '',
+    workExperience: [{
+      yearsOfExp: "",
+      occupation: "",
+      employmentHistory: "",
+      country: ""
+    }],
     englishTest: '',
     englishTestType: '',
     englishMedium: '',
@@ -350,11 +356,11 @@ const StudyPermit = ({ selectedForm }) => {
         <WorkExperienceForm
           selectForm={selectForm}
           formData={formData}
+          setFormData={setFormData}
           handleInputChange={handleInputChange}
           workErrors={workErrors}
           validateWork={validateWork}
           setSelectForm={setSelectForm}
-          setFormData={setFormData}
           setSubmitAttemptedWork={setSubmitAttemptedWork}
         />
 

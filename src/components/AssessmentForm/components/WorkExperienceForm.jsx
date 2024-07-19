@@ -1,5 +1,51 @@
 import React from "react";
 import { GoArrowDownRight, GoArrowUpRight } from "react-icons/go";
+import { MdEdit } from "react-icons/md";
+import { MdDeleteForever } from "react-icons/md";
+
+const PastExperienceBox = ({ yearOfExp, designation, occupation, country, handleDelete, handleEdit }) => {
+  const data = [
+    {
+      title: "Total Years Of Experience",
+      value: yearOfExp
+    },
+    {
+      title: "Designation",
+      value: designation
+    },
+    {
+      title: "Occupation",
+      value: occupation
+    },
+    {
+      title: "Country",
+      value: country
+    },
+  ]
+
+  return (
+    <div className="bg-gray-400 bg-opacity-70 p-4 pr-20 rounded-xl relative flex flex-wrap items-center justify-center gap-y-3">
+      <div className="absolute top-2 right-2 flex flex-wrap items-center justify-center gap-2">
+        <button onClick={() => handleEdit()} className="border-none bg-transparent texl-4xl flex flex-wrap items-center justify-center">
+          <MdEdit />
+        </button>
+        <button onClick={() => handleDelete()} className=" text-3xl flex flex-wrap items-center justify-center">
+          <MdDeleteForever />
+        </button>
+      </div>
+
+        {data.map((item, id) => (
+        <div key={id} className="w-1/2 flex items-center justify-between gap-2 px-5">
+          <p className="text-xl font-semibold text-black">
+            {item.title}:
+          </p>
+          <p className="text-xl text-gray-700">
+            {item.value}
+          </p>
+        </div>))}
+    </div>
+  )
+}
 
 const WorkExperienceForm = ({
   selectForm,
@@ -26,6 +72,7 @@ const WorkExperienceForm = ({
           )}
         </span>
       </div>
+
       {selectForm === "work-experience" && (
         <form action="post" className="w-full mt-6">
           <div className="mt-4">
@@ -45,12 +92,12 @@ const WorkExperienceForm = ({
                     name="workexperience"
                     className="hidden"
                     value="yes"
-                    onChange={(e) =>
-                      setFormData({
-                        ...formData,
-                        workexperience: e.target.value,
-                      })
-                    }
+                    // onChange={(e) =>
+                    //   setFormData(prev => {
+                    //     ...prev,
+                    //     workexperience: e.target.value,
+                    //   })
+                    // }
                   />
                   <label
                     for="workexperience001"
@@ -94,12 +141,20 @@ const WorkExperienceForm = ({
           </div>
           {formData.workexperience === "yes" && (
             <>
+
               <div className="font-semibold text-lg mb-4">
                 {" "}
                 Work Experience *
               </div>
 
-              <div className="flex items-center justify-between w-full">
+              <PastExperienceBox
+                yearOfExp={3}
+                occupation={"Dalla"}
+                country={"Lauda Lassun"}
+                designation={"Senior Dalla"}
+              />
+
+              <div className="flex mt-6 items-center justify-between w-full">
                 <div className="w-[45%] flex flex-col items-center justify-center">
                   <div className="mb-3 w-full">
                     <label
