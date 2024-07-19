@@ -13,7 +13,7 @@ import newsTwo from "../../../Assets/average scores accepted.png";
 import newsThree from "../../../Assets/working hours increased.png";
 import { useMobile } from "../../globalComponents/MobileContext/IsMobileContext";
 import BannerPages from "../Banner/BannerPages";
-
+import { IoIosArrowDroprightCircle } from "react-icons/io";
 const BlogPosts = () => {
   const { vw } = useMobile();
   const [searchBlogs, setSearchBlogs] = useState("");
@@ -26,7 +26,7 @@ const BlogPosts = () => {
     {
       title: "Top 10 Universities in Canada",
       description:
-        "For decades, Canada has been a hotspot for international students.Ambitious youngsters",
+        "For decades, Canada has been a hotspot for international students. Ambitious youngsters wanting to reach the zenith come from all over the world to study at these top notch universities. Let us delve into the academic realm of Canada. Here are the top 10 universities.",
       image: Top10,
       path: "/blogs/top-10-universities-in-canada",
       date: "27 MAY 2024",
@@ -34,7 +34,7 @@ const BlogPosts = () => {
     {
       title: "Tips and Tricks on Preparing for IELTS",
       description:
-        "IELTS is an integral requirement for immigrating to Canada.While the preparation may",
+        "IELTS is an integral requirement for immigrating to Canada. While the preparation may seem like scaling a mountain, it does not have to be that tedious. Let us discuss some of the tips and tricks that can help you ace the language test!",
       image: Tips,
       path: "/blogs/tips-and-tricks-on-preparing-for-ielts",
       date: "22 MAY 2024",
@@ -42,7 +42,7 @@ const BlogPosts = () => {
     {
       title: "What is Category Based Selection? Everything you need to know",
       description:
-        "Canada has been a prominent destination for immigrants, known for its diverse population",
+        "Canada has been a prominent destination for immigrants, known for its diverse population that balances economic needs with humanitarian goals. Among the various pathways for immigration, the Express Entry continues to be at the forefront. This system manages applications for three primary economic immigration programs:",
       image: WhatIsCategory,
       path: "/blogs/what-is-category-based-selection-everything-you-need-to-know",
       date: "29 MAY 2024",
@@ -50,7 +50,7 @@ const BlogPosts = () => {
     {
       title: "Top In Demand Jobs in Canada as of 2024",
       description:
-        "Canada has been at the forefront of immigration for ages. People come from all over the ",
+        " Canada has been at the forefront of immigration for ages. People come from all over the world to turn their sweet maple syrup dreams into reality. Being a beacon of opportunities, Canada’s economy attracts professionals from varying backgrounds making it a hotspot for certain occupations.",
       image: TopIn,
       path: "/blogs/top-in-demand-jobs-in-canada-as-of-2024",
       date: "28 MAY 2024",
@@ -59,7 +59,7 @@ const BlogPosts = () => {
       title:
         "Everything you need to know about Sponsoring your Spouse, Partner or Child",
       description:
-        "Sponsoring your spouse, partner or child involves helping them obtain their PR and being able",
+        "Sponsoring your spouse, partner or child involves helping them obtain their Permanent Residency (PR) and being able to support them financially, ensuring that they do not require social assistance from the government.",
       image: Everything,
       path: "/blogs/everything-you-need-to-know-about-sponsoring-your-spouse-and-partner-or-child",
       date: "30 MAY 2024",
@@ -72,16 +72,24 @@ const BlogPosts = () => {
           <img alt="" src={image} />
         </a>
         <p3>{date}</p3>
-        <br /> <br />
+        <br />
         <a href={path}>
-          <h1>{title}</h1>
+          <h1 className="line-clamp-2 min-h-[64px]">{title}</h1>
         </a>
-        <p2>
-          {description}{" "}
-          <a style={{ color: "#b90124", fontStyle: "italic" }} href={path}>
-            Read more...
-          </a>
-        </p2>
+        <p2 className="line-clamp-4">{description} </p2>
+        <a
+          style={{
+            color: "#b90124",
+
+            fontStyle: "italic",
+            display: "flex",
+            gap: "0.3rem",
+          }}
+          href={path}
+        >
+          Read more{" "}
+          <IoIosArrowDroprightCircle style={{ alignSelf: "center" }} />
+        </a>
       </div>
     );
   };
@@ -156,10 +164,11 @@ const BlogPosts = () => {
         </a>
         <div className="title-recent">
           <a href={path}>
-            <h1 className="line-clamp-2">{title}</h1>
+            <h1 className="line-clamp-2 ">{title}</h1>
           </a>
-          <p2>
-            <a href={path}>Know more{" >"}</a>
+          <p2 style={{ display: "flex", gap: "0.3rem" }}>
+            Know more{" "}
+            <IoIosArrowDroprightCircle style={{ alignSelf: "center" }} />
           </p2>
         </div>
       </div>
@@ -192,10 +201,16 @@ const BlogPosts = () => {
         </a>
         <div className="title-recent">
           <a href={path}>
-            <h1>{title}</h1>
+            <h1 className="line-clamp-2">{title}</h1>
           </a>
-          <p2>
-            <a href={path}>Know more{" >"}</a>
+          <p2
+            style={{
+              display: "flex",
+              gap: "0.3rem",
+            }}
+          >
+            Know more{" "}
+            <IoIosArrowDroprightCircle style={{ alignSelf: "center" }} />
           </p2>
         </div>
       </div>

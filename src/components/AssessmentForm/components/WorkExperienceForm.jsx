@@ -3,49 +3,62 @@ import { GoArrowDownRight, GoArrowUpRight } from "react-icons/go";
 import { MdEdit } from "react-icons/md";
 import { MdDeleteForever } from "react-icons/md";
 
-const PastExperienceBox = ({ yearOfExp, designation, occupation, country, handleDelete, handleEdit }) => {
+const PastExperienceBox = ({
+  yearOfExp,
+  designation,
+  occupation,
+  country,
+  handleDelete,
+  handleEdit,
+}) => {
   const data = [
     {
       title: "Total Years Of Experience",
-      value: yearOfExp
+      value: yearOfExp,
     },
     {
       title: "Designation",
-      value: designation
+      value: designation,
     },
     {
       title: "Occupation",
-      value: occupation
+      value: occupation,
     },
     {
       title: "Country",
-      value: country
+      value: country,
     },
-  ]
+  ];
 
   return (
     <div className="bg-gray-400 bg-opacity-70 p-4 pr-20 rounded-xl relative flex flex-wrap items-center justify-center gap-y-3">
       <div className="absolute top-2 right-2 flex flex-wrap items-center justify-center gap-2">
-        <button onClick={() => handleEdit()} className="border-none bg-transparent texl-4xl flex flex-wrap items-center justify-center">
+        <button
+          onClick={() => handleEdit()}
+          className="border-none bg-transparent texl-4xl flex flex-wrap items-center justify-center"
+        >
           <MdEdit />
         </button>
-        <button onClick={() => handleDelete()} className=" text-3xl flex flex-wrap items-center justify-center">
+        <button
+          onClick={() => handleDelete()}
+          className=" text-3xl flex flex-wrap items-center justify-center"
+        >
           <MdDeleteForever />
         </button>
       </div>
 
-        {data.map((item, id) => (
-        <div key={id} className="w-1/2 flex items-center justify-between gap-2 px-5">
-          <p className="text-xl font-semibold text-black">
-            {item.title}:
-          </p>
-          <p className="text-xl text-gray-700">
-            {item.value}
-          </p>
-        </div>))}
+      {data.map((item, id) => (
+        <div
+          key={id}
+          className="w-1/2 flex items-center justify-between gap-2 px-5"
+        >
+          <p className="text-xl font-semibold text-black">{item.title}:</p>
+          <p className="text-xl text-gray-700">{item.value}</p>
+        </div>
+      ))}
     </div>
-  )
-}
+  );
+};
 
 const WorkExperienceForm = ({
   selectForm,
@@ -141,7 +154,6 @@ const WorkExperienceForm = ({
           </div>
           {formData.workexperience === "yes" && (
             <>
-
               <div className="font-semibold text-lg mb-4">
                 {" "}
                 Work Experience *

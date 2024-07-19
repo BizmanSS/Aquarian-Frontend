@@ -9,6 +9,7 @@ import TopIn from "../../Assets/Blogs/Top In Demand Jobs.jpg";
 import Top10 from "../../Assets/Blogs/TOP 10 UNIVERSITIES.jpg";
 import { useMobile } from "../globalComponents/MobileContext/IsMobileContext";
 //import LatestNews from "../Pages/Blogs/LatestNews.js";
+import { IoIosArrowDroprightCircle } from "react-icons/io";
 
 const Table = () => {
   const data = [
@@ -265,8 +266,9 @@ const EverythingYouNeed = () => {
           <a href={path}>
             <h1>{title}</h1>
           </a>
-          <p2>
-            <a href={path}>Know more{" >"}</a>
+          <p2 style={{ display: "flex", gap: "0.3rem" }}>
+            Know more{" "}
+            <IoIosArrowDroprightCircle style={{ alignSelf: "center" }} />
           </p2>
         </div>
       </div>
@@ -277,7 +279,7 @@ const EverythingYouNeed = () => {
     {
       title: "Top In Demand Jobs in Canada as of 2024",
       description:
-        "Canada has been at the forefront of immigration for ages. People come from all over the ",
+        " Canada has been at the forefront of immigration for ages. People come from all over the world to turn their sweet maple syrup dreams into reality. Being a beacon of opportunities, Canada’s economy attracts professionals from varying backgrounds making it a hotspot for certain occupations.",
       image: TopIn,
       path: "/blogs/top-in-demand-jobs-in-canada-as-of-2024",
       date: "28 MAY 2024",
@@ -285,7 +287,7 @@ const EverythingYouNeed = () => {
     {
       title: "Top 10 Universities in Canada",
       description:
-        "For decades, Canada has been a hotspot for international students.Ambitious youngsters",
+        "For decades, Canada has been a hotspot for international students. Ambitious youngsters wanting to reach the zenith come from all over the world to study at these top notch universities. Let us delve into the academic realm of Canada. Here are the top 10 universities.",
       image: Top10,
       path: "/blogs/top-10-universities-in-canada",
       date: "27 MAY 2024",
@@ -293,7 +295,7 @@ const EverythingYouNeed = () => {
     {
       title: "Tips and Tricks on Preparing for IELTS",
       description:
-        "IELTS is an integral requirement for immigrating to Canada.While the preparation may",
+        "IELTS is an integral requirement for immigrating to Canada. While the preparation may seem like scaling a mountain, it does not have to be that tedious. Let us discuss some of the tips and tricks that can help you ace the language test!",
       image: Tips,
       path: "/blogs/tips-and-tricks-on-preparing-for-ielts",
       date: "22 MAY 2024",
@@ -306,16 +308,24 @@ const EverythingYouNeed = () => {
           <img alt="" src={image} />
         </a>
         <p3>{date}</p3>
-        <br /> <br />
+        <br />
         <a href={path}>
-          <h1>{title}</h1>
+          <h1 className="line-clamp-2 min-h-[64px]">{title}</h1>
         </a>
-        <p2>
-          {description}{" "}
-          <a style={{ color: "#b90124", fontStyle: "italic" }} href={path}>
-            Read more...
-          </a>
-        </p2>
+        <p2 className="line-clamp-4">{description} </p2>
+        <a
+          style={{
+            color: "#b90124",
+
+            fontStyle: "italic",
+            display: "flex",
+            gap: "0.3rem",
+          }}
+          href={path}
+        >
+          Read more{" "}
+          <IoIosArrowDroprightCircle style={{ alignSelf: "center" }} />
+        </a>
       </div>
     );
   };

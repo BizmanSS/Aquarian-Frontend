@@ -7,6 +7,7 @@ import Working from "../../Assets/News/working hours increased.png";
 import Changes from "../../Assets/News/processing time and backlog.jpg";
 import Major from "../../Assets/News/Major provinces issue PNP invitations.jpg";
 import { useMobile } from "../globalComponents/MobileContext/IsMobileContext";
+import { IoIosArrowDroprightCircle } from "react-icons/io";
 const AverageLanguageScores = () => {
   const [showBackToTop, setShowBackToTop] = useState(false);
   const bubbleRef = useRef();
@@ -235,8 +236,14 @@ const AverageLanguageScores = () => {
           <a href={path}>
             <h1 className="line-clamp-2">{title}</h1>
           </a>
-          <p2>
-            <a href={path}>Know more{" >"}</a>
+          <p2
+            style={{
+              display: "flex",
+              gap: "0.3rem",
+            }}
+          >
+            Know more{" "}
+            <IoIosArrowDroprightCircle style={{ alignSelf: "center" }} />
           </p2>
         </div>
       </div>
@@ -308,7 +315,19 @@ const AverageLanguageScores = () => {
 
                         <p2>{news.description} </p2>
                       </div>
-                      <a href={news.path}>Read more... </a>
+
+                      <a
+                        style={{
+                          display: "flex",
+                          gap: "0.3rem",
+                        }}
+                        href={news.path}
+                      >
+                        Read more{" "}
+                        <IoIosArrowDroprightCircle
+                          style={{ alignSelf: "center" }}
+                        />
+                      </a>
                     </div>
                   </div>
                 </a>

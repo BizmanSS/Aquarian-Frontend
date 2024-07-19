@@ -9,6 +9,7 @@ import Everything from "../../Assets/Blogs/EVERYTHING YOU NEED.jpg";
 import Tips from "../../Assets/Blogs/TIPS AND TRICKS.jpg";
 import Top10 from "../../Assets/Blogs/TOP 10 UNIVERSITIES.jpg";
 import { useMobile } from "../globalComponents/MobileContext/IsMobileContext";
+import { IoIosArrowDroprightCircle } from "react-icons/io";
 
 const TopInDemandJobs = () => {
   const { vw } = useMobile();
@@ -240,8 +241,9 @@ const TopInDemandJobs = () => {
           <a href={path}>
             <h1>{title}</h1>
           </a>
-          <p2>
-            <a href={path}>Know more{" >"}</a>
+          <p2 style={{ display: "flex", gap: "0.3rem" }}>
+            Know more{" "}
+            <IoIosArrowDroprightCircle style={{ alignSelf: "center" }} />
           </p2>
         </div>
       </div>
@@ -252,7 +254,7 @@ const TopInDemandJobs = () => {
     {
       title: "Tips and Tricks on Preparing for IELTS",
       description:
-        "IELTS is an integral requirement for immigrating to Canada.While the preparation may",
+        "IELTS is an integral requirement for immigrating to Canada. While the preparation may seem like scaling a mountain, it does not have to be that tedious. Let us discuss some of the tips and tricks that can help you ace the language test!",
       image: Tips,
       path: "/blogs/tips-and-tricks-on-preparing-for-ielts",
       date: "22 MAY 2024",
@@ -261,7 +263,7 @@ const TopInDemandJobs = () => {
       title:
         "Everything you need to know about Sponsoring your Spouse, Partner or Child",
       description:
-        "Sponsoring your spouse, partner or child involves helping them obtain their PR and being able",
+        "Sponsoring your spouse, partner or child involves helping them obtain their Permanent Residency (PR) and being able to support them financially, ensuring that they do not require social assistance from the government.",
       image: Everything,
       path: "/blogs/everything-you-need-to-know-about-sponsoring-your-spouse-and-partner-or-child",
       date: "30 MAY 2024",
@@ -269,7 +271,7 @@ const TopInDemandJobs = () => {
     {
       title: "Top 10 Universities in Canada",
       description:
-        "For decades, Canada has been a hotspot for international students.Ambitious youngsters",
+        "For decades, Canada has been a hotspot for international students. Ambitious youngsters wanting to reach the zenith come from all over the world to study at these top notch universities. Let us delve into the academic realm of Canada. Here are the top 10 universities.",
       image: Top10,
       path: "/blogs/top-10-universities-in-canada",
       date: "27 MAY 2024",
@@ -283,16 +285,23 @@ const TopInDemandJobs = () => {
         </a>
         <p3>{date}</p3>
         <br />
-        <br />
         <a href={path}>
-          <h1>{title}</h1>
+          <h1 className="line-clamp-2 min-h-[64px]">{title}</h1>
         </a>
-        <p2>
-          {description}{" "}
-          <a style={{ color: "#b90124", fontStyle: "italic" }} href={path}>
-            Read more...
-          </a>
-        </p2>
+        <p2 className="line-clamp-4">{description} </p2>
+        <a
+          style={{
+            color: "#b90124",
+
+            fontStyle: "italic",
+            display: "flex",
+            gap: "0.3rem",
+          }}
+          href={path}
+        >
+          Read more{" "}
+          <IoIosArrowDroprightCircle style={{ alignSelf: "center" }} />
+        </a>
       </div>
     );
   };

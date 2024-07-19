@@ -6,12 +6,12 @@ import Working from "../../../Assets/News/working hours increased.png";
 import Changes from "../../../Assets/News/processing time and backlog.jpg";
 import FrenchImg from "../../../Assets/News/french proficiency.png";
 import Major from "../../../Assets/News/Major provinces issue PNP invitations.jpg";
-import Top10side from "../../../Assets/Blogs/TOP 10 UNIVERSITIESside.jpg";
+import TipsSide from "../../../Assets/Blogs/TIPS AND TRICKSside.jpg";
 import WhatIsCategoryside from "../../../Assets/Blogs/Category Based Selectionside.jpg";
 import TopInside from "../../../Assets/Blogs/Top In Demand Jobsside.jpg";
 import { useMobile } from "../../globalComponents/MobileContext/IsMobileContext";
 import BannerPages from "../Banner/BannerPages";
-
+import { IoIosArrowDroprightCircle } from "react-icons/io";
 const LatestNews = () => {
   const [showBackToTop, setShowBackToTop] = useState(false);
   const bubbleRef = useRef();
@@ -267,9 +267,9 @@ const LatestNews = () => {
 
   const recentBlogs = [
     {
-      title: "Top 10 Universities in Canada",
-      image: Top10side,
-      path: "/blogs/top-10-universities-in-canada",
+      title: "Tips and Tricks on Preparing for IELTS",
+      image: TipsSide,
+      path: "/blogs/tips-and-tricks-on-preparing-for-ielts",
     },
     {
       title: "Top In Demand Jobs in Canada as of 2024",
@@ -292,8 +292,14 @@ const LatestNews = () => {
           <a href={path}>
             <h1>{title}</h1>
           </a>
-          <p2>
-            <a href={path}>Know more{" >"}</a>
+          <p2
+            style={{
+              display: "flex",
+              gap: "0.3rem",
+            }}
+          >
+            Know more{" "}
+            <IoIosArrowDroprightCircle style={{ alignSelf: "center" }} />
           </p2>
         </div>
       </div>
@@ -325,7 +331,18 @@ const LatestNews = () => {
 
                       <p2>{news.description} </p2>
                     </div>
-                    <a href={news.path}>Read more... </a>
+                    <a
+                      style={{
+                        display: "flex",
+                        gap: "0.3rem",
+                      }}
+                      href={news.path}
+                    >
+                      Read more{" "}
+                      <IoIosArrowDroprightCircle
+                        style={{ alignSelf: "center" }}
+                      />
+                    </a>
                   </div>
                 </div>
               </a>
@@ -416,7 +433,18 @@ const LatestNews = () => {
                           {!isMobile && <br />}
                           <p2>{news.description} </p2>
                         </div>
-                        <a href={news.path}>Read more... </a>
+                        <a
+                          style={{
+                            display: "flex",
+                            gap: "0.3rem",
+                          }}
+                          href={news.path}
+                        >
+                          Read more{" "}
+                          <IoIosArrowDroprightCircle
+                            style={{ alignSelf: "center" }}
+                          />
+                        </a>
                       </div>
                     </div>
                   </a>

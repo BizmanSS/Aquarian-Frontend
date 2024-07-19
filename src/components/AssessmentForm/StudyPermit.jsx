@@ -1,22 +1,24 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import PersonalInformation from './components/PersonalInformation';
-import EducationDetails from './components/EducationDetails';
-import WorkExperienceForm from './components/WorkExperienceForm';
-import EnglishSkillsForm from './components/EnglishSkillsForm';
-import PriorHistoryForm from './components/PriorHistoryForm';
-import AdditionalSectionForm from './components/AdditionalSectionForm';
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import PersonalInformation from "./components/PersonalInformation";
+import EducationDetails from "./components/EducationDetails";
+import WorkExperienceForm from "./components/WorkExperienceForm";
+import EnglishSkillsForm from "./components/EnglishSkillsForm";
+import PriorHistoryForm from "./components/PriorHistoryForm";
+import AdditionalSectionForm from "./components/AdditionalSectionForm";
 
 const StudyPermit = ({ selectedForm }) => {
-  const [selectForm, setSelectForm] = useState('PersonalInformation');
+  const [selectForm, setSelectForm] = useState("PersonalInformation");
   const [submitAttempted, setSubmitAttempted] = useState(false);
-  const [submitAttemptedEducation, setSubmitAttemptedEducation] = useState(false);
+  const [submitAttemptedEducation, setSubmitAttemptedEducation] =
+    useState(false);
   const [submitAttemptedWork, setSubmitAttemptedWork] = useState(false);
   const [submitAttemptedTest, setSubmitAttemptedTest] = useState(false);
   const [submitAttemptedOther, setSubmitAttemptedOther] = useState(false);
-  const [submitAttemptedPriorHistory, setSubmitAttemptedPriorHistory] = useState(false);
+  const [submitAttemptedPriorHistory, setSubmitAttemptedPriorHistory] =
+    useState(false);
   const [errors, setErrors] = useState({});
   const [eduErrors, setEduErrors] = useState({});
   const [workErrors, setWorkErrors] = useState({});
@@ -25,50 +27,50 @@ const StudyPermit = ({ selectedForm }) => {
   const [othersErrors, setOthersErrors] = useState({});
 
   const [formData, setFormData] = useState({
-    firstname: '',
-    lastname: '',
-    email: '',
-    phone: '',
-    maritalStatus: '',
-    age: '',
-    nationality: '',
-    region: '',
-    spouseTravelling: '',
-    children: '',
-    educationqualification: '',
-    educationqualification1: '',
-    passingyear: '',
-    board: '',
-    stream: '',
-    country: '',
-    // workexperience: '',
-    // workexperience1: '',
-    // occupation: '',
-    // employmentHistory: '',
-    // workCountry: '',
-    workExperience: [{
-      yearsOfExp: "",
-      occupation: "",
-      employmentHistory: "",
-      country: ""
-    }],
-    englishTest: '',
-    englishTestType: '',
-    englishMedium: '',
+    firstname: "",
+    lastname: "",
+    email: "",
+    phone: "",
+    maritalStatus: "",
+    age: "",
+    nationality: "",
+    region: "",
+    spouseTravelling: "",
+    children: "",
+    educationqualification: "",
+    educationqualification1: "",
+    passingyear: "",
+    board: "",
+    stream: "",
+    country: "",
+    workexperience: "",
+    workexperience1: "",
+    occupation: "",
+    employmentHistory: "",
+    workCountry: "",
+    // workExperience: [{
+    //   yearsOfExp: "",
+    //   occupation: "",
+    //   employmentHistory: "",
+    //   country: ""
+    // }],
+    englishTest: "",
+    englishTestType: "",
+    englishMedium: "",
     englishTestResult: {
-      reading: '',
-      writing: '',
-      listening: '',
-      speaking: '',
+      reading: "",
+      writing: "",
+      listening: "",
+      speaking: "",
     },
-    futureTestEnglish: '',
-    gapsAfterStudy: '',
-    counselledBefore: '',
-    visaRefused: '',
-    collegeAbroad: '',
-    fieldOfStudy: '',
-    intrestedCollege: '',
-    otherInformation: '',
+    futureTestEnglish: "",
+    gapsAfterStudy: "",
+    counselledBefore: "",
+    visaRefused: "",
+    collegeAbroad: "",
+    fieldOfStudy: "",
+    intrestedCollege: "",
+    otherInformation: "",
   });
   console.log(formData);
 
@@ -77,30 +79,30 @@ const StudyPermit = ({ selectedForm }) => {
 
     if (!formData.counselledBefore) {
       newErrors.counselledBefore =
-        'Please indicate if you have received counseling before.';
+        "Please indicate if you have received counseling before.";
     }
 
     if (!formData.gapsAfterStudy) {
       newErrors.gapsAfterStudy =
-        'Please provide information about any gaps in your study history.';
+        "Please provide information about any gaps in your study history.";
     }
 
     if (!formData.collegeAbroad) {
       newErrors.collegeAbroad =
-        'Please provide information about your study experience abroad.';
+        "Please provide information about your study experience abroad.";
     }
     if (!formData.visaRefused) {
       newErrors.visaRefused =
-        'Please spevify if your visa has been refused before.';
+        "Please spevify if your visa has been refused before.";
     }
 
     if (!formData.fieldOfStudy) {
-      newErrors.fieldOfStudy = 'Please specify your field of study.';
+      newErrors.fieldOfStudy = "Please specify your field of study.";
     }
 
     if (!formData.intrestedCollege) {
       newErrors.intrestedCollege =
-        'Please indicate the college you are interested in.';
+        "Please indicate the college you are interested in.";
     }
     if (showErrors) {
       setPriorHistoryErrors(newErrors);
@@ -111,45 +113,45 @@ const StudyPermit = ({ selectedForm }) => {
   const validateLanguageTests = (showErrors = false) => {
     const newErrors = {};
 
-    if (formData.englishTest === 'no' && formData.frenchTest === 'no') {
+    if (formData.englishTest === "no" && formData.frenchTest === "no") {
       if (!formData.futureTestEnglish) {
-        newErrors.futureTestEnglish = 'Required fields cannot be empty';
+        newErrors.futureTestEnglish = "Required fields cannot be empty";
       }
       if (!formData.futureTestFrench) {
-        newErrors.futureTestFrench = 'Required fields cannot be empty';
+        newErrors.futureTestFrench = "Required fields cannot be empty";
       }
     }
 
     if (!formData.englishTest) {
-      newErrors.englishTest = 'English test is required';
+      newErrors.englishTest = "English test is required";
     }
 
-    if (formData.englishTest === 'no') {
+    if (formData.englishTest === "no") {
       if (!formData.futureTestEnglish) {
-        newErrors.futureTestEnglish = 'Required fields cannot be empty';
+        newErrors.futureTestEnglish = "Required fields cannot be empty";
       }
       if (!formData.englishMedium) {
-        newErrors.englishMedium = 'Required fields cannot be empty';
+        newErrors.englishMedium = "Required fields cannot be empty";
       }
     }
-    if (formData.englishTest === 'yes') {
+    if (formData.englishTest === "yes") {
       if (formData.englishTest) {
         if (!formData.englishTestType) {
-          newErrors.englishTestType = 'English test cannot be empty';
+          newErrors.englishTestType = "English test cannot be empty";
         }
         if (!formData.englishTestResult.reading) {
-          newErrors.englishReading = 'English test reading result is required';
+          newErrors.englishReading = "English test reading result is required";
         }
         if (!formData.englishTestResult.writing) {
-          newErrors.englishWriting = 'English test writing result is required';
+          newErrors.englishWriting = "English test writing result is required";
         }
         if (!formData.englishTestResult.listening) {
           newErrors.englishListening =
-            'English test listening result is required';
+            "English test listening result is required";
         }
         if (!formData.englishTestResult.speaking) {
           newErrors.englishSpeaking =
-            'English test speaking result is required';
+            "English test speaking result is required";
         }
       }
     }
@@ -163,23 +165,23 @@ const StudyPermit = ({ selectedForm }) => {
 
   const validate = (showErrors = false) => {
     let tempErrors = {};
-    if (!formData.firstname) tempErrors.firstname = 'First Name is required';
-    if (!formData.lastname) tempErrors.lastname = 'Last Name is required';
-    if (!formData.email) tempErrors.email = 'Email is required';
-    if (!formData.phone) tempErrors.phone = 'Phone is required';
+    if (!formData.firstname) tempErrors.firstname = "First Name is required";
+    if (!formData.lastname) tempErrors.lastname = "Last Name is required";
+    if (!formData.email) tempErrors.email = "Email is required";
+    if (!formData.phone) tempErrors.phone = "Phone is required";
     if (!formData.maritalStatus)
-      tempErrors.maritalStatus = 'Marital Status is required';
-    if (!formData.age) tempErrors.age = 'Age is required';
+      tempErrors.maritalStatus = "Marital Status is required";
+    if (!formData.age) tempErrors.age = "Age is required";
     if (!formData.nationality)
-      tempErrors.nationality = 'Nationality is required';
-    if (!formData.region) tempErrors.region = 'Region is required';
+      tempErrors.nationality = "Nationality is required";
+    if (!formData.region) tempErrors.region = "Region is required";
     if (
-      (formData.maritalStatus === 'married' ||
-        formData.maritalStatus === 'commonnlaw') &&
+      (formData.maritalStatus === "married" ||
+        formData.maritalStatus === "commonnlaw") &&
       !formData.spouseTravelling
     )
       tempErrors.spouseTravelling =
-        'Please specify if your spouse will be travelling with you';
+        "Please specify if your spouse will be travelling with you";
     // if (!formData.children)
     //   tempErrors.children = 'Please specify if you have any children under 22';
     if (showErrors) {
@@ -192,16 +194,16 @@ const StudyPermit = ({ selectedForm }) => {
     const newErrors = {};
     if (!formData.educationqualification)
       newErrors.educationqualification =
-        'Educational qualification is required';
-    if (formData.educationqualification1 === 'yes') {
+        "Educational qualification is required";
+    if (formData.educationqualification1 === "yes") {
       if (!formData.passingyear)
-        newErrors.passingyear = 'Year of passing is required';
-      if (!formData.board) newErrors.board = 'Board/University is required';
-      if (!formData.stream) newErrors.stream = 'Field/Stream is required';
-      if (!formData.country) newErrors.country = 'Country is required';
+        newErrors.passingyear = "Year of passing is required";
+      if (!formData.board) newErrors.board = "Board/University is required";
+      if (!formData.stream) newErrors.stream = "Field/Stream is required";
+      if (!formData.country) newErrors.country = "Country is required";
     }
     if (!formData.educationqualification1)
-      newErrors.educationqualification1 = 'This field is required';
+      newErrors.educationqualification1 = "This field is required";
     if (showErrors) {
       setEduErrors(newErrors);
     }
@@ -211,7 +213,7 @@ const StudyPermit = ({ selectedForm }) => {
   const validateOthers = (showErrors = false) => {
     const newErrors = {};
     if (!formData.otherInformation)
-      newErrors.otherInformation = 'Additional information is required';
+      newErrors.otherInformation = "Additional information is required";
 
     if (showErrors) {
       setOthersErrors(newErrors);
@@ -222,17 +224,17 @@ const StudyPermit = ({ selectedForm }) => {
   const validateWork = (showErrors = false) => {
     let tempWorkErrors = {};
     if (!formData.workexperience)
-      tempWorkErrors.workexperience = 'Work experience is required';
-    if (formData.workexperience === 'yes') {
+      tempWorkErrors.workexperience = "Work experience is required";
+    if (formData.workexperience === "yes") {
       if (!formData.workexperience1)
         tempWorkErrors.workexperience1 =
-          'Total Number of Work Experience is required';
+          "Total Number of Work Experience is required";
       if (!formData.occupation)
-        tempWorkErrors.occupation = 'Occupation is required';
+        tempWorkErrors.occupation = "Occupation is required";
       if (!formData.employmentHistory)
-        tempWorkErrors.employmentHistory = 'Employment History is required';
+        tempWorkErrors.employmentHistory = "Employment History is required";
       if (!formData.workCountry)
-        tempWorkErrors.workCountry = 'Country is required';
+        tempWorkErrors.workCountry = "Country is required";
     }
     if (showErrors) {
       setWorkErrors(tempWorkErrors);
@@ -304,97 +306,95 @@ const StudyPermit = ({ selectedForm }) => {
         JSON.stringify(formData),
         {
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
         }
       );
       console.log(response);
       if (response.status === 200) {
         const data = response.data;
-        toast.success('You have successfully submited your form!');
-        console.log('Successfully submited form', data.message);
+        toast.success("You have successfully submited your form!");
+        console.log("Successfully submited form", data.message);
       }
     } catch (error) {
-      console.log('Error during form submission', error);
-      toast.error('Internal server errror!');
+      console.log("Error during form submission", error);
+      toast.error("Internal server errror!");
     }
   };
 
   return (
     <>
       {selectedForm.studyPermit && (
-      <div className='w-full flex flex-col items-start justify-center px-20 gap-4 mb-10'>
-        <div className='text-3xl font-semibold'>
-          Choose Your Form
-        </div>
+        <div className="w-full flex flex-col items-start justify-center px-20 gap-4 mb-10">
+          <div className="text-3xl font-semibold">Choose Your Form</div>
 
-        <PersonalInformation
-          formData={formData}
-          selectForm={selectForm}
-          handleInputChange={handleInputChange}
-          errors={errors}
-          setSubmitAttempted={setSubmitAttempted}
-          validate={validate}
-          setSelectForm={setSelectForm}
-          handleSelectChange={handleSelectChange}
-          handlePhoneChange={handlePhoneChange}
-        />
+          <PersonalInformation
+            formData={formData}
+            selectForm={selectForm}
+            handleInputChange={handleInputChange}
+            errors={errors}
+            setSubmitAttempted={setSubmitAttempted}
+            validate={validate}
+            setSelectForm={setSelectForm}
+            handleSelectChange={handleSelectChange}
+            handlePhoneChange={handlePhoneChange}
+          />
 
-        <EducationDetails
-          formData={formData}
-          selectForm={selectForm}
-          handleInputChange={handleInputChange}
-          eduErrors={eduErrors}
-          setSubmitAttempted={setSubmitAttempted}
-          validateEducation={validateEducation}
-          setSelectForm={setSelectForm}
-          setFormData={setFormData}
-          setSubmitAttemptedEducation={setSubmitAttemptedEducation}
-          handleSelectChange={handleSelectChange}
-        />
+          <EducationDetails
+            formData={formData}
+            selectForm={selectForm}
+            handleInputChange={handleInputChange}
+            eduErrors={eduErrors}
+            setSubmitAttempted={setSubmitAttempted}
+            validateEducation={validateEducation}
+            setSelectForm={setSelectForm}
+            setFormData={setFormData}
+            setSubmitAttemptedEducation={setSubmitAttemptedEducation}
+            handleSelectChange={handleSelectChange}
+          />
 
-        <WorkExperienceForm
-          selectForm={selectForm}
-          formData={formData}
-          setFormData={setFormData}
-          handleInputChange={handleInputChange}
-          workErrors={workErrors}
-          validateWork={validateWork}
-          setSelectForm={setSelectForm}
-          setSubmitAttemptedWork={setSubmitAttemptedWork}
-        />
+          <WorkExperienceForm
+            selectForm={selectForm}
+            formData={formData}
+            setFormData={setFormData}
+            handleInputChange={handleInputChange}
+            workErrors={workErrors}
+            validateWork={validateWork}
+            setSelectForm={setSelectForm}
+            setSubmitAttemptedWork={setSubmitAttemptedWork}
+          />
 
-        <EnglishSkillsForm
-          selectForm={selectForm}
-          formData={formData}
-          handleInputChange={handleInputChange}
-          languageErrors={languageErrors}
-          validateLanguageTests={validateLanguageTests}
-          setSelectForm={setSelectForm}
-          setFormData={setFormData}
-          setSubmitAttemptedTest={setSubmitAttemptedTest}
-        />
+          <EnglishSkillsForm
+            selectForm={selectForm}
+            formData={formData}
+            handleInputChange={handleInputChange}
+            languageErrors={languageErrors}
+            validateLanguageTests={validateLanguageTests}
+            setSelectForm={setSelectForm}
+            setFormData={setFormData}
+            setSubmitAttemptedTest={setSubmitAttemptedTest}
+          />
 
-        <PriorHistoryForm
+          <PriorHistoryForm
             selectForm={selectForm}
             handleInputChange={handleInputChange}
             priorHistoryErrors={priorHistoryErrors}
             validatePriorHistory={validatePriorHistory}
             setSelectForm={setSelectForm}
             setSubmitAttemptedPriorHistory={setSubmitAttemptedPriorHistory}
-        />
+          />
 
-        <AdditionalSectionForm
-          selectForm={selectForm}
-          handleInputChange={handleInputChange}
-          othersErrors={othersErrors}
-          setSubmitAttemptedOther={setSubmitAttemptedOther}
-          validateOthers={validateOthers}
-          handleFormSubmit={handleFormSubmit}
-          setSelectForm={setSelectForm}
-          setFormData={setFormData}
-        />
-      </div>
+          <AdditionalSectionForm
+            selectForm={selectForm}
+            handleInputChange={handleInputChange}
+            othersErrors={othersErrors}
+            setSubmitAttemptedOther={setSubmitAttemptedOther}
+            validateOthers={validateOthers}
+            handleFormSubmit={handleFormSubmit}
+            setSelectForm={setSelectForm}
+            setFormData={setFormData}
+          />
+        </div>
       )}
     </>
   );

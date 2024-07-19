@@ -9,6 +9,7 @@ import TopIn from "../../Assets/Blogs/Top In Demand Jobs.jpg";
 import Everything from "../../Assets/Blogs/EVERYTHING YOU NEED.jpg";
 import { useMobile } from "../globalComponents/MobileContext/IsMobileContext";
 //import LatestNews from "../Pages/Blogs/LatestNews";
+import { IoIosArrowDroprightCircle } from "react-icons/io";
 
 const Top10UniversitiesInCanada = () => {
   const { vw } = useMobile();
@@ -260,8 +261,9 @@ const Top10UniversitiesInCanada = () => {
           <a href={path}>
             <h1>{title}</h1>
           </a>
-          <p2>
-            <a href={path}>Know more{" >"}</a>
+          <p2 style={{ display: "flex", gap: "0.3rem" }}>
+            Know more{" "}
+            <IoIosArrowDroprightCircle style={{ alignSelf: "center" }} />
           </p2>
         </div>
       </div>
@@ -272,7 +274,7 @@ const Top10UniversitiesInCanada = () => {
     {
       title: "Top In Demand Jobs in Canada as of 2024",
       description:
-        "Canada has been at the forefront of immigration for ages. People come from all over the ",
+        " Canada has been at the forefront of immigration for ages. People come from all over the world to turn their sweet maple syrup dreams into reality. Being a beacon of opportunities, Canada’s economy attracts professionals from varying backgrounds making it a hotspot for certain occupations.",
       image: TopIn,
       path: "/blogs/top-in-demand-jobs-in-canada-as-of-2024",
       date: "28 MAY 2024",
@@ -281,7 +283,7 @@ const Top10UniversitiesInCanada = () => {
       title:
         "Everything you need to know about Sponsoring your Spouse, Partner or Child",
       description:
-        "Sponsoring your spouse, partner or child involves helping them obtain their PR and being able",
+        "Sponsoring your spouse, partner or child involves helping them obtain their Permanent Residency (PR) and being able to support them financially, ensuring that they do not require social assistance from the government.",
       image: Everything,
       path: "/blogs/everything-you-need-to-know-about-sponsoring-your-spouse-and-partner-or-child",
       date: "30 MAY 2024",
@@ -289,7 +291,7 @@ const Top10UniversitiesInCanada = () => {
     {
       title: "Tips and Tricks on Preparing for IELTS",
       description:
-        "IELTS is an integral requirement for immigrating to Canada.While the preparation may",
+        "IELTS is an integral requirement for immigrating to Canada. While the preparation may seem like scaling a mountain, it does not have to be that tedious. Let us discuss some of the tips and tricks that can help you ace the language test!",
       image: Tips,
       path: "/blogs/tips-and-tricks-on-preparing-for-ielts",
       date: "22 MAY 2024",
@@ -303,16 +305,23 @@ const Top10UniversitiesInCanada = () => {
         </a>
         <p3>{date}</p3>
         <br />
-        <br />
         <a href={path}>
-          <h1>{title}</h1>
+          <h1 className="line-clamp-2 min-h-[64px]">{title}</h1>
         </a>
-        <p2>
-          {description}{" "}
-          <a style={{ color: "#b90124", fontStyle: "italic" }} href={path}>
-            Read more...
-          </a>
-        </p2>
+        <p2 className="line-clamp-4">{description} </p2>
+        <a
+          style={{
+            color: "#b90124",
+
+            fontStyle: "italic",
+            display: "flex",
+            gap: "0.3rem",
+          }}
+          href={path}
+        >
+          Read more{" "}
+          <IoIosArrowDroprightCircle style={{ alignSelf: "center" }} />
+        </a>
       </div>
     );
   };
