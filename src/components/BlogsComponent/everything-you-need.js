@@ -266,8 +266,15 @@ const EverythingYouNeed = () => {
           <a href={path}>
             <h1>{title}</h1>
           </a>
-          <p2 style={{ display: "flex", gap: "0.3rem" }}>
-            Know more{" "}
+          <p2
+            style={{
+              color: "#009889",
+              display: "flex",
+              gap: "4px",
+              fontSize: "small",
+            }}
+          >
+            Know more
             <IoIosArrowDroprightCircle style={{ alignSelf: "center" }} />
           </p2>
         </div>

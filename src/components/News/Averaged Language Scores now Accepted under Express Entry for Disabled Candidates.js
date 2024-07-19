@@ -238,8 +238,10 @@ const AverageLanguageScores = () => {
           </a>
           <p2
             style={{
+              color: "#009889",
               display: "flex",
-              gap: "0.3rem",
+              gap: "4px",
+              fontSize: "small",
             }}
           >
             Know more{" "}

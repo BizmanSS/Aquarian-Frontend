@@ -117,6 +117,9 @@ th:last-child {
 }
 .title-recent {
   width: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .post-card-recent img {
   height: 80px;
