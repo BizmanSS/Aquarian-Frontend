@@ -314,7 +314,8 @@ const Top10UniversitiesInCanada = () => {
             color: "#009889",
             display: "flex",
             gap: "6px",
-            fontSize: "medium",
+            fontSize: "small",
+            marginTop: "15px",
           }}
           href={path}
         >

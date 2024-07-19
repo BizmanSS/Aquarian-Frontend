@@ -82,7 +82,8 @@ const BlogPosts = () => {
             color: "#009889",
             display: "flex",
             gap: "6px",
-            fontSize: "medium",
+            marginTop: "15px",
+            fontSize: "small",
           }}
           href={path}
         >
