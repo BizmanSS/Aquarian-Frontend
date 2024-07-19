@@ -233,6 +233,7 @@ th:last-child {
   color: #313030;
   font-size: 15px;
   font-style: normal;
+  padding-bottom: 7px;
   padding-left: 0.7rem;
   font-weight: 400;
 }
