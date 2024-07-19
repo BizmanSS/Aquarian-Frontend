@@ -18,13 +18,10 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
   const [submitAttemptedEducation, setSubmitAttemptedEducation] =
     useState(false);
   const [submitAttemptedWork, setSubmitAttemptedWork] = useState(false);
-  const [submitAttemptedOther, setSubmitAttemptedOther] = useState(false);
 
   const [errors, setErrors] = useState({});
   const [eduErrors, setEduErrors] = useState({});
   const [workErrors, setWorkErrors] = useState({});
-
-  const [othersErrors, setOthersErrors] = useState({});
 
   const [formData, setFormData] = useState({
     firstname: "",
@@ -44,7 +41,6 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
     haveLmiaJoboffer: "",
     requireLmiaJoboffer: "",
     nocCodeonLmia: "",
-
     workexperiences: [
       {
         workexperience: "",
@@ -137,18 +133,6 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const validateOthers = (showErrors = false) => {
-    const newErrors = {};
-
-    if (!formData.otherInformation)
-      newErrors.otherInformation = "Additional information is required";
-
-    if (showErrors) {
-      setOthersErrors(newErrors);
-    }
-    return Object.keys(newErrors).length === 0;
-  };
-
   const validateWork = (showErrors = false) => {
     const newErrors = {};
 
@@ -199,12 +183,6 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
       validateWork(true);
     }
   }, [formData, submitAttemptedWork]);
-
-  useEffect(() => {
-    if (submitAttemptedOther) {
-      validateOthers(true);
-    }
-  }, [formData, submitAttemptedOther]);
 
   const handleInputChange = (event) => {
     setFormData({
@@ -915,6 +893,7 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
                         className="hidden"
                         onClick={handleInputChange}
                         value="yes"
+                        checked={formData.haveLmiaJoboffer === "yes"}
                       />
                       <label
                         for="educationqualification1"
@@ -932,6 +911,7 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
                         className="hidden"
                         onClick={handleInputChange}
                         value="no"
+                        checked={formData.haveLmiaJoboffer === "no"}
                       />
                       <label
                         for="educationqualification2"
@@ -964,6 +944,7 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
                               className="hidden"
                               onChange={handleInputChange}
                               value="yes"
+                              checked={formData.requireLmiaJoboffer === "yes"}
                             />
                             <label
                               for="workpermitqualification1"
@@ -981,6 +962,7 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
                               className="hidden"
                               onChange={handleInputChange}
                               value="no"
+                              checked={formData.requireLmiaJoboffer === "no"}
                             />
                             <label
                               for="workpermitqualification2"
@@ -1001,8 +983,8 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
                   </div>
                 )}
                 {formData.haveLmiaJoboffer === "yes" && (
-                  <div className="flex flex-col items-start justify-center">
-                    <div className="w-[50%] mb-3">
+                  <div className="items-start justify-center">
+                    <div className="w-full mb-3 md:w-[50%]">
                       <label
                         for="stream"
                         className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
@@ -1015,6 +997,7 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
                         id="stream"
                         name="nocCodeonLmia"
                         onChange={handleInputChange}
+                        value={formData.nocCodeonLmia}
                         className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
                       />
                       {eduErrors.nocCodeonLmia && (
@@ -1033,7 +1016,8 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
                       setSubmitAttemptedEducation(true);
                       // setSelectForm('work-experience');
                       if (validateEducation(true)) {
-                        setSelectForm("work-experience");
+                        //setSelectForm("work-experience");
+                        setSelectForm("other");
                       }
                       const element = workPermitRef.current;
                       const elementPosition =
@@ -1276,7 +1260,7 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
                       </div>
                     ))}
                     <div className="relative">
-                      <button
+                      <button                                     
                         type="button"
                         className="flex items-center justify-between bg-[#01997E] text-white py-2 px-4 rounded-lg absolute top-4 w-[9rem] sm:w-[12rem] text-[12px] sm:text-[16px] left-0"
                         onClick={addExperience}
@@ -1317,7 +1301,9 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
             <div
               id="other"
               onClick={() => {
-                if (formData.otherInformation) setSelectForm("other");
+                if (validateWork(true)) {
+                  setSelectForm("other");
+                }
               }}
               className="text-xl font-semibold tracking-[8px] bg-[#01997E] text-white w-full px-10 py-2 rounded-md flex items-center justify-between"
             >
@@ -1338,21 +1324,18 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
                       for="comments"
                       className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
                     >
-                      Any information you would like to share, please mention
+                      Any information you would like to share (Optional)
                     </label>
                     <input
                       type="text"
                       name="otherInformation"
                       id="comments"
+                      placeholder="Any information you would like to share, please mention"
+                      value={formData.otherInformation}
                       onChange={handleInputChange}
                       className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
                     />
                   </div>
-                  {othersErrors.otherInformation && (
-                    <p className="text-red-500">
-                      {othersErrors.otherInformation}
-                    </p>
-                  )}
                 </div>
 
                 <div className="w-full flex items-center justify-center mb-10 mt-10">
@@ -1360,16 +1343,12 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
                     className="bg-black text-[#01F9E1] px-16 py-3 rounded-lg text-xl"
                     type="button"
                     onClick={() => {
-                      setSubmitAttemptedOther(true);
-                      if (validateOthers(true)) {
-                        handleFormSubmit();
-                        setSelectForm("PersonalInformation");
-
-                        window.scrollTo({
-                          top: element,
-                          behavior: "smooth",
-                        });
-                      }
+                      handleFormSubmit();
+                      setSelectForm("PersonalInformation");
+                      window.scrollTo({
+                        top: element,
+                        behavior: "smooth",
+                      });
                     }}
                   >
                     Submit
