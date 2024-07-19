@@ -315,11 +315,10 @@ const EverythingYouNeed = () => {
         <p2 className="line-clamp-4">{description} </p2>
         <a
           style={{
-            color: "#b90124",
-
-            fontStyle: "italic",
+            color: "#009889",
             display: "flex",
-            gap: "0.3rem",
+            gap: "6px",
+            fontSize: "medium",
           }}
           href={path}
         >

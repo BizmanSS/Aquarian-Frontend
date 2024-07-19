@@ -97,7 +97,6 @@ th:last-child {
   border-radius: 15px;
   background: #ececec;
   padding: 1rem;
-
   margin-left: 5rem;
   margin-bottom: 5rem;
 }
@@ -175,7 +174,7 @@ th:last-child {
 }
 .post-card-recent h1 {
   color: #313030;
-  font-size: 16px;
+  font-size: 15px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
@@ -189,18 +188,12 @@ th:last-child {
   line-height: normal;
   padding: 1rem;
 }
-h1 {
-  color: #313030;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-}
+
 .post-card h1,
 .post-card-similar h1,
 .post-card-inner h1 {
   color: #313030;
-  font-size: 22px;
+  font-size: 21px;
   font-style: normal;
   font-weight: 600;
   line-height: 32px;
@@ -209,7 +202,7 @@ h1 {
 .post-card-similar p2,
 .post-card-inner p2 {
   color: #626262;
-  font-size: 16px;
+  font-size: 15px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -217,7 +210,7 @@ h1 {
 .post-card-inner p3,
 .post-card p3 {
   color: #626262;
-  font-size: 16px;
+  font-size: 15px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -371,27 +364,27 @@ h1 {
   .post-card p1,
   .post-card-similar p1,
   .post-card-inner p1 {
-    font-size: 14.7px;
+    font-size: 14.2px;
   }
   .post-card h1,
   .post-card-similar h1,
   .post-card-inner h1 {
-    font-size: 21px;
+    font-size: 20px;
   }
   .post-card p2,
   .post-card-similar p2,
   .post-card-inner p2 {
-    font-size: 14.7px;
+    font-size: 14.2px;
   }
   .post-card-inner p3,
   .post-card p3 {
-    font-size: 14.7px;
+    font-size: 14.2px;
   }
   .post-card-recent h1 {
     font-size: 15px;
   }
   .post-card-recent p2 {
-    font-size: 13.5px;
+    font-size: 13.2px;
   }
   .post-card-inner {
     width: 760px;
@@ -433,15 +426,10 @@ h1 {
   .post-card-recent {
     width: 320px;
   }
-  .post-card p1,
-  .post-card-similar p1,
-  .post-card-inner p1 {
-    font-size: 14.7px;
-  }
   .post-card h1,
   .post-card-similar h1,
   .post-card-inner h1 {
-    font-size: 18px;
+    font-size: 17px;
   }
   .post-card p2,
   .post-card-similar p2,
