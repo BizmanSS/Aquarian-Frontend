@@ -105,12 +105,12 @@ const WorkExperienceForm = ({
                     name="workexperience"
                     className="hidden"
                     value="yes"
-                    // onChange={(e) =>
-                    //   setFormData(prev => {
-                    //     ...prev,
-                    //     workexperience: e.target.value,
-                    //   })
-                    // }
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        workexperience: e.target.value,
+                      })
+                    }
                   />
                   <label
                     for="workexperience001"
@@ -161,9 +161,9 @@ const WorkExperienceForm = ({
 
               <PastExperienceBox
                 yearOfExp={3}
-                occupation={"Dalla"}
-                country={"Lauda Lassun"}
-                designation={"Senior Dalla"}
+                occupation={"Manager"}
+                country={"Nepal"}
+                designation={"Senior"}
               />
 
               <div className="flex mt-6 items-center justify-between w-full">
