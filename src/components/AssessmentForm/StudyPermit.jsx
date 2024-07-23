@@ -318,6 +318,7 @@ const StudyPermit = ({ selectedForm }) => {
             formData={formData}
             setFormData={setFormData}
             setSelectForm={setSelectForm}
+            nextform={"english"}
           />
 
           <EnglishSkillsForm

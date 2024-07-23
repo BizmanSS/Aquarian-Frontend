@@ -10,6 +10,7 @@ import countryList from "react-select-country-list";
 // import { FaPlus } from "react-icons/fa";
 // import { RiDeleteBin6Line } from "react-icons/ri";
 import { ageOptions, maritalStatusOptions } from "./data/formSelectOptions";
+import WorkExperienceForm from "./components/WorkExperienceForm";
 
 const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
   const [selectForm, setSelectForm] = useState("PersonalInformation");
@@ -1015,7 +1016,7 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
                       // setSelectForm('work-experience');
                       if (validateEducation(true)) {
                         //setSelectForm("work-experience");
-                        setSelectForm("other");
+                        setSelectForm("work-experience");
                       }
                       const element = workPermitRef.current;
                       const elementPosition =
@@ -1033,241 +1034,14 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
                 </div>
               </form>
             )}
-
-            {/* work experience section */}
-            <div
-              id="workExperience"
-              onClick={() => {
-                if (formData.workexperience1) setSelectForm("work-experience");
-              }}
-              className="text-xl font-semibold tracking-[8px] bg-[#01997E] text-white w-full px-10 py-2 rounded-md flex items-center justify-between"
-            >
-              Work Experience
-              <span className="text-black">
-                {selectForm === "work-experience" ? (
-                  <GoArrowDownRight size={30} />
-                ) : (
-                  <GoArrowUpRight size={30} />
-                )}
-              </span>
-            </div>
-            {/* {selectForm === "work-experience" && (
-              <form action="post" className="w-full">
-                <div className="mt-4">
-                  <div className="mb-3">
-                    <label
-                      for="workexperience"
-                      className="mb-4 ml-2 block text-base font-medium text-[#07074D]"
-                    >
-                      Do you have work experience?
-                      <span className="text-red-400">*</span>
-                    </label>
-                    <div className="flex items-center justify-start gap-6">
-                      <div className="flex items-center mr-4 mb-4">
-                        <input
-                          id="workexperience001"
-                          type="radio"
-                          name="workexperience"
-                          className="hidden"
-                          value="yes"
-                          checked={formData.workexperience1 === "yes"}
-                          onChange={(e) =>
-                            setFormData({
-                              ...formData,
-                              workexperience1: e.target.value,
-                            })
-                          }
-                        />
-                        <label
-                          for="workexperience001"
-                          className="flex items-center cursor-pointer"
-                        >
-                          <span className="w-4 h-4 inline-block mr-1 border border-grey"></span>
-                          Yes
-                        </label>
-                      </div>
-                      <div className="flex items-center mr-4 mb-4">
-                        <input
-                          id="workexperience002"
-                          type="radio"
-                          name="workexperience"
-                          className="hidden"
-                          value="no"
-                          checked={formData.workexperience1 === "no"}
-                          onChange={(e) => {
-                            setFormData({
-                              ...formData,
-                              workexperience1: e.target.value,
-
-                              occupation: "",
-                              employmentHistory: "",
-                              workCountry: "",
-                            });
-                          }}
-                        />
-                        <label
-                          for="workexperience002"
-                          className="flex items-center cursor-pointer"
-                        >
-                          <span className="w-4 h-4 inline-block mr-1 border border-grey"></span>
-                          NO
-                        </label>
-                      </div>
-                    </div>
-                    {workErrors.workexperience1 && (
-                      <p className="text-red-500">
-                        {workErrors.workexperience1}
-                      </p>
-                    )}
-                  </div>
-                </div>
-                {formData.workexperience1 === "yes" && (
-                  <>
-                    {formData.workexperiences.map((experience, index) => (
-                      <div key={index} className="mb-6">
-                        <div className="block sm:flex items-center justify-between w-full">
-                          <div className="w-full sm:w-[45%] flex flex-col items-center justify-center">
-                            <div className="mb-3 w-full">
-                              <label
-                                htmlFor={`workexperience-${index}`}
-                                className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
-                              >
-                                Total Number of Work Experience
-                                <span className="text-red-400">*</span>
-                              </label>
-                              <input
-                                type="text"
-                                id={`workexperience-${index}`}
-                                name="workexperience"
-                                value={experience.workexperience}
-                                onChange={(e) =>
-                                  handleExperienceChange(index, e)
-                                }
-                                maxLength={50}
-                                // value={experience.workexperience}
-                                className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
-                              />
-                              {workErrors[`workexperience-${index}`] && (
-                                <p className="text-red-500">
-                                  {workErrors[`workexperience-${index}`]}
-                                </p>
-                              )}
-                             {workErrors.workexperience1 && (
-                                <p className='text-red-500'>
-                                  {workErrors.workexperience1}
-                                </p>
-                              )} 
-                            </div>
-                            <div className="w-full mb-3">
-                              <label
-                                htmlFor={`occupation-${index}`}
-                                className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
-                              >
-                                Occupation
-                                <span className="text-red-400">*</span>
-                              </label>
-                              <SearchableDropdown
-                                apiEndpoint={`${process.env.REACT_APP_API}/occupations`}
-                                onSelect={(option) =>
-                                  handleWorkSelect(index, option)
-                                }5
-                                id={`occupation-${index}`}
-                                name={`occupation-${index}`}
-                                value={
-                                  formData.workexperiences[index].occupation
-                                }
-                                onChange={(e) =>
-                                  handleExperienceChange(index, e)
-                                }
-                                className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
-                              />
-
-                              {workErrors[`occupation-${index}`] && (
-                                <p className="text-red-500">
-                                  {workErrors[`occupation-${index}`]}
-                                </p>
-                              )}
-                            </div>
-                          </div>
-                          <div className="w-full sm:w-[45%] flex flex-col items-center justify-center">
-                            <div className="w-full mb-3">
-                              <label
-                                htmlFor={`employmentHistory-${index}`}
-                                className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
-                              >
-                                Designation{" "}
-                                <span className="text-red-400">*</span>
-                              </label>
-                              <input
-                                type="text"
-                                id={`employmentHistory-${index}`}
-                                name="employmentHistory"
-                                value={experience.employmentHistory}
-                                onChange={(e) =>
-                                  handleExperienceChange(index, e)
-                                }
-                                maxLength={50}
-                                className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
-                              />
-                              {workErrors[`employmentHistory-${index}`] && (
-                                <p className="text-red-500">
-                                  {workErrors[`employmentHistory-${index}`]}
-                                </p>
-                              )}
-                            </div>
-                            <div className="w-full mb-3">
-                              <label
-                                htmlFor={`workCountry-${index}`}
-                                className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
-                              >
-                                Country<span className="text-red-400">*</span>
-                              </label>
-                              <Select
-                                id={`workCountry-${index}`}
-                                name="workCountry"
-                                options={options}
-                                value={experience.workCountry}
-                                onChange={(selectedOption, actionMeta) =>
-                                  handleExperienceChange(
-                                    index,
-                                    selectedOption,
-                                    actionMeta
-                                  )
-                                }
-                                styles={customStyles}
-                                className="w-full"
-                              />
-
-                              {workErrors[`workCountry-${index}`] && (
-                                <p className="text-red-500">
-                                  {workErrors[`workCountry-${index}`]}
-                                </p>
-                              )}
-                            </div>
-                            <div className="relative top-10 left-20 cursor-pointer">
-                              <button
-                                type="button"
-                                className="flex items-center justify-center gap-2 bg-[#01997E] text-white py-2 px-4 rounded-lg absolute -top-[40px] w-[9rem] sm:w-[12rem] text-[12px] sm:text-[16px] -right-20 sm:-right-18"
-                                onClick={() => handleDeleteExperience(index)}
-                              >
-                                Delete <RiDeleteBin6Line />
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                    <div className="relative">
-                      <button                                     
-                        type="button"
-                        className="flex items-center justify-between bg-[#01997E] text-white py-2 px-4 rounded-lg absolute top-4 w-[9rem] sm:w-[12rem] text-[12px] sm:text-[16px] left-0"
-                        onClick={addExperience}
-                      >
-                        Add Experience <FaPlus />
-                      </button>
-                    </div>
-                  </>
-                )}
+            <WorkExperienceForm
+              selectForm={selectForm}
+              formData={formData}
+              setFormData={setFormData}
+              setSelectForm={setSelectForm}
+              nextform={"other"}
+            />
+            {/*
 
                 <div className="w-full flex items-center justify-center mb-10 mt-10">
                   <button

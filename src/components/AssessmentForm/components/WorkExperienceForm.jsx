@@ -98,6 +98,7 @@ const WorkExperienceForm = ({
   formData,
   setSelectForm,
   setFormData,
+  nextform,
 }) => {
   const [workExperiences, setWorkExperiences] = useState([]);
   const [selectedWork, setSelectedWork] = useState(0);
@@ -215,44 +216,11 @@ const WorkExperienceForm = ({
     }));
   };
 
-  // const handleInputChange = (event) => {
-  //   const { name, value } = event.target;
-  //   setCurrentFrom(prev => {
-  //     ...prev,
-  //     [name]: value,
-  //   })
-  //   // setWorkExperiences((prevWorkExperiences) => {
-  //   //   if (selectedWork >= prevWorkExperiences.length) {
-  //   //     return prevWorkExperiences;
-  //   //   }
-
-  //   //   const updatedWorkExperiences = [...prevWorkExperiences];
-  //   //   updatedWorkExperiences[selectedWork] = {
-  //   //     ...updatedWorkExperiences[selectedWork],
-  //   //     [name]: value,
-  //   //   };
-  //   //   return updatedWorkExperiences;
-  //   // });
-  // };
-
   const validateWork = (showErrors = false) => {
     let tempWorkErrors = {};
     if (!formData.workexperience1)
       tempWorkErrors.workexperience1 = "Work experience is required";
-    //   if (formData.workexperience1 === "yes") {
-    //     if (!workExperiences[selectedWork]?.yearsOfExp)
-    //       tempWorkErrors.workExperiences[selectedWork].yearsOfExp =
-    //         "Total Number of Work Experience is required";
-    //     if (!workExperiences[selectedWork]?.occupation)
-    //       tempWorkErrors.workExperiences[selectedWork].occupation =
-    //         "Occupation is required";
-    //     if (!workExperiences[selectedWork]?.employmentHistory)
-    //       tempWorkErrors.workExperiences[selectedWork].employmentHistory =
-    //         "Employment History is required";
-    //     if (!workExperiences[selectedWork]?.country)
-    //       tempWorkErrors.workExperiences[selectedWork].country =
-    //         "Country is required";
-    //   }
+
     if (showErrors) {
       setWorkErrors(tempWorkErrors);
     }
@@ -262,7 +230,10 @@ const WorkExperienceForm = ({
   return (
     <div className="w-full h-fit">
       <div
-        onClick={() => setSelectForm("work-experience")}
+        id="workExperience"
+        onClick={() => {
+          if (formData.workexperience1) setSelectForm("work-experience");
+        }}
         className="text-xl font-semibold tracking-[8px] bg-[#01997E] text-white w-full px-10 py-2 rounded-md flex items-center justify-between"
       >
         Work Experience
@@ -395,11 +366,6 @@ const WorkExperienceForm = ({
                         onChange={handleInputChange}
                         className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
                       />
-                      {/* {workErrors.workExperiences[selectedWork]?.yearsOfExp && (
-                        <p className="text-red-500">
-                          {workErrors.workExperiences[selectedWork]?.yearsOfExp}
-                        </p>
-                      )} */}
                     </div>
                     <div className="w-full mb-3">
                       <label
@@ -416,11 +382,6 @@ const WorkExperienceForm = ({
                         onChange={handleInputChange}
                         className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
                       />
-                      {/* {workErrors.workExperiences[selectedWork].occupation && (
-                        <p className="text-red-500">
-                          {workErrors.workExperiences[selectedWork].occupation}
-                        </p>
-                      )} */}
                     </div>
                   </div>
                   <div className="w-[45%] flex flex-col items-center justify-center">
@@ -439,15 +400,6 @@ const WorkExperienceForm = ({
                         onChange={handleInputChange}
                         className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
                       />
-                      {/* {workErrors.workExperiences[selectedWork]
-                        .employmentHistory && (
-                        <p className="text-red-500">
-                          {
-                            workErrors.workExperiences[selectedWork]
-                              .employmentHistory
-                          }
-                        </p>
-                      )} */}
                     </div>
                     <div className="mb-3 w-full">
                       <label
@@ -467,9 +419,6 @@ const WorkExperienceForm = ({
                         styles={customStyles}
                         className="w-full"
                       />
-                      {/* {workErrors.workExperiences[selectedWork].country  && (
-                  <p className="text-red-500">{workErrors.workExperiences[selectedWork].country }</p>
-                )} */}
                     </div>
                   </div>
                 </div>
@@ -521,7 +470,7 @@ const WorkExperienceForm = ({
                     workExperiences.length >= 1 ||
                     formData.workexperience1 === "no"
                   )
-                    setSelectForm("english");
+                    setSelectForm(nextform);
                 }
               }}
             >
