@@ -128,17 +128,11 @@ const WorkExperienceForm = ({
   }, [formData, submitAttemptedWork]);
 
   const handleAddWork = () => {
-    // setWorkExperiences((prev) => [
-    //   ...prev,
-    //   {
-    //     yearsOfExp: "",
-    //     occupation: "",
-    //     employmentHistory: "",
-    //     country: "",
-    //   },
-    // ]);
-    // setSelectedWork((prev) => prev + 1);
-    setFormVisible(true);
+    if (formVisible) {
+      toast.error("Please save details before adding New Experience");
+    } else {
+      setFormVisible(true);
+    }
   };
 
   const validateFormFields = () => {
