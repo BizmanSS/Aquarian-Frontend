@@ -244,14 +244,12 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
           },
         }
       );
-      console.log(response);
+
       if (response.status === 200) {
         const data = response.data;
         toast.success("You have successfully submited your form!");
-        console.log("Successfully submited form", data.message);
       }
     } catch (error) {
-      console.log("Error during form submission", error);
       toast.error("Internal server errror!");
     }
   };
@@ -842,7 +840,7 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
                       if (validate(true)) {
                         setSelectForm("Education");
                       }
-                      // console.log(workPermitRef)
+
                       const element = workPermitRef.current;
                       const elementPosition =
                         element.getBoundingClientRect().top +

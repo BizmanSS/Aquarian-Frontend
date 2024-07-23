@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { GoArrowDownRight, GoArrowUpRight } from "react-icons/go";
 import { MdEdit } from "react-icons/md";
 import { MdDeleteForever } from "react-icons/md";
 import { toast } from "react-toastify";
+import Select from "react-select";
+import countryList from "react-select-country-list";
 
 const PastExperienceBox = ({
   index,
@@ -111,9 +113,9 @@ const WorkExperienceForm = ({
 
   useEffect(() => {
     if (workExperiences.length === 0) {
-      setFormVisible(true)
+      setFormVisible(true);
     }
-  }, [workExperiences])
+  }, [workExperiences]);
 
   useEffect(() => {
     if (formData.workexperience1 === "yes") {
@@ -141,18 +143,53 @@ const WorkExperienceForm = ({
     }
   };
 
+  const customStyles = {
+    control: (provided, state) => ({
+      ...provided,
+      border: state.isFocused ? "1px solid #01997E" : "1px solid black",
+      boxShadow: state.isFocused ? "0 0 0 1px #01997E" : "none",
+      "&:hover": {
+        border: state.isFocused ? "1px solid #01997E" : "1px solid black",
+      },
+      borderRadius: "0.375rem",
+      padding: "0.375rem",
+      backgroundColor: "white",
+    }),
+    option: (provided, state) => ({
+      ...provided,
+      backgroundColor: state.isFocused ? "#f0f0f0" : "white",
+      color: "#333",
+    }),
+    menu: (provided) => ({
+      ...provided,
+      borderRadius: "0.375rem",
+      zIndex: 2,
+    }),
+    singleValue: (provided) => ({
+      ...provided,
+      color: "#6B7280",
+    }),
+  };
+
+  const countries = useMemo(() => countryList().getData(), []);
+
+  const handleSelectChange = (selectedOption) => {
+    setCurrentForm((prev) => ({
+      ...prev,
+      country: selectedOption.label,
+    }));
+  };
+
   const validateFormFields = () => {
     const { yearsOfExp, occupation, employmentHistory, country } = currentForm;
-
-    if (yearsOfExp.trim() !== "" && occupation.trim() !== "" && employmentHistory.trim() !== "" && country.trim() !== "") {
-      return true
+    if (
+      yearsOfExp.trim() !== "" &&
+      occupation.trim() !== "" &&
+      employmentHistory.trim() !== "" &&
+      country.trim() !== ""
+    ) {
+      return true;
     }
-    // return (
-    //   yearsOfExp.trim() !== "" &&
-    //   occupation.trim() !== "" &&
-    //   employmentHistory.trim() !== "" &&
-    //   country.trim() !== ""
-    // );
   };
 
   const handleSave = () => {
@@ -328,16 +365,17 @@ const WorkExperienceForm = ({
                   country={item.country}
                 />
               ))}
-             {workExperiences.length !== 0 &&
-              <div className="w-full flex ">
-                <button
-                  className="bg-black text-[#01F9E1] px-16 py-3 rounded-lg text-xl"
-                  type="button"
-                  onClick={handleAddWork}
-                >
-                  Add Experience +
-                </button>
-              </div>}
+              {workExperiences.length !== 0 && (
+                <div className="w-full flex ">
+                  <button
+                    className="bg-black text-[#01F9E1] px-16 py-3 rounded-lg text-xl"
+                    type="button"
+                    onClick={handleAddWork}
+                  >
+                    Add Experience +
+                  </button>
+                </div>
+              )}
               {formVisible && (
                 <div className="flex mt-6 items-center justify-between w-full">
                   <div className="w-[45%] flex flex-col items-center justify-center">
@@ -411,26 +449,27 @@ const WorkExperienceForm = ({
                         </p>
                       )} */}
                     </div>
-                    <div className="w-full mb-3">
+                    <div className="mb-3 w-full">
                       <label
                         for="workCountry"
                         className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
                       >
                         Country<span className="text-red-400">*</span>
                       </label>
-                      <input
-                        type="text"
-                        id="workCountry"
-                        name="country"
-                        value={currentForm.country}
-                        onChange={handleInputChange}
-                        className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
+                      <Select
+                        options={countries}
+                        value={countries.find(
+                          (option) => option.label === currentForm.country
+                        )}
+                        onChange={(selectedOption) =>
+                          handleSelectChange(selectedOption, "nationality")
+                        }
+                        styles={customStyles}
+                        className="w-full"
                       />
-                      {/* {workErrors.workExperiences[selectedWork].country && (
-                        <p className="text-red-500">
-                          {workErrors.workExperiences[selectedWork].country}
-                        </p>
-                      )} */}
+                      {/* {workErrors.workExperiences[selectedWork].country  && (
+                  <p className="text-red-500">{workErrors.workExperiences[selectedWork].country }</p>
+                )} */}
                     </div>
                   </div>
                 </div>

@@ -94,7 +94,6 @@ const BookAppointmentModel = ({
   const handleChange = (selectedDate) => {
     setSelectedDate(selectedDate);
     setShow(false); // Close the date picker
-    console.log(selectedDate);
   };
 
   const handleClose = (state) => {
@@ -162,7 +161,7 @@ const BookAppointmentModel = ({
       comments,
       date: selectedDate,
     };
-    console.log(formData);
+
     try {
       const response = await axios.post(
         `${process.env.REACT_APP_API}/book_appointment`,
@@ -173,15 +172,14 @@ const BookAppointmentModel = ({
           },
         }
       );
-      console.log(response);
+
       if (response.status === 200) {
         const data = response.data;
         toast.success("You have successfully submited your form!");
-        console.log("Successfully submited form", data.message);
+
         setShowPopUp(true);
       }
     } catch (error) {
-      console.log("Error during form submission", error);
       toast.error("Internal server errror!");
     }
   };

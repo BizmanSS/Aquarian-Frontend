@@ -19,7 +19,7 @@ const CrsForm = () => {
     let secC = 0;
     if ((answers[1] === "M" || answers[1] === "CL") && answers[5] === "yes") {
       //PWS - calculate section 3 first
-      console.log(scoreMap[9]?.[answers[9]] ?? 0, "hello");
+
       secC += scoreMap[9]?.[answers[9]] ?? 0; //spouse qualifications
       secC += scoreMap[11]?.[answers[11]] ?? 0; //spouse canada exp
 
@@ -274,8 +274,6 @@ const CrsForm = () => {
 
     secE = secE > 600 ? 600 : secE;
 
-    console.log("secA: ", secA, " secC: ", secC, " secD: ", secD, "secE", secE);
-
     newScore = secA + secC + secD + secE;
 
     setScore(newScore);
@@ -299,7 +297,7 @@ const CrsForm = () => {
         delete newAnswers[question.id];
       }
     }
-    console.log(newAnswers);
+
     setAnswers(newAnswers);
   };
 
@@ -322,7 +320,6 @@ const CrsForm = () => {
     setErrors(newErrors);
 
     if (allFilled) {
-      console.log("Final validation and score calculation");
       setShowFinalScore(true);
       setShowError(false); // Hide error message if all fields are valid
     } else {

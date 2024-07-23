@@ -86,7 +86,6 @@ function PaginationNav1({
 function PaginationNav1Presentation() {
   const [pageIndex, setPageIndex] = useState(0);
   const pageCount = 3;
-  // console.log(pageIndex);
   return (
     <div className="flex gap-3 flex-wrap p-6 py-12">
       <PaginationNav1

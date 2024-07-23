@@ -63,7 +63,6 @@ const ContactUsPage = () => {
   const handleChange = (selectedDate) => {
     setSelectedDate(selectedDate);
     setShow(false); // Close the date picker
-    console.log(selectedDate);
   };
   const handleClose = (state) => {
     setShow(state);
@@ -80,7 +79,7 @@ const ContactUsPage = () => {
       serviceOther,
       comments,
     };
-    console.log(formData);
+
     try {
       const response = await axios.post(
         `${process.env.REACT_APP_API}/book_appointment`,
@@ -91,14 +90,12 @@ const ContactUsPage = () => {
           },
         }
       );
-      console.log(response);
+
       if (response.status === 200) {
         const data = response.data;
         toast.success("You have successfully submited your form!");
-        console.log("Successfully submited form", data.message);
       }
     } catch (error) {
-      console.log("Error during form submission", error);
       toast.error("Internal server errror!");
     }
   };
@@ -142,8 +139,6 @@ const ContactUsPage = () => {
       setServiceOther("");
       setComments("");
       setErrors({});
-
-      console.log("Form submitted successfully!");
     }
   };
   return (

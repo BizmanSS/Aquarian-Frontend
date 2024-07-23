@@ -27,7 +27,6 @@ const SearchableDropdown = ({ apiEndpoint, onSelect }) => {
     if (onSelect) {
       onSelect(option);
     }
-    console.log(`Option selected:`, option);
   };
 
   return (

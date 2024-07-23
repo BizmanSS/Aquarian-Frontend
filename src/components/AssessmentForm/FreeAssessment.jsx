@@ -230,8 +230,6 @@ const FreeAssessment = () => {
     });
   };
 
-  console.log(selectedForm);
-
   useEffect(() => {
     if (selectedForm.permanentImmigration && personalInfoRef.current) {
       const element = personalInfoRef.current;

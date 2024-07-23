@@ -1,50 +1,48 @@
-import React, { useState } from 'react';
-import Datepicker from 'tailwind-datepicker-react';
+import React, { useState } from "react";
+import Datepicker from "tailwind-datepicker-react";
 
 const options = {
-  title: 'Pick a Date',
+  title: "Pick a Date",
   autoHide: true,
   todayBtn: false,
   clearBtn: true,
-  clearBtnText: 'Clear',
-  maxDate: new Date('2030-01-01'),
+  clearBtnText: "Clear",
+  maxDate: new Date("2030-01-01"),
   minDate: new Date(),
   theme: {
-    background: 'bg-white',
-    todayBtn: '',
-    clearBtn: '',
-    icons: '',
-    text: '',
+    background: "bg-white",
+    todayBtn: "",
+    clearBtn: "",
+    icons: "",
+    text: "",
     //disabledText: "bg-red-500",
-    input: '',
-    inputIcon: '',
-    selected: '',
+    input: "",
+    inputIcon: "",
+    selected: "",
   },
   icons: {
     prev: () => <span>Previous</span>,
     next: () => <span>Next</span>,
   },
-  datepickerClassNames: 'top-12',
+  datepickerClassNames: "top-12",
   defaultDate: new Date(),
-  language: 'en',
+  language: "en",
   disabledDates: [],
-  weekDays: ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'],
-  inputNameProp: 'date',
-  inputIdProp: 'date',
-  inputPlaceholderProp: 'Select Date',
+  weekDays: ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"],
+  inputNameProp: "date",
+  inputIdProp: "date",
+  inputPlaceholderProp: "Select Date",
   inputDateFormatProp: {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
+    day: "numeric",
+    month: "long",
+    year: "numeric",
   },
 };
 
 const DatepickerComponent = () => {
   const [show, setShow] = useState(false);
 
-  const handleChange = (selectedDate) => {
-    console.log(selectedDate);
-  };
+  const handleChange = (selectedDate) => {};
 
   const handleClose = (state) => {
     setShow(state);
@@ -53,7 +51,7 @@ const DatepickerComponent = () => {
   // Custom styles for Datepicker component
 
   return (
-    <div style={{ padding: '0.4rem' }}>
+    <div style={{ padding: "0.4rem" }}>
       <Datepicker
         options={options}
         onChange={handleChange}

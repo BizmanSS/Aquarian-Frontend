@@ -120,7 +120,6 @@ const Header = ({ setShowPopUp }) => {
   };
 
   const toggleshowHeadersSubSubmenuWork = (value) => {
-    console.log("togg");
     setShowHeadersSubSubmenuWork((prevState) => ({
       ...prevState,
       workInCanada: false,
@@ -132,7 +131,6 @@ const Header = ({ setShowPopUp }) => {
     }));
   };
   const toggleshowHeadersSubSubmenuStudy = (value) => {
-    console.log("togg");
     setShowHeadersSubSubmenuStudy((prevState) => ({
       ...prevState,
       studyInCanada: false,
@@ -147,7 +145,6 @@ const Header = ({ setShowPopUp }) => {
     }));
   };
   const toggleshowHeadersSubSubmenuSponsonship = (value) => {
-    console.log("togg");
     setShowHeadersSubSubmenuSponsorship((prevState) => ({
       ...prevState,
       sponsorship: false,
@@ -160,7 +157,6 @@ const Header = ({ setShowPopUp }) => {
     }));
   };
   const toggleshowHeadersSubSubmenuBusiness = (value) => {
-    console.log("togg");
     setShowHeadersSubSubmenuBusiness((prevState) => ({
       ...prevState,
       businessInvest: false,
@@ -170,7 +166,6 @@ const Header = ({ setShowPopUp }) => {
     }));
   };
   const toggleshowHeadersSubSubmenuVisit = (value) => {
-    console.log("togg");
     setShowHeadersSubSubmenuVisit((prevState) => ({
       ...prevState,
       visitorVisaTrv: false,
@@ -180,7 +175,6 @@ const Header = ({ setShowPopUp }) => {
     }));
   };
   const toggleshowHeadersSubSubmenuEmployes = (value) => {
-    console.log("togg");
     setShowHeadersSubSubmenuEmployes((prevState) => ({
       ...prevState,
       employersOutsideCanada: false,
@@ -188,7 +182,6 @@ const Header = ({ setShowPopUp }) => {
       [value]: !prevState[value],
     }));
   };
-  console.log(showHeadersSubSubmenuWork);
 
   function convertTitleToStateKey(title) {
     // Remove special characters including hyphens
@@ -348,7 +341,7 @@ const Header = ({ setShowPopUp }) => {
   const handleItemProgramClick = (program) => {
     setSelectedProgram(program);
   };
-  // console.log(selectedProgram);
+
   const SvgComponent = ({ program }) => {
     return (
       <div className="hover:scale-115 hover:text-[#01997E] ">
@@ -367,9 +360,7 @@ const Header = ({ setShowPopUp }) => {
     );
   };
 
-  // console.log(selectedProgram);
   const HeaderComponent = ({ text, link }) => {
-    // console.log(link);
     return (
       <ul className=" flex flex-col gap-0 -mt-2 font-normal">
         <li>

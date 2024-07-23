@@ -148,7 +148,7 @@ const ClbCalculator = () => {
       </div>
     );
   };
-  // console.log(selectedExam);
+
   return (
     <div className="flex flex-col justify-center w-full md:w-[95%]">
       <div className="mt-[2.9rem]">

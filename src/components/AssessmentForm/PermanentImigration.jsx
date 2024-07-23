@@ -87,13 +87,6 @@ const PermanentImigration = ({
     relativesinCanada: "",
     otherInformation: "",
   });
-  // console.log(formdata)
-  // const handleSelect = (option) => {
-  //   setFormData({
-  //     ...formData,
-  //     occupation: option.label,
-  //   });
-  // };
 
   const handleDeleteQualification = (index) => {
     const updatedQualifications = formData.educationalQualifications.filter(
@@ -190,7 +183,7 @@ const PermanentImigration = ({
       workexperiences: updatedQualifications,
     });
   };
-  console.log(eduErrors);
+
   const validateLanguageTests = (showErrors = false) => {
     const newErrors = {};
 
@@ -299,8 +292,6 @@ const PermanentImigration = ({
     return Object.keys(tempErrors).length === 0;
   };
 
-  console.log(formData);
-  console.log(selectedExam);
   const validateEducation = (showErrors = false) => {
     const newErrors = {};
     if (!formData.educationqualification1) {
@@ -359,7 +350,6 @@ const PermanentImigration = ({
     }
     return Object.keys(newErrors).length === 0;
   };
-  console.log(workErrors);
   const validateWork = (showErrors = false) => {
     const newErrors = {};
 
@@ -440,18 +430,16 @@ const PermanentImigration = ({
           },
         }
       );
-      console.log(response);
+
       if (response.status === 200) {
         const data = response.data;
         toast.success("You have successfully submited your form!");
-        console.log("Successfully submited form", data.message);
       }
     } catch (error) {
-      console.log("Error during form submission", error);
       toast.error("Internal server errror!");
     }
   };
-  // console.log('env', process.env.REACT_APP_API);
+
   return (
     <>
       {selectedForm.permanentImmigration && (
@@ -922,7 +910,7 @@ const PermanentImigration = ({
                       // setSelectForm('Education');
                       if (validate(true)) {
                         setSelectForm("Education");
-                        console.log("link");
+
                         // redirect('#others');
                       }
                       const element = personalInfoRef.current;
@@ -1192,10 +1180,7 @@ const PermanentImigration = ({
                                   }
                                   className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
                                 />
-                                {console.log(
-                                  formData.educationalQualifications[index]
-                                    .stream
-                                )}
+
                                 {eduErrors[`stream-${index}`] && (
                                   <p className="text-red-500">
                                     {eduErrors[`stream-${index}`]}

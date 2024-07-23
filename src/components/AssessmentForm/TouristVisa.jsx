@@ -36,7 +36,6 @@ const TouristVisa = ({ selectedForm }) => {
     visarefused: "",
     otherInformation: "",
   });
-  // console.log(formData);
 
   const validate = (showErrors = false) => {
     let tempErrors = {};
@@ -159,14 +158,12 @@ const TouristVisa = ({ selectedForm }) => {
           },
         }
       );
-      console.log(response);
+
       if (response.status === 200) {
         const data = response.data;
         toast.success("You have successfully submited your form!");
-        console.log("Successfully submited form", data.message);
       }
     } catch (error) {
-      console.log("Error during form submission", error);
       toast.error("Internal server errror!");
     }
   };
