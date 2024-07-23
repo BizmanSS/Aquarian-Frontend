@@ -14,14 +14,14 @@ const StudyPermit = ({ selectedForm }) => {
   const [submitAttempted, setSubmitAttempted] = useState(false);
   const [submitAttemptedEducation, setSubmitAttemptedEducation] =
     useState(false);
-  const [submitAttemptedWork, setSubmitAttemptedWork] = useState(false);
+
   const [submitAttemptedTest, setSubmitAttemptedTest] = useState(false);
   const [submitAttemptedOther, setSubmitAttemptedOther] = useState(false);
   const [submitAttemptedPriorHistory, setSubmitAttemptedPriorHistory] =
     useState(false);
   const [errors, setErrors] = useState({});
   const [eduErrors, setEduErrors] = useState({});
-  const [workErrors, setWorkErrors] = useState({});
+
   const [languageErrors, setLanguageErrors] = useState({});
   const [priorHistoryErrors, setPriorHistoryErrors] = useState({});
   const [othersErrors, setOthersErrors] = useState({});
@@ -43,17 +43,7 @@ const StudyPermit = ({ selectedForm }) => {
     board: "",
     stream: "",
     country: "",
-    workexperience: "",
     workexperience1: "",
-    occupation: "",
-    employmentHistory: "",
-    workCountry: "",
-    // workExperience: [{
-    //   yearsOfExp: "",
-    //   occupation: "",
-    //   employmentHistory: "",
-    //   country: ""
-    // }],
     englishTest: "",
     englishTestType: "",
     englishMedium: "",
@@ -221,27 +211,6 @@ const StudyPermit = ({ selectedForm }) => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const validateWork = (showErrors = false) => {
-    let tempWorkErrors = {};
-    if (!formData.workexperience)
-      tempWorkErrors.workexperience = "Work experience is required";
-    if (formData.workexperience === "yes") {
-      if (!formData.workexperience1)
-        tempWorkErrors.workexperience1 =
-          "Total Number of Work Experience is required";
-      if (!formData.occupation)
-        tempWorkErrors.occupation = "Occupation is required";
-      if (!formData.employmentHistory)
-        tempWorkErrors.employmentHistory = "Employment History is required";
-      if (!formData.workCountry)
-        tempWorkErrors.workCountry = "Country is required";
-    }
-    if (showErrors) {
-      setWorkErrors(tempWorkErrors);
-    }
-    return Object.keys(tempWorkErrors).length === 0;
-  };
-
   useEffect(() => {
     if (submitAttempted) {
       validate(true);
@@ -253,12 +222,6 @@ const StudyPermit = ({ selectedForm }) => {
       validateEducation(true);
     }
   }, [formData, submitAttemptedEducation]);
-
-  useEffect(() => {
-    if (submitAttemptedWork) {
-      validateWork(true);
-    }
-  }, [formData, submitAttemptedWork]);
 
   useEffect(() => {
     if (submitAttemptedTest) {
@@ -357,11 +320,7 @@ const StudyPermit = ({ selectedForm }) => {
             selectForm={selectForm}
             formData={formData}
             setFormData={setFormData}
-            handleInputChange={handleInputChange}
-            workErrors={workErrors}
-            validateWork={validateWork}
             setSelectForm={setSelectForm}
-            setSubmitAttemptedWork={setSubmitAttemptedWork}
           />
 
           <EnglishSkillsForm
