@@ -9,7 +9,7 @@ import EnglishSkillsForm from "./components/EnglishSkillsForm";
 import PriorHistoryForm from "./components/PriorHistoryForm";
 import AdditionalSectionForm from "./components/AdditionalSectionForm";
 
-const StudyPermit = ({ selectedForm }) => {
+const StudyPermit = ({ selectedForm, studyPermitRef, element, formType }) => {
   const [selectForm, setSelectForm] = useState("PersonalInformation");
   const [submitAttempted, setSubmitAttempted] = useState(false);
   const [submitAttemptedEducation, setSubmitAttemptedEducation] =
@@ -285,8 +285,13 @@ const StudyPermit = ({ selectedForm }) => {
   return (
     <>
       {selectedForm.studyPermit && (
-        <div className="w-full flex flex-col items-start justify-center px-20 gap-4 mb-10">
-          <div className="text-3xl font-semibold">Choose Your Form</div>
+        <div className="w-full flex flex-col items-start justify-center lg:px-20 md:px-10 px-2 gap-4 mb-10">
+          <div
+            ref={studyPermitRef}
+            className="block text-2xl font-medium text-[#07074D] py-2"
+          >
+            {formType} Eligibility Evaluation Form
+          </div>
 
           <PersonalInformation
             formData={formData}
@@ -298,6 +303,7 @@ const StudyPermit = ({ selectedForm }) => {
             setSelectForm={setSelectForm}
             handleSelectChange={handleSelectChange}
             handlePhoneChange={handlePhoneChange}
+            scrollRef={studyPermitRef}
           />
 
           <EducationDetails
@@ -311,6 +317,7 @@ const StudyPermit = ({ selectedForm }) => {
             setFormData={setFormData}
             setSubmitAttemptedEducation={setSubmitAttemptedEducation}
             handleSelectChange={handleSelectChange}
+            scrollRef={studyPermitRef}
           />
 
           <WorkExperienceForm
@@ -319,6 +326,7 @@ const StudyPermit = ({ selectedForm }) => {
             setFormData={setFormData}
             setSelectForm={setSelectForm}
             nextform={"english"}
+            scrollRef={studyPermitRef}
           />
 
           <EnglishSkillsForm
@@ -330,6 +338,7 @@ const StudyPermit = ({ selectedForm }) => {
             setSelectForm={setSelectForm}
             setFormData={setFormData}
             setSubmitAttemptedTest={setSubmitAttemptedTest}
+            scrollRef={studyPermitRef}
           />
 
           <PriorHistoryForm
@@ -339,6 +348,7 @@ const StudyPermit = ({ selectedForm }) => {
             validatePriorHistory={validatePriorHistory}
             setSelectForm={setSelectForm}
             setSubmitAttemptedPriorHistory={setSubmitAttemptedPriorHistory}
+            scrollRef={studyPermitRef}
           />
 
           <AdditionalSectionForm

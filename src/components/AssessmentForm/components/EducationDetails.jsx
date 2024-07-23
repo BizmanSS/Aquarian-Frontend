@@ -14,6 +14,7 @@ const EducationDetails = ({
   setFormData,
   setSubmitAttemptedEducation,
   handleSelectChange,
+  scrollRef,
 }) => {
   const customStyles = {
     control: (provided, state) => ({
@@ -258,8 +259,16 @@ const EducationDetails = ({
                 setSubmitAttemptedEducation(true);
                 // setSelectForm('work-experience');
                 // if (validateEducation(true)) {
-                  setSelectForm("work-experience");
+                setSelectForm("work-experience");
                 // }
+                const element = scrollRef.current;
+                const elementPosition =
+                  element.getBoundingClientRect().top + window.pageYOffset;
+
+                window.scrollTo({
+                  top: elementPosition, // Adjust the offset here (100px)
+                  behavior: "smooth",
+                });
               }}
             >
               Next

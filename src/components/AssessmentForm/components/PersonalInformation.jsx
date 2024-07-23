@@ -15,6 +15,7 @@ const PersonalInformation = ({
   setSelectForm,
   handleSelectChange,
   handlePhoneChange,
+  scrollRef,
 }) => {
   const customStyles = {
     control: (provided, state) => ({
@@ -375,6 +376,14 @@ const PersonalInformation = ({
                 if (validate(true)) {
                   setSelectForm("Education");
                 }
+                const element = scrollRef.current;
+                const elementPosition =
+                  element.getBoundingClientRect().top + window.pageYOffset;
+
+                window.scrollTo({
+                  top: elementPosition - 100, // Adjust the offset here (100px)
+                  behavior: "smooth",
+                });
               }}
             >
               Next

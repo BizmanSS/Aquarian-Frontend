@@ -841,7 +841,6 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
                       if (validate(true)) {
                         setSelectForm("Education");
                       }
-
                       const element = workPermitRef.current;
                       const elementPosition =
                         element.getBoundingClientRect().top +
@@ -1040,35 +1039,8 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
               setFormData={setFormData}
               setSelectForm={setSelectForm}
               nextform={"other"}
+              scrollRef={workPermitRef}
             />
-            {/*
-
-                <div className="w-full flex items-center justify-center mb-10 mt-10">
-                  <button
-                    className="bg-black text-[#01F9E1] px-16 py-3 rounded-lg text-xl"
-                    type="button"
-                    onClick={() => {
-                      setSubmitAttemptedWork(true);
-                      // setSelectForm('english');
-                      if (validateWork(true)) {
-                        setSelectForm("other");
-                      }
-                      const element = workPermitRef.current;
-                      const elementPosition =
-                        element.getBoundingClientRect().top +
-                        window.pageYOffset;
-
-                      window.scrollTo({
-                        top: elementPosition + 70, // Adjust the offset here (100px)
-                        behavior: "smooth",
-                      });
-                    }}
-                  >
-                    Next
-                  </button>
-                </div>
-              </form>
-            )} */}
 
             <div
               id="other"

@@ -99,6 +99,7 @@ const WorkExperienceForm = ({
   setSelectForm,
   setFormData,
   nextform,
+  scrollRef,
 }) => {
   const [workExperiences, setWorkExperiences] = useState([]);
   const [selectedWork, setSelectedWork] = useState(0);
@@ -473,6 +474,14 @@ const WorkExperienceForm = ({
                   )
                     setSelectForm(nextform);
                 }
+                const element = scrollRef.current;
+                const elementPosition =
+                  element.getBoundingClientRect().top + window.pageYOffset;
+
+                window.scrollTo({
+                  top: elementPosition + 70, // Adjust the offset here (100px)
+                  behavior: "smooth",
+                });
               }}
             >
               Next
