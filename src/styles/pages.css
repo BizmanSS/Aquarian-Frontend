@@ -1,0 +1,121 @@
+.AboutUsHeader {
+  z-index: 1;
+  margin-top: 5rem;
+  position: relative;
+  display: block;
+  background-repeat: no-repeat;
+  background-size: auto;
+  width: 90%;
+  margin-left: 2%;
+  border-radius: 25px;
+  background: url(../Assets/AboutUsHeader.png) lightgray 50% / cover no-repeat;
+  box-shadow: 0px 4px 24.9px 0px rgba(0, 0, 0, 0.5);
+}
+.AboutUsHeader .link {
+  color: gray;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding-top: 40px;
+  padding-left: 3%;
+}
+
+.heading-about {
+  color: #e2e2e2;
+  padding: 1rem 0rem;
+  font-size: 45px;
+  text-align: center;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.pages-content-div {
+  width: 74%;
+  margin-left: 20%;
+  padding: 3rem;
+  padding-left: 8%;
+  background-color: #fff;
+}
+.pages-content-div span {
+  font-size: xx-large;
+}
+.pages-content-div sp {
+  font-size: x-large;
+}
+.pages-content-div bold {
+  font-weight: 600;
+}
+.pages-content-div italic {
+  font-style: italic;
+}
+.pages-content-div ul {
+  margin-left: 2rem;
+}
+.pages-content-div ul {
+  list-style-type: disc;
+}
+.expandedTable {
+  display: none;
+}
+@media (max-width: 1600px) {
+  .pages-content-div {
+    width: 71%;
+    margin-left: 23%;
+  }
+}
+@media (max-width: 1168px) {
+  .AboutUsHeader {
+    width: 89%;
+  }
+}
+@media (max-width: 968px) {
+  .AboutUsHeader {
+    width: 88%;
+  }
+}
+@media (max-width: 1200px) {
+  .pages-content-div {
+    width: 68%;
+    margin-left: 26%;
+  }
+}
+@media (max-width: 1024px) {
+  .heading-about {
+    font-size: 39px;
+  }
+  .pages-content-div {
+    width: 64%;
+    margin-left: 30%;
+  }
+}
+@media (max-width: 800px) {
+  .pages-content-div {
+    margin-left: 0%;
+    margin-right: 0%;
+    width: 93.9%;
+    padding: 1rem;
+  }
+}
+@media (max-width: 768px) {
+  .pages-content-div {
+    margin-left: 0%;
+    margin-right: 0%;
+    width: 100%;
+    padding: 1rem;
+  }
+  .AboutUsHeader .link {
+    font-size: 10px;
+    padding-top: 60px;
+  }
+  .AboutUsHeader {
+    margin-top: 2rem;
+    width: 95%;
+    margin-left: 2.5%;
+  }
+  .heading-about {
+    font-size: 22px;
+    width: 90%;
+    margin: auto;
+  }
+}
