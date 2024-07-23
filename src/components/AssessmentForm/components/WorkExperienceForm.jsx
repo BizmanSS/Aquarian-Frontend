@@ -466,15 +466,18 @@ const WorkExperienceForm = ({
                 if (formVisible) {
                   toast.error("Please save your form Details");
                 }
-                if (workExperiences.length < 1) {
+                if (
+                  formData.workexperience1 === "yes" &&
+                  workExperiences.length < 1
+                ) {
                   toast.error("Please Add Experience");
                 }
-                if (
-                  validateWork(true) &&
-                  !formVisible &&
-                  workExperiences.length >= 1
-                ) {
-                  setSelectForm("english");
+                if (validateWork(true) && !formVisible) {
+                  if (
+                    workExperiences.length >= 1 ||
+                    formData.workexperience1 === "no"
+                  )
+                    setSelectForm("english");
                 }
               }}
             >
