@@ -434,7 +434,8 @@ const WorkExperienceForm = ({
                     Save
                   </button>
                 )}
-                {formVisible && (
+
+                {formVisible && workExperiences.length !== 0 && (
                   <button
                     className="bg-black flex gap-2 text-[#01F9E1] px-16 py-3 rounded-lg text-xl"
                     type="button"
