@@ -110,6 +110,12 @@ const WorkExperienceForm = ({
   });
 
   useEffect(() => {
+    if (workExperiences.length === 0) {
+      setFormVisible(true)
+    }
+  }, [workExperiences])
+
+  useEffect(() => {
     if (formData.workexperience1 === "yes") {
       setFormVisible(true);
     }
@@ -137,12 +143,16 @@ const WorkExperienceForm = ({
 
   const validateFormFields = () => {
     const { yearsOfExp, occupation, employmentHistory, country } = currentForm;
-    return (
-      yearsOfExp.trim() !== "" &&
-      occupation.trim() !== "" &&
-      employmentHistory.trim() !== "" &&
-      country.trim() !== ""
-    );
+
+    if (yearsOfExp.trim() !== "" && occupation.trim() !== "" && employmentHistory.trim() !== "" && country.trim() !== "") {
+      return true
+    }
+    // return (
+    //   yearsOfExp.trim() !== "" &&
+    //   occupation.trim() !== "" &&
+    //   employmentHistory.trim() !== "" &&
+    //   country.trim() !== ""
+    // );
   };
 
   const handleSave = () => {
@@ -318,6 +328,7 @@ const WorkExperienceForm = ({
                   country={item.country}
                 />
               ))}
+             {workExperiences.length !== 0 &&
               <div className="w-full flex ">
                 <button
                   className="bg-black text-[#01F9E1] px-16 py-3 rounded-lg text-xl"
@@ -326,7 +337,7 @@ const WorkExperienceForm = ({
                 >
                   Add Experience +
                 </button>
-              </div>
+              </div>}
               {formVisible && (
                 <div className="flex mt-6 items-center justify-between w-full">
                   <div className="w-[45%] flex flex-col items-center justify-center">
