@@ -363,7 +363,7 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
                     <Select
                       options={options}
                       value={options.find(
-                        (option) => option.value === formData.nationality
+                        (option) => option.label === formData.nationality
                       )}
                       onChange={handleSelectChange}
                       styles={customStyles}
