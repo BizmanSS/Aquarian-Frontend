@@ -10,7 +10,9 @@
   border-radius: 25px;
   background: url(../Assets/AboutUsHeader.png) lightgray 50% / cover no-repeat;
   box-shadow: 0px 4px 24.9px 0px rgba(0, 0, 0, 0.5);
+  min-width: 352px;
 }
+
 .AboutUsHeader .link {
   color: gray;
   font-size: 13px;
@@ -30,40 +32,56 @@
   font-weight: 400;
   line-height: normal;
 }
+
 .pages-content-div {
   width: 74%;
   margin-left: 20%;
-  padding: 3rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
   padding-left: 8%;
   background-color: #fff;
+  min-width: 371px;
 }
+
 .pages-content-div span {
   font-size: xx-large;
 }
+
 .pages-content-div sp {
   font-size: x-large;
 }
+
 .pages-content-div bold {
   font-weight: 600;
 }
+
 .pages-content-div italic {
   font-style: italic;
 }
+
 .pages-content-div ul {
   margin-left: 2rem;
 }
+
 .pages-content-div ul {
   list-style-type: disc;
 }
+
 .expandedTable {
   display: none;
 }
+
+.pages-content-text{
+  padding-right: 1rem;
+}
+
 @media (max-width: 1600px) {
   .pages-content-div {
     width: 71%;
     margin-left: 23%;
   }
 }
+
 @media (max-width: 1168px) {
   .AboutUsHeader {
     width: 89%;
@@ -75,44 +93,72 @@
   }
 }
 @media (max-width: 1200px) {
-  .pages-content-div {
+  /* .pages-content-div {
     width: 68%;
     margin-left: 26%;
-  }
+  } */
 }
 @media (max-width: 1024px) {
   .heading-about {
     font-size: 39px;
   }
-  .pages-content-div {
+  /* .pages-content-div {
     width: 64%;
     margin-left: 30%;
+  } */
+}
+@media (max-width:1400px) {
+  .pages-content-div {
+    margin-left: 0%;
+    margin-right: 0%;
+    width: 93.9%;
+    padding-right: 0rem;
+    padding-left: 0;
+  }
+  .pages-content-text{
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 980px;
+    padding-left: 1rem;
   }
 }
-@media (max-width: 800px) {
+
+/* @media (max-width: 800px) {
   .pages-content-div {
     margin-left: 0%;
     margin-right: 0%;
     width: 93.9%;
     padding: 1rem;
   }
+} */
+
+@media (max-width: 968px)
+{
+  .pages-content-div{
+    padding-right: 1rem;
+    padding-left: 0;
+  }
+  
 }
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .pages-content-div {
     margin-left: 0%;
     margin-right: 0%;
     width: 100%;
-    padding: 1rem;
+    padding-right: 0;
   }
+
   .AboutUsHeader .link {
     font-size: 10px;
     padding-top: 60px;
   }
+
   .AboutUsHeader {
     margin-top: 2rem;
     width: 95%;
     margin-left: 2.5%;
   }
+
   .heading-about {
     font-size: 22px;
     width: 90%;
