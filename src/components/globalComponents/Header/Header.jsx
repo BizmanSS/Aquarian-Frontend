@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import './Header.css'
 import logo from "../../../Assets/logo1.png";
 import { RiMenu2Fill } from "react-icons/ri";
 import Instagram from "../../../Assets/Instagram_logo.svg";
@@ -383,11 +384,11 @@ const Header = ({ setShowPopUp }) => {
 
   return (
     <div className="">
-      <div className="bg-black h-[5rem] md:h-[6.5rem] fixed z-40 top-0 flex flex-col items-center justify-start w-full md:w-[94%] 7xl:w-[96%] 7xl:-ml-[1.2rem] max-w-[140rem] 8xl:-ml-[3rem]">
+      <div className="bg-black h-[5rem] lg:h-[5.5rem] xl:h-[6.5rem] fixed z-40 top-0 flex flex-col items-center justify-start w-full md:w-[94%] 7xl:w-[96%] 7xl:-ml-[1.2rem] max-w-[140rem] 8xl:-ml-[3rem]">
         {!ismobile ? (
           <>
             {" "}
-            <div className="bg-[#000000] fixed w-[94%] h-[30px] text-[13px] z-20 flex items-center justify-end max-w-[120rem]">
+            <div className="bg-[#000000] fixed w-[94%] h-[30px] text-[13px] z-20 flex items-center justify-end max-w-[120rem] header-menu-upper">
               <div className="flex items-center justify-end mr-[0rem]">
                 <p className="px-4 py-1 text-[#939393] cursor-pointer hover:text-[#01F9E1]">
                   <a href="/about-us">About Us</a>
@@ -457,11 +458,11 @@ const Header = ({ setShowPopUp }) => {
               </div>
             </div>
             <div className="w-[100%] flex items-center justify-between mt-4 relative">
-              <a href="/">
+              <a href="/" class='header-menu-company-logo'>
                 <img
                   src={logo}
                   alt="logo"
-                  className="cursor-pointer w-[9rem] ml-2 lg:w-[10rem] xl:w-[11rem] 2xl:w-[13rem] lg:ml-4 xl:ml-8 2xl:ml-10 "
+                  className="cursor-pointer w-[11rem] xl:w-[12rem] 2xl:w-[13rem] lg:ml-4 xl:ml-8 2xl:ml-12 "
                 />
               </a>
 

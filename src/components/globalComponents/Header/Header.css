@@ -1,0 +1,13 @@
+.header-menu-upper{
+    z-index: 1;
+}
+
+.header-menu-company-logo{
+    position: relative;
+    bottom: 0.5rem;
+    z-index: 2;
+}
+
+/* .header-menu-company-logo img{
+    width: 12rem;
+} */
