@@ -104,13 +104,13 @@ const Banner = () => {
           )}
         </>
       )}
-      <div className="hidden lg:flex flex-col items-center pointer-events-auto justify-center gap-4 absolute left-[9rem] lg:top-[50vh]">
-        <div className=" text-white px-4 text-lg md:text-[2.5rem] lg:text-[3rem] xl:text-[3.5rem] font-bold mb-3">
+      <div className="hidden md:flex flex-col items-center pointer-events-auto justify-center gap-4 absolute left-[7rem] xl:left-[9rem] top-[60vh] lg:top-[50vh]">
+        <div className=" text-white px-4 text-lg md:text-[3rem] lg:text-[3.5rem] xl:text-[3.5rem] font-bold mb-3">
           Our goal is to help <br /> <br /> you achieve yours
         </div>
 
         <Link to={"/immigrate/permanent-residency"}>
-          <button className="mr-10 bg-black text-white px-4 md:px-10 py-3 rounded-xl text-sm md:text-lg border-[2px] border-[#01F9E1] font-bold transition ease-in-out delay-70 hover:scale-y-[1.1] hover:scale-x-[1.1] duration-300">
+          <button className="mr-10 bg-black text-white px-4 md:px-10 py-3 rounded-xl text-sm lg:text-lg border-[2px] border-[#01F9E1] font-bold transition ease-in-out delay-70 hover:scale-y-[1.1] hover:scale-x-[1.1] duration-300">
             ⁠I want to Immigrate Permanently to Canada
           </button>
         </Link>
@@ -118,19 +118,19 @@ const Banner = () => {
         <div className="flex items-center justify-center gap-4">
           {" "}
           <Link to={"/study/study-in-canada"}>
-            <button className="mr-6 bg-transparent text-white px-4 md:px-10 py-3 rounded-xl text-sm md:text-lg border-[2px] border-[#01F9E1] font-bold transition ease-in-out delay-70 hover:scale-y-[1.1] hover:scale-x-[1.1] duration-300">
+            <button className="mr-6 bg-transparent text-white px-4 md:px-8 lg:px-10 py-3 rounded-xl text-sm lg:text-lg border-[2px] border-[#01F9E1] font-bold transition ease-in-out delay-70 hover:scale-y-[1.1] hover:scale-x-[1.1] duration-300">
               ⁠I want to Study
             </button>
           </Link>
           <Link to={"/work/work-in-canada"}>
-            <button className="mr-10 bg-transparent text-white px-4 md:px-12 py-3 rounded-xl text-sm md:text-lg border-[2px] border-[#01F9E1] font-bold transition ease-in-out delay-70 hover:scale-y-[1.1] hover:scale-x-[1.1] duration-300">
+            <button className="mr-10 bg-transparent text-white px-4 md:px-10 lg:px-12 py-3 rounded-xl text-sm lg:text-lg border-[2px] border-[#01F9E1] font-bold transition ease-in-out delay-70 hover:scale-y-[1.1] hover:scale-x-[1.1] duration-300">
               ⁠I want to Work
             </button>
           </Link>
         </div>
       </div>
 
-      <div className="z-30 lg:hidden absolute w-full h-full flex flex-col py-10 items-center justify-end gap-[4rem]">
+      <div className="z-30 md:hidden absolute w-full h-full flex flex-col py-10 items-center justify-end gap-[4rem]">
         <div className="flex  flex-col items-center justify-center gap-4 w-full h-fit">
           <div className="pl-10 text-white text-[25px] sm:text-[28px] font-light mb-3 tracking-wide w-full flex flex-col items-start justify-center leading-tight">
             Aquarian is a{" "}
