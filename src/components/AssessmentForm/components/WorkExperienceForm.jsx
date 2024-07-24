@@ -474,6 +474,10 @@ const WorkExperienceForm = ({
                   )
                     setSelectForm(nextform);
                 }
+                setFormData((prevFormData) => ({
+                  ...prevFormData,
+                  workExperiences,
+                }));
                 const element = scrollRef.current;
                 const elementPosition =
                   element.getBoundingClientRect().top + window.pageYOffset;
