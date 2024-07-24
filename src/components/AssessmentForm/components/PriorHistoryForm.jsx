@@ -8,6 +8,7 @@ const PriorHistoryForm = ({
   validatePriorHistory,
   setSelectForm,
   setSubmitAttemptedPriorHistory,
+  scrollRef,
 }) => {
   return (
     <div className="w-full h-fit">
@@ -264,6 +265,14 @@ const PriorHistoryForm = ({
                 if (validatePriorHistory(true)) {
                   setSelectForm("other");
                 }
+                const element = scrollRef.current;
+                const elementPosition =
+                  element.getBoundingClientRect().top + window.pageYOffset;
+
+                window.scrollTo({
+                  top: elementPosition + 140, // Adjust the offset here (100px)
+                  behavior: "smooth",
+                });
               }}
             >
               Next

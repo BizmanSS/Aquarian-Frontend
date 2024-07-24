@@ -10,6 +10,7 @@ const EnglishSkillsForm = ({
   setSelectForm,
   setFormData,
   setSubmitAttemptedTest,
+  scrollRef,
 }) => {
   return (
     <div className="w-full h-fit">
@@ -346,6 +347,14 @@ const EnglishSkillsForm = ({
                 if (validateLanguageTests(true)) {
                   setSelectForm("priorhistory");
                 }
+                const element = scrollRef.current;
+                const elementPosition =
+                  element.getBoundingClientRect().top + window.pageYOffset;
+
+                window.scrollTo({
+                  top: elementPosition + 120, // Adjust the offset here (100px)
+                  behavior: "smooth",
+                });
               }}
             >
               Next

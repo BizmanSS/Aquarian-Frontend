@@ -42,16 +42,7 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
     haveLmiaJoboffer: "",
     requireLmiaJoboffer: "",
     nocCodeonLmia: "",
-    workexperiences: [
-      {
-        workexperience: "",
-        employmentHistory: "",
-        workCountry: "",
-        occupation: "",
-      },
-    ],
     workexperience1: "",
-
     otherInformation: "",
   });
 
@@ -134,39 +125,6 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const validateWork = (showErrors = false) => {
-    const newErrors = {};
-
-    if (!formData.workexperience1) {
-      newErrors.workexperience1 = "Work Experience/Qualification is required";
-    }
-
-    if (formData.workexperience1 === "yes") {
-      formData.workexperiences.forEach((qualification, index) => {
-        if (!qualification.workexperience) {
-          newErrors[`workexperience-${index}`] =
-            "Total Number of Work Experience is required";
-        }
-        if (!qualification.employmentHistory) {
-          newErrors[`employmentHistory-${index}`] =
-            "Employment History is required";
-        }
-
-        if (!qualification.occupation) {
-          newErrors[`occupation-${index}`] = "Field/Stream is required";
-        }
-        if (!qualification.workCountry) {
-          newErrors[`workCountry-${index}`] = "Country is required";
-        }
-      });
-    }
-
-    if (showErrors) {
-      setWorkErrors(newErrors);
-    }
-    return Object.keys(newErrors).length === 0;
-  };
-
   useEffect(() => {
     if (submitAttempted) {
       validate(true);
@@ -178,12 +136,6 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
       validateEducation(true);
     }
   }, [formData, submitAttemptedEducation]);
-
-  useEffect(() => {
-    if (submitAttemptedWork) {
-      validateWork(true);
-    }
-  }, [formData, submitAttemptedWork]);
 
   const handleInputChange = (event) => {
     setFormData({
@@ -202,7 +154,7 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
   const handleSelectChange = (selectedOption) => {
     setFormData((prevState) => ({
       ...prevState,
-      nationality: selectedOption.value,
+      nationality: selectedOption.label,
     }));
   };
 
@@ -411,7 +363,7 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
                     <Select
                       options={options}
                       value={options.find(
-                        (option) => option.value === formData.nationality
+                        (option) => option.label === formData.nationality
                       )}
                       onChange={handleSelectChange}
                       styles={customStyles}
@@ -841,7 +793,6 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
                       if (validate(true)) {
                         setSelectForm("Education");
                       }
-
                       const element = workPermitRef.current;
                       const elementPosition =
                         element.getBoundingClientRect().top +
@@ -1040,40 +991,13 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
               setFormData={setFormData}
               setSelectForm={setSelectForm}
               nextform={"other"}
+              scrollRef={workPermitRef}
             />
-            {/*
-
-                <div className="w-full flex items-center justify-center mb-10 mt-10">
-                  <button
-                    className="bg-black text-[#01F9E1] px-16 py-3 rounded-lg text-xl"
-                    type="button"
-                    onClick={() => {
-                      setSubmitAttemptedWork(true);
-                      // setSelectForm('english');
-                      if (validateWork(true)) {
-                        setSelectForm("other");
-                      }
-                      const element = workPermitRef.current;
-                      const elementPosition =
-                        element.getBoundingClientRect().top +
-                        window.pageYOffset;
-
-                      window.scrollTo({
-                        top: elementPosition + 70, // Adjust the offset here (100px)
-                        behavior: "smooth",
-                      });
-                    }}
-                  >
-                    Next
-                  </button>
-                </div>
-              </form>
-            )} */}
 
             <div
               id="other"
               onClick={() => {
-                if (validateWork(true)) {
+                if (formData.workexperience1) {
                   setSelectForm("other");
                 }
               }}
@@ -1121,6 +1045,9 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
                         top: element,
                         behavior: "smooth",
                       });
+                      {
+                        console.log(formData);
+                      }
                     }}
                   >
                     Submit

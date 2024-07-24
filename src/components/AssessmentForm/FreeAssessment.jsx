@@ -212,6 +212,7 @@ export const years = [
 const FreeAssessment = () => {
   const personalInfoRef = useRef(null); // create a ref
   const workPermitRef = useRef(null);
+  const studyPermitRef = useRef(null);
 
   const [selectedForm, setSelectedForm] = useState({
     permanentImmigration: false,
@@ -255,6 +256,19 @@ const FreeAssessment = () => {
       });
     }
   }, [selectedForm.workPermit, workPermitRef]);
+
+  useEffect(() => {
+    if (selectedForm.studyPermit && studyPermitRef.current) {
+      const element = studyPermitRef.current;
+      const elementPosition =
+        element.getBoundingClientRect().top + window.pageYOffset;
+
+      window.scrollTo({
+        top: elementPosition - 100, // Adjust the offset here (100px)
+        behavior: "smooth",
+      });
+    }
+  }, [selectedForm.studyPermit, studyPermitRef]);
 
   return (
     <>
@@ -380,7 +394,12 @@ const FreeAssessment = () => {
           personalInfoRef={workPermitRef}
           workPermitRef={workPermitRef}
         />
-        <StudyPermit selectedForm={selectedForm} formType={"Study Permit"} />
+        <StudyPermit
+          selectedForm={selectedForm}
+          formType={"Study Permit"}
+          personalInfoRef={studyPermitRef}
+          studyPermitRef={studyPermitRef}
+        />
         <TouristVisa selectedForm={selectedForm} formType={"Tourist Visa"} />
       </div>
     </>
