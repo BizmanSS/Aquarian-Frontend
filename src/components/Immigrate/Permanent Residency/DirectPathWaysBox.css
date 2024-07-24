@@ -1,0 +1,133 @@
+.direct-pathways-container {
+    padding-top: 1rem;
+    min-height: 670px;
+    width: 100%;
+    min-width: 371px;
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+    margin-top: 10px;
+}
+
+.direct-pathways-header {
+    text-align: center;
+    font-family: "Poppins";
+    font-size: 20px;
+    color: #067369;
+    font-weight: 600;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+}
+
+.direct-pathways-inner-box {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.625rem;
+    row-gap: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 350px;
+}
+
+.direct-pathways-button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    height: 10.625rem;
+    cursor: pointer;
+}
+
+.direct-pathways-button {
+    width: 6.75rem;
+    height: 6.75rem;
+    background-color: white;
+    border: 1px solid #009889;
+    cursor: pointer;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    transition: border-color 0.2s ease, border-width 0.2s ease;
+
+}
+
+.direct-pathways-icon {
+    transform-origin: top;
+    transition-duration: 0.4s;
+}
+
+.direct-pathways-button-container:hover {
+    .direct-pathways-button {
+        border-color: transparent;
+        border-width: 0;
+    }
+
+    .direct-pathways-icon {
+        transform: scale(0.7);
+    }
+
+    .direct-pathways-text {
+        font-size: 14px;
+        transform: translateY(-2rem);
+    }
+}
+
+.direct-pathways-text {
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-size: 16px;
+    text-align: center;
+    color: #009889;
+    transition: transform 0.4s, font-size 0.4s;
+    cursor: pointer;
+    max-width: 170px;
+    padding-top: 0.4rem;
+    line-height: normal;
+}
+
+
+/* Might need to change the break point */
+@media (min-width: 744px) {
+    .direct-pathways-container {
+        min-height: 480px
+    }
+
+    .direct-pathways-inner-box {
+        grid-template-columns: repeat(4, 1fr);
+        max-width: 700px;
+    }
+
+    .direct-pathways-button-container:nth-child(5) {
+        grid-column: 2 / span 1;
+    }
+
+    .direct-pathways-button-container:nth-child(6) {
+        grid-column: 3 / span 1;
+    }
+}
+
+
+/* Again, make the break-point is fine */
+
+@media (min-width: 1024px) {
+
+    .direct-pathways-container {
+        max-width: 880px;
+        min-width: 850px;
+        margin-left: auto;
+        margin-right: auto;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        margin-top: 2rem;
+    }
+
+    .direct-pathways-header {
+        font-size: 32px;
+        font-weight: 500;
+    }
+
+    .direct-pathways-inner-box {
+        gap: 0.2rem;
+        row-gap: 1rem
+    }
+
+}
