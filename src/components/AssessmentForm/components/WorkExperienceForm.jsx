@@ -61,7 +61,7 @@ const PastExperienceBox = ({
   return (
     <div
       key={index}
-      className="bg-gray-400 bg-opacity-70 p-4 pr-20 rounded-xl relative flex flex-wrap items-center justify-center gap-y-3 mb-5"
+      className="bg-gray-400 bg-opacity-70 p-4 pr-20 rounded-xl relative flex flex-col md:flex-wrap md:flex-row gap-y-3 mb-5"
     >
       <div className="absolute top-2 right-2 flex flex-wrap items-center justify-center gap-2">
         <button
@@ -81,12 +81,9 @@ const PastExperienceBox = ({
       </div>
 
       {data.map((item, id) => (
-        <div
-          key={id}
-          className="w-1/2 flex items-center justify-between gap-2 px-5"
-        >
-          <p className="text-xl font-semibold text-black">{item.title}:</p>
-          <p className="text-xl text-gray-700">{item.value}</p>
+        <div key={id} className="grid md:w-1/2 grid-cols-2 gap-2 px-5">
+          <p className="md:text-xl font-semibold text-black">{item.title}:</p>
+          <p className="md:text-xl text-gray-700">{item.value}</p>
         </div>
       ))}
     </div>
@@ -137,12 +134,42 @@ const WorkExperienceForm = ({
     }
   }, [formData, submitAttemptedWork]);
 
+  useEffect(() => {
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      workExperiences,
+    }));
+  }, [workExperiences]);
+
   const handleAddWork = () => {
     if (formVisible) {
       toast.error("Please save details before adding New Experience");
     } else {
       setFormVisible(true);
     }
+  };
+  const handleNext = () => {
+    setSubmitAttemptedWork(true);
+    // setSelectForm('english');
+    if (formVisible) {
+      toast.error("Please save or delete your form Details");
+    }
+    if (formData.workexperience1 === "yes" && workExperiences.length < 1) {
+      toast.error("Please Add Experience");
+    }
+    if (validateWork(true) && !formVisible) {
+      if (workExperiences.length >= 1 || formData.workexperience1 === "no")
+        setSelectForm(nextform);
+    }
+
+    const element = scrollRef.current;
+    const elementPosition =
+      element.getBoundingClientRect().top + window.pageYOffset;
+
+    window.scrollTo({
+      top: elementPosition + 70, // Adjust the offset here (100px)
+      behavior: "smooth",
+    });
   };
 
   const customStyles = {
@@ -249,71 +276,69 @@ const WorkExperienceForm = ({
 
       {selectForm === "work-experience" && (
         <form action="post" className="w-full mt-6">
-          <div className="mt-4">
-            <div className="mb-3">
-              <label
-                for="workexperience"
-                className="mb-4 ml-2 block text-base font-medium text-[#07074D]"
-              >
-                Do you have work experience?
-                <span className="text-red-400">*</span>
-              </label>
-              <div className="flex items-center justify-start gap-6">
-                <div className="flex items-center mr-4 mb-4">
-                  <input
-                    id="workexperience001"
-                    type="radio"
-                    name="workexperience"
-                    className="hidden"
-                    value="yes"
-                    checked={formData.workexperience1 === "yes"}
-                    onChange={(e) =>
-                      setFormData({
-                        ...formData,
-                        workexperience1: e.target.value,
-                      })
-                    }
-                  />
-                  <label
-                    for="workexperience001"
-                    className="flex items-center cursor-pointer"
-                  >
-                    <span className="w-4 h-4 inline-block mr-1 border border-grey"></span>
-                    Yes
-                  </label>
-                </div>
-                <div className="flex items-center mr-4 mb-4">
-                  <input
-                    id="workexperience002"
-                    type="radio"
-                    name="workexperience"
-                    className="hidden"
-                    value="no"
-                    checked={formData.workexperience1 === "no"}
-                    onChange={(e) => {
-                      setFormData({
-                        ...formData,
-                        workexperience1: e.target.value,
-
-                        occupation: "",
-                        employmentHistory: "",
-                        workCountry: "",
-                      });
-                    }}
-                  />
-                  <label
-                    for="workexperience002"
-                    className="flex items-center cursor-pointer"
-                  >
-                    <span className="w-4 h-4 inline-block mr-1 border border-grey"></span>
-                    NO
-                  </label>
-                </div>
+          <div className="mb-3 mt-4">
+            <label
+              for="workexperience"
+              className="mb-4 ml-2 block text-base font-medium text-[#07074D]"
+            >
+              Do you have work experience?
+              <span className="text-red-400">*</span>
+            </label>
+            <div className="flex items-center justify-start gap-6">
+              <div className="flex items-center mr-4 mb-4">
+                <input
+                  id="workexperience001"
+                  type="radio"
+                  name="workexperience"
+                  className="hidden"
+                  value="yes"
+                  checked={formData.workexperience1 === "yes"}
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      workexperience1: e.target.value,
+                    })
+                  }
+                />
+                <label
+                  for="workexperience001"
+                  className="flex items-center cursor-pointer"
+                >
+                  <span className="w-4 h-4 inline-block mr-1 border border-grey"></span>
+                  Yes
+                </label>
               </div>
-              {workErrors.workexperience1 && (
-                <p className="text-red-500">{workErrors.workexperience1}</p>
-              )}
+              <div className="flex items-center mr-4 mb-4">
+                <input
+                  id="workexperience002"
+                  type="radio"
+                  name="workexperience"
+                  className="hidden"
+                  value="no"
+                  checked={formData.workexperience1 === "no"}
+                  onChange={(e) => {
+                    setFormData({
+                      ...formData,
+                      workexperience1: e.target.value,
+
+                      occupation: "",
+                      employmentHistory: "",
+                      workCountry: "",
+                    });
+                  }}
+                />
+                <label
+                  for="workexperience002"
+                  className="flex items-center cursor-pointer"
+                >
+                  <span className="w-4 h-4 inline-block mr-1 border border-grey"></span>
+                  NO
+                </label>
+              </div>
             </div>
+            {workErrors.workexperience1 && (
+              <p className="text-red-500">{workErrors.workexperience1}</p>
+            )}
           </div>
           {formData.workexperience1 === "yes" && (
             <>
@@ -340,7 +365,7 @@ const WorkExperienceForm = ({
               {workExperiences.length !== 0 && (
                 <div className="w-full flex ">
                   <button
-                    className="bg-black text-[#01F9E1] px-16 py-3 rounded-lg text-xl"
+                    className="bg-black text-[#01F9E1] md:px-16 md:py-3 px-5 py-2 rounded-lg md:text-xl mb-3"
                     type="button"
                     onClick={handleAddWork}
                   >
@@ -349,78 +374,77 @@ const WorkExperienceForm = ({
                 </div>
               )}
               {formVisible && (
-                <div className="flex mt-6 items-center justify-between w-full">
-                  <div className="w-[45%] flex flex-col items-center justify-center">
-                    <div className="mb-3 w-full">
-                      <label
-                        for="workexperience"
-                        className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
-                      >
-                        Total Number of Work Experience
-                        <span className="text-red-400">*</span>
-                      </label>
-                      <input
-                        type="text"
-                        id="yearsOfExp"
-                        name="yearsOfExp"
-                        value={currentForm.yearsOfExp}
-                        onChange={handleInputChange}
-                        className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
-                      />
-                    </div>
-                    <div className="w-full mb-3">
-                      <label
-                        for="occupation"
-                        className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
-                      >
-                        Occupation<span className="text-red-400">*</span>
-                      </label>
-                      <input
-                        type="text"
-                        id="occupation"
-                        name="occupation"
-                        value={currentForm.occupation}
-                        onChange={handleInputChange}
-                        className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
-                      />
-                    </div>
+                <div
+                  className="w-full md:grid grid-cols-2"
+                  style={{ columnGap: "10%" }}
+                >
+                  <div className="mb-3 w-full">
+                    <label
+                      for="workexperience"
+                      className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
+                    >
+                      Total Number of Work Experience
+                      <span className="text-red-400">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      id="yearsOfExp"
+                      name="yearsOfExp"
+                      value={currentForm.yearsOfExp}
+                      onChange={handleInputChange}
+                      className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
+                    />
                   </div>
-                  <div className="w-[45%] flex flex-col items-center justify-center">
-                    <div className="w-full mb-3">
-                      <label
-                        for="Employment"
-                        className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
-                      >
-                        Designation <span className="text-red-400">*</span>
-                      </label>
-                      <input
-                        type="text"
-                        id="Employment"
-                        name="employmentHistory"
-                        value={currentForm.employmentHistory}
-                        onChange={handleInputChange}
-                        className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
-                      />
-                    </div>
-                    <div className="mb-3 w-full">
-                      <label
-                        for="workCountry"
-                        className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
-                      >
-                        Country<span className="text-red-400">*</span>
-                      </label>
-                      <Select
-                        options={countries}
-                        value={countries.find(
-                          (option) => option.label === currentForm.country
-                        )}
-                        onChange={(selectedOption) =>
-                          handleSelectChange(selectedOption, "nationality")
-                        }
-                        styles={customStyles}
-                        className="w-full"
-                      />
-                    </div>
+                  <div className="w-full mb-3">
+                    <label
+                      for="Employment"
+                      className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
+                    >
+                      Designation <span className="text-red-400">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      id="Employment"
+                      name="employmentHistory"
+                      value={currentForm.employmentHistory}
+                      onChange={handleInputChange}
+                      className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
+                    />
+                  </div>
+                  <div className="w-full mb-3">
+                    <label
+                      for="occupation"
+                      className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
+                    >
+                      Occupation<span className="text-red-400">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      id="occupation"
+                      name="occupation"
+                      value={currentForm.occupation}
+                      onChange={handleInputChange}
+                      className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
+                    />
+                  </div>
+                  <div className="mb-3 w-full">
+                    <label
+                      for="workCountry"
+                      className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
+                    >
+                      Country<span className="text-red-400">*</span>
+                    </label>
+                    <Select
+                      options={countries}
+                      value={countries.find(
+                        (option) => option.label === currentForm.country
+                      )}
+                      onChange={(selectedOption) =>
+                        handleSelectChange(selectedOption, "nationality")
+                      }
+                      styles={customStyles}
+                      className="w-full"
+                    />
                   </div>
                 </div>
               )}
@@ -428,7 +452,7 @@ const WorkExperienceForm = ({
               <div className="w-full flex mb-10 mt-10 justify-between">
                 {formVisible && (
                   <button
-                    className="bg-black text-[#01F9E1] px-16 py-3 rounded-lg text-xl"
+                    className="bg-black text-[#01F9E1] md:px-16 md:py-3 px-5 py-2 rounded-lg md:text-xl"
                     type="button"
                     onClick={handleSave}
                   >
@@ -438,7 +462,7 @@ const WorkExperienceForm = ({
 
                 {formVisible && workExperiences.length !== 0 && (
                   <button
-                    className="bg-black flex gap-2 text-[#01F9E1] px-16 py-3 rounded-lg text-xl"
+                    className="bg-black flex gap-2 text-[#01F9E1] md:px-16 md:py-3 px-5 py-2 rounded-lg md:text-xl"
                     type="button"
                     onClick={() => {
                       setFormVisible(false);
@@ -455,38 +479,7 @@ const WorkExperienceForm = ({
             <button
               className="bg-black text-[#01F9E1] px-16 py-3 rounded-lg text-xl"
               type="button"
-              onClick={() => {
-                setSubmitAttemptedWork(true);
-                // setSelectForm('english');
-                if (formVisible) {
-                  toast.error("Please save your form Details");
-                }
-                if (
-                  formData.workexperience1 === "yes" &&
-                  workExperiences.length < 1
-                ) {
-                  toast.error("Please Add Experience");
-                }
-                if (validateWork(true) && !formVisible) {
-                  if (
-                    workExperiences.length >= 1 ||
-                    formData.workexperience1 === "no"
-                  )
-                    setSelectForm(nextform);
-                }
-                setFormData((prevFormData) => ({
-                  ...prevFormData,
-                  workExperiences,
-                }));
-                const element = scrollRef.current;
-                const elementPosition =
-                  element.getBoundingClientRect().top + window.pageYOffset;
-
-                window.scrollTo({
-                  top: elementPosition + 70, // Adjust the offset here (100px)
-                  behavior: "smooth",
-                });
-              }}
+              onClick={handleNext}
             >
               Next
             </button>

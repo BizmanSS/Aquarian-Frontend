@@ -997,7 +997,12 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
             <div
               id="other"
               onClick={() => {
-                if (formData.workexperience1) {
+                if (
+                  (formData.workexperience1 === "yes" &&
+                    formData.workExperiences &&
+                    formData.workExperiences.length > 0) ||
+                  formData.workexperience1 === "no"
+                ) {
                   setSelectForm("other");
                 }
               }}

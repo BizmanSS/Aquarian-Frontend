@@ -247,10 +247,10 @@ const StudyPermit = ({ selectedForm, studyPermitRef, element, formType }) => {
     });
   };
 
-  const handleSelectChange = (selectedOption, key) => {
+  const handleSelectChange = (selectedOption) => {
     setFormData((prevState) => ({
       ...prevState,
-      [key]: selectedOption.value,
+      nationality: selectedOption.label,
     }));
   };
 
