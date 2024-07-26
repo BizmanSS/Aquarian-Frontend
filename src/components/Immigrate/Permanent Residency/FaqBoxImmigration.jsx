@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import "./FaqBox.css"
+import "../../../styles/shared/FaqBox.css"
 import faqBoxIcon from '../../../Assets/Pages/Permanent Residency/FaqBoxIcon.svg'
 import faqDropDownButton from '../../../Assets/Pages/Permanent Residency/FaqDropDownButton.svg'
 

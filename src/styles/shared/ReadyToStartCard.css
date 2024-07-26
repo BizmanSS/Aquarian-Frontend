@@ -21,14 +21,15 @@
 .rts-card-image-box img {
     width: 100%;
     position: relative;
-    bottom: 20px;
+    height: 100%;
+    object-fit: cover;
     filter: brightness(70%);
 }
 
 .rts-card-header {
     position: relative;
     z-index: 2;
-    bottom: 240px;
+    bottom: 190px;
     text-align: center;
     color: #FFF;
     text-align: center;
@@ -73,6 +74,9 @@
     font-size: 14px;
     font-weight: 400;
     width: 366px;
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
+    max-width: 100%;
 }
 
 .rts-card-text-box img {
@@ -116,7 +120,7 @@
     }
 
     .rts-card-header {
-        bottom: 380px;
+        bottom: 290px;
         text-align: left;
         right: 80px;
         font-size: 64px;

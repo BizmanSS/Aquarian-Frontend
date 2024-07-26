@@ -1,0 +1,234 @@
+.work-permit-box-container {
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+    overflow: hidden;
+    margin-top: 1rem;
+}
+
+.work-permit-box-header {
+    color: #000;
+    font-family: Poppins;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: normal;
+    padding: 16px;
+}
+
+.work-permit-box-card {
+    padding: 16px;
+    color: #000;
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.work-permit-box-card-icon {
+    display: none;
+}
+
+.work-permit-box-card-1 {
+    background-color: #EDF8F7;
+}
+
+.work-permit-box-card-2 {
+    background-color: #A7E0DC;
+}
+
+.work-permit-box-card-3 {
+    background-color: #EDF8F7;
+}
+
+.work-permit-box-card-4 {
+    background-color: #A7E0DC;
+}
+
+.work-permit-box-card img {
+    width: 69px;
+}
+
+@media (min-width: 744px) {
+    .work-permit-box-container {
+        max-width: 681px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .work-permit-box-card-container {
+        background-color: #EDF8F7;
+        border-radius: 40px;
+        overflow: hidden;
+    }
+
+    .work-permit-box-card {
+        display: flex;
+        background-color: #A7E0DC;
+        font-size: 13px;
+        padding: 0px;
+    }
+
+    .work-permit-box-card-text {
+        padding-top: 16px;
+        padding-left: 16px;
+        width: 486px;
+        padding-right: 10px;
+        padding-bottom: 10px;
+        background-color: #EDF8F7;
+    }
+
+    .work-permit-box-card-icon {
+        display: block;
+        background-color: #A7E0DC;
+        height: inherit;
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+
+    .work-permit-box-card-1 {
+        z-index: 2;
+        position: relative;
+        border-radius: 40px 40px 40px 0;
+        padding-bottom: 16px;
+
+    }
+
+    .work-permit-box-card-text-1 {
+        position: relative;
+        border-radius: 40px 0px 40px 0;
+        z-index: 2;
+    }
+
+    .work-permit-box-card-icon-1 {
+        border-radius: 40px 40px 40px 0;
+    }
+
+    .work-permit-box-card-2 {
+        position: relative;
+        padding-bottom: 16px;
+        border-radius: 0px 0px 0px 35px;
+    }
+
+    .work-permit-box-card-text-2 {
+        z-index: 2;
+        border-radius: 40px 0px 0px 40px;
+        text-align: end;
+    }
+
+    .work-permit-box-card-icon-2 {
+        border-radius: 40px 40px 40px 40px;
+    }
+
+    .work-permit-box-card-3 {
+        position: relative;
+        padding-bottom: 16px;
+        border-radius: 40px 40px 40px 0;
+    }
+
+    .work-permit-box-card-text-3 {
+        z-index: 2;
+        border-radius: 0px 40px 40px 0;
+    }
+
+    .work-permit-box-card-icon-3 {
+        border-radius: 40px 0 35px 0;
+    }
+
+    .work-permit-box-card-4 {
+        border-radius: 40px 0px 40px 40px;
+    }
+
+    .work-permit-box-card-text-4 {
+        border-radius: 40px 0px 40px 40px;
+        text-align: end;
+        padding-right: 20px;
+    }
+
+    .work-permit-box-card-icon-4 {
+        border-radius: 0px 40px 40px 35px;
+    }
+
+    .work-permit-box-card-icon-4 img {
+        width: 90px;
+    }
+
+
+    .work-permit-box-card-text-1::before {
+        content: "";
+        position: absolute;
+        z-index: 1;
+
+        background-color: transparent;
+        bottom: 24px;
+        height: 60px;
+        right: -40px;
+        width: 45px;
+        border-top-left-radius: 55px;
+        box-shadow: 0 -25px 0 0 #EDF8F7;
+    }
+
+    .work-permit-box-card-1::before {
+        content: "";
+        position: absolute;
+        z-index: 1;
+
+        background-color: transparent;
+        bottom: -44px;
+        height: 60px;
+        left: -5px;
+        width: 45px;
+        border-top-left-radius: 55px;
+        box-shadow: 0 -25px 0 0 #EDF8F7;
+    }
+
+    .work-permit-box-card-2::before {
+        content: "";
+        position: absolute;
+        z-index: 1;
+        transform: rotateY(180deg);
+        background-color: transparent;
+        bottom: -44px;
+        height: 60px;
+        right: -5px;
+        width: 45px;
+        border-top-left-radius: 55px;
+        box-shadow: 0 -25px 0 0 #EDF8F7;
+    }
+
+    .work-permit-box-card-3::before {
+        content: "";
+        position: absolute;
+        z-index: 1;
+
+        background-color: transparent;
+        bottom: -44px;
+        height: 60px;
+        left: -5px;
+        width: 45px;
+        border-top-left-radius: 55px;
+        box-shadow: 0 -25px 0 0 #EDF8F7;
+    }
+}
+
+@media (min-width: 1024px) {
+    .work-permit-box-container {
+        max-width: 880px;
+    }
+
+    .work-permit-box-card-text{
+        width: 628px;
+        height: 106px;
+        display: flex;
+        align-items: center;
+    }
+
+    .work-permit-box-card {
+        font-size: 16px;
+    }
+
+     .work-permit-box-card-text-1::before{
+        bottom: 47px;
+        right: -41px;
+     }
+}

@@ -2,6 +2,7 @@
     /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
     padding-bottom: 24px;
     padding-top: 2rem;
+    max-width: 100%;
 }
 
 .faq-box-header {
@@ -62,6 +63,7 @@
     font-weight: 500;
     line-height: normal;
     cursor: pointer;
+    margin-right: 1rem;
 }
 
 .faq-box-card-answer {
@@ -78,13 +80,14 @@
 }
 
 .faq-box-card-answer.expanded {
-    max-height: 400px; /* Adjust this value based on the expected maximum height of your answers */
+    max-height: 550px; /* Adjust this value based on the expected maximum height of your answers */
     padding-top: 20px; /* Add padding for the transition effect */
     padding-bottom: 30px;
 }
 
 .faq-box-card-button-img {
     transition: transform 0.5s;
+    min-width: 36px;
 }
 
 .faq-box-card-button-img.faq-button-rotated{

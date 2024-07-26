@@ -1,5 +1,5 @@
 import '../../../styles/shared/ReadyToStartCard.css'
-import rtsCardBgImage from "../../../Assets/Pages/Permanent Residency/RtsCardBgImage.jpg"
+import rtsCardBgImage from "../../../Assets/Pages/Work Permit/ReadyToStartBanner.jpeg"
 import rtsCardDesign from '../../../Assets/Pages/Permanent Residency/RtsCardDesign.png'
 
 function ReadyToStartCard() {
@@ -13,10 +13,9 @@ function ReadyToStartCard() {
                 <img src={rtsCardDesign} alt="" />
                 <div class="rts-card-sub-header">Free Immigration Assessment</div>
                 <div class="rts-card-text">
-                    Discover your Canadian
-                    immigration options! Complete our free assessment today
-                    and a member of the Aquarian Team will contact you to
-                    discuss your immigration to Canada.
+                    Do you need assistance regarding employment in 
+                    Canada or hiring international workers? Reach out
+                     to us today to discover how we can assist you!
                 </div>
                 <button class="rts-card-button">Lets Get Started</button>
             </div>
