@@ -118,7 +118,7 @@ const Component2 = () => {
         Choose Your <span className='text-[#2FAB9E] mx-2 '>Program</span>
       </div>
       <div className='w-full md:w-[calc(100vw-5rem)] flex flex-col items-center justify-center'>
-        <div className='flex items-center justify-center flex-wrap lg:ml-8 w-[99%] lg:w-[80%] gap-10 mt-16 md:grid md:grid-cols-2 xl:grid-cols-3'>
+        <div className='flex items-center justify-center flex-wrap lg:ml-8 w-[100%] lg:w-[80%] gap-10 mt-16 md:grid md:grid-cols-2 xl:grid-cols-3'>
           {isMobile ? (
             <div className='flex flex-col items-center justify-center gap-6'>
               
