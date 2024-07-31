@@ -577,7 +577,7 @@ const App = () => {
                   onClick={toggleQuickLinks}
                   className="md:hidden fixed z-50 top-[45vh] right-0  cursor-pointer "
                 >
-                  <img src={img4} alt={"logo"} className="w-8" />
+                  <img src={img4} alt={"logo"} className="w-[2.2rem]" />
                 </div>
               )}
               {showQuickLinks && (

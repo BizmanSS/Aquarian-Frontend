@@ -77,13 +77,13 @@ const Banner = () => {
       className={`w-full relative md:w-[94.5%] h-[calc(100vh-6rem)] md:h-[99vh] flex flex-col items-center justify-center overflow-hidden
       ${isMobile ? "mt-[3rem] -mb-0" : "pt-6rem xl:pt-[6.5rem]"}`}
     >
-      {isMobile ? (
+      {/* {isMobile ? (
         <>
           <div className="w-full h-full flex object-cover items-center justify-center overflow-hidden">
             <img src={banner01} alt="" className="h-full object-cover w-full" />
           </div>
         </>
-      ) : (
+      ) : ( */}
         <>
           {!showThumbnail ? (
             <div className="w-full h-full object-cover flex items-start pointer-events-auto justify-center overflow-hidden">
@@ -91,7 +91,7 @@ const Banner = () => {
                 ref={videoRef}
                 autoPlay
                 muted
-                className={`min-h-full object-cover min-w-full`}
+                className={`min-h-full object-cover min-w-full brightness-75 md:brightness-100`}
                 onClick={togglePlay}
                 onEnded={onVideoEnd}
               >
@@ -103,7 +103,7 @@ const Banner = () => {
             <img src={thumbnail} alt="Thumbnail" className="w-[90%]" />
           )}
         </>
-      )}
+      {/* )} */}
       <div className="hidden md:flex flex-col items-center pointer-events-auto justify-center gap-4 absolute left-[7rem] xl:left-[9rem] top-[60vh] lg:top-[50vh]">
         <div className=" text-white px-4 text-lg md:text-[3rem] lg:text-[3.5rem] xl:text-[3.5rem] font-bold mb-3">
           Our goal is to help <br /> <br /> you achieve yours
@@ -130,15 +130,15 @@ const Banner = () => {
         </div>
       </div>
 
-      <div className="z-30 md:hidden absolute w-full h-full flex flex-col py-10 items-center justify-end gap-[4rem]">
+      <div className="z-30 md:hidden absolute w-full h-full flex flex-col pb-28 items-center justify-end gap-[4rem]">
         <div className="flex  flex-col items-center justify-center gap-4 w-full h-fit">
-          <div className="pl-10 text-white text-[25px] sm:text-[28px] font-light mb-3 tracking-wide w-full flex flex-col items-start justify-center leading-tight">
+          <div className="pl-4 text-white text-[25px] sm:text-[28px] font-light mb-3 tracking-wide w-full flex flex-col items-start justify-center leading-tight">
             Aquarian is a{" "}
             <span className=" text-[32px] block font-semibold">
               Canadian <br /> Immigration firm
             </span>
             <span className="relative w-[50%] max-w-[18rem] h-[1px] bg-white mt-3"></span>
-            <div className=" text-white text-[16px] sm:text-[18px] font-medium mb-1 tracking-wide mt-6">
+            <div className=" text-white text-[16px] sm:text-[18px] font-medium mb-1 tracking-wide mt-3">
               Our goal is to help you achieve yours
             </div>
           </div>
@@ -158,7 +158,7 @@ const Banner = () => {
           </div>
         </div>
 
-        <Link to={"/immigrate/permanent-residency"}>
+        <Link to={"/immigrate/permanent-residency"} className="relative top-[10px]">
           <button className="bg-gray-400 text-nowrap lg:hidden bg-opacity-85  text-white px-8 py-3 rounded-3xl text-[12px] md:text-lg font-bold transition ease-in-out delay-70 hover:scale-y-[1.1] hover:scale-x-[1.1] duration-300">
             IMMIGRATE TO CANADA PERMANENTLY
           </button>

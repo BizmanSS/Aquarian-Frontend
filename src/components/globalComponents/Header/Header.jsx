@@ -384,7 +384,7 @@ const Header = ({ setShowPopUp }) => {
 
   return (
     <div className="">
-      <div className="bg-black h-[5rem] lg:h-[5.5rem] xl:h-[6.5rem] fixed z-40 top-0 flex flex-col items-center justify-start w-full md:w-[94%] 7xl:w-[96%] 7xl:-ml-[1.2rem] max-w-[140rem] 8xl:-ml-[3rem]">
+      <div className="bg-black h-[4.5rem] lg:h-[5.5rem] xl:h-[6.5rem] fixed z-40 top-0 flex flex-col items-center justify-start w-full md:w-[94%] 7xl:w-[96%] 7xl:-ml-[1.2rem] max-w-[140rem] 8xl:-ml-[3rem]">
         {!ismobile ? (
           <>
             {" "}
@@ -2324,9 +2324,9 @@ const Header = ({ setShowPopUp }) => {
             </div>
           </>
         ) : (
-          <div className="w-[99%] h-full flex items-center justify-around sm:justify-between gap-10 sm:px-10">
+          <div className="w-[99%] h-full flex items-center sm:justify-between sm:px-10">
             <div
-              className="flex items-center mt-3 justify-start p-2 bg-transparent cursor-pointer rounded-lg transition ease-in delay-50 duration-200"
+              className="mr-auto flex items-center justify-start p-2 bg-transparent cursor-pointer rounded-lg transition ease-in delay-50 duration-200"
               onClick={handleMenuClick}
               ref={menuRef}
             >
@@ -2339,9 +2339,9 @@ const Header = ({ setShowPopUp }) => {
                 className='cursor-pointer w-[4.2rem]'
               />
             </div> */}
-            <Link to={"/"}>
+            <Link to={"/"} className="ml-[15px] mr-[15px]">
               {" "}
-              <div className="flex items-start justify-start mt-3">
+              <div className="flex items-start justify-start">
                 <img
                   src={logo}
                   alt="logo"
@@ -2349,12 +2349,12 @@ const Header = ({ setShowPopUp }) => {
                 />
               </div>
             </Link>
-            <div className="cursor-pointer text-white text-[15px] mt-3">
+            <div className="whitespace-nowrap ml-auto cursor-pointer text-white text-[13px]">
               <button
                 onClick={handleAppointmentClick}
                 className="bg-[#565757] font-normal text-white px-4 py-2 rounded-[10px] xl:text-[15px] 2xl:text-[16px] hover:scale-105 transition ease-in delay-60 duration-150"
               >
-                Book
+                Inquire Now
               </button>
             </div>
 

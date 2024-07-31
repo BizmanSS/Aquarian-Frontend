@@ -42,11 +42,11 @@ const BoxComponents = ({ color, style, imageUrl, data }) => {
     <div>
       {isMobile ? (
         <div
-          className={`w-[20rem] ${
-            isReadMore ? 'max-h-[50rem]' : 'h-[20rem]'
-          } my-10 shadow-xl p-6 rounded-2xl transition-all ease-in duration-200`}
-        >
-          {' '}
+          className={`w-[20rem] ${isReadMore ? 'max-h-[50rem]' : 'h-[20rem]'
+            } my-10 p-6 rounded-2xl transition-all ease-in duration-200`}
+          style={{
+            boxShadow: "0 5px 25px -5px rgb(0 0 0 / 0.1)"
+          }}>
           <div className='flex items-start justify-start'>
             <div>
               <div className='text-xl font-medium w-full'>{data.name}</div>
@@ -81,9 +81,8 @@ const BoxComponents = ({ color, style, imageUrl, data }) => {
         </div>
       ) : (
         <div
-          className={`border-[1px] border-black h-[16rem] p-4 cursor-pointer transition ease-in delay-100 duration-300 ${
-            hovered ? 'z-[4]' : 'z-[4]'
-          }`}
+          className={`border-[1px] border-black h-[16rem] p-4 cursor-pointer transition ease-in delay-100 duration-300 ${hovered ? 'z-[4]' : 'z-[4]'
+            }`}
           style={{
             ...style,
             backgroundColor: color,
@@ -180,8 +179,9 @@ const BoxComponents = ({ color, style, imageUrl, data }) => {
             </>
           )}
         </div>
-      )}
-    </div>
+      )
+      }
+    </div >
   );
 };
 

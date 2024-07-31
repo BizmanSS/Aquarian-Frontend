@@ -27,6 +27,33 @@ const Component2 = () => {
       title: 'Permanent Residency',
       description:
         'Make Canada your Permanent home! PR allows you to live, work and study in Canada indefinitely, with access to healthcare and social benefits.',
+    },    
+    {
+      link: '/visit/visitor-visa-trv',
+      img: cardimg4,
+      title: 'Work Visa',
+      description:
+        'Tap into the rich and diverse Employment market in Canada by successfully obtaining your work visa through our top notch services.',
+    },
+    {
+      link: '/visit/super-visa',
+      img: cardimg5,
+      title: 'Student Visa',
+      description:
+        'Pursue your academic aspirations at prestigious Canadian institutions making you independent and ready for a successful career.',
+    },
+    {
+      link: '/visit/visitor-visa-trv',
+      img: cardimg8,
+      title: 'Visitor Visa',
+      description:
+        'Explore Canadas beauty with a Visitor Visa! Temporary entry allows you to experience stunning landscapes, rich culture, and lasting memories.',
+    },
+    {
+      link: '/business/invest',
+      img: cardimg7,
+      title: 'Business Visa',
+      description: `Establish your name in Canada's dynamic business environment! A Business Visa opens doors for investors, entrepreneurs, and self-employed individuals to establish and grow their ventures in Canada.`,
     },
     {
       link: '/sponsorship/sponsorship',
@@ -43,38 +70,11 @@ const Component2 = () => {
         'Enjoy hassle-free family visits! The Super Visa allows parents and grandparents of Canadian Citizens and Permanent Residents to stay for up to two years per visit, with multiple entries.',
     },
     {
-      link: '/visit/visitor-visa-trv',
-      img: cardimg4,
-      title: 'Work Visa',
-      description:
-        'Tap into the rich and diverse Employment market in Canada by successfully obtaining your work visa through our top notch services.',
-    },
-    {
-      link: '/visit/super-visa',
-      img: cardimg5,
-      title: 'Student Visa',
-      description:
-        'Pursue your academic aspirations at prestigious Canadian institutions making you independent and ready for a successful career.',
-    },
-    {
       link: '/visit/visa-extension-and-extension',
       img: cardimg6,
       title: 'Visa Extensions',
       description:
         'Extend your stay and continue your Canadian adventure! Visa Extensions provide flexibility for individuals already in Canada, allowing them to prolong their stay for tourism, work, or study.',
-    },
-    {
-      link: '/business/invest',
-      img: cardimg7,
-      title: 'Business Visa',
-      description: `Establish your name in Canada's dynamic business environment! A Business Visa opens doors for investors, entrepreneurs, and self-employed individuals to establish and grow their ventures in Canada.`,
-    },
-    {
-      link: '/visit/visitor-visa-trv',
-      img: cardimg8,
-      title: 'Visitor Visa',
-      description:
-        'Explore Canadas beauty with a Visitor Visa! Temporary entry allows you to experience stunning landscapes, rich culture, and lasting memories.',
     },
     {
       link: '/visit/visa-extension-and-extension',
@@ -92,20 +92,20 @@ const Component2 = () => {
       title: 'Permanent Residency',
       description:
         'Make Canada your Permanent home! PR allows you to live, work and study in Canada indefinitely, with access to healthcare and social benefits.',
-    },
+    },    
     {
-      link: '/sponsorship/sponsorship',
-      img: cardimg2,
-      title: 'Family Sponsorship',
+      link: '/visit/visitor-visa-trv',
+      img: cardimg4,
+      title: 'Work Visa',
       description:
-        'Canadian Citizen and Permanent Residents can sponsor spouses, children, parents and grandparents to bring their family together!',
+        'Tap into the rich and diverse Employment market in Canada by successfully obtaining your work visa through our top notch services.',
     },
     {
       link: '/visit/super-visa',
-      img: cardimg3,
-      title: 'Super Visa',
+      img: cardimg5,
+      title: 'Student Visa',
       description:
-        'Enjoy hassle-free family visits! The Super Visa allows parents and grandparents of Canadian Citizens and Permanent Residents to stay for up to two years per visit, with multiple entries.',
+        'Pursue your academic aspirations at prestigious Canadian institutions making you independent and ready for a successful career.',
     },
   ];
 

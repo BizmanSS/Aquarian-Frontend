@@ -216,7 +216,7 @@ const Component5 = () => {
   };
 
   return (
-    <div className='w-[99%] lg:pb-20 h-auto mt-10 overflow-hidden'>
+    <div className='w-[100%] lg:pb-20 h-auto mt-10 pr-4'>
       <div className='w-[99%] flex items-center justify-center '>
         <div className='text-[1.8rem] md:text-[3rem] font-semibold mb-0'>
           Our <span className='text-[#019989]'>Testimonials</span>
@@ -228,7 +228,7 @@ const Component5 = () => {
           <div
             ref={sliderRef}
             id='slider'
-            className='max-w-[100%] overflow-hidden overflow-x-scroll scroll scroll-smooth gap-2 scrollbar-hide flex items-center justify-start ml-4'
+            className='max-w-[100%] overflow-hidden overflow-x-scroll scroll scroll-smooth gap-2 scrollbar-hide flex items-center justify-start pl-4'
           >
             {data.map((item, index) => (
               <BoxComponents
@@ -239,18 +239,6 @@ const Component5 = () => {
                 data={item}
               />
             ))}
-          </div>
-          <div className='w-full flex items-center justify-end gap-0 -ml-14 mb-10 -mt-6'>
-            <MdChevronLeft
-              size={30}
-              onClick={slideLeft}
-              className='cursor-pointer hover:scale-110 mr-8 mt-1 text-black shadow-lg flex items-center bg-white justify-between rounded-[10px] transition ease-in delay-40 duration-200'
-            />
-            <MdChevronRight
-              size={30}
-              onClick={slideRight}
-              className='cursor-pointer hover:scale-110 mr-8 mt-1 text-black shadow-lg bg-[#00F8E1] flex items-center justify-between rounded-[10px] transition ease-in delay-40 duration-200'
-            />
           </div>
         </>
       ) : (

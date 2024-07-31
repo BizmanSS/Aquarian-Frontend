@@ -95,18 +95,6 @@ const Component4 = () => {
             <NewsCard key={index} data={item} />
           ))}
         </div>
-        <div className="flex items-center justify-end w-full -ml-10 mt-4">
-          <MdChevronLeft
-            size={30}
-            onClick={slideLeft}
-            className="cursor-pointer hover:scale-110 mr-8 mt-1 text-black shadow-lg flex items-center bg-white justify-between rounded-[10px] transition ease-in delay-40 duration-200"
-          />
-          <MdChevronRight
-            size={30}
-            onClick={slideRight}
-            className="cursor-pointer hover:scale-110 mr-8 mt-1 text-black shadow-lg bg-[#00F8E1] flex items-center justify-between rounded-[10px] transition ease-in delay-40 duration-200"
-          />
-        </div>
       </div>
     </div>
   );

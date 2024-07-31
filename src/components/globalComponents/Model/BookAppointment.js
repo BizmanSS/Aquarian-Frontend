@@ -89,6 +89,7 @@ const BookAppointmentModel = ({
       month: "long",
       year: "numeric",
     },
+    darkMode: true
   };
 
   const handleChange = (selectedDate) => {
