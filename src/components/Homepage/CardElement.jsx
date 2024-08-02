@@ -1,5 +1,7 @@
 import React from "react";
 import { useMobile } from "../globalComponents/MobileContext/IsMobileContext";
+import './CardElement.css'
+import { MdArrowOutward } from 'react-icons/md';
 
 const CardElement = ({ data }) => {
   const { isMobile } = useMobile();
@@ -41,21 +43,28 @@ const CardElement = ({ data }) => {
       ) : (
         <div
           onClick={() => (window.location.href = data.link)}
-          className="max-w-[21rem] h-[30rem] rounded-2xl overflow-hidden border-[2px] border-[#939293] hover:border-transparent hover:bg-[#55FBEB] hover:shadow-lg mb-10 transition-all ease-in delay-100 duration-300 group"
+          className="max-w-[21rem] choose-program-card"
         >
-          <img
-            className="w-[100%] h-[15rem] p-2 rounded-2xl"
-            src={data.img}
-            alt="amenities"
-          />
+          <div className="choose-program-card-image">
+            <img
+              src={data.img}
+              alt="amenities"
+            />
+          </div>
           <div className="px-6 py-4">
-            <div className="font-semibold text-xl mb-2 group-hover:text-black text-[#009889] flex items-center justify-center transition-all ease-in delay-100 duration-300">
+            <div className="choose-program-card-header">
               {data.title}
             </div>
-            <p className="text-gray-700 text-[13px] flex items-center justify-center mt-2 mb-6 px-6 py-4">
+            <p className="choose-program-card-text">
               {data.description}
             </p>
           </div>
+          <button className="choose-program-card-button">
+          Explore
+          <div className="choose-program-card-button-arrow">
+          <MdArrowOutward/>
+          </div>
+          </button>
         </div>
       )}
     </div>

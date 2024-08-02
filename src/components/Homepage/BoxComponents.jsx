@@ -45,7 +45,7 @@ const BoxComponents = ({ color, style, imageUrl, data }) => {
           className={`w-[20rem] ${isReadMore ? 'max-h-[50rem]' : 'h-[20rem]'
             } my-10 p-6 rounded-2xl transition-all ease-in duration-200`}
           style={{
-            boxShadow: "0 5px 25px -5px rgb(0 0 0 / 0.1)"
+            boxShadow: "0 0 25px 0 rgba(0, 0, 0, 0.1)"
           }}>
           <div className='flex items-start justify-start'>
             <div>

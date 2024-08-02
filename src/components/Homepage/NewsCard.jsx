@@ -2,14 +2,14 @@ import React from "react";
 const NewsCard = ({ data }) => {
   return (
     <a href={data.path}>
-      <div className="relative min-w-[20rem] max-w-[23rem] hover:bg-[#E2E7EC] cursor-pointer h-[31rem] overflow-hidden bg-[#EDF1F6] rounded-lg shadow-xl py-4 px-2 transition ease-in delay-40 duration-200">
+      <div className="relative min-w-[20rem] max-w-[23rem] hover:bg-[#E2E7EC] cursor-pointer h-[31rem] overflow-hidden bg-[#E1E7ED] md:bg-[#EDF1F6] rounded-lg py-4 px-2 transition ease-in delay-40 duration-200">
         <img
           className="object-cover object-center w-full h-[11rem]"
           src={data.image}
           alt="cardImage"
         />
         <div className="w-full flex items-center justify-end relative -top-[1.3rem]">
-          <div className="w-auto max-w-[11rem] flex items-center px-6 py-3 bg-[#EDF1F6]">
+          <div className="w-auto max-w-[11rem] flex items-center px-6 py-3 bg-[#E1E7ED] md:bg-[#EDF1F6]">
             <h1 className="mx-2 text-sm font-normal text-black">{data.date}</h1>
           </div>
         </div>

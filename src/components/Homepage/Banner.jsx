@@ -91,6 +91,9 @@ const Banner = () => {
                 ref={videoRef}
                 autoPlay
                 muted
+                loop
+                webkit-playsinline
+                playsInline
                 className={`min-h-full object-cover min-w-full brightness-75 md:brightness-100`}
                 onClick={togglePlay}
                 onEnded={onVideoEnd}
@@ -130,7 +133,7 @@ const Banner = () => {
         </div>
       </div>
 
-      <div className="z-30 md:hidden absolute w-full h-full flex flex-col pb-28 items-center justify-end gap-[4rem]">
+      <div className="z-30 md:hidden absolute w-full h-full flex flex-col pb-[9rem] items-center justify-end gap-[4rem]">
         <div className="flex  flex-col items-center justify-center gap-4 w-full h-fit">
           <div className="pl-4 text-white text-[25px] sm:text-[28px] font-light mb-3 tracking-wide w-full flex flex-col items-start justify-center leading-tight">
             Aquarian is a{" "}

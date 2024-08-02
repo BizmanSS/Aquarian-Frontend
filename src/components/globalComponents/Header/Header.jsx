@@ -384,7 +384,7 @@ const Header = ({ setShowPopUp }) => {
 
   return (
     <div className="">
-      <div className="bg-black h-[4.5rem] lg:h-[5.5rem] xl:h-[6.5rem] fixed z-40 top-0 flex flex-col items-center justify-start w-full md:w-[94%] 7xl:w-[96%] 7xl:-ml-[1.2rem] max-w-[140rem] 8xl:-ml-[3rem]">
+      <div className="bg-black h-[4rem] lg:h-[5.5rem] xl:h-[6.5rem] fixed z-40 top-0 flex flex-col items-center justify-start w-full md:w-[94%] 7xl:w-[96%] 7xl:-ml-[1.2rem] max-w-[140rem] 8xl:-ml-[3rem]">
         {!ismobile ? (
           <>
             {" "}
@@ -2352,7 +2352,7 @@ const Header = ({ setShowPopUp }) => {
             <div className="whitespace-nowrap ml-auto cursor-pointer text-white text-[13px]">
               <button
                 onClick={handleAppointmentClick}
-                className="bg-[#565757] font-normal text-white px-4 py-2 rounded-[10px] xl:text-[15px] 2xl:text-[16px] hover:scale-105 transition ease-in delay-60 duration-150"
+                className="bg-[#565757] mr-2 px-3 font-normal text-white md:px-4 py-2 rounded-[10px] xl:text-[15px] 2xl:text-[16px] hover:scale-105 transition ease-in delay-60 duration-150"
               >
                 Inquire Now
               </button>
