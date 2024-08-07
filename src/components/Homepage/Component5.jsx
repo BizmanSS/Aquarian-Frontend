@@ -216,7 +216,7 @@ const Component5 = () => {
   };
 
   return (
-    <div className='w-[100%] lg:pb-20 h-auto mt-10 pr-4'>
+    <div className='w-[100%] lg:pb-20 h-auto mt-10 pr- mb-12'>
       <div className='w-[99%] flex items-center justify-center '>
         <div className='text-[1.8rem] md:text-[3rem] font-semibold mb-0'>
           Our <span className='text-[#019989]'>Testimonials</span>

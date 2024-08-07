@@ -3,8 +3,7 @@ import banner from "../../Assets/video/banner.mp4";
 import thumbnail from "../../Assets/banner.png";
 import { Link } from "react-router-dom";
 import { useMobile } from "../globalComponents/MobileContext/IsMobileContext";
-import banner01 from "../../Assets/banner02.jpg";
-
+// import banner01 from "../../Assets/banner02.jpg";
 const Banner = () => {
   const [isPlaying, setIsPlaying] = useState(true);
   const [showPauseButton, setShowPauseButton] = useState(false);
