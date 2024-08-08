@@ -18,7 +18,7 @@ const ContactUsPage = () => {
   const [comments, setComments] = useState("");
   const [errors, setErrors] = useState({});
   const [show, setShow] = useState(false);
-  const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedDate, setSelectedDate] = useState(new Date());
   const handleInputChange = (setter, field) => (e) => {
     setter(e.target.value);
     setErrors((prevErrors) => ({ ...prevErrors, [field]: "" }));
@@ -78,6 +78,7 @@ const ContactUsPage = () => {
       service,
       serviceOther,
       comments,
+      date: selectedDate
     };
 
     try {
@@ -291,6 +292,7 @@ const ContactUsPage = () => {
             <div className="form-date">
               <label>Preferred Date</label>
               <Datepicker
+                value={selectedDate}
                 options={options}
                 onChange={handleChange}
                 show={show}

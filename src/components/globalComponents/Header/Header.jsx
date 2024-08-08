@@ -39,6 +39,7 @@ const Header = ({ setShowPopUp }) => {
   const [selectedtext, setSelectedtext] = useState("");
   const [showAppointmentModel, setShowAppointmentModel] = useState(false);
   const [showMobileHeader, setShowMobileHeader] = useState(false);
+  const [isHamMenuOpened, setIsHamMenuOpened] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [showSubSubSubMenu, setShowSubSubSubMenu] = useState(null);
   const [showHeadersSubmenu, setShowHeadersSubmenu] = useState({
@@ -348,7 +349,9 @@ const Header = ({ setShowPopUp }) => {
     setTimeout(() => {
       menuRef.current.classList.remove("scale-90");
     }, 200);
+    setIsHamMenuOpened(true);
     setShowMobileHeader(true);
+    
   };
   const handleMouseEnter = () => {
     setIsHovering(true);
@@ -2331,7 +2334,8 @@ const Header = ({ setShowPopUp }) => {
 
             {showMobileHeader && (
               <ul
-                className="hamburger-menu-container"
+                className={`hamburger-menu-container ${isHamMenuOpened ? 'ham-menu-opened':'ham-menu-closed'}`}
+                onAnimationEnd={() => {if(!isHamMenuOpened) setShowMobileHeader(false)}}
               >
                 <li className="mb-6 flex items-center justify-between">
                   <a href={"/"} className="ml-[15px] mr-[15px]" >
@@ -2344,7 +2348,7 @@ const Header = ({ setShowPopUp }) => {
                       />
                     </div>
                   </a>
-                  <div onClick={() => setShowMobileHeader(false)} className="">
+                  <div onClick={() => setIsHamMenuOpened(false)} className="">
                     <button
                       id="toggleOpen"
                       className=" rounded-full px-3 py-1 text-gray-400"
@@ -2618,7 +2622,7 @@ const Header = ({ setShowPopUp }) => {
                 >
                   <span className={`${showHeadersSubmenu.study ? '!font-semibold' : ''} hamburger-menu-headers `}>
                     Study
-                    {showHeadersSubmenu.work ? (
+                    {showHeadersSubmenu.study ? (
                       <FiMinus
                         size={25}
                         className="hamburger-menu-header-minus"
@@ -2747,7 +2751,7 @@ const Header = ({ setShowPopUp }) => {
                 >
                   <span className={`${showHeadersSubmenu.sponsorship ? '!font-semibold' : ''} hamburger-menu-headers `}>
                     Sponsorship
-                    {showHeadersSubmenu.work ? (
+                    {showHeadersSubmenu.sponsorship ? (
                       <FiMinus
                         size={25}
                         className="hamburger-menu-header-minus"
@@ -2876,7 +2880,7 @@ const Header = ({ setShowPopUp }) => {
                 >
                   <span className={`${showHeadersSubmenu.business ? '!font-semibold' : ''} hamburger-menu-headers `}>
                     Business
-                    {showHeadersSubmenu.work ? (
+                    {showHeadersSubmenu.business ? (
                       <FiMinus
                         size={25}
                         className="hamburger-menu-header-minus"
@@ -3005,7 +3009,7 @@ const Header = ({ setShowPopUp }) => {
                 >
                   <span className={`${showHeadersSubmenu.visit ? '!font-semibold' : ''} hamburger-menu-headers `}>
                     Visit
-                    {showHeadersSubmenu.work ? (
+                    {showHeadersSubmenu.visit ? (
                       <FiMinus
                         size={25}
                         className="hamburger-menu-header-minus"
@@ -3134,7 +3138,7 @@ const Header = ({ setShowPopUp }) => {
                 >
                   <span className={`${showHeadersSubmenu.employer ? '!font-semibold' : ''} hamburger-menu-headers `}>
                     Employers
-                    {showHeadersSubmenu.work ? (
+                    {showHeadersSubmenu.employer ? (
                       <FiMinus
                         size={25}
                         className="hamburger-menu-header-minus"

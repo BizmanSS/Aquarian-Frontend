@@ -24,7 +24,7 @@ const BookAppointmentModel = ({
   const [comments, setComments] = useState("");
   const [errors, setErrors] = useState({});
   const [show, setShow] = useState(false);
-  const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedDate, setSelectedDate] = useState(new Date());
 
   useEffect(() => {
     if (showForm) {
@@ -303,6 +303,7 @@ const BookAppointmentModel = ({
                   <div className="form-group-date">
                     <label>Preferred Date</label>
                     <Datepicker
+                      value={selectedDate}
                       options={options}
                       onChange={handleChange}
                       show={show}
