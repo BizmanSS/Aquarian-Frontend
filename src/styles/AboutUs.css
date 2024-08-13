@@ -307,14 +307,6 @@
 
   font-weight: 400;
 }
-.footer {
-  width: 94%;
-  position: relative;
-  height: auto;
-  --tw-bg-opacity: 1;
-  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
-  z-index: 20;
-}
 .image {
   height: 22rem;
 }
@@ -571,10 +563,7 @@
   }
 }
 @media (max-width: 768px) {
-  .footer {
-    width: 100%;
-  }
-
+  
   .text-color p {
     font-size: 16px;
   }

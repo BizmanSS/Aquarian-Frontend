@@ -113,11 +113,11 @@ const Component2 = () => {
     <>
       <div
         id='program'
-        className='w-full lg:w-[calc(100%-5rem)] text-[1.5rem] md:text-[3rem] font-semibold flex items-center justify-center mt-0 -mb-10'
+        className='w-full lg:w-[calc(100%-5rem)] text-[1.8rem] md:text-[3rem] font-semibold flex items-center justify-center mt-0 -mb-10'
       >
         Choose Your <span className='text-[#2FAB9E] mx-2 '>Program</span>
       </div>
-      <div className='w-full md:w-[calc(100vw-5rem)] mb-[8rem]'>
+      <div className='w-full md:w-[calc(100vw-5rem)] mb-[4rem] lg:mb-[8rem]'>
         <div className='grid max-w-[1200px] justify-center items-center gap-y-16 gap-10 mt-[5rem] mx-auto w-full lg:w-4/5 xl:w-full md:grid-cols-2 xl:grid-cols-3'>
           {isMobile ? (
             <div className='flex flex-col items-center justify-center gap-6'>
