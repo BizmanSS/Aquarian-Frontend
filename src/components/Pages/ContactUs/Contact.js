@@ -4,7 +4,7 @@ import { useMobile } from "../../globalComponents/MobileContext/IsMobileContext"
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { toast } from "react-toastify";
-import Datepicker from "tailwind-datepicker-react";
+import Datepicker from "react-datepicker";
 import BannerPages from "../Banner/BannerPages";
 const ContactUsPage = () => {
   const { isMobile } = useMobile();
@@ -17,55 +17,20 @@ const ContactUsPage = () => {
   const [serviceOther, setServiceOther] = useState("");
   const [comments, setComments] = useState("");
   const [errors, setErrors] = useState({});
-  const [show, setShow] = useState(false);
-  const [selectedDate, setSelectedDate] = useState(new Date());
+  const addDate = (date, days) => {
+    date.setDate(date.getDate() + days)
+    return date
+  }
+
+  const [selectedDate, setSelectedDate] = useState(null)
   const handleInputChange = (setter, field) => (e) => {
     setter(e.target.value);
     setErrors((prevErrors) => ({ ...prevErrors, [field]: "" }));
   };
-  const options = {
-    title: "Preferred Date Slot",
-    autoHide: false,
-    todayBtn: true,
-    clearBtn: true,
-    clearBtnText: "Clear",
-    maxDate: new Date("2030-01-01"),
-    minDate: new Date(),
-    theme: {
-      background: "bg-white",
-      todayBtn: "",
-      clearBtn: "",
-      icons: "",
-      text: "",
-      input: "",
-      inputIcon: "",
-      selected: "",
-    },
-    icons: {
-      prev: () => <span>Previous</span>,
-      next: () => <span>Next</span>,
-    },
-    datepickerClassNames: "top-12",
-    language: "en",
-    defaultDate: new Date(),
-    disabledDates: [],
-    weekDays: ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"],
-    inputNameProp: "date",
-    inputIdProp: "date",
-    inputPlaceholderProp: "Select Date",
-    inputDateFormatProp: {
-      day: "numeric",
-      month: "long",
-      year: "numeric",
-    },
-  };
 
-  const handleChange = (selectedDate) => {
+  const handleDateChange = (selectedDate) => {
+    setErrors((prevErrors) => ({ ...prevErrors, date: "" }));
     setSelectedDate(selectedDate);
-    setShow(false); // Close the date picker
-  };
-  const handleClose = (state) => {
-    setShow(state);
   };
 
   const handleFormSubmit = async () => {
@@ -126,6 +91,9 @@ const ContactUsPage = () => {
     if (service === "Other" && !serviceOther) {
       errorObject.serviceOther = "Please specify your service";
     }
+    if (!selectedDate) {
+      errorObject.date = "Date is required";
+    }
 
     if (Object.keys(errorObject).length > 0) {
       setErrors(errorObject);
@@ -139,8 +107,14 @@ const ContactUsPage = () => {
       setService("");
       setServiceOther("");
       setComments("");
+      setSelectedDate(null);
       setErrors({});
     }
+  };
+
+  const isWeekday = (date) => {
+    const day = date.getDay();
+    return day !== 0 && day !== 6;
   };
   return (
     <div style={{ background: "#FFF" }}>
@@ -150,58 +124,42 @@ const ContactUsPage = () => {
         description={"Contact Us"}
       />
 
-      {!isMobile && (
-        <div className="address-content">
-          <div
-            style={{
-              display: "flex",
-              paddingTop: "10%",
-              width: "80%",
-              paddingBottom: "10%",
-              marginLeft: "10%",
-            }}
-          >
-            <div
-              style={{
-                display: "block",
-                marginLeft: "auto",
-                marginRight: "auto",
-                gap: "5rem",
-              }}
-            >
-              <h2 className="address-heading">Address</h2>
-              <a
-                href="https://www.google.com/maps/place/Aquarian+Immigration+Services/@28.4082328,77.070377,15z/data=!4m6!3m5!1s0x390d23f44c7f8021:0x589c7dd32b5c2779!8m2!3d28.4082328!4d77.070377!16s%2Fg%2F11vqm85pq7?entry=ttu"
-                className="address"
-              >
-                122A, Suncity Success Tower, Golf Course Ext Rd, Sector 65,
-                Gurugram, Haryana 122011
-              </a>
-              <br /> <br />
-              <h2 className="address-heading">Email</h2>
-              <a href="mailto:enq@iaquarian.com" className="address">
-                enq@iaquarian.com
-              </a>
-              <br /> <br />
-              <h2 className="address-heading">Phone</h2>
-              <a href="tel:+919810892192" className="address">
-                +91- 9810892192
-              </a>
-              , <br />
-              <a href="tel:+919810890517" className="address">
-                +91- 9810890517
-              </a>
-              , <br />
-              <a href="tel:+911244671300" className="address">
-                +91- 1244671300
-              </a>
+      <div className="registration-form">
+        {!isMobile && (
+          <div className="contact-use-address-menu">
+            <div className="address-content">
+              <div className="contact-us-address-wraper">
+                <h2 className="address-heading">Address</h2>
+                <a
+                  href="https://www.google.com/maps/place/Aquarian+Immigration+Services/@28.4082328,77.070377,15z/data=!4m6!3m5!1s0x390d23f44c7f8021:0x589c7dd32b5c2779!8m2!3d28.4082328!4d77.070377!16s%2Fg%2F11vqm85pq7?entry=ttu"
+                  className="address"
+                >
+                  122A, Suncity Success Tower, Golf Course Ext Rd, Sector 65,
+                  Gurugram, Haryana 122011
+                </a>
+                <br /> <br />
+                <h2 className="address-heading">Email</h2>
+                <a href="mailto:enq@iaquarian.com" className="address">
+                  enq@iaquarian.com
+                </a>
+                <br /> <br />
+                <h2 className="address-heading">Phone</h2>
+                <a href="tel:+919810892192" className="address">
+                  +91- 9810892192
+                </a>
+                <br />
+                <a href="tel:+919810890517" className="address">
+                  +91- 9810890517
+                </a>
+                <br />
+                <a href="tel:+911244671300" className="address">
+                  +91- 1244671300
+                </a>
+              </div>
             </div>
           </div>
-        </div>
-      )}
-
-      <div className="registration-form">
-        <form onSubmit={handleSubmit}>
+        )}
+        <form onSubmit={handleSubmit} className="form-contact-us">
           <div className="form-row">
             <div className="form-group">
               <label>
@@ -290,14 +248,19 @@ const ContactUsPage = () => {
               )}
             </div>
             <div className="form-date">
-              <label>Preferred Date</label>
+              <label>
+                Preferred Date<x style={{ color: "red" }}>*</x></label>
               <Datepicker
-                value={selectedDate}
-                options={options}
-                onChange={handleChange}
-                show={show}
-                setShow={handleClose}
+                selected={selectedDate}
+                onChange={handleDateChange}
+                className={errors.date ? "error" : ""}
+                minDate={addDate(new Date(), 2)}
+                filterDate={isWeekday}
+                placeholderText="Select a Date"
               />
+              {errors.date && (
+                <div className="error-message">{errors.date}</div>
+              )}
             </div>
           </div>
 
@@ -332,7 +295,7 @@ const ContactUsPage = () => {
                 <label>
                   Please Specify Your Service<x style={{ color: "red" }}>*</x>
                 </label>
-                <textarea
+                <input
                   type="text"
                   placeholder="Please Specify Your Service"
                   value={serviceOther}
@@ -347,7 +310,7 @@ const ContactUsPage = () => {
             {service !== "Other" && (
               <div className="form-group">
                 <label>Comments (Optional)</label>
-                <textarea
+                <input
                   value={comments}
                   placeholder="Comments"
                   onChange={handleInputChange(setComments, "comments")}

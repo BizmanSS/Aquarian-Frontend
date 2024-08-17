@@ -1,14 +1,30 @@
+.contact-use-address-menu{
+  width: 450px;
+  position: relative;
+}
 .address-content {
-  position: fixed;
+  position: sticky;
   z-index: 9;
-  top: 35vh;
-  width: 20%;
+  top: 12vh;
+  width: 90%;
   display: block;
-  margin-left: 4%;
+  margin-left: 10%;
   border-radius: 25px;
   background: #fff;
   box-shadow: 0px 4px 23.6px 0px rgba(0, 0, 0, 0.5);
 }
+
+.form-contact-us{
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 2000px;
+  width: 1000px;
+}
+
+.contact-us-address-wraper{
+  padding: 2rem;
+}
+
 .address-heading {
   color: #009889;
   font-family: "TT Chocolates";
@@ -22,17 +38,28 @@
   display: flex;
   align-items: center;
 }
-.registration-form {
-  width: 50%;
-  margin: 3rem 30%;
-}
-.form-row {
+
+.registration-form{
   display: flex;
-  justify-content: gap-between;
-  gap: 12rem;
+  gap: 2rem;
+  margin-top: 3rem;
+  padding-right: 7rem;
+  margin-bottom: 5rem;
 }
-.form-row .form-group {
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+.form-row .form-group,
+.form-row .form-date {
   margin-bottom: 20px;
+}
+
+.form-date .react-datepicker-wrapper{
+  width: 100%;
 }
 
 .form-row label {
@@ -42,24 +69,16 @@
 
 .form-row input,
 .form-row select {
-  width: 23.8rem;
+  max-width: 23rem;
+  width: 100%;
   padding: 10px;
   border: 1px solid #009889;
   border-radius: 5px;
-  margin-bottom: 10px;
 }
-.form-group textarea {
-  width: 23.8rem;
-  height: 2.875rem;
-  padding: 10px;
-  border: 1px solid #009889;
-  border-radius: 5px;
-  margin-bottom: 10px;
-}
+
 .form-row .error {
   border-color: #b90124;
   background-color: "#ffe6e6";
-  width: 23.8rem;
 }
 .registration-form .submit-btn {
   background-color: #009889;
@@ -80,99 +99,21 @@
 }
 
 .form-date input {
-  padding: 10px 2.5rem;
-}
-@media (max-height: 700px) {
-  .address-content {
-    top: 40vh;
-  }
-}
-@media (max-height: 600px) {
-  .address-content {
-    top: 45vh;
-  }
-}
-@media (max-height: 500px) {
-  .address-content {
-    top: 50vh;
-  }
-}
-@media (max-width: 1700px) {
-  .form-row input,
-  .form-row select,
-  .form-row .error {
-    width: 20.8rem;
-  }
-  .form-group textarea {
-    width: 20.8rem;
-  }
-  .form-row {
-    gap: 10.8rem;
-  }
-}
-@media (max-width: 1590px) {
-  .form-row input,
-  .form-row select,
-  .form-row .error {
-    width: 19.8rem;
-  }
-  .form-group textarea {
-    width: 19.8rem;
-  }
-  .form-row {
-    gap: 10.4rem;
-  }
-}
-@media (max-width: 1400px) {
-  .form-row input,
-  .form-row select,
-  .form-row .error {
-    width: 17.8rem;
-  }
-  .form-group textarea {
-    width: 17.8rem;
-  }
-
-  .form-row {
-    gap: 8.8rem;
-  }
+  padding-left: 1rem;
 }
 
-@media (max-width: 1300px) {
-  .form-row input,
-  .form-row select,
-  .form-row .error {
-    width: 14.8rem;
-  }
-  .form-group textarea {
-    width: 14.8rem;
-  }
-
-  .form-row {
-    gap: 7.8rem;
-  }
-}
-@media (max-width: 1000px) {
-  .form-row input,
-  .form-row select,
-  .form-row .error {
-    width: 12.8rem;
-  }
-  .form-group textarea {
-    width: 12.8rem;
-  }
-
-  .form-row {
-    gap: 5.1rem;
-  }
-}
 @media (max-width: 768px) {
+
+  .form-contact-us{
+    width: 100%;
+  }
+
   .registration-form {
     width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 2rem;
-    margin-top: 1rem;
+    display: block;
+    padding-right: 0;
+    margin-left: 2rem;
+    padding-right: 2rem;
   }
 
   .form-row {
@@ -195,8 +136,8 @@
 
   .form-row input,
   .form-row select,
-  .form-row .error,
-  .form-group textarea {
+  .form-row .error {
+    max-width: 40rem;
     width: 100%;
   }
 

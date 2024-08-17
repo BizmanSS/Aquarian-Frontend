@@ -300,7 +300,7 @@
     margin-bottom: 1rem;
   }
   .articles-detail input,
-  select {
+  .articles-detail select {
     width: 100%;
     padding: 10px;
     flex-shrink: 0;
