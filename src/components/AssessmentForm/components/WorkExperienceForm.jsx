@@ -497,7 +497,7 @@ const WorkExperienceForm = ({
                   className="w-full md:grid grid-cols-2"
                   style={{ columnGap: "10%" }}
                 >
-                  <div className="w-full mb-3 flex gap-[10%] justify-between">
+                  <div className="w-full mb-3 md:flex md:gap-[10%] justify-between">
                     <div className="w-full block">
                       <label
                         htmlFor="startdate"

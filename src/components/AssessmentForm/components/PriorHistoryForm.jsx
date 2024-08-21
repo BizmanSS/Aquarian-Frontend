@@ -146,7 +146,7 @@ const PriorHistoryForm = ({
               )}
             </div>
             {formData.gapsAfterStudy === "yes" && (
-              <div className="w-full mb-3 flex gap-[10%] justify-between">
+              <div className="w-full mb-3 md:flex md:gap-[10%] justify-between">
                 <div className="w-full block">
                   <label
                     htmlFor="gapStartDate"
