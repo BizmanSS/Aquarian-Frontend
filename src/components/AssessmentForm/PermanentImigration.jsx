@@ -275,6 +275,65 @@ const PermanentImigration = ({
         toast.success("You have successfully submited your form!", {
           position: "top-center",
         });
+        setSelectForm("PersonalInformation");
+        setFormData({
+          firstname: "",
+          lastname: "",
+          email: "",
+          phone: "",
+          nationality: "",
+          age: "",
+          maritalStatus: "",
+          spouseTravelling: "",
+          region: "",
+          children: "",
+          educationExperience1: "",
+          highestEducational: "",
+          educationExperiences: {
+            levelOfEducation: "",
+            startDates: null,
+            endDates: null,
+            field: "",
+            board: "",
+            country: "",
+          },
+          workexperience1: "",
+          yearsOfExp: "",
+          workExperiences: {
+            startDates: null,
+            endDates: null,
+            occupation: "",
+            typeOfJob: "",
+            employmentHistory: "",
+            country: "",
+          },
+          englishTest: "",
+          frenchTest: "",
+          englishTestType: "",
+          frenchTestType: "",
+          englishTestResult: {
+            reading: "",
+            writing: "",
+            listening: "",
+            speaking: "",
+          },
+          frenchTestResult: {
+            reading: "",
+            writing: "",
+            listening: "",
+            speaking: "",
+          },
+          futureTestEnglish: "",
+          futureTestFrench: "",
+          certificateofNomination: "",
+          canadianjobOffer: "",
+          relativesinCanada: "",
+          otherInformation: "",
+        });
+        window.scrollTo({
+          top: element,
+          behavior: "smooth",
+        });
       }
     } catch (error) {
       toast.error("Internal server errror!", {
@@ -2581,65 +2640,6 @@ const PermanentImigration = ({
                       setSubmitAttemptedOther(true);
                       if (validateOthers(true)) {
                         handleFormSubmit();
-                        setSelectForm("PersonalInformation");
-                        setFormData({
-                          firstname: "",
-                          lastname: "",
-                          email: "",
-                          phone: "",
-                          nationality: "",
-                          age: "",
-                          maritalStatus: "",
-                          spouseTravelling: "",
-                          region: "",
-                          children: "",
-                          educationExperience1: "",
-                          highestEducational: "",
-                          educationExperiences: {
-                            levelOfEducation: "",
-                            startDates: null,
-                            endDates: null,
-                            field: "",
-                            board: "",
-                            country: "",
-                          },
-                          workexperience1: "",
-                          yearsOfExp: "",
-                          workExperiences: {
-                            startDates: null,
-                            endDates: null,
-                            occupation: "",
-                            typeOfJob: "",
-                            employmentHistory: "",
-                            country: "",
-                          },
-                          englishTest: "",
-                          frenchTest: "",
-                          englishTestType: "",
-                          frenchTestType: "",
-                          englishTestResult: {
-                            reading: "",
-                            writing: "",
-                            listening: "",
-                            speaking: "",
-                          },
-                          frenchTestResult: {
-                            reading: "",
-                            writing: "",
-                            listening: "",
-                            speaking: "",
-                          },
-                          futureTestEnglish: "",
-                          futureTestFrench: "",
-                          certificateofNomination: "",
-                          canadianjobOffer: "",
-                          relativesinCanada: "",
-                          otherInformation: "",
-                        });
-                        window.scrollTo({
-                          top: element,
-                          behavior: "smooth",
-                        });
                       }
                     }}
                   >

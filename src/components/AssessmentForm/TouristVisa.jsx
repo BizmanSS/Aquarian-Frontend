@@ -238,6 +238,36 @@ const TouristVisa = ({ selectedForm, formType, element, touristVisaRef }) => {
         toast.success("You have successfully submited your form!", {
           position: "top-center",
         });
+        setSelectForm("PersonalInformation");
+        window.scrollTo({
+          top: element,
+          behavior: "smooth",
+        });
+        setFormData({
+          firstname: "",
+          lastname: "",
+          email: "",
+          phone: "",
+          nationality: "",
+          age: "",
+          maritalStatus: "",
+          spouseTravelling: "",
+          children: "",
+          childrenTravelling: "",
+          region: "",
+          EducationLevel: "",
+          occupation: "",
+          occupationType: "",
+          workExperience: "",
+          yearlyIncome: "",
+          regularITR: "",
+          sponsorInCanada: "",
+          visaRefused: "",
+          visaApplied: "",
+          visaAppliedCountry: "",
+          visaAppliedDate: "",
+          otherInformation: "",
+        });
       }
     } catch (error) {
       toast.error("Internal server errror!", {
@@ -755,36 +785,6 @@ const TouristVisa = ({ selectedForm, formType, element, touristVisaRef }) => {
                     type="button"
                     onClick={() => {
                       handleFormSubmit();
-                      setSelectForm("PersonalInformation");
-                      window.scrollTo({
-                        top: element,
-                        behavior: "smooth",
-                      });
-                      setFormData({
-                        firstname: "",
-                        lastname: "",
-                        email: "",
-                        phone: "",
-                        nationality: "",
-                        age: "",
-                        maritalStatus: "",
-                        spouseTravelling: "",
-                        children: "",
-                        childrenTravelling: "",
-                        region: "",
-                        EducationLevel: "",
-                        occupation: "",
-                        occupationType: "",
-                        workExperience: "",
-                        yearlyIncome: "",
-                        regularITR: "",
-                        sponsorInCanada: "",
-                        visaRefused: "",
-                        visaApplied: "",
-                        visaAppliedCountry: "",
-                        visaAppliedDate: "",
-                        otherInformation: "",
-                      });
                     }}
                   >
                     Submit

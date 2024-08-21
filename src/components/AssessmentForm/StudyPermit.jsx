@@ -285,6 +285,66 @@ const StudyPermit = ({ selectedForm, studyPermitRef, formType }) => {
         toast.success("You have successfully submited your form!", {
           position: "top-center",
         });
+        setSelectForm("PersonalInformation");
+        setFormData({
+          firstname: "",
+          lastname: "",
+          email: "",
+          phone: "",
+          maritalStatus: "",
+          age: "",
+          nationality: "",
+          region: "",
+          spouseTravelling: "",
+          educationExperience1: "",
+          highestEducational: "",
+          educationExperiences: {
+            levelOfEducation: "",
+            startDates: null,
+            endDates: null,
+            field: "",
+            board: "",
+            country: "",
+          },
+          workexperience1: "",
+          yearsOfExp: "",
+          workExperiences: {
+            startDates: null,
+            endDates: null,
+            occupation: "",
+            typeOfJob: "",
+            employmentHistory: "",
+            country: "",
+          },
+          englishTest: "",
+          englishTestType: "",
+          englishTestResult: {
+            reading: "",
+            writing: "",
+            listening: "",
+            speaking: "",
+          },
+          futureTestEnglish: "",
+          examPlanning: "",
+          examPlanningDate: "",
+          englishMedium: "",
+          class10: "",
+          class12: "",
+          graduation: "",
+          gapsAfterStudy: "",
+          gapStartDate: "",
+          gapEndDate: "",
+          counselledBefore: "",
+          collegeAbroad: "",
+          visaRefused: "",
+          visaApplied: "",
+          visaAppliedCountry: "",
+          visaAppliedDate: "",
+          intrestedCollege: "",
+          fieldOfStudy: "",
+          otherInformation: "",
+        });
+        window.scrollTo(0, 0);
       }
     } catch (error) {
       toast.error("Internal server errror!", {
@@ -394,7 +454,6 @@ const StudyPermit = ({ selectedForm, studyPermitRef, formType }) => {
           <AdditionalSectionForm
             selectForm={selectForm}
             formData={formData}
-            setFormData={setFormData}
             setSelectForm={setSelectForm}
             scrollRef={studyPermitRef}
             handleInputChange={handleInputChange}

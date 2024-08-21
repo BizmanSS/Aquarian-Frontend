@@ -216,6 +216,41 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
         toast.success("You have successfully submited your form!", {
           position: "top-center",
         });
+        setSelectForm("PersonalInformation");
+        window.scrollTo({
+          top: element,
+          behavior: "smooth",
+        });
+        setFormData({
+          firstname: "",
+          lastname: "",
+          email: "",
+          phone: "",
+          nationality: "",
+          age: "",
+          maritalStatus: "",
+          isSpouseinCanada: "",
+          statusOfWife: "",
+          region: "",
+          status: "",
+          EducationLevel: "",
+          englishTest: "",
+          children: "",
+          haveLmiaJoboffer: "",
+          requireLmiaJoboffer: "",
+          nocCodeonLmia: "",
+          workexperience1: "",
+          yearsOfExp: "",
+          workExperiences: {
+            startDates: null,
+            endDates: null,
+            occupation: "",
+            typeOfJob: "",
+            employmentHistory: "",
+            country: "",
+          },
+          otherInformation: "",
+        });
       }
     } catch (error) {
       toast.error("Internal server errror!", {
@@ -1062,41 +1097,6 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
                     type="button"
                     onClick={() => {
                       handleFormSubmit();
-                      setSelectForm("PersonalInformation");
-                      window.scrollTo({
-                        top: element,
-                        behavior: "smooth",
-                      });
-                      setFormData({
-                        firstname: "",
-                        lastname: "",
-                        email: "",
-                        phone: "",
-                        nationality: "",
-                        age: "",
-                        maritalStatus: "",
-                        isSpouseinCanada: "",
-                        statusOfWife: "",
-                        region: "",
-                        status: "",
-                        EducationLevel: "",
-                        englishTest: "",
-                        children: "",
-                        haveLmiaJoboffer: "",
-                        requireLmiaJoboffer: "",
-                        nocCodeonLmia: "",
-                        workexperience1: "",
-                        yearsOfExp: "",
-                        workExperiences: {
-                          startDates: null,
-                          endDates: null,
-                          occupation: "",
-                          typeOfJob: "",
-                          employmentHistory: "",
-                          country: "",
-                        },
-                        otherInformation: "",
-                      });
                     }}
                   >
                     Submit
