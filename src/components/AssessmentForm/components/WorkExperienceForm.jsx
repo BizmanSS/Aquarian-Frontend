@@ -393,7 +393,7 @@ const WorkExperienceForm = ({
           </div>
           {formData.workexperience1 === "yes" && (
             <>
-              <div className="mb-3 w-[45%]">
+              <div className="mb-3 w-full md:w-[45%]">
                 <label
                   for="workexperience"
                   className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
