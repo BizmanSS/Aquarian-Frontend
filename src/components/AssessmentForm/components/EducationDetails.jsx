@@ -464,20 +464,6 @@ const EducationDetails = ({
                   </p>
                 )}
               </div>
-
-              {educationExperiences.length === 0 && (
-                <div className="font-semibold text-lg mb-4">
-                  Current (or more recent) Education
-                  <span className="text-red-400">*</span>
-                </div>
-              )}
-              {educationExperiences.length !== 0 && (
-                <div className="font-semibold text-lg mb-4">
-                  Previous Education Qualification
-                  <span className="text-red-400">*</span>
-                </div>
-              )}
-
               {educationExperiences.map((item, id) => (
                 <PastExperienceBox
                   key={id}
@@ -506,6 +492,19 @@ const EducationDetails = ({
                   </button>
                 </div>
               )}
+              {educationExperiences.length === 0 && (
+                <div className="font-semibold text-lg mb-4">
+                  Current (or more recent) Education
+                  <span className="text-red-400">*</span>
+                </div>
+              )}
+              {educationExperiences.length !== 0 && (
+                <div className="font-semibold text-lg mb-4">
+                  Previous Education Qualification
+                  <span className="text-red-400">*</span>
+                </div>
+              )}
+
               {formVisible && (
                 <div
                   className="w-full md:grid grid-cols-2"

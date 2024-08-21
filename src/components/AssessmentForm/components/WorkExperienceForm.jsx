@@ -470,19 +470,6 @@ const WorkExperienceForm = ({
               {workErrors.yearsOfExp && (
                 <p className="text-red-500">{workErrors.yearsOfExp}</p>
               )}
-              {workExperiences.length === 0 && (
-                <div className="font-semibold text-lg mb-4">
-                  Current (or more recent) Job
-                  <span className="text-red-400">*</span>
-                </div>
-              )}
-              {workExperiences.length !== 0 && (
-                <div className="font-semibold text-lg mb-4">
-                  Previous Work Experience
-                  <span className="text-red-400">*</span>
-                </div>
-              )}
-
               {workExperiences.map((item, id) => (
                 <PastExperienceBox
                   key={id}
@@ -511,6 +498,19 @@ const WorkExperienceForm = ({
                   </button>
                 </div>
               )}
+              {workExperiences.length === 0 && (
+                <div className="font-semibold text-lg mb-4">
+                  Current (or more recent) Job
+                  <span className="text-red-400">*</span>
+                </div>
+              )}
+              {workExperiences.length !== 0 && (
+                <div className="font-semibold text-lg mb-4">
+                  Previous Work Experience
+                  <span className="text-red-400">*</span>
+                </div>
+              )}
+
               {formVisible && (
                 <div
                   className="w-full md:grid grid-cols-2"
