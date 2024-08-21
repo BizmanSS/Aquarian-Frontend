@@ -15,9 +15,7 @@ const PriorHistoryForm = ({
   handleVisaCountryChange,
   validatePriorHistory,
   setSubmitAttemptedPriorHistory,
-  handleVisaDate,
 }) => {
-  const [currentDate] = useState(new Date());
   const customStyles = {
     control: (provided, state) => ({
       ...provided,
@@ -48,19 +46,6 @@ const PriorHistoryForm = ({
   const options = useMemo(() => countryList().getData(), []);
 
   const handleStartDateChange = (date) => {
-    if (date > currentDate) {
-      toast.error("Start Date cannot be greater than the current date", {
-        position: "top-center",
-      });
-      return;
-    }
-
-    if (date && formData.gapEndDate && date > formData.gapEndDate) {
-      toast.error("Start Date cannot be greater than End Date", {
-        position: "top-center",
-      });
-      return;
-    }
     setFormData((prev) => ({
       ...prev,
       gapStartDate: date,
@@ -68,18 +53,17 @@ const PriorHistoryForm = ({
   };
 
   const handleEndDateChange = (date) => {
-    if (date && formData.gapStartDate && date < formData.gapStartDate) {
-      toast.error("End Date cannot be earlier than Start Date", {
-        position: "top-center",
-      });
-      return;
-    }
     setFormData((prev) => ({
       ...prev,
       gapEndDate: date,
     }));
   };
-
+  const handleVisaDate = (date) => {
+    setFormData((prev) => ({
+      ...prev,
+      visaAppliedDate: date,
+    }));
+  };
   return (
     <div className="w-full h-fit">
       <div
@@ -174,6 +158,7 @@ const PriorHistoryForm = ({
                   <DatePicker
                     selected={formData.gapStartDate}
                     onChange={handleStartDateChange}
+                    maxDate={new Date()}
                     dateFormat="dd/MM/yyyy"
                     placeholderText="Select Start Date"
                     className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
@@ -196,8 +181,14 @@ const PriorHistoryForm = ({
                     selected={formData.gapEndDate}
                     onChange={handleEndDateChange}
                     dateFormat="dd/MM/yyyy"
+                    disabled={!formData.gapStartDate}
+                    minDate={formData.gapStartDate}
                     placeholderText="Select End Date"
-                    className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
+                    className={`w-full rounded-md border ${
+                      !formData.gapStartDate
+                        ? " border-gray-300 cursor-not-allowed"
+                        : " border-black cursor-pointer"
+                    } bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md`}
                   />
                   {priorHistoryErrors.gapEndDate && (
                     <p className="text-red-500">
@@ -413,8 +404,9 @@ const PriorHistoryForm = ({
                 <DatePicker
                   selected={formData.visaAppliedDate}
                   onChange={handleVisaDate}
+                  maxDate={new Date()}
                   dateFormat="dd/MM/yyyy"
-                  placeholderText="Select Start Date"
+                  placeholderText="Select Applied Visa Date"
                   className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
                 />
                 {priorHistoryErrors.visaAppliedDate && (

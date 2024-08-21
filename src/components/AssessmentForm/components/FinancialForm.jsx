@@ -11,7 +11,6 @@ function FinancialForm({
   scrollRef,
   errors,
   handleInputChange,
-  handleVisaDate,
   handleVisaCountryChange,
   customStyles,
   options,
@@ -19,6 +18,12 @@ function FinancialForm({
   validateFinancial,
   setSubmitAttemptedFinancial,
 }) {
+  const handleVisaDate = (date) => {
+    setFormData((prev) => ({
+      ...prev,
+      visaAppliedDate: date,
+    }));
+  };
   return (
     <>
       <div
@@ -513,8 +518,9 @@ function FinancialForm({
                 <DatePicker
                   selected={formData.visaAppliedDate}
                   onChange={handleVisaDate}
+                  maxDate={new Date()}
                   dateFormat="dd/MM/yyyy"
-                  placeholderText="Select Start Date"
+                  placeholderText="Select Date"
                   className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
                 />
                 {errors.visaAppliedDate && (

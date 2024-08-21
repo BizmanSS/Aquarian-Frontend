@@ -17,7 +17,6 @@ const TouristVisa = ({ selectedForm, formType, element, touristVisaRef }) => {
     useState(false);
   const [errors, setErrors] = useState({});
   const [errorsFinancial, setErrorsFinancial] = useState({});
-  const [currentDate] = useState(new Date());
   const [formData, setFormData] = useState({
     firstname: "",
     lastname: "",
@@ -44,18 +43,6 @@ const TouristVisa = ({ selectedForm, formType, element, touristVisaRef }) => {
     otherInformation: "",
   });
 
-  const handleVisaDate = (date) => {
-    if (date > currentDate) {
-      toast.error("Date cannot be greater than the current date", {
-        position: "top-center",
-      });
-      return;
-    }
-    setFormData((prev) => ({
-      ...prev,
-      visaAppliedDate: date,
-    }));
-  };
   const handleVisaCountryChange = (selectedOption) => {
     setFormData((prevState) => ({
       ...prevState,
@@ -728,7 +715,6 @@ const TouristVisa = ({ selectedForm, formType, element, touristVisaRef }) => {
               Select={Select}
               handleInputChange={handleInputChange}
               handleVisaCountryChange={handleVisaCountryChange}
-              handleVisaDate={handleVisaDate}
               customStyles={customStyles}
               validateFinancial={validateFinancial}
               setSubmitAttemptedFinancial={setSubmitAttemptedFinancial}

@@ -15,8 +15,13 @@ const EnglishSkillsForm = ({
   selectedExam,
   setSubmitAttemptedTest,
   scrollRef,
-  handleDateChange,
 }) => {
+  const handleDateChange = (date) => {
+    setFormData((prev) => ({
+      ...prev,
+      examPlanningDate: date,
+    }));
+  };
   return (
     <div className="w-full h-fit">
       <div
@@ -990,7 +995,8 @@ const EnglishSkillsForm = ({
                     selected={formData.examPlanningDate}
                     onChange={handleDateChange}
                     dateFormat="dd/MM/yyyy"
-                    placeholderText="Select Start Date"
+                    minDate={new Date()}
+                    placeholderText="Select Date"
                     className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
                   />
                   {languageErrors.examPlanningDate && (

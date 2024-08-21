@@ -124,7 +124,7 @@ const EducationDetails = ({
   const [formVisible, setFormVisible] = useState(false);
   const [submitAttemptededucation, setSubmitAttemptededucation] =
     useState(false);
-  const [currentDate] = useState(new Date());
+
   const [currentForm, setCurrentForm] = useState({
     levelOfEducation: "",
     startDates: null,
@@ -135,10 +135,7 @@ const EducationDetails = ({
   });
 
   useEffect(() => {
-    if (
-      educationExperiences.length === 0 ||
-      formData.educationExperience1 === "yes"
-    ) {
+    if (educationExperiences.length === 0) {
       setFormVisible(true);
     }
   }, [educationExperiences, formData]);
@@ -279,19 +276,6 @@ const EducationDetails = ({
   };
 
   const handleStartDateChange = (date) => {
-    if (date > currentDate) {
-      toast.error("Start Date cannot be greater than the current date", {
-        position: "top-center",
-      });
-      return;
-    }
-
-    if (date && currentForm.endDates && date > currentForm.endDates) {
-      toast.error("Start Date cannot be greater than End Date", {
-        position: "top-center",
-      });
-      return;
-    }
     setCurrentForm((prev) => ({
       ...prev,
       startDates: date,
@@ -299,12 +283,6 @@ const EducationDetails = ({
   };
 
   const handleEndDateChange = (date) => {
-    if (date && currentForm.startDates && date < currentForm.startDates) {
-      toast.error("End Date cannot be earlier than Start Date", {
-        position: "top-center",
-      });
-      return;
-    }
     setCurrentForm((prev) => ({
       ...prev,
       endDates: date,
@@ -594,6 +572,7 @@ const EducationDetails = ({
                       <DatePicker
                         selected={currentForm.startDates}
                         onChange={handleStartDateChange}
+                        maxDate={new Date()}
                         dateFormat="dd/MM/yyyy"
                         placeholderText="Select Start Date"
                         className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
@@ -610,9 +589,15 @@ const EducationDetails = ({
                       <DatePicker
                         selected={currentForm.endDates}
                         onChange={handleEndDateChange}
+                        disabled={!currentForm.startDates}
+                        minDate={currentForm.startDates}
                         dateFormat="dd/MM/yyyy"
                         placeholderText="Select End Date"
-                        className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
+                        className={`w-full rounded-md border ${
+                          !currentForm.startDates
+                            ? " border-gray-300 cursor-not-allowed"
+                            : " border-black cursor-pointer"
+                        } bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md`}
                       />
                     </div>
                   </div>

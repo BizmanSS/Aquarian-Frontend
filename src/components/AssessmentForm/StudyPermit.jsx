@@ -13,7 +13,6 @@ const StudyPermit = ({ selectedForm, studyPermitRef, formType }) => {
   const [selectForm, setSelectForm] = useState("PersonalInformation");
   const [selectedExam, setSelectedExam] = useState("IELTS");
   const [submitAttempted, setSubmitAttempted] = useState(false);
-  const [currentDate] = useState(new Date());
   const [submitAttemptedTest, setSubmitAttemptedTest] = useState(false);
   const [submitAttemptedPriorHistory, setSubmitAttemptedPriorHistory] =
     useState(false);
@@ -353,30 +352,7 @@ const StudyPermit = ({ selectedForm, studyPermitRef, formType }) => {
     }
   };
 
-  const handleDateChange = (date) => {
-    if (date < currentDate) {
-      toast.error("Date cannot be less than the current date", {
-        position: "top-center",
-      });
-      return;
-    }
-    setFormData((prev) => ({
-      ...prev,
-      examPlanningDate: date,
-    }));
-  };
-  const handleVisaDate = (date) => {
-    if (date > currentDate) {
-      toast.error("Date cannot be greater than the current date", {
-        position: "top-center",
-      });
-      return;
-    }
-    setFormData((prev) => ({
-      ...prev,
-      visaAppliedDate: date,
-    }));
-  };
+
   return (
     <>
       {selectedForm.studyPermit && (
@@ -434,7 +410,6 @@ const StudyPermit = ({ selectedForm, studyPermitRef, formType }) => {
             languageErrors={languageErrors}
             validateLanguageTests={validateLanguageTests}
             setSubmitAttemptedTest={setSubmitAttemptedTest}
-            handleDateChange={handleDateChange}
           />
 
           <PriorHistoryForm
@@ -448,7 +423,7 @@ const StudyPermit = ({ selectedForm, studyPermitRef, formType }) => {
             validatePriorHistory={validatePriorHistory}
             handleVisaCountryChange={handleVisaCountryChange}
             setSubmitAttemptedPriorHistory={setSubmitAttemptedPriorHistory}
-            handleVisaDate={handleVisaDate}
+            
           />
 
           <AdditionalSectionForm
