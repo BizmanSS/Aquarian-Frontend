@@ -33,6 +33,7 @@ const StudyPermit = ({ selectedForm, studyPermitRef, formType }) => {
     educationExperience1: "",
     highestEducational: "",
     educationExperiences: {
+      levelOfEducation: "",
       startDates: null,
       endDates: null,
       field: "",

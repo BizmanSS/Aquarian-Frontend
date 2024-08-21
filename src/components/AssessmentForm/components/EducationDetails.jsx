@@ -11,6 +11,7 @@ import { educationOptions } from "../data/formSelectOptions";
 
 const PastExperienceBox = ({
   index,
+  levelOfEducation,
   startDate,
   endDate,
   field,
@@ -38,10 +39,11 @@ const PastExperienceBox = ({
       );
       setSelectededucation((prev) => Math.max(prev - 1, 0));
       setCurrentForm({
+        levelOfEducation: levelOfEducation,
         startDates: startDate,
         endDates: endDate,
         board: board,
-        board: field,
+        field: field,
         country: country,
       });
       setFormVisible(true);
@@ -49,6 +51,10 @@ const PastExperienceBox = ({
   };
 
   const data = [
+    {
+      title: "Level of Education",
+      value: levelOfEducation,
+    },
     {
       title: "Start Date",
       value: startDate?.toLocaleDateString(), // Formatting the date for display
@@ -112,7 +118,6 @@ const EducationDetails = ({
 }) => {
   const [educationExperiences, seteducationExperiences] = useState([]);
   const [selectededucation, setSelectededucation] = useState(0);
-  const [isDisabled, setIsDisabled] = useState(false);
   const [educationErrors, seteducationErrors] = useState({
     educationExperiences: [],
   });
@@ -121,6 +126,7 @@ const EducationDetails = ({
     useState(false);
   const [currentDate] = useState(new Date());
   const [currentForm, setCurrentForm] = useState({
+    levelOfEducation: "",
     startDates: null,
     endDates: null,
     field: "",
@@ -239,13 +245,15 @@ const EducationDetails = ({
   };
 
   const validateFormFields = () => {
-    const { startDates, endDates, field, board, country } = currentForm;
+    const { startDates, levelOfEducation, endDates, field, board, country } =
+      currentForm;
     if (
+      levelOfEducation.trim() !== "" &&
       startDates &&
       field.trim() !== "" &&
       board.trim() !== "" &&
       country.trim() !== "" &&
-      (isDisabled || endDates)
+      endDates
     ) {
       return true;
     }
@@ -255,13 +263,13 @@ const EducationDetails = ({
     if (validateFormFields()) {
       seteducationExperiences((prev) => [...prev, currentForm]);
       setCurrentForm({
+        levelOfEducation: "",
         startDates: null,
         endDates: null,
         field: "",
         board: "",
         country: "",
       });
-      setIsDisabled(false);
       setFormVisible(false);
     } else {
       toast.error("Please fill out all fields before saving.", {
@@ -316,7 +324,10 @@ const EducationDetails = ({
     if (!formData.educationExperience1)
       tempeducationErrors.educationExperience1 =
         "Education experience is required";
-    if (!formData.highestEducational && formData.educationExperience1 === "yes")
+    if (
+      formData.highestEducational === "" &&
+      formData.educationExperience1 === "yes"
+    )
       tempeducationErrors.highestEducational =
         "Highest Educational Qualifications is required";
     if (showErrors) {
@@ -333,7 +344,7 @@ const EducationDetails = ({
           if (formData.educationExperience1)
             setSelectForm("education-experience");
         }}
-        className="text-xl font-semibold tracking-[8px] bg-[#01997E] text-white w-full px-10 py-2 rounded-md flex items-center justify-between"
+        className="text-base md:text-xl font-semibold tracking-[5px] md:tracking-[8px] bg-[#01997E] text-white w-full px-10 py-2 rounded-md flex items-center justify-between"
       >
         Education & Training
         <span className="text-black">
@@ -391,6 +402,7 @@ const EducationDetails = ({
                     setFormData({
                       ...formData,
                       educationExperience1: e.target.value,
+                      levelOfEducation: "",
                       startDates: null,
                       endDates: null,
                       field: "",
@@ -437,7 +449,7 @@ const EducationDetails = ({
                   value={formData.highestEducational}
                   className="w-full block mb-4 lg:w-[45%] rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
                 >
-                  <option disabled selected>
+                  <option value="" selected>
                     Select
                   </option>
                   {educationOptions.map((item, id) => (
@@ -477,6 +489,7 @@ const EducationDetails = ({
                   formVisible={formVisible}
                   setCurrentForm={setCurrentForm}
                   setFormVisible={setFormVisible}
+                  levelOfEducation={item.levelOfEducation}
                   board={item.board}
                   field={item.field}
                   country={item.country}
@@ -498,6 +511,78 @@ const EducationDetails = ({
                   className="w-full md:grid grid-cols-2"
                   style={{ columnGap: "10%" }}
                 >
+                  <div className="mb-3 w-full">
+                    <label
+                      for="levelOfEducation"
+                      className="font-semibold text-lg block mb-2"
+                    >
+                      Level of Education
+                      <span className="text-red-400">*</span>
+                    </label>
+
+                    <select
+                      id="levelOfEducation"
+                      name="levelOfEducation"
+                      value={formData.levelOfEducation}
+                      onChange={handleInputChange}
+                      className="w-full block mb-4 rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
+                    >
+                      <option value="" selected>
+                        Select
+                      </option>
+                      <option
+                        value="Less than secondary school (High school)"
+                        className="text-black"
+                      >
+                        Less than secondary school (High school)
+                      </option>
+                      <option
+                        value="Secondary diploma (High school graduation)"
+                        className="text-black"
+                      >
+                        Secondary diploma (High school graduation)
+                      </option>
+                      <option
+                        value="One-year post-secondary program"
+                        className="text-black"
+                      >
+                        One-year post-secondary program
+                      </option>
+                      <option
+                        value="Two-year post-secondary program"
+                        className="text-black"
+                      >
+                        Two-year post-secondary program
+                      </option>
+                      <option
+                        value="Bachelor's degree (three or more year post-secondary program)"
+                        className="text-black"
+                      >
+                        Bachelor's degree (three or more year post-secondary
+                        program)
+                      </option>
+                      <option
+                        value="Two or more post-secondary programs. One must be for a program of three or more years"
+                        className="text-black"
+                      >
+                        Two or more post-secondary programs. One must be for a
+                        program of three or more years
+                      </option>
+                      <option
+                        value="Master's degree, or professional degree needed to practice in a licensed profession"
+                        className="text-black"
+                      >
+                        Master's degree, or professional degree needed to
+                        practice in a licensed profession
+                      </option>
+                      <option
+                        value="Doctoral level university degree (ph.d.)"
+                        className="text-black"
+                      >
+                        Doctoral level university degree (ph.d.)
+                      </option>
+                    </select>
+                  </div>
                   <div className="w-full mb-3 flex gap-[10%] justify-between">
                     <div className="w-full block">
                       <label
@@ -532,7 +617,6 @@ const EducationDetails = ({
                       />
                     </div>
                   </div>
-
                   <div className="w-full mb-3">
                     <label
                       for="Board"
@@ -556,22 +640,22 @@ const EducationDetails = ({
                     >
                       Field / Stream<span className="text-red-400">*</span>
                     </label>
-                    {/* <input
+                    <input
                       type="text"
                       id="field"
                       name="field"
                       value={currentForm.field}
                       onChange={handleInputChange}
                       className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
-                    /> */}
-                    <SearchableDropdown
+                    />
+                    {/* <SearchableDropdown
                       apiEndpoint={`${process.env.REACT_APP_API}/study_fields`}
                       id="field"
                       name="field"
                       value={currentForm.field}
                       onChange={handleInputChange}
                       className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
-                    />
+                    /> */}
                   </div>
                   <div className="mb-3 w-full">
                     <label

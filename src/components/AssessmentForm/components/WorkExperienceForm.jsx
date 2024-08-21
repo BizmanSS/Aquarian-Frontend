@@ -116,7 +116,6 @@ const WorkExperienceForm = ({
 }) => {
   const [workExperiences, setWorkExperiences] = useState([]);
   const [selectedWork, setSelectedWork] = useState(0);
-  const [isDisabled, setIsDisabled] = useState(false);
   const [workErrors, setWorkErrors] = useState({ workExperiences: [] });
   const [formVisible, setFormVisible] = useState(false);
   const [submitAttemptedWork, setSubmitAttemptedWork] = useState(false);
@@ -245,7 +244,7 @@ const WorkExperienceForm = ({
       employmentHistory.trim() !== "" &&
       country.trim() !== "" &&
       typeOfJob &&
-      (isDisabled || endDates)
+      endDates
     ) {
       return true;
     }
@@ -262,7 +261,6 @@ const WorkExperienceForm = ({
         employmentHistory: "",
         country: "",
       });
-      setIsDisabled(false);
       setFormVisible(false);
     } else {
       toast.error("Please fill out all fields before saving.", {
@@ -332,7 +330,7 @@ const WorkExperienceForm = ({
         onClick={() => {
           if (formData.workexperience1) setSelectForm("work-experience");
         }}
-        className="text-xl font-semibold tracking-[8px] bg-[#01997E] text-white w-full px-10 py-2 rounded-md flex items-center justify-between"
+        className="text-base md:text-xl font-semibold tracking-[5px] md:tracking-[8px] bg-[#01997E] text-white w-full px-10 py-2 rounded-md flex items-center justify-between"
       >
         Work Experience
         <span className="text-black">
@@ -604,22 +602,22 @@ const WorkExperienceForm = ({
                     >
                       Occupation<span className="text-red-400">*</span>
                     </label>
-                    {/* <input
+                    <input
                       type="text"
                       id="occupation"
                       name="occupation"
                       value={currentForm.occupation}
                       onChange={handleInputChange}
                       className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
-                    /> */}
-                    <SearchableDropdown
+                    />
+                    {/* <SearchableDropdown
                       apiEndpoint={`${process.env.REACT_APP_API}/occupations`}
                       id="occupation"
                       name="occupation"
                       value={currentForm.occupation}
                       onChange={handleInputChange}
                       className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
-                    />
+                    /> */}
                   </div>
                   <div className="mb-3 w-full">
                     <label

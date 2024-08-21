@@ -36,7 +36,7 @@ function FinancialForm({
           )
             setSelectForm("financial");
         }}
-        className="text-xl font-semibold tracking-[8px] bg-[#01997E] text-white w-full px-10 py-2 rounded-md flex items-center justify-between"
+        className="text-base md:text-xl font-semibold tracking-[5px] md:tracking-[8px] bg-[#01997E] text-white w-full px-10 py-2 rounded-md flex items-center justify-between"
       >
         Education, Work and Financial Information
         <span className="text-black">
@@ -130,22 +130,22 @@ function FinancialForm({
                 What is your occupation?
                 <span className="text-red-400">*</span>
               </label>
-              {/* <input
+              <input
                 type="text"
                 id="occupation"
                 name="occupation"
                 value={formData.occupation}
                 onChange={handleInputChange}
                 className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
-              /> */}
-              <SearchableDropdown
+              />
+              {/* <SearchableDropdown
                 apiEndpoint={`${process.env.REACT_APP_API}/occupations`}
                 id="occupation"
                 name="occupation"
                 value={formData.occupation}
                 onChange={handleInputChange}
                 className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
-              />
+              /> */}
               {errors.occupation && (
                 <p className="text-red-500">{errors.occupation}</p>
               )}

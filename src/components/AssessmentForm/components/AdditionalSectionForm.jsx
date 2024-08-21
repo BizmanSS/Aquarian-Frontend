@@ -16,7 +16,7 @@ const AdditionalSectionForm = ({
         onClick={() => {
           if (formData.otherInformation) setSelectForm("other");
         }}
-        className="text-xl font-semibold tracking-[8px] bg-[#01997E] text-white w-full px-10 py-2 rounded-md flex items-center justify-between"
+        className="text-base md:text-xl font-semibold tracking-[5px] md:tracking-[8px] bg-[#01997E] text-white w-full px-10 py-2 rounded-md flex items-center justify-between"
       >
         Other
         <span className="text-black">
@@ -68,6 +68,7 @@ const AdditionalSectionForm = ({
                   educationExperience1: "",
                   highestEducational: "",
                   educationExperiences: {
+                    levelOfEducation: "",
                     startDates: null,
                     endDates: null,
                     field: "",

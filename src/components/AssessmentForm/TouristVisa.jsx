@@ -275,7 +275,7 @@ const TouristVisa = ({ selectedForm, formType, element, touristVisaRef }) => {
               }}
               // id='personalInformation'
               id="PersonalInformation"
-              className="text-xl font-semibold tracking-[8px] bg-[#01997E] text-white w-full px-10 py-2 rounded-md flex items-center justify-between"
+              className="text-base md:text-xl font-semibold tracking-[5px] md:tracking-[8px] bg-[#01997E] text-white w-full px-10 py-2 rounded-md flex items-center justify-between"
             >
               Personal Information{" "}
               <span className="text-black">
@@ -716,7 +716,7 @@ const TouristVisa = ({ selectedForm, formType, element, touristVisaRef }) => {
                   setSelectForm("other");
                 }
               }}
-              className="text-xl font-semibold tracking-[8px] bg-[#01997E] text-white w-full px-10 py-2 rounded-md flex items-center justify-between"
+              className="text-base md:text-xl font-semibold tracking-[5px] md:tracking-[8px] bg-[#01997E] text-white w-full px-10 py-2 rounded-md flex items-center justify-between"
             >
               Other Information
               <span className="text-black">
@@ -768,26 +768,21 @@ const TouristVisa = ({ selectedForm, formType, element, touristVisaRef }) => {
                         nationality: "",
                         age: "",
                         maritalStatus: "",
-                        isSpouseinCanada: "",
-                        statusOfWife: "",
-                        region: "",
-                        status: "",
-                        EducationLevel: "",
-                        englishTest: "",
+                        spouseTravelling: "",
                         children: "",
-                        haveLmiaJoboffer: "",
-                        requireLmiaJoboffer: "",
-                        nocCodeonLmia: "",
-                        workexperience1: "",
-                        yearsOfExp: "",
-                        workExperiences: {
-                          startDates: null,
-                          endDates: null,
-                          occupation: "",
-                          typeOfJob: "",
-                          employmentHistory: "",
-                          country: "",
-                        },
+                        childrenTravelling: "",
+                        region: "",
+                        EducationLevel: "",
+                        occupation: "",
+                        occupationType: "",
+                        workExperience: "",
+                        yearlyIncome: "",
+                        regularITR: "",
+                        sponsorInCanada: "",
+                        visaRefused: "",
+                        visaApplied: "",
+                        visaAppliedCountry: "",
+                        visaAppliedDate: "",
                         otherInformation: "",
                       });
                     }}
