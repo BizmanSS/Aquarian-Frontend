@@ -1,0 +1,112 @@
+.choose-program-card {
+    border: 2px #E0E0E0;
+    background: #EBEBEB;
+    height: 416px;
+    margin-left: 1rem;
+    cursor: pointer;
+    transition: all .2s;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.choose-program-card-image {
+    width: 100%;
+    height: 163px;
+    margin-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+}
+
+.choose-program-card-image img {
+    object-fit: cover;
+    width: inherit;
+    height: inherit;
+    border-radius: 4px;
+    transition: all .2s;
+}
+
+.choose-program-card-header {
+    color: #292929;
+    font-family: Poppins;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28px;
+    text-align: center;
+    transition: all .2s;
+}
+
+.choose-program-card-text {
+    color: #525252;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding-top: 30px;
+    transition: all .2s;
+}
+
+.choose-program-card-button {
+    border-radius: 45px;
+    border-width: 1px;
+    padding: 4px 20px;
+    border-color: white;
+    color: white;
+    text-align: center;
+    margin-top: auto;
+    position: absolute;
+    bottom: 0px;
+    transition: all .2s;
+    visibility: hidden;
+    opacity: 0%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.choose-program-card-button-arrow {
+    opacity: 0;
+    position: absolute;
+    visibility: hidden;
+    right: 10px;
+}
+
+.choose-program-card:hover {
+    background: #8F8F8F;
+
+    .choose-program-card-text {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px)
+    }
+
+    .choose-program-card-header {
+        color: white;
+        transform: translateY(30px);
+    }
+
+    .choose-program-card-button {
+        visibility: visible;
+        opacity: 100%;
+        transform: translateY(-40px);
+    }
+}
+
+.choose-program-card:hover .choose-program-card-image img {
+    border-radius: 16px;
+}
+
+.choose-program-card-button:hover {
+    padding-right: 32px;
+    background-color: white ;
+    color: #212121;
+    .choose-program-card-button-arrow{
+        opacity: 1;
+        visibility: visible;
+    }
+}

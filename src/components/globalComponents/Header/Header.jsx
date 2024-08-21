@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
-import logo from "../../../Assets/logo1.png";
+import './Header.css'
+import logo from "../../../Assets/Logo-02.svg";
+import logoDark from "../../../Assets/logo_dark.svg"
 import { RiMenu2Fill } from "react-icons/ri";
 import Instagram from "../../../Assets/Instagram_logo.svg";
 import Youtube from "../../../Assets/youtube.png";
@@ -37,7 +39,9 @@ const Header = ({ setShowPopUp }) => {
   const [selectedtext, setSelectedtext] = useState("");
   const [showAppointmentModel, setShowAppointmentModel] = useState(false);
   const [showMobileHeader, setShowMobileHeader] = useState(false);
+  const [isHamMenuOpened, setIsHamMenuOpened] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [showSubSubSubMenu, setShowSubSubSubMenu] = useState(null);
   const [showHeadersSubmenu, setShowHeadersSubmenu] = useState({
     immigrate: false,
     work: false,
@@ -98,7 +102,7 @@ const Header = ({ setShowPopUp }) => {
     visaExtensionAndRefusal: false,
     superVisa: false,
   });
-  const [showHeadersSubSubmenuEmployes, setShowHeadersSubSubmenuEmployes] =
+  const [showHeadersSubSubmenuEmployers, setShowHeadersSubSubmenuEmployers] =
     useState({
       employersOutsideCanada: false,
       canadianEmployers: false,
@@ -144,7 +148,7 @@ const Header = ({ setShowPopUp }) => {
       [value]: !prevState[value],
     }));
   };
-  const toggleshowHeadersSubSubmenuSponsonship = (value) => {
+  const toggleshowHeadersSubSubmenuSponsorship = (value) => {
     setShowHeadersSubSubmenuSponsorship((prevState) => ({
       ...prevState,
       sponsorship: false,
@@ -174,8 +178,8 @@ const Header = ({ setShowPopUp }) => {
       [value]: !prevState[value],
     }));
   };
-  const toggleshowHeadersSubSubmenuEmployes = (value) => {
-    setShowHeadersSubSubmenuEmployes((prevState) => ({
+  const toggleshowHeadersSubSubmenuEmployers = (value) => {
+    setShowHeadersSubSubmenuEmployers((prevState) => ({
       ...prevState,
       employersOutsideCanada: false,
       canadianEmployers: false,
@@ -284,6 +288,15 @@ const Header = ({ setShowPopUp }) => {
     });
   };
 
+  const toggleShowSubSubSubMenu = (title) => {
+    if (showSubSubSubMenu === title) {
+      setShowSubSubSubMenu(null)
+    }
+    else {
+      setShowSubSubSubMenu(title)
+    }
+  }
+
   const toggleEmployersSubmenu = () => {
     setShowHeadersSubmenu({
       ...showHeadersSubmenu,
@@ -315,6 +328,19 @@ const Header = ({ setShowPopUp }) => {
     };
   }, []);
 
+  useEffect(() => {
+    if (showMobileHeader) {
+      document.body.style.overflow = 'hidden'; // Disable scroll when menu is open
+    } else {
+      document.body.style.overflow = 'auto'; // Enable scroll when menu is closed
+    }
+
+    // Cleanup function to reset overflow
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [showMobileHeader]);
+
   const handleItemHover = (index) => {
     setActiveItem(index);
   };
@@ -323,7 +349,9 @@ const Header = ({ setShowPopUp }) => {
     setTimeout(() => {
       menuRef.current.classList.remove("scale-90");
     }, 200);
+    setIsHamMenuOpened(true);
     setShowMobileHeader(true);
+    
   };
   const handleMouseEnter = () => {
     setIsHovering(true);
@@ -366,10 +394,9 @@ const Header = ({ setShowPopUp }) => {
         <li>
           <details className="group">
             <summary
-              className={`flex items-center justify-between p-2 font-normal transition ease-in delay-20 duration-200 hover:text-[#01997E] hover:font-semibold hover:scale-105 ${
-                selectedtext === text &&
+              className={`flex items-center justify-between p-2 font-normal transition ease-in delay-20 duration-200 hover:text-[#01997E] hover:font-semibold hover:scale-105 ${selectedtext === text &&
                 "text-[#01997E] font-semibold scale-105"
-              } hover:cursor-pointer hover:scale-105`}
+                } hover:cursor-pointer hover:scale-105`}
             >
               <span className="flex ">
                 <a href={link}>{text}</a>
@@ -383,11 +410,11 @@ const Header = ({ setShowPopUp }) => {
 
   return (
     <div className="">
-      <div className="bg-black h-[5rem] md:h-[6.5rem] fixed z-40 top-0 flex flex-col items-center justify-start w-full md:w-[94%] 7xl:w-[96%] 7xl:-ml-[1.2rem] max-w-[140rem] 8xl:-ml-[3rem]">
+      <div className="bg-black h-[4rem] lg:h-[5.5rem] xl:h-[6.5rem] fixed z-40 top-0 flex flex-col items-center justify-start w-full md:w-[94%] 7xl:w-[96%] 7xl:-ml-[1.2rem] max-w-[140rem] 8xl:-ml-[3rem]">
         {!ismobile ? (
           <>
             {" "}
-            <div className="bg-[#000000] fixed w-[94%] h-[30px] text-[13px] z-20 flex items-center justify-end max-w-[120rem]">
+            <div className="bg-[#000000] fixed w-[94%] h-[30px] text-[13px] z-20 flex items-center justify-end max-w-[120rem] header-menu-upper">
               <div className="flex items-center justify-end mr-[0rem]">
                 <p className="px-4 py-1 text-[#939393] cursor-pointer hover:text-[#01F9E1]">
                   <a href="/about-us">About Us</a>
@@ -456,12 +483,12 @@ const Header = ({ setShowPopUp }) => {
                 </div>
               </div>
             </div>
-            <div className="w-[100%] flex items-center justify-between mt-4 relative">
-              <a href="/">
+            <div className="w-[100%] flex items-center justify-between mt-7">
+              <a href="/" class='header-menu-company-logo'>
                 <img
                   src={logo}
                   alt="logo"
-                  className="cursor-pointer w-[9rem] ml-2 lg:w-[10rem] xl:w-[11rem] 2xl:w-[13rem] lg:ml-4 xl:ml-8 2xl:ml-10 "
+                  className="cursor-pointer w-[11rem] xl:w-[15rem] lg:ml-4 xl:ml-8 2xl:ml-12"
                 />
               </a>
 
@@ -482,72 +509,65 @@ const Header = ({ setShowPopUp }) => {
                   <a href='/'>Home</a>
                 </li> */}
                   <li
-                    onMouseEnter={() => handleItemHover(1)}
-                    className={`cursor-pointer  flex px-4 py-2.5 justify-center ${
-                      activeItem === 1
-                        ? "border-b-[3px] border-b-[#009889] bg-white text-black"
-                        : "border-b-[3px] border-b-transparent"
-                    }`}
+                    onClick={() => handleItemHover(1)}
+                    className={`cursor-pointer  flex px-4 py-2.5 justify-center ${activeItem === 1
+                      ? "border-b-[3px] border-b-[#009889] bg-white text-black"
+                      : "border-b-[3px] border-b-transparent"
+                      }`}
                   >
                     Immigrate
                   </li>
                   <li
-                    onMouseEnter={() => handleItemHover(2)}
-                    className={`cursor-pointer  flex px-4 py-2.5 justify-center ${
-                      activeItem === 2
-                        ? "border-b-[3px] border-b-[#009889] bg-white text-black"
-                        : "border-b-[3px] border-b-transparent"
-                    }`}
+                    onClick={() => handleItemHover(2)}
+                    className={`cursor-pointer  flex px-4 py-2.5 justify-center ${activeItem === 2
+                      ? "border-b-[3px] border-b-[#009889] bg-white text-black"
+                      : "border-b-[3px] border-b-transparent"
+                      }`}
                   >
                     Work
                   </li>
                   <li
-                    onMouseEnter={() => handleItemHover(3)}
-                    className={`cursor-pointer  flex px-4 py-2.5 justify-center ${
-                      activeItem === 3
-                        ? "border-b-[3px] border-b-[#009889] bg-white text-black"
-                        : "border-b-[3px] border-b-transparent"
-                    }`}
+                    onClick={() => handleItemHover(3)}
+                    className={`cursor-pointer  flex px-4 py-2.5 justify-center ${activeItem === 3
+                      ? "border-b-[3px] border-b-[#009889] bg-white text-black"
+                      : "border-b-[3px] border-b-transparent"
+                      }`}
                   >
                     Study
                   </li>
                   <li
-                    onMouseEnter={() => handleItemHover(4)}
-                    className={`cursor-pointer  flex px-4 py-2.5 justify-center ${
-                      activeItem === 4
-                        ? "border-b-[3px] border-b-[#009889] bg-white text-black"
-                        : "border-b-[3px] border-b-transparent"
-                    }`}
+                    onClick={() => handleItemHover(4)}
+                    className={`cursor-pointer  flex px-4 py-2.5 justify-center ${activeItem === 4
+                      ? "border-b-[3px] border-b-[#009889] bg-white text-black"
+                      : "border-b-[3px] border-b-transparent"
+                      }`}
                   >
                     Sponsorship
                   </li>
                   <li
-                    onMouseEnter={() => handleItemHover(5)}
-                    className={`cursor-pointer  flex px-4 py-2.5 justify-center ${
-                      activeItem === 5
-                        ? "border-b-[3px] border-b-[#009889] bg-white text-black"
-                        : "border-b-[3px] border-b-transparent"
-                    }`}
+                    onClick={() => handleItemHover(5)}
+                    className={`cursor-pointer  flex px-4 py-2.5 justify-center ${activeItem === 5
+                      ? "border-b-[3px] border-b-[#009889] bg-white text-black"
+                      : "border-b-[3px] border-b-transparent"
+                      }`}
                   >
                     Business
                   </li>
                   <li
-                    onMouseEnter={() => handleItemHover(6)}
-                    className={`cursor-pointer  flex px-4 py-2.5 justify-center ${
-                      activeItem === 6
-                        ? "border-b-[3px] border-b-[#009889] bg-white text-black"
-                        : "border-b-[3px] border-b-transparent"
-                    }`}
+                    onClick={() => handleItemHover(6)}
+                    className={`cursor-pointer  flex px-4 py-2.5 justify-center ${activeItem === 6
+                      ? "border-b-[3px] border-b-[#009889] bg-white text-black"
+                      : "border-b-[3px] border-b-transparent"
+                      }`}
                   >
                     Visit
                   </li>
                   <li
-                    onMouseEnter={() => handleItemHover(7)}
-                    className={`cursor-pointer  flex px-4 py-2.5 justify-center ${
-                      activeItem === 7
-                        ? "border-b-[3px] border-b-[#009889] bg-white text-black"
-                        : "border-b-[3px] border-b-transparent"
-                    }`}
+                    onClick={() => handleItemHover(7)}
+                    className={`cursor-pointer  flex px-4 py-2.5 justify-center ${activeItem === 7
+                      ? "border-b-[3px] border-b-[#009889] bg-white text-black"
+                      : "border-b-[3px] border-b-transparent"
+                      }`}
                   >
                     Employers
                   </li>
@@ -570,71 +590,64 @@ const Header = ({ setShowPopUp }) => {
                 </li> */}
                   <li
                     onMouseEnter={() => handleItemHover(1)}
-                    className={`cursor-pointer transition ease-in delay-100 duration-300  flex px-4 py-2.5 justify-center ${
-                      activeItem === 1
-                        ? "border-b-[3px] border-b-transparent"
-                        : "border-b-[3px] border-b-transparent"
-                    }`}
+                    className={`cursor-pointer transition ease-in delay-100 duration-300  flex px-4 py-2.5 justify-center ${activeItem === 1
+                      ? "border-b-[3px] border-b-transparent"
+                      : "border-b-[3px] border-b-transparent"
+                      }`}
                   >
                     Immigrate
                   </li>
                   <li
                     onMouseEnter={() => handleItemHover(2)}
-                    className={`cursor-pointer transition ease-in delay-100 duration-300  flex px-4 py-2.5 justify-center ${
-                      activeItem === 2
-                        ? "border-b-[3px] border-b-transparent"
-                        : "border-b-[3px] border-b-transparent"
-                    }`}
+                    className={`cursor-pointer transition ease-in delay-100 duration-300  flex px-4 py-2.5 justify-center ${activeItem === 2
+                      ? "border-b-[3px] border-b-transparent"
+                      : "border-b-[3px] border-b-transparent"
+                      }`}
                   >
                     Work
                   </li>
                   <li
                     onMouseEnter={() => handleItemHover(3)}
-                    className={`cursor-pointer transition ease-in delay-100 duration-300  flex px-4 py-2.5 justify-center ${
-                      activeItem === 3
-                        ? "border-b-[3px] border-b-transparent"
-                        : "border-b-[3px] border-b-transparent"
-                    }`}
+                    className={`cursor-pointer transition ease-in delay-100 duration-300  flex px-4 py-2.5 justify-center ${activeItem === 3
+                      ? "border-b-[3px] border-b-transparent"
+                      : "border-b-[3px] border-b-transparent"
+                      }`}
                   >
                     Study
                   </li>
                   <li
                     onMouseEnter={() => handleItemHover(4)}
-                    className={`cursor-pointer transition ease-in delay-100 duration-300  flex px-4 py-2.5 justify-center ${
-                      activeItem === 4
-                        ? "border-b-[3px] border-b-transparent"
-                        : "border-b-[3px] border-b-transparent"
-                    }`}
+                    className={`cursor-pointer transition ease-in delay-100 duration-300  flex px-4 py-2.5 justify-center ${activeItem === 4
+                      ? "border-b-[3px] border-b-transparent"
+                      : "border-b-[3px] border-b-transparent"
+                      }`}
                   >
                     Sponsorship
                   </li>
                   <li
                     onMouseEnter={() => handleItemHover(5)}
-                    className={`cursor-pointer transition ease-in delay-100 duration-300  flex px-4 py-2.5 justify-center ${
-                      activeItem === 5
-                        ? "border-b-[3px] border-b-transparent"
-                        : "border-b-[3px] border-b-transparent"
-                    }`}
+                    className={`cursor-pointer transition ease-in delay-100 duration-300  flex px-4 py-2.5 justify-center ${activeItem === 5
+                      ? "border-b-[3px] border-b-transparent"
+                      : "border-b-[3px] border-b-transparent"
+                      }`}
                   >
                     Business
                   </li>
                   <li
                     onMouseEnter={() => handleItemHover(6)}
-                    className={`cursor-pointer transition ease-in delay-100 duration-300  flex px-4 py-2.5 justify-center ${
-                      activeItem === 6
-                        ? "border-b-[3px] border-b-transparent"
-                        : "border-b-[3px] border-b-transparent"
-                    }`}
+                    className={`cursor-pointer transition ease-in delay-100 duration-300  flex px-4 py-2.5 justify-center ${activeItem === 6
+                      ? "border-b-[3px] border-b-transparent"
+                      : "border-b-[3px] border-b-transparent"
+                      }`}
                   >
                     Visit
                   </li>
                   <li
                     onMouseEnter={() => handleItemHover(7)}
-                    className={`cursor-pointer transition ease-in delay-100 duration-300  flex px-4 py-2.5 justify-center ${
-                      activeItem === 7
-                        ? "border-b-[3px] border-b-transparent"
-                        : "border-b-[3px] border-b-transparent"
-                    }`}
+                    className={`cursor-pointer transition ease-in delay-100 duration-300  flex px-4 py-2.5 justify-center ${activeItem === 7
+                      ? "border-b-[3px] border-b-transparent"
+                      : "border-b-[3px] border-b-transparent"
+                      }`}
                   >
                     Employers
                   </li>
@@ -642,27 +655,24 @@ const Header = ({ setShowPopUp }) => {
               )}
               {isHovering && activeItem > 0 && (
                 <div
-                  className={`bg-[#FFFEFE] px-4 z-40 absolute shadow-2xl 2xl:top-[4.5rem] xl:top-[4rem] top-[3.8rem] left-[12rem] xl:left-[calc(30vw-10rem)] 2xl:left-[18rem] 3xl:left-[25rem] 4xl:left-[30rem] w-[46.0rem] xl:w-[48.0rem] 2xl:w-[54.5rem] rounded-b-xl transition-all ease-in-out delay-100 duration-300 ${
-                    isOpen ? "h-[25rem] opacity-100" : "h-0 opacity-0"
-                  }`}
+                  className={`bg-[#FFFEFE] px-4 z-40 absolute shadow-2xl 2xl:top-[5.5rem] xl:top-[5.5rem] top-[4.8rem] left-[13rem] xl:left-[calc(30vw-5rem)] 2xl:left-[22rem] 3xl:left-[25rem] 4xl:left-[28vw] w-[46.0rem] xl:w-[48.0rem] 2xl:w-[54.5rem] rounded-b-xl transition-all ease-in-out delay-100 duration-300 ${isOpen ? "h-[25rem] opacity-100" : "h-0 opacity-0"
+                    }`}
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
                 >
                   <div className="flex flex-col items-center justify-center"></div>
                   <div
-                    className={`flex items-start justify-start p-4 gap-8 ${
-                      activeItem === 0 ? "none" : "block"
-                    }`}
+                    className={`flex items-start justify-start p-4 gap-8 ${activeItem === 0 ? "none" : "block"
+                      }`}
                   >
                     {activeItem === 1 && (
                       <div className=" w-[40%] h-auto mt-4">
                         <div className="flex flex-col ">
                           <ul className="text-[14px] 2xl:text-[15px] flex flex-col items-start justify-start gap-4 ">
                             <li
-                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${
-                                selectedProgram === "Permanent Residency" &&
+                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${selectedProgram === "Permanent Residency" &&
                                 "text-[#01997E] font-semibold"
-                              }`}
+                                }`}
                             >
                               <a
                                 href={"/immigrate/permanent-residency"}
@@ -675,10 +685,9 @@ const Header = ({ setShowPopUp }) => {
                               // onMouseEnter={() =>
                               //   handleItemProgramClick('Express Entry')
                               // }
-                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${
-                                selectedProgram === "Express Entry" &&
+                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${selectedProgram === "Express Entry" &&
                                 "text-[#01997E] font-semibold "
-                              }`}
+                                }`}
                             >
                               <a
                                 href={"/immigrate/express-entry"}
@@ -690,10 +699,9 @@ const Header = ({ setShowPopUp }) => {
                             </li>
                             <li
                               // onMouseEnter={() => handleItemProgramClick('PNP')}
-                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${
-                                selectedProgram === "PNP" &&
+                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${selectedProgram === "PNP" &&
                                 "text-[#01997E] font-semibold"
-                              }`}
+                                }`}
                             >
                               <a
                                 href="/immigrate/provincial-nominee-program"
@@ -710,11 +718,10 @@ const Header = ({ setShowPopUp }) => {
                               //     'Rural And Northern Immigration Pilot'
                               //   )
                               // }
-                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${
-                                selectedProgram ===
-                                  "Rural And Northern Immigration Pilot" &&
+                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${selectedProgram ===
+                                "Rural And Northern Immigration Pilot" &&
                                 "text-[#01997E] font-semibold"
-                              }`}
+                                }`}
                             >
                               <a
                                 href="/immigrate/rural-and-northern-immigration-pilot"
@@ -727,10 +734,9 @@ const Header = ({ setShowPopUp }) => {
                               // onMouseEnter={() =>
                               //   handleItemProgramClick('Caregiver Program')
                               // }
-                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${
-                                selectedProgram === "Caregiver Program" &&
+                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${selectedProgram === "Caregiver Program" &&
                                 "text-[#01997E] font-semibold"
-                              }`}
+                                }`}
                             >
                               <a
                                 href="/immigrate/caregiver-programs"
@@ -746,11 +752,10 @@ const Header = ({ setShowPopUp }) => {
                               //     'Atlantic Immigration Programme'
                               //   )
                               // }
-                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${
-                                selectedProgram ===
-                                  "Atlantic Immigration Programme" &&
+                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${selectedProgram ===
+                                "Atlantic Immigration Programme" &&
                                 "text-[#01997E] font-semibold"
-                              }`}
+                                }`}
                             >
                               <a
                                 href="/immigrate/aip-atlantic-immigration-program"
@@ -763,10 +768,9 @@ const Header = ({ setShowPopUp }) => {
                               // onMouseEnter={() =>
                               //   handleItemProgramClick('AGRI FOOD PILOT')
                               // }
-                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${
-                                selectedProgram === "AGRI FOOD PILOT" &&
+                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${selectedProgram === "AGRI FOOD PILOT" &&
                                 "text-[#01997E] font-semibold"
-                              }`}
+                                }`}
                             >
                               <a
                                 href="/immigrate/agri-food-pilot"
@@ -781,11 +785,10 @@ const Header = ({ setShowPopUp }) => {
                               //     'After Permanent Residency'
                               //   )
                               // }
-                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${
-                                selectedProgram ===
-                                  "After Permanent Residency" &&
+                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${selectedProgram ===
+                                "After Permanent Residency" &&
                                 "text-[#01997E] font-semibold"
-                              }`}
+                                }`}
                             >
                               <a
                                 href="/immigrate/after-permanent-residency"
@@ -801,11 +804,10 @@ const Header = ({ setShowPopUp }) => {
                               // onMouseEnter={() =>
                               //   handleItemProgramClick('AGRI FOOD PILOT')
                               // }
-                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${
-                                selectedProgram ===
-                                  "Permanent Residency FAQs" &&
+                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${selectedProgram ===
+                                "Permanent Residency FAQs" &&
                                 "text-[#01997E] font-semibold"
-                              }`}
+                                }`}
                             >
                               <a
                                 href="/immigrate/pr-faqs"
@@ -872,10 +874,9 @@ const Header = ({ setShowPopUp }) => {
                               // onMouseEnter={() =>
                               //   handleItemProgramClick('Work In Canada')
                               // }
-                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${
-                                selectedProgram === "Work In Canada" &&
+                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${selectedProgram === "Work In Canada" &&
                                 "text-[#01997E] font-semibold"
-                              }`}
+                                }`}
                             >
                               <a
                                 href="/work/work-in-canada"
@@ -889,10 +890,9 @@ const Header = ({ setShowPopUp }) => {
                               // onMouseEnter={() =>
                               //   handleItemProgramClick('Work Without a Permit ')
                               // }
-                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${
-                                selectedProgram === "Work Without a Permit " &&
+                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${selectedProgram === "Work Without a Permit " &&
                                 "text-[#01997E] font-semibold"
-                              }`}
+                                }`}
                             >
                               <a
                                 href="/work/work-without-a-permit"
@@ -911,11 +911,10 @@ const Header = ({ setShowPopUp }) => {
                               //     ' Temporary Foreign Worker Program'
                               //   )
                               // }
-                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${
-                                selectedProgram ===
-                                  " Temporary Foreign Worker Program" &&
+                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${selectedProgram ===
+                                " Temporary Foreign Worker Program" &&
                                 "text-[#01997E] font-semibold"
-                              }`}
+                                }`}
                             >
                               <a
                                 href="/work/temporary-foreign-worker-program"
@@ -933,11 +932,10 @@ const Header = ({ setShowPopUp }) => {
                               //     'International Mobility Program (IMP)'
                               //   )
                               // }
-                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${
-                                selectedProgram ===
-                                  "International Mobility Program (IMP)" &&
+                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${selectedProgram ===
+                                "International Mobility Program (IMP)" &&
                                 "text-[#01997E] font-semibold"
-                              }`}
+                                }`}
                             >
                               <a
                                 href="/work/international-mobility-program"
@@ -953,10 +951,9 @@ const Header = ({ setShowPopUp }) => {
                               // onMouseEnter={() =>
                               //   handleItemProgramClick('Open Work Permits')
                               // }
-                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${
-                                selectedProgram === "Open Work Permits" &&
+                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${selectedProgram === "Open Work Permits" &&
                                 "text-[#01997E] font-semibold"
-                              }`}
+                                }`}
                             >
                               <a
                                 href="/work/open-work-permits"
@@ -979,10 +976,9 @@ const Header = ({ setShowPopUp }) => {
                               // onMouseEnter={() =>
                               //   handleItemProgramClick('Study In Canada')
                               // }
-                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${
-                                selectedProgram === "Study In Canada" &&
+                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${selectedProgram === "Study In Canada" &&
                                 "text-[#01997E] font-semibold"
-                              }`}
+                                }`}
                             >
                               <a
                                 href="/study/study-in-canada"
@@ -995,11 +991,10 @@ const Header = ({ setShowPopUp }) => {
                               // onMouseEnter={() =>
                               //   handleItemProgramClick('DLI ')
                               // }
-                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${
-                                selectedProgram ===
-                                  "Study Pathways to Permanent Residence" &&
+                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${selectedProgram ===
+                                "Study Pathways to Permanent Residence" &&
                                 "text-[#01997E] font-semibold"
-                              }`}
+                                }`}
                             >
                               <a
                                 href="/study/study-pathways-to-permanent-residence"
@@ -1013,10 +1008,9 @@ const Header = ({ setShowPopUp }) => {
                               // onMouseEnter={() =>
                               //   handleItemProgramClick(' Levels of Study')
                               // }
-                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${
-                                selectedProgram === " Levels of Study" &&
+                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${selectedProgram === " Levels of Study" &&
                                 "text-[#01997E] font-semibold"
-                              }`}
+                                }`}
                             >
                               <a
                                 href="/study/levels-of-study"
@@ -1029,10 +1023,9 @@ const Header = ({ setShowPopUp }) => {
                               // onMouseEnter={() =>
                               //   handleItemProgramClick('Study Permit In Canada')
                               // }
-                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${
-                                selectedProgram === "Study Permit In Canada" &&
+                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${selectedProgram === "Study Permit In Canada" &&
                                 "text-[#01997E] font-semibold"
-                              }`}
+                                }`}
                             >
                               <a
                                 href="/study/study-permit-in-canada"
@@ -1051,11 +1044,10 @@ const Header = ({ setShowPopUp }) => {
                               //     'Refusals and Appeals of Study Permits'
                               //   )
                               // }
-                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${
-                                selectedProgram ===
-                                  "Refusals and Appeals of Study Permits" &&
+                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${selectedProgram ===
+                                "Refusals and Appeals of Study Permits" &&
                                 "text-[#01997E] font-semibold"
-                              }`}
+                                }`}
                             >
                               <a
                                 href="/study/refusals-and-appeals-of-study-permits"
@@ -1068,10 +1060,9 @@ const Header = ({ setShowPopUp }) => {
                               // onMouseEnter={() =>
                               //   handleItemProgramClick('Extend a Study Control')
                               // }
-                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${
-                                selectedProgram === "Extend a Study Permits" &&
+                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${selectedProgram === "Extend a Study Permits" &&
                                 "text-[#01997E] font-semibold"
-                              }`}
+                                }`}
                             >
                               <a
                                 href="/study/extend-a-study-permit"
@@ -1084,10 +1075,9 @@ const Header = ({ setShowPopUp }) => {
                               // onMouseEnter={() =>
                               //   handleItemProgramClick('PGWP')
                               // }
-                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${
-                                selectedProgram === "PGWP" &&
+                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${selectedProgram === "PGWP" &&
                                 "text-[#01997E] font-semibold"
-                              }`}
+                                }`}
                             >
                               <a
                                 href="/study/post-graduate-work-permit"
@@ -1100,10 +1090,9 @@ const Header = ({ setShowPopUp }) => {
                               // onMouseEnter={() =>
                               //   handleItemProgramClick('DLI ')
                               // }
-                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${
-                                selectedProgram === "DLI " &&
+                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${selectedProgram === "DLI " &&
                                 "text-[#01997E] font-semibold"
-                              }`}
+                                }`}
                             >
                               <a
                                 href="/study/designated-learning-institution"
@@ -1142,10 +1131,9 @@ const Header = ({ setShowPopUp }) => {
                               //     'Canadian spousal sponsorship '
                               //   )
                               // }
-                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${
-                                selectedProgram === "Sponsorship" &&
+                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${selectedProgram === "Sponsorship" &&
                                 "text-[#01997E] font-semibold"
-                              }`}
+                                }`}
                             >
                               <a
                                 href="/sponsorship/sponsorship"
@@ -1160,11 +1148,10 @@ const Header = ({ setShowPopUp }) => {
                               //     'Canadian spousal sponsorship '
                               //   )
                               // }
-                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${
-                                selectedProgram ===
-                                  "Canadian spousal sponsorship " &&
+                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${selectedProgram ===
+                                "Canadian spousal sponsorship " &&
                                 "text-[#01997E] font-semibold"
-                              }`}
+                                }`}
                             >
                               <a
                                 href="/sponsorship/canadian-spousal-sponsorship"
@@ -1179,11 +1166,10 @@ const Header = ({ setShowPopUp }) => {
                               //     'Child or Other Dependent Sponsorship'
                               //   )
                               // }
-                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${
-                                selectedProgram ===
-                                  "Child or Other Dependent Sponsorship" &&
+                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${selectedProgram ===
+                                "Child or Other Dependent Sponsorship" &&
                                 "text-[#01997E] font-semibold"
-                              }`}
+                                }`}
                             >
                               <a
                                 href="/sponsorship/child-or-other-dependant-sponsorship"
@@ -1198,11 +1184,10 @@ const Header = ({ setShowPopUp }) => {
                               //     'Parents and Grandparents Program (PGP)'
                               //   )
                               // }
-                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${
-                                selectedProgram ===
-                                  "Parents and Grandparents Program (PGP)" &&
+                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${selectedProgram ===
+                                "Parents and Grandparents Program (PGP)" &&
                                 "text-[#01997E] font-semibold"
-                              }`}
+                                }`}
                             >
                               <a
                                 href="/sponsorship/parents-and-grandparents-program"
@@ -1215,10 +1200,9 @@ const Header = ({ setShowPopUp }) => {
                               // onMouseEnter={() =>
                               //   handleItemProgramClick('Super Visa')
                               // }
-                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${
-                                selectedProgram === "Super Visa" &&
+                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${selectedProgram === "Super Visa" &&
                                 "text-[#01997E] font-semibold"
-                              }`}
+                                }`}
                             >
                               <a
                                 href="/sponsorship/super-visa"
@@ -1229,10 +1213,9 @@ const Header = ({ setShowPopUp }) => {
                             </li>
                             <li
                               // onMouseEnter={() => handleItemProgramClick('MNI')}
-                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${
-                                selectedProgram === "MNI" &&
+                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${selectedProgram === "MNI" &&
                                 "text-[#01997E] font-semibold"
-                              }`}
+                                }`}
                             >
                               <a
                                 href="/sponsorship/minimum-necessary-income"
@@ -1253,10 +1236,9 @@ const Header = ({ setShowPopUp }) => {
                               // onMouseEnter={() =>
                               //   handleItemProgramClick(' Business/Invest')
                               // }
-                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${
-                                selectedProgram === " Business/Invest" &&
+                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${selectedProgram === " Business/Invest" &&
                                 "text-[#01997E] font-semibold"
-                              }`}
+                                }`}
                             >
                               <a
                                 href="/business/invest"
@@ -1273,11 +1255,10 @@ const Header = ({ setShowPopUp }) => {
                               //     'PNP Entrepreneur Streams'
                               //   )
                               // }
-                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${
-                                selectedProgram ===
-                                  "PNP Entrepreneur Streams" &&
+                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${selectedProgram ===
+                                "PNP Entrepreneur Streams" &&
                                 "text-[#01997E] font-semibold"
-                              }`}
+                                }`}
                             >
                               <a
                                 href="/business/pnp-entrepreneur-streams"
@@ -1296,11 +1277,10 @@ const Header = ({ setShowPopUp }) => {
                               //     ' Work Permit to PR Pathways'
                               //   )
                               // }
-                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${
-                                selectedProgram ===
-                                  " Work Permit to PR Pathways" &&
+                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${selectedProgram ===
+                                " Work Permit to PR Pathways" &&
                                 "text-[#01997E] font-semibold"
-                              }`}
+                                }`}
                             >
                               <a
                                 href="/business/work-permit-to-pr-pathways"
@@ -1325,10 +1305,9 @@ const Header = ({ setShowPopUp }) => {
                               // onMouseEnter={() =>
                               //   handleItemProgramClick('TRV-Visitor Visa')
                               // }
-                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${
-                                selectedProgram === "TRV-Visitor Visa" &&
+                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${selectedProgram === "TRV-Visitor Visa" &&
                                 "text-[#01997E] font-semibold"
-                              }`}
+                                }`}
                             >
                               <a
                                 href="/visit/visitor-visa-trv"
@@ -1341,10 +1320,9 @@ const Header = ({ setShowPopUp }) => {
                               // onMouseEnter={() =>
                               //   handleItemProgramClick('Visa Extension')
                               // }
-                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${
-                                selectedProgram === "Visa Extension" &&
+                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${selectedProgram === "Visa Extension" &&
                                 "text-[#01997E] font-semibold"
-                              }`}
+                                }`}
                             >
                               <a
                                 href="/visit/visa-extension-and-extension"
@@ -1357,10 +1335,9 @@ const Header = ({ setShowPopUp }) => {
                               // onMouseEnter={() =>
                               //   handleItemProgramClick(' Super visa (linked)')
                               // }
-                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${
-                                selectedProgram === " Super visa (linked)" &&
+                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${selectedProgram === " Super visa (linked)" &&
                                 "text-[#01997E] font-semibold"
-                              }`}
+                                }`}
                             >
                               <a
                                 href="/visit/super-visa"
@@ -1383,11 +1360,10 @@ const Header = ({ setShowPopUp }) => {
                               //     ' Employers Outside Canada'
                               //   )
                               // }
-                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${
-                                selectedProgram ===
-                                  " Employers Outside Canada" &&
+                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${selectedProgram ===
+                                " Employers Outside Canada" &&
                                 "text-[#01997E] font-semibold"
-                              }`}
+                                }`}
                             >
                               <a
                                 href="/employers/employers-outside-canada"
@@ -1404,10 +1380,9 @@ const Header = ({ setShowPopUp }) => {
                               // onMouseEnter={() =>
                               //   handleItemProgramClick('Canadian Employers')
                               // }
-                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${
-                                selectedProgram === "Canadian Employers" &&
+                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${selectedProgram === "Canadian Employers" &&
                                 "text-[#01997E] font-semibold"
-                              }`}
+                                }`}
                             >
                               <a
                                 href="/employers/canadian-employers"
@@ -2310,11 +2285,11 @@ const Header = ({ setShowPopUp }) => {
                   </div>
                 </div>
               )}
-              <div className="flex items-center justify-center gap-6 relative right-[1rem]">
+              <div className="flex items-center justify-center gap-6 relative right-[1rem] mr-2 xl:mr-4 2xl:mr-10">
                 <div className="cursor-pointer text-white text-[14px]">
                   <button
                     onClick={handleAppointmentClick}
-                    className="bg-[#01F9E1] font-normal text-black px-4 py-2 rounded-[10px] xl:text-[15px] 2xl:text-[16px] hover:scale-105 transition ease-in delay-60 duration-150 lg:mr-2 xl:mr-4 2xl:mr-10"
+                    className="bg-[#01F9E1] font-normal text-black px-4 py-2 rounded-[10px] xl:text-[15px] 2xl:text-[16px] hover:scale-105 transition ease-in delay-60 duration-150"
                   >
                     Book Appointment
                   </button>
@@ -2323,9 +2298,9 @@ const Header = ({ setShowPopUp }) => {
             </div>
           </>
         ) : (
-          <div className="w-[99%] h-full flex items-center justify-around sm:justify-between gap-10 sm:px-10">
+          <div className="w-[99%] h-full flex items-center sm:justify-between sm:px-10">
             <div
-              className="flex items-center mt-3 justify-start p-2 bg-transparent cursor-pointer rounded-lg transition ease-in delay-50 duration-200"
+              className="mr-auto flex items-center justify-start p-2 bg-transparent cursor-pointer rounded-lg transition ease-in delay-50 duration-200"
               onClick={handleMenuClick}
               ref={menuRef}
             >
@@ -2338,9 +2313,9 @@ const Header = ({ setShowPopUp }) => {
                 className='cursor-pointer w-[4.2rem]'
               />
             </div> */}
-            <Link to={"/"}>
+            <Link to={"/"} className="ml-[15px] mr-[15px]">
               {" "}
-              <div className="flex items-start justify-start mt-3">
+              <div className="flex items-start justify-start">
                 <img
                   src={logo}
                   alt="logo"
@@ -2348,22 +2323,32 @@ const Header = ({ setShowPopUp }) => {
                 />
               </div>
             </Link>
-            <div className="cursor-pointer text-white text-[15px] mt-3">
+            <div className="whitespace-nowrap ml-auto cursor-pointer text-white text-[13px]">
               <button
                 onClick={handleAppointmentClick}
-                className="bg-[#565757] font-normal text-white px-4 py-2 rounded-[10px] xl:text-[15px] 2xl:text-[16px] hover:scale-105 transition ease-in delay-60 duration-150"
+                className="bg-[#565757] mr-2 px-3 font-normal text-white md:px-4 py-2 rounded-[10px] xl:text-[15px] 2xl:text-[16px] hover:scale-105 transition ease-in delay-60 duration-150"
               >
-                Book
+                Inquire Now
               </button>
             </div>
 
             {showMobileHeader && (
               <ul
-                className={`fixed text-white top-0 left-0 h-screen py-10 text-[17px] px-6 font-medium w-full md:w-[70%] bg-[#646767] bg-opacity-95 z-50 mr-[15rem] overflow-y-scroll scroll scroll-smooth scrollbar-hide`}
+                className={`hamburger-menu-container ${isHamMenuOpened ? 'ham-menu-opened':'ham-menu-closed'}`}
+                onAnimationEnd={() => {if(!isHamMenuOpened) setShowMobileHeader(false)}}
               >
                 <li className="mb-6 flex items-center justify-between">
-                  <span className="text-[16px] ml-4">Menu</span>
-                  <div onClick={() => setShowMobileHeader(false)} className="">
+                  <a href={"/"} className="ml-[15px] mr-[15px]" >
+                    {" "}
+                    <div className="flex items-start justify-start">
+                      <img
+                        src={logoDark}
+                        alt="logo"
+                        className="cursor-pointer w-[10rem]"
+                      />
+                    </div>
+                  </a>
+                  <div onClick={() => setIsHamMenuOpened(false)} className="">
                     <button
                       id="toggleOpen"
                       className=" rounded-full px-3 py-1 text-gray-400"
@@ -2374,700 +2359,939 @@ const Header = ({ setShowPopUp }) => {
                 </li>
 
                 <li
-                  className="max-lg:border-b border-gray-400 max-lg:py-1 px-3"
+                  className="hamburger-menu-header-container"
                   onClick={toggleImmigrateSubmenu}
                 >
-                  <span className="cursor-pointer hover:text-[#01F9E1] text-[#ffffff]  font-medium my-4 flex items-center justify-between">
+                  <span className={`${showHeadersSubmenu.immigrate ? '!font-semibold' : ''} hamburger-menu-headers `}>
                     Immigrate
                     {showHeadersSubmenu.immigrate ? (
                       <FiMinus
                         size={25}
-                        className="text-lg text-gray-400 hover:text-xl"
+                        className="hamburger-menu-header-minus"
                         onClick={toggleImmigrateSubmenu}
                       />
                     ) : (
                       <FiPlus
                         size={25}
-                        className="text-lg text-gray-400 hover:text-xl"
+                        className="hamburger-menu-header-plus"
                         onClick={toggleImmigrateSubmenu}
                       />
                     )}
                   </span>
 
-                  {showHeadersSubmenu.immigrate && (
-                    <ul className="ml-4">
-                      {sitemapImmigrate.map((item, index) => (
-                        <li
-                          className="max-lg:border-b border-gray-400  max-lg:py-1 flex flex-col  w-full"
-                          key={index}
-                        >
-                          <span className="flex items-center w-[90%] justify-between cursor-pointer">
-                            <a
-                              href={item.linkTo}
-                              onClick={(event) => event.stopPropagation()} // Stop propagation here
-                              className="hover:text-[#01F9E1] text-[#ffffff]  my-1 text-[17px] font-normal flex items-center justify-center w-full"
-                            >
-                              <span className="font-normal w-full text-[16px]">
-                                {" "}
-                                {item.title}
-                              </span>
-                            </a>
-                            {item.nestedLinks && (
-                              <>
-                                {" "}
-                                {showHeadersSubSubmenuImmigrate[
-                                  convertTitleToStateKey(item.title)
-                                ] ? (
-                                  <FiMinus
-                                    size={20}
-                                    className="text-lg hover:text-xl text-gray-400  cursor-pointer"
-                                    onClick={(event) => {
-                                      event.stopPropagation(); // Stop propagation here
-                                      toggleshowHeadersSubSubmenuImmigrate(
-                                        convertTitleToStateKey(item.title)
-                                      );
-                                    }}
-                                  />
-                                ) : (
-                                  <FiPlus
-                                    size={20}
-                                    className="text-lg hover:text-xl text-gray-400  cursor-pointer"
-                                    onClick={(event) => {
-                                      event.stopPropagation(); // Stop propagation here
-                                      toggleshowHeadersSubSubmenuImmigrate(
-                                        convertTitleToStateKey(item.title)
-                                      );
-                                    }}
-                                  />
-                                )}
-                              </>
-                            )}
-                          </span>
-                          {showHeadersSubSubmenuImmigrate[
-                            convertTitleToStateKey(item.title)
-                          ] && (
-                            <div className="flex flex-col items-start justify-center">
-                              {item.nestedLinks?.map((items, index) => (
-                                <li
-                                  className="max-lg:border-b border-gray-400 max-lg:py-1 pl-2 w-full"
-                                  key={index}
-                                >
-                                  <a
-                                    href={items.linkTo}
-                                    onClick={(event) => event.stopPropagation()}
-                                    className="hover:text-[#01F9E1] text-[#ffffff]  my-1 text-[15px] font-normal"
-                                  >
-                                    {items.title}
-                                  </a>
-                                </li>
-                              ))}
-                            </div>
+                  <ul className={` menu-animation ${showHeadersSubmenu.immigrate ? 'menu-opened' : ''} `}>
+                    {sitemapImmigrate.map((item, index) => (
+                      <li
+                        className="border-t border-[#C5C5C5] flex flex-col  w-full"
+                        key={index}
+                      >
+                        <span className="flex items-center justify-between cursor-pointer h-[60px]">
+                          <a
+                            href={item.linkTo}
+                            onClick={(event) => event.stopPropagation()} // Stop propagation here
+                            className=" flex-auto text-[#212121] text-[17px] font-normal flex items-center h-full"
+                          >
+                            <span className="hamburger-menu-sub-headers">
+                              {" "}
+                              {item.title}
+                            </span>
+                          </a>
+                          {item.nestedLinks && (
+                            <>
+                              {" "}
+                              {showHeadersSubSubmenuImmigrate[
+                                convertTitleToStateKey(item.title)
+                              ] ? (<div className="hamburger-menu-sub-minus"
+                                onClick={(event) => {
+                                  event.stopPropagation(); // Stop propagation here
+                                  toggleshowHeadersSubSubmenuImmigrate(
+                                    convertTitleToStateKey(item.title)
+                                  );
+                                }}
+                              >
+                                <FiMinus
+                                  size={20}
+                                  className="text-lg hover:text-xl text-white  cursor-pointer"
+                                />
+                              </div>) : (<div class="hamburger-menu-sub-plus"
+                                onClick={(event) => {
+                                  event.stopPropagation(); // Stop propagation here
+                                  toggleshowHeadersSubSubmenuImmigrate(
+                                    convertTitleToStateKey(item.title)
+                                  );
+                                }}>
+                                <FiPlus
+                                  size={20}
+                                  className="text-lg hover:text-xl text-white  cursor-pointer"
+                                />
+                              </div>)}
+                            </>
                           )}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
+                        </span>
+                        <div className={`hamburger-menu-sub-sub-container menu-animation ${showHeadersSubSubmenuImmigrate[
+                          convertTitleToStateKey(item.title)
+                        ] ? 'menu-opened' : ''} `}>
+                          {item.nestedLinks?.map((items, index) => (
+                            <>
+                              <li
+                                className="hamburger-menu-sub-sub-headers"
+                                key={index}
+                              >
+                                <a
+                                  href={items.linkTo}
+                                  onClick={(event) => event.stopPropagation()}
+                                  className=" text-[#DFDFDF;] text-[14px] font-normal"
+                                >
+                                  {items.title}
+                                </a>
+                                {items.nested && (<>
+                                  {showSubSubSubMenu === items.title ?
+                                    (<div className="hamburger-menu-sub-sub-plus"
+                                      onClick={(event) => {
+                                        event.stopPropagation(); // Stop propagation here
+                                        toggleShowSubSubSubMenu(items.title)
+                                      }}>
+                                      <FiMinus
+                                        size={20}
+                                        className="text-lg hover:text-xl text-white  cursor-pointer"
+                                      />
+                                    </div>) :
+                                    (<div className="hamburger-menu-sub-sub-plus"
+                                      onClick={(event) => {
+                                        event.stopPropagation(); // Stop propagation here
+                                        toggleShowSubSubSubMenu(items.title)
+                                      }}>
+                                      <FiPlus
+                                        size={20}
+                                        className="text-lg hover:text-xl text-white  cursor-pointer"
+                                      />
+                                    </div>)}
+                                </>)}
+                              </li>
+
+                              <div class={`w-full menu-animation ${showSubSubSubMenu === items.title ? 'menu-opened' : ''}`}>
+                                {items.nested?.map((sItems, index) => (
+                                  <a
+                                    href={sItems.linkTo}
+                                    className="hamburger-sub-sub-sub-headers"
+                                    onClick={(event) => event.stopPropagation()}>
+                                    {sItems.title}
+
+                                  </a>
+                                ))}
+                              </div>
+                            </>
+                          ))}
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
                 </li>
                 <li
-                  className="max-lg:border-b border-gray-400 max-lg:py-1 px-3"
+                  className="hamburger-menu-header-container"
                   onClick={toggleWorkSubmenu}
                 >
-                  <span className="cursor-pointer hover:text-[#01F9E1] text-[#ffffff] font-medium my-4 flex items-center justify-between">
+                  <span className={`${showHeadersSubmenu.work ? '!font-semibold' : ''} hamburger-menu-headers `}>
                     Work
                     {showHeadersSubmenu.work ? (
                       <FiMinus
                         size={25}
-                        className="text-lg text-gray-400 hover:text-xl"
+                        className="hamburger-menu-header-minus"
                         onClick={toggleWorkSubmenu}
                       />
                     ) : (
                       <FiPlus
                         size={25}
-                        className="text-lg text-gray-400 hover:text-xl"
+                        className="hamburger-menu-header-plus"
                         onClick={toggleWorkSubmenu}
                       />
                     )}
                   </span>
 
-                  {showHeadersSubmenu.work && (
-                    <ul className="ml-4">
-                      {sitemapWork.map((item, index) => (
-                        <li
-                          className="max-lg:border-b border-gray-400 max-lg:py-1 flex flex-col  w-full"
-                          key={index}
-                        >
-                          <span className="flex items-center w-[90%] justify-between cursor-pointer">
-                            <a
-                              href={item.linkTo}
-                              onClick={(event) => event.stopPropagation()}
-                              className="hover:text-[#01F9E1] text-[#ffffff]  my-1 text-[17px] font-normal flex items-center justify-center w-full"
-                            >
-                              <span className="font-normal w-full text-[16px]">
-                                {" "}
-                                {item.title}
-                              </span>
-                            </a>
-                            {item.nestedLinks && (
-                              <>
-                                {" "}
-                                {showHeadersSubSubmenuWork[
-                                  convertTitleToStateKey(item.title)
-                                ] ? (
-                                  <FiMinus
-                                    size={20}
-                                    className="text-lgtext-gray-400 hover:text-xl cursor-pointer"
-                                    onClick={(event) => {
-                                      event.stopPropagation(); // Stop propagation here
-                                      toggleshowHeadersSubSubmenuWork(
-                                        convertTitleToStateKey(item.title)
-                                      );
-                                    }}
-                                  />
-                                ) : (
-                                  <FiPlus
-                                    size={20}
-                                    className="text-lg text-gray-400 hover:text-xl cursor-pointer"
-                                    onClick={(event) => {
-                                      event.stopPropagation(); // Stop propagation here
-                                      toggleshowHeadersSubSubmenuWork(
-                                        convertTitleToStateKey(item.title)
-                                      );
-                                    }}
-                                  />
-                                )}
-                              </>
-                            )}
-                          </span>
-                          {showHeadersSubSubmenuWork[
-                            convertTitleToStateKey(item.title)
-                          ] && (
-                            <div className="flex flex-col items-start justify-center">
-                              {item.nestedLinks?.map((items, index) => (
-                                <li
-                                  className="max-lg:border-b border-gray-400 max-lg:py-1 pl-2"
-                                  key={index}
-                                >
-                                  <a
-                                    href={items.linkTo}
-                                    onClick={(event) => event.stopPropagation()}
-                                    className="hover:text-[#01F9E1] text-[#ffffff]  my-1 text-[15px] font-normal"
-                                  >
-                                    {items.title}
-                                  </a>
-                                </li>
-                              ))}
-                            </div>
+                  <ul className={` menu-animation ${showHeadersSubmenu.work ? 'menu-opened' : ''} `}>
+                    {sitemapWork.map((item, index) => (
+                      <li
+                        className="border-t border-[#C5C5C5] flex flex-col  w-full"
+                        key={index}
+                      >
+                        <span className="flex items-center justify-between cursor-pointer h-[60px]">
+                          <a
+                            href={item.linkTo}
+                            onClick={(event) => event.stopPropagation()} // Stop propagation here
+                            className=" flex-auto text-[#212121] text-[17px] font-normal flex items-center h-full"
+                          >
+                            <span className="hamburger-menu-sub-headers">
+                              {" "}
+                              {item.title}
+                            </span>
+                          </a>
+                          {item.nestedLinks && (
+                            <>
+                              {" "}
+                              {showHeadersSubSubmenuWork[
+                                convertTitleToStateKey(item.title)
+                              ] ? (<div className="hamburger-menu-sub-minus"
+                                onClick={(event) => {
+                                  event.stopPropagation(); // Stop propagation here
+                                  toggleshowHeadersSubSubmenuWork(
+                                    convertTitleToStateKey(item.title)
+                                  );
+                                }}
+                              >
+                                <FiMinus
+                                  size={20}
+                                  className="text-lg hover:text-xl text-white  cursor-pointer"
+                                />
+                              </div>) : (<div class="hamburger-menu-sub-plus"
+                                onClick={(event) => {
+                                  event.stopPropagation(); // Stop propagation here
+                                  toggleshowHeadersSubSubmenuWork(
+                                    convertTitleToStateKey(item.title)
+                                  );
+                                }}>
+                                <FiPlus
+                                  size={20}
+                                  className="text-lg hover:text-xl text-white  cursor-pointer"
+                                />
+                              </div>)}
+                            </>
                           )}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
+                        </span>
+                        <div className={`hamburger-menu-sub-sub-container menu-animation ${showHeadersSubSubmenuWork[
+                          convertTitleToStateKey(item.title)
+                        ] ? 'menu-opened' : ''} `}>
+                          {item.nestedLinks?.map((items, index) => (
+                            <>
+                              <li
+                                className="hamburger-menu-sub-sub-headers"
+                                key={index}
+                              >
+                                <a
+                                  href={items.linkTo}
+                                  onClick={(event) => event.stopPropagation()}
+                                  className=" text-[#DFDFDF;] text-[14px] font-normal"
+                                >
+                                  {items.title}
+                                </a>
+                                {items.nested && (<>
+                                  {showSubSubSubMenu === items.title ?
+                                    (<div className="hamburger-menu-sub-sub-plus"
+                                      onClick={(event) => {
+                                        event.stopPropagation(); // Stop propagation here
+                                        toggleShowSubSubSubMenu(items.title)
+                                      }}>
+                                      <FiMinus
+                                        size={20}
+                                        className="text-lg hover:text-xl text-white  cursor-pointer"
+                                      />
+                                    </div>) :
+                                    (<div className="hamburger-menu-sub-sub-plus"
+                                      onClick={(event) => {
+                                        event.stopPropagation(); // Stop propagation here
+                                        toggleShowSubSubSubMenu(items.title)
+                                      }}>
+                                      <FiPlus
+                                        size={20}
+                                        className="text-lg hover:text-xl text-white  cursor-pointer"
+                                      />
+                                    </div>)}
+                                </>)}
+                              </li>
+
+                              <div class={`w-full menu-animation ${showSubSubSubMenu === items.title ? 'menu-opened' : ''}`}>
+                                {items.nested?.map((sItems, index) => (
+                                  <a
+                                    href={sItems.linkTo}
+                                    className="hamburger-sub-sub-sub-headers"
+                                    onClick={(event) => event.stopPropagation()}>
+                                    {sItems.title}
+
+                                  </a>
+                                ))}
+                              </div>
+                            </>
+                          ))}
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
                 </li>
                 <li
-                  className="max-lg:border-b border-gray-400 max-lg:py-1 px-3 "
+                  className="hamburger-menu-header-container"
                   onClick={toggleStudySubmenu}
                 >
-                  <span className="cursor-pointer hover:text-[#01F9E1] text-[#ffffff] font-medium my-4 flex items-center justify-between">
+                  <span className={`${showHeadersSubmenu.study ? '!font-semibold' : ''} hamburger-menu-headers `}>
                     Study
                     {showHeadersSubmenu.study ? (
                       <FiMinus
                         size={25}
-                        className="text-lg text-gray-400 hover:text-xl"
+                        className="hamburger-menu-header-minus"
                         onClick={toggleStudySubmenu}
                       />
                     ) : (
                       <FiPlus
                         size={25}
-                        className="text-lg text-gray-400 hover:text-xl"
+                        className="hamburger-menu-header-plus"
                         onClick={toggleStudySubmenu}
                       />
                     )}
                   </span>
 
-                  {showHeadersSubmenu.study && (
-                    <ul className="ml-4">
-                      {sitemapStudy.map((item, index) => (
-                        <li
-                          className="max-lg:border-b border-gray-400 max-lg:py-1 flex flex-col  w-full"
-                          key={index}
-                        >
-                          <span className="flex items-center w-[90%] justify-between cursor-pointer">
-                            <a
-                              href={item.linkTo}
-                              onClick={(event) => event.stopPropagation()}
-                              className="hover:text-[#01F9E1] text-[#ffffff]  my-1 text-[17px] font-normal flex items-center justify-center w-full"
-                            >
-                              <span className="font-normal w-full text-[16px]">
-                                {" "}
-                                {item.title}
-                              </span>
-                            </a>
-                            {item.nestedLinks && (
-                              <>
-                                {" "}
-                                {showHeadersSubSubmenuStudy[
-                                  convertTitleToStateKey(item.title)
-                                ] ? (
-                                  <FiMinus
-                                    size={20}
-                                    className="text-lg text-gray-400 hover:text-xl cursor-pointer"
-                                    onClick={(event) => {
-                                      event.stopPropagation(); // Stop propagation here
-                                      toggleshowHeadersSubSubmenuStudy(
-                                        convertTitleToStateKey(item.title)
-                                      );
-                                    }}
-                                  />
-                                ) : (
-                                  <FiPlus
-                                    size={20}
-                                    className="text-lg text-gray-400 hover:text-xl cursor-pointer"
-                                    onClick={(event) => {
-                                      event.stopPropagation(); // Stop propagation here
-                                      toggleshowHeadersSubSubmenuStudy(
-                                        convertTitleToStateKey(item.title)
-                                      );
-                                    }}
-                                  />
-                                )}
-                              </>
-                            )}
-                          </span>
-                          {showHeadersSubSubmenuStudy[
-                            convertTitleToStateKey(item.title)
-                          ] && (
-                            <div className="flex flex-col items-start justify-center">
-                              {item.nestedLinks?.map((items, index) => (
-                                <li
-                                  className="max-lg:border-b border-gray-400 max-lg:py-1 pl-2"
-                                  key={index}
-                                >
-                                  <a
-                                    href={items.linkTo}
-                                    onClick={(event) => event.stopPropagation()}
-                                    className="hover:text-[#01F9E1] text-[#ffffff]  my-1 text-[15px] font-normal"
-                                  >
-                                    {items.title}
-                                  </a>
-                                </li>
-                              ))}
-                            </div>
+                  <ul className={` menu-animation ${showHeadersSubmenu.study ? 'menu-opened' : ''} `}>
+                    {sitemapStudy.map((item, index) => (
+                      <li
+                        className="border-t border-[#C5C5C5] flex flex-col  w-full"
+                        key={index}
+                      >
+                        <span className="flex items-center justify-between cursor-pointer h-[60px]">
+                          <a
+                            href={item.linkTo}
+                            onClick={(event) => event.stopPropagation()} // Stop propagation here
+                            className=" flex-auto text-[#212121] text-[17px] font-normal flex items-center h-full"
+                          >
+                            <span className="hamburger-menu-sub-headers">
+                              {" "}
+                              {item.title}
+                            </span>
+                          </a>
+                          {item.nestedLinks && (
+                            <>
+                              {" "}
+                              {showHeadersSubSubmenuStudy[
+                                convertTitleToStateKey(item.title)
+                              ] ? (<div className="hamburger-menu-sub-minus"
+                                onClick={(event) => {
+                                  event.stopPropagation(); // Stop propagation here
+                                  toggleshowHeadersSubSubmenuStudy(
+                                    convertTitleToStateKey(item.title)
+                                  );
+                                }}
+                              >
+                                <FiMinus
+                                  size={20}
+                                  className="text-lg hover:text-xl text-white  cursor-pointer"
+                                />
+                              </div>) : (<div class="hamburger-menu-sub-plus"
+                                onClick={(event) => {
+                                  event.stopPropagation(); // Stop propagation here
+                                  toggleshowHeadersSubSubmenuStudy(
+                                    convertTitleToStateKey(item.title)
+                                  );
+                                }}>
+                                <FiPlus
+                                  size={20}
+                                  className="text-lg hover:text-xl text-white  cursor-pointer"
+                                />
+                              </div>)}
+                            </>
                           )}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
+                        </span>
+                        <div className={`hamburger-menu-sub-sub-container menu-animation ${showHeadersSubSubmenuStudy[
+                          convertTitleToStateKey(item.title)
+                        ] ? 'menu-opened' : ''} `}>
+                          {item.nestedLinks?.map((items, index) => (
+                            <>
+                              <li
+                                className="hamburger-menu-sub-sub-headers"
+                                key={index}
+                              >
+                                <a
+                                  href={items.linkTo}
+                                  onClick={(event) => event.stopPropagation()}
+                                  className=" text-[#DFDFDF;] text-[14px] font-normal"
+                                >
+                                  {items.title}
+                                </a>
+                                {items.nested && (<>
+                                  {showSubSubSubMenu === items.title ?
+                                    (<div className="hamburger-menu-sub-sub-plus"
+                                      onClick={(event) => {
+                                        event.stopPropagation(); // Stop propagation here
+                                        toggleShowSubSubSubMenu(items.title)
+                                      }}>
+                                      <FiMinus
+                                        size={20}
+                                        className="text-lg hover:text-xl text-white  cursor-pointer"
+                                      />
+                                    </div>) :
+                                    (<div className="hamburger-menu-sub-sub-plus"
+                                      onClick={(event) => {
+                                        event.stopPropagation(); // Stop propagation here
+                                        toggleShowSubSubSubMenu(items.title)
+                                      }}>
+                                      <FiPlus
+                                        size={20}
+                                        className="text-lg hover:text-xl text-white  cursor-pointer"
+                                      />
+                                    </div>)}
+                                </>)}
+                              </li>
+
+                              <div class={`w-full menu-animation ${showSubSubSubMenu === items.title ? 'menu-opened' : ''}`}>
+                                {items.nested?.map((sItems, index) => (
+                                  <a
+                                    href={sItems.linkTo}
+                                    className="hamburger-sub-sub-sub-headers"
+                                    onClick={(event) => event.stopPropagation()}>
+                                    {sItems.title}
+
+                                  </a>
+                                ))}
+                              </div>
+                            </>
+                          ))}
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
                 </li>
                 <li
-                  className="max-lg:border-b border-gray-400 max-lg:py-1 px-3"
+                  className="hamburger-menu-header-container"
                   onClick={toggleSponsorshipSubmenu}
                 >
-                  <span className="cursor-pointer hover:text-[#01F9E1] text-[#ffffff] font-medium my-4 flex items-center justify-between">
+                  <span className={`${showHeadersSubmenu.sponsorship ? '!font-semibold' : ''} hamburger-menu-headers `}>
                     Sponsorship
                     {showHeadersSubmenu.sponsorship ? (
                       <FiMinus
                         size={25}
-                        className="text-lg text-gray-400 hover:text-xl"
+                        className="hamburger-menu-header-minus"
                         onClick={toggleSponsorshipSubmenu}
                       />
                     ) : (
                       <FiPlus
                         size={25}
-                        className="text-lg text-gray-400 hover:text-xl"
+                        className="hamburger-menu-header-plus"
                         onClick={toggleSponsorshipSubmenu}
                       />
                     )}
                   </span>
-                  {showHeadersSubmenu.sponsorship && (
-                    <ul className="ml-4  ">
-                      {sitemapSponsorship.map((item, index) => (
-                        <li
-                          className="max-lg:border-b border-gray-400 max-lg:py-1 flex flex-col  w-full"
-                          key={index}
-                        >
-                          <span className="flex items-center w-[90%] justify-between cursor-pointer">
-                            <a
-                              href={item.linkTo}
-                              onClick={(event) => event.stopPropagation()}
-                              className="hover:text-[#01F9E1] text-[#ffffff]  my-1 text-[17px] font-normal flex items-center justify-center w-full"
-                            >
-                              <span className="font-normal w-full text-[16px]">
-                                {" "}
-                                {item.title}
-                              </span>
-                            </a>
-                            {item.nestedLinks && (
-                              <>
-                                {" "}
-                                {showHeadersSubSubmenuSponsorship[
-                                  convertTitleToStateKey(item.title)
-                                ] ? (
-                                  <FiMinus
-                                    size={20}
-                                    className="text-lg text-gray-400 hover:text-xl cursor-pointer"
-                                    onClick={(event) => {
-                                      event.stopPropagation(); // Stop propagation here
-                                      toggleshowHeadersSubSubmenuSponsonship(
-                                        convertTitleToStateKey(item.title)
-                                      );
-                                    }}
-                                  />
-                                ) : (
-                                  <FiPlus
-                                    size={20}
-                                    className="text-lg text-gray-400 hover:text-xl cursor-pointer"
-                                    onClick={(event) => {
-                                      event.stopPropagation(); // Stop propagation here
-                                      toggleshowHeadersSubSubmenuSponsonship(
-                                        convertTitleToStateKey(item.title)
-                                      );
-                                    }}
-                                  />
-                                )}
-                              </>
-                            )}
-                          </span>
-                          {showHeadersSubSubmenuSponsorship[
-                            convertTitleToStateKey(item.title)
-                          ] && (
-                            <div className="flex flex-col items-start justify-center">
-                              {item.nestedLinks?.map((items, index) => (
-                                <li
-                                  className="max-lg:border-b border-gray-400 max-lg:py-1 pl-2"
-                                  key={index}
-                                >
-                                  <a
-                                    href={items.linkTo}
-                                    onClick={(event) => event.stopPropagation()}
-                                    className="hover:text-[#01F9E1] text-[#ffffff]  my-1 text-[15px] font-normal"
-                                  >
-                                    {items.title}
-                                  </a>
-                                </li>
-                              ))}
-                            </div>
+
+                  <ul className={` menu-animation ${showHeadersSubmenu.sponsorship ? 'menu-opened' : ''} `}>
+                    {sitemapSponsorship.map((item, index) => (
+                      <li
+                        className="border-t border-[#C5C5C5] flex flex-col  w-full"
+                        key={index}
+                      >
+                        <span className="flex items-center justify-between cursor-pointer h-[60px]">
+                          <a
+                            href={item.linkTo}
+                            onClick={(event) => event.stopPropagation()} // Stop propagation here
+                            className=" flex-auto text-[#212121] text-[17px] font-normal flex items-center h-full"
+                          >
+                            <span className="hamburger-menu-sub-headers">
+                              {" "}
+                              {item.title}
+                            </span>
+                          </a>
+                          {item.nestedLinks && (
+                            <>
+                              {" "}
+                              {showHeadersSubSubmenuSponsorship[
+                                convertTitleToStateKey(item.title)
+                              ] ? (<div className="hamburger-menu-sub-minus"
+                                onClick={(event) => {
+                                  event.stopPropagation(); // Stop propagation here
+                                  toggleshowHeadersSubSubmenuSponsorship(
+                                    convertTitleToStateKey(item.title)
+                                  );
+                                }}
+                              >
+                                <FiMinus
+                                  size={20}
+                                  className="text-lg hover:text-xl text-white  cursor-pointer"
+                                />
+                              </div>) : (<div class="hamburger-menu-sub-plus"
+                                onClick={(event) => {
+                                  event.stopPropagation(); // Stop propagation here
+                                  toggleshowHeadersSubSubmenuSponsorship(
+                                    convertTitleToStateKey(item.title)
+                                  );
+                                }}>
+                                <FiPlus
+                                  size={20}
+                                  className="text-lg hover:text-xl text-white  cursor-pointer"
+                                />
+                              </div>)}
+                            </>
                           )}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
+                        </span>
+                        <div className={`hamburger-menu-sub-sub-container menu-animation ${showHeadersSubSubmenuSponsorship[
+                          convertTitleToStateKey(item.title)
+                        ] ? 'menu-opened' : ''} `}>
+                          {item.nestedLinks?.map((items, index) => (
+                            <>
+                              <li
+                                className="hamburger-menu-sub-sub-headers"
+                                key={index}
+                              >
+                                <a
+                                  href={items.linkTo}
+                                  onClick={(event) => event.stopPropagation()}
+                                  className=" text-[#DFDFDF;] text-[14px] font-normal"
+                                >
+                                  {items.title}
+                                </a>
+                                {items.nested && (<>
+                                  {showSubSubSubMenu === items.title ?
+                                    (<div className="hamburger-menu-sub-sub-plus"
+                                      onClick={(event) => {
+                                        event.stopPropagation(); // Stop propagation here
+                                        toggleShowSubSubSubMenu(items.title)
+                                      }}>
+                                      <FiMinus
+                                        size={20}
+                                        className="text-lg hover:text-xl text-white  cursor-pointer"
+                                      />
+                                    </div>) :
+                                    (<div className="hamburger-menu-sub-sub-plus"
+                                      onClick={(event) => {
+                                        event.stopPropagation(); // Stop propagation here
+                                        toggleShowSubSubSubMenu(items.title)
+                                      }}>
+                                      <FiPlus
+                                        size={20}
+                                        className="text-lg hover:text-xl text-white  cursor-pointer"
+                                      />
+                                    </div>)}
+                                </>)}
+                              </li>
+
+                              <div class={`w-full menu-animation ${showSubSubSubMenu === items.title ? 'menu-opened' : ''}`}>
+                                {items.nested?.map((sItems, index) => (
+                                  <a
+                                    href={sItems.linkTo}
+                                    className="hamburger-sub-sub-sub-headers"
+                                    onClick={(event) => event.stopPropagation()}>
+                                    {sItems.title}
+
+                                  </a>
+                                ))}
+                              </div>
+                            </>
+                          ))}
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
                 </li>
                 <li
-                  className="max-lg:border-b border-gray-400 max-lg:py-1 px-3"
+                  className="hamburger-menu-header-container"
                   onClick={toggleBusinessSubmenu}
                 >
-                  <span className="cursor-pointer hover:text-[#01F9E1] text-[#ffffff] flex items-center justify-between font-medium my-4">
+                  <span className={`${showHeadersSubmenu.business ? '!font-semibold' : ''} hamburger-menu-headers `}>
                     Business
                     {showHeadersSubmenu.business ? (
                       <FiMinus
                         size={25}
-                        className="text-lg text-gray-400 hover:text-xl"
+                        className="hamburger-menu-header-minus"
                         onClick={toggleBusinessSubmenu}
                       />
                     ) : (
                       <FiPlus
                         size={25}
-                        className="text-lg text-gray-400 hover:text-xl"
+                        className="hamburger-menu-header-plus"
                         onClick={toggleBusinessSubmenu}
                       />
                     )}
                   </span>
-                  {showHeadersSubmenu.business && (
-                    <ul className="ml-4  ">
-                      {sitemapBusiness.map((item, index) => (
-                        <li
-                          className="max-lg:border-b border-gray-400 max-lg:py-1 flex flex-col  w-full"
-                          key={index}
-                        >
-                          <span className="flex items-center w-[90%] justify-between cursor-pointer">
-                            <a
-                              href={item.linkTo}
-                              onClick={(event) => event.stopPropagation()}
-                              className="hover:text-[#01F9E1] text-[#ffffff]  my-1 text-[17px] font-normal flex items-center justify-center w-full"
-                            >
-                              <span className="font-normal w-full text-[16px]">
-                                {" "}
-                                {item.title}
-                              </span>
-                            </a>
-                            {item.nestedLinks && (
-                              <>
-                                {" "}
-                                {showHeadersSubSubmenuBusiness[
-                                  convertTitleToStateKey(item.title)
-                                ] ? (
-                                  <FiMinus
-                                    size={20}
-                                    className="text-lg text-gray-400 hover:text-xl cursor-pointer"
-                                    onClick={(event) => {
-                                      event.stopPropagation(); // Stop propagation here
-                                      toggleshowHeadersSubSubmenuBusiness(
-                                        convertTitleToStateKey(item.title)
-                                      );
-                                    }}
-                                  />
-                                ) : (
-                                  <FiPlus
-                                    size={20}
-                                    className="text-lg text-gray-400 hover:text-xl cursor-pointer"
-                                    onClick={(event) => {
-                                      event.stopPropagation(); // Stop propagation here
-                                      toggleshowHeadersSubSubmenuBusiness(
-                                        convertTitleToStateKey(item.title)
-                                      );
-                                    }}
-                                  />
-                                )}
-                              </>
-                            )}
-                          </span>
-                          {showHeadersSubSubmenuBusiness[
-                            convertTitleToStateKey(item.title)
-                          ] && (
-                            <div className="flex flex-col items-start justify-center">
-                              {item.nestedLinks?.map((items, index) => (
-                                <li
-                                  className="max-lg:border-b border-gray-400 max-lg:py-1 pl-2"
-                                  key={index}
-                                >
-                                  <a
-                                    href={items.linkTo}
-                                    onClick={(event) => event.stopPropagation()}
-                                    className="hover:text-[#01F9E1] text-[#ffffff]  my-1 text-[15px] font-normal"
-                                  >
-                                    {items.title}
-                                  </a>
-                                </li>
-                              ))}
-                            </div>
+
+                  <ul className={` menu-animation ${showHeadersSubmenu.business ? 'menu-opened' : ''} `}>
+                    {sitemapBusiness.map((item, index) => (
+                      <li
+                        className="border-t border-[#C5C5C5] flex flex-col  w-full"
+                        key={index}
+                      >
+                        <span className="flex items-center justify-between cursor-pointer h-[60px]">
+                          <a
+                            href={item.linkTo}
+                            onClick={(event) => event.stopPropagation()} // Stop propagation here
+                            className=" flex-auto text-[#212121] text-[17px] font-normal flex items-center h-full"
+                          >
+                            <span className="hamburger-menu-sub-headers">
+                              {" "}
+                              {item.title}
+                            </span>
+                          </a>
+                          {item.nestedLinks && (
+                            <>
+                              {" "}
+                              {showHeadersSubSubmenuBusiness[
+                                convertTitleToStateKey(item.title)
+                              ] ? (<div className="hamburger-menu-sub-minus"
+                                onClick={(event) => {
+                                  event.stopPropagation(); // Stop propagation here
+                                  toggleshowHeadersSubSubmenuBusiness(
+                                    convertTitleToStateKey(item.title)
+                                  );
+                                }}
+                              >
+                                <FiMinus
+                                  size={20}
+                                  className="text-lg hover:text-xl text-white  cursor-pointer"
+                                />
+                              </div>) : (<div class="hamburger-menu-sub-plus"
+                                onClick={(event) => {
+                                  event.stopPropagation(); // Stop propagation here
+                                  toggleshowHeadersSubSubmenuBusiness(
+                                    convertTitleToStateKey(item.title)
+                                  );
+                                }}>
+                                <FiPlus
+                                  size={20}
+                                  className="text-lg hover:text-xl text-white  cursor-pointer"
+                                />
+                              </div>)}
+                            </>
                           )}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
+                        </span>
+                        <div className={`hamburger-menu-sub-sub-container menu-animation ${showHeadersSubSubmenuBusiness[
+                          convertTitleToStateKey(item.title)
+                        ] ? 'menu-opened' : ''} `}>
+                          {item.nestedLinks?.map((items, index) => (
+                            <>
+                              <li
+                                className="hamburger-menu-sub-sub-headers"
+                                key={index}
+                              >
+                                <a
+                                  href={items.linkTo}
+                                  onClick={(event) => event.stopPropagation()}
+                                  className=" text-[#DFDFDF;] text-[14px] font-normal"
+                                >
+                                  {items.title}
+                                </a>
+                                {items.nested && (<>
+                                  {showSubSubSubMenu === items.title ?
+                                    (<div className="hamburger-menu-sub-sub-plus"
+                                      onClick={(event) => {
+                                        event.stopPropagation(); // Stop propagation here
+                                        toggleShowSubSubSubMenu(items.title)
+                                      }}>
+                                      <FiMinus
+                                        size={20}
+                                        className="text-lg hover:text-xl text-white  cursor-pointer"
+                                      />
+                                    </div>) :
+                                    (<div className="hamburger-menu-sub-sub-plus"
+                                      onClick={(event) => {
+                                        event.stopPropagation(); // Stop propagation here
+                                        toggleShowSubSubSubMenu(items.title)
+                                      }}>
+                                      <FiPlus
+                                        size={20}
+                                        className="text-lg hover:text-xl text-white  cursor-pointer"
+                                      />
+                                    </div>)}
+                                </>)}
+                              </li>
+
+                              <div class={`w-full menu-animation ${showSubSubSubMenu === items.title ? 'menu-opened' : ''}`}>
+                                {items.nested?.map((sItems, index) => (
+                                  <a
+                                    href={sItems.linkTo}
+                                    className="hamburger-sub-sub-sub-headers"
+                                    onClick={(event) => event.stopPropagation()}>
+                                    {sItems.title}
+
+                                  </a>
+                                ))}
+                              </div>
+                            </>
+                          ))}
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
                 </li>
                 <li
-                  className="max-lg:border-b border-gray-400 max-lg:py-1 px-3"
+                  className="hamburger-menu-header-container"
                   onClick={toggleVisitSubmenu}
                 >
-                  <span className="cursor-pointer hover:text-[#01F9E1] text-[#ffffff] flex items-center justify-between font-medium my-4">
+                  <span className={`${showHeadersSubmenu.visit ? '!font-semibold' : ''} hamburger-menu-headers `}>
                     Visit
                     {showHeadersSubmenu.visit ? (
                       <FiMinus
                         size={25}
-                        className="text-lg text-gray-400 hover:text-xl"
+                        className="hamburger-menu-header-minus"
                         onClick={toggleVisitSubmenu}
                       />
                     ) : (
                       <FiPlus
                         size={25}
-                        className="text-lg text-gray-400 hover:text-xl"
+                        className="hamburger-menu-header-plus"
                         onClick={toggleVisitSubmenu}
                       />
                     )}
                   </span>
-                  {showHeadersSubmenu.visit && (
-                    <ul className="ml-4  ">
-                      {sitemapVisit.map((item, index) => (
-                        <li
-                          className="max-lg:border-b border-gray-400 max-lg:py-1 flex flex-col  w-full"
-                          key={index}
-                        >
-                          <span className="flex items-center w-[90%] justify-between cursor-pointer">
-                            <a
-                              href={item.linkTo}
-                              onClick={(event) => event.stopPropagation()}
-                              className="hover:text-[#01F9E1] text-[#ffffff]  my-1 text-[17px] font-normal flex items-center justify-center w-full"
-                            >
-                              <span className="font-normal w-full text-[16px]">
-                                {" "}
-                                {item.title}
-                              </span>
-                            </a>
-                            {item.nestedLinks && (
-                              <>
-                                {" "}
-                                {showHeadersSubSubmenuVisit[
-                                  convertTitleToStateKey(item.title)
-                                ] ? (
-                                  <FiMinus
-                                    size={20}
-                                    className="text-lg text-gray-400 hover:text-xl cursor-pointer"
-                                    onClick={(event) => {
-                                      event.stopPropagation(); // Stop propagation here
-                                      toggleshowHeadersSubSubmenuVisit(
-                                        convertTitleToStateKey(item.title)
-                                      );
-                                    }}
-                                  />
-                                ) : (
-                                  <FiPlus
-                                    size={20}
-                                    className="text-lg text-gray-400 hover:text-xl cursor-pointer"
-                                    onClick={(event) => {
-                                      event.stopPropagation(); // Stop propagation here
-                                      toggleshowHeadersSubSubmenuVisit(
-                                        convertTitleToStateKey(item.title)
-                                      );
-                                    }}
-                                  />
-                                )}
-                              </>
-                            )}
-                          </span>
-                          {showHeadersSubSubmenuVisit[
-                            convertTitleToStateKey(item.title)
-                          ] && (
-                            <div className="flex flex-col items-start justify-center">
-                              {item.nestedLinks?.map((items, index) => (
-                                <li
-                                  className="max-lg:border-b border-gray-400 max-lg:py-1 pl-2"
-                                  key={index}
-                                >
-                                  <a
-                                    href={items.linkTo}
-                                    onClick={(event) => event.stopPropagation()}
-                                    className="hover:text-[#01F9E1] text-[#ffffff]  my-1 text-[15px] font-normal"
-                                  >
-                                    {items.title}
-                                  </a>
-                                </li>
-                              ))}
-                            </div>
+
+                  <ul className={` menu-animation ${showHeadersSubmenu.visit ? 'menu-opened' : ''} `}>
+                    {sitemapVisit.map((item, index) => (
+                      <li
+                        className="border-t border-[#C5C5C5] flex flex-col  w-full"
+                        key={index}
+                      >
+                        <span className="flex items-center justify-between cursor-pointer h-[60px]">
+                          <a
+                            href={item.linkTo}
+                            onClick={(event) => event.stopPropagation()} // Stop propagation here
+                            className=" flex-auto text-[#212121] text-[17px] font-normal flex items-center h-full"
+                          >
+                            <span className="hamburger-menu-sub-headers">
+                              {" "}
+                              {item.title}
+                            </span>
+                          </a>
+                          {item.nestedLinks && (
+                            <>
+                              {" "}
+                              {showHeadersSubSubmenuVisit[
+                                convertTitleToStateKey(item.title)
+                              ] ? (<div className="hamburger-menu-sub-minus"
+                                onClick={(event) => {
+                                  event.stopPropagation(); // Stop propagation here
+                                  toggleshowHeadersSubSubmenuVisit(
+                                    convertTitleToStateKey(item.title)
+                                  );
+                                }}
+                              >
+                                <FiMinus
+                                  size={20}
+                                  className="text-lg hover:text-xl text-white  cursor-pointer"
+                                />
+                              </div>) : (<div class="hamburger-menu-sub-plus"
+                                onClick={(event) => {
+                                  event.stopPropagation(); // Stop propagation here
+                                  toggleshowHeadersSubSubmenuVisit(
+                                    convertTitleToStateKey(item.title)
+                                  );
+                                }}>
+                                <FiPlus
+                                  size={20}
+                                  className="text-lg hover:text-xl text-white  cursor-pointer"
+                                />
+                              </div>)}
+                            </>
                           )}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
+                        </span>
+                        <div className={`hamburger-menu-sub-sub-container menu-animation ${showHeadersSubSubmenuVisit[
+                          convertTitleToStateKey(item.title)
+                        ] ? 'menu-opened' : ''} `}>
+                          {item.nestedLinks?.map((items, index) => (
+                            <>
+                              <li
+                                className="hamburger-menu-sub-sub-headers"
+                                key={index}
+                              >
+                                <a
+                                  href={items.linkTo}
+                                  onClick={(event) => event.stopPropagation()}
+                                  className=" text-[#DFDFDF;] text-[14px] font-normal"
+                                >
+                                  {items.title}
+                                </a>
+                                {items.nested && (<>
+                                  {showSubSubSubMenu === items.title ?
+                                    (<div className="hamburger-menu-sub-sub-plus"
+                                      onClick={(event) => {
+                                        event.stopPropagation(); // Stop propagation here
+                                        toggleShowSubSubSubMenu(items.title)
+                                      }}>
+                                      <FiMinus
+                                        size={20}
+                                        className="text-lg hover:text-xl text-white  cursor-pointer"
+                                      />
+                                    </div>) :
+                                    (<div className="hamburger-menu-sub-sub-plus"
+                                      onClick={(event) => {
+                                        event.stopPropagation(); // Stop propagation here
+                                        toggleShowSubSubSubMenu(items.title)
+                                      }}>
+                                      <FiPlus
+                                        size={20}
+                                        className="text-lg hover:text-xl text-white  cursor-pointer"
+                                      />
+                                    </div>)}
+                                </>)}
+                              </li>
+
+                              <div class={`w-full menu-animation ${showSubSubSubMenu === items.title ? 'menu-opened' : ''}`}>
+                                {items.nested?.map((sItems, index) => (
+                                  <a
+                                    href={sItems.linkTo}
+                                    className="hamburger-sub-sub-sub-headers"
+                                    onClick={(event) => event.stopPropagation()}>
+                                    {sItems.title}
+
+                                  </a>
+                                ))}
+                              </div>
+                            </>
+                          ))}
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
                 </li>
                 <li
-                  className="max-lg:border-b border-gray-400 max-lg:py-1 px-3"
+                  className="hamburger-menu-header-container"
                   onClick={toggleEmployersSubmenu}
                 >
-                  <span className="cursor-pointer hover:text-[#01F9E1] text-[#ffffff] flex items-center justify-between font-medium my-4">
+                  <span className={`${showHeadersSubmenu.employer ? '!font-semibold' : ''} hamburger-menu-headers `}>
                     Employers
                     {showHeadersSubmenu.employer ? (
                       <FiMinus
                         size={25}
-                        className="text-lg text-gray-400 hover:text-xl"
+                        className="hamburger-menu-header-minus"
                         onClick={toggleEmployersSubmenu}
                       />
                     ) : (
                       <FiPlus
                         size={25}
-                        className="text-lg text-gray-400 hover:text-xl"
+                        className="hamburger-menu-header-plus"
                         onClick={toggleEmployersSubmenu}
                       />
                     )}
                   </span>
-                  {showHeadersSubmenu.employer && (
-                    <ul className="ml-4  ">
-                      {sitemapEmployers.map((item, index) => (
-                        <li
-                          className="max-lg:border-b border-gray-400 max-lg:py-1 flex flex-col  w-full"
-                          key={index}
-                        >
-                          <span className="flex items-center w-[90%] justify-between cursor-pointer">
-                            <a
-                              href={item.linkTo}
-                              onClick={(event) => event.stopPropagation()}
-                              className="hover:text-[#01F9E1] text-[#ffffff]  my-1 text-[17px] font-normal flex items-center justify-center w-full"
-                            >
-                              <span className="font-normal w-full text-[16px]">
-                                {" "}
-                                {item.title}
-                              </span>
-                            </a>
-                            {item.nestedLinks && (
-                              <>
-                                {" "}
-                                {showHeadersSubSubmenuEmployes[
-                                  convertTitleToStateKey(item.title)
-                                ] ? (
-                                  <FiMinus
-                                    size={20}
-                                    className="text-lg text-gray-400 hover:text-xl cursor-pointer"
-                                    onClick={(event) => {
-                                      event.stopPropagation(); // Stop propagation here
-                                      toggleshowHeadersSubSubmenuEmployes(
-                                        convertTitleToStateKey(item.title)
-                                      );
-                                    }}
-                                  />
-                                ) : (
-                                  <FiPlus
-                                    size={20}
-                                    className="text-lg text-gray-400 hover:text-xl cursor-pointer"
-                                    onClick={(event) => {
-                                      event.stopPropagation(); // Stop propagation here
-                                      toggleshowHeadersSubSubmenuEmployes(
-                                        convertTitleToStateKey(item.title)
-                                      );
-                                    }}
-                                  />
-                                )}
-                              </>
-                            )}
-                          </span>
-                          {showHeadersSubSubmenuEmployes[
-                            convertTitleToStateKey(item.title)
-                          ] && (
-                            <div className="flex flex-col items-start justify-center">
-                              {item.nestedLinks?.map((items, index) => (
-                                <li
-                                  className="max-lg:border-b border-gray-400 max-lg:py-1 pl-2"
-                                  key={index}
-                                >
-                                  <a
-                                    href={items.linkTo}
-                                    onClick={(event) => event.stopPropagation()}
-                                    className="hover:text-[#01F9E1] text-[#ffffff]  my-1 text-[15px] font-normal"
-                                  >
-                                    {items.title}
-                                  </a>
-                                </li>
-                              ))}
-                            </div>
+
+                  <ul className={` menu-animation ${showHeadersSubmenu.employer ? 'menu-opened' : ''} `}>
+                    {sitemapEmployers.map((item, index) => (
+                      <li
+                        className="border-t border-[#C5C5C5] flex flex-col  w-full"
+                        key={index}
+                      >
+                        <span className="flex items-center justify-between cursor-pointer h-[60px]">
+                          <a
+                            href={item.linkTo}
+                            onClick={(event) => event.stopPropagation()} // Stop propagation here
+                            className=" flex-auto text-[#212121] text-[17px] font-normal flex items-center h-full"
+                          >
+                            <span className="hamburger-menu-sub-headers">
+                              {" "}
+                              {item.title}
+                            </span>
+                          </a>
+                          {item.nestedLinks && (
+                            <>
+                              {" "}
+                              {showHeadersSubSubmenuEmployers[
+                                convertTitleToStateKey(item.title)
+                              ] ? (<div className="hamburger-menu-sub-minus"
+                                onClick={(event) => {
+                                  event.stopPropagation(); // Stop propagation here
+                                  toggleshowHeadersSubSubmenuEmployers(
+                                    convertTitleToStateKey(item.title)
+                                  );
+                                }}
+                              >
+                                <FiMinus
+                                  size={20}
+                                  className="text-lg hover:text-xl text-white  cursor-pointer"
+                                />
+                              </div>) : (<div class="hamburger-menu-sub-plus"
+                                onClick={(event) => {
+                                  event.stopPropagation(); // Stop propagation here
+                                  toggleshowHeadersSubSubmenuEmployers(
+                                    convertTitleToStateKey(item.title)
+                                  );
+                                }}>
+                                <FiPlus
+                                  size={20}
+                                  className="text-lg hover:text-xl text-white  cursor-pointer"
+                                />
+                              </div>)}
+                            </>
                           )}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
+                        </span>
+                        <div className={`hamburger-menu-sub-sub-container menu-animation ${showHeadersSubSubmenuEmployers[
+                          convertTitleToStateKey(item.title)
+                        ] ? 'menu-opened' : ''} `}>
+                          {item.nestedLinks?.map((items, index) => (
+                            <>
+                              <li
+                                className="hamburger-menu-sub-sub-headers"
+                                key={index}
+                              >
+                                <a
+                                  href={items.linkTo}
+                                  onClick={(event) => event.stopPropagation()}
+                                  className=" text-[#DFDFDF;] text-[14px] font-normal"
+                                >
+                                  {items.title}
+                                </a>
+                                {items.nested && (<>
+                                  {showSubSubSubMenu === items.title ?
+                                    (<div className="hamburger-menu-sub-sub-plus"
+                                      onClick={(event) => {
+                                        event.stopPropagation(); // Stop propagation here
+                                        toggleShowSubSubSubMenu(items.title)
+                                      }}>
+                                      <FiMinus
+                                        size={20}
+                                        className="text-lg hover:text-xl text-white  cursor-pointer"
+                                      />
+                                    </div>) :
+                                    (<div className="hamburger-menu-sub-sub-plus"
+                                      onClick={(event) => {
+                                        event.stopPropagation(); // Stop propagation here
+                                        toggleShowSubSubSubMenu(items.title)
+                                      }}>
+                                      <FiPlus
+                                        size={20}
+                                        className="text-lg hover:text-xl text-white  cursor-pointer"
+                                      />
+                                    </div>)}
+                                </>)}
+                              </li>
+
+                              <div class={`w-full menu-animation ${showSubSubSubMenu === items.title ? 'menu-opened' : ''}`}>
+                                {items.nested?.map((sItems, index) => (
+                                  <a
+                                    href={sItems.linkTo}
+                                    className="hamburger-sub-sub-sub-headers"
+                                    onClick={(event) => event.stopPropagation()}>
+                                    {sItems.title}
+
+                                  </a>
+                                ))}
+                              </div>
+                            </>
+                          ))}
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
                 </li>
-                <li className="relative">
-                  <div className="flex flex-row justify-between max-lg:py-1 px-3">
-                    <a
-                      href="/about-us"
-                      className="cursor-pointer hover:text-[#01F9E1] text-[#ffffff] flex items-center justify-between font-medium my-4"
-                    >
-                      About Us
-                    </a>
-                    <a
-                      href="/contact-us"
-                      className="cursor-pointer hover:text-[#01F9E1] text-[#ffffff] flex items-center justify-between font-medium my-4"
-                    >
-                      Contact Us
-                    </a>
-                  </div>
+                <li className="relative flex flex-col pl-[1.5rem] pt-[1rem]">
+                  <a
+                    href="/about-us"
+                    className="hamburger-menu-headers-2"
+                  >
+                    About Us
+                  </a>
+                  <a
+                    href="/contact-us"
+                    className="hamburger-menu-headers-2"
+                  >
+                    Contact Us
+                  </a>
                 </li>
-                <li className="relative">
-                  {" "}
-                  <div className="px-4 py-1 text-[#939393] flex items-center justify-center text-[0.6rem] gap-6 absolute -bottom-[3rem]">
+                <li className="relative pt-[2rem]">
+                  <div className="w-full text-[#434343] flex items-center justify-center text-[0.6rem] gap-6 absolute -bottom-[3rem]">
                     <a
                       href="https://www.linkedin.com/company/aquarian-immigration-services/"
-                      className="mx-0 p-2"
+                      className="hamburger-menu-icons mx-0 p-2"
                     >
                       <FaLinkedin size={25} className="bg-transparent" />
                     </a>
                     <a
                       href="https://www.facebook.com/people/Aquarian-Immigration/61558242973262/"
-                      className="mx-0 p-2"
+                      className="hamburger-menu-icons mx-0 p-2"
                     >
                       <FaFacebook size={25} className="bg-transparent" />
                     </a>
                     <a
                       href="https://www.threads.net/@aquarian_immigration"
-                      className="mx-0 p-2 "
+                      className="hamburger-menu-icons mx-0 p-2 "
                     >
                       <FaThreads size={25} className="bg-transparent" />
                     </a>
@@ -3079,11 +3303,11 @@ const Header = ({ setShowPopUp }) => {
                     </a> */}
                     <a
                       href="https://www.instagram.com/aquarian_immigration/"
-                      className="mx-0 p-2"
+                      className="hamburger-menu-icons mx-0 p-2"
                     >
                       <FaInstagram size={25} className="bg-transparent" />
                     </a>
-                    <a href="/" className="mx-0 p-2">
+                    <a href="/" className="hamburger-menu-icons mx-0 p-2">
                       <FaYoutube size={25} className="bg-transparent" />
                     </a>
                   </div>

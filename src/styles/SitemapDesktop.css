@@ -126,9 +126,10 @@
 }
 @media (max-width: 1400px) {
   .sidebar-main-div-global {
-    padding: 1.5rem 0rem 1.5rem 0rem;
+    display: none;
+    /* padding: 1.5rem 0rem 1.5rem 0rem; */
   }
-  .sidebar-main-div-global vl {
+  /* .sidebar-main-div-global vl {
     padding-right: 1.5rem;
     padding-left: 1.5rem;
   }
@@ -136,9 +137,9 @@
     width: 6px;
     margin-left: -1.5rem;
     margin-right: 18px;
-  }
+  } */
 }
-@media (max-width: 1200px) {
+/* @media (max-width: 1200px) {
   .sidebar-main-div-global {
     padding: 1.4rem 0rem 1.4rem 0rem;
     width: 26%;
@@ -165,7 +166,7 @@
 
   .flex-div {
     margin-bottom: 0.1rem;
-    /* Aligns items to start and end of the flex container */
+     /* Aligns items to start and end of the flex container 
   }
   .extended-title .side {
     width: 6px;
@@ -177,4 +178,4 @@
   .sidebar-main-div-global {
     display: none;
   }
-}
+}  */

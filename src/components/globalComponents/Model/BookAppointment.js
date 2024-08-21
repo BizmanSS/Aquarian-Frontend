@@ -5,9 +5,9 @@ import formLogo from "../../../Assets/formLogo.png";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { AiOutlineClose } from "react-icons/ai";
-import Datepicker from "tailwind-datepicker-react";
+import Datepicker from "react-datepicker";
 //import SubmitPopUp from '../../AssessmentForm/Ui/SubmitPopUp';
-
+import "react-datepicker/dist/react-datepicker.css";
 const BookAppointmentModel = ({
   showForm,
   setShowForm,
@@ -23,7 +23,12 @@ const BookAppointmentModel = ({
   const [serviceOther, setServiceOther] = useState("");
   const [comments, setComments] = useState("");
   const [errors, setErrors] = useState({});
-  const [show, setShow] = useState(false);
+
+  const addDate = (date, days) => {
+    date.setDate(date.getDate() + days);
+    return date;
+  };
+
   const [selectedDate, setSelectedDate] = useState(null);
 
   useEffect(() => {
@@ -38,8 +43,22 @@ const BookAppointmentModel = ({
     };
   }, [showForm]);
 
+  const resetFields = () => {
+    setFirstName("");
+    setLastName("");
+    setEmail("");
+    setContactNumber("");
+    setTimeSlot("");
+    setService("");
+    setServiceOther("");
+    setComments("");
+    setSelectedDate(null);
+    setErrors({});
+  };
+
   const handleOutsideClick = (event) => {
     if (event.target.closest(".modal") === null) {
+      resetFields();
       setShowForm(false);
     }
   };
@@ -54,50 +73,12 @@ const BookAppointmentModel = ({
     }
   };
 
-  const options = {
-    title: "Preferred Date Slot",
-    autoHide: false,
-    todayBtn: true,
-    clearBtn: true,
-    clearBtnText: "Clear",
-    maxDate: new Date("2030-01-01"),
-    minDate: new Date(),
-    theme: {
-      background: "bg-white",
-      todayBtn: "",
-      clearBtn: "",
-      icons: "",
-      text: "",
-      input: "",
-      inputIcon: "",
-      selected: "",
-    },
-    icons: {
-      prev: () => <span>Previous</span>,
-      next: () => <span>Next</span>,
-    },
-    datepickerClassNames: "top-12",
-    language: "en",
-    defaultDate: new Date(),
-    disabledDates: [],
-    weekDays: ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"],
-    inputNameProp: "date",
-    inputIdProp: "date",
-    inputPlaceholderProp: "Select Date",
-    inputDateFormatProp: {
-      day: "numeric",
-      month: "long",
-      year: "numeric",
-    },
-  };
-
-  const handleChange = (selectedDate) => {
+  const handleDateChange = (selectedDate) => {
+    setErrors((prevErrors) => ({
+      ...prevErrors,
+      date: "",
+    }));
     setSelectedDate(selectedDate);
-    setShow(false); // Close the date picker
-  };
-
-  const handleClose = (state) => {
-    setShow(state);
   };
 
   const handleSubmit = (e) => {
@@ -124,29 +105,21 @@ const BookAppointmentModel = ({
     }
 
     // Custom condition for timeSlot and selectedDate
-    if (selectedDate === "Select Date") {
-      errorObject.timeSlot =
-        "Time Slot cannot be 'Anytime' if a date is selected";
+    if (!selectedDate) {
+      errorObject.date = "Date is required";
     }
 
     if (Object.keys(errorObject).length > 0) {
       setErrors(errorObject);
-      toast.error("Please fill out all required fields.");
+      toast.error("Please fill out all required fields.", {
+        position: "top-center",
+      });
     } else {
-      setFirstName("");
-      setLastName("");
-      setEmail("");
-      setContactNumber("");
-      setTimeSlot("");
-      setService("");
-      setServiceOther("");
-      setComments("");
-      setErrors({});
-
+      handleFormSubmit();
+      resetFields();
       // toast.success('You have successfully booked your appointment!');
       setShowForm(false);
     }
-    handleFormSubmit();
   };
 
   const handleFormSubmit = async () => {
@@ -159,7 +132,7 @@ const BookAppointmentModel = ({
       service,
       serviceOther,
       comments,
-      date: selectedDate,
+      date: selectedDate.startDate,
     };
 
     try {
@@ -175,14 +148,24 @@ const BookAppointmentModel = ({
 
       if (response.status === 200) {
         const data = response.data;
-        toast.success("You have successfully submited your form!");
+        toast.success("You have successfully submited your form!", {
+          position: "top-center",
+        });
 
         setShowPopUp(true);
       }
     } catch (error) {
-      toast.error("Internal server errror!");
+      toast.error("Internal server errror!", {
+        position: "top-center",
+      });
     }
   };
+
+  const isWeekday = (date) => {
+    const day = date.getDay();
+    return day !== 0 && day !== 6;
+  };
+
   return (
     <>
       {showForm && (
@@ -205,19 +188,24 @@ const BookAppointmentModel = ({
               marginTop: "auto",
               marginBottom: "auto",
             }}
-            className="modal"
+            className="modal md:!overflow-visible"
           >
             <div className="form-field">
               <AiOutlineClose
                 className="closeIcon"
-                onClick={() => setShowForm(false)}
+                onClick={() => {
+                  resetFields();
+                  setShowForm(false);
+                }}
               />
               <div
                 className="icon-heading"
                 style={{ display: "flex", marginBottom: "1rem" }}
               >
                 <img src={formLogo} alt="form logo" />
-                <h2>Book Your Appointment</h2>
+                <h2 className="book-appointment-header">
+                  Book Your Appointment
+                </h2>
               </div>
               <form className="form-fields" onSubmit={handleSubmit}>
                 <div className="form-row-popup">
@@ -300,12 +288,16 @@ const BookAppointmentModel = ({
                   </div>
 
                   <div className="form-group-date">
-                    <label>Preferred Date</label>
+                    <label className={errors.date ? "error-label" : ""}>
+                      Preferred Date *
+                    </label>
                     <Datepicker
-                      options={options}
-                      onChange={handleChange}
-                      show={show}
-                      setShow={handleClose}
+                      selected={selectedDate}
+                      onChange={handleDateChange}
+                      className={errors.date ? "book-date-error" : ""}
+                      minDate={addDate(new Date(), 2)}
+                      filterDate={isWeekday}
+                      placeholderText="Select a Date"
                     />
                   </div>
                 </div>

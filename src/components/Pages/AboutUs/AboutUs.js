@@ -11,7 +11,6 @@ import OurTeam from "../../AboutUs/OurTeam.js";
 import OurServices from "../../AboutUs/OurServices.js";
 import TheAquarian from "../../AboutUs/TheAquarian.js";
 import { useMobile } from "../../globalComponents/MobileContext/IsMobileContext.js";
-import { Bounce } from "react-reveal";
 import BannerPages from "../Banner/BannerPages.jsx";
 
 const AboutUsPage = () => {
@@ -72,7 +71,6 @@ const AboutUsPage = () => {
       />
 
       {!isMobile && (
-        <Bounce>
           <div className="sub-heading-content" ref={subHeadingContentRef}>
             <div
               style={{
@@ -189,7 +187,6 @@ const AboutUsPage = () => {
               </a>
             </div>
           </div>
-        </Bounce>
       )}
 
       <div className="background-div">

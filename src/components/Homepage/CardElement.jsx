@@ -1,5 +1,7 @@
 import React from "react";
 import { useMobile } from "../globalComponents/MobileContext/IsMobileContext";
+import './CardElement.css'
+import { MdArrowOutward } from 'react-icons/md';
 
 const CardElement = ({ data }) => {
   const { isMobile } = useMobile();
@@ -9,26 +11,30 @@ const CardElement = ({ data }) => {
       {isMobile ? (
         <div
           onClick={() => (window.location.href = data.link)}
-          className="relative max-w-[28rem] h-[19rem] overflow-hidden transition-all ease-in delay-100 duration-300 group"
+          className="relative h-[19rem] overflow-hidden transition-all ease-in delay-100 duration-300 group"
         >
           <img
-            className="w-full h-full absolute"
+            className="w-full h-full absolute object-cover"
             src={data.img}
             alt="amenities"
           />
-          <div className="w-full h-full bg-gray-800 absolute opacity-60"></div>
+          <div className="w-full h-full bg-black absolute opacity-40"></div>
           <div className="px-6 py-4">
             <div className="relative top-6 font-semibold text-[22px] mb-2 text-white flex items-center justify-center transition-all ease-in delay-100 duration-300">
               {data.title}
             </div>
-            <p className=" relative top-6 text-white text-center text-[15px] flex items-center justify-center mt-2 mb-6 px-2 py-4">
+            <p className=" relative top-6 text-white text-center text-[13px] 9xl:text-[15px] flex items-center justify-center mt-2 mb-6 px-2 py-4">
               {data.description}
             </p>
           </div>
-          <div className="relative w-full flex items-center justify-center">
+          <div className="absolute bottom-[50px] w-full flex items-center justify-center">
             <button
               type="button"
-              className=" text-white w-auto h-auto px-6 text-sm py-3 rounded-full bg-opacity-40 bg-gray-200 "
+              className=" text-white w-auto h-auto px-6 text-sm py-3 rounded-full"
+              style={{
+                background: 'rgba(215, 215, 215, 0.32)',
+                backdropFilter: 'blur(8px)'
+              }}
             >
               More Info
             </button>
@@ -37,21 +43,28 @@ const CardElement = ({ data }) => {
       ) : (
         <div
           onClick={() => (window.location.href = data.link)}
-          className="max-w-[21rem] h-[30rem] rounded-2xl overflow-hidden border-[2px] border-[#939293] hover:border-transparent hover:bg-[#55FBEB] hover:shadow-lg mb-10 transition-all ease-in delay-100 duration-300 group"
+          className="max-w-[21rem] choose-program-card"
         >
-          <img
-            className="w-[100%] h-[15rem] p-2 rounded-2xl"
-            src={data.img}
-            alt="amenities"
-          />
+          <div className="choose-program-card-image">
+            <img
+              src={data.img}
+              alt="amenities"
+            />
+          </div>
           <div className="px-6 py-4">
-            <div className="font-semibold text-xl mb-2 group-hover:text-black text-[#009889] flex items-center justify-center transition-all ease-in delay-100 duration-300">
+            <div className="choose-program-card-header">
               {data.title}
             </div>
-            <p className="text-gray-700 text-[13px] flex items-center justify-center mt-2 mb-6 px-6 py-4">
+            <p className="choose-program-card-text">
               {data.description}
             </p>
           </div>
+          <button className="choose-program-card-button">
+          Explore
+          <div className="choose-program-card-button-arrow">
+          <MdArrowOutward/>
+          </div>
+          </button>
         </div>
       )}
     </div>

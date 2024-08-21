@@ -14,14 +14,14 @@ const Sidebar = () => {
     <div className='sidebar'>
       <div
         onClick={() => handleNavigation('/assessment')}
-        className='parent w-full h-[25%] border-b border-gray-500 text-white text-center flex flex-col items-center justify-center hover:bg-[#01F9E1] bg-[#242525] hover:text-black cursor-pointer transition ease-in delay-100 duration-300'
+        className='parent w-full h-[25%] border-b border-gray-500 text-[#a4a1a1] text-center flex flex-col items-center justify-center hover:bg-[#01F9E1] bg-[#242525] hover:text-black cursor-pointer transition ease-in delay-100 duration-300'
       >
         <img src={clip2} alt='logo' className='w-6 h-6 sidebar-img' />
         <span>Free Assessment</span>
       </div>
       <div
         onClick={() => handleNavigation('/resources')}
-        className='parent w-full h-[25%] border-b border-gray-500 text-white text-center flex flex-col items-center justify-center hover:bg-[#01F9E1] hover:text-black cursor-pointer transition ease-in delay-100 duration-300'
+        className='parent w-full h-[25%] border-b border-gray-500 text-[#a4a1a1] text-center flex flex-col items-center justify-center hover:bg-[#01F9E1] hover:text-black cursor-pointer transition ease-in delay-100 duration-300'
       >
         <img src={clip3} alt='logo' className='w-6 h-6 sidebar-img' />
         <span>
@@ -32,21 +32,21 @@ const Sidebar = () => {
 
       <div
         onClick={() => handleNavigation('/aquarian-services')}
-        className='parent w-full h-[25%] border-b border-gray-500 text-white text-center flex flex-col items-center justify-center hover:bg-[#01F9E1] hover:text-black cursor-pointer transition ease-in delay-100 duration-300'
+        className='parent w-full h-[25%] border-b border-gray-500 text-[#a4a1a1] text-center flex flex-col items-center justify-center hover:bg-[#01F9E1] hover:text-black cursor-pointer transition ease-in delay-100 duration-300'
       >
         <img src={clip4} alt='logo' className='w-6 h-6 sidebar-img' />
         <span>Aquarian Services</span>
       </div>
       <div
         onClick={() => handleNavigation('/blogs')}
-        className='parent w-full h-[25%] border-b border-gray-500 text-white text-center flex flex-col items-center justify-center hover:bg-[#01F9E1] hover:text-black cursor-pointer transition ease-in delay-100 duration-300'
+        className='parent w-full h-[25%] border-b border-gray-500 text-[#a4a1a1] text-center flex flex-col items-center justify-center hover:bg-[#01F9E1] hover:text-black cursor-pointer transition ease-in delay-100 duration-300'
       >
         <img src={clip5} alt='logo' className='w-6 h-6 sidebar-img' />{' '}
         <span>Blog</span>
       </div>
       <div
         onClick={() => handleNavigation('/latest-news')}
-        className='parent w-full h-[25%] text-white text-center flex flex-col items-center justify-center hover:bg-[#01F9E1] hover:text-black cursor-pointer transition ease-in delay-100 duration-300'
+        className='parent w-full h-[25%] text-[#a4a1a1] text-center flex flex-col items-center justify-center hover:bg-[#01F9E1] hover:text-black cursor-pointer transition ease-in delay-100 duration-300'
       >
         <img src={clip1} alt='logo' className='w-6 h-6 sidebar-img' />
         <span>Newsroom</span>

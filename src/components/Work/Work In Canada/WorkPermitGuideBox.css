@@ -1,0 +1,180 @@
+.wp-guide-box-container {
+    padding-top: 1rem;
+    width: 100%;
+    min-width: 371px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding-bottom: 40px;
+    margin-top: 2rem;
+}
+
+.wp-guide-box-header {
+    color: #000;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: normal;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+}
+
+.wp-guide-box-line{
+    width: 90%;
+    height: 3px;
+    background-color: #5A5A5A;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.wp-guide-box-inner-box {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.625rem;
+    row-gap: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 350px;
+}
+
+.wp-guide-box-button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    height: 10.625rem;
+    position: relative;
+}
+
+.wp-guide-box-button {
+    width: 6.75rem;
+    height: 6.75rem;
+    background-color: white;
+    border: 1px solid #8E8E8E;
+    cursor: pointer;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    transition: all .3s;
+}
+
+.wp-guide-box-number-circle {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    background-color: #292929;
+    color: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 50%;
+    top: 0;
+    left: 14px;
+    transition: all .3s;
+}
+
+.wp-guide-box-number-circle-2 {
+    top: -12px;
+}
+
+.wp-guide-box-icon {
+    transition: all .4s;
+}
+
+.wp-guide-box-button:hover {
+    background: #323232;
+
+    .wp-guide-box-number-circle {
+        background: #25897F;
+    }
+
+    .wp-guide-box-icon {
+        filter: brightness(150%) grayscale(100%);
+    }
+
+    .wp-guide-box-icon-2 {
+        filter: brightness(250%) grayscale(100%);
+    }
+}
+
+.wp-guide-box-text {
+    color: #000;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 400;
+    max-width: 150px;
+    padding-top: 0.4rem;
+    line-height: normal;
+    cursor: default;
+    bottom: 0;
+}
+
+/* Might need to change the break point */
+@media (744px <=width < 1024px) {
+
+    .wp-guide-box-header {
+        font-size: 32px;
+        font-weight: 600;
+    }
+
+    .wp-guide-box-inner-box {
+        grid-template-columns: repeat(4, 1fr);
+        max-width: 700px;
+    }
+
+    .wp-guide-box-button-container:nth-child(9) {
+        grid-column: 2 / span 1;
+    }
+
+    .wp-guide-box-button-container:nth-child(10) {
+        grid-column: 3 / span 1;
+    }
+
+    .wp-guide-box-text {
+        font-size: 15px;
+        max-width: 160px;
+    }
+}
+
+
+/* Again, make the break-point is fine */
+
+@media (min-width: 1024px) {
+
+    .wp-guide-box-header {
+        font-size: 32px;
+        font-weight: 600;
+    }
+
+    .wp-guide-box-container {
+        max-width: 880px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-right: 1.1rem;
+        padding-left: 1.1rem;
+    }
+
+    .wp-guide-box-inner-box {
+        grid-template-columns: repeat(5, 1fr);
+        max-width: 900px;
+    }
+
+    .wp-guide-box-inner-box {
+        gap: 0rem;
+        row-gap: 1.7rem
+    }
+
+    .wp-guide-box-text {
+        font-size: 15px;
+        max-width: 160px;
+    }
+
+
+}

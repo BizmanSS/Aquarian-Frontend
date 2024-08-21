@@ -6,16 +6,19 @@ import Select from "react-select";
 import PhoneInput from "react-phone-input-2";
 
 const PersonalInformation = ({
-  formData,
   selectForm,
+  formData,
+  setFormData,
+  setSelectForm,
+  nextform,
+  scrollRef,
   handleInputChange,
   errors,
   setSubmitAttempted,
   validate,
-  setSelectForm,
   handleSelectChange,
+  handleRegionChange,
   handlePhoneChange,
-  scrollRef,
 }) => {
   const customStyles = {
     control: (provided, state) => ({
@@ -44,12 +47,36 @@ const PersonalInformation = ({
       color: "#6B7280",
     }),
   };
-
+  const handleNameChange = (event) => {
+    if (/^[a-zA-Z]*$/.test(event.target.value)) {
+      setFormData({
+        ...formData,
+        [event.target.name]: event.target.value,
+      });
+    }
+  };
   const options = useMemo(() => countryList().getData(), []);
 
   return (
     <div className="w-full h-fit">
-      <div className="text-xl font-semibold tracking-[8px] bg-[#01997E] text-white w-full px-10 py-2 rounded-md flex items-center justify-between">
+      <div
+        onClick={() => {
+          if (
+            formData.firstname ||
+            formData.lastname ||
+            formData.email ||
+            formData.phone ||
+            formData.maritalStatus ||
+            formData.age ||
+            formData.nationality ||
+            formData.region
+          )
+            setSelectForm("PersonalInformation");
+        }}
+        // id='personalInformation'
+        id="PersonalInformation"
+        className="text-xl font-semibold tracking-[8px] bg-[#01997E] text-white w-full px-10 py-2 rounded-md flex items-center justify-between"
+      >
         Personal Information{" "}
         <span className="text-black">
           {selectForm === "PersonalInformation" ? (
@@ -76,7 +103,9 @@ const PersonalInformation = ({
                 type="text"
                 name="firstname"
                 id="firstname"
-                onChange={handleInputChange}
+                onChange={handleNameChange}
+                value={formData.firstname}
+                maxLength={50}
                 placeholder="Enter your first name"
                 className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
               />
@@ -95,7 +124,8 @@ const PersonalInformation = ({
                 type="text"
                 name="lastname"
                 id="lastname"
-                onChange={handleInputChange}
+                onChange={handleNameChange}
+                value={formData.lastname}
                 placeholder="Enter your last name"
                 className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
               />
@@ -114,6 +144,7 @@ const PersonalInformation = ({
                 type="email"
                 name="email"
                 id="email"
+                value={formData.email}
                 onChange={handleInputChange}
                 placeholder="Enter your email"
                 className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
@@ -156,34 +187,6 @@ const PersonalInformation = ({
               </div>
               {errors.phone && <p className="text-red-500">{errors.phone}</p>}
             </div>
-            <div className="w-full mb-3">
-              <label
-                for="age"
-                className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
-              >
-                Age<span className="text-red-400">*</span>
-              </label>
-              <select
-                id="age"
-                onChange={handleInputChange}
-                name="age"
-                className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
-              >
-                <option disabled selected>
-                  Select
-                </option>
-                {ageOptions.map((option) => (
-                  <option
-                    key={option.value}
-                    className="text-black"
-                    value={option.value}
-                  >
-                    {option.label}
-                  </option>
-                ))}
-              </select>
-              {errors.age && <p className="text-red-500">{errors.age}</p>}
-            </div>
             <div className="mb-3 w-full">
               <label
                 for="nationality"
@@ -204,6 +207,35 @@ const PersonalInformation = ({
                 <p className="text-red-500">{errors.nationality}</p>
               )}
             </div>
+            <div className="w-full mb-3">
+              <label
+                for="age"
+                className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
+              >
+                Age<span className="text-red-400">*</span>
+              </label>
+              <select
+                id="age"
+                onChange={handleInputChange}
+                name="age"
+                value={formData.age}
+                className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                {ageOptions.map((option) => (
+                  <option
+                    key={option.value}
+                    className="text-black"
+                    value={option.value}
+                  >
+                    {option.label}
+                  </option>
+                ))}
+              </select>
+              {errors.age && <p className="text-red-500">{errors.age}</p>}
+            </div>
             <div className="mb-3 w-full">
               <label
                 for="martial-status"
@@ -215,10 +247,11 @@ const PersonalInformation = ({
               <select
                 id="martial-status"
                 onChange={handleInputChange}
+                value={formData.maritalStatus}
                 name="maritalStatus"
                 className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
               >
-                <option disabled selected>
+                <option value="" selected>
                   Select
                 </option>
                 {maritalStatusOptions.map((option) => (
@@ -252,6 +285,7 @@ const PersonalInformation = ({
                       name="spouseTravelling"
                       className="hidden"
                       value="yes"
+                      checked={formData.spouseTravelling === "yes"}
                       onChange={handleInputChange}
                     />
                     <label
@@ -270,6 +304,7 @@ const PersonalInformation = ({
                       name="spouseTravelling"
                       className="hidden"
                       value="no"
+                      checked={formData.spouseTravelling === "no"}
                       onChange={handleInputChange}
                     />
                     <label
@@ -294,13 +329,14 @@ const PersonalInformation = ({
                 Where do you currently live ?
                 <span className="text-red-400">*</span>
               </label>
-              <input
-                type="text"
-                name="region"
-                id="live"
-                onChange={handleInputChange}
-                placeholder="Enter your region"
-                className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
+              <Select
+                options={options}
+                value={options.find(
+                  (option) => option.label === formData.region
+                )}
+                onChange={handleRegionChange}
+                styles={customStyles}
+                className="w-full"
               />
               {errors.region && <p className="text-red-500">{errors.region}</p>}
             </div>
@@ -313,7 +349,7 @@ const PersonalInformation = ({
               onClick={() => {
                 setSubmitAttempted(true);
                 if (validate(true)) {
-                  setSelectForm("Education");
+                  setSelectForm(nextform);
                 }
                 const element = scrollRef.current;
                 const elementPosition =

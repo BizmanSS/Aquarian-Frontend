@@ -24,13 +24,12 @@ const Component3 = () => {
               <img
                 src={bannerMobile}
                 alt="banner"
-                className="w-full mt-[3rem] rounded-3xl z-10"
+                className="w-full mt-[3rem] rounded-3xl z-10 brightness-[60%]"
               />
-              <div className="w-full h-[91%] bg-gradient-to-b from-black to-black absolute top-12 opacity-40 rounded-3xl"></div>
               <div className=" w-full rounded-3xl absolute bottom-[0rem] px-4 flex flex-col items-start justify-center gap-6">
                 <div className="text-[#FEFFFE] text-[22px] text-center">
                   <span className="text-[#019989] text-[28px]">Aquarian</span> -
-                  Canadian immigration Firm
+                  Canadian Immigration Firm
                 </div>
                 <div className="text-[#EEEEEE] font-normal text-[15px]  text-center -mt-4">
                   With an absolute commitment to efficiency and transparency,
@@ -39,7 +38,7 @@ const Component3 = () => {
                   of industry experts, while forging lifelong relationships with
                   our clients.
                 </div>
-                <div className="w-full flex items-center justify-between mb-3">
+                <div className="relative bottom-[10px] w-full flex items-center justify-between mb-3">
                   <button
                     onClick={handleAppointmentClick}
                     className="bg-[#fefeff] text-[#01A392] px-8 py-3 rounded-full text-[15px] "

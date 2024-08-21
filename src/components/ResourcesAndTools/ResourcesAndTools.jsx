@@ -19,7 +19,6 @@ import facebook from "../../Assets/Facebook.png";
 import { BsArrowRight } from "react-icons/bs";
 import { useMobile } from "../globalComponents/MobileContext/IsMobileContext";
 import BannerPages from "../Pages/Banner/BannerPages";
-import { Bounce } from "react-reveal";
 import examData from "./data/examData";
 
 const ResourcesAndTools = () => {
@@ -239,7 +238,6 @@ const ResourcesAndTools = () => {
         </div>
       </div>
 
-      <Bounce>
         <div className="sub-heading-content hidden" ref={subHeadingContentRef}>
           <div
             style={{
@@ -336,7 +334,6 @@ const ResourcesAndTools = () => {
             </a>
           </div>
         </div>
-      </Bounce>
 
       <div className="flex flex-col items-end justify-center relative right-4 sm:right-8 lg:right-[4rem]">
         <div className="w-[90%] lg:w-[70%] flex flex-col items-start justify-center">
