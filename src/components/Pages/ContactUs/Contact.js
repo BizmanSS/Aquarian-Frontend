@@ -5,6 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { toast } from "react-toastify";
 import Datepicker from "react-datepicker";
+import Datepicker from "react-datepicker";
 import BannerPages from "../Banner/BannerPages";
 const ContactUsPage = () => {
   const { isMobile } = useMobile();
@@ -27,6 +28,9 @@ const ContactUsPage = () => {
     setter(e.target.value);
     setErrors((prevErrors) => ({ ...prevErrors, [field]: "" }));
   };
+
+  const handleDateChange = (selectedDate) => {
+    setErrors((prevErrors) => ({ ...prevErrors, date: "" }));
 
   const handleDateChange = (selectedDate) => {
     setErrors((prevErrors) => ({ ...prevErrors, date: "" }));
@@ -98,6 +102,9 @@ const ContactUsPage = () => {
     if (!selectedDate) {
       errorObject.date = "Date is required";
     }
+    if (!selectedDate) {
+      errorObject.date = "Date is required";
+    }
 
     if (Object.keys(errorObject).length > 0) {
       setErrors(errorObject);
@@ -112,8 +119,14 @@ const ContactUsPage = () => {
       setServiceOther("");
       setComments("");
       setSelectedDate(null);
+      setSelectedDate(null);
       setErrors({});
     }
+  };
+
+  const isWeekday = (date) => {
+    const day = date.getDay();
+    return day !== 0 && day !== 6;
   };
 
   const isWeekday = (date) => {
@@ -128,6 +141,42 @@ const ContactUsPage = () => {
         description={"Contact Us"}
       />
 
+      <div className="registration-form">
+        {!isMobile && (
+          <div className="contact-use-address-menu">
+            <div className="address-content">
+              <div className="contact-us-address-wraper">
+                <h2 className="address-heading">Address</h2>
+                <a
+                  href="https://www.google.com/maps/place/Aquarian+Immigration+Services/@28.4082328,77.070377,15z/data=!4m6!3m5!1s0x390d23f44c7f8021:0x589c7dd32b5c2779!8m2!3d28.4082328!4d77.070377!16s%2Fg%2F11vqm85pq7?entry=ttu"
+                  className="address"
+                >
+                  122A, Suncity Success Tower, Golf Course Ext Rd, Sector 65,
+                  Gurugram, Haryana 122011
+                </a>
+                <br /> <br />
+                <h2 className="address-heading">Email</h2>
+                <a href="mailto:enq@iaquarian.com" className="address">
+                  enq@iaquarian.com
+                </a>
+                <br /> <br />
+                <h2 className="address-heading">Phone</h2>
+                <a href="tel:+919810892192" className="address">
+                  +91- 9810892192
+                </a>
+                <br />
+                <a href="tel:+919810890517" className="address">
+                  +91- 9810890517
+                </a>
+                <br />
+                <a href="tel:+911244671300" className="address">
+                  +91- 1244671300
+                </a>
+              </div>
+            </div>
+          </div>
+        )}
+        <form onSubmit={handleSubmit} className="form-contact-us">
       <div className="registration-form">
         {!isMobile && (
           <div className="contact-use-address-menu">
@@ -266,6 +315,16 @@ const ContactUsPage = () => {
               {errors.date && (
                 <div className="error-message">{errors.date}</div>
               )}
+                selected={selectedDate}
+                onChange={handleDateChange}
+                className={errors.date ? "error" : ""}
+                minDate={addDate(new Date(), 2)}
+                filterDate={isWeekday}
+                placeholderText="Select a Date"
+              />
+              {errors.date && (
+                <div className="error-message">{errors.date}</div>
+              )}
             </div>
           </div>
 
@@ -301,6 +360,7 @@ const ContactUsPage = () => {
                   Please Specify Your Service<x style={{ color: "red" }}>*</x>
                 </label>
                 <input
+                <input
                   type="text"
                   placeholder="Please Specify Your Service"
                   value={serviceOther}
@@ -315,6 +375,7 @@ const ContactUsPage = () => {
             {service !== "Other" && (
               <div className="form-group">
                 <label>Comments (Optional)</label>
+                <input
                 <input
                   value={comments}
                   placeholder="Comments"

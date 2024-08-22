@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import axios from "axios";
 import { AiOutlineClose } from "react-icons/ai";
 import Datepicker from "react-datepicker";
+import Datepicker from "react-datepicker";
 //import SubmitPopUp from '../../AssessmentForm/Ui/SubmitPopUp';
 import "react-datepicker/dist/react-datepicker.css";
 const BookAppointmentModel = ({
@@ -59,6 +60,7 @@ const BookAppointmentModel = ({
   const handleOutsideClick = (event) => {
     if (event.target.closest(".modal") === null) {
       resetFields();
+      resetFields();
       setShowForm(false);
     }
   };
@@ -73,6 +75,11 @@ const BookAppointmentModel = ({
     }
   };
 
+  const handleDateChange = (selectedDate) => {
+    setErrors((prevErrors) => ({
+      ...prevErrors,
+      date: "",
+    }));
   const handleDateChange = (selectedDate) => {
     setErrors((prevErrors) => ({
       ...prevErrors,
@@ -107,6 +114,8 @@ const BookAppointmentModel = ({
     // Custom condition for timeSlot and selectedDate
     if (!selectedDate) {
       errorObject.date = "Date is required";
+    if (!selectedDate) {
+      errorObject.date = "Date is required";
     }
 
     if (Object.keys(errorObject).length > 0) {
@@ -115,6 +124,8 @@ const BookAppointmentModel = ({
         position: "top-center",
       });
     } else {
+      handleFormSubmit();
+      resetFields();
       handleFormSubmit();
       resetFields();
       // toast.success('You have successfully booked your appointment!');
@@ -132,6 +143,7 @@ const BookAppointmentModel = ({
       service,
       serviceOther,
       comments,
+      date: selectedDate.startDate,
       date: selectedDate.startDate,
     };
 
@@ -188,6 +200,7 @@ const BookAppointmentModel = ({
               marginTop: "auto",
               marginBottom: "auto",
             }}
+            className="modal md:!overflow-visible"
             className="modal md:!overflow-visible"
           >
             <div className="form-field">
@@ -292,6 +305,12 @@ const BookAppointmentModel = ({
                       Preferred Date *
                     </label>
                     <Datepicker
+                      selected={selectedDate}
+                      onChange={handleDateChange}
+                      className={errors.date ? "book-date-error" : ""}
+                      minDate={addDate(new Date(), 2)}
+                      filterDate={isWeekday}
+                      placeholderText="Select a Date"
                       selected={selectedDate}
                       onChange={handleDateChange}
                       className={errors.date ? "book-date-error" : ""}
