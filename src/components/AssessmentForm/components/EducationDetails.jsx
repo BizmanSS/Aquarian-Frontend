@@ -576,6 +576,10 @@ const EducationDetails = ({
                         dateFormat="dd/MM/yyyy"
                         onFocus={(e) => e.target.blur()}
                         placeholderText="Select Start Date"
+                        shouldCloseOnSelect
+                        showYearDropdown
+                        showMonthDropdown
+                        dropdownMode="select"
                         className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
                       />
                     </div>
@@ -595,6 +599,10 @@ const EducationDetails = ({
                         dateFormat="dd/MM/yyyy"
                         onFocus={(e) => e.target.blur()}
                         placeholderText="Select End Date"
+                        shouldCloseOnSelect
+                        showYearDropdown
+                        showMonthDropdown
+                        dropdownMode="select"
                         className={`w-full rounded-md border ${
                           !currentForm.startDates
                             ? " border-gray-300 cursor-not-allowed"

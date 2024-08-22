@@ -162,6 +162,10 @@ const PriorHistoryForm = ({
                     onFocus={(e) => e.target.blur()}
                     dateFormat="dd/MM/yyyy"
                     placeholderText="Select Start Date"
+                    shouldCloseOnSelect
+                    showYearDropdown
+                    showMonthDropdown
+                    dropdownMode="select"
                     className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
                   />
                   {priorHistoryErrors.gapStartDate && (
@@ -186,6 +190,10 @@ const PriorHistoryForm = ({
                     disabled={!formData.gapStartDate}
                     minDate={formData.gapStartDate}
                     placeholderText="Select End Date"
+                    shouldCloseOnSelect
+                    showYearDropdown
+                    showMonthDropdown
+                    dropdownMode="select"
                     className={`w-full rounded-md border ${
                       !formData.gapStartDate
                         ? " border-gray-300 cursor-not-allowed"
@@ -410,6 +418,10 @@ const PriorHistoryForm = ({
                   onFocus={(e) => e.target.blur()}
                   dateFormat="dd/MM/yyyy"
                   placeholderText="Select Applied Visa Date"
+                  shouldCloseOnSelect
+                  showYearDropdown
+                  showMonthDropdown
+                  dropdownMode="select"
                   className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
                 />
                 {priorHistoryErrors.visaAppliedDate && (

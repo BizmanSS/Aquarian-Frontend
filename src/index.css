@@ -25,6 +25,3 @@ body::-webkit-scrollbar-thumb {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-.react-datepicker-wrapper {
-  width: 100%;
-}
