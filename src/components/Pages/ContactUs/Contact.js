@@ -59,10 +59,14 @@ const ContactUsPage = () => {
 
       if (response.status === 200) {
         const data = response.data;
-        toast.success("You have successfully submited your form!");
+        toast.success("You have successfully submited your form!", {
+          position: "top-center",
+        });
       }
     } catch (error) {
-      toast.error("Internal server errror!");
+      toast.error("Internal server errror!", {
+        position: "top-center",
+      });
     }
   };
 
