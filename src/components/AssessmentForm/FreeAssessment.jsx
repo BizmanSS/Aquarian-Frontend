@@ -311,10 +311,12 @@ const FreeAssessment = () => {
             />
             <label
               for="radio5"
-              className="flex justify-between items-center cursor-pointer"
+              className="flex w-full justify-between items-center cursor-pointer"
             >
               <span className="w-4 h-4 inline-block mr-1 border border-grey"></span>
-              <p className="w-[calc(100%-1.5rem)]">Permanent Immigration</p>
+              <p className="w-[calc(100%-1.5rem)] md:text-lg">
+                Permanent Immigration
+              </p>
             </label>
           </div>
           <div className="flex items-center">
@@ -327,10 +329,10 @@ const FreeAssessment = () => {
             />
             <label
               for="radio6"
-              className="flex  justify-between items-center cursor-pointer"
+              className="flex w-full justify-between items-center cursor-pointer"
             >
               <span className="w-4 h-4 inline-block mr-1 border border-grey"></span>
-              <p className="w-[calc(100%-1.5rem)]">Work Permit</p>
+              <p className="w-[calc(100%-1.5rem)] md:text-lg">Work Permit</p>
             </label>
           </div>
           <div className="flex items-center">
@@ -343,10 +345,12 @@ const FreeAssessment = () => {
             />
             <label
               for="radio3"
-              className="flex  justify-between items-center cursor-pointer"
+              className="flex w-full justify-between items-center cursor-pointer"
             >
               <span className="w-4 h-4 inline-block mr-1 border border-grey"></span>
-              <p className="w-[calc(100%-1.5rem)]">Study Permit/Visa</p>
+              <p className="w-[calc(100%-1.5rem)] md:text-lg">
+                Study Permit/Visa
+              </p>
             </label>
           </div>
           <div className="flex items-center">
@@ -359,70 +363,74 @@ const FreeAssessment = () => {
             />
             <label
               for="radio4"
-              className="flex  justify-between items-center cursor-pointer"
+              className="flex w-full justify-between items-center cursor-pointer"
             >
               <span className="w-4 h-4 inline-block mr-1 border border-grey"></span>
-              <p className="w-[calc(100%-1.5rem)]">Tourist Visa</p>
+              <p className="w-[calc(100%-1.5rem)] md:text-lg">Tourist Visa</p>
             </label>
           </div>
           <div className="flex items-center">
             <input id="radio24" type="radio" name="radio" className="hidden" />
             <label
               for="radio24"
-              className="flex justify-between items-center cursor-pointer"
+              className="flex w-full justify-between items-center cursor-pointer"
             >
               <span className="w-4 h-4 inline-block mr-1 border border-grey"></span>
-              <p className="w-[calc(100%-1.5rem)]">Business Visa</p>
+              <p className="w-[calc(100%-1.5rem)] md:text-lg">Business Visa</p>
             </label>
           </div>
           <div className="flex items-center">
             <input id="radio25" type="radio" name="radio" className="hidden" />
             <label
               for="radio25"
-              className="flex justify-between items-center cursor-pointer"
+              className="flex w-full justify-between items-center cursor-pointer"
             >
               <span className="w-4 h-4 inline-block mr-1 border border-grey"></span>
-              <p className="w-[calc(100%-1.5rem)]">Business Immigration</p>
+              <p className="w-[calc(100%-1.5rem)] md:text-lg">
+                Business Immigration
+              </p>
             </label>
           </div>
           <div className="flex items-center">
             <input id="radio26" type="radio" name="radio" className="hidden" />
             <label
               for="radio26"
-              className="flex justify-between items-center cursor-pointer"
+              className="flex w-full justify-between items-center cursor-pointer"
             >
               <span className="w-4 h-4 inline-block mr-1 border border-grey"></span>
-              <p className="w-[calc(100%-1.5rem)]">Family Sponsorship</p>
+              <p className="w-[calc(100%-1.5rem)] md:text-lg">
+                Family Sponsorship
+              </p>
             </label>
           </div>
           <div className="flex items-center">
             <input id="radio27" type="radio" name="radio" className="hidden" />
             <label
               for="radio27"
-              className="flex justify-between items-center cursor-pointer"
+              className="flex w-full justify-between items-center cursor-pointer"
             >
               <span className="w-4 h-4 inline-block mr-1 border border-grey"></span>
-              <p className="w-[calc(100%-1.5rem)]">Dependent Visa</p>
+              <p className="w-[calc(100%-1.5rem)] md:text-lg">Dependent Visa</p>
             </label>
           </div>
           <div className="flex items-center">
             <input id="radio28" type="radio" name="radio" className="hidden" />
             <label
               for="radio28"
-              className="flex justify-between items-center cursor-pointer"
+              className="flex w-full justify-between items-center cursor-pointer"
             >
               <span className="w-4 h-4 inline-block mr-1 border border-grey"></span>
-              <p className="w-[calc(100%-1.5rem)]">LMIA</p>
+              <p className="w-[calc(100%-1.5rem)] md:text-lg">LMIA</p>
             </label>
           </div>
           <div className="flex items-center">
             <input id="radio29" type="radio" name="radio" className="hidden" />
             <label
               for="radio29"
-              className="flex justify-between items-center cursor-pointer"
+              className="flex w-full justify-between items-center cursor-pointer"
             >
               <span className="w-4 h-4 inline-block mr-1 border border-grey"></span>
-              <p className="w-[calc(100%-1.5rem)]">Others</p>
+              <p className="w-[calc(100%-1.5rem)] md:text-lg">Others</p>
             </label>
           </div>
         </div>
