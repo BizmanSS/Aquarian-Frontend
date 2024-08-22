@@ -159,6 +159,7 @@ const PriorHistoryForm = ({
                     selected={formData.gapStartDate}
                     onChange={handleStartDateChange}
                     maxDate={new Date()}
+                    onFocus={(e) => e.target.blur()}
                     dateFormat="dd/MM/yyyy"
                     placeholderText="Select Start Date"
                     className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
@@ -181,6 +182,7 @@ const PriorHistoryForm = ({
                     selected={formData.gapEndDate}
                     onChange={handleEndDateChange}
                     dateFormat="dd/MM/yyyy"
+                    onFocus={(e) => e.target.blur()}
                     disabled={!formData.gapStartDate}
                     minDate={formData.gapStartDate}
                     placeholderText="Select End Date"
@@ -405,6 +407,7 @@ const PriorHistoryForm = ({
                   selected={formData.visaAppliedDate}
                   onChange={handleVisaDate}
                   maxDate={new Date()}
+                  onFocus={(e) => e.target.blur()}
                   dateFormat="dd/MM/yyyy"
                   placeholderText="Select Applied Visa Date"
                   className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"

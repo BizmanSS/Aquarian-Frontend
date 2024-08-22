@@ -520,6 +520,7 @@ function FinancialForm({
                   onChange={handleVisaDate}
                   maxDate={new Date()}
                   dateFormat="dd/MM/yyyy"
+                  onFocus={(e) => e.target.blur()}
                   placeholderText="Select Date"
                   className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
                 />

@@ -465,6 +465,8 @@ const PermanentImigration = ({
                         country={"in"}
                         value={formData.phone}
                         onChange={handlePhoneChange}
+                        enableSearch={true} // Allows searching within the dropdown
+                        disableDropdown={false} // Keeps the dropdown active so users can select or manually type if present
                         inputProps={{
                           name: "phone",
                           id: "phone",

@@ -574,6 +574,7 @@ const EducationDetails = ({
                         onChange={handleStartDateChange}
                         maxDate={new Date()}
                         dateFormat="dd/MM/yyyy"
+                        onFocus={(e) => e.target.blur()}
                         placeholderText="Select Start Date"
                         className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
                       />
@@ -592,6 +593,7 @@ const EducationDetails = ({
                         disabled={!currentForm.startDates}
                         minDate={currentForm.startDates}
                         dateFormat="dd/MM/yyyy"
+                        onFocus={(e) => e.target.blur()}
                         placeholderText="Select End Date"
                         className={`w-full rounded-md border ${
                           !currentForm.startDates

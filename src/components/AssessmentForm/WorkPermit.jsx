@@ -379,6 +379,8 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
                         country={"in"}
                         value={formData.phone}
                         onChange={handlePhoneChange}
+                        enableSearch={true} // Allows searching within the dropdown
+                        disableDropdown={false}
                         inputProps={{
                           name: "phone",
                           id: "phone",
