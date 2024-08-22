@@ -7,6 +7,9 @@ import SearchableDropdown from "../SearchableDropdown/SearchableDropdown";
 import { countries, years } from "./FreeAssessment";
 import { FaPlus } from "react-icons/fa";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import PhoneInput from "react-phone-input-2";
+import WorkExperienceForm from "./components/WorkExperienceForm";
+import EducationDetails from "./components/EducationDetails";
 
 const PermanentImigration = ({
   selectedForm,
@@ -38,32 +41,32 @@ const PermanentImigration = ({
     lastname: "",
     email: "",
     phone: "",
-    maritalStatus: "",
-    age: "",
     nationality: "",
-    region: "",
+    age: "",
+    maritalStatus: "",
     spouseTravelling: "",
+    region: "",
     children: "",
-    educationalQualifications: [
-      {
-        educationqualification: "",
-        passingyear: "",
-        board: "",
-        stream: "",
-        country: "",
-      },
-    ],
-    educationqualification1: "",
-    workexperiences: [
-      {
-        workexperience: "",
-        employmentHistory: "",
-        workCountry: "",
-        occupation: "",
-      },
-    ],
+    educationExperience1: "",
+    highestEducational: "",
+    educationExperiences: {
+      levelOfEducation: "",
+      startDates: null,
+      endDates: null,
+      field: "",
+      board: "",
+      country: "",
+    },
     workexperience1: "",
-
+    yearsOfExp: "",
+    workExperiences: {
+      startDates: null,
+      endDates: null,
+      occupation: "",
+      typeOfJob: "",
+      employmentHistory: "",
+      country: "",
+    },
     englishTest: "",
     frenchTest: "",
     englishTestType: "",
@@ -87,102 +90,6 @@ const PermanentImigration = ({
     relativesinCanada: "",
     otherInformation: "",
   });
-
-  const handleDeleteQualification = (index) => {
-    const updatedQualifications = formData.educationalQualifications.filter(
-      (_, i) => i !== index
-    );
-    setFormData({
-      ...formData,
-      educationalQualifications: updatedQualifications,
-    });
-  };
-  const handleDeleteExperience = (index) => {
-    const updatedQualifications = formData.workexperiences.filter(
-      (_, i) => i !== index
-    );
-    setFormData({
-      ...formData,
-      workexperiences: updatedQualifications,
-    });
-  };
-  const handleEducationSelect = (index, option) => {
-    setFormData((prevFormData) => {
-      const updatedQualifications = [...prevFormData.educationalQualifications];
-      updatedQualifications[index] = {
-        ...updatedQualifications[index],
-        stream: option.label,
-      };
-      return {
-        ...prevFormData,
-        educationalQualifications: updatedQualifications,
-      };
-    });
-  };
-  const handleWorkSelect = (index, option) => {
-    setFormData((prevFormData) => {
-      const updatedQualifications = [...prevFormData.workexperiences];
-      updatedQualifications[index] = {
-        ...updatedQualifications[index],
-        occupation: option.label,
-      };
-      return {
-        ...prevFormData,
-        workexperiences: updatedQualifications,
-      };
-    });
-  };
-  const addQualification = () => {
-    setFormData((prevState) => ({
-      ...prevState,
-      educationalQualifications: [
-        ...prevState.educationalQualifications,
-        {
-          educationqualification: "",
-          passingyear: "",
-          board: "",
-          stream: "",
-          country: "",
-        },
-      ],
-    }));
-  };
-  const addExperience = () => {
-    setFormData((prevState) => ({
-      ...prevState,
-      workexperiences: [
-        ...prevState.workexperiences,
-        {
-          workexperience: "",
-          employmentHistory: "",
-          workCountry: "",
-          occupation: "",
-        },
-      ],
-    }));
-  };
-  const handleQualificationChange = (index, e) => {
-    const { name, value } = e.target;
-    const updatedQualifications = formData.educationalQualifications.map(
-      (qualification, i) =>
-        i === index ? { ...qualification, [name]: value } : qualification
-    );
-    setFormData({
-      ...formData,
-      educationalQualifications: updatedQualifications,
-    });
-  };
-  const handleExperienceChange = (index, e) => {
-    const { name, value } = e.target;
-    const updatedQualifications = formData.workexperiences.map(
-      (experience, i) =>
-        i === index ? { ...experience, [name]: value } : experience
-    );
-    setFormData({
-      ...formData,
-      workexperiences: updatedQualifications,
-    });
-  };
 
   const validateLanguageTests = (showErrors = false) => {
     const newErrors = {};
@@ -291,40 +198,11 @@ const PermanentImigration = ({
     }
     return Object.keys(tempErrors).length === 0;
   };
-
-  const validateEducation = (showErrors = false) => {
-    const newErrors = {};
-    if (!formData.educationqualification1) {
-      newErrors.educationqualification1 =
-        "Educational qualification/traning is required";
-    }
-
-    if (formData.educationqualification1 === "yes") {
-      formData.educationalQualifications.forEach((qualification, index) => {
-        if (!qualification.educationqualification) {
-          newErrors[`educationqualification-${index}`] =
-            "Educational qualification is required";
-        }
-        if (!qualification.passingyear) {
-          newErrors[`passingyear-${index}`] = "Year of passing is required";
-        }
-        if (!qualification.board) {
-          newErrors[`board-${index}`] = "Board/University is required";
-        }
-        if (!qualification.stream) {
-          newErrors[`stream-${index}`] = "Field/Stream is required";
-        }
-        if (!qualification.country) {
-          newErrors[`country-${index}`] = "Country is required";
-        }
-      });
-    }
-
-    if (showErrors) {
-      setEduErrors(newErrors);
-    }
-
-    return Object.keys(newErrors).length === 0;
+  const handlePhoneChange = (phone) => {
+    setFormData((prevState) => ({
+      ...prevState,
+      phone: phone,
+    }));
   };
 
   const validateOthers = (showErrors = false) => {
@@ -342,43 +220,8 @@ const PermanentImigration = ({
       newErrors.relativesinCanada =
         "Information about relatives in Canada is required";
 
-    if (!formData.otherInformation)
-      newErrors.otherInformation = "Additional information is required";
-
     if (showErrors) {
       setOthersErrors(newErrors);
-    }
-    return Object.keys(newErrors).length === 0;
-  };
-  const validateWork = (showErrors = false) => {
-    const newErrors = {};
-
-    if (!formData.workexperience1) {
-      newErrors.workexperience1 = "Work Experience/Qualification is required";
-    }
-
-    if (formData.workexperience1 === "yes") {
-      formData.workexperiences.forEach((qualification, index) => {
-        if (!qualification.workexperience) {
-          newErrors[`workexperience-${index}`] =
-            "Total Number of Work Experience is required";
-        }
-        if (!qualification.employmentHistory) {
-          newErrors[`employmentHistory-${index}`] =
-            "Employment History is required";
-        }
-
-        if (!qualification.occupation) {
-          newErrors[`occupation-${index}`] = "Field/Stream is required";
-        }
-        if (!qualification.workCountry) {
-          newErrors[`workCountry-${index}`] = "Country is required";
-        }
-      });
-    }
-
-    if (showErrors) {
-      setWorkErrors(newErrors);
     }
     return Object.keys(newErrors).length === 0;
   };
@@ -388,18 +231,6 @@ const PermanentImigration = ({
       validate(true);
     }
   }, [formData, submitAttempted]);
-
-  useEffect(() => {
-    if (submitAttemptedEducation) {
-      validateEducation(true);
-    }
-  }, [formData, submitAttemptedEducation]);
-
-  useEffect(() => {
-    if (submitAttemptedWork) {
-      validateWork(true);
-    }
-  }, [formData, submitAttemptedWork]);
 
   useEffect(() => {
     if (submitAttemptedTest) {
@@ -419,6 +250,14 @@ const PermanentImigration = ({
       [event.target.name]: event.target.value,
     });
   };
+  const handleNameChange = (event) => {
+    if (/^[a-zA-Z]*$/.test(event.target.value)) {
+      setFormData({
+        ...formData,
+        [event.target.name]: event.target.value,
+      });
+    }
+  };
   const handleFormSubmit = async () => {
     try {
       const response = await axios.post(
@@ -433,10 +272,73 @@ const PermanentImigration = ({
 
       if (response.status === 200) {
         const data = response.data;
-        toast.success("You have successfully submited your form!");
+        toast.success("You have successfully submited your form!", {
+          position: "top-center",
+        });
+        setSelectForm("PersonalInformation");
+        setFormData({
+          firstname: "",
+          lastname: "",
+          email: "",
+          phone: "",
+          nationality: "",
+          age: "",
+          maritalStatus: "",
+          spouseTravelling: "",
+          region: "",
+          children: "",
+          educationExperience1: "",
+          highestEducational: "",
+          educationExperiences: {
+            levelOfEducation: "",
+            startDates: null,
+            endDates: null,
+            field: "",
+            board: "",
+            country: "",
+          },
+          workexperience1: "",
+          yearsOfExp: "",
+          workExperiences: {
+            startDates: null,
+            endDates: null,
+            occupation: "",
+            typeOfJob: "",
+            employmentHistory: "",
+            country: "",
+          },
+          englishTest: "",
+          frenchTest: "",
+          englishTestType: "",
+          frenchTestType: "",
+          englishTestResult: {
+            reading: "",
+            writing: "",
+            listening: "",
+            speaking: "",
+          },
+          frenchTestResult: {
+            reading: "",
+            writing: "",
+            listening: "",
+            speaking: "",
+          },
+          futureTestEnglish: "",
+          futureTestFrench: "",
+          certificateofNomination: "",
+          canadianjobOffer: "",
+          relativesinCanada: "",
+          otherInformation: "",
+        });
+        window.scrollTo({
+          top: element,
+          behavior: "smooth",
+        });
       }
     } catch (error) {
-      toast.error("Internal server errror!");
+      toast.error("Internal server errror!", {
+        position: "top-center",
+      });
     }
   };
 
@@ -470,7 +372,7 @@ const PermanentImigration = ({
               }}
               // id='personalInformation'
               id="PersonalInformation"
-              className="text-xl font-semibold tracking-[8px] bg-[#01997E] text-white w-full px-10 py-2 rounded-md flex items-center justify-between"
+              className="text-base md:text-xl font-semibold tracking-[5px] md:tracking-[8px] bg-[#01997E] text-white w-full px-10 py-2 rounded-md flex items-center justify-between"
             >
               Personal Information{" "}
               <span className="text-black">
@@ -483,263 +385,140 @@ const PermanentImigration = ({
             </div>
             {selectForm === "PersonalInformation" && (
               <form action="post" className="w-full">
-                <div className="block sm:flex items-center justify-between w-full">
-                  <div className="w-full sm:w-[45%] flex flex-col items-center justify-center">
-                    <div className="mb-3 w-full">
-                      <label
-                        for="firstname"
-                        className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
-                      >
-                        First Name<span className="text-red-400">*</span>
-                      </label>
-                      <input
-                        type="text"
-                        name="firstname"
-                        id="firstname"
-                        onChange={handleInputChange}
-                        placeholder="Enter your first name"
-                        value={formData.firstname}
-                        maxLength={50}
-                        className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
-                      />
-                      {errors.firstname && (
-                        <p className="text-red-500">{errors.firstname}</p>
-                      )}
-                    </div>
-                    <div className="block sm:hidden w-full mb-3">
-                      <label
-                        for="lastname"
-                        className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
-                      >
-                        Last Name<span className="text-red-400">*</span>
-                      </label>
-
-                      <input
-                        type="text"
-                        name="lastname"
-                        id="lastname"
-                        onChange={handleInputChange}
-                        placeholder="Enter your last name"
-                        value={formData.lastname}
-                        maxLength={50}
-                        className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
-                      />
-                      {errors.lastname && (
-                        <p className="text-red-500">{errors.lastname}</p>
-                      )}
-                    </div>
-                    <div className="w-full mb-3">
-                      <label
-                        for="email"
-                        className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
-                      >
-                        Email Address<span className="text-red-400">*</span>
-                      </label>
-                      <input
-                        type="email"
-                        name="email"
-                        id="email"
-                        maxLength={320}
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        placeholder="Enter your email"
-                        className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
-                      />
-                      {errors.email && (
-                        <p className="text-red-500">{errors.email}</p>
-                      )}
-                    </div>
-                    <div className="mb-3 w-full">
-                      <label
-                        for="phone"
-                        className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
-                      >
-                        Telephone<span className="text-red-400">*</span>
-                      </label>
-                      <input
-                        type="number"
-                        name="phone"
-                        id="phone"
-                        value={formData.phone}
-                        onChange={handleInputChange}
-                        placeholder="Enter your phone number"
-                        className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
-                      />
-                      {errors.phone && (
-                        <p className="text-red-500">{errors.phone}</p>
-                      )}
-                    </div>
-                    <div className="mb-3 w-full">
-                      <label
-                        for="martial-status"
-                        className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
-                      >
-                        Martial Status<span className="text-red-400">*</span>
-                      </label>
-
-                      <select
-                        id="martial-status"
-                        onChange={handleInputChange}
-                        name="maritalStatus"
-                        value={formData.maritalStatus}
-                        className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
-                      >
-                        <option selected>Select</option>
-                        <option className="text-black" value="married">
-                          Married/Common Law
-                        </option>
-                        <option className="text-black" value="unmarried">
-                          Never Married/Single
-                        </option>
-                        <option className="text-black" value="divorced">
-                          Divorced/Seperated
-                        </option>
-                        <option className="text-black" value="widowed">
-                          Widowed
-                        </option>
-                        <option className="text-black" value="seperated">
-                          Legally Seperated
-                        </option>
-                        <option className="text-black" value="anulledmarriage">
-                          Anulled Marriage
-                        </option>
-                      </select>
-                      {errors.maritalStatus && (
-                        <p className="text-red-500">{errors.maritalStatus}</p>
-                      )}
-                    </div>
+                <div
+                  className="w-full md:grid grid-cols-2"
+                  style={{ columnGap: "10%" }}
+                >
+                  <div className="mb-3 w-full">
+                    <label
+                      for="firstname"
+                      className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
+                    >
+                      First Name<span className="text-red-400">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      name="firstname"
+                      id="firstname"
+                      onChange={handleNameChange}
+                      placeholder="Enter your first name"
+                      value={formData.firstname}
+                      maxLength={50}
+                      className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
+                    />
+                    {errors.firstname && (
+                      <p className="text-red-500">{errors.firstname}</p>
+                    )}
                   </div>
-                  <div className="w-full sm:w-[45%] flex flex-col items-center justify-center">
-                    <div className="hidden sm:block w-full mb-3">
-                      <label
-                        for="lastname"
-                        className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
-                      >
-                        Last Name<span className="text-red-400">*</span>
-                      </label>
-                      <input
-                        type="text"
-                        name="lastname"
-                        id="lastname"
-                        value={formData.lastname}
-                        maxLength={50}
-                        onChange={handleInputChange}
-                        placeholder="Enter your last name"
-                        className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
+                  <div className="w-full mb-3">
+                    <label
+                      for="lastname"
+                      className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
+                    >
+                      Last Name<span className="text-red-400">*</span>
+                    </label>
+
+                    <input
+                      type="text"
+                      name="lastname"
+                      id="lastname"
+                      onChange={handleNameChange}
+                      placeholder="Enter your last name"
+                      value={formData.lastname}
+                      maxLength={50}
+                      className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
+                    />
+                    {errors.lastname && (
+                      <p className="text-red-500">{errors.lastname}</p>
+                    )}
+                  </div>
+                  <div className="w-full mb-3">
+                    <label
+                      for="email"
+                      className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
+                    >
+                      Email Address<span className="text-red-400">*</span>
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      id="email"
+                      maxLength={320}
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      placeholder="Enter your email"
+                      className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
+                    />
+                    {errors.email && (
+                      <p className="text-red-500">{errors.email}</p>
+                    )}
+                  </div>
+                  <div className="w-full mb-3">
+                    <label
+                      for="phone"
+                      className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
+                    >
+                      Phone Number<span className="text-red-400">*</span>
+                    </label>
+                    <div className="flex">
+                      <PhoneInput
+                        country={"in"}
+                        value={formData.phone}
+                        onChange={handlePhoneChange}
+                        enableSearch={true} // Allows searching within the dropdown
+                        disableDropdown={false} // Keeps the dropdown active so users can select or manually type if present
+                        inputProps={{
+                          name: "phone",
+                          id: "phone",
+                          required: true,
+                          autoFocus: false,
+                        }}
+                        inputStyle={{
+                          width: "100%",
+                          borderRadius: "0.375rem",
+                          border: "1px solid black",
+                          backgroundColor: "white",
+                          padding: "1.5rem 3rem",
+                          fontSize: "1rem",
+                          fontWeight: "500",
+                          color: "#6B7280",
+                          outline: "none",
+                        }}
+                        containerStyle={{
+                          width: "100%",
+                        }}
                       />
-                      {errors.lastname && (
-                        <p className="text-red-500">{errors.lastname}</p>
-                      )}
                     </div>
-                    <div className="w-full md:mb-3">
-                      <label
-                        for="age"
-                        className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
-                      >
-                        Age<span className="text-red-400">*</span>
-                      </label>
-                      <select
-                        id="age"
-                        onChange={handleInputChange}
-                        name="age"
-                        value={formData.age}
-                        className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
-                      >
-                        <option selected>Select</option>
-                        <option className="text-black" value="17_or_less">
-                          17 years of age or less
+                    {errors.phone && (
+                      <p className="text-red-500">{errors.phone}</p>
+                    )}
+                  </div>
+                  <div className="mb-3 w-full">
+                    <label
+                      for="nationality"
+                      className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
+                    >
+                      Nationality<span className="text-red-400">*</span>
+                    </label>
+                    <select
+                      name="nationality"
+                      id="nationality"
+                      value={formData.nationality}
+                      onChange={handleInputChange}
+                      className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
+                    >
+                      <option selected>Select</option>
+                      {countries.map((country, index) => (
+                        <option
+                          key={index}
+                          className="text-black"
+                          value={country}
+                        >
+                          {country}
                         </option>
-                        <option className="text-black" value="18">
-                          18 years of age
-                        </option>
-                        <option className="text-black" value="19">
-                          19 years of age
-                        </option>
-                        <option className="text-black" value="20_to_29">
-                          20 to 29 years of age
-                        </option>
-                        <option className="text-black" value="30">
-                          30 years of age
-                        </option>
-                        <option className="text-black" value="31">
-                          31 years of age
-                        </option>
-                        <option className="text-black" value="32">
-                          32 years of age
-                        </option>
-                        <option className="text-black" value="33">
-                          33 years of age
-                        </option>
-                        <option className="text-black" value="34">
-                          34 years of age
-                        </option>
-                        <option className="text-black" value="35">
-                          35 years of age
-                        </option>
-                        <option className="text-black" value="36">
-                          36 years of age
-                        </option>
-                        <option className="text-black" value="37">
-                          37 years of age
-                        </option>
-                        <option className="text-black" value="38">
-                          38 years of age
-                        </option>
-                        <option className="text-black" value="39">
-                          39 years of age
-                        </option>
-                        <option className="text-black" value="40">
-                          40 years of age
-                        </option>
-                        <option className="text-black" value="41">
-                          41 years of age
-                        </option>
-                        <option className="text-black" value="42">
-                          42 years of age
-                        </option>
-                        <option className="text-black" value="43">
-                          43 years of age
-                        </option>
-                        <option className="text-black" value="44">
-                          44 years of age
-                        </option>
-                        <option className="text-black" value="45">
-                          45 years of age
-                        </option>
-                        <option className="text-black" value="45_or_more">
-                          45 years of age or more
-                        </option>
-                      </select>
-                      {errors.age && (
-                        <p className="text-red-500">{errors.age}</p>
-                      )}
-                    </div>
-                    <div className="md:mb-3 w-full">
-                      <label
-                        for="nationality"
-                        className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
-                      >
-                        Nationality<span className="text-red-400">*</span>
-                      </label>
-                      <select
-                        name="nationality"
-                        id="nationality"
-                        value={formData.nationality}
-                        onChange={handleInputChange}
-                        className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
-                      >
-                        <option selected>Select</option>
-                        {countries.map((country, index) => (
-                          <option
-                            key={index}
-                            className="text-black"
-                            value={country}
-                          >
-                            {country}
-                          </option>
-                        ))}
-                      </select>
-                      {/* <input
+                      ))}
+                    </select>
+                    {/* <input
                         type='text'
                         name='nationality'
                         id='nationality'
@@ -747,37 +526,213 @@ const PermanentImigration = ({
                         placeholder='Enter your nationality'
                         className='w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md'
                       /> */}
-                      {errors.nationality && (
-                        <p className="text-red-500">{errors.nationality}</p>
-                      )}
-                    </div>
+                    {errors.nationality && (
+                      <p className="text-red-500">{errors.nationality}</p>
+                    )}
+                  </div>
+                  <div className="w-full mb-3">
+                    <label
+                      for="age"
+                      className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
+                    >
+                      Age<span className="text-red-400">*</span>
+                    </label>
+                    <select
+                      id="age"
+                      onChange={handleInputChange}
+                      name="age"
+                      value={formData.age}
+                      className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
+                    >
+                      <option selected>Select</option>
+                      <option className="text-black" value="17_or_less">
+                        17 years of age or less
+                      </option>
+                      <option className="text-black" value="18">
+                        18 years of age
+                      </option>
+                      <option className="text-black" value="19">
+                        19 years of age
+                      </option>
+                      <option className="text-black" value="20_to_29">
+                        20 to 29 years of age
+                      </option>
+                      <option className="text-black" value="30">
+                        30 years of age
+                      </option>
+                      <option className="text-black" value="31">
+                        31 years of age
+                      </option>
+                      <option className="text-black" value="32">
+                        32 years of age
+                      </option>
+                      <option className="text-black" value="33">
+                        33 years of age
+                      </option>
+                      <option className="text-black" value="34">
+                        34 years of age
+                      </option>
+                      <option className="text-black" value="35">
+                        35 years of age
+                      </option>
+                      <option className="text-black" value="36">
+                        36 years of age
+                      </option>
+                      <option className="text-black" value="37">
+                        37 years of age
+                      </option>
+                      <option className="text-black" value="38">
+                        38 years of age
+                      </option>
+                      <option className="text-black" value="39">
+                        39 years of age
+                      </option>
+                      <option className="text-black" value="40">
+                        40 years of age
+                      </option>
+                      <option className="text-black" value="41">
+                        41 years of age
+                      </option>
+                      <option className="text-black" value="42">
+                        42 years of age
+                      </option>
+                      <option className="text-black" value="43">
+                        43 years of age
+                      </option>
+                      <option className="text-black" value="44">
+                        44 years of age
+                      </option>
+                      <option className="text-black" value="45">
+                        45 years of age
+                      </option>
+                      <option className="text-black" value="45_or_more">
+                        45 years of age or more
+                      </option>
+                    </select>
+                    {errors.age && <p className="text-red-500">{errors.age}</p>}
+                  </div>
+                  <div className="mb-3 w-full">
+                    <label
+                      for="martial-status"
+                      className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
+                    >
+                      Martial Status<span className="text-red-400">*</span>
+                    </label>
+
+                    <select
+                      id="martial-status"
+                      onChange={handleInputChange}
+                      name="maritalStatus"
+                      value={formData.maritalStatus}
+                      className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
+                    >
+                      <option selected>Select</option>
+                      <option className="text-black" value="married">
+                        Married/Common Law
+                      </option>
+                      <option className="text-black" value="unmarried">
+                        Never Married/Single
+                      </option>
+                      <option className="text-black" value="divorced">
+                        Divorced/Seperated
+                      </option>
+                      <option className="text-black" value="widowed">
+                        Widowed
+                      </option>
+                      <option className="text-black" value="seperated">
+                        Legally Seperated
+                      </option>
+                      <option className="text-black" value="anulledmarriage">
+                        Anulled Marriage
+                      </option>
+                    </select>
+                    {errors.maritalStatus && (
+                      <p className="text-red-500">{errors.maritalStatus}</p>
+                    )}
+                  </div>
+                  {formData.maritalStatus === "married" && (
                     <div className="mb-3 w-full">
                       <label
-                        for="live"
-                        className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
+                        for="spouseStatus"
+                        className="mb-4 ml-2 block text-base font-medium text-[#07074D]"
                       >
-                        Where do you currently live ?
+                        Will your spouse be travelling with you to Canada ?
                         <span className="text-red-400">*</span>
                       </label>
-                      <select
-                        name="region"
-                        id="live"
-                        value={formData.region}
-                        onChange={handleInputChange}
-                        className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
-                      >
-                        <option selected>Select</option>
-                        {countries.map((country, index) => (
-                          <option
-                            key={index}
-                            className="text-black"
-                            value={country}
+                      <div className="flex items-center justify-start gap-6">
+                        <div className="flex items-center mr-4 mb-4">
+                          <input
+                            id="wpspouse3"
+                            type="radio"
+                            name="spouseTravelling"
+                            className="hidden"
+                            value="yes"
+                            checked={formData.spouseTravelling === "yes"}
+                            onChange={handleInputChange}
+                          />
+                          <label
+                            for="wpspouse3"
+                            className="flex items-center cursor-pointer"
                           >
-                            {country}
-                          </option>
-                        ))}
-                      </select>
-                      {/* <input
+                            <span className="w-4 h-4 inline-block mr-1 border border-grey"></span>
+                            Yes
+                          </label>
+                        </div>
+
+                        <div className="flex items-center mr-4 mb-4">
+                          <input
+                            id="wpspouse4"
+                            type="radio"
+                            name="spouseTravelling"
+                            className="hidden"
+                            value="no"
+                            checked={formData.spouseTravelling === "no"}
+                            onChange={handleInputChange}
+                          />
+                          <label
+                            for="wpspouse4"
+                            className="flex items-center cursor-pointer"
+                          >
+                            <span className="w-4 h-4 inline-block mr-1 border border-grey"></span>
+                            NO
+                          </label>
+                        </div>
+                      </div>
+                      {errors.spouseTravelling && (
+                        <p className="text-red-500">
+                          {errors.spouseTravelling}
+                        </p>
+                      )}
+                    </div>
+                  )}
+
+                  <div className="mb-3 w-full">
+                    <label
+                      for="live"
+                      className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
+                    >
+                      Where do you currently live ?
+                      <span className="text-red-400">*</span>
+                    </label>
+                    <select
+                      name="region"
+                      id="live"
+                      value={formData.region}
+                      onChange={handleInputChange}
+                      className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
+                    >
+                      <option selected>Select</option>
+                      {countries.map((country, index) => (
+                        <option
+                          key={index}
+                          className="text-black"
+                          value={country}
+                        >
+                          {country}
+                        </option>
+                      ))}
+                    </select>
+                    {/* <input
                         type='text'
                         name='region'
                         id='live'
@@ -785,67 +740,12 @@ const PermanentImigration = ({
                         placeholder='Enter your region'
                         className='w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md'
                       /> */}
-                      {errors.region && (
-                        <p className="text-red-500">{errors.region}</p>
-                      )}
-                    </div>
-                  </div>
-                </div>
-                {formData.maritalStatus === "married" && (
-                  <div className="mb-3">
-                    <label
-                      for="spouseStatus"
-                      className="mb-4 ml-2 block text-base font-medium text-[#07074D]"
-                    >
-                      Will your spouse be travelling with you to Canada ?
-                      <span className="text-red-400">*</span>
-                    </label>
-                    <div className="flex items-center justify-start gap-6">
-                      <div className="flex items-center mr-4 mb-4">
-                        <input
-                          id="wpspouse3"
-                          type="radio"
-                          name="spouseTravelling"
-                          className="hidden"
-                          value="yes"
-                          checked={formData.spouseTravelling === "yes"}
-                          onChange={handleInputChange}
-                        />
-                        <label
-                          for="wpspouse3"
-                          className="flex items-center cursor-pointer"
-                        >
-                          <span className="w-4 h-4 inline-block mr-1 border border-grey"></span>
-                          Yes
-                        </label>
-                      </div>
-
-                      <div className="flex items-center mr-4 mb-4">
-                        <input
-                          id="wpspouse4"
-                          type="radio"
-                          name="spouseTravelling"
-                          className="hidden"
-                          value="no"
-                          checked={formData.spouseTravelling === "no"}
-                          onChange={handleInputChange}
-                        />
-                        <label
-                          for="wpspouse4"
-                          className="flex items-center cursor-pointer"
-                        >
-                          <span className="w-4 h-4 inline-block mr-1 border border-grey"></span>
-                          NO
-                        </label>
-                      </div>
-                    </div>
-                    {errors.spouseTravelling && (
-                      <p className="text-red-500">{errors.spouseTravelling}</p>
+                    {errors.region && (
+                      <p className="text-red-500">{errors.region}</p>
                     )}
                   </div>
-                )}
-                <div className="mt-4">
-                  <div className="mb-3">
+
+                  <div className="mb-3 full">
                     <label
                       for="children"
                       className="mb-4 ml-2 block text-base font-medium text-[#07074D]"
@@ -895,11 +795,12 @@ const PermanentImigration = ({
                         </label>
                       </div>
                     </div>
+                    {errors.children && (
+                      <p className="text-red-500">{errors.children}</p>
+                    )}
                   </div>
-                  {errors.children && (
-                    <p className="text-red-500">{errors.children}</p>
-                  )}
                 </div>
+
                 <div className="w-full flex items-center justify-center mb-10">
                   <button
                     className="bg-black text-[#01F9E1] px-16 py-3 rounded-lg text-xl"
@@ -909,7 +810,7 @@ const PermanentImigration = ({
 
                       // setSelectForm('Education');
                       if (validate(true)) {
-                        setSelectForm("Education");
+                        setSelectForm("education-experience");
 
                         // redirect('#others');
                       }
@@ -929,633 +830,30 @@ const PermanentImigration = ({
                 </div>
               </form>
             )}
-            <div
-              id="education"
-              onClick={() => {
-                if (formData.educationqualification1)
-                  setSelectForm("Education");
-              }}
-              className="text-xl font-semibold tracking-[8px] bg-[#01997E] text-white w-full px-10 py-2 rounded-md flex items-center justify-between"
-            >
-              Education & Training
-              <span className="text-black">
-                {selectForm === "Education" ? (
-                  <GoArrowDownRight size={30} />
-                ) : (
-                  <GoArrowUpRight size={30} />
-                )}
-              </span>
-            </div>
-            {selectForm === "Education" && (
-              <form action="post" className="w-full">
-                <div className="mb-3">
-                  <label className="mb-4 ml-2 block text-base font-medium text-[#07074D]">
-                    Have you gained any post secondary education or training?
-                    <span className="text-red-400">*</span>
-                  </label>
-                  <div className="flex items-center justify-start gap-6">
-                    <div className="flex items-center mr-4 mb-4">
-                      <input
-                        id="educationqualification1"
-                        type="radio"
-                        name="educationqualification1"
-                        className="hidden"
-                        value="yes"
-                        checked={formData.educationqualification1 === "yes"}
-                        onChange={(e) => {
-                          setFormData({
-                            ...formData,
-                            educationqualification1: e.target.value,
-                          });
-                        }}
-                      />
-                      <label
-                        for="educationqualification1"
-                        className="flex items-center cursor-pointer"
-                      >
-                        <span className="w-4 h-4 inline-block mr-1 border border-grey"></span>
-                        Yes
-                      </label>
-                    </div>
-                    <div className="flex items-center mr-4 mb-4">
-                      <input
-                        id="educationqualification2"
-                        type="radio"
-                        name="educationqualification1"
-                        className="hidden"
-                        value="no"
-                        checked={formData.educationqualification1 === "no"}
-                        onChange={(e) => {
-                          setFormData({
-                            ...formData,
-                            educationqualification1: e.target.value,
-                            passingyear: "",
-                            board: "",
-                            stream: "",
-                            country: "",
-                          });
-                        }}
-                      />
-                      <label
-                        for="educationqualification2"
-                        className="flex items-center cursor-pointer"
-                      >
-                        <span className="w-4 h-4 inline-block mr-1 border border-grey"></span>
-                        NO
-                      </label>
-                    </div>
-                  </div>
-                  {eduErrors.educationqualification1 && (
-                    <p className="text-red-500">
-                      {eduErrors.educationqualification1}
-                    </p>
-                  )}
-                </div>
-                {formData.educationqualification1 === "yes" && (
-                  <div>
-                    {formData.educationalQualifications.map(
-                      (qualification, index) => (
-                        <div key={index} className="mb-6">
-                          <label
-                            htmlFor={`educationqualification-${index}`}
-                            className="font-semibold text-lg mb-4"
-                          >
-                            Educational Qualifications *
-                          </label>
-                          <select
-                            id={`educationqualification-${index}`}
-                            name="educationqualification"
-                            value={qualification.educationqualification}
-                            onChange={(e) =>
-                              handleQualificationChange(index, e)
-                            }
-                            className="w-full block mb-4 lg:w-[45%] rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
-                          >
-                            <option disabled value="">
-                              Select
-                            </option>
-                            <option
-                              className="text-black"
-                              value="secondary_school"
-                            >
-                              Secondary School (Class 10th)
-                            </option>
-                            <option
-                              className="text-black"
-                              value="senior_secondary"
-                            >
-                              Senior Secondary diploma (high school)(Class 12th)
-                            </option>
-                            <option
-                              className="text-black"
-                              value="one_year_diploma"
-                            >
-                              One-year diploma or certificate (Post Secondary)
-                            </option>
-                            <option
-                              className="text-black"
-                              value="two_year_diploma"
-                            >
-                              Two-year degree, diploma of certificate (Post
-                              Secondary)
-                            </option>
-                            <option
-                              className="text-black"
-                              value="bachelors_degree"
-                            >
-                              Bachelor's degree for 3yrs or more
-                            </option>
-                            <option
-                              className="text-black"
-                              value="post_graduate_diploma"
-                            >
-                              Post Graduate Diploma/Certificate for 1yr or more
-                            </option>
-                            <option
-                              className="text-black"
-                              value="masters_degree"
-                            >
-                              Master's degree for 1 yr or more
-                            </option>
-                            <option
-                              className="text-black"
-                              value="doctoral_degree"
-                            >
-                              Doctoral level university degree/Ph.D.
-                            </option>
-                          </select>
-                          {eduErrors[`educationqualification-${index}`] && (
-                            <p className="text-red-500 mb-4 -mt-2">
-                              {eduErrors[`educationqualification-${index}`]}
-                            </p>
-                          )}
-                          {/* Additional fields for passing year, board, stream, country */}
-                          <div className="block sm:flex items-center justify-between w-full">
-                            <div className="w-full sm:w-[45%] flex flex-col items-center justify-center">
-                              <div className="mb-3 w-full">
-                                <label
-                                  htmlFor={`passingyear-${index}`}
-                                  className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
-                                >
-                                  Year of Passing
-                                  <span className="text-red-400">*</span>
-                                </label>
-                                <select
-                                  id={`passingyear-${index}`}
-                                  name="passingyear"
-                                  value={qualification.passingyear}
-                                  onChange={(e) =>
-                                    handleQualificationChange(index, e)
-                                  }
-                                  className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
-                                >
-                                  <option disabled value="">
-                                    Select
-                                  </option>
-                                  {years.map((year, i) => (
-                                    <option
-                                      key={i}
-                                      className="text-black"
-                                      value={year}
-                                    >
-                                      {year}
-                                    </option>
-                                  ))}
-                                </select>
-                                {eduErrors[`passingyear-${index}`] && (
-                                  <p className="text-red-500">
-                                    {eduErrors[`passingyear-${index}`]}
-                                  </p>
-                                )}
-                              </div>
-                              <div className="w-full mb-3">
-                                <label
-                                  htmlFor={`board-${index}`}
-                                  className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
-                                >
-                                  Board / University
-                                  <span className="text-red-400">*</span>
-                                </label>
-                                <input
-                                  type="text"
-                                  id={`board-${index}`}
-                                  name="board"
-                                  value={qualification.board}
-                                  onChange={(e) =>
-                                    handleQualificationChange(index, e)
-                                  }
-                                  maxLength={50}
-                                  className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
-                                />
-                                {eduErrors[`board-${index}`] && (
-                                  <p className="text-red-500">
-                                    {eduErrors[`board-${index}`]}
-                                  </p>
-                                )}
-                              </div>
-                            </div>
-                            <div className="w-full sm:w-[45%] flex flex-col items-center justify-center">
-                              <div className="w-full mb-3">
-                                <label
-                                  htmlFor={`stream-${index}`}
-                                  className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
-                                >
-                                  Field / Stream
-                                  <span className="text-red-400">*</span>
-                                </label>
 
-                                <SearchableDropdown
-                                  apiEndpoint={`${process.env.REACT_APP_API}/study_fields`}
-                                  onSelect={(option) =>
-                                    handleEducationSelect(index, option)
-                                  }
-                                  id={`stream-${index}`}
-                                  name={`stream-${index}`}
-                                  value={
-                                    formData.educationalQualifications[index]
-                                      .stream
-                                  }
-                                  onChange={(e) =>
-                                    handleQualificationChange(index, e)
-                                  }
-                                  className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
-                                />
-
-                                {eduErrors[`stream-${index}`] && (
-                                  <p className="text-red-500">
-                                    {eduErrors[`stream-${index}`]}
-                                  </p>
-                                )}
-                              </div>
-                              <div className="w-full mb-3">
-                                <label
-                                  htmlFor={`country-${index}`}
-                                  className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
-                                >
-                                  Country
-                                  <span className="text-red-400">*</span>
-                                </label>
-                                <select
-                                  id={`country-${index}`}
-                                  name="country"
-                                  value={qualification.country}
-                                  onChange={(e) =>
-                                    handleQualificationChange(index, e)
-                                  }
-                                  className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
-                                >
-                                  <option selected>Select</option>
-                                  {countries.map((country, i) => (
-                                    <option
-                                      key={i}
-                                      className="text-black"
-                                      value={country}
-                                    >
-                                      {country}
-                                    </option>
-                                  ))}
-                                </select>
-                                {eduErrors[`country-${index}`] && (
-                                  <p className="text-red-500">
-                                    {eduErrors[`country-${index}`]}
-                                  </p>
-                                )}
-                              </div>
-                              <div
-                                onClick={() => handleDeleteQualification(index)}
-                                className="relative top-14 left-20 cursor-pointer"
-                              >
-                                <button
-                                  type="button"
-                                  className="flex items-center justify-center gap-2 bg-[#01997E] text-white py-2 px-4 rounded-lg absolute -top-[60px] w-[9rem] sm:w-[12rem] text-[12px] sm:text-[16px] -right-20 sm:-right-18"
-                                  onClick={addQualification}
-                                >
-                                  Delete <RiDeleteBin6Line />
-                                </button>
-                              </div>
-                              {/* <div onClick={() => handleDeleteQualification(index)} className='flex items-center justify-between gap-1 relative top-10 left-20 cursor-pointer'><RiDeleteBin6Line /> Delete</div> */}
-                            </div>
-                          </div>
-                        </div>
-                      )
-                    )}
-                    <div className="relative">
-                      <button
-                        type="button"
-                        className="flex items-center justify-between bg-[#01997E] text-white py-2 px-4 rounded-lg absolute top-4 w-[9rem] sm:w-[12rem] text-[12px] sm:text-[16px] left-0"
-                        onClick={addQualification}
-                      >
-                        Add Education <FaPlus />
-                      </button>
-                    </div>
-                  </div>
-                )}
-                <div className="w-full flex items-center justify-center sm:mb-10 mt-20">
-                  <button
-                    className="bg-black text-[#01F9E1] px-16 py-3 rounded-lg text-xl mt-10"
-                    type="button"
-                    onClick={() => {
-                      setSubmitAttemptedEducation(true);
-                      // setSelectForm('work-experience');
-                      if (validateEducation(true)) {
-                        setSelectForm("work-experience");
-                      }
-                      const element = personalInfoRef.current;
-                      const elementPosition =
-                        element.getBoundingClientRect().top +
-                        window.pageYOffset;
-
-                      window.scrollTo({
-                        top: elementPosition, // Adjust the offset here (100px)
-                        behavior: "smooth",
-                      });
-                    }}
-                  >
-                    Next
-                  </button>
-                </div>
-              </form>
-            )}
-            <div
-              id="workExperience"
-              onClick={() => {
-                if (formData.workexperience1) setSelectForm("work-experience");
-              }}
-              className="text-xl font-semibold tracking-[8px] bg-[#01997E] text-white w-full px-10 py-2 rounded-md flex items-center justify-between"
-            >
-              Work Experience
-              <span className="text-black">
-                {selectForm === "work-experience" ? (
-                  <GoArrowDownRight size={30} />
-                ) : (
-                  <GoArrowUpRight size={30} />
-                )}
-              </span>
-            </div>
-            {selectForm === "work-experience" && (
-              <form action="post" className="w-full">
-                <div className="mt-4">
-                  <div className="mb-3">
-                    <label
-                      for="workexperience"
-                      className="mb-4 ml-2 block text-base font-medium text-[#07074D]"
-                    >
-                      Do you have work experience?
-                      <span className="text-red-400">*</span>
-                    </label>
-                    <div className="flex items-center justify-start gap-6">
-                      <div className="flex items-center mr-4 mb-4">
-                        <input
-                          id="workexperience001"
-                          type="radio"
-                          name="workexperience"
-                          className="hidden"
-                          value="yes"
-                          checked={formData.workexperience1 === "yes"}
-                          onChange={(e) =>
-                            setFormData({
-                              ...formData,
-                              workexperience1: e.target.value,
-                            })
-                          }
-                        />
-                        <label
-                          for="workexperience001"
-                          className="flex items-center cursor-pointer"
-                        >
-                          <span className="w-4 h-4 inline-block mr-1 border border-grey"></span>
-                          Yes
-                        </label>
-                      </div>
-                      <div className="flex items-center mr-4 mb-4">
-                        <input
-                          id="workexperience002"
-                          type="radio"
-                          name="workexperience"
-                          className="hidden"
-                          value="no"
-                          checked={formData.workexperience1 === "no"}
-                          onChange={(e) => {
-                            setFormData({
-                              ...formData,
-                              workexperience1: e.target.value,
-
-                              occupation: "",
-                              employmentHistory: "",
-                              workCountry: "",
-                            });
-                          }}
-                        />
-                        <label
-                          for="workexperience002"
-                          className="flex items-center cursor-pointer"
-                        >
-                          <span className="w-4 h-4 inline-block mr-1 border border-grey"></span>
-                          NO
-                        </label>
-                      </div>
-                    </div>
-                    {workErrors.workexperience1 && (
-                      <p className="text-red-500">
-                        {workErrors.workexperience1}
-                      </p>
-                    )}
-                  </div>
-                </div>
-                {formData.workexperience1 === "yes" && (
-                  <>
-                    {formData.workexperiences.map((experience, index) => (
-                      <div key={index} className="mb-6">
-                        <div className="font-semibold text-lg mb-4">
-                          {" "}
-                          Work Experience *
-                        </div>
-
-                        <div className="block sm:flex items-center justify-between w-full">
-                          <div className="w-full sm:w-[45%] flex flex-col items-center justify-center">
-                            <div className="mb-3 w-full">
-                              <label
-                                htmlFor={`workexperience-${index}`}
-                                className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
-                              >
-                                Total Number of Work Experience
-                                <span className="text-red-400">*</span>
-                              </label>
-                              <input
-                                type="text"
-                                id={`workexperience-${index}`}
-                                name="workexperience"
-                                value={experience.workexperience}
-                                onChange={(e) =>
-                                  handleExperienceChange(index, e)
-                                }
-                                maxLength={50}
-                                // value={experience.workexperience}
-                                className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
-                              />
-                              {workErrors[`workexperience-${index}`] && (
-                                <p className="text-red-500">
-                                  {workErrors[`workexperience-${index}`]}
-                                </p>
-                              )}
-                              {/* {workErrors.workexperience1 && (
-                                <p className='text-red-500'>
-                                  {workErrors.workexperience1}
-                                </p>
-                              )} */}
-                            </div>
-                            <div className="w-full mb-3">
-                              <label
-                                htmlFor={`occupation-${index}`}
-                                className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
-                              >
-                                Occupation
-                                <span className="text-red-400">*</span>
-                              </label>
-                              <SearchableDropdown
-                                apiEndpoint={`${process.env.REACT_APP_API}/occupations`}
-                                onSelect={(option) =>
-                                  handleWorkSelect(index, option)
-                                }
-                                id={`occupation-${index}`}
-                                name={`occupation-${index}`}
-                                value={
-                                  formData.workexperiences[index].occupation
-                                }
-                                onChange={(e) =>
-                                  handleExperienceChange(index, e)
-                                }
-                                className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
-                              />
-
-                              {workErrors[`occupation-${index}`] && (
-                                <p className="text-red-500">
-                                  {workErrors[`occupation-${index}`]}
-                                </p>
-                              )}
-                            </div>
-                          </div>
-                          <div className="w-full sm:w-[45%] flex flex-col items-center justify-center">
-                            <div className="w-full mb-3">
-                              <label
-                                htmlFor={`employmentHistory-${index}`}
-                                className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
-                              >
-                                Designation{" "}
-                                <span className="text-red-400">*</span>
-                              </label>
-                              <input
-                                type="text"
-                                id={`employmentHistory-${index}`}
-                                name="employmentHistory"
-                                value={experience.employmentHistory}
-                                onChange={(e) =>
-                                  handleExperienceChange(index, e)
-                                }
-                                maxLength={50}
-                                className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
-                              />
-                              {workErrors[`employmentHistory-${index}`] && (
-                                <p className="text-red-500">
-                                  {workErrors[`employmentHistory-${index}`]}
-                                </p>
-                              )}
-                            </div>
-                            <div className="w-full mb-3">
-                              <label
-                                htmlFor={`workCountry-${index}`}
-                                className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
-                              >
-                                Country<span className="text-red-400">*</span>
-                              </label>
-                              <select
-                                id={`workCountry-${index}`}
-                                name="workCountry"
-                                value={experience.workCountry}
-                                onChange={(e) =>
-                                  handleExperienceChange(index, e)
-                                }
-                                className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
-                              >
-                                <option selected>Select</option>
-                                {countries.map((country, i) => (
-                                  <option
-                                    key={i}
-                                    className="text-black"
-                                    value={country}
-                                  >
-                                    {country}
-                                  </option>
-                                ))}
-                              </select>
-
-                              {workErrors[`workCountry-${index}`] && (
-                                <p className="text-red-500">
-                                  {workErrors[`workCountry-${index}`]}
-                                </p>
-                              )}
-                            </div>
-                            <div
-                              onClick={() => handleDeleteExperience(index)}
-                              className="relative top-10 left-20 cursor-pointer"
-                            >
-                              <button
-                                type="button"
-                                className="flex items-center justify-center gap-2 bg-[#01997E] text-white py-2 px-4 rounded-lg absolute -top-[40px] w-[9rem] sm:w-[12rem] text-[12px] sm:text-[16px] -right-20 sm:-right-18"
-                                onClick={addQualification}
-                              >
-                                Delete <RiDeleteBin6Line />
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                    <div className="relative">
-                      <button
-                        type="button"
-                        className="flex items-center justify-between bg-[#01997E] text-white py-2 px-4 rounded-lg absolute top-4 w-[9rem] sm:w-[12rem] text-[12px] sm:text-[16px] left-0"
-                        onClick={addExperience}
-                      >
-                        Add Experience <FaPlus />
-                      </button>
-                    </div>
-                  </>
-                )}
-
-                <div className="w-full flex items-center justify-center mb-10 mt-10">
-                  <button
-                    className="bg-black text-[#01F9E1] px-16 py-3 rounded-lg text-xl"
-                    type="button"
-                    onClick={() => {
-                      setSubmitAttemptedWork(true);
-                      // setSelectForm('english');
-                      if (validateWork(true)) {
-                        setSelectForm("english");
-                      }
-                      const element = personalInfoRef.current;
-                      const elementPosition =
-                        element.getBoundingClientRect().top +
-                        window.pageYOffset;
-
-                      window.scrollTo({
-                        top: elementPosition + 70, // Adjust the offset here (100px)
-                        behavior: "smooth",
-                      });
-                    }}
-                  >
-                    Next
-                  </button>
-                </div>
-              </form>
-            )}
+            <EducationDetails
+              selectForm={selectForm}
+              formData={formData}
+              setFormData={setFormData}
+              setSelectForm={setSelectForm}
+              nextform={"work-experience"}
+              scrollRef={personalInfoRef}
+            />
+            <WorkExperienceForm
+              selectForm={selectForm}
+              formData={formData}
+              setFormData={setFormData}
+              setSelectForm={setSelectForm}
+              nextform={"english"}
+              scrollRef={personalInfoRef}
+            />
             <div
               id="test"
               onClick={() => {
                 if (formData.englishTest || formData.frenchTest)
                   setSelectForm("english");
               }}
-              className="text-xl font-semibold tracking-[8px] bg-[#01997E] text-white w-full px-10 py-2 rounded-md flex items-center justify-between"
+              className="text-base md:text-xl font-semibold tracking-[5px] md:tracking-[8px] bg-[#01997E] text-white w-full px-10 py-2 rounded-md flex items-center justify-between"
             >
               English / French Language Skills
               <span className="text-black">
@@ -1700,9 +998,10 @@ const PermanentImigration = ({
                                   setSelectedExam(e.target.value);
                                   handleInputChange(e);
                                 }}
+                                value={formData.englishTestType}
                                 className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
                               >
-                                <option disabled selected>
+                                <option value="" selected>
                                   Select
                                 </option>
                                 <option className="text-black" value="IELTS">
@@ -1737,12 +1036,12 @@ const PermanentImigration = ({
                                   setSelectedExamFrench(e.target.value);
                                   handleInputChange(e);
                                 }}
+                                value={formData.frenchTestType}
                                 className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
                               >
-                                <option disabled selected>
+                                <option value="" selected>
                                   Select
                                 </option>
-
                                 <option className="text-black" value="TCF">
                                   TCF (French)
                                 </option>
@@ -3155,7 +2454,7 @@ const PermanentImigration = ({
                 )
                   setSelectForm("other");
               }}
-              className="text-xl font-semibold tracking-[8px] bg-[#01997E] text-white w-full px-10 py-2 rounded-md flex items-center justify-between"
+              className="text-base md:text-xl font-semibold tracking-[5px] md:tracking-[8px] bg-[#01997E] text-white w-full px-10 py-2 rounded-md flex items-center justify-between"
             >
               Other
               <span className="text-black">
@@ -3333,11 +2632,6 @@ const PermanentImigration = ({
                       className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
                     />
                   </div>
-                  {othersErrors.otherInformation && (
-                    <p className="text-red-500">
-                      {othersErrors.otherInformation}
-                    </p>
-                  )}
                 </div>
 
                 <div className="w-full flex items-center justify-center mb-10 mt-10">
@@ -3348,53 +2642,6 @@ const PermanentImigration = ({
                       setSubmitAttemptedOther(true);
                       if (validateOthers(true)) {
                         handleFormSubmit();
-                        setSelectForm("PersonalInformation");
-                        // setFormData({
-                        //   firstname: '',
-                        //   lastname: '',
-                        //   email: '',
-                        //   phone: '',
-                        //   maritalStatus: '',
-                        //   age: '',
-                        //   nationality: '',
-                        //   region: '',
-                        //   spouseTravelling: '',
-                        //   children: '',
-
-                        //   educationqualification1: '',
-
-                        //   workexperience: '',
-                        //   workexperience1: '',
-                        //   occupation: '',
-                        //   employmentHistory: '',
-                        //   workCountry: '',
-                        //   englishTest: '',
-                        //   frenchTest: '',
-                        //   englishTestType: '',
-                        //   frenchTestType: '',
-                        //   englishTestResult: {
-                        //     reading: '',
-                        //     writing: '',
-                        //     listening: '',
-                        //     speaking: '',
-                        //   },
-                        //   frenchTestResult: {
-                        //     reading: '',
-                        //     writing: '',
-                        //     listening: '',
-                        //     speaking: '',
-                        //   },
-                        //   futureTestEnglish: '',
-                        //   futureTestFrench: '',
-                        //   certificateofNomination: '',
-                        //   canadianjobOffer: '',
-                        //   relativesinCanada: '',
-                        //   otherInformation: '',
-                        // });
-                        window.scrollTo({
-                          top: element,
-                          behavior: "smooth",
-                        });
                       }
                     }}
                   >

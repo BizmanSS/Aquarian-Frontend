@@ -213,6 +213,7 @@ const FreeAssessment = () => {
   const personalInfoRef = useRef(null); // create a ref
   const workPermitRef = useRef(null);
   const studyPermitRef = useRef(null);
+  const touristVisaRef = useRef(null);
 
   const [selectedForm, setSelectedForm] = useState({
     permanentImmigration: false,
@@ -270,6 +271,19 @@ const FreeAssessment = () => {
     }
   }, [selectedForm.studyPermit, studyPermitRef]);
 
+  useEffect(() => {
+    if (selectedForm.touristVisa && touristVisaRef.current) {
+      const element = touristVisaRef.current;
+      const elementPosition =
+        element.getBoundingClientRect().top + window.pageYOffset;
+
+      window.scrollTo({
+        top: elementPosition - 100, // Adjust the offset here (100px)
+        behavior: "smooth",
+      });
+    }
+  }, [selectedForm.touristVisa, touristVisaRef]);
+
   return (
     <>
       <BannerPages
@@ -280,105 +294,143 @@ const FreeAssessment = () => {
       <div className="w-[100%] md:w-[94%]">
         <div className="px-4  mt-8 md:mt-[4rem] lg:px-20 flex items-center w-full md:w-[95%] justify-start">
           {/* <IoArrowForwardSharp size={30} className='relative -top-2' /> */}
-          <div class="mb-4 ml-2 block text-3xl font-medium text-[#07074D] py-2">
+          <div className="mb-4 ml-2 block text-3xl font-medium text-[#07074D] py-2">
             Choose your evaluation form
           </div>
         </div>
         <div className="pl-8 w-[88%] border border-l-[7px] border-l-[#01997e] mx-6 lg:mx-20 mb-10 py-6 grid grid-cols-2 lg:grid-cols-3 gap-8 rounded-xl">
-          <div class="flex items-center">
+          <div className="flex items-center">
             <input
               id="radio5"
               type="radio"
               name="radio"
-              class="hidden"
+              className="hidden"
               onChange={() => {
                 handleRadioChange("permanentImmigration");
               }}
             />
-            <label for="radio5" class="flex items-center cursor-pointer">
-              <span class="w-4 h-4 inline-block mr-1 border border-black"></span>
-              Permanent Immigration
+            <label
+              for="radio5"
+              className="flex w-full justify-between items-center cursor-pointer"
+            >
+              <span className="w-4 h-4 inline-block mr-1 border border-grey"></span>
+              <p className="w-[calc(100%-1.5rem)] md:text-lg">
+                Permanent Immigration
+              </p>
             </label>
           </div>
-          <div class="flex items-center">
+          <div className="flex items-center">
             <input
               id="radio6"
               type="radio"
               name="radio"
-              class="hidden"
+              className="hidden"
               onChange={() => handleRadioChange("workPermit")}
             />
-            <label for="radio6" class="flex items-center cursor-pointer">
-              <span class="w-4 h-4 inline-block mr-1 border border-black"></span>
-              Work Permit
+            <label
+              for="radio6"
+              className="flex w-full justify-between items-center cursor-pointer"
+            >
+              <span className="w-4 h-4 inline-block mr-1 border border-grey"></span>
+              <p className="w-[calc(100%-1.5rem)] md:text-lg">Work Permit</p>
             </label>
           </div>
-          <div class="flex items-center">
+          <div className="flex items-center">
             <input
               id="radio3"
               type="radio"
               name="radio"
-              class="hidden"
+              className="hidden"
               onChange={() => handleRadioChange("studyPermit")}
             />
-            <label for="radio3" class="flex items-center cursor-pointer">
-              <span class="w-4 h-4 inline-block mr-1 border border-black"></span>
-              Study Permit/Visa
+            <label
+              for="radio3"
+              className="flex w-full justify-between items-center cursor-pointer"
+            >
+              <span className="w-4 h-4 inline-block mr-1 border border-grey"></span>
+              <p className="w-[calc(100%-1.5rem)] md:text-lg">
+                Study Permit/Visa
+              </p>
             </label>
           </div>
-          <div class="flex items-center">
+          <div className="flex items-center">
             <input
               id="radio4"
               type="radio"
               name="radio"
-              class="hidden"
+              className="hidden"
               onChange={() => handleRadioChange("touristVisa")}
             />
-            <label for="radio4" class="flex items-center cursor-pointer">
-              <span class="w-4 h-4 inline-block mr-1 border border-black"></span>
-              Tourist Visa
+            <label
+              for="radio4"
+              className="flex w-full justify-between items-center cursor-pointer"
+            >
+              <span className="w-4 h-4 inline-block mr-1 border border-grey"></span>
+              <p className="w-[calc(100%-1.5rem)] md:text-lg">Tourist Visa</p>
             </label>
           </div>
-          <div class="flex items-center">
-            <input id="radio24" type="radio" name="radio" class="hidden" />
-            <label for="radio24" class="flex items-center cursor-pointer">
-              <span class="w-4 h-4 inline-block mr-1 border border-black"></span>
-              Business Visa
+          <div className="flex items-center">
+            <input id="radio24" type="radio" name="radio" className="hidden" />
+            <label
+              for="radio24"
+              className="flex w-full justify-between items-center cursor-pointer"
+            >
+              <span className="w-4 h-4 inline-block mr-1 border border-grey"></span>
+              <p className="w-[calc(100%-1.5rem)] md:text-lg">Business Visa</p>
             </label>
           </div>
-          <div class="flex items-center">
-            <input id="radio25" type="radio" name="radio" class="hidden" />
-            <label for="radio25" class="flex items-center cursor-pointer">
-              <span class="w-4 h-4 inline-block mr-1 border border-black"></span>
-              Business Immigration
+          <div className="flex items-center">
+            <input id="radio25" type="radio" name="radio" className="hidden" />
+            <label
+              for="radio25"
+              className="flex w-full justify-between items-center cursor-pointer"
+            >
+              <span className="w-4 h-4 inline-block mr-1 border border-grey"></span>
+              <p className="w-[calc(100%-1.5rem)] md:text-lg">
+                Business Immigration
+              </p>
             </label>
           </div>
-          <div class="flex items-center">
-            <input id="radio26" type="radio" name="radio" class="hidden" />
-            <label for="radio26" class="flex items-center cursor-pointer">
-              <span class="w-4 h-4 inline-block mr-1 border border-black"></span>
-              Family Sponsorship
+          <div className="flex items-center">
+            <input id="radio26" type="radio" name="radio" className="hidden" />
+            <label
+              for="radio26"
+              className="flex w-full justify-between items-center cursor-pointer"
+            >
+              <span className="w-4 h-4 inline-block mr-1 border border-grey"></span>
+              <p className="w-[calc(100%-1.5rem)] md:text-lg">
+                Family Sponsorship
+              </p>
             </label>
           </div>
-          <div class="flex items-center">
-            <input id="radio27" type="radio" name="radio" class="hidden" />
-            <label for="radio27" class="flex items-center cursor-pointer">
-              <span class="w-4 h-4 inline-block mr-1 border border-black"></span>
-              Dependent Visa
+          <div className="flex items-center">
+            <input id="radio27" type="radio" name="radio" className="hidden" />
+            <label
+              for="radio27"
+              className="flex w-full justify-between items-center cursor-pointer"
+            >
+              <span className="w-4 h-4 inline-block mr-1 border border-grey"></span>
+              <p className="w-[calc(100%-1.5rem)] md:text-lg">Dependent Visa</p>
             </label>
           </div>
-          <div class="flex items-center">
-            <input id="radio28" type="radio" name="radio" class="hidden" />
-            <label for="radio28" class="flex items-center cursor-pointer">
-              <span class="w-4 h-4 inline-block mr-1 border border-black"></span>
-              LMIA
+          <div className="flex items-center">
+            <input id="radio28" type="radio" name="radio" className="hidden" />
+            <label
+              for="radio28"
+              className="flex w-full justify-between items-center cursor-pointer"
+            >
+              <span className="w-4 h-4 inline-block mr-1 border border-grey"></span>
+              <p className="w-[calc(100%-1.5rem)] md:text-lg">LMIA</p>
             </label>
           </div>
-          <div class="flex items-center">
-            <input id="radio29" type="radio" name="radio" class="hidden" />
-            <label for="radio29" class="flex items-center cursor-pointer">
-              <span class="w-4 h-4 inline-block mr-1 border border-black"></span>
-              Others
+          <div className="flex items-center">
+            <input id="radio29" type="radio" name="radio" className="hidden" />
+            <label
+              for="radio29"
+              className="flex w-full justify-between items-center cursor-pointer"
+            >
+              <span className="w-4 h-4 inline-block mr-1 border border-grey"></span>
+              <p className="w-[calc(100%-1.5rem)] md:text-lg">Others</p>
             </label>
           </div>
         </div>
@@ -391,16 +443,18 @@ const FreeAssessment = () => {
         <WorkPermit
           selectedForm={selectedForm}
           formType={"Work Permit"}
-          personalInfoRef={workPermitRef}
           workPermitRef={workPermitRef}
         />
         <StudyPermit
           selectedForm={selectedForm}
           formType={"Study Permit"}
-          personalInfoRef={studyPermitRef}
           studyPermitRef={studyPermitRef}
         />
-        <TouristVisa selectedForm={selectedForm} formType={"Tourist Visa"} />
+        <TouristVisa
+          selectedForm={selectedForm}
+          formType={"Tourist Visa"}
+          touristVisaRef={touristVisaRef}
+        />
       </div>
     </>
   );

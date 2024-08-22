@@ -18,12 +18,8 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
   const [submitAttempted, setSubmitAttempted] = useState(false);
   const [submitAttemptedEducation, setSubmitAttemptedEducation] =
     useState(false);
-  const [submitAttemptedWork, setSubmitAttemptedWork] = useState(false);
-
   const [errors, setErrors] = useState({});
   const [eduErrors, setEduErrors] = useState({});
-  const [workErrors, setWorkErrors] = useState({});
-
   const [formData, setFormData] = useState({
     firstname: "",
     lastname: "",
@@ -43,6 +39,15 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
     requireLmiaJoboffer: "",
     nocCodeonLmia: "",
     workexperience1: "",
+    yearsOfExp: "",
+    workExperiences: {
+      startDates: null,
+      endDates: null,
+      occupation: "",
+      typeOfJob: "",
+      employmentHistory: "",
+      country: "",
+    },
     otherInformation: "",
   });
 
@@ -143,6 +148,14 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
       [event.target.name]: event.target.value,
     });
   };
+  const handleNameChange = (event) => {
+    if (/^[a-zA-Z]*$/.test(event.target.value)) {
+      setFormData({
+        ...formData,
+        [event.target.name]: event.target.value,
+      });
+    }
+  };
 
   const handlePhoneChange = (phone) => {
     setFormData((prevState) => ({
@@ -200,10 +213,49 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
 
       if (response.status === 200) {
         const data = response.data;
-        toast.success("You have successfully submited your form!");
+        toast.success("You have successfully submited your form!", {
+          position: "top-center",
+        });
+        setSelectForm("PersonalInformation");
+        window.scrollTo({
+          top: element,
+          behavior: "smooth",
+        });
+        setFormData({
+          firstname: "",
+          lastname: "",
+          email: "",
+          phone: "",
+          nationality: "",
+          age: "",
+          maritalStatus: "",
+          isSpouseinCanada: "",
+          statusOfWife: "",
+          region: "",
+          status: "",
+          EducationLevel: "",
+          englishTest: "",
+          children: "",
+          haveLmiaJoboffer: "",
+          requireLmiaJoboffer: "",
+          nocCodeonLmia: "",
+          workexperience1: "",
+          yearsOfExp: "",
+          workExperiences: {
+            startDates: null,
+            endDates: null,
+            occupation: "",
+            typeOfJob: "",
+            employmentHistory: "",
+            country: "",
+          },
+          otherInformation: "",
+        });
       }
     } catch (error) {
-      toast.error("Internal server errror!");
+      toast.error("Internal server errror!", {
+        position: "top-center",
+      });
     }
   };
 
@@ -236,7 +288,7 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
               }}
               // id='personalInformation'
               id="PersonalInformation"
-              className="text-xl font-semibold tracking-[8px] bg-[#01997E] text-white w-full px-10 py-2 rounded-md flex items-center justify-between"
+              className="text-base md:text-xl font-semibold tracking-[5px] md:tracking-[8px] bg-[#01997E] text-white w-full px-10 py-2 rounded-md flex items-center justify-between"
             >
               Personal Information{" "}
               <span className="text-black">
@@ -264,7 +316,7 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
                       type="text"
                       name="firstname"
                       id="firstname"
-                      onChange={handleInputChange}
+                      onChange={handleNameChange}
                       value={formData.firstname}
                       maxLength={50}
                       placeholder="Enter your first name"
@@ -285,7 +337,7 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
                       type="text"
                       name="lastname"
                       id="lastname"
-                      onChange={handleInputChange}
+                      onChange={handleNameChange}
                       placeholder="Enter your last name"
                       value={formData.lastname}
                       maxLength={50}
@@ -327,6 +379,8 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
                         country={"in"}
                         value={formData.phone}
                         onChange={handlePhoneChange}
+                        enableSearch={true} // Allows searching within the dropdown
+                        disableDropdown={false}
                         inputProps={{
                           name: "phone",
                           id: "phone",
@@ -683,7 +737,7 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
                       for="children"
                       className="mb-4 ml-2 block text-base font-medium text-[#07074D]"
                     >
-                      Have you appeared for any enlglish launguage program?
+                      Have you appeared for any english launguage program?
                       <span className="text-red-400">*</span>
                     </label>
                     <div className="flex items-center justify-start gap-6">
@@ -816,7 +870,7 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
               onClick={() => {
                 if (formData.haveLmiaJoboffer) setSelectForm("Education");
               }}
-              className="text-xl font-semibold tracking-[8px] bg-[#01997E] text-white w-full px-10 py-2 rounded-md flex items-center justify-between"
+              className="text-base md:text-xl font-semibold tracking-[5px] md:tracking-[8px] bg-[#01997E] text-white w-full px-10 py-2 rounded-md flex items-center justify-between"
             >
               Work Permit Requirements
               <span className="text-black">
@@ -1006,7 +1060,7 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
                   setSelectForm("other");
                 }
               }}
-              className="text-xl font-semibold tracking-[8px] bg-[#01997E] text-white w-full px-10 py-2 rounded-md flex items-center justify-between"
+              className="text-base md:text-xl font-semibold tracking-[5px] md:tracking-[8px] bg-[#01997E] text-white w-full px-10 py-2 rounded-md flex items-center justify-between"
             >
               Other
               <span className="text-black">
@@ -1045,14 +1099,6 @@ const WorkPermit = ({ selectedForm, formType, element, workPermitRef }) => {
                     type="button"
                     onClick={() => {
                       handleFormSubmit();
-                      setSelectForm("PersonalInformation");
-                      window.scrollTo({
-                        top: element,
-                        behavior: "smooth",
-                      });
-                      {
-                        console.log(formData);
-                      }
                     }}
                   >
                     Submit

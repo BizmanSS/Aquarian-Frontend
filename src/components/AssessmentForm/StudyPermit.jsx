@@ -9,23 +9,16 @@ import EnglishSkillsForm from "./components/EnglishSkillsForm";
 import PriorHistoryForm from "./components/PriorHistoryForm";
 import AdditionalSectionForm from "./components/AdditionalSectionForm";
 
-const StudyPermit = ({ selectedForm, studyPermitRef, element, formType }) => {
+const StudyPermit = ({ selectedForm, studyPermitRef, formType }) => {
   const [selectForm, setSelectForm] = useState("PersonalInformation");
+  const [selectedExam, setSelectedExam] = useState("IELTS");
   const [submitAttempted, setSubmitAttempted] = useState(false);
-  const [submitAttemptedEducation, setSubmitAttemptedEducation] =
-    useState(false);
-
   const [submitAttemptedTest, setSubmitAttemptedTest] = useState(false);
-  const [submitAttemptedOther, setSubmitAttemptedOther] = useState(false);
   const [submitAttemptedPriorHistory, setSubmitAttemptedPriorHistory] =
     useState(false);
   const [errors, setErrors] = useState({});
-  const [eduErrors, setEduErrors] = useState({});
-
   const [languageErrors, setLanguageErrors] = useState({});
   const [priorHistoryErrors, setPriorHistoryErrors] = useState({});
-  const [othersErrors, setOthersErrors] = useState({});
-
   const [formData, setFormData] = useState({
     firstname: "",
     lastname: "",
@@ -36,17 +29,28 @@ const StudyPermit = ({ selectedForm, studyPermitRef, element, formType }) => {
     nationality: "",
     region: "",
     spouseTravelling: "",
-    children: "",
-    educationqualification: "",
-    educationqualification1: "",
-    passingyear: "",
-    board: "",
-    stream: "",
-    country: "",
+    educationExperience1: "",
+    highestEducational: "",
+    educationExperiences: {
+      levelOfEducation: "",
+      startDates: null,
+      endDates: null,
+      field: "",
+      board: "",
+      country: "",
+    },
     workexperience1: "",
+    yearsOfExp: "",
+    workExperiences: {
+      startDates: null,
+      endDates: null,
+      occupation: "",
+      typeOfJob: "",
+      employmentHistory: "",
+      country: "",
+    },
     englishTest: "",
     englishTestType: "",
-    englishMedium: "",
     englishTestResult: {
       reading: "",
       writing: "",
@@ -54,41 +58,68 @@ const StudyPermit = ({ selectedForm, studyPermitRef, element, formType }) => {
       speaking: "",
     },
     futureTestEnglish: "",
+    examPlanning: "",
+    examPlanningDate: "",
+    englishMedium: "",
+    class10: "",
+    class12: "",
+    graduation: "",
     gapsAfterStudy: "",
+    gapStartDate: "",
+    gapEndDate: "",
     counselledBefore: "",
-    visaRefused: "",
     collegeAbroad: "",
-    fieldOfStudy: "",
+    visaRefused: "",
+    visaApplied: "",
+    visaAppliedCountry: "",
+    visaAppliedDate: "",
     intrestedCollege: "",
+    fieldOfStudy: "",
     otherInformation: "",
   });
 
   const validatePriorHistory = (showErrors = false) => {
     const newErrors = {};
-
-    if (!formData.counselledBefore) {
-      newErrors.counselledBefore =
-        "Please indicate if you have received counseling before.";
-    }
-
     if (!formData.gapsAfterStudy) {
       newErrors.gapsAfterStudy =
         "Please provide information about any gaps in your study history.";
     }
-
+    if (formData.gapsAfterStudy === "yes") {
+      if (!formData.gapStartDate) {
+        newErrors.gapStartDate = "Gap dates are Required.";
+      }
+      if (!formData.gapEndDate) {
+        newErrors.gapEndDate = "Gap dates are Required.";
+      }
+    }
+    if (!formData.counselledBefore) {
+      newErrors.counselledBefore =
+        "Please indicate if you have received counseling before.";
+    }
     if (!formData.collegeAbroad) {
       newErrors.collegeAbroad =
         "Please provide information about your study experience abroad.";
     }
     if (!formData.visaRefused) {
       newErrors.visaRefused =
-        "Please spevify if your visa has been refused before.";
+        "Please specify if your visa has been refused before.";
     }
-
+    if (formData.visaRefused === "yes") {
+      if (!formData.visaApplied) {
+        newErrors.visaApplied = "Please specify Refused Visa Category.";
+      }
+      if (!formData.visaAppliedCountry) {
+        newErrors.visaAppliedCountry =
+          "Please specify Refused Visa Applied Country.";
+      }
+      if (!formData.visaAppliedDate) {
+        newErrors.visaAppliedDate =
+          "Please specify Refused Visa Applied Dates.";
+      }
+    }
     if (!formData.fieldOfStudy) {
       newErrors.fieldOfStudy = "Please specify your field of study.";
     }
-
     if (!formData.intrestedCollege) {
       newErrors.intrestedCollege =
         "Please indicate the college you are interested in.";
@@ -102,26 +133,8 @@ const StudyPermit = ({ selectedForm, studyPermitRef, element, formType }) => {
   const validateLanguageTests = (showErrors = false) => {
     const newErrors = {};
 
-    if (formData.englishTest === "no" && formData.frenchTest === "no") {
-      if (!formData.futureTestEnglish) {
-        newErrors.futureTestEnglish = "Required fields cannot be empty";
-      }
-      if (!formData.futureTestFrench) {
-        newErrors.futureTestFrench = "Required fields cannot be empty";
-      }
-    }
-
     if (!formData.englishTest) {
       newErrors.englishTest = "English test is required";
-    }
-
-    if (formData.englishTest === "no") {
-      if (!formData.futureTestEnglish) {
-        newErrors.futureTestEnglish = "Required fields cannot be empty";
-      }
-      if (!formData.englishMedium) {
-        newErrors.englishMedium = "Required fields cannot be empty";
-      }
     }
     if (formData.englishTest === "yes") {
       if (formData.englishTest) {
@@ -144,11 +157,38 @@ const StudyPermit = ({ selectedForm, studyPermitRef, element, formType }) => {
         }
       }
     }
-
+    if (formData.englishTest === "no") {
+      if (!formData.futureTestEnglish) {
+        newErrors.futureTestEnglish = "Required fields cannot be empty";
+      }
+      if (formData.futureTestEnglish === "yes") {
+        if (!formData.examPlanning) {
+          newErrors.examPlanning = "Required fields cannot be empty";
+        }
+        if (!formData.examPlanningDate) {
+          newErrors.examPlanningDate = "Required fields cannot be empty";
+        }
+      }
+      if (formData.futureTestEnglish === "no") {
+        if (!formData.englishMedium) {
+          newErrors.englishMedium = "Required fields cannot be empty";
+        }
+        if (formData.englishMedium === "yes") {
+          if (!formData.class10) {
+            newErrors.class10 = "Required fields cannot be empty";
+          }
+          if (!formData.class12) {
+            newErrors.class12 = "Required fields cannot be empty";
+          }
+          if (!formData.graduation) {
+            newErrors.graduation = "Required fields cannot be empty";
+          }
+        }
+      }
+    }
     if (showErrors) {
       setLanguageErrors(newErrors);
     }
-
     return Object.keys(newErrors).length === 0;
   };
 
@@ -171,43 +211,10 @@ const StudyPermit = ({ selectedForm, studyPermitRef, element, formType }) => {
     )
       tempErrors.spouseTravelling =
         "Please specify if your spouse will be travelling with you";
-    // if (!formData.children)
-    //   tempErrors.children = 'Please specify if you have any children under 22';
     if (showErrors) {
       setErrors(tempErrors);
     }
     return Object.keys(tempErrors).length === 0;
-  };
-
-  const validateEducation = (showErrors = false) => {
-    const newErrors = {};
-    if (!formData.educationqualification)
-      newErrors.educationqualification =
-        "Educational qualification is required";
-    if (formData.educationqualification1 === "yes") {
-      if (!formData.passingyear)
-        newErrors.passingyear = "Year of passing is required";
-      if (!formData.board) newErrors.board = "Board/University is required";
-      if (!formData.stream) newErrors.stream = "Field/Stream is required";
-      if (!formData.country) newErrors.country = "Country is required";
-    }
-    if (!formData.educationqualification1)
-      newErrors.educationqualification1 = "This field is required";
-    if (showErrors) {
-      setEduErrors(newErrors);
-    }
-    return Object.keys(newErrors).length === 0;
-  };
-
-  const validateOthers = (showErrors = false) => {
-    const newErrors = {};
-    if (!formData.otherInformation)
-      newErrors.otherInformation = "Additional information is required";
-
-    if (showErrors) {
-      setOthersErrors(newErrors);
-    }
-    return Object.keys(newErrors).length === 0;
   };
 
   useEffect(() => {
@@ -217,22 +224,10 @@ const StudyPermit = ({ selectedForm, studyPermitRef, element, formType }) => {
   }, [formData, submitAttempted]);
 
   useEffect(() => {
-    if (submitAttemptedEducation) {
-      validateEducation(true);
-    }
-  }, [formData, submitAttemptedEducation]);
-
-  useEffect(() => {
     if (submitAttemptedTest) {
       validateLanguageTests(true);
     }
   }, [formData, submitAttemptedTest]);
-
-  useEffect(() => {
-    if (submitAttemptedOther) {
-      validateOthers(true);
-    }
-  }, [formData, submitAttemptedOther]);
 
   useEffect(() => {
     if (submitAttemptedPriorHistory) {
@@ -253,7 +248,18 @@ const StudyPermit = ({ selectedForm, studyPermitRef, element, formType }) => {
       nationality: selectedOption.label,
     }));
   };
-
+  const handleRegionChange = (selectedOption) => {
+    setFormData((prevState) => ({
+      ...prevState,
+      region: selectedOption.label,
+    }));
+  };
+  const handleVisaCountryChange = (selectedOption) => {
+    setFormData((prevState) => ({
+      ...prevState,
+      visaAppliedCountry: selectedOption.label,
+    }));
+  };
   const handlePhoneChange = (phone) => {
     setFormData((prevState) => ({
       ...prevState,
@@ -275,12 +281,77 @@ const StudyPermit = ({ selectedForm, studyPermitRef, element, formType }) => {
 
       if (response.status === 200) {
         const data = response.data;
-        toast.success("You have successfully submited your form!");
+        toast.success("You have successfully submited your form!", {
+          position: "top-center",
+        });
+        setSelectForm("PersonalInformation");
+        setFormData({
+          firstname: "",
+          lastname: "",
+          email: "",
+          phone: "",
+          maritalStatus: "",
+          age: "",
+          nationality: "",
+          region: "",
+          spouseTravelling: "",
+          educationExperience1: "",
+          highestEducational: "",
+          educationExperiences: {
+            levelOfEducation: "",
+            startDates: null,
+            endDates: null,
+            field: "",
+            board: "",
+            country: "",
+          },
+          workexperience1: "",
+          yearsOfExp: "",
+          workExperiences: {
+            startDates: null,
+            endDates: null,
+            occupation: "",
+            typeOfJob: "",
+            employmentHistory: "",
+            country: "",
+          },
+          englishTest: "",
+          englishTestType: "",
+          englishTestResult: {
+            reading: "",
+            writing: "",
+            listening: "",
+            speaking: "",
+          },
+          futureTestEnglish: "",
+          examPlanning: "",
+          examPlanningDate: "",
+          englishMedium: "",
+          class10: "",
+          class12: "",
+          graduation: "",
+          gapsAfterStudy: "",
+          gapStartDate: "",
+          gapEndDate: "",
+          counselledBefore: "",
+          collegeAbroad: "",
+          visaRefused: "",
+          visaApplied: "",
+          visaAppliedCountry: "",
+          visaAppliedDate: "",
+          intrestedCollege: "",
+          fieldOfStudy: "",
+          otherInformation: "",
+        });
+        window.scrollTo(0, 0);
       }
     } catch (error) {
-      toast.error("Internal server errror!");
+      toast.error("Internal server errror!", {
+        position: "top-center",
+      });
     }
   };
+
 
   return (
     <>
@@ -294,29 +365,27 @@ const StudyPermit = ({ selectedForm, studyPermitRef, element, formType }) => {
           </div>
 
           <PersonalInformation
-            formData={formData}
             selectForm={selectForm}
+            formData={formData}
+            setFormData={setFormData}
+            setSelectForm={setSelectForm}
+            nextform={"education-experience"}
+            scrollRef={studyPermitRef}
             handleInputChange={handleInputChange}
             errors={errors}
             setSubmitAttempted={setSubmitAttempted}
             validate={validate}
-            setSelectForm={setSelectForm}
             handleSelectChange={handleSelectChange}
+            handleRegionChange={handleRegionChange}
             handlePhoneChange={handlePhoneChange}
-            scrollRef={studyPermitRef}
           />
 
           <EducationDetails
-            formData={formData}
             selectForm={selectForm}
-            handleInputChange={handleInputChange}
-            eduErrors={eduErrors}
-            setSubmitAttempted={setSubmitAttempted}
-            validateEducation={validateEducation}
-            setSelectForm={setSelectForm}
+            formData={formData}
             setFormData={setFormData}
-            setSubmitAttemptedEducation={setSubmitAttemptedEducation}
-            handleSelectChange={handleSelectChange}
+            setSelectForm={setSelectForm}
+            nextform={"work-experience"}
             scrollRef={studyPermitRef}
           />
 
@@ -332,34 +401,38 @@ const StudyPermit = ({ selectedForm, studyPermitRef, element, formType }) => {
           <EnglishSkillsForm
             selectForm={selectForm}
             formData={formData}
+            setFormData={setFormData}
+            setSelectForm={setSelectForm}
+            scrollRef={studyPermitRef}
+            selectedExam={selectedExam}
+            setSelectedExam={setSelectedExam}
             handleInputChange={handleInputChange}
             languageErrors={languageErrors}
             validateLanguageTests={validateLanguageTests}
-            setSelectForm={setSelectForm}
-            setFormData={setFormData}
             setSubmitAttemptedTest={setSubmitAttemptedTest}
-            scrollRef={studyPermitRef}
           />
 
           <PriorHistoryForm
             selectForm={selectForm}
+            formData={formData}
+            setFormData={setFormData}
+            setSelectForm={setSelectForm}
+            scrollRef={studyPermitRef}
             handleInputChange={handleInputChange}
             priorHistoryErrors={priorHistoryErrors}
             validatePriorHistory={validatePriorHistory}
-            setSelectForm={setSelectForm}
+            handleVisaCountryChange={handleVisaCountryChange}
             setSubmitAttemptedPriorHistory={setSubmitAttemptedPriorHistory}
-            scrollRef={studyPermitRef}
+            
           />
 
           <AdditionalSectionForm
             selectForm={selectForm}
-            handleInputChange={handleInputChange}
-            othersErrors={othersErrors}
-            setSubmitAttemptedOther={setSubmitAttemptedOther}
-            validateOthers={validateOthers}
-            handleFormSubmit={handleFormSubmit}
+            formData={formData}
             setSelectForm={setSelectForm}
-            setFormData={setFormData}
+            scrollRef={studyPermitRef}
+            handleInputChange={handleInputChange}
+            handleFormSubmit={handleFormSubmit}
           />
         </div>
       )}

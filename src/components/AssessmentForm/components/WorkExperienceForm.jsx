@@ -1,16 +1,20 @@
 import React, { useState, useEffect, useMemo } from "react";
+import DatePicker from "react-datepicker";
+// import "react-datepicker/dist/react-datepicker.css";
 import { GoArrowDownRight, GoArrowUpRight } from "react-icons/go";
-import { MdEdit } from "react-icons/md";
-import { MdDeleteForever } from "react-icons/md";
+import { MdEdit, MdDeleteForever } from "react-icons/md";
 import { toast } from "react-toastify";
 import Select from "react-select";
 import countryList from "react-select-country-list";
+import SearchableDropdown from "../../SearchableDropdown/SearchableDropdown";
 
 const PastExperienceBox = ({
   index,
-  yearOfExp,
+  startDate,
+  endDate,
   designation,
   occupation,
+  typeOfJob,
   country,
   formVisible,
   setCurrentForm,
@@ -25,12 +29,16 @@ const PastExperienceBox = ({
 
   const handleEdit = (id) => {
     if (formVisible) {
-      toast.error("Please save your form details before editing.");
+      toast.error("Please save your form details before editing.", {
+        position: "top-center",
+      });
     } else {
       setWorkExperiences((prev) => prev.filter((_, index) => index !== id));
       setSelectedWork((prev) => Math.max(prev - 1, 0));
       setCurrentForm({
-        yearsOfExp: yearOfExp,
+        startDates: startDate,
+        endDates: endDate,
+        typeOfJob: typeOfJob,
         occupation: occupation,
         employmentHistory: designation,
         country: country,
@@ -41,12 +49,20 @@ const PastExperienceBox = ({
 
   const data = [
     {
-      title: "Total Years Of Experience",
-      value: yearOfExp,
+      title: "Start Date",
+      value: startDate?.toLocaleDateString(), // Formatting the date for display
+    },
+    {
+      title: "End Date",
+      value: endDate?.toLocaleDateString(),
     },
     {
       title: "Designation",
       value: designation,
+    },
+    {
+      title: "Type Of Job",
+      value: typeOfJob,
     },
     {
       title: "Occupation",
@@ -103,9 +119,12 @@ const WorkExperienceForm = ({
   const [workErrors, setWorkErrors] = useState({ workExperiences: [] });
   const [formVisible, setFormVisible] = useState(false);
   const [submitAttemptedWork, setSubmitAttemptedWork] = useState(false);
+  const disabled = !formData.startDates;
   const [currentForm, setCurrentForm] = useState({
-    yearsOfExp: "",
+    startDates: null,
+    endDates: null,
     occupation: "",
+    typeOfJob: "",
     employmentHistory: "",
     country: "",
   });
@@ -114,13 +133,7 @@ const WorkExperienceForm = ({
     if (workExperiences.length === 0) {
       setFormVisible(true);
     }
-  }, [workExperiences]);
-
-  useEffect(() => {
-    if (formData.workexperience1 === "yes") {
-      setFormVisible(true);
-    }
-  }, [formData, setFormVisible]);
+  }, [workExperiences, formData]);
 
   useEffect(() => {
     if (formData.workexperience1 === "no") {
@@ -143,19 +156,26 @@ const WorkExperienceForm = ({
 
   const handleAddWork = () => {
     if (formVisible) {
-      toast.error("Please save details before adding New Experience");
+      toast.error("Please save details before adding New Experience", {
+        position: "top-center",
+      });
     } else {
       setFormVisible(true);
     }
   };
+
   const handleNext = () => {
     setSubmitAttemptedWork(true);
-    // setSelectForm('english');
+
     if (formVisible) {
-      toast.error("Please save or delete your form Details");
+      toast.error("Please save or delete your form Details", {
+        position: "top-center",
+      });
     }
     if (formData.workexperience1 === "yes" && workExperiences.length < 1) {
-      toast.error("Please Add Experience");
+      toast.error("Please Add Experience", {
+        position: "top-center",
+      });
     }
     if (validateWork(true) && !formVisible) {
       if (workExperiences.length >= 1 || formData.workexperience1 === "no")
@@ -210,12 +230,21 @@ const WorkExperienceForm = ({
   };
 
   const validateFormFields = () => {
-    const { yearsOfExp, occupation, employmentHistory, country } = currentForm;
+    const {
+      startDates,
+      endDates,
+      occupation,
+      typeOfJob,
+      employmentHistory,
+      country,
+    } = currentForm;
     if (
-      yearsOfExp.trim() !== "" &&
+      startDates &&
       occupation.trim() !== "" &&
       employmentHistory.trim() !== "" &&
-      country.trim() !== ""
+      country.trim() !== "" &&
+      typeOfJob &&
+      endDates
     ) {
       return true;
     }
@@ -225,15 +254,33 @@ const WorkExperienceForm = ({
     if (validateFormFields()) {
       setWorkExperiences((prev) => [...prev, currentForm]);
       setCurrentForm({
-        yearsOfExp: "",
+        startDates: null,
+        endDates: null,
         occupation: "",
+        typeOfJob: "",
         employmentHistory: "",
         country: "",
       });
       setFormVisible(false);
     } else {
-      toast.error("Please fill out all fields before saving.");
+      toast.error("Please fill out all fields before saving.", {
+        position: "top-center",
+      });
     }
+  };
+
+  const handleStartDateChange = (date) => {
+    setCurrentForm((prev) => ({
+      ...prev,
+      startDates: date,
+    }));
+  };
+
+  const handleEndDateChange = (date) => {
+    setCurrentForm((prev) => ({
+      ...prev,
+      endDates: date,
+    }));
   };
 
   const handleInputChange = (event) => {
@@ -248,7 +295,9 @@ const WorkExperienceForm = ({
     let tempWorkErrors = {};
     if (!formData.workexperience1)
       tempWorkErrors.workexperience1 = "Work experience is required";
-
+    if (formData.workexperience1 === "yes" && !formData.yearsOfExp)
+      tempWorkErrors.yearsOfExp =
+        "Total years of paid Work experience is required";
     if (showErrors) {
       setWorkErrors(tempWorkErrors);
     }
@@ -262,7 +311,7 @@ const WorkExperienceForm = ({
         onClick={() => {
           if (formData.workexperience1) setSelectForm("work-experience");
         }}
-        className="text-xl font-semibold tracking-[8px] bg-[#01997E] text-white w-full px-10 py-2 rounded-md flex items-center justify-between"
+        className="text-base md:text-xl font-semibold tracking-[5px] md:tracking-[8px] bg-[#01997E] text-white w-full px-10 py-2 rounded-md flex items-center justify-between"
       >
         Work Experience
         <span className="text-black">
@@ -320,8 +369,10 @@ const WorkExperienceForm = ({
                     setFormData({
                       ...formData,
                       workexperience1: e.target.value,
-
+                      startDates: null,
+                      endDates: null,
                       occupation: "",
+                      typeOfJob: "",
                       employmentHistory: "",
                       workCountry: "",
                     });
@@ -342,23 +393,78 @@ const WorkExperienceForm = ({
           </div>
           {formData.workexperience1 === "yes" && (
             <>
-              <div className="font-semibold text-lg mb-4">
-                {" "}
-                Work Experience *
+              <div className="mb-3 w-full md:w-[45%]">
+                <label
+                  for="workexperience"
+                  className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
+                >
+                  Total Years of paid Work Experience
+                  <span className="text-red-400">*</span>
+                </label>
+                <select
+                  id="yearsOfExp"
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      yearsOfExp: e.target.value,
+                    })
+                  }
+                  name="yearsOfExp"
+                  value={formData.yearsOfExp}
+                  className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
+                >
+                  <option value="" selected>
+                    Select
+                  </option>
+                  <option className="text-black" value="1">
+                    1
+                  </option>
+                  <option className="text-black" value="2">
+                    2
+                  </option>
+                  <option className="text-black" value="3">
+                    3
+                  </option>
+                  <option className="text-black" value="4">
+                    4
+                  </option>
+                  <option className="text-black" value="5">
+                    5
+                  </option>
+                  <option className="text-black" value="6">
+                    6
+                  </option>
+                  <option className="text-black" value="7">
+                    7
+                  </option>
+                  <option className="text-black" value="8">
+                    8
+                  </option>
+                  <option className="text-black" value="9">
+                    9
+                  </option>
+                  <option className="text-black" value="10 or more">
+                    10 or more
+                  </option>
+                </select>
               </div>
-
+              {workErrors.yearsOfExp && (
+                <p className="text-red-500">{workErrors.yearsOfExp}</p>
+              )}
               {workExperiences.map((item, id) => (
                 <PastExperienceBox
                   key={id}
                   index={id}
                   setSelectedWork={setSelectedWork}
                   setWorkExperiences={setWorkExperiences}
-                  yearOfExp={item.yearsOfExp}
+                  startDate={item.startDates}
+                  endDate={item.endDates}
                   formVisible={formVisible}
                   setCurrentForm={setCurrentForm}
                   setFormVisible={setFormVisible}
                   designation={item.employmentHistory}
                   occupation={item.occupation}
+                  typeOfJob={item.typeOfJob}
                   country={item.country}
                 />
               ))}
@@ -369,31 +475,107 @@ const WorkExperienceForm = ({
                     type="button"
                     onClick={handleAddWork}
                   >
-                    Add Experience +
+                    Add Previous Job +
                   </button>
                 </div>
               )}
+              {workExperiences.length === 0 && (
+                <div className="font-semibold text-lg mb-4">
+                  Current (or more recent) Job
+                  <span className="text-red-400">*</span>
+                </div>
+              )}
+              {workExperiences.length !== 0 && (
+                <div className="font-semibold text-lg mb-4">
+                  Previous Work Experience
+                  <span className="text-red-400">*</span>
+                </div>
+              )}
+
               {formVisible && (
                 <div
                   className="w-full md:grid grid-cols-2"
                   style={{ columnGap: "10%" }}
                 >
-                  <div className="mb-3 w-full">
+                  <div className="w-full mb-3 md:flex md:gap-[10%] justify-between">
+                    <div className="w-full block">
+                      <label
+                        htmlFor="startdate"
+                        className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
+                      >
+                        Start Date
+                        <span className="text-red-400">*</span>
+                      </label>
+                      <DatePicker
+                        selected={currentForm.startDates}
+                        onChange={handleStartDateChange}
+                        maxDate={new Date()}
+                        onFocus={(e) => e.target.blur()}
+                        dateFormat="dd/MM/yyyy"
+                        placeholderText="Select Start Date"
+                        shouldCloseOnSelect
+                        showYearDropdown
+                        showMonthDropdown
+                        dropdownMode="select"
+                        className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
+                      />
+                    </div>
+                    <div className="w-full block">
+                      <label
+                        htmlFor="enddate"
+                        className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
+                      >
+                        End Date
+                        <span className="text-red-400">*</span>
+                      </label>
+                      <DatePicker
+                        selected={currentForm.endDates}
+                        onChange={handleEndDateChange}
+                        disabled={!currentForm.startDates}
+                        minDate={currentForm.startDates}
+                        onFocus={(e) => e.target.blur()}
+                        dateFormat="dd/MM/yyyy"
+                        placeholderText="Select End Date"
+                        shouldCloseOnSelect
+                        showYearDropdown
+                        showMonthDropdown
+                        dropdownMode="select"
+                        className={`w-full rounded-md border ${
+                          !currentForm.startDates
+                            ? " border-gray-300 cursor-not-allowed"
+                            : " border-black cursor-pointer"
+                        } bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md`}
+                      />
+                    </div>
+                  </div>
+                  <div className="w-full mb-3">
                     <label
-                      for="workexperience"
+                      for="typeOfJob"
                       className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
                     >
-                      Total Number of Work Experience
-                      <span className="text-red-400">*</span>
+                      Type of Job <span className="text-red-400">*</span>
                     </label>
-                    <input
-                      type="text"
-                      id="yearsOfExp"
-                      name="yearsOfExp"
-                      value={currentForm.yearsOfExp}
+
+                    <select
+                      id="typeOfJob"
                       onChange={handleInputChange}
+                      name="typeOfJob"
+                      value={currentForm.typeOfJob}
                       className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
-                    />
+                    >
+                      <option value="" selected>
+                        Select
+                      </option>
+                      <option
+                        className="text-black"
+                        value="Full Time Job with more than 30hrs/week"
+                      >
+                        Full Time Job with more than 30hrs/week
+                      </option>
+                      <option className="text-black" value="Part Time Job">
+                        Part Time Job
+                      </option>
+                    </select>
                   </div>
                   <div className="w-full mb-3">
                     <label
@@ -426,6 +608,14 @@ const WorkExperienceForm = ({
                       onChange={handleInputChange}
                       className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
                     />
+                    {/* <SearchableDropdown
+                      apiEndpoint={`${process.env.REACT_APP_API}/occupations`}
+                      id="occupation"
+                      name="occupation"
+                      value={currentForm.occupation}
+                      onChange={handleInputChange}
+                      className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
+                    /> */}
                   </div>
                   <div className="mb-3 w-full">
                     <label
