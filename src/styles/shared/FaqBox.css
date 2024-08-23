@@ -100,7 +100,7 @@
     margin-bottom: 25px;
 }
 
-@media (min-width: 1024px){
+@media (min-width: 1400px){
     .faq-box-container {
         max-width: 880px;
         margin-left: auto;

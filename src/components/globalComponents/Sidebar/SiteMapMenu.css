@@ -1,0 +1,210 @@
+.site-map-menu {
+    min-width: 354px;
+    width: 354px;
+    height: calc(100vh - 6.5rem);
+    position: sticky;
+    top: 6.5rem;
+    overscroll-behavior: contain;
+
+}
+
+.site-map-wrapper {
+    width: 354px;
+    box-sizing: content-box;
+    height: inherit;
+    color: #525252;
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 400;
+    overflow-y: scroll;
+    overscroll-behavior: contain;
+}
+
+.site-map-banner {
+    padding: 15px 30px 15px 30px;
+}
+
+.site-map-tree {
+    padding: 0 30px 15px 15px;
+}
+
+.site-map-header {
+    height: 60px;
+    border-bottom-width: 1px;
+    border-color: #939393;
+    display: flex;
+}
+
+.site-map-link {
+    height: inherit;
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    padding-left: 1rem;
+    transition: all 0.3s ease;
+}
+
+.site-map-link:hover {
+    background-color: #505050;
+    color: white;
+    border-bottom-width: 1px;
+    border-color: #939393;
+}
+
+.site-map-header-plus {
+    width: 40px;
+    background-color: #2D938B;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    transition: background-color 0.3s ease, box-shadow 0.4s ease;
+}
+
+.site-map-header-plus:hover {
+    background-color: #505050;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.site-map-header-minus {
+    width: 40px;
+    background-color: #505050;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    transition: all 0.4s ease;
+}
+
+.site-map-header-minus:hover {
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.site-map-sub-header-wrapper {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: all .3s;
+}
+
+.site-map-sub-header-wrapper-show {
+    grid-template-rows: 1fr;
+}
+
+.site-map-sub-header-inner-wrapper {
+    overflow: hidden;
+}
+
+.site-map-sub-header {
+    height: 60px;
+    color: white;
+    display: flex;
+    align-items: center;
+    background-color: #505050;
+}
+
+.site-map-sub-link,
+.site-map-ss-link {
+    height: inherit;
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    padding-left: 1rem;
+    transition: all 0.3 ease;
+}
+
+.site-map-sub-link:hover {
+    background-color: #919191;
+}
+
+.site-map-sub-header-minus,
+.site-map-sub-header-plus,
+.site-map-ss-header-minus,
+.site-map-ss-header-plus {
+    min-width: 40px;
+    min-width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    transition: all 0.4s ease;
+    height: inherit;
+}
+
+.site-map-sub-header-plus:hover {
+    background-color: #919191;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.site-map-sub-header-minus {
+    background-color: #919191;
+}
+
+.site-map-sub-header-minus:hover {
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.site-map-ss-header {
+    min-height: 60px;
+    color: white;
+    border-width: 0;
+    display: flex;
+    background-color: #919191
+}
+
+.site-map-ss-header-plus {
+    background-color: #919191;
+}
+
+.site-map-ss-header-plus:hover,
+.site-map-ss-link:hover {
+    background-color: #2C2C2C;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.site-map-ss-header-minus {
+    background-color: #2C2C2C;
+}
+
+
+.site-map-ss-header-minus {
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.site-map-sss-link {
+    display: flex;
+    height: 60px;
+    padding-left: 1rem;
+    background-color: #2C2C2C;
+    color: white;
+    align-items: center;
+    text-decoration: underline rgba(0, 0, 0, 0);
+    transition: all 0.3 ease;
+}
+
+.site-map-sss-link:hover {
+    text-decoration-color: rgba(255, 255, 255, 1);
+}
+
+.site-map-connect-icons {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px;
+}
+
+.site-map-connect-icons a {
+    padding: 0.4rem;
+    border-radius: 20px;
+    border-width: 1px;
+    border-color: #A3A3A3;
+}
+
+.site-map-current-page {
+    text-decoration: underline #2D938B;
+    text-decoration-thickness: 3px;
+}
+
+@media (max-width: 1200px) {
+    .site-map-menu {
+        display: none;
+    }
+}

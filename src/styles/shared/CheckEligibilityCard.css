@@ -119,7 +119,7 @@
     }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1400px) {
     .elig-card-container {
         max-width: 880px;
         margin-top: 2rem;

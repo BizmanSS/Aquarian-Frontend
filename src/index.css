@@ -3,25 +3,30 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: "Poppins", sans-serif;
+  scrollbar-width: thin;
+  scrollbar-color: #019989 rgb(36, 37, 37);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
 body::-webkit-scrollbar {
   width: 8px;
   --tw-bg-opacity: 1;
-  background-color: rgb(
-    36 37 37 / var(--tw-bg-opacity)
-  ); /* width of the entire scrollbar */
+  background-color: rgb(36 37 37 / var(--tw-bg-opacity));
+  /* width of the entire scrollbar */
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: #019989; /* color of the scroll thumb */
-  border-radius: 10px; /* roundness of the scroll thumb */
+  background-color: #019989;
+  /* color of the scroll thumb */
+  border-radius: 10px;
+  /* roundness of the scroll thumb */
   /* creates padding around scroll thumb */
 }
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

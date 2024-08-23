@@ -71,7 +71,7 @@
     display: none;
 }
 
-@media (744px < width < 1024px) {
+@media (744px < width < 1400px) {
     .migrate-box-inner-box {
         grid-template-columns: repeat(2, 1fr);
         grid-template-areas:
@@ -139,7 +139,7 @@
     }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1400px) {
     .migrate-box-inner-box {
         grid-template-columns: repeat(6, 1fr);
         grid-template-areas:

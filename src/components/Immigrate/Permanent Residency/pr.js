@@ -5,7 +5,7 @@ import MigrateProcessBox from './MigrateProcessBox.jsx'
 import CheckEligibilityCard from './CheckEligibilityCard.jsx'
 import FaqBoxImmigration from './FaqBoxImmigration.jsx'
 import ReadyToStartCard from './ReadyToStartCard.jsx'
-
+import SiteMapMenu from "../../globalComponents/Sidebar/SiteMapMenu.jsx";
 
 const Table = () => {
   const data = [
@@ -91,53 +91,46 @@ export default function PR() {
   return (
     <div
       style={{
-        background: "#E0E0E0",
+        background: "#EEE",
       }}
     >
-      <div className="AboutUsHeader">
-        <p className="link">
-          <a href="/">Home</a>
-          {" > "}Immigrate
-          {" > "}Permanent Residency
-        </p>
-        <div className="header-content">
-          <h1 className="heading-about">Permanent Residency</h1>
+      <div className="pages-content-wrapper">
+        <SiteMapMenu type="I" h1="Permanent Residency"t></SiteMapMenu>
+        <div class="pages-content-div">
+          <div class="pages-content-text">
+            On April 14, 2021, Immigration Minister Marco Mendicino announced
+            Immigration, Refugees and Citizenship Canada’s intention to create
+            several new immigration pathways for permanent residence for
+            essential workers and international graduates who are currently
+            in Canada working.
+            <br></br>
+            <br></br>
+            CONTACT US NOW FOR A FREE CONSULTATION TO DISCUSS YOUR PR
+            OPTIONS
+
+            The TR to PR immigration pathways were introduced via special
+            public policies and aim to grant permanent status to temporary
+            workers and international graduates who are in Canada and who
+            possess the sought-after skills and experience needed to
+            accelerate Canada’s economic recovery following the COVID 19
+            pandemic.
+
+            Within these announcements, Immigration, Refugees, and
+            Citizenship Canada published 4 special public policies,
+            introducing these new pathways to Canadian permanent residence
+          </div>
+
+          <DirectPathwaysBox />
+          <IndirectPathwaysBox />
+          <MigrateProcessBox />
+          <CheckEligibilityCard />
+          <FaqBoxImmigration />
+          <ReadyToStartCard />
+
+
+
+
         </div>
-      </div>
-      <div class="pages-content-div">
-        <div class="pages-content-text">
-          On April 14, 2021, Immigration Minister Marco Mendicino announced
-          Immigration, Refugees and Citizenship Canada’s intention to create
-          several new immigration pathways for permanent residence for
-          essential workers and international graduates who are currently
-          in Canada working.
-          <br></br>
-          <br></br>
-          CONTACT US NOW FOR A FREE CONSULTATION TO DISCUSS YOUR PR 
-          OPTIONS
-
-          The TR to PR immigration pathways were introduced via special 
-          public policies and aim to grant permanent status to temporary 
-          workers and international graduates who are in Canada and who 
-          possess the sought-after skills and experience needed to 
-          accelerate Canada’s economic recovery following the COVID 19 
-          pandemic.
-
-          Within these announcements, Immigration, Refugees, and 
-          Citizenship Canada published 4 special public policies, 
-          introducing these new pathways to Canadian permanent residence
-        </div>
-
-        <DirectPathwaysBox />
-        <IndirectPathwaysBox />
-        <MigrateProcessBox />
-        <CheckEligibilityCard />
-        <FaqBoxImmigration/>
-        <ReadyToStartCard/>
-
-
-
-
       </div>
     </div>
   );

@@ -312,7 +312,7 @@ const Header = ({ setShowPopUp }) => {
   const menuRef = useRef(null);
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth < 1100) {
+      if (window.innerWidth <= 1200) {
         setIsMobile(true);
       } else {
         setIsMobile(false);
@@ -410,7 +410,7 @@ const Header = ({ setShowPopUp }) => {
 
   return (
     <div className="">
-      <div className="bg-black h-[4rem] lg:h-[5.5rem] xl:h-[6.5rem] fixed z-40 top-0 flex flex-col items-center justify-start w-full md:w-[94%] 7xl:w-[96%] 7xl:-ml-[1.2rem] max-w-[140rem] 8xl:-ml-[3rem]">
+      <div className="bg-black h-[4rem] lg:h-[5.5rem] xl:h-[6.5rem] fixed z-40 top-0 flex flex-col items-center justify-start w-full lg:pr-[6rem] 7xl:-ml-[1.2rem] max-w-[140rem] 8xl:-ml-[3rem]">
         {!ismobile ? (
           <>
             {" "}
@@ -2289,7 +2289,7 @@ const Header = ({ setShowPopUp }) => {
                 <div className="cursor-pointer text-white text-[14px]">
                   <button
                     onClick={handleAppointmentClick}
-                    className="bg-[#01F9E1] font-normal text-black px-4 py-2 rounded-[10px] xl:text-[15px] 2xl:text-[16px] hover:scale-105 transition ease-in delay-60 duration-150"
+                    className="bg-[#01F9E1] font-normal text-[12px] text-black px-4 py-2 rounded-[10px] xl:text-[15px] 2xl:text-[16px] hover:scale-105 transition ease-in delay-60 duration-150"
                   >
                     Book Appointment
                   </button>
