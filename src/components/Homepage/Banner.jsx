@@ -73,7 +73,7 @@ const Banner = () => {
 
   return (
     <div
-      className={`w-full relative md:w-[94.5%] h-[calc(100vh-6rem)] md:h-[99vh] flex flex-col items-center justify-center overflow-hidden
+      className={`w-full relative lg:pr-[6rem] h-[calc(100vh-6rem)] md:h-[99vh] flex flex-col items-center justify-center overflow-hidden
       ${isMobile ? "mt-[3rem] -mb-0" : "pt-6rem xl:pt-[6.5rem]"}`}
     >
       {/* {isMobile ? (

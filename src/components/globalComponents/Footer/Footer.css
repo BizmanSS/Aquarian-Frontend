@@ -11,9 +11,9 @@
     background: linear-gradient(0deg, rgba(13, 13, 13, 1) 0%, rgba(52, 52, 52, 1) 20%);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
     .footer {
-        width: 94%;
+        padding-right: 6rem;
     }
 }
 

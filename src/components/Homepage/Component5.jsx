@@ -243,7 +243,7 @@ const Component5 = () => {
         </>
       ) : (
         <>
-          <div className='flex items-center justify-end gap-4 my-4 relative 2xl:mx-[8rem] lg:mx-[6rem] mx-[2rem] flex-wrap md:flex-nowrap'>
+          <div className='flex items-center justify-end gap-4 my-4 relative lg:mx-[8rem] mx-[2rem] flex-wrap md:flex-nowrap'>
             {!isMobile && (
               <div className='absolute top-0 flex items-center justify-center -left-20 -z-10'>
                 <img
@@ -287,7 +287,7 @@ const Component5 = () => {
               data={data[activeIndex + 1]}
             />
           </div>
-          <div className='flex items-center justify-end gap-4 my-4 relative 2xl:mx-[8rem] lg:mx-[6rem] mx-[2rem] flex-wrap md:flex-nowrap'>
+          <div className='flex items-center justify-end gap-4 my-4 relative lg:mx-[8rem] mx-[2rem] flex-wrap md:flex-nowrap'>
             {!isMobile && (
               <div className='absolute top-0 flex items-center justify-center -left-20 -z-10'>
                 {' '}
@@ -322,7 +322,7 @@ const Component5 = () => {
               data={data[activeIndex + 4]}
             />
           </div>
-          <div className='flex items-center justify-end gap-4 my-4  2xl:mr-[8rem] lg:mr-[6rem] mr-[2rem] flex-wrap md:flex-nowrap'>
+          <div className='flex items-center justify-end gap-4 my-4 lg:mr-[8rem] mr-[2rem] flex-wrap md:flex-nowrap'>
             <BoxComponents
               color={'#FEFFFE'}
               style={{ backgroundColor: '#01F8E0' }}

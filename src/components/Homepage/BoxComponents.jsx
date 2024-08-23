@@ -81,7 +81,7 @@ const BoxComponents = ({ color, style, imageUrl, data }) => {
         </div>
       ) : (
         <div
-          className={`border-[1px] border-black h-[16rem] p-4 cursor-pointer transition ease-in delay-100 duration-300 ${hovered ? 'z-[4]' : 'z-[4]'
+          className={`overflow-hidden border-[1px] border-black h-[16rem] p-4 cursor-pointer transition ease-in delay-100 duration-300 ${hovered ? 'z-[4]' : 'z-[4]'
             }`}
           style={{
             ...style,

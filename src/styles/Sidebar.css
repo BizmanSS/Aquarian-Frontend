@@ -1,5 +1,5 @@
 .sidebar {
-  width: 6%;
+  width: 6rem;
   position: fixed;
   height: 100vh;
   --tw-bg-opacity: 1;
@@ -13,6 +13,7 @@
   font-size: 14px;
   z-index: 99;
   visibility: hidden;
+  font-size: 12px;
 }
 .sidebar-img {
   filter: invert(100%) brightness(200%);
@@ -22,36 +23,9 @@
 .parent:hover .sidebar-img {
   filter: none;
 }
-@media (max-width: 1700px) {
-  .sidebar {
-    font-size: 14px;
-  }
-}
-@media (max-width: 1590px) {
-  .sidebar {
-    font-size: 13px;
-  }
-}
-@media (max-width: 1400px) {
-  .sidebar {
-    font-size: 11px;
-  }
-}
-@media (min-width: 768px) {
+
+@media (min-width: 1024px) {
   .sidebar {
     visibility: visible;
-    width: 8%;
-  }
-}
-@media (min-width: 968px) {
-  .sidebar {
-    visibility: visible;
-    width: 7%;
-  }
-}
-@media (min-width: 1168px) {
-  .sidebar {
-    visibility: visible;
-    width: 6%;
   }
 }
