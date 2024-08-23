@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../../../styles/BookAppointmentModal.css";
 import "react-toastify/dist/ReactToastify.css";
 import formLogo from "../../../Assets/formLogo.png";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import axios from "axios";
 import { AiOutlineClose } from "react-icons/ai";
 import Datepicker from "react-datepicker";
@@ -56,6 +56,11 @@ const BookAppointmentModel = ({
     setErrors({});
   };
 
+  const clearWaitingQueue = () => {
+    // Easy, right 😎
+    toast.clearWaitingQueue();
+  }
+
   const handleOutsideClick = (event) => {
     if (event.target.closest(".modal") === null) {
       resetFields();
@@ -104,7 +109,6 @@ const BookAppointmentModel = ({
       errorObject.service = "Service is required";
     }
 
-    // Custom condition for timeSlot and selectedDate
     if (!selectedDate) {
       errorObject.date = "Date is required";
     }
@@ -112,10 +116,10 @@ const BookAppointmentModel = ({
     if (Object.keys(errorObject).length > 0) {
       setErrors(errorObject);
       toast.error("Please fill out all required fields.");
+      clearWaitingQueue();
     } else {
       handleFormSubmit();
       resetFields();
-      // toast.success('You have successfully booked your appointment!');
       setShowForm(false);
     }
   };
@@ -130,7 +134,7 @@ const BookAppointmentModel = ({
       service,
       serviceOther,
       comments,
-      date: selectedDate.startDate,
+      date: selectedDate,
     };
 
     try {
@@ -354,6 +358,7 @@ const BookAppointmentModel = ({
                 <button className="Submitbutton" type="submit">
                   Submit
                 </button>
+                <ToastContainer limit={3}></ToastContainer>
               </form>
             </div>
           </div>
