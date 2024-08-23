@@ -1,0 +1,114 @@
+.faq-box-container {
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+    padding-bottom: 24px;
+    padding-top: 2rem;
+    max-width: 100%;
+}
+
+.faq-box-header {
+    color: #000;
+    font-family: Poppins;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: normal;
+    padding-left: 14px;
+    padding-right: 14px;
+}
+
+.faq-box-icon{
+    padding-left: 14px;
+    padding-right: 14px;
+}
+
+.faq-box-description {
+    color: #3D3D3D;
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: normal;
+    padding-left: 14px;
+    padding-right: 14px;
+    margin-bottom: 14px;
+}
+
+.faq-box-card {
+    /* border-radius: 32px; */
+    margin-bottom: 10px;
+    transition: background-color 0.5s, padding-top 0.3s linear;
+}
+
+.faq-box-card.active {
+    background-color: #E9E9E9;
+    padding-top: 16px;
+}
+
+.faq-box-card-qbox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 52px;
+    padding-left: 14px;
+    padding-right: 14px;
+}
+
+.faq-box-card-button {
+    justify-self: flex-end;
+    text-align: center;
+}
+
+.faq-box-card-question {
+    color: #000;
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: normal;
+    cursor: pointer;
+    margin-right: 1rem;
+}
+
+.faq-box-card-answer {
+    color: #000;
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: normal;
+    padding-left: 14px;
+    padding-right: 14px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.3s linear, padding-top 0.3s linear, padding-bottom 0.3s linear;
+}
+
+.faq-box-card-answer.expanded {
+    max-height: 550px; /* Adjust this value based on the expected maximum height of your answers */
+    padding-top: 20px; /* Add padding for the transition effect */
+    padding-bottom: 30px;
+}
+
+.faq-box-card-button-img {
+    transition: transform 0.5s;
+    min-width: 36px;
+}
+
+.faq-box-card-button-img.faq-button-rotated{
+    transform: rotate(180deg);
+}
+
+.faq-box-card-line{
+    height: 1px;
+    background-color: #A3A3A3;
+    margin-bottom: 25px;
+}
+
+@media (min-width: 1024px){
+    .faq-box-container {
+        max-width: 880px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .faq-box-card {
+    border-radius: 32px;
+    min-width: 890px;
+    max-width: 1334px;
+    }
+}

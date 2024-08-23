@@ -1,0 +1,194 @@
+.form-row-popup {
+  display: flex;
+  justify-content: gap-between;
+  gap: 5rem;
+}
+
+.modal {
+  width: 60rem;
+  height: 35rem;
+  overflow-y: auto;
+  overflow: hidden;
+  border-radius: 15.805px;
+  background: #a6bbf1;
+  display: flex;
+  border-radius: 14.825px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background: url(../Assets/formBackground.jpg) lightgray 50% / cover no-repeat;
+}
+
+.form-row-popup label {
+  display: block;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+.form-group, .form-group-date {
+  margin-bottom: 10px;
+}
+
+.form-group-date .react-datepicker-wrapper{
+  width: 100%;
+}
+
+.form-field {
+  padding: 3.7rem 0rem;
+}
+
+.form-field img {
+  position: absolute;
+}
+
+.book-appointment-header{
+  color: #1e1e1e;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 32.43px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form-row-popup input,
+.form-row-popup select,
+.form-row-popup .lastname {
+  width: 23.8rem;
+  padding: 10px;
+  border: 1px solid #009889;
+  border-radius: 5px;
+}
+
+
+.form-row-popup .error,
+.book-date-error {
+  border-color: #b90124 !important;
+  background-color: "#ffe6e6";
+}
+
+.error-label {
+  color: #b90124;
+}
+
+.form-field .error-message {
+  text-align: center;
+}
+
+.Submitbutton {
+  background-color: rgba(30, 30, 30, 1);
+  padding: 0.5rem 8rem 0.5rem 8rem;
+  color: #fff;
+  display: block;
+  margin-top: 0.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.closeIcon {
+  position: relative;
+  right: 10px;
+  display: block;
+  margin-top: 1rem;
+  align-self: center;
+  margin-left: auto;
+  margin-right: -1rem;
+  font-size: 1.3rem;
+  border-radius: 50%;
+  justify-self: flex-end;
+  cursor: pointer;
+  padding: 0.2rem;
+  background-color: #a6bbf1;
+}
+
+@media (max-width: 1700px) {
+  .modal {
+    width: 50rem;
+    height: 32rem;
+  }
+
+  .form-field {
+    padding: 1.7rem 0rem;
+  }
+
+  .form-row-popup input,
+  .form-row-popup select,
+  .form-row-popup .lastname,
+  .form-row-popup .error {
+    padding: 8px;
+    width: 20.8rem;
+  }
+
+}
+
+@media (max-width: 800px) {
+  .modal {
+    width: 90%;
+    height: 90%;
+    max-height: 800px ;
+    overflow-y: auto;
+    display: block;
+  }
+
+  .form-row-popup {
+    display: block;
+  }
+
+  .form-field {
+    padding: 0rem 1.5rem;
+  }
+
+  .form-field img {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+  }
+
+  .form-row-popup input,
+  .form-row-popup select,
+  .form-row-popup .lastname,
+  .form-row-popup .error {
+    padding: 6px;
+    width: 100%;
+  }
+
+  .form-row-popup label,
+  .icon-heading {
+    font-size: 14px;
+  }
+
+  .book-appointment-header{
+    font-size: 20px;
+  }
+
+  .Submitbutton {
+    padding: 0.3rem 2rem 0.3rem 2rem;
+    font-size: 18px;
+    margin-bottom: 2rem;
+  }
+
+  .closeIcon {
+    position: relative;
+    right: 10px;
+    display: block;
+    margin-top: 1rem;
+    align-self: center;
+    margin-left: auto;
+    margin-right: -1rem;
+    font-size: 1.3rem;
+    border-radius: 50%;
+    justify-self: flex-end;
+    cursor: pointer;
+    padding: 0.2rem;
+    background-color: #a6bbf1;
+  }
+
+  .modal::-webkit-scrollbar {
+    width: 0px;
+  }
+}
