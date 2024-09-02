@@ -1,37 +1,37 @@
 const sitemapVisit = [
   {
-    title: "Visitor Visa- TRV ",
-    linkTo: "/visit/visitor-visa-trv",
-    nestedLinks: [
-      {
-        title: "Visitor Visa for Tourism or to meet your relatives/ friends",
-        linkTo:
-          "/visit/visitor-visa-trv/visitor-visa-for-tourism-or-to-meet-your-relatives-or-friends",
-      },
-      {
-        title: "Visitor Visas for Workers and Students",
-        linkTo:
-          "/visit/visitor-visa-trv/visitor-visas-for-workers-and-students",
-      },
-      {
-        title: "Visit Canada on Business",
-        linkTo: "/visit/visitor-visa-trv/visit-canada-on-business",
-      },
-      {
-        title: "Transit through Canada",
-        linkTo: "/visit/visitor-visa-trv/transit-through-canada",
-      },
-      {
-        title: "Electronic Travel Authorization (eTA)",
-        linkTo: "/visit/visitor-visa-trv/electronic-travel-authorization",
-      },
-    ],
+    title: "Visitor Visa",
+    linkTo: "/visit/visitor-visa"
   },
   {
-    title: "Visa Extension and Refusal",
-    linkTo: "/visit/visa-extension-and-extension",
+    title: "Visitor Visa- Tourism or Meet Relatives",
+    linkTo: "/visit/tourism"
   },
-  { title: "Super visa", linkTo: "/visit/super-visa" },
+  {
+    title: "Visitor Visa- Business",
+    linkTo: "/visit/business"
+  },
+  {
+    title: "Visitor Visa- Students or Workers",
+    linkTo: "/visit/students-workers"
+  },
+  {
+    title: "Super Visa- Children/Grandparents",
+    linkTo: "/visit/super-visa"
+  },
+  {
+    title: "Electronic Travel Authorisation",
+    linkTo: "/visit/eta"
+  },
+  {
+    title: "Visa Extension for Visitor Visa",
+    linkTo: "/visit/visa-extension",
+  },
+  {
+    title: "Refusals",
+    linkTo: "/visit/refusals"
+  }
+
 ];
 
 export default sitemapVisit;

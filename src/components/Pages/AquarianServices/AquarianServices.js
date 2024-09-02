@@ -315,7 +315,7 @@ export default function AquarianServices() {
             Temporary entry allows you to experience stunning landscapes, rich
             culture, and lasting memories. Explore Canada's bustling city life
             and the quiet countryside with a{" "}
-            <a href="/visit/visitor-visa-trv">Visitor Visa!</a>
+            <a href="/visit/visitor-visa">Visitor Visa!</a>
             <a href="/contact-us"> Contact Aquarian Immigration Services</a> and
             get your visitor’s visa in no time.
           </p2>
@@ -416,7 +416,7 @@ export default function AquarianServices() {
             Extend your stay and continue your Canadian adventure! Visa
             Extensions provide flexibility for individuals already in Canada,
             allowing them to prolong their stay for{" "}
-            <a href="/visit/visitor-visa-trv">tourism,</a>{" "}
+            <a href="/visit/visitor-visa">tourism,</a>{" "}
             <a href="/work/work-in-canada">work, </a> or{" "}
             <a href="/study/study-in-canada">study.</a> Extend your stay in the
             Great White North smoothly with the help of{" "}
