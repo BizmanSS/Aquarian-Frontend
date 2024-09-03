@@ -1,6 +1,7 @@
 .choose-program-card {
     border: 2px #E0E0E0;
     background: #EBEBEB;
+    width:334px;
     height: 416px;
     margin-left: 1rem;
     cursor: pointer;
@@ -11,23 +12,6 @@
     align-items: center;
 }
 
-.choose-program-card-image {
-    width: 100%;
-    height: 163px;
-    margin-top: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-
-}
-
-.choose-program-card-image img {
-    object-fit: cover;
-    width: inherit;
-    height: inherit;
-    border-radius: 4px;
-    transition: all .2s;
-}
-
 .choose-program-card-header {
     color: #292929;
     font-family: Poppins;
@@ -36,7 +20,7 @@
     font-weight: 600;
     line-height: 28px;
     text-align: center;
-    transition: all .2s;
+    transition: all .3s;
 }
 
 .choose-program-card-text {
@@ -48,6 +32,22 @@
     font-weight: 400;
     line-height: normal;
     padding-top: 30px;
+    transition: width .3s;
+}
+
+.choose-program-card-image {
+    width: 100%;
+    height: 163px;
+    margin-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.choose-program-card-image img {
+    object-fit: cover;
+    width: inherit;
+    height: inherit;
+    border-radius: 4px;
     transition: all .2s;
 }
 
@@ -67,13 +67,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    
 }
 
-.choose-program-card-button-arrow {
+.choose-program-card-button-arrow, .choose-program-card-button-assist {
+    /* hide assist button except special class */
     opacity: 0;
     position: absolute;
     visibility: hidden;
-    right: 10px;
+    /* right: 10px; */
 }
 
 .choose-program-card:hover {
@@ -90,16 +92,19 @@
         transform: translateY(30px);
     }
 
-    .choose-program-card-button {
+    .choose-program-card-image img {
+        border-radius: 16px;
+    }
+
+    .choose-program-card-button{
         visibility: visible;
         opacity: 100%;
         transform: translateY(-40px);
     }
+
 }
 
-.choose-program-card:hover .choose-program-card-image img {
-    border-radius: 16px;
-}
+
 
 .choose-program-card-button:hover {
     padding-right: 32px;
@@ -110,3 +115,219 @@
         visibility: visible;
     }
 }
+
+
+
+
+/* *{
+    border: 2px solid red;
+} */
+
+.special{
+    background: #CFFAF6;
+    position: relative;
+
+.choose-program-card-header{
+    font-family: "Rum Raisin";
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 400;
+    position: absolute;
+    left: 32px;
+    top: 49px;
+ }
+
+ .choose-program-card-text{
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    margin-top: 54px;
+    margin-left: 7px;
+    font-weight: 400;
+    text-align:left;
+    color:black;
+}
+
+.choose-program-card-image {
+    width:137px;
+    height:155px;
+    position:absolute;
+    right:24px;
+    top:129px;
+    transition: transform 0.3s ease;
+  }
+
+ .choose-program-card-image img{
+    position:absolute;
+    right:0;
+}
+
+.choose-program-card-button-assist {
+    border-radius: 45px;
+    border-width: 1px;
+    border-color: white;
+    background-color: white;
+    color: rgb(6, 6, 6);
+    text-align: center;
+    margin: auto;
+    position: absolute;
+    bottom: 64px;
+    right: 97.75px;
+    transition: all .2s;
+    visibility: visible;
+    opacity: 100%;
+
+display: inline-flex;
+padding: 4px 20px;
+justify-content: center;
+align-items: center;
+gap: 8px;
+}
+
+
+  .choose-program-card-image img {
+    transition: transform 0.3s ease;
+  }
+  
+
+   
+}
+  
+  /* Hover effect */
+   .special:hover {
+    background-color: #8F8F8F;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+    color: white;
+
+    .choose-program-card-header{
+
+     opacity: 1;
+     visibility: visible;
+     transform: translateY(30px);
+     width:200px;
+     margin-left: -10px;
+     transition: transform 0.3s ease;
+     color: white;
+   }
+
+   .choose-program-card-text{
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(30px);
+    width:137px;
+    margin-left:-119px;
+    color: #D2E1E0;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    transition: transform 0.5s ease, width 0.5s ease;
+   }
+
+   .choose-program-card-image img {
+    transform: scale(1.1); /* Slightly enlarge the image on hover */
+  }
+
+  .choose-program-card-image {
+    transform: translateY(-20px); /* Move image to the left */
+  }
+
+  .choose-program-card-button{
+    visibility: hidden;
+    opacity: 0;
+}
+
+.choose-program-card-button-assist{
+    color:white;
+    background: transparent;
+    transition: all 0.3s ease;
+   
+}
+
+.choose-program-card-button-arrow-assist {
+    /* hide assist button except special class */
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    transition: opacity 0.3s ease, width 0.3s ease;
+}
+
+.choose-program-card-share{
+    display:none !important;
+    position:absolute;
+    top:15px;
+    right:15px;
+    transition: all 1s ease;
+}
+
+.choose-program-card-share-white{
+    display:block;
+    position:absolute;
+    top:15px;
+    right:15px;
+    transition: all 1s ease;
+}   
+
+  }
+
+  .choose-program-card-button-assist:hover {
+    padding-right:32px;
+    background-color: white !important;
+    color: #212121 !important;
+    .choose-program-card-button-arrow-assist{
+        visibility: visible;
+        opacity:1;
+        right: 10px;
+        transition: all 0.3s ease;
+    }
+
+    .special .choose-program-card-share{
+        display:block;
+        position:absolute;
+        top:15px;
+        right:15px;
+        background-color:white;
+    }
+}
+
+.choose-program-card-share{
+   display:none;
+}
+.choose-program-card-share-white{
+    display:none;
+ }
+
+.special .choose-program-card-share{
+    display:block;
+    position:absolute;
+    top:15px;
+    right:15px;
+}
+ 
+
+
+  /* FOR tab */
+
+@media screen and (768px < width < 1280px){
+    .choose-program:nth-child(4) {
+        grid-column: 1;
+        grid-row: 2;
+      } 
+      .choose-program:nth-child(3) {
+        grid-column: 2;
+      } 
+
+}
+
+/* FOR PC */
+
+@media screen and (min-width:1280px){
+    .choose-program:nth-child(10) {
+        display:none;
+      } 
+}
+ 
+  
+
+  
+ 
+  

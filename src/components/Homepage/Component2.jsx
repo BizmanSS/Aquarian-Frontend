@@ -9,7 +9,11 @@ import cardimg6 from '../../Assets/Visa Extension 2.png';
 import cardimg7 from '../../Assets/Business Visa 2.png';
 import cardimg8 from '../../Assets/Visitor Visa.png';
 import cardimg9 from '../../Assets/Refusal.png';
+import notsureImg from '../../Assets/not_sure.svg'
+
 import { useMobile } from '../globalComponents/MobileContext/IsMobileContext';
+
+
 
 const Component2 = () => {
   const { isMobile } = useMobile();
@@ -41,6 +45,13 @@ const Component2 = () => {
       title: 'Student Visa',
       description:
         'Pursue your academic aspirations at prestigious Canadian institutions making you independent and ready for a successful career.',
+    },
+    {
+      link: '#',
+      img: notsureImg,
+      title: 'Not Sure?',
+      description:
+        '"Confused about the right pathway for you"',
     },
     {
       link: '/visit/visitor-visa-trv',
@@ -143,7 +154,7 @@ const Component2 = () => {
             <>
               {/* {' '} */}
               {array.map((item, index) => (
-                <Card key={index} data={item} />
+                <Card key={index} data={item} index={index} />
               ))}
             </>
           )}

@@ -2,12 +2,14 @@ import React from "react";
 import { useMobile } from "../globalComponents/MobileContext/IsMobileContext";
 import './CardElement.css'
 import { MdArrowOutward } from 'react-icons/md';
+import share_3_line from '../../Assets/share_3_line.svg'
+import share_3_line_white from '../../Assets/share_3_line (1).svg'
 
-const CardElement = ({ data }) => {
+const CardElement = ({ data, index }) => {
   const { isMobile } = useMobile();
 
   return (
-    <div className="w-full h-full flex items-center justify-center">
+    <div className="w-full h-full flex items-center justify-center choose-program">
       {isMobile ? (
         <div
           onClick={() => (window.location.href = data.link)}
@@ -43,7 +45,7 @@ const CardElement = ({ data }) => {
       ) : (
         <div
           onClick={() => (window.location.href = data.link)}
-          className="max-w-[21rem] choose-program-card"
+          className={`max-w-[21rem] choose-program-card ${index == 3 ? 'special' : ''}`}
         >
           <div className="choose-program-card-image">
             <img
@@ -51,7 +53,7 @@ const CardElement = ({ data }) => {
               alt="amenities"
             />
           </div>
-          <div className="px-6 py-4">
+          <div className="px-6 py-4 ">
             <div className="choose-program-card-header">
               {data.title}
             </div>
@@ -59,6 +61,18 @@ const CardElement = ({ data }) => {
               {data.description}
             </p>
           </div>
+
+          <img src={share_3_line} class="choose-program-card-share"/>
+
+          <img src={share_3_line_white} class="choose-program-card-share-white"/>
+
+          <button className="choose-program-card-button-assist">
+          Let us Assist
+          <div className="choose-program-card-button-arrow-assist">
+          <MdArrowOutward/>
+          </div>
+          </button>
+
           <button className="choose-program-card-button">
           Explore
           <div className="choose-program-card-button-arrow">
