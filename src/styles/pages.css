@@ -6,23 +6,60 @@
 .pages-content-div {
   /* width: 74%; */
   /* padding: 3rem; */
-  padding-top: 3rem;
+  /* padding-top: 3rem; */
   background-color: #fff;
   min-width: 371px;
   margin-right: 6rem;
 }
 
 /* Needs to be removed/changed in all pages */
-.AboutUsHeader{ 
+.AboutUsHeader {
   height: 6.5rem;
 }
 
-.pages-content-div span {
-  font-size: xx-large;
+.pages-content-text-wrapper {
+  padding-right: 10rem;
+  padding-left: 5rem;
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 32px;
+  margin-bottom: 48px;
 }
 
-.pages-content-div sp {
-  font-size: x-large;
+.pages-header {
+  font-family: "GFS Didot";
+  font-size: 40px;
+  font-weight: 400;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  line-height: 40px;
+}
+
+.pages-header-2 {
+  color: #373434;
+  font-family: Poppins;
+  font-size: 32px;
+  font-weight: 500;
+  padding-top: 48px;
+}
+
+.pages-header-3 {
+  color: #3D3D3D;
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  padding-top: 48px;
+}
+
+.pages-header-4 {
+  color: #000;
+  font-weight: 600;
+}
+
+.pages-paragraph {
+  padding-top: 32px;
 }
 
 .pages-content-div bold {
@@ -41,22 +78,42 @@
   list-style-type: disc;
 }
 
+/* what is this */
 .expandedTable {
   display: none;
 }
 
-.pages-content-text {
-  padding-right: 3rem;
-  padding-left: 3rem;
+
+.pages-current-page-link {
+  color: #747474;
+  font-family: Poppins;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  margin-top: 1rem;
 }
 
+.pages-list {
+  padding-top: 32px
+}
 
+.pages-link {
+  color: #034AFF;
+  text-decoration: underline;
+}
+
+.pages-bold {
+  color: #3D3D3D;
+  font-weight: 600;
+}
 
 @media (max-width:1200px) {
-  .pages-content-text {
+  .pages-content-text-wrapper {
     margin-left: auto;
     margin-right: auto;
     max-width: 980px;
+    padding-right: 2rem;
+    padding-left: 2rem;
   }
 }
 
@@ -66,6 +123,20 @@
     margin-left: 0;
     margin-right: 0;
     width: 100%;
-    padding: 0;
+  }
+
+  .pages-content-wrapper {
+    margin-top: 4rem;
+  }
+}
+
+@media (min-width: 1025px) {
+  .pages-content-text-wrapper {
+    font-size: 18px;
+  }
+
+  .pages-header {
+    font-size: 72px;
+    line-height: 72px;
   }
 }

@@ -1696,7 +1696,7 @@ const Header = ({ setShowPopUp }) => {
                       )}
                     {selectedProgram === "After Permanent Residency" &&
                       activeItem === 1 && (
-                        <div className=" w-[35%] auto flex items-start justify-start mt-4 mb-4">
+                        <div className=" w-[40%] auto flex items-start justify-start mt-4 mb-4">
                           <div className="flex flex-col items-start justify-center">
                             <ul className="text-[14px]">
                               <li>
@@ -2083,7 +2083,7 @@ const Header = ({ setShowPopUp }) => {
                       )}
                     {selectedProgram === " Employers Outside Canada" &&
                       activeItem === 7 && (
-                        <div className=" w-[35%] auto flex items-start justify-start mt-4 mb-4">
+                        <div className=" w-[40%] auto flex items-start justify-start mt-4 mb-4">
                           <div className="flex flex-col items-start justify-center">
                             <ul className="text-[14px]">
                               <li>
