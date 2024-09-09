@@ -1,37 +1,42 @@
 const sitemapStudy = [
   { title: "Study In Canada", linkTo: "/study/study-in-canada" },
   {
-    title: "Study Pathways to Permanent Residence",
-    linkTo: "/study/study-pathways-to-permanent-residence",
-  },
-  { title: "Levels of Study", linkTo: "/study/levels-of-study" },
-  {
-    title: "Study Permit In Canada",
-    linkTo: "/study/study-permit-in-canada",
+    title: "Life & Work in Canada", linkTo: "/study/life-work-in-canada",
     nestedLinks: [
       {
-        title: "Student Direct Stream (SDS)",
-        linkTo: "/study/study-permit-in-canada/student-direct-stream",
+        title: "Counselling",
+        linkTo: "/study/life-work-in-canada/counselling"
       },
       {
-        title: "Certificat d'acceptation du Québec (CAQ)",
-        linkTo:
-          "/study/study-permit-in-canada/certificat-d-acceptation-du-quebec",
+        title: "Courses",
+        linkTo: "/study/life-work-in-canada/courses"
       },
-    ],
+      {
+        title: "Universities/Colleges",
+        linkTo: "/study/life-work-in-canada/universities-colleges"
+      },
+      {
+        title: "Admissions",
+        linkTo: "/study/life-work-in-canada/admissions"
+      },
+      {
+        title: "Visa/Study Permit/Student Direct Stream (SDS)",
+        linkTo: "/study/life-work-in-canada/visa-study-permit-sds"
+      },
+      {
+        title: "Pre-Departure Breifing",
+        linkTo: "/study/life-work-in-canada/pre-departure-breifing"
+      }
+    ]
   },
   {
-    title: "Refusals and Appeals of Study Permits",
-    linkTo: "/study/refusals-and-appeals-of-study-permits",
+    title: "Study Pathways to Permanent Residence",
+    linkTo: "/study/study-pathways-to-permanent-residence",
   },
   { title: "Extend a Study Permit", linkTo: "/study/extend-a-study-permit" },
   {
     title: "Post Graduate Work Permit (PGWP)",
     linkTo: "/study/post-graduate-work-permit",
-  },
-  {
-    title: "Designated Learning Institution (DLI)",
-    linkTo: "/study/designated-learning-institution",
   },
 ];
 
