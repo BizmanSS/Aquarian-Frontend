@@ -10,12 +10,13 @@ const App = () => {
 
   return (
     <div className="aquarian-services-container">
+      <div className="aquarian-services-container-inner">
       <img
         src={aquarian_service_header_img}
         alt="header"
         className="aquarian-service-header-img"
       />
-
+<div className="aquarian-services-container-inner-content">
       <div className="aquarian-services-header">
         <p>
           Services offered by{" "}
@@ -30,6 +31,8 @@ const App = () => {
         <Visa_immigration_service />
         <Specialized_service />
       </div>
+    </div>
+    </div>
     </div>
   );
 };
