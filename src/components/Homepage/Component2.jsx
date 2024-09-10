@@ -29,21 +29,21 @@ const Component2 = () => {
         'Make Canada your Permanent home! PR allows you to live, work and study in Canada indefinitely, with access to healthcare and social benefits.',
     },    
     {
-      link: '/visit/visitor-visa-trv',
+      link: '/work/work-in-canada',
       img: cardimg4,
       title: 'Work Visa',
       description:
         'Tap into the rich and diverse Employment market in Canada by successfully obtaining your work visa through our top notch services.',
     },
     {
-      link: '/visit/super-visa',
+      link: '/visit/students-workers',
       img: cardimg5,
       title: 'Student Visa',
       description:
         'Pursue your academic aspirations at prestigious Canadian institutions making you independent and ready for a successful career.',
     },
     {
-      link: '/visit/visitor-visa-trv',
+      link: '/visit/visitor-visa',
       img: cardimg8,
       title: 'Visitor Visa',
       description:
@@ -70,14 +70,14 @@ const Component2 = () => {
         'Enjoy hassle-free family visits! The Super Visa allows parents and grandparents of Canadian Citizens and Permanent Residents to stay for up to two years per visit, with multiple entries.',
     },
     {
-      link: '/visit/visa-extension-and-extension',
+      link: '/landing/visa-extensions',
       img: cardimg6,
       title: 'Visa Extensions',
       description:
         'Extend your stay and continue your Canadian adventure! Visa Extensions provide flexibility for individuals already in Canada, allowing them to prolong their stay for tourism, work, or study.',
     },
     {
-      link: '/visit/visa-extension-and-extension',
+      link: '/landing/refusals',
       img: cardimg9,
       title: 'Refusals',
       description:
@@ -94,14 +94,14 @@ const Component2 = () => {
         'Make Canada your Permanent home! PR allows you to live, work and study in Canada indefinitely, with access to healthcare and social benefits.',
     },    
     {
-      link: '/visit/visitor-visa-trv',
+      link: '/work/work-in-canada',
       img: cardimg4,
       title: 'Work Visa',
       description:
         'Tap into the rich and diverse Employment market in Canada by successfully obtaining your work visa through our top notch services.',
     },
     {
-      link: '/visit/super-visa',
+      link: '/visit/students-workers',
       img: cardimg5,
       title: 'Student Visa',
       description:

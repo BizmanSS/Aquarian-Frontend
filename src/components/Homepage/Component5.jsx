@@ -9,9 +9,7 @@ import img7 from '../../Assets/image 42.png';
 import BoxComponents from './BoxComponents';
 import hoveredimg from '../../Assets/Rectangle 62.png';
 import hoveredimg2 from '../../Assets/Rectangle 63.png';
-import { Button2, PaginationNav1Presentation } from '../Pagination/Pagination';
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa6';
-
+import { Button2 } from '../Pagination/Pagination';
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 
 const Component5 = () => {
@@ -454,7 +452,6 @@ const Component5 = () => {
 
       {!isMobile && (
         <div className='w-full flex items-center justify-end gap-8 cursor-pointer p-4 px-[8rem]'>
-          {/* <PaginationNav1Presentation /> */}
           <Paginate />
         </div>
       )}
