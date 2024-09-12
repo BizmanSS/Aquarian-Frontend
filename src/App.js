@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
 import HomePage from "./components/Pages/HomePages/HomePage";
 import Sidebar from "./components/globalComponents/Sidebar/Sidebar";
 // import Header from "./components/globalComponents/Header/Header";
@@ -173,23 +172,32 @@ import IEC from "./components/Work/Open Work Permits/International Experience Cl
 import SOWP from "./components/Work/Open Work Permits/Spousal Open Work Permit (SOWP)/SpousalOpenWorkPermit";
 import BOWP from "./components/Work/Open Work Permits/Bridging Open Work Permit (BOWP)/BridgingOpenWorkPermit";
 import StudyPathwaysToPermanentResidence from "./components/Study/Study Pathways to Permanent Residence/StudyPathwaysToPermanentResidence";
-import LevelsOfStudy from "./components/Study/Levels of Study/LevelsOfStudy";
-import StudyPermitInCanada from "./components/Study/Study Permit In Canada/StudyPermitInCanada";
-import StudentDirectStream from "./components/Study/Study Permit In Canada/Student Direct Stream (SDS)/StudentDirectStream";
-import CertificatDacceptationDuQuebec from "./components/Study/Study Permit In Canada/Certificat dacceptation du Québec (CAQ)/CertificatdacceptationDuQuebec";
 import RefusalsAndAppealsOfStudyPermit from "./components/Study/Refusals and Appeals of Study Permits/RefusalsAndAppealsOfStudyPermits";
 import ExtendAStudyPermit from "./components/Study/Extend a Study Permit/ExtendAStudyPermit";
 import PostGraduateWorkPermit from "./components/Study/Post Graduate Work Permit/PostGraduateWorkPermit";
-import DesignatedLearningInstitution from "./components/Study/Designated Learning Institution/DesignatedLearningInstitution";
 import StudyInCanada from "./components/Study/Study in Canada/StudyInCanada";
-import TRVVisitorVisa from "./components/Visit/TRV-Visitor Visa/TRV-VisitorVisa";
-import VisaExtension from "./components/Visit/Visa Extension/VisaExtension";
+import LifeWorkInCanada from "./components/Study/Life and work in Canada/LifeWorkInCanada";
+import Counselling from "./components/Study/Life and work in Canada/Counselling/Counselling";
+import Courses from "./components/Study/Life and work in Canada/Courses/Courses";
+import UniversitiesColleges from "./components/Study/Life and work in Canada/UniversitiesColleges/UniversitiesColleges";
+import Admissions from "./components/Study/Life and work in Canada/Admissions/Admissions";
+import VisaStudyPermitSDS from "./components/Study/Life and work in Canada/VisaStudyPermitSDS/VisaStudyPermitSDS";
+import PreDepartureBreifing from "./components/Study/Life and work in Canada/PreDepartureBreifing/PreDepartureBreifing";
+import VisitorVisa from "./components/Visit/Visitor Visa/VisitorVisa";
+import VisitorVisaTourism from "./components/Visit/Tourism/VisitorVisaTourism";
+import VisitorVisaBusiness from "./components/Visit/Business/VisitorVisaBusiness";
+import VisitorVisaStudentsWorkers from "./components/Visit/StudentsWorkers/VisitorVisaStudentsWorkers";
 import SuperVisa from "./components/Visit/Super visa/SuperVisa";
+import ElectronicTravelAuthorisation from "./components/Visit/ETA/ElectronicTravelAuthorisation";
+import VisaExtensionsForVisitorVisa from "./components/Visit/Visa Extension/VisaExtension";
+import VisitorVisaRefusals from "./components/Visit/Refusals/Refusals";
 import EmployersOutsideCanada from "./components/Employers/Employers Outside Canada/EmployersOutsideCanada";
 import CanadianEmployers from "./components/Employers/Canadian Employers/CanadianEmployers";
 import HiringForeignWorkers from "./components/Employers/Canadian Employers/Hiring Foreign Workers/HiringForeignWorkers";
 import IntraCompanyTransferOfEmployees from "./components/Employers/Employers Outside Canada/Intra Company Transfer of Employees/IntraCompanyTransferOfEmployees";
 import BusinessVisitVisa from "./components/Employers/Employers Outside Canada/Business Visit visa (LMIA Exempt)/BusinessVisitVisa";
+import StartABusiness from "./components/Employers/Employers Outside Canada/Start a Business/StartABusiness"
+import BuyABusiness from "./components/Employers/Employers Outside Canada/Buy a Business/BuyABusiness"
 import ExpandBusinessToCanada from "./components/Employers/Employers Outside Canada/Expand Business to Canada/ExpandBusinessToCanada";
 import Sponsorship from "./components/Sponsorship/Sponsorship/Sponsorship";
 import CanadianSpousalSponsorship from "./components/Sponsorship/Canadian spousal sponsorship/CanadianSpousalSponsorship";
@@ -200,9 +208,6 @@ import MinimumNecessaryIncome from "./components/Sponsorship/Minimum Necessary I
 import Invest from "./components/Business/Invest/Invest";
 import StartUp from "./components/Business/Invest/Start-up/Start-up";
 import EntrepreneurSelfEmployed from "./components/Business/Invest/Entrepreneur – self employed/entrepreneur-self-employed";
-import StartABusinessInCanada from "./components/Business/Invest/Start a business in Canada/start-a-business-in-canada";
-import BuyAnExistingBusinessInCanada from "./components/Business/Invest/Buy an existing Business in Canada/buy-an-existing-business-in-canada";
-import ExpandYourBusinessToCanada from "./components/Business/Invest/Expand Your Business to Canada/expand-your-business-to-canada";
 import PNPEntrepreneurStreams from "./components/Business/PNP Entrepreneur Streams/PNPEntrepreneurStreams";
 import AlbertaBusiness from "./components/Business/PNP Entrepreneur Streams/Alberta/Alberta";
 import BritishColumbiaBusiness from "./components/Business/PNP Entrepreneur Streams/British Columbia/BritishColumbia";
@@ -215,11 +220,6 @@ import OntarioBusiness from "./components/Business/PNP Entrepreneur Streams/Onta
 import PrinceEdwardIslandBusiness from "./components/Business/PNP Entrepreneur Streams/Prince Edward Island/PrinceEdwardIsland";
 import SaskatchewanBusiness from "./components/Business/PNP Entrepreneur Streams/Saskatchewan/Saskatchewan";
 import YukonBusiness from "./components/Business/PNP Entrepreneur Streams/Yukon/Yukon";
-import WorkPermitToPRPathways from "./components/Business/Work Permit to PR Pathways/WorkPermittoPRPathways";
-import C11WorkVisa from "./components/Business/Work Permit to PR Pathways/C11 work visa/C11WorkVisa";
-import C10WorkVisa from "./components/Business/Work Permit to PR Pathways/C10 work visa/C10WorkVisa";
-import EntrepreneurLMIAOwnerOperated from "./components/Business/Work Permit to PR Pathways/Entrepreneur LMIA-Owner Operated/EntrepreneurLMIA-OwnerOperated";
-import IntraCompanyTransferBusiness from "./components/Business/Work Permit to PR Pathways/Intra-Company Transfer (ICT)/IntraCompanyTransfer";
 import Top10UniversitiesInCanada from "./components/BlogsComponent/Top10UniversitiesInCanada";
 import TipsAndTricks from "./components/BlogsComponent/tips-and-tricks";
 import TopInDemandJobs from "./components/BlogsComponent/top-in-demand-jobs";
@@ -234,12 +234,9 @@ import AquarianServices from "./components/Pages/AquarianServices/AquarianServic
 import PageNotFound from "./components/Pages/Error/Error.jsx";
 import MajorProvinces from "./components/News/Major-provinces-issue-PNP-invitations.js";
 import ResourcesAndTools from "./components/ResourcesAndTools/ResourcesAndTools.jsx";
-import VisitorVisaForTourism from "./components/Visit/TRV-Visitor Visa/Visitor Visa for Tourism or to meet your relatives/Visitor-Visa-for-Tourism-or-to-meet-your-relatives.js";
-import VisitorVisaForWorkersAndStudents from "./components/Visit/TRV-Visitor Visa/Visitor Visas for Workers and Students/visitor-visas-for-workers-and-students.js";
-import VisitCanadaOnBusiness from "./components/Visit/TRV-Visitor Visa/visit-canada-on-business/visit-canada-on-business.js";
-import TransitThroughCanada from "./components/Visit/TRV-Visitor Visa/Transit through Canada/transit-through-canada.js";
-import ElectronicTravelAuthorization from "./components/Visit/TRV-Visitor Visa/Electronic Travel Authorization/electronic-travel-authorization.js";
 import SubmitPopUp from "./components/AssessmentForm/Ui/SubmitPopUp";
+import RefusalsLandingPage from "./components/SeperateLandingPages/Refusals/Refusals"
+import VisaExtensionLandingPage from "./components/SeperateLandingPages/Visa Extensions/visaExtensions.js";
 
 
 const App = () => {
@@ -1060,25 +1057,17 @@ const App = () => {
             {/*Routes for Study*/}
             {/*Routes for Study in Canada*/}
             <Route path="/study/study-in-canada" element={<StudyInCanada />} />
+            <Route path="/study/life-work-in-canada" element={<LifeWorkInCanada />} />
+            <Route path="/study/life-work-in-canada/counselling" element={<Counselling />} />
+            <Route path="/study/life-work-in-canada/courses" element={<Courses />} />
+            <Route path="/study/life-work-in-canada/universities-colleges" element={<UniversitiesColleges />} />
+            <Route path="/study/life-work-in-canada/admissions" element={<Admissions />} />
+            <Route path="/study/life-work-in-canada/visa-study-permit-sds" element={<VisaStudyPermitSDS />} />
+            <Route path="/study/life-work-in-canada/pre-departure-breifing" element={<PreDepartureBreifing />} />
             {/*Routes for Study Pathways to Permanent Residence*/}
             <Route
               path="/study/study-pathways-to-permanent-residence"
               element={<StudyPathwaysToPermanentResidence />}
-            />
-            {/*Routes for Levels of Study*/}
-            <Route path="/study/levels-of-study" element={<LevelsOfStudy />} />
-            {/*Routes for Study Permit In Canada*/}
-            <Route
-              path="/study/study-permit-in-canada"
-              element={<StudyPermitInCanada />}
-            />
-            <Route
-              path="/study/study-permit-in-canada/student-direct-stream"
-              element={<StudentDirectStream />}
-            />
-            <Route
-              path="/study/study-permit-in-canada/certificat-d-acceptation-du-quebec"
-              element={<CertificatDacceptationDuQuebec />}
             />
             {/*Routes for Refusals and Appeals of Study Permits*/}
             <Route
@@ -1095,44 +1084,40 @@ const App = () => {
               path="/study/post-graduate-work-permit"
               element={<PostGraduateWorkPermit />}
             />
-            {/*Routes for Designated Learning Institution (DLI)*/}
-            <Route
-              path="/study/designated-learning-institution"
-              element={<DesignatedLearningInstitution />}
-            />
             {/*Routes for Visit*/}
-            {/*Routes for Visitor Visa- TRV*/}
             <Route
-              path="/visit/visitor-visa-trv"
-              element={<TRVVisitorVisa />}
+              path="/visit/visitor-visa"
+              element={<VisitorVisa />}
             />
             <Route
-              path="/visit/visitor-visa-trv/visitor-visa-for-tourism-or-to-meet-your-relatives-or-friends"
-              element={<VisitorVisaForTourism />}
+              path="/visit/tourism"
+              element={<VisitorVisaTourism />}
             />
             <Route
-              path="/visit/visitor-visa-trv/visitor-visas-for-workers-and-students"
-              element={<VisitorVisaForWorkersAndStudents />}
+              path="/visit/business"
+              element={<VisitorVisaBusiness />}
             />
             <Route
-              path="/visit/visitor-visa-trv/visit-canada-on-business"
-              element={<VisitCanadaOnBusiness />}
+              path="/visit/students-workers"
+              element={<VisitorVisaStudentsWorkers />}
             />
             <Route
-              path="/visit/visitor-visa-trv/transit-through-canada"
-              element={<TransitThroughCanada />}
+              path='/visit/super-visa'
+              element={<SuperVisa />}
             />
             <Route
-              path="/visit/visitor-visa-trv/electronic-travel-authorization"
-              element={<ElectronicTravelAuthorization />}
+              path='/visit/eta'
+              element={<ElectronicTravelAuthorisation />}
             />
-            {/*Routes for Visa Extension and Refusal*/}
             <Route
-              path="/visit/visa-extension-and-extension"
-              element={<VisaExtension />}
+              path='/visit/visa-extension'
+              element={<VisaExtensionsForVisitorVisa />}
             />
-            {/*Routes for Super Visa*/}
-            <Route path="/visit/super-visa" element={<SuperVisa />} />
+            <Route
+              path='/visit/refusals'
+              element={<VisitorVisaRefusals />}
+            />
+
             {/*Routes for Employers*/}
             {/*Routes for Employers Outside Canada*/}
             <Route
@@ -1146,6 +1131,14 @@ const App = () => {
             <Route
               path="/employers/employers-outside-canada/business-visit-visa"
               element={<BusinessVisitVisa />}
+            />
+            <Route
+              path="/employers/employers-outside-canada/start-a-business"
+              element={<StartABusiness />}
+            />
+            <Route
+              path="/employers/employers-outside-canada/buy-a-business"
+              element={<BuyABusiness />}
             />
             <Route
               path="/employers/employers-outside-canada/expand-business-to-canada"
@@ -1196,18 +1189,6 @@ const App = () => {
               path="/business/invest/entrepreneur-self-employed"
               element={<EntrepreneurSelfEmployed />}
             />
-            <Route
-              path="/business/invest/start-a-business-in-canada"
-              element={<StartABusinessInCanada />}
-            />
-            <Route
-              path="/business/invest/buy-an-existing-business-in-canada"
-              element={<BuyAnExistingBusinessInCanada />}
-            />
-            <Route
-              path="/business/invest/expand-your-business-to-canada"
-              element={<ExpandYourBusinessToCanada />}
-            />
             {/*Routes for PNP Entrepreneur Streams*/}
             <Route
               path="/business/pnp-entrepreneur-streams"
@@ -1257,27 +1238,13 @@ const App = () => {
               path="/business/pnp-entrepreneur-streams/yukon"
               element={<YukonBusiness />}
             />
-            {/*Routes for Work Permit to PR Pathways*/}
             <Route
-              path="/business/work-permit-to-pr-pathways"
-              element={<WorkPermitToPRPathways />}
-            />
+              path="/landing/refusals"
+              element={<RefusalsLandingPage />} />
             <Route
-              path="/business/work-permit-to-pr-pathways/intra-company-transfer"
-              element={<IntraCompanyTransferBusiness />}
-            />
-            <Route
-              path="/business/work-permit-to-pr-pathways/c11-work-visa"
-              element={<C11WorkVisa />}
-            />
-            <Route
-              path="/business/work-permit-to-pr-pathways/c10-work-visa"
-              element={<C10WorkVisa />}
-            />
-            <Route
-              path="/business/work-permit-to-pr-pathways/entrepreneur-lmia-owner-operated"
-              element={<EntrepreneurLMIAOwnerOperated />}
-            />
+              path="/landing/visa-extensions"
+              element={<VisaExtensionLandingPage />} />
+
           </Routes>
           <Footer />
         </MobileProvider>

@@ -1,3 +1,4 @@
+//WTF is this code?? Nightmare code
 import React, { useEffect, useRef, useState } from "react";
 import './Header.css'
 import logo from "../../../Assets/Logo-02.svg";
@@ -72,13 +73,11 @@ const Header = ({ setShowPopUp }) => {
   });
   const [showHeadersSubSubmenuStudy, setShowHeadersSubSubmenuStudy] = useState({
     studyInCanada: false,
+    lifeWorkInCanada: false,
     studyPathwaysToPermanentResidence: false,
-    levelsOfStudy: false,
-    studyPermitInCanada: false,
     refusalsAndAppealsOfStudyPermits: false,
     extendAStudyPermit: false,
     postGraduateWorkPermitPgwp: false,
-    designatedLearningInstitutionDli: false,
   });
   const [
     showHeadersSubSubmenuSponsorship,
@@ -95,11 +94,15 @@ const Header = ({ setShowPopUp }) => {
     useState({
       businessInvest: false,
       pnpEntrepreneurStreams: false,
-      workPermitToPrPathways: false,
     });
   const [showHeadersSubSubmenuVisit, setShowHeadersSubSubmenuVisit] = useState({
-    visitorVisaTrv: false,
-    visaExtensionAndRefusal: false,
+    visitorVisa: false,
+    visitorVisaBusiness: false,
+    visitorVisaTourism: false,
+    visitorVisaStudents: false,
+    refusals: false,
+    eta: false,
+    visaExtensionForVisitorVisa: false,
     superVisa: false,
   });
   const [showHeadersSubSubmenuEmployers, setShowHeadersSubSubmenuEmployers] =
@@ -138,13 +141,11 @@ const Header = ({ setShowPopUp }) => {
     setShowHeadersSubSubmenuStudy((prevState) => ({
       ...prevState,
       studyInCanada: false,
+      lifeWorkInCanada: false,
       studyPathwaysToPermanentResidence: false,
-      levelsOfStudy: false,
-      studyPermitInCanada: false,
       refusalsAndAppealsOfStudyPermits: false,
       extendAStudyPermit: false,
       postGraduateWorkPermitPgwp: false,
-      designatedLearningInstitutionDli: false,
       [value]: !prevState[value],
     }));
   };
@@ -165,15 +166,19 @@ const Header = ({ setShowPopUp }) => {
       ...prevState,
       businessInvest: false,
       pnpEntrepreneurStreams: false,
-      workPermitToPrPathways: false,
       [value]: !prevState[value],
     }));
   };
   const toggleshowHeadersSubSubmenuVisit = (value) => {
     setShowHeadersSubSubmenuVisit((prevState) => ({
       ...prevState,
-      visitorVisaTrv: false,
-      visaExtensionAndRefusal: false,
+      visitorVisa: false,
+      visitorVisaBusiness: false,
+      visitorVisaTourism: false,
+      visitorVisaStudents: false,
+      refusals: false,
+      eta: false,
+      visaExtensionForVisitorVisa: false,
       superVisa: false,
       [value]: !prevState[value],
     }));
@@ -351,7 +356,7 @@ const Header = ({ setShowPopUp }) => {
     }, 200);
     setIsHamMenuOpened(true);
     setShowMobileHeader(true);
-    
+
   };
   const handleMouseEnter = () => {
     setIsHovering(true);
@@ -989,6 +994,25 @@ const Header = ({ setShowPopUp }) => {
                             </li>
                             <li
                               // onMouseEnter={() =>
+                              //   handleItemProgramClick('Study In Canada')
+                              // }
+                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${selectedProgram === "Life & Work in Canada" &&
+                                "text-[#01997E] font-semibold"
+                                }`}
+                            >
+                              <a
+                                href="/study/life-work-in-canada"
+                                className="hover:text-[#01997E] hover:font-semibold hover:scale-105 transition ease-in delay-40 duration-200"
+                              >
+                                Life & Work in Canada
+                              </a>
+
+                              <SvgComponent
+                                program={"Life & Work in Canada"}
+                              />
+                            </li>
+                            <li
+                              // onMouseEnter={() =>
                               //   handleItemProgramClick('DLI ')
                               // }
                               className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${selectedProgram ===
@@ -1002,41 +1026,6 @@ const Header = ({ setShowPopUp }) => {
                               >
                                 Study Pathways to Permanent Residence
                               </a>
-                            </li>
-
-                            <li
-                              // onMouseEnter={() =>
-                              //   handleItemProgramClick(' Levels of Study')
-                              // }
-                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${selectedProgram === " Levels of Study" &&
-                                "text-[#01997E] font-semibold"
-                                }`}
-                            >
-                              <a
-                                href="/study/levels-of-study"
-                                className="hover:text-[#01997E] hover:font-semibold hover:scale-105 transition ease-in delay-40 duration-200"
-                              >
-                                Levels of Study
-                              </a>
-                            </li>
-                            <li
-                              // onMouseEnter={() =>
-                              //   handleItemProgramClick('Study Permit In Canada')
-                              // }
-                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${selectedProgram === "Study Permit In Canada" &&
-                                "text-[#01997E] font-semibold"
-                                }`}
-                            >
-                              <a
-                                href="/study/study-permit-in-canada"
-                                className="hover:text-[#01997E] hover:font-semibold hover:scale-105 transition ease-in delay-40 duration-200"
-                              >
-                                Study Permit In Canada
-                              </a>
-
-                              <SvgComponent
-                                program={"Study Permit In Canada"}
-                              />
                             </li>
                             <li
                               // onMouseEnter={() =>
@@ -1084,21 +1073,6 @@ const Header = ({ setShowPopUp }) => {
                                 className="hover:text-[#01997E] hover:font-semibold hover:scale-105 transition ease-in delay-40 duration-200"
                               >
                                 Post Graduate Work Permit (PGWP)
-                              </a>
-                            </li>
-                            <li
-                              // onMouseEnter={() =>
-                              //   handleItemProgramClick('DLI ')
-                              // }
-                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${selectedProgram === "DLI " &&
-                                "text-[#01997E] font-semibold"
-                                }`}
-                            >
-                              <a
-                                href="/study/designated-learning-institution"
-                                className="hover:text-[#01997E] hover:font-semibold hover:scale-105 transition ease-in delay-40 duration-200"
-                              >
-                                Designated Learning Institution (DLI)
                               </a>
                             </li>
                             {/* <li
@@ -1236,7 +1210,7 @@ const Header = ({ setShowPopUp }) => {
                               // onMouseEnter={() =>
                               //   handleItemProgramClick(' Business/Invest')
                               // }
-                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${selectedProgram === " Business/Invest" &&
+                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${selectedProgram === "Business/Investment Streams" &&
                                 "text-[#01997E] font-semibold"
                                 }`}
                             >
@@ -1244,10 +1218,10 @@ const Header = ({ setShowPopUp }) => {
                                 href="/business/invest"
                                 className="hover:text-[#01997E] hover:font-semibold hover:scale-105 transition ease-in delay-40 duration-200"
                               >
-                                Business{" "}
+                                Business/Investment Streams{" "}
                               </a>
 
-                              <SvgComponent program={" Business/Invest"} />
+                              <SvgComponent program={"Business/Investment Streams"} />
                             </li>
                             <li
                               // onMouseEnter={() =>
@@ -1271,28 +1245,6 @@ const Header = ({ setShowPopUp }) => {
                                 program={"PNP Entrepreneur Streams"}
                               />
                             </li>
-                            <li
-                              // onMouseEnter={() =>
-                              //   handleItemProgramClick(
-                              //     ' Work Permit to PR Pathways'
-                              //   )
-                              // }
-                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${selectedProgram ===
-                                " Work Permit to PR Pathways" &&
-                                "text-[#01997E] font-semibold"
-                                }`}
-                            >
-                              <a
-                                href="/business/work-permit-to-pr-pathways"
-                                className="hover:text-[#01997E] hover:font-semibold hover:scale-105 transition ease-in delay-40 duration-200"
-                              >
-                                Work Permit to PR Pathways{" "}
-                              </a>
-
-                              <SvgComponent
-                                program={" Work Permit to PR Pathways"}
-                              />
-                            </li>
                           </ul>
                         </div>
                       </div>
@@ -1300,42 +1252,56 @@ const Header = ({ setShowPopUp }) => {
                     {activeItem === 6 && (
                       <div className=" w-[40%] h-auto mt-4 mb-4">
                         <div className="flex flex-col ">
-                          <ul className="text-[15px] flex flex-col items-start justify-start gap-4 ">
+                          <ul className="text-[15px] flex flex-col items-start justify-start gap-4">
                             <li
-                              // onMouseEnter={() =>
-                              //   handleItemProgramClick('TRV-Visitor Visa')
-                              // }
-                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${selectedProgram === "TRV-Visitor Visa" &&
+                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${selectedProgram === "Visitor Visa" && "text-[#01997E] font-semibold"
+                                }`}
+                            >
+                              <a
+                                href="/visit/visitor-visa"
+                                className="hover:text-[#01997E] hover:font-semibold hover:scale-105 transition ease-in delay-40 duration-200"
+                              >
+                                Visitor Visa
+                              </a>
+                            </li>
+                            <li
+                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${selectedProgram === "Visitor Visa Tourism" &&
                                 "text-[#01997E] font-semibold"
                                 }`}
                             >
                               <a
-                                href="/visit/visitor-visa-trv"
+                                href="/visit/tourism"
                                 className="hover:text-[#01997E] hover:font-semibold hover:scale-105 transition ease-in delay-40 duration-200"
                               >
-                                Visitor Visa- TRV
+                                Visitor Visa- Tourism or Meet Relatives
                               </a>
                             </li>
                             <li
-                              // onMouseEnter={() =>
-                              //   handleItemProgramClick('Visa Extension')
-                              // }
-                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${selectedProgram === "Visa Extension" &&
+                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${selectedProgram === "Visitor Visa Business" &&
                                 "text-[#01997E] font-semibold"
                                 }`}
                             >
                               <a
-                                href="/visit/visa-extension-and-extension"
+                                href="/visit/business"
                                 className="hover:text-[#01997E] hover:font-semibold hover:scale-105 transition ease-in delay-40 duration-200"
                               >
-                                Visa Extension and Refusal
+                                Visitor Visa- Business
                               </a>
                             </li>
                             <li
-                              // onMouseEnter={() =>
-                              //   handleItemProgramClick(' Super visa (linked)')
-                              // }
-                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${selectedProgram === " Super visa (linked)" &&
+                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${selectedProgram === "Visitor Visa Students" &&
+                                "text-[#01997E] font-semibold"
+                                }`}
+                            >
+                              <a
+                                href="/visit/students-workers"
+                                className="hover:text-[#01997E] hover:font-semibold hover:scale-105 transition ease-in delay-40 duration-200"
+                              >
+                                Visitor Visa- Students or Workers
+                              </a>
+                            </li>
+                            <li
+                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${selectedProgram === "Super Visa" &&
                                 "text-[#01997E] font-semibold"
                                 }`}
                             >
@@ -1343,10 +1309,47 @@ const Header = ({ setShowPopUp }) => {
                                 href="/visit/super-visa"
                                 className="hover:text-[#01997E] hover:font-semibold hover:scale-105 transition ease-in delay-40 duration-200"
                               >
-                                Super visa
+                                Super Visa- Children/Grandparents
+                              </a>
+                            </li>
+                            <li
+                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${selectedProgram === "eta" &&
+                                "text-[#01997E] font-semibold"
+                                }`}
+                            >
+                              <a
+                                href="/visit/eta"
+                                className="hover:text-[#01997E] hover:font-semibold hover:scale-105 transition ease-in delay-40 duration-200"
+                              >
+                                Electronic Travel Authorisation
+                              </a>
+                            </li>
+                            <li
+                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${selectedProgram === "Visa Extension for Visitor Visa" &&
+                                "text-[#01997E] font-semibold"
+                                }`}
+                            >
+                              <a
+                                href="/visit/visa-extension"
+                                className="hover:text-[#01997E] hover:font-semibold hover:scale-105 transition ease-in delay-40 duration-200"
+                              >
+                                Visa Extension for Visitor Visa
+                              </a>
+                            </li>
+                            <li
+                              className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${selectedProgram === "Refusals" &&
+                                "text-[#01997E] font-semibold"
+                                }`}
+                            >
+                              <a
+                                href="/visit/refusals"
+                                className="hover:text-[#01997E] hover:font-semibold hover:scale-105 transition ease-in delay-40 duration-200"
+                              >
+                                Refusals
                               </a>
                             </li>
                           </ul>
+
                         </div>
                       </div>
                     )}
@@ -1693,7 +1696,7 @@ const Header = ({ setShowPopUp }) => {
                       )}
                     {selectedProgram === "After Permanent Residency" &&
                       activeItem === 1 && (
-                        <div className=" w-[35%] auto flex items-start justify-start mt-4 mb-4">
+                        <div className=" w-[40%] auto flex items-start justify-start mt-4 mb-4">
                           <div className="flex flex-col items-start justify-center">
                             <ul className="text-[14px]">
                               <li>
@@ -1907,33 +1910,58 @@ const Header = ({ setShowPopUp }) => {
                           </div>
                         </div>
                       )}
-                    {selectedProgram === "Study Permit In Canada" &&
+                    {selectedProgram === "Life & Work in Canada" &&
                       activeItem === 3 && (
                         <div className=" w-[35%] auto flex items-start justify-start mt-4 mb-4">
                           <div className="flex flex-col items-start justify-center">
                             <ul className="text-[14px]">
                               <li>
                                 <HeaderComponent
-                                  text={"Student Direct Stream (SDS)"}
+                                  text={"Counselling"}
                                   link={
-                                    "/study/study-permit-in-canada/student-direct-stream"
+                                    "/study/life-work-in-canada/counselling"
                                   }
                                 />
                               </li>
 
                               <li>
                                 <HeaderComponent
-                                  text={`Certificat d'acceptation du Québec (CAQ)`}
+                                  text={"Courses"}
                                   link={
-                                    "/study/study-permit-in-canada/certificat-d-acceptation-du-quebec"
+                                    "/study/life-work-in-canada/courses"
                                   }
+                                />
+                              </li>
+
+                              <li>
+                                <HeaderComponent
+                                  text={`Universities/Colleges`}
+                                  link={"/study/life-work-in-canada/universities-colleges"}
+                                />
+                              </li>
+                              <li>
+                                <HeaderComponent
+                                  text={`Admissions`}
+                                  link={"/study/life-work-in-canada/admissions"}
+                                />
+                              </li>
+                              <li>
+                                <HeaderComponent
+                                  text={`Visa/Study Permit/Student Direct Stream (SDS)`}
+                                  link={"/study/life-work-in-canada/visa-study-permit-sds"}
+                                />
+                              </li>
+                              <li>
+                                <HeaderComponent
+                                  text={`Pre-Departure Breifing`}
+                                  link={"/study/life-work-in-canada/pre-departure-breifing"}
                                 />
                               </li>
                             </ul>
                           </div>
                         </div>
                       )}
-                    {selectedProgram === " Business/Invest" &&
+                    {selectedProgram === "Business/Investment Streams" &&
                       activeItem === 5 && (
                         <div className=" w-[35%] auto flex items-start justify-start mt-4 mb-4">
                           <div className="flex flex-col items-start justify-center">
@@ -1949,30 +1977,6 @@ const Header = ({ setShowPopUp }) => {
                                   text={" Entrepreneur – self employed"}
                                   link={
                                     "/business/invest/entrepreneur-self-employed"
-                                  }
-                                />
-                              </li>
-                              <li>
-                                <HeaderComponent
-                                  text={"Start a business in Canada"}
-                                  link={
-                                    "/business/invest/start-a-business-in-canada"
-                                  }
-                                />
-                              </li>
-                              <li>
-                                <HeaderComponent
-                                  text={"Buy an existing Business in Canada"}
-                                  link={
-                                    "/business/invest/buy-an-existing-business-in-canada"
-                                  }
-                                />
-                              </li>
-                              <li>
-                                <HeaderComponent
-                                  text={"Expand Your Business in Canada"}
-                                  link={
-                                    "/business/invest/expand-your-business-to-canada"
                                   }
                                 />
                               </li>
@@ -2077,50 +2081,9 @@ const Header = ({ setShowPopUp }) => {
                           </div>
                         </div>
                       )}
-                    {selectedProgram === " Work Permit to PR Pathways" &&
-                      activeItem === 5 && (
-                        <div className=" w-[35%] auto flex items-start justify-start mt-4 mb-4">
-                          <div className="flex flex-col items-start justify-center">
-                            <ul className="text-[14px]">
-                              <li>
-                                <HeaderComponent
-                                  text={"ICT"}
-                                  link={
-                                    "/business/work-permit-to-pr-pathways/intra-company-transfer"
-                                  }
-                                />
-                              </li>
-                              <li>
-                                <HeaderComponent
-                                  text={"C11 work visa"}
-                                  link={
-                                    "/business/work-permit-to-pr-pathways/c11-work-visa"
-                                  }
-                                />
-                              </li>
-                              <li>
-                                <HeaderComponent
-                                  text={"C10 Work visa"}
-                                  link={
-                                    "/business/work-permit-to-pr-pathways/c10-work-visa"
-                                  }
-                                />
-                              </li>
-                              <li>
-                                <HeaderComponent
-                                  text={"Entrepreneur LMIA-Owner Operated"}
-                                  link={
-                                    "/business/work-permit-to-pr-pathways/entrepreneur-lmia-owner-operated"
-                                  }
-                                />
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                      )}
                     {selectedProgram === " Employers Outside Canada" &&
                       activeItem === 7 && (
-                        <div className=" w-[35%] auto flex items-start justify-start mt-4 mb-4">
+                        <div className=" w-[40%] auto flex items-start justify-start mt-4 mb-4">
                           <div className="flex flex-col items-start justify-center">
                             <ul className="text-[14px]">
                               <li>
@@ -2136,6 +2099,22 @@ const Header = ({ setShowPopUp }) => {
                                   text={"Business Visit visa (LMIA Exempt)"}
                                   link={
                                     "/employers/employers-outside-canada/business-visit-visa"
+                                  }
+                                />
+                              </li>
+                              <li>
+                                <HeaderComponent
+                                  text={"Start a Business in Canada"}
+                                  link={
+                                    "/employers/employers-outside-canada/start-a-business"
+                                  }
+                                />
+                              </li>
+                              <li>
+                                <HeaderComponent
+                                  text={"Buy an Existing Business in Canada"}
+                                  link={
+                                    "/employers/employers-outside-canada/buy-a-business"
                                   }
                                 />
                               </li>
@@ -2334,8 +2313,8 @@ const Header = ({ setShowPopUp }) => {
 
             {showMobileHeader && (
               <ul
-                className={`hamburger-menu-container ${isHamMenuOpened ? 'ham-menu-opened':'ham-menu-closed'}`}
-                onAnimationEnd={() => {if(!isHamMenuOpened) setShowMobileHeader(false)}}
+                className={`hamburger-menu-container ${isHamMenuOpened ? 'ham-menu-opened' : 'ham-menu-closed'}`}
+                onAnimationEnd={() => { if (!isHamMenuOpened) setShowMobileHeader(false) }}
               >
                 <li className="mb-6 flex items-center justify-between">
                   <a href={"/"} className="ml-[15px] mr-[15px]" >

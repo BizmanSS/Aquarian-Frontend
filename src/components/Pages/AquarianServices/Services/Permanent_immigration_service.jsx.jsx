@@ -27,7 +27,8 @@ const data = [
       item2:`There are three streams under Express Entry-
 •	Federal Skilled Worker (FSW) 
 •	Canadian Experience Class (CEC) 
-•	Federal Skilled Trades (FST) `, 
+•	Federal Skilled Trades (FST) 
+ `, 
       item3:`Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile.`
     } 
   },
@@ -35,18 +36,21 @@ const data = [
     id: 2,
     image: services_accordion_img2,
     name: "Provincial Nominee Program",
-    content: `There are three streams under Express Entry-
-•	Federal Skilled Worker (FSW) 
-•	Canadian Experience Class (CEC) 
-•	Federal Skilled Trades (FST) 
-`,
+    content: {
+      item1:`Avail Aquarian Immigration’s PNP expertise to effortlessly achieve nomination from the province of your choice. `, 
+      item2:`We guide you through the various province-specific requirements, ensuring a smooth transition to Canadian residency tailored to your unique aspirations. `, 
+      item3:``
+    } 
   },
   {
     id: 3,
     image: services_accordion_img3,
-    name: "Item 3",
-    content:
-      "Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile.",
+    name: "Sponsorship",
+    content: {
+      item1:`Aquarian Immigration Services can help you bring your family together. `, 
+      item2:` If you are a Permanent Resident in Canada or a Canadian citizen you can sponsor your spouse, children, parents and grandparents and have them join you in Canada. `, 
+      item3:`Know everything you need to know about family sponsorship through our detailed support and assistance.`
+    } 
   },
 ];
 
@@ -65,7 +69,7 @@ const Permanent_immigration_service = () => {
     const handleResize = () => {
       if (window.innerWidth < 768) {
         setGroupSize(1); // Mobile: 1 item per row
-      } else if (window.innerWidth < 1024) {
+      } else if (window.innerWidth < 1067) {
         setGroupSize(2); // Medium: 2 items per row
       } else {
         setGroupSize(3); // PC: 3 items per row

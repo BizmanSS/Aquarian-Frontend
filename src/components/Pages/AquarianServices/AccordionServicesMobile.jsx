@@ -3,17 +3,17 @@ import { MdArrowOutward } from 'react-icons/md';
 
 import  './AquarianServices.css';
 
-const AccordionServiceMobile = ({ item,openItemId }) => {
+const AccordionServiceMobile = ({ item,isAccordionActive}) => {
 
   return (
-    <div className={`accordion-service-mobile ${openItemId ? '' : 'accordion-mobile-active'}`}>
+    <div className={`accordion-service-mobile ${isAccordionActive ? 'accordion-mobile-active' : ''}`}>
       <h2 className="heading">{item.name}</h2>
       <img src={item.image} alt={item.name} className="image" />
       <hr className="divider" />
-      <p class="accordionMobileContent">{item.content}</p>
-      <button className="aquarian-services-button">
+      <p class="accordionMobileContent">{item.content.item1}</p>
+      <button className="aquarian-services-button-mobile">
           Explore
-          <div className="aquarian-services-button-arrow">
+          <div className="aquarian-services-button-arrow-mobile">
           <MdArrowOutward/>
           </div>
           </button>
