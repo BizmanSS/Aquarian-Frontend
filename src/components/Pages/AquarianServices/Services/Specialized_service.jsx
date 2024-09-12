@@ -1,11 +1,21 @@
 import React, { useState, useRef, useEffect } from "react";
 import AccordionServices from "../AccordionServices";
 
-import services_accordion_img1 from "../../../../Assets/services_accordion_img1.png";
+import refusals from "../../../../Assets/refusals.png";
 
-import services_accordion_img2 from "../../../../Assets/services_accordion_img2.png";
+import refusalsAccordion from "../../../../Assets/refusalsAccordion.png";
 
-import services_accordion_img3 from "../../../../Assets/services_accordion_img3.png";
+import interviewPreparation from "../../../../Assets/interviewPreparation.png";
+
+import interviewPreparationAccordion from "../../../../Assets/interviewPreparationAccordion.png";
+
+import postArrivalServices from "../../../../Assets/postArrivalServices.png";
+
+import postArrivalServicesAccordion from "../../../../Assets/postArrivalAccordion.png";
+
+import citizenshipApplication from "../../../../Assets/citizenshipApplication.png";
+
+import citizenshipApplicationAccordion from "../../../../Assets/citizenshipApplicationAccordion.png";
 
 import share_3_line from "../../../../Assets/share_3_line.svg";
 
@@ -20,43 +30,47 @@ import { useMobile } from "../../../globalComponents/MobileContext/IsMobileConte
 const data = [
   {
     id: 1,
-    image: services_accordion_img1,
+    image: refusals,
+    accordionImage: refusalsAccordion,
     name: "Refusals",
     content: {
-      item1:`Express Entry is the fastest and most popular way to Immigrate to Canada. It is designed to bring in skilled workers to Canada through three categories.`, 
-      item2:`Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile. `, 
-      item3:`Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile.`
-    } 
+      item1: `Express Entry is the fastest and most popular way to Immigrate to Canada. It is designed to bring in skilled workers to Canada through three categories.`,
+      item2: `Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile. `,
+      item3: `Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile.`,
+    },
   },
   {
     id: 2,
-    image: services_accordion_img2,
+    image: interviewPreparation,
+    accordionImage: interviewPreparationAccordion,
     name: "Interview Preparation",
     content: {
-      item1:`Express Entry is the fastest and most popular way to Immigrate to Canada. It is designed to bring in skilled workers to Canada through three categories.`, 
-      item2:`Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile. `, 
-      item3:`Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile.`
-    } 
+      item1: `Express Entry is the fastest and most popular way to Immigrate to Canada. It is designed to bring in skilled workers to Canada through three categories.`,
+      item2: `Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile. `,
+      item3: `Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile.`,
+    },
   },
   {
     id: 3,
-    image: services_accordion_img3,
+    image: postArrivalServices,
+    accordionImage: postArrivalServicesAccordion,
     name: "Post Arrival Service",
     content: {
-      item1:`Express Entry is the fastest and most popular way to Immigrate to Canada. It is designed to bring in skilled workers to Canada through three categories.`, 
-      item2:`Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile. `, 
-      item3:`Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile.`
-    } 
+      item1: `Express Entry is the fastest and most popular way to Immigrate to Canada. It is designed to bring in skilled workers to Canada through three categories.`,
+      item2: `Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile. `,
+      item3: `Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile.`,
+    },
   },
   {
     id: 4,
-    image: services_accordion_img1,
+    image: citizenshipApplication,
+    accordionImage: citizenshipApplicationAccordion,
     name: "Citizenship Application",
     content: {
-      item1:`Express Entry is the fastest and most popular way to Immigrate to Canada. It is designed to bring in skilled workers to Canada through three categories.`, 
-      item2:`Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile. `, 
-      item3:`Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile.`
-    } 
+      item1: `Express Entry is the fastest and most popular way to Immigrate to Canada. It is designed to bring in skilled workers to Canada through three categories.`,
+      item2: `Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile. `,
+      item3: `Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile.`,
+    },
   },
 ];
 
@@ -67,7 +81,7 @@ const Specialized_service = () => {
   const { isMobile } = useMobile();
 
   const toggleAccordion = (id) => {
-    setOpenItemId(openItemId === id ? null : id);
+    setOpenItemId(openItemId !== id ? id : null);
   };
 
   useEffect(() => {
@@ -133,20 +147,25 @@ const Specialized_service = () => {
               </div>
             ))}
 
-{openItemId &&
+            {openItemId &&
               isMobile &&
               row.some((item) => item.id === openItemId) && (
                 <AccordionServicesMobile
-                  item={data.find((item) => item.id === openItemId)} isAccordionActive= {openItemId}
+                  item={data.find((item) => item.id === openItemId)}
+                  isAccordionActive={openItemId}
                 />
               )}
           </div>
           {/* Accordion that spans full width of the row */}
-          {openItemId && !isMobile && row.some((item) => item.id === openItemId) && (
-            <AccordionServices
-              item={data.find((item) => item.id === openItemId)}
-            />
-          )}
+          {openItemId &&
+            !isMobile &&
+            row.some((item) => item.id === openItemId) && (
+              <AccordionServices
+                item={data.find((item) => item.id === openItemId)}
+
+                isAccordionActive= {openItemId}
+              />
+            )}
         </div>
       ))}
     </div>

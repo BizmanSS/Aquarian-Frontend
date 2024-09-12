@@ -8,7 +8,7 @@ const AccordionServiceMobile = ({ item,isAccordionActive}) => {
   return (
     <div className={`accordion-service-mobile ${isAccordionActive ? 'accordion-mobile-active' : ''}`}>
       <h2 className="heading">{item.name}</h2>
-      <img src={item.image} alt={item.name} className="image" />
+      <img src={item.accordionImage} alt={item.name} className="imageAccordionServices" />
       <hr className="divider" />
       <p class="accordionMobileContent">{item.content.item1}</p>
       <button className="aquarian-services-button-mobile">

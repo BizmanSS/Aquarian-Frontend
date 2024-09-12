@@ -3,11 +3,17 @@ import AccordionServices from "../AccordionServices";
 
 import { useMobile } from "../../../globalComponents/MobileContext/IsMobileContext";
 
-import services_accordion_img1 from "../../../../Assets/services_accordion_img1.png";
+import expressEntry from "../../../../Assets/expressEntry.png";
 
-import services_accordion_img2 from "../../../../Assets/services_accordion_img2.png";
+import expressEntryAccordion from "../../../../Assets/expressEntryAccordion.png";
 
-import services_accordion_img3 from "../../../../Assets/services_accordion_img3.png";
+import pnp from "../../../../Assets/pnp.png";
+
+import pnpAccordion from "../../../../Assets/pnpAccordion.png";
+
+import sponsorship from "../../../../Assets/sponsorship.png";
+
+import sponsorshipAccordion from "../../../../Assets/sponsershipAccordion.png";
 
 import share_3_line from "../../../../Assets/share_3_line.svg";
 
@@ -20,21 +26,20 @@ import AccordionServicesMobile from "../AccordionServicesMobile.jsx";
 const data = [
   {
     id: 1,
-    image: services_accordion_img1,
+    image: expressEntry,
+    accordionImage:expressEntryAccordion,
     name: "Express Entry",
     content: {
       item1:`Express Entry is the fastest and most popular way to Immigrate to Canada. It is designed to bring in skilled workers to Canada through three categories.`, 
-      item2:`There are three streams under Express Entry-
-•	Federal Skilled Worker (FSW) 
-•	Canadian Experience Class (CEC) 
-•	Federal Skilled Trades (FST) 
+      item2:`TExpress Entry is the fastest and most popular way to Immigrate to Canada. It is designed to bring in skilled workers to Canada through three categories. 
  `, 
-      item3:`Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile.`
+      item3:`Express Entry is the fastest and most popular way to Immigrate to Canada. It is designed to bring in skilled workers to Canada through three categories.`
     } 
   },
   {
     id: 2,
-    image: services_accordion_img2,
+    image: pnp,
+    accordionImage:pnpAccordion,
     name: "Provincial Nominee Program",
     content: {
       item1:`Avail Aquarian Immigration’s PNP expertise to effortlessly achieve nomination from the province of your choice. `, 
@@ -44,7 +49,8 @@ const data = [
   },
   {
     id: 3,
-    image: services_accordion_img3,
+    image: sponsorship,
+    accordionImage: sponsorshipAccordion,
     name: "Sponsorship",
     content: {
       item1:`Aquarian Immigration Services can help you bring your family together. `, 
@@ -57,6 +63,7 @@ const data = [
 const Permanent_immigration_service = () => {
   const [openItemId, setOpenItemId] = useState(null);
   const [groupSize, setGroupSize] = useState(3); // Default to 3 for large screens
+  
 
   const { isMobile } = useMobile();
 
@@ -141,6 +148,8 @@ const Permanent_immigration_service = () => {
             row.some((item) => item.id === openItemId) && (
               <AccordionServices
                 item={data.find((item) => item.id === openItemId)}
+
+                isAccordionActive= {openItemId}
               />
             )}
         </div>
