@@ -1,24 +1,12 @@
 const sitemapBusiness = [
   {
-    title: "Business/Invest",
+    title: "Business/Investment Streams",
     linkTo: "/business/invest",
     nestedLinks: [
       { title: "Start-up", linkTo: "/business/invest/start-up" },
       {
         title: "Entrepreneur – self employed",
         linkTo: "/business/invest/entrepreneur-self-employed",
-      },
-      {
-        title: "Start a business in Canada",
-        linkTo: "/business/invest/start-a-business-in-canada",
-      },
-      {
-        title: "Buy an existing Business in Canada",
-        linkTo: "/business/invest/buy-an-existing-business-in-canada",
-      },
-      {
-        title: "Expand Your Business to Canada",
-        linkTo: "/business/invest/expand-your-business-to-canada",
       },
     ],
   },
@@ -67,29 +55,6 @@ const sitemapBusiness = [
         linkTo: "/business/pnp-entrepreneur-streams/saskatchewan",
       },
       { title: "Yukon", linkTo: "/business/pnp-entrepreneur-streams/yukon" },
-    ],
-  },
-  {
-    title: "Work Permit to PR Pathways",
-    linkTo: "/business/work-permit-to-pr-pathways",
-    nestedLinks: [
-      {
-        title: "Intra-Company Transfer (ICT)",
-        linkTo: "/business/work-permit-to-pr-pathways/intra-company-transfer",
-      },
-      {
-        title: "C11 work visa",
-        linkTo: "/business/work-permit-to-pr-pathways/c11-work-visa",
-      },
-      {
-        title: "C10 Work visa",
-        linkTo: "/business/work-permit-to-pr-pathways/c10-work-visa",
-      },
-      {
-        title: "Entrepreneur LMIA-Owner Operated",
-        linkTo:
-          "/business/work-permit-to-pr-pathways/entrepreneur-lmia-owner-operated",
-      },
     ],
   },
 ];

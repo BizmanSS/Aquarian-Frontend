@@ -22,49 +22,81 @@ const data = [
     id: 1,
     image: services_accordion_img1,
     name: "Student Visa",
-    content: "Details about Item 1",
+    content: {
+      item1:`Express Entry is the fastest and most popular way to Immigrate to Canada. It is designed to bring in skilled workers to Canada through three categories.`, 
+      item2:`Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile. `, 
+      item3:`Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile.`
+    } 
   },
   {
     id: 2,
     image: services_accordion_img2,
     name: "Visitor Visa",
-    content: "Details about Item 2",
+    content: {
+      item1:`Express Entry is the fastest and most popular way to Immigrate to Canada. It is designed to bring in skilled workers to Canada through three categories.`, 
+      item2:`Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile. `, 
+      item3:`Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile.`
+    } 
   },
   {
     id: 3,
     image: services_accordion_img3,
     name: "Work Visa",
-    content: "Details about Item 3",
+    content: {
+      item1:`Express Entry is the fastest and most popular way to Immigrate to Canada. It is designed to bring in skilled workers to Canada through three categories.`, 
+      item2:`Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile. `, 
+      item3:`Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile.`
+    } 
   },
   {
     id: 4,
     image: services_accordion_img1,
     name: "Business Visa",
-    content: "Details about Item 4",
+    content: {
+      item1:`Express Entry is the fastest and most popular way to Immigrate to Canada. It is designed to bring in skilled workers to Canada through three categories.`, 
+      item2:`Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile. `, 
+      item3:`Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile.`
+    } 
   },
   {
     id: 5,
     image: services_accordion_img2,
     name: "Startup Visa",
-    content: "Details about Item 5",
+    content: {
+      item1:`Express Entry is the fastest and most popular way to Immigrate to Canada. It is designed to bring in skilled workers to Canada through three categories.`, 
+      item2:`Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile. `, 
+      item3:`Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile.`
+    } 
   },
   {
     id: 6,
     image: services_accordion_img3,
     name: "Investors",
-    content: "Details about Item 6",
+    content: {
+      item1:`Express Entry is the fastest and most popular way to Immigrate to Canada. It is designed to bring in skilled workers to Canada through three categories.`, 
+      item2:`Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile. `, 
+      item3:`Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile.`
+    } 
   },
   {
     id: 7,
     image: services_accordion_img1,
     name: "Super Visa",
-    content: "Details about Item 7",
+    content: {
+      item1:`Express Entry is the fastest and most popular way to Immigrate to Canada. It is designed to bring in skilled workers to Canada through three categories.`, 
+      item2:`Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile. `, 
+      item3:`Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile.`
+    } 
   },
   {
     id: 8,
     image: services_accordion_img2,
     name: "Visa extension",
-    content: "Details about Item 8",
+    content: {
+      item1:`Express Entry is the fastest and most popular way to Immigrate to Canada. It is designed to bring in skilled workers to Canada through three categories.`, 
+      item2:`Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile. `, 
+      item3:`Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile.`
+    } 
   },
 ];
 
@@ -83,7 +115,7 @@ const Visa_immigration_service = () => {
     const handleResize = () => {
       if (window.innerWidth < 768) {
         setGroupSize(1); // Mobile: 1 item per row
-      } else if (window.innerWidth < 1024) {
+      } else if (window.innerWidth < 1067) {
         setGroupSize(2); // Medium: 2 items per row
       } else {
         setGroupSize(3); // PC: 3 items per row
@@ -141,11 +173,11 @@ const Visa_immigration_service = () => {
               </div>
             ))}
 
-            {openItemId &&
+{openItemId &&
               isMobile &&
               row.some((item) => item.id === openItemId) && (
                 <AccordionServicesMobile
-                  item={data.find((item) => item.id === openItemId)}
+                  item={data.find((item) => item.id === openItemId)} isAccordionActive= {openItemId}
                 />
               )}
           </div>
