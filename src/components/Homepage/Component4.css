@@ -1,0 +1,59 @@
+.latest-news-slider-container {
+    overflow: hidden;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    gap: 2.5rem; /* 10 * 0.25rem */
+    padding-right: 5rem /* 5rem; 20 * 0.25rem */
+  }
+  
+  /* Hide scrollbar for Webkit browsers */
+  .latest-news-slider-container::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for other browsers */
+  .latest-news-slider-container {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+  .latest-news-left-slider {
+    cursor: pointer;
+    transition: transform 0.2s ease-in 0.04s;
+    margin-right: 2rem; /* 8 * 0.25rem */
+    margin-top: 0.25rem; /* 1 * 0.25rem */
+    color: black;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    background-color: white;
+    justify-content: space-between;
+    border-radius: 10px;
+  }
+  
+  .latest-news-left-slider:hover {
+    transform: scale(1.1);
+  }
+
+  .latest-news-right-slider {
+    cursor: pointer;
+    transition: transform 0.2s ease-in 0.04s;
+    margin-right: 2rem; /* 8 * 0.25rem */
+    margin-top: 0.25rem; /* 1 * 0.25rem */
+    color: black;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    background-color: #00F8E1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 10px;
+  }
+  
+  .latest-news-right-slider:hover {
+    transform: scale(1.1);
+  }
+  

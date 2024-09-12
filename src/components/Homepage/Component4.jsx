@@ -1,5 +1,7 @@
 import React, { useRef } from "react";
 import NewsCard from "./NewsCard";
+import './Component4.css';
+
 import FrenchImg from "../../Assets/french proficiency.png";
 import Averaged from "../../Assets/average scores accepted.png";
 import Right from "../../Assets/application fee hiked.png";
@@ -89,7 +91,7 @@ const Component4 = () => {
         <div
           ref={sliderRef}
           id="slider"
-          className="overflow-hidden overflow-x-scroll scroll scroll-smooth flex items-center justify-around w-full gap-10 scrollbar-hide pr-20"
+          className="latest-news-slider-container"
         >
           {newsData.map((item, index) => (
             <NewsCard key={index} data={item} />
@@ -99,12 +101,12 @@ const Component4 = () => {
           <MdChevronLeft
             size={30}
             onClick={slideLeft}
-            className="cursor-pointer hover:scale-110 mr-8 mt-1 text-black shadow-lg flex items-center bg-white justify-between rounded-[10px] transition ease-in delay-40 duration-200"
+            className="latest-news-left-slider"
           />
           <MdChevronRight
             size={30}
             onClick={slideRight}
-            className="cursor-pointer hover:scale-110 mr-8 mt-1 text-black shadow-lg bg-[#00F8E1] flex items-center justify-between rounded-[10px] transition ease-in delay-40 duration-200"
+            className="latest-news-right-slider"
           />
         </div>
       </div>
