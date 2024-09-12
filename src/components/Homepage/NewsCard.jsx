@@ -15,6 +15,7 @@ const NewsCard = ({ data }) => {
             <h1 className="mx-2 text-sm font-normal text-black">{data.date}</h1>
           </div>
         </div>
+        
 
         <div className="px-6 pb-4 latest-news-card-content">
           {/* <p className='py-2 text-gray-500 text-sm'>PROVINCIAL NOMINEE PROGRAM</p> */}
