@@ -7,7 +7,7 @@ export const MobileProvider = ({ children }) => {
   const [ vw, setVw ] = useState(window.innerWidth)
 
   const handleResize = () => {
-    setIsMobile(window.innerWidth <= 768);
+    setIsMobile(window.innerWidth < 768);
     setVw(window.innerWidth)
   };
 

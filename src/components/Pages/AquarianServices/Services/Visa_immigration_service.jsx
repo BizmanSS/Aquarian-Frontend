@@ -1,11 +1,37 @@
 import React, { useState, useRef, useEffect } from "react";
 import AccordionServices from "../AccordionServices";
 
-import services_accordion_img1 from "../../../../Assets/services_accordion_img1.png";
+import studentVisa from "../../../../Assets/studentVisa.png";
 
-import services_accordion_img2 from "../../../../Assets/services_accordion_img2.png";
+import studentVisaAccordion from "../../../../Assets/studentVisaAccordion.png";
 
-import services_accordion_img3 from "../../../../Assets/services_accordion_img3.png";
+import visitorVisa from "../../../../Assets/visitorVisa.png";
+
+import visitorVisaAccordion from "../../../../Assets/visitorVisaAccordion.png";
+
+import workVisa from "../../../../Assets/workVisa.png";
+
+import workVisaAccordion from "../../../../Assets/workVisaAccordion.png";
+
+import buisnessVisa from "../../../../Assets/businessVisa.png";
+
+import buisnessVisaAccordion from "../../../../Assets/buisnessVisaAccordion.png";
+
+import startUpVisa from "../../../../Assets/startUpVisa.png";
+
+import startUpVisaAccordion from "../../../../Assets/startupVisaAccordion.png";
+
+import investorsVisa from "../../../../Assets/investorsVisa.png";
+
+import investorsVisaAccordion from "../../../../Assets/investorsAccordion.png";
+
+import superVisa from "../../../../Assets/superVisa.png";
+
+import superVisaAccordion from "../../../../Assets/superVisaAccordion.png";
+
+import visaExtension from "../../../../Assets/visaExtension.png";
+
+import visaExtensionAccordion from "../../../../Assets/visaExtensionAccordion.png";
 
 import share_3_line from "../../../../Assets/share_3_line.svg";
 
@@ -20,83 +46,91 @@ import { useMobile } from "../../../globalComponents/MobileContext/IsMobileConte
 const data = [
   {
     id: 1,
-    image: services_accordion_img1,
+    image: studentVisa,
+    accordionImage: studentVisaAccordion,
     name: "Student Visa",
     content: {
-      item1:`Express Entry is the fastest and most popular way to Immigrate to Canada. It is designed to bring in skilled workers to Canada through three categories.`, 
-      item2:`Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile. `, 
-      item3:`Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile.`
-    } 
+      item1: `Express Entry is the fastest and most popular way to Immigrate to Canada. It is designed to bring in skilled workers to Canada through three categories.`,
+      item2: `Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile. `,
+      item3: `Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile.`,
+    },
   },
   {
     id: 2,
-    image: services_accordion_img2,
+    image: visitorVisa,
+    accordionImage: visitorVisaAccordion,
     name: "Visitor Visa",
     content: {
-      item1:`Express Entry is the fastest and most popular way to Immigrate to Canada. It is designed to bring in skilled workers to Canada through three categories.`, 
-      item2:`Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile. `, 
-      item3:`Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile.`
-    } 
+      item1: `Express Entry is the fastest and most popular way to Immigrate to Canada. It is designed to bring in skilled workers to Canada through three categories.`,
+      item2: `Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile. `,
+      item3: `Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile.`,
+    },
   },
   {
     id: 3,
-    image: services_accordion_img3,
+    image: workVisa,
+    accordionImage: workVisaAccordion,
     name: "Work Visa",
     content: {
-      item1:`Express Entry is the fastest and most popular way to Immigrate to Canada. It is designed to bring in skilled workers to Canada through three categories.`, 
-      item2:`Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile. `, 
-      item3:`Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile.`
-    } 
+      item1: `Express Entry is the fastest and most popular way to Immigrate to Canada. It is designed to bring in skilled workers to Canada through three categories.`,
+      item2: `Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile. `,
+      item3: `Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile.`,
+    },
   },
   {
     id: 4,
-    image: services_accordion_img1,
+    image:  buisnessVisa ,
+    accordionImage: buisnessVisaAccordion,
     name: "Business Visa",
     content: {
-      item1:`Express Entry is the fastest and most popular way to Immigrate to Canada. It is designed to bring in skilled workers to Canada through three categories.`, 
-      item2:`Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile. `, 
-      item3:`Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile.`
-    } 
+      item1: `Express Entry is the fastest and most popular way to Immigrate to Canada. It is designed to bring in skilled workers to Canada through three categories.`,
+      item2: `Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile. `,
+      item3: `Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile.`,
+    },
   },
   {
     id: 5,
-    image: services_accordion_img2,
+    image: startUpVisa,
+    accordionImage: startUpVisaAccordion,
     name: "Startup Visa",
     content: {
-      item1:`Express Entry is the fastest and most popular way to Immigrate to Canada. It is designed to bring in skilled workers to Canada through three categories.`, 
-      item2:`Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile. `, 
-      item3:`Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile.`
-    } 
+      item1: `Express Entry is the fastest and most popular way to Immigrate to Canada. It is designed to bring in skilled workers to Canada through three categories.`,
+      item2: `Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile. `,
+      item3: `Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile.`,
+    },
   },
   {
     id: 6,
-    image: services_accordion_img3,
+    image: investorsVisa,
+    accordionImage: investorsVisaAccordion,
     name: "Investors",
     content: {
-      item1:`Express Entry is the fastest and most popular way to Immigrate to Canada. It is designed to bring in skilled workers to Canada through three categories.`, 
-      item2:`Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile. `, 
-      item3:`Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile.`
-    } 
+      item1: `Express Entry is the fastest and most popular way to Immigrate to Canada. It is designed to bring in skilled workers to Canada through three categories.`,
+      item2: `Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile. `,
+      item3: `Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile.`,
+    },
   },
   {
     id: 7,
-    image: services_accordion_img1,
+    image: superVisa,
+    accordionImage: superVisaAccordion,
     name: "Super Visa",
     content: {
-      item1:`Express Entry is the fastest and most popular way to Immigrate to Canada. It is designed to bring in skilled workers to Canada through three categories.`, 
-      item2:`Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile. `, 
-      item3:`Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile.`
-    } 
+      item1: `Express Entry is the fastest and most popular way to Immigrate to Canada. It is designed to bring in skilled workers to Canada through three categories.`,
+      item2: `Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile. `,
+      item3: `Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile.`,
+    },
   },
   {
     id: 8,
-    image: services_accordion_img2,
+    image: visaExtension,
+    accordionImage: visaExtensionAccordion,
     name: "Visa extension",
     content: {
-      item1:`Express Entry is the fastest and most popular way to Immigrate to Canada. It is designed to bring in skilled workers to Canada through three categories.`, 
-      item2:`Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile. `, 
-      item3:`Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile.`
-    } 
+      item1: `Express Entry is the fastest and most popular way to Immigrate to Canada. It is designed to bring in skilled workers to Canada through three categories.`,
+      item2: `Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile. `,
+      item3: `Express Entry is an online system that helps skilled workers apply to immigrate to Canada. Only those candidates who qualify under either one of the three streams can create an EE profile.`,
+    },
   },
 ];
 
@@ -173,20 +207,25 @@ const Visa_immigration_service = () => {
               </div>
             ))}
 
-{openItemId &&
+            {openItemId &&
               isMobile &&
               row.some((item) => item.id === openItemId) && (
                 <AccordionServicesMobile
-                  item={data.find((item) => item.id === openItemId)} isAccordionActive= {openItemId}
+                  item={data.find((item) => item.id === openItemId)}
+                  isAccordionActive={openItemId}
                 />
               )}
           </div>
           {/* Accordion that spans full width of the row */}
-          {openItemId && !isMobile && row.some((item) => item.id === openItemId) && (
-            <AccordionServices
-              item={data.find((item) => item.id === openItemId)}
-            />
-          )}
+          {openItemId &&
+            !isMobile &&
+            row.some((item) => item.id === openItemId) && (
+              <AccordionServices
+                item={data.find((item) => item.id === openItemId)}
+
+                isAccordionActive= {openItemId}
+              />
+            )}
         </div>
       ))}
     </div>

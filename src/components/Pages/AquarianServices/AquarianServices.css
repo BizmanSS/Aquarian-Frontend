@@ -12,7 +12,7 @@ body {
 .aquarian-services-container {
   padding: 1rem;
   width: 100%;
-  border: 5px solid yellow;
+  /* border: 5px solid yellow; */
 }
 
 .aquarian-services-container-inner-content{
@@ -23,16 +23,13 @@ body {
 
 .aquarian-services-header {
   font-size: 38px;
-  padding-top: 3rem;
-  padding-bottom: 4rem;
+  padding-top: 7rem;
+  padding-bottom: 3rem;
   font-weight: 400;
   margin:auto;
+  line-height:40px;
 }
 
-.aquarian-service-header-img {
-    margin-top:20px !important;
-    margin:auto;
-}
 
 .aquarian-services-header-text {
   font-weight: 700;
@@ -50,19 +47,11 @@ body {
 }
 
 .accordion-content {
-  max-height: 0;
+  height: 0; /* Start with height of 0 */
   overflow: hidden;
-  transition: max-height 0.5s linear;
+  transition: height 0.5s ease; /* Smooth transition for height */
 }
 
-.accordion-active{
-  margin: 20px 0 !important;
-  width: 100%;
-  border-top: 1px solid #dadce0;
-  border-bottom: 1px solid #dadce0;
-  /* background-color: #f0f0f0; */
-  max-height: 500px;
-}
 
 
 .accordion-content-inner {
@@ -72,9 +61,6 @@ body {
   /* Ensures that borders are collapsed */
 }
 
-tbody{
-  background-color: rgb(124, 245, 247);
-}
 
 .accordion-content-inner,
 .accordion-content-inner tr,
@@ -110,6 +96,7 @@ td:first-child {
 
 .accordion-content-image {
   width: 130px;
+  height:100px;
   border-radius: 10px;
   position: relative;
 }
@@ -195,9 +182,10 @@ td:first-child {
   margin-bottom: 10px;
 }
 
-.image {
-  width: 100px;
+.imageAccordionServices {
+  width: 150px;
   height: 100px;
+  /* object-fit: cover; */
   max-width: 300px; /* Adjust as needed */
   margin-bottom: 10px;
   border-radius: 15px;
@@ -331,12 +319,9 @@ td:first-child {
 /* SMALLEST SCREEN */
 
 @media screen and (max-width: 500px) {
-  .aquarian-service-header-img {
-    margin-top:30px !important;
-}
+ 
 
 .aquarian-services-header{
-  padding-top: 2rem !important;
   font-size: 35px !important;
 }
 }
