@@ -25,6 +25,7 @@
   font-weight: 400;
   line-height: 32px;
   margin-bottom: 48px;
+  max-width: 1600px;
 }
 
 .pages-header {
@@ -107,6 +108,39 @@
   font-weight: 600;
 }
 
+.ordered-list{
+  list-style: auto;
+  margin: revert;
+  padding: revert;
+}
+
+.pages-table{
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  max-width: 700px;
+}
+
+.pages-table th, 
+.pages-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.pages-table tr {
+  background-color: #fffefe;
+  transition: all 0.2s;
+}
+
+.pages-table tr:hover {
+  background-color: #f1f1f1;
+}
+.pages-table th {
+  background-color: #f2f2f2;
+}
+
+
 @media (max-width:1200px) {
   .pages-content-text-wrapper {
     margin-left: auto;
@@ -127,6 +161,10 @@
 
   .pages-content-wrapper {
     margin-top: 4rem;
+  }
+  .pages-table{
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 

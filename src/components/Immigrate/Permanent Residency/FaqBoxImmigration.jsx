@@ -31,7 +31,7 @@ function FaqBoxImmigration() {
             {faqItems.map((item, index) => (
                 <div
                     key={index}
-                    className={`faq-box-card ${activeIndex === index ? 'active' : ''}`}
+                    className={`faq-box-card ${activeIndex === index ? 'faq-box-card-active' : ''}`}
                 >
                     <div className="faq-box-card-qbox">
                         <div className="faq-box-card-question" onClick={() => toggleAnswer(index)}>

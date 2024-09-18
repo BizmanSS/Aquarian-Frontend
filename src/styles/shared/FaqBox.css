@@ -11,13 +11,13 @@
     font-size: 32px;
     font-weight: 600;
     line-height: normal;
-    padding-left: 14px;
-    padding-right: 14px;
+    padding-left: 2rem;
+    padding-right: 2rem;
 }
 
 .faq-box-icon{
-    padding-left: 14px;
-    padding-right: 14px;
+    padding-left: 2rem;
+    padding-right: 2rem;
 }
 
 .faq-box-description {
@@ -26,8 +26,8 @@
     font-size: 16px;
     font-weight: 400;
     line-height: normal;
-    padding-left: 14px;
-    padding-right: 14px;
+    padding-left: 2rem;
+    padding-right: 2rem;
     margin-bottom: 14px;
 }
 
@@ -37,7 +37,7 @@
     transition: background-color 0.5s, padding-top 0.3s linear;
 }
 
-.faq-box-card.active {
+.faq-box-card-active {
     background-color: #E9E9E9;
     padding-top: 16px;
 }
@@ -47,8 +47,8 @@
     align-items: center;
     justify-content: space-between;
     height: 52px;
-    padding-left: 14px;
-    padding-right: 14px;
+    padding-left: 2rem;
+    padding-right: 2rem;
 }
 
 .faq-box-card-button {
@@ -72,8 +72,8 @@
     font-size: 16px;
     font-weight: 400;
     line-height: normal;
-    padding-left: 14px;
-    padding-right: 14px;
+    padding-left: 2rem;
+    padding-right: 2rem;
     max-height: 0px;
     overflow: hidden;
     transition: max-height 0.3s linear, padding-top 0.3s linear, padding-bottom 0.3s linear;

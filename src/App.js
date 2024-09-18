@@ -260,7 +260,7 @@ const App = () => {
   };
 
   return (
-    <div className="max-w-[140rem] mx-auto">
+    <div className="mx-auto">
       <BrowserRouter>
         <MobileProvider>
           <Sidebar />

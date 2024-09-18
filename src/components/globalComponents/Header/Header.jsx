@@ -415,7 +415,7 @@ const Header = ({ setShowPopUp }) => {
 
   return (
     <div className="">
-      <div className="bg-black h-[4rem] lg:h-[5.5rem] xl:h-[6.5rem] fixed z-40 top-0 flex flex-col items-center justify-start w-full lg:pr-[6rem] 7xl:-ml-[1.2rem] max-w-[140rem] 8xl:-ml-[3rem]">
+      <div className="bg-black h-[4rem] lg:h-[5.5rem] xl:h-[6.5rem] fixed z-40 top-0 flex flex-col items-center justify-start w-full lg:pr-[6rem] 7xl:-ml-[1.2rem] 8xl:-ml-[3rem]">
         {!ismobile ? (
           <>
             {" "}
