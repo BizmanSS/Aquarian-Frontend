@@ -11,7 +11,6 @@ import pnp from "../../../../Assets/intraCompanyTransfer.jpg";
 
 import intraCompanyTransferAccordion from "../../../../Assets/intraCompanyTransfer.jpg";
 
-
 import share_3_line from "../../../../Assets/share_3_line.svg";
 
 import down_toggle from "../../../../Assets/down_toggle.svg";
@@ -24,40 +23,47 @@ const data = [
   {
     id: 1,
     image: buisnessVisits,
-    accordionImage:buisnessVisitsAccordion,
+    accordionImage: buisnessVisitsAccordion,
     name: "Business visits",
     content: {
-      item1:`If you are a company or organisation based in India and wish to send your employee(s) to Canada for a short work visit, we offer you visa solutions for the same. The purpose of the visit can be to attend a conference, meetings, research or meet potential buyers or sellers.  `, 
-      item2:`Once on board as your expert visa consultants, our practised and experienced team will handle all the business visa needs of the employees of your company. We understand both the Indian and Canadian Immigration systems well and that lends us an edge to offer you the best possible professional services. 
+      item1: `If you are a company or organisation based in India and wish to send your employee(s) to Canada for a short work visit, we offer you unique visa solutions. The purpose of the visit can be to attend a conference, meetings, research or meet potential buyers or sellers. `,
+      item2: `As your expert visa consultants, our practised and experienced team will handle all the business visa needs of your employees. We understand both the Indian and Canadian Immigration systems well, lending us an edge to offer you the best possible professional services.  
  
- `, 
-      item3:`Aquarian Immigration being owned and run by a Licensed Immigration Consultant, Canada (RCIC), handles these professional services for a number of companies on a contract basis. Companies wishing to retain our services may contact us through email at : dir@iaquaruan.com. 
-`
-    } 
+ `,
+      item3: `Aquarian Immigration being owned and run by a Licensed Immigration Consultant, Canada (RCIC), handles these professional services for a number of companies on a contract basis. Companies wishing to retain our services may contact us through email at : dir@iaquaruan.com. 
+`,
+    },
   },
   {
     id: 2,
     image: pnp,
-    accordionImage:intraCompanyTransferAccordion,
+    accordionImage: intraCompanyTransferAccordion,
     name: "Intra-Company Transfers",
     content: {
-      item1:`The ICT program allows multinational companies to transfer specific employees from a foreign branch, subsidiary, affiliate, or parent company to a Canadian office without requiring a Labour Market Impact Assessment (LMIA). `, 
-      item2:`Aquarian offers ICT Work Permit and Visa solutions to companies. There are certain requirements that must be met by the employer and the employee both. We help the companies and the employees being transferred meet the eligibility criteria. Extensions of such WP is also on the menu.`, 
-      item3:`We look after all your Canada Visa needs. From documentation to application of the ICT Work Permit, we handle every step of the process. Our in-depth knowledge of the Canadian Immigration System enables us to handle the entire process with professional expertise. `
-    } 
+      item1: `The ICT program allows multinational companies to transfer specific employees from a foreign branch, subsidiary, affiliate, or parent company to a Canadian office without requiring a Labour Market Impact Assessment (LMIA). `,
+      item2: `Aquarian offers ICT Work Permit and Visa solutions to companies. There are certain requirements that must be met by the employer and the employee both. We help the companies and the employees being transferred meet the eligibility criteria. Extensions of such WP is also on the menu.`,
+      item3: `We look after all your Canada Visa needs. From documentation to application of the ICT Work Permit, we handle every step of the process. Our in-depth knowledge of the Canadian Immigration System enables us to handle the entire process with professional expertise. `,
+    },
   },
-  
 ];
 
 const Permanent_immigration_service = () => {
   const [openItemId, setOpenItemId] = useState(null);
   const [groupSize, setGroupSize] = useState(3); // Default to 3 for large screens
-  
+  const [isOpenAccordion, setOpenAccordion] = useState(false);
 
   const { isMobile } = useMobile();
 
   const toggleAccordion = (id) => {
-    setOpenItemId(openItemId !== id ? id : null);
+    // Toggle accordion by resetting both openItemId and isOpenAccordion
+    if (openItemId === id) {
+      setOpenItemId(null); // Close the accordion
+      setOpenAccordion(false);
+    } else {
+      setOpenItemId(id); // Open the accordion
+      setOpenAccordion(true);
+    }
+    console.log("Id:", id);
   };
 
   useEffect(() => {
@@ -127,7 +133,10 @@ const Permanent_immigration_service = () => {
               isMobile &&
               row.some((item) => item.id === openItemId) && (
                 <AccordionServicesMobile
-                  item={data.find((item) => item.id === openItemId)} isAccordionActive= {openItemId}
+                  item={data.find((item) => item.id === openItemId)}
+                  isAccordionActive={openItemId}
+
+                  setAccordionActive={setOpenItemId}
                 />
               )}
           </div>
@@ -137,8 +146,9 @@ const Permanent_immigration_service = () => {
             row.some((item) => item.id === openItemId) && (
               <AccordionServices
                 item={data.find((item) => item.id === openItemId)}
-
-                isAccordionActive= {openItemId}
+                isAccordionActive={isOpenAccordion}
+                setAccordionActive={setOpenAccordion}
+                setOpenItemId={setOpenItemId} // Pass this down to reset on close
               />
             )}
         </div>
