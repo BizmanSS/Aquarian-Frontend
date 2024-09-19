@@ -21,8 +21,7 @@ export default function PR() {
           <div class="pages-content-text-wrapper">
             <div className="pages-current-page-link">
               <a href="/">Home</a>
-              {" > "}Immigrate
-              {" > "}Express Entry
+              {" > "}Permanent Residency
             </div>
 
             <div class="pages-header">Permanent Residency</div>
@@ -54,7 +53,7 @@ export default function PR() {
           <MigrateProcessBox />
           <CheckEligibilityCard />
           <FaqBoxImmigration />
-          <div class="pages-content-text-wrapper">
+          <div class="pages-content-text-wrapper-direct-pathway">
             <div class="pages-header-2">Direct Pathways to Immigrate to Canada</div>
             <div className="pages-paragraph">Canada offers more than 108 pathways to immigrate to the
               country permanently. While some may be more opular and

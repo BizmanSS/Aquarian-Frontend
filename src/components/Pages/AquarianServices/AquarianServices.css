@@ -6,7 +6,7 @@ body {
 }
 
 /* *{
-    border: 1px solid green;
+    border: 1px solid red;
   } */
 
 .aquarian-services-container {
@@ -27,7 +27,7 @@ body {
   padding-bottom: 3rem;
   font-weight: 400;
   margin:auto;
-  line-height:40px;
+  /* line-height:40px; */
 }
 
 
@@ -43,7 +43,7 @@ body {
 /* ACCORDION CSS */
 
 .accordion-container {
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
 }
 
 .accordion-content {
@@ -69,7 +69,7 @@ body {
   /* background-color: yellow; */
   border-top: 1px solid #70757a;
   border-bottom: 1px solid #70757a;
-  height:350px;
+  height:350px !important;
   margin-top: -30px;
 }
 
@@ -85,7 +85,8 @@ body {
 .accordion-row-inner{
   display: flex;
   flex-direction: column;
-  margin-top:35px;
+  margin-top:40px;
+  position:relative;
   /* background-color: red; */
 }
 
@@ -123,7 +124,6 @@ body {
 
 .accordion-content-image {
   width: 130px;
-  height: 100px;
   border-radius: 10px;
   position: relative;
 }
@@ -133,6 +133,7 @@ body {
   font-weight: 400;
   margin-bottom: 10px;
   /* background-color: yellow; */
+  position:absolute;
   max-width:270px;
   margin-left: 9px;
 }
@@ -225,7 +226,6 @@ background-color: #a6bbf1;
 
 .heading {
   color: #000;
-  text-align: center;
   font-family: Poppins;
   font-size: 20px;
   font-style: normal;
@@ -324,11 +324,16 @@ background-color: #a6bbf1;
 }
 
 .active {
-  background-color: #8f8f8f !important;
+  
+  border-bottom: 1px solid #009889;
   /* border: 1px solid #030b0a; */
   border-radius: 5px;
   /* color:black !important; */
   transition: all 0.1s ease;
+}
+
+.item-header-wrap h3{
+line-height: 16px;
 }
 
 
@@ -379,36 +384,6 @@ background-color: #a6bbf1;
 }
 }
 
-@media screen and (max-width:1240px){
-  .accordion-row {
-    display: flex;
-    align-items: center;
-    /* background-color: yellow; */
-    border-top: 1px solid #70757a;
-    border-bottom: 1px solid #70757a;
-    height:390px;
-    margin-top:30px;
-  }
-  
-  .accordion-column {
-   
-    flex: 1;
-    height:370px;
-    padding: 10px;
-    /* background-color: red; */
-    border-left: 1px solid #dadce0;
-  }
-.accordion-content-name{
-  font-size: 22px;
-    font-weight: 400;
-    margin-bottom: 51px;
-    /* background-color: yellow; */
-    max-width: 180px;
-    margin-left: 9px;
-}
-}
-
-
 
 
 /* TAB Screen */
@@ -423,6 +398,22 @@ background-color: #a6bbf1;
     ); 
   }
 
+  .accordion-row{
+    height:655px;
+  }
+
+  .accordion-row-inner{
+    margin-top: -223px;
+  }
+  .accordion-content-name{
+    position: absolute;
+    top: -10px;
+    display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  line-height:24px;
+  }
+
 }
 
 
@@ -430,10 +421,11 @@ background-color: #a6bbf1;
 /* LARGE TAB */
 
 @media screen and (min-width: 1024px) {
-  .aquarian-service-header-img {
-    margin-top:20px !important;
-}
-
+  .aquarian-services-header {
+    font-size: 44px;
+    padding-top: 9rem;
+    padding-bottom: 3.5rem;
+  }
   .row {
     grid-template-columns: repeat(
       2,
@@ -443,8 +435,38 @@ background-color: #a6bbf1;
 
   }
 
+  .accordion-row{
+    height: 395px;
+    margin-top:24px;
+  }
+
+  .accordion-row-inner{
+    margin-top: 55px;
+  }
+
+  .accordion-content-name{
+    position: absolute;
+    top: -10px;
+    display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  line-height:24px;
+  }
+
+  .accordion-content-image {
+    width: 200px;
+  }
+
   .aquarian-services-container {
+    padding: 1rem;
     width: calc(100% - 6rem);
+    /* border: 5px solid yellow; */
+  }
+  
+  .aquarian-services-container-inner-content{
+    width:90%;
+    max-width: 1000px;
+    margin:auto;
   }
 
 }
@@ -462,9 +484,6 @@ background-color: #a6bbf1;
 
   }
 
-  .aquarian-services-container {
-    width: calc(100% - 6rem);
-  }
 
 }
 

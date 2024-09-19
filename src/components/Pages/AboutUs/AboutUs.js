@@ -77,12 +77,13 @@ const AboutUsPage = () => {
                 display: "flex",
                 marginLeft: "2%",
                 paddingTop: "20%",
-                width: "80%",
+                width: "95%",
                 justifyContent: "center",
                 gap: "1rem",
               }}
             >
               <div className="line-heading"></div>
+              
               <div style={{ display: "block" }}>
                 <p
                   onClick={() => scrollToRef(whoWeAreRef)}
@@ -188,8 +189,13 @@ const AboutUsPage = () => {
             </div>
           </div>
       )}
+      
+    
 
       <div className="background-div">
+
+     
+
         <div ref={whoWeAreRef}>
           <WhoWeAre />
         </div>

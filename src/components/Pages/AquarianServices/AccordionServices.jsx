@@ -12,7 +12,18 @@ const AccordionServices = ({ item, isAccordionActive, setAccordionActive,setOpen
       const contentHeight = contentRef.current.scrollHeight; // Get full content height
 
       if (isAccordionActive) {
-        contentRef.current.style.height = `420px`;
+
+        if(window.innerWidth < 768){
+          contentRef.current.style.height = `420px`;
+        }
+
+        else if(window.innerWidth < 1067){
+          contentRef.current.style.height = `650px`;
+        }
+        else{
+          contentRef.current.style.height = `470px`;
+        }
+      
       } else {
         contentRef.current.style.height = "0px"; // Collapse when not active
       }

@@ -280,6 +280,8 @@
 }
 
 
+
+
 @media (min-width: 744px) {
     .footer-col-container {
         display: grid;
@@ -302,6 +304,8 @@
         flex-direction: column;
         padding-left: 2rem;
     }
+
+
 
     .footer-logo-1 {
         order: 2;
@@ -450,5 +454,7 @@
     .footer-contact-us-pc {
         margin-top: 2rem;
     }
+
+    
 
 }
