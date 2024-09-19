@@ -68,7 +68,7 @@ const BookAppointmentModel = ({
     }
   };
 
-  const handleInputChange = (setter, field) => (e) => {
+  const handleInputChange = (setter, field) => (e) => { 
     setter(e.target.value);
     if (errors[field]) {
       setErrors((prevErrors) => ({

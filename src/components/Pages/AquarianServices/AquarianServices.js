@@ -4,7 +4,7 @@ import "./AquarianServices.css";
 import Permanent_immigration_service from "./Services/Permanent_immigration_service.jsx";
 import Specialized_service from "./Services/Specialized_service.jsx";
 import Visa_immigration_service from "./Services/Visa_immigration_service.jsx";
-
+import Visa_Solutions_for_Companies from "./Services/Visa_Solutions_for_Companies.jsx";
 
 const App = () => {
 
@@ -26,6 +26,7 @@ const App = () => {
         <Permanent_immigration_service />
         <Visa_immigration_service />
         <Specialized_service />
+        <Visa_Solutions_for_Companies/>
       </div>
     </div>
     </div>

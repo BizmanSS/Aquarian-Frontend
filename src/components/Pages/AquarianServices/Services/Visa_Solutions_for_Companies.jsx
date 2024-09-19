@@ -1,19 +1,15 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import AccordionServices from "../AccordionServices";
 
 import { useMobile } from "../../../globalComponents/MobileContext/IsMobileContext";
 
-import expressEntry from "../../../../Assets/expressEntry.png";
+import buisnessVisits from "../../../../Assets/buisnessVisits.jpg";
 
-import expressEntryAccordion from "../../../../Assets/expressEntryAccordion.png";
+import buisnessVisitsAccordion from "../../../../Assets/buisnessVisits.jpg";
 
-import pnp from "../../../../Assets/pnp.png";
+import pnp from "../../../../Assets/intraCompanyTransfer.jpg";
 
-import pnpAccordion from "../../../../Assets/pnpAccordion.png";
-
-import sponsorship from "../../../../Assets/sponsorship.png";
-
-import sponsorshipAccordion from "../../../../Assets/sponsershipAccordion.png";
+import intraCompanyTransferAccordion from "../../../../Assets/intraCompanyTransfer.jpg";
 
 import share_3_line from "../../../../Assets/share_3_line.svg";
 
@@ -26,46 +22,27 @@ import AccordionServicesMobile from "../AccordionServicesMobile.jsx";
 const data = [
   {
     id: 1,
-    image: expressEntry,
-    accordionImage: expressEntryAccordion,
-    name: "Express Entry",
+    image: buisnessVisits,
+    accordionImage: buisnessVisitsAccordion,
+    name: "Business visits",
     content: {
-      item1: `Express Entry is the fastest and most popular way to immigrate to Canada permanently. It involves creating an EE Profile and subsequently getting a CRS score. `,
-      item2: `Aquarian Immigration assists you to-
-	Determine eligibility in one of the Programs under Express Entry.
-	Create an Express Entry Profile.
-	Aim at getting the highest possible CRS score.
-	File for a Permanent Residency Application once ITA is received.
+      item1: `If you are a company or organisation based in India and wish to send your employee(s) to Canada for a short work visit, we offer you unique visa solutions. The purpose of the visit can be to attend a conference, meetings, research or meet potential buyers or sellers. `,
+      item2: `As your expert visa consultants, our practised and experienced team will handle all the business visa needs of your employees. We understand both the Indian and Canadian Immigration systems well, lending us an edge to offer you the best possible professional services.  
  
  `,
-      item3: `We ensure all your-
-	Necessary documents are complete and organised.
-	Help you with the language proficiency tests like IELTS.
-	Deadlines are met.
-	Communication with IRCC is prompt and updated.
+      item3: `Aquarian Immigration being owned and run by a Licensed Immigration Consultant, Canada (RCIC), handles these professional services for a number of companies on a contract basis. Companies wishing to retain our services may contact us through email at : dir@iaquaruan.com. 
 `,
     },
   },
   {
     id: 2,
     image: pnp,
-    accordionImage: pnpAccordion,
-    name: "Provincial Nominee Program",
+    accordionImage: intraCompanyTransferAccordion,
+    name: "Intra-Company Transfers",
     content: {
-      item1: `Avail Aquarian Immigration’s PNP expertise to effortlessly achieve nomination from the province of your choice.`,
-      item2: `We guide you through the various province-specific requirements, ensuring a smooth transition to Canadian residency tailored to your unique aspirations. `,
-      item3: `Each case is unique and comes with its own set of requirements, goals and circumstances. Determining the right pathway to suit the needs of candidate and ensuring success in the process is what we specialise in. `,
-    },
-  },
-  {
-    id: 3,
-    image: sponsorship,
-    accordionImage: sponsorshipAccordion,
-    name: "Sponsorship",
-    content: {
-      item1: `Aquarian Immigration Services can help you bring your family together. `,
-      item2: ` If you are a Permanent Resident in Canada or a Canadian citizen you can sponsor your spouse, children, parents and grandparents and have them join you in Canada. `,
-      item3: `Know everything you need to know about family sponsorship through our detailed support and assistance. Let us help you get your loved ones closer!`,
+      item1: `The ICT program allows multinational companies to transfer specific employees from a foreign branch, subsidiary, affiliate, or parent company to a Canadian office without requiring a Labour Market Impact Assessment (LMIA). `,
+      item2: `Aquarian offers ICT Work Permit and Visa solutions to companies. There are certain requirements that must be met by the employer and the employee both. We help the companies and the employees being transferred meet the eligibility criteria. Extensions of such WP is also on the menu.`,
+      item3: `We look after all your Canada Visa needs. From documentation to application of the ICT Work Permit, we handle every step of the process. Our in-depth knowledge of the Canadian Immigration System enables us to handle the entire process with professional expertise. `,
     },
   },
 ];
@@ -73,18 +50,9 @@ const data = [
 const Permanent_immigration_service = () => {
   const [openItemId, setOpenItemId] = useState(null);
   const [groupSize, setGroupSize] = useState(3); // Default to 3 for large screens
-
   const [isOpenAccordion, setOpenAccordion] = useState(false);
 
   const { isMobile } = useMobile();
-
-  useEffect(() => {
-    if (openItemId !== null) {
-      setTimeout(() => {
-        console.log("Updated openItemId:", openItemId);
-      }, 2000);
-    }
-  }, [openItemId]);
 
   const toggleAccordion = (id) => {
     // Toggle accordion by resetting both openItemId and isOpenAccordion
@@ -125,7 +93,7 @@ const Permanent_immigration_service = () => {
   return (
     <div className="accordion-container">
       <div className="services-header">
-        <h2 className="services-header-text">Permanent Immigration</h2>
+        <h2 className="services-header-text">Visa Solutions for Companies</h2>
         <img src={share_3_line} alt="" className="" />
       </div>
 
@@ -153,7 +121,7 @@ const Permanent_immigration_service = () => {
                   </div>
 
                   <img
-                    src={isOpenAccordion == true ? down_toggle : up_toggle}
+                    src={openItemId !== item.id ? down_toggle : up_toggle}
                     alt=""
                     className="services_toggle"
                   />
