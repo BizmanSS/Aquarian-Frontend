@@ -2,6 +2,7 @@ import React from "react";
 import { GoArrowDownRight, GoArrowUpRight } from "react-icons/go";
 import DatePicker from "react-datepicker";
 import { Form } from "react-router-dom";
+import './EnglishSkillsForm.css';
 
 const EnglishSkillsForm = ({
   selectForm,
@@ -29,26 +30,33 @@ const EnglishSkillsForm = ({
         onClick={() => {
           if (formData.englishTest) setSelectForm("english");
         }}
-        className="text-base md:text-xl font-semibold tracking-[5px] md:tracking-[8px] bg-[#01997E] text-white w-full px-10 py-2 rounded-md flex items-center justify-between"
+        className="PI-heading-container"
       >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="18"
+          height="19"
+          viewBox="0 0 18 19"
+          fill="none"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M6.00056 0.589844C6.2455 0.589876 6.4819 0.6798 6.66493 0.842559C6.84797 1.00532 6.96491 1.22959 6.99356 1.47284L7.00056 1.58984V2.58984H11.0006C11.2554 2.59038 11.5003 2.68815 11.6855 2.8632C11.8706 3.03825 11.982 3.27737 11.9968 3.53174C12.0116 3.7861 11.9287 4.03653 11.7651 4.23187C11.6016 4.42722 11.3696 4.55275 11.1166 4.58284L11.0006 4.58984H9.94556C9.72256 6.62184 8.82956 8.57984 7.40056 10.2778C7.92356 10.7318 8.50256 11.1558 9.13556 11.5438L9.52156 11.7718L11.5886 7.17984C11.6631 7.01421 11.7812 6.87199 11.9305 6.76845C12.0797 6.66491 12.2542 6.60396 12.4355 6.59214C12.6167 6.58032 12.7977 6.61807 12.9591 6.70135C13.1205 6.78463 13.2562 6.91029 13.3516 7.06484L13.4116 7.17984L17.9116 17.1798C18.0164 17.4125 18.0283 17.6765 17.9449 17.9177C17.8614 18.1589 17.6889 18.359 17.4626 18.4772C17.2364 18.5953 16.9735 18.6224 16.7279 18.553C16.4823 18.4836 16.2725 18.3229 16.1416 18.1038L16.0886 17.9998L15.0036 15.5898H9.99656L8.91256 17.9998C8.80836 18.2332 8.61879 18.4177 8.38278 18.5157C8.14677 18.6136 7.88221 18.6175 7.64343 18.5265C7.40464 18.4355 7.20975 18.2566 7.09875 18.0264C6.98776 17.7963 6.96908 17.5323 7.04656 17.2888L7.08856 17.1788L8.69856 13.6028C7.73265 13.0711 6.82734 12.4361 5.99856 11.7088C4.71156 12.8448 3.15056 13.8068 1.37156 14.5188C1.12531 14.6174 0.850001 14.614 0.606204 14.5096C0.362406 14.4051 0.17009 14.2081 0.0715623 13.9618C-0.0269656 13.7156 -0.0236343 13.4403 0.0808234 13.1965C0.185281 12.9527 0.382309 12.7604 0.628562 12.6618C2.18556 12.0388 3.51556 11.2208 4.60056 10.2798C3.75619 9.28702 3.08728 8.1575 2.62256 6.93984C2.52947 6.69147 2.53886 6.41629 2.64866 6.17483C2.75846 5.93338 2.95969 5.74543 3.20806 5.65234C3.45644 5.55925 3.73162 5.56864 3.97307 5.67844C4.21453 5.78825 4.40247 5.98947 4.49556 6.23784C4.85514 7.17811 5.36327 8.05458 6.00056 8.83384C6.98956 7.60684 7.62556 6.25784 7.87756 4.90284L7.92856 4.58984H1.00056C0.745683 4.58956 0.50053 4.49196 0.315194 4.317C0.129858 4.14203 0.0183272 3.90289 0.00339008 3.64845C-0.011547 3.39401 0.0712368 3.14346 0.234827 2.94801C0.398417 2.75256 0.630466 2.62695 0.883562 2.59684L1.00056 2.58984H5.00056V1.58984C5.00056 1.32463 5.10592 1.07027 5.29346 0.882737C5.48099 0.695201 5.73535 0.589844 6.00056 0.589844ZM14.1036 13.5898L12.5006 10.0268L10.8986 13.5898H14.1036Z"
+            fill="#222222"
+          ></path>
+        </svg>
         English Language Skills
-        <span className="text-black">
-          {selectForm === "english" ? (
-            <GoArrowDownRight size={30} />
-          ) : (
-            <GoArrowUpRight size={30} />
-          )}
-        </span>
       </div>
       {selectForm === "english" && (
-        <form action="post" className="w-full mt-6">
+        <form action="post" className="w-full PI-form">
           <div className="mt-4">
             <div className="mb-3">
               <div className="mb-3">
-                <label className="mb-4 ml-2 block text-base font-medium text-[#07074D]">
-                  In the last two years have you taken any of the following
+                <label className="mb-4 block text-base font-medium text-[#07074D]">
+                  *In the last two years have you taken any of the following
                   English language test?
-                  <span className="text-red-400">*</span>
+                 
                 </label>
                 <div className="flex items-center justify-start gap-6">
                   <div className="flex items-center mr-4 mb-4">
@@ -104,15 +112,16 @@ const EnglishSkillsForm = ({
               </div>
             </div>
           </div>
+
+         
           {formData.englishTest === "yes" && (
-            <div>
-              <div className="font-semibold text-lg mb-4"> Test Results *</div>
-              <div className="w-full flex items-center justify-center gap-10">
-                <div className="flex w-[40%] flex-col items-start justify-center mt-9 gap-12">
+             <div className="english-test-yes">
+            
+                <div className="english-test-heading form-input">
                   <div className="flex items-center justify-center gap-5">
-                    <span className="text-[16px] font-semibold">
+                    <label className="text-[16px] font-semibold styled">
                       English Test
-                    </span>
+                    </label>
                     <select
                       id="countries"
                       // defaultValue={'IELTS'}
@@ -144,14 +153,14 @@ const EnglishSkillsForm = ({
                     </p>
                   )}
                 </div>
-                <div className="flex w-[60%] flex-col items-center justify-center gap-5">
-                  <div className="flex items-center justify-center gap-5">
+                <div className="english-test-options">
+                  
                     {selectedExam === "IELTS" && (
                       <>
-                        <div className="flex flex-col items-start justify-center">
+                        <div className="flex flex-col items-start justify-center form-input">
                           <label
                             for="reading"
-                            className=" mb-2 ml-2 block text-base font-medium text-[#07074D]"
+                            className=" mb-2 ml-2 block text-base font-medium text-[#07074D] styled"
                           >
                             Reading
                           </label>
@@ -207,10 +216,10 @@ const EnglishSkillsForm = ({
                     )}
                     {selectedExam === "IELTS" && (
                       <>
-                        <div className="flex flex-col items-start justify-center">
+                        <div className="flex flex-col items-start justify-center form-input">
                           <label
                             for="writing"
-                            className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
+                            className="mb-2 ml-2 block text-base font-medium text-[#07074D] styled"
                           >
                             Writing
                           </label>
@@ -268,10 +277,10 @@ const EnglishSkillsForm = ({
                     {selectedExam === "IELTS" && (
                       <>
                         {" "}
-                        <div className="flex flex-col items-start justify-center">
+                        <div className="flex flex-col items-start justify-center form-input">
                           <label
                             for="listening"
-                            className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
+                            className="mb-2 ml-2 block text-base font-medium text-[#07074D] styled"
                           >
                             Listening
                           </label>
@@ -328,10 +337,10 @@ const EnglishSkillsForm = ({
                     {selectedExam === "IELTS" && (
                       <>
                         {" "}
-                        <div className="flex flex-col items-start justify-center">
+                        <div className="flex flex-col items-start justify-center form-input">
                           <label
                             for="speaking"
-                            className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
+                            className="mb-2 ml-2 block text-base font-medium text-[#07074D] styled"
                           >
                             Speaking
                           </label>
@@ -388,10 +397,10 @@ const EnglishSkillsForm = ({
                     )}
                     {selectedExam === "CELPIP" && (
                       <>
-                        <div className="flex flex-col items-start justify-center">
+                        <div className="flex flex-col items-start justify-center form-input">
                           <label
                             for="reading"
-                            className=" mb-2 ml-2 block text-base font-medium text-[#07074D]"
+                            className=" mb-2 ml-2 block text-base font-medium text-[#07074D] styled"
                           >
                             Reading
                           </label>
@@ -450,10 +459,10 @@ const EnglishSkillsForm = ({
                     )}
                     {selectedExam === "CELPIP" && (
                       <>
-                        <div className="flex flex-col items-start justify-center">
+                        <div className="flex flex-col items-start justify-center form-input">
                           <label
                             for="writing"
-                            className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
+                            className="mb-2 ml-2 block text-base font-medium text-[#07074D] styled"
                           >
                             Writing
                           </label>
@@ -514,10 +523,10 @@ const EnglishSkillsForm = ({
                     {selectedExam === "CELPIP" && (
                       <>
                         {" "}
-                        <div className="flex flex-col items-start justify-center">
+                        <div className="flex flex-col items-start justify-center form-input">
                           <label
                             for="listening"
-                            className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
+                            className="mb-2 ml-2 block text-base font-medium text-[#07074D] styled"
                           >
                             Listening
                           </label>
@@ -578,10 +587,10 @@ const EnglishSkillsForm = ({
                     {selectedExam === "CELPIP" && (
                       <>
                         {" "}
-                        <div className="flex flex-col items-start justify-center">
+                        <div className="flex flex-col items-start justify-center form-input">
                           <label
                             for="speaking"
-                            className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
+                            className="mb-2 ml-2 block text-base font-medium text-[#07074D] styled"
                           >
                             Speaking
                           </label>
@@ -642,10 +651,10 @@ const EnglishSkillsForm = ({
 
                     {selectedExam === "PTE" && (
                       <>
-                        <div className="flex flex-col items-start justify-center">
+                        <div className="flex flex-col items-start justify-center form-input">
                           <label
                             for="reading"
-                            className=" mb-2 ml-2 block text-base font-medium text-[#07074D]"
+                            className=" mb-2 ml-2 block text-base font-medium text-[#07074D] styled"
                           >
                             Reading
                           </label>
@@ -704,10 +713,10 @@ const EnglishSkillsForm = ({
                     )}
                     {selectedExam === "PTE" && (
                       <>
-                        <div className="flex flex-col items-start justify-center">
+                        <div className="flex flex-col items-start justify-center form-input">
                           <label
                             for="writing"
-                            className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
+                            className="mb-2 ml-2 block text-base font-medium text-[#07074D] styled"
                           >
                             Writing
                           </label>
@@ -768,10 +777,10 @@ const EnglishSkillsForm = ({
                     {selectedExam === "PTE" && (
                       <>
                         {" "}
-                        <div className="flex flex-col items-start justify-center">
+                        <div className="flex flex-col items-start justify-center form-input">
                           <label
                             for="listening"
-                            className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
+                            className="mb-2 ml-2 block text-base font-medium text-[#07074D] styled"
                           >
                             Listening
                           </label>
@@ -832,10 +841,10 @@ const EnglishSkillsForm = ({
                     {selectedExam === "PTE" && (
                       <>
                         {" "}
-                        <div className="flex flex-col items-start justify-center">
+                        <div className="flex flex-col items-start justify-center form-input">
                           <label
                             for="speaking"
-                            className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
+                            className="mb-2 ml-2 block text-base font-medium text-[#07074D] styled"
                           >
                             Speaking
                           </label>
@@ -895,18 +904,20 @@ const EnglishSkillsForm = ({
                     )}
                   </div>
                 </div>
-              </div>
-            </div>
+              
+          
           )}
+        
+
+
           {formData.englishTest === "no" && (
             <div
-              className="w-full md:grid grid-cols-2"
-              style={{ columnGap: "10%" }}
+              className="english-test-no"
             >
               <div className="mb-3">
-                <label className="mb-4 ml-2 block text-base font-medium text-[#07074D]">
-                  Are you planning to appear for your english exam?
-                  <span className="text-red-400">*</span>
+                <label className="mb-4 block text-base font-medium text-[#07074D]">
+                  *Are you planning to appear for your english exam?
+                  
                 </label>
                 <div className="flex items-center justify-start gap-6">
                   <div className="flex items-center mr-4 mb-4">
@@ -952,9 +963,11 @@ const EnglishSkillsForm = ({
                   </p>
                 )}
               </div>
+
+              <div className="future-test-english-yes">
               {formData.futureTestEnglish === "yes" && (
-                <div className="mb-3 w-full">
-                  <label className="mb-4 ml-2 block text-base font-medium text-[#07074D]">
+                <div className="mb-3 w-full form-input">
+                  <label className="mb-4 ml-2 block text-base font-medium text-[#07074D] styled">
                     Which Exam you are Planning
                     <span className="text-red-400">*</span>
                   </label>
@@ -986,8 +999,8 @@ const EnglishSkillsForm = ({
                 </div>
               )}
               {formData.futureTestEnglish === "yes" && (
-                <div className="mb-3 w-full">
-                  <label className="mb-4 ml-2 block text-base font-medium text-[#07074D]">
+                <div className="mb-3 w-full form-input">
+                  <label className="mb-4 ml-2 block text-base font-medium text-[#07074D] styled">
                     When you are planning for Exam
                     <span className="text-red-400">*</span>
                   </label>
@@ -1011,11 +1024,14 @@ const EnglishSkillsForm = ({
                   )}
                 </div>
               )}
+              </div>
+             
+             <div className="future-test-english-no">
               {formData.futureTestEnglish === "no" && (
                 <div className="mb-3">
-                  <label className="mb-4 ml-2 block text-base font-medium text-[#07074D]">
-                    Have you studied in an English Medium School?
-                    <span className="text-red-400">*</span>
+                  <label className="mb-4 block text-base font-medium text-[#07074D]">
+                    *Have you studied in an English Medium School?
+                    
                   </label>
                   <div className="flex items-center justify-start gap-6">
                     <div className="flex items-center mr-4 mb-4">
@@ -1062,11 +1078,13 @@ const EnglishSkillsForm = ({
                   )}
                 </div>
               )}
+
+              <div className="english-medium-yes">
               {formData.englishMedium === "yes" && (
-                <div className="mb-3 w-full">
-                  <label className="mb-4 ml-2 block text-base font-medium text-[#07074D]">
-                    Please Provide Class 10th Percentage/CGPA
-                    <span className="text-red-400">*</span>
+                <div className="mb-3 w-full max-w-md form-input">
+                  <label className="mb-4 ml-2 block text-base font-medium text-[#07074D] styled">
+                    *Please Provide Class 10th Percentage/CGPA
+                    
                   </label>
                   <input
                     type="text"
@@ -1084,10 +1102,10 @@ const EnglishSkillsForm = ({
                 </div>
               )}
               {formData.englishMedium === "yes" && (
-                <div className="mb-3 w-full">
-                  <label className="mb-4 ml-2 block text-base font-medium text-[#07074D]">
-                    Please Provide Class 12th Percentage/CGPA
-                    <span className="text-red-400">*</span>
+                <div className="mb-3 w-full form-input max-w-md ">
+                  <label className="mb-4 ml-2 block text-base font-medium text-[#07074D] styled">
+                    *Please Provide Class 12th Percentage/CGPA
+                   
                   </label>
                   <input
                     type="text"
@@ -1105,10 +1123,10 @@ const EnglishSkillsForm = ({
                 </div>
               )}
               {formData.englishMedium === "yes" && (
-                <div className="mb-3 w-full">
-                  <label className="mb-4 ml-2 block text-base font-medium text-[#07074D]">
-                    Please Provide Graduation Percentage/CGPA
-                    <span className="text-red-400">*</span>
+                <div className="mb-3 w-full form-input max-w-md ">
+                  <label className="mb-4 ml-2 block text-base font-medium text-[#07074D] styled">
+                    *Please Provide Graduation Percentage/CGPA
+                    
                   </label>
                   <input
                     type="text"
@@ -1125,11 +1143,17 @@ const EnglishSkillsForm = ({
                   )}
                 </div>
               )}
+              </div>
+              </div>
+
+            
+
             </div>
           )}
-          <div className="w-full flex items-center justify-center mb-10 mt-10">
+
+          <div className="w-full flex items-center justify-end mb-10 mt-10">
             <button
-              className="bg-black text-[#01F9E1] px-16 py-3 rounded-lg text-xl"
+              className="assessment-next-step-btn"
               type="button"
               onClick={() => {
                 setSubmitAttemptedTest(true);

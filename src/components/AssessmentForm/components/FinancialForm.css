@@ -1,0 +1,44 @@
+/* *{
+    border:1px solid red;
+} */
+
+.visa-refused-container{
+    
+    display:grid;
+    grid-template-columns: repeat(3,minmax(100px,400px));
+    gap:20px;
+}
+
+.PI-form-layout-financial{
+    margin-top:10px;
+    padding:16px;
+    display:grid;
+    grid-template-columns: repeat(3,minmax(100px,500px));
+    gap:20px;
+}
+
+@media screen and (max-width:1400px){
+    .PI-form-layout-financial{
+        grid-template-columns:repeat(2,minmax(100px, 400px)) ;
+    }
+}
+
+@media  screen and (max-width:1160px) {
+    .visa-refused-container{
+        grid-template-columns: repeat(2,minmax(100px,400px));
+    }
+    
+}
+
+@media screen and (max-width:951px){
+    .PI-form-layout-financial{
+        grid-template-columns:repeat(1,minmax(100px, 400px)) ;
+    }
+}
+
+@media  screen and (max-width:650px) {
+    .visa-refused-container{
+        grid-template-columns: repeat(1,minmax(100px,400px));
+    }
+    
+}

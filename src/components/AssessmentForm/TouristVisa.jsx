@@ -9,7 +9,10 @@ import countryList from "react-select-country-list";
 import { ageOptions, maritalStatusOptions } from "./data/formSelectOptions";
 import FinancialForm from "./components/FinancialForm";
 
+import './TouristVisa.css'
+
 const TouristVisa = ({ selectedForm, formType, element, touristVisaRef }) => {
+
   const [selectForm, setSelectForm] = useState("PersonalInformation");
   const options = useMemo(() => countryList().getData(), []);
   const [submitAttempted, setSubmitAttempted] = useState(false);
@@ -292,29 +295,22 @@ const TouristVisa = ({ selectedForm, formType, element, touristVisaRef }) => {
               }}
               // id='personalInformation'
               id="PersonalInformation"
-              className="text-base md:text-xl font-semibold tracking-[5px] md:tracking-[8px] bg-[#01997E] text-white w-full px-10 py-2 rounded-md flex items-center justify-between"
+              className="PI-heading-container"
             >
               Personal Information{" "}
-              <span className="text-black">
-                {selectForm === "PersonalInformation" ? (
-                  <GoArrowDownRight size={30} />
-                ) : (
-                  <GoArrowUpRight size={30} />
-                )}
-              </span>
+              
             </div>
             {selectForm === "PersonalInformation" && (
-              <form action="post" className="w-full">
+              <form action="post" className="w-full PI-form">
                 <div
-                  className="w-full md:grid grid-cols-2"
-                  style={{ columnGap: "10%" }}
+                  className="PI-form-layout"
                 >
-                  <div className="w-[100%] mb-3">
+                  <div className="mb-3 w-full form-input">
                     <label
                       for="firstname"
-                      className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
+                      className="mb-2 ml-2 block text-base font-medium text-[#07074D] styled"
                     >
-                      First Name<span className="text-red-400">*</span>
+                      *First Name
                     </label>
                     <input
                       type="text"
@@ -330,12 +326,12 @@ const TouristVisa = ({ selectedForm, formType, element, touristVisaRef }) => {
                       <p className="text-red-500">{errors.firstname}</p>
                     )}
                   </div>
-                  <div className="w-[100%] mb-3">
+                  <div className="mb-3 w-full form-input">
                     <label
                       for="lastname"
-                      className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
+                      className="mb-2 ml-2 block text-base font-medium text-[#07074D] styled"
                     >
-                      Last Name<span className="text-red-400">*</span>
+                      *Last Name
                     </label>
                     <input
                       type="text"
@@ -351,12 +347,12 @@ const TouristVisa = ({ selectedForm, formType, element, touristVisaRef }) => {
                       <p className="text-red-500">{errors.lastname}</p>
                     )}
                   </div>
-                  <div className="w-[100%] mb-3">
+                  <div className="mb-3 w-full form-input">
                     <label
                       for="email"
-                      className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
+                      className="mb-2 ml-2 block text-base font-medium text-[#07074D] styled"
                     >
-                      Email Address<span className="text-red-400">*</span>
+                      *Email Address
                     </label>
                     <input
                       type="email"
@@ -371,12 +367,121 @@ const TouristVisa = ({ selectedForm, formType, element, touristVisaRef }) => {
                       <p className="text-red-500">{errors.email}</p>
                     )}
                   </div>
-                  <div className="w-[100%] mb-3">
+                  
+
+                  <div className="mb-3 w-full form-input">
+                    <label
+                      for="nationality"
+                      className="mb-2 ml-2 block text-base font-medium text-[#07074D] styled"
+                    >
+                      *Nationality
+                    </label>
+                    <Select
+                      options={options}
+                      value={options.find(
+                        (option) => option.label === formData.nationality
+                      )}
+                      onChange={handleSelectChange}
+                      styles={customStyles}
+                      className="w-full"
+                    />
+                    {errors.nationality && (
+                      <p className="text-red-500">{errors.nationality}</p>
+                    )}
+                  </div>
+
+                  <div className="mb-3 w-full form-input">
+                    <label
+                      for="live"
+                      className="mb-2 ml-2 block text-base font-medium text-[#07074D] styled"
+                    >
+                      *Country of Residence
+                     
+                    </label>
+
+                    <Select
+                      options={options}
+                      value={options.find(
+                        (option) => option.label === formData.region
+                      )}
+                      onChange={handleRegionChange}
+                      styles={customStyles}
+                      className="w-full"
+                    />
+                    {errors.region && (
+                      <p className="text-red-500">{errors.region}</p>
+                    )}
+                  </div>
+
+                 
+                  <div className="mb-3 w-full form-input">
+                    <label
+                      for="age"
+                      className="mb-2 ml-2 block text-base font-medium text-[#07074D] styled"
+                    >
+                      *Age
+                    </label>
+                    <select
+                      id="age"
+                      onChange={handleInputChange}
+                      name="age"
+                      value={formData.age}
+                      className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
+                    >
+                      <option value="" selected>
+                        Select
+                      </option>
+                      {ageOptions.map((option) => (
+                        <option
+                          key={option.value}
+                          className="text-black"
+                          value={option.value}
+                        >
+                          {option.label}
+                        </option>
+                      ))}
+                    </select>
+                    {errors.age && <p className="text-red-500">{errors.age}</p>}
+                  </div>
+                  <div className="mb-3 w-full form-input">
+                    <label
+                      for="martial-status"
+                      className="mb-2 ml-2 block text-base font-medium text-[#07074D] styled"
+                    >
+                      Martial Status<span className="text-red-400">*</span>
+                    </label>
+
+                    <select
+                      id="martial-status"
+                      onChange={handleInputChange}
+                      name="maritalStatus"
+                      value={formData.maritalStatus}
+                      className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
+                    >
+                      <option value="" selected>
+                        Select
+                      </option>
+                      {maritalStatusOptions.map((option) => (
+                        <option
+                          key={option.value}
+                          className="text-black"
+                          value={option.value}
+                        >
+                          {option.label}
+                        </option>
+                      ))}
+                    </select>
+                    {errors.maritalStatus && (
+                      <p className="text-red-500">{errors.maritalStatus}</p>
+                    )}
+                  </div>
+
+                  <div className="mb-3 w-full form-input">
                     <label
                       htmlFor="phone"
-                      className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
+                      className="mb-2 ml-2 block text-base font-medium text-[#07074D] styled"
                     >
-                      Phone Number<span className="text-red-400">*</span>
+                      *Phone Number
                     </label>
                     <div className="flex">
                       <PhoneInput
@@ -411,95 +516,15 @@ const TouristVisa = ({ selectedForm, formType, element, touristVisaRef }) => {
                       <p className="text-red-500">{errors.phone}</p>
                     )}
                   </div>
-                  <div className="w-[100%] mb-3">
-                    <label
-                      for="nationality"
-                      className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
-                    >
-                      Nationality<span className="text-red-400">*</span>
-                    </label>
-                    <Select
-                      options={options}
-                      value={options.find(
-                        (option) => option.label === formData.nationality
-                      )}
-                      onChange={handleSelectChange}
-                      styles={customStyles}
-                      className="w-full"
-                    />
-                    {errors.nationality && (
-                      <p className="text-red-500">{errors.nationality}</p>
-                    )}
-                  </div>
-                  <div className="w-[100%] mb-3">
-                    <label
-                      for="age"
-                      className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
-                    >
-                      Age<span className="text-red-400">*</span>
-                    </label>
-                    <select
-                      id="age"
-                      onChange={handleInputChange}
-                      name="age"
-                      value={formData.age}
-                      className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
-                    >
-                      <option value="" selected>
-                        Select
-                      </option>
-                      {ageOptions.map((option) => (
-                        <option
-                          key={option.value}
-                          className="text-black"
-                          value={option.value}
-                        >
-                          {option.label}
-                        </option>
-                      ))}
-                    </select>
-                    {errors.age && <p className="text-red-500">{errors.age}</p>}
-                  </div>
-                  <div className="w-[100%] mb-3">
-                    <label
-                      for="martial-status"
-                      className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
-                    >
-                      Martial Status<span className="text-red-400">*</span>
-                    </label>
 
-                    <select
-                      id="martial-status"
-                      onChange={handleInputChange}
-                      name="maritalStatus"
-                      value={formData.maritalStatus}
-                      className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
-                    >
-                      <option value="" selected>
-                        Select
-                      </option>
-                      {maritalStatusOptions.map((option) => (
-                        <option
-                          key={option.value}
-                          className="text-black"
-                          value={option.value}
-                        >
-                          {option.label}
-                        </option>
-                      ))}
-                    </select>
-                    {errors.maritalStatus && (
-                      <p className="text-red-500">{errors.maritalStatus}</p>
-                    )}
-                  </div>
                   {formData.maritalStatus === "married" && (
                     <div className="mb-3">
                       <label
                         for="spouseStatus"
-                        className="mb-4 ml-2 block text-base font-medium text-[#07074D]"
+                        className="mb-4 block text-base font-medium text-[#07074D]"
                       >
-                        Will your spouse be travelling with you to Canada ?
-                        <span className="text-red-400">*</span>
+                        *Will your spouse be travelling with you to Canada ?
+                        
                       </label>
                       <div className="flex items-center justify-start gap-6">
                         <div className="flex items-center mr-4 mb-4">
@@ -547,13 +572,13 @@ const TouristVisa = ({ selectedForm, formType, element, touristVisaRef }) => {
                       )}
                     </div>
                   )}
-                  <div className="w-full mb-3">
+                  <div className="w-full">
                     <label
                       for="children"
-                      className="mb-4 ml-2 block text-base font-medium text-[#07074D]"
+                      className="mb-2 block text-base font-medium text-[#07074D]"
                     >
-                      Do you have any children under the age of 22 ?
-                      <span className="text-red-400">*</span>
+                      *Do you have any children under the age of 22 ?
+                      
                     </label>
                     <div className="flex items-center justify-start gap-6">
                       <div className="flex items-center mr-4 mb-4">
@@ -600,13 +625,13 @@ const TouristVisa = ({ selectedForm, formType, element, touristVisaRef }) => {
                     )}
                   </div>
                   {formData.children === "yes" && (
-                    <div className="w-full mb-3">
+                    <div className="w-full mb-3 -mt-4">
                       <label
                         for="childrenTravelling"
-                        className="mb-4 ml-2 block text-base font-medium text-[#07074D]"
+                        className="mb-4 block text-base font-medium text-[#07074D]"
                       >
-                        Will your children be travelling with you?
-                        <span className="text-red-400">*</span>
+                        *Will your children be travelling with you?
+                        
                       </label>
                       <div className="flex items-center justify-start gap-6">
                         <div className="flex items-center mr-4 mb-4">
@@ -655,33 +680,12 @@ const TouristVisa = ({ selectedForm, formType, element, touristVisaRef }) => {
                       )}
                     </div>
                   )}
-                  <div className="w-[100%] mb-3">
-                    <label
-                      for="live"
-                      className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
-                    >
-                      Where do you currently live?
-                      <span className="text-red-400">*</span>
-                    </label>
-
-                    <Select
-                      options={options}
-                      value={options.find(
-                        (option) => option.label === formData.region
-                      )}
-                      onChange={handleRegionChange}
-                      styles={customStyles}
-                      className="w-full"
-                    />
-                    {errors.region && (
-                      <p className="text-red-500">{errors.region}</p>
-                    )}
-                  </div>
+                  
                 </div>
 
-                <div className="w-full flex items-center justify-center mb-10 mt-6">
+                <div className="w-full flex items-center justify-end mb-10 mt-6">
                   <button
-                    className="bg-black text-[#01F9E1] px-16 py-3 rounded-lg text-xl"
+                    className="assessment-next-step-btn"
                     type="button"
                     onClick={() => {
                       setSubmitAttempted(true);
@@ -734,21 +738,15 @@ const TouristVisa = ({ selectedForm, formType, element, touristVisaRef }) => {
                   setSelectForm("other");
                 }
               }}
-              className="text-base md:text-xl font-semibold tracking-[5px] md:tracking-[8px] bg-[#01997E] text-white w-full px-10 py-2 rounded-md flex items-center justify-between"
+              className="PI-heading-container"
             >
               Other Information
-              <span className="text-black">
-                {selectForm === "other" ? (
-                  <GoArrowDownRight size={30} />
-                ) : (
-                  <GoArrowUpRight size={30} />
-                )}
-              </span>
+             
             </div>
             {selectForm === "other" && (
-              <form action="post" className="w-full">
+              <form action="post" className="w-full PI-form">
                 <div className="mt-4">
-                  <div className="flex flex-col items-start justify-center">
+                  <div className="flex flex-col items-start justify-center comment-section-adjust">
                     <label
                       for="comments"
                       className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
@@ -767,9 +765,9 @@ const TouristVisa = ({ selectedForm, formType, element, touristVisaRef }) => {
                   </div>
                 </div>
 
-                <div className="w-full flex items-center justify-center mb-10 mt-10">
+                <div className="w-full flex items-center justify-end mb-10 mt-10">
                   <button
-                    className="bg-black text-[#01F9E1] px-16 py-3 rounded-lg text-xl"
+                    className="assessment-next-step-btn"
                     type="button"
                     onClick={() => {
                       handleFormSubmit();

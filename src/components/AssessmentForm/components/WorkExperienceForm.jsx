@@ -77,9 +77,17 @@ const PastExperienceBox = ({
   return (
     <div
       key={index}
-      className="bg-gray-400 bg-opacity-70 p-4 pr-20 rounded-xl relative flex flex-col md:flex-wrap md:flex-row gap-y-3 mb-5"
+      className="recent-education-details"
     >
       <div className="absolute top-2 right-2 flex flex-wrap items-center justify-center gap-2">
+
+      <button
+          type="button"
+          onClick={() => handleDelete(index)}
+          className="  text-2xl flex flex-wrap items-center justify-center text-red-500"
+        >
+          <MdDeleteForever />
+        </button>
         <button
           type="button"
           onClick={() => handleEdit(index)}
@@ -87,19 +95,14 @@ const PastExperienceBox = ({
         >
           <MdEdit />
         </button>
-        <button
-          type="button"
-          onClick={() => handleDelete(index)}
-          className=" text-3xl flex flex-wrap items-center justify-center"
-        >
-          <MdDeleteForever />
-        </button>
+       
       </div>
 
       {data.map((item, id) => (
-        <div key={id} className="grid md:w-1/2 grid-cols-2 gap-2 px-5">
-          <p className="md:text-xl font-semibold text-black">{item.title}:</p>
-          <p className="md:text-xl text-gray-700">{item.value}</p>
+        <div key={id} className="recent-education-details-container">
+          <p className="recent-education-details-key">{item.title}</p>
+          <span className="colon">:</span>
+          <p className="recent-education-details-value">{item.value}</p>
         </div>
       ))}
     </div>
@@ -311,20 +314,16 @@ const WorkExperienceForm = ({
         onClick={() => {
           if (formData.workexperience1) setSelectForm("work-experience");
         }}
-        className="text-base md:text-xl font-semibold tracking-[5px] md:tracking-[8px] bg-[#01997E] text-white w-full px-10 py-2 rounded-md flex items-center justify-between"
+        className="PI-heading-container"
       >
+        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20" fill="none">
+  <path d="M12.582 0.304688C13.4108 0.304688 14.2057 0.633928 14.7917 1.21998C15.3778 1.80603 15.707 2.60089 15.707 3.42969H18.832C19.3846 3.42969 19.9145 3.64918 20.3052 4.03988C20.6959 4.43058 20.9154 4.96049 20.9154 5.51302V16.9714C20.9154 17.5239 20.6959 18.0538 20.3052 18.4445C19.9145 18.8352 19.3846 19.0547 18.832 19.0547H2.16536C1.61283 19.0547 1.08293 18.8352 0.692225 18.4445C0.301525 18.0538 0.0820313 17.5239 0.0820312 16.9714V5.51302C0.0820312 4.96049 0.301525 4.43058 0.692225 4.03988C1.08293 3.64918 1.61283 3.42969 2.16536 3.42969H5.29037C5.29037 2.60089 5.61961 1.80603 6.20566 1.21998C6.79171 0.633928 7.58656 0.304688 8.41537 0.304688H12.582ZM9.45703 9.67969H2.16536V16.9714H18.832V9.67969H11.5404V10.7214C11.5401 10.9869 11.4384 11.2422 11.2561 11.4353C11.0739 11.6283 10.8248 11.7445 10.5597 11.7601C10.2947 11.7756 10.0337 11.6894 9.83012 11.519C9.62653 11.3486 9.49568 11.1069 9.46432 10.8432L9.45703 10.7214V9.67969ZM18.832 5.51302H2.16536V7.59635H18.832V5.51302ZM12.582 2.38802H8.41537C8.16023 2.38805 7.91397 2.48172 7.72331 2.65127C7.53265 2.82081 7.41084 3.05443 7.38099 3.30781L7.3737 3.42969H13.6237C13.6237 3.17455 13.53 2.92829 13.3605 2.73763C13.1909 2.54697 12.9573 2.42516 12.7039 2.39531L12.582 2.38802Z" fill="#222222"/>
+</svg>
         Work Experience
-        <span className="text-black">
-          {selectForm === "work-experience" ? (
-            <GoArrowDownRight size={30} />
-          ) : (
-            <GoArrowUpRight size={30} />
-          )}
-        </span>
       </div>
 
       {selectForm === "work-experience" && (
-        <form action="post" className="w-full mt-6">
+        <form action="post" className="w-full mt-6 PI-form">
           <div className="mb-3 mt-4">
             <label
               for="workexperience"
@@ -471,40 +470,31 @@ const WorkExperienceForm = ({
               {workExperiences.length !== 0 && (
                 <div className="w-full flex ">
                   <button
-                    className="bg-black text-[#01F9E1] md:px-16 md:py-3 px-5 py-2 rounded-lg md:text-xl mb-3"
+                    className="text-[#009889] rounded-lg text-xl font-semibold mb-3"
                     type="button"
                     onClick={handleAddWork}
                   >
-                    Add Previous Job +
+                    + Add Previous Job 
                   </button>
                 </div>
               )}
-              {workExperiences.length === 0 && (
-                <div className="font-semibold text-lg mb-4">
-                  Current (or more recent) Job
-                  <span className="text-red-400">*</span>
-                </div>
-              )}
-              {workExperiences.length !== 0 && (
-                <div className="font-semibold text-lg mb-4">
-                  Previous Work Experience
-                  <span className="text-red-400">*</span>
-                </div>
-              )}
+             
+            
 
               {formVisible && (
                 <div
-                  className="w-full md:grid grid-cols-2"
-                  style={{ columnGap: "10%" }}
+                  className="education-form-layout"
+                
                 >
-                  <div className="w-full mb-3 md:flex md:gap-[10%] justify-between">
-                    <div className="w-full block">
+                  <div className='mb-3 w-full text-black font-semibold ed-head'>{workExperiences.length == 0 ? "Current (or more recent) Job" : "Previous Job: " }</div>
+               
+                    <div className="mb-3 w-full form-input">
                       <label
                         htmlFor="startdate"
-                        className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
+                        className="block styled"
                       >
-                        Start Date
-                        <span className="text-red-400">*</span>
+                        *Start Date
+                       
                       </label>
                       <DatePicker
                         selected={currentForm.startDates}
@@ -520,13 +510,13 @@ const WorkExperienceForm = ({
                         className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
                       />
                     </div>
-                    <div className="w-full block">
+                    <div className="mb-3 w-full form-input">
                       <label
                         htmlFor="enddate"
-                        className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
+                        className="block styled"
                       >
-                        End Date
-                        <span className="text-red-400">*</span>
+                        *End Date
+                        
                       </label>
                       <DatePicker
                         selected={currentForm.endDates}
@@ -547,13 +537,13 @@ const WorkExperienceForm = ({
                         } bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md`}
                       />
                     </div>
-                  </div>
-                  <div className="w-full mb-3">
+                  
+                  <div className="mb-3 w-full form-input">
                     <label
                       for="typeOfJob"
-                      className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
+                      className="block styled"
                     >
-                      Type of Job <span className="text-red-400">*</span>
+                      *Type of Job 
                     </label>
 
                     <select
@@ -577,12 +567,12 @@ const WorkExperienceForm = ({
                       </option>
                     </select>
                   </div>
-                  <div className="w-full mb-3">
+                  <div className="mb-3 w-full form-input">
                     <label
                       for="Employment"
-                      className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
+                      className="block styled"
                     >
-                      Designation <span className="text-red-400">*</span>
+                      *Designation 
                     </label>
                     <input
                       type="text"
@@ -593,12 +583,12 @@ const WorkExperienceForm = ({
                       className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
                     />
                   </div>
-                  <div className="w-full mb-3">
+                  <div className="mb-3 w-full form-input">
                     <label
                       for="occupation"
-                      className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
+                      className="block styled"
                     >
-                      Occupation<span className="text-red-400">*</span>
+                      *Occupation
                     </label>
                     <input
                       type="text"
@@ -617,12 +607,12 @@ const WorkExperienceForm = ({
                       className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
                     /> */}
                   </div>
-                  <div className="mb-3 w-full">
+                  <div className="mb-3 w-full form-input">
                     <label
                       for="workCountry"
-                      className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
+                      className=" block styled special-field-label-adjust"
                     >
-                      Country<span className="text-red-400">*</span>
+                      *Country
                     </label>
                     <Select
                       options={countries}
@@ -636,13 +626,11 @@ const WorkExperienceForm = ({
                       className="w-full"
                     />
                   </div>
-                </div>
-              )}
 
-              <div className="w-full flex mb-10 mt-10 justify-between">
+                  <div className="delete-save-btn">
                 {formVisible && (
                   <button
-                    className="bg-black text-[#01F9E1] md:px-16 md:py-3 px-5 py-2 rounded-lg md:text-xl"
+                    className="education-save-btn"
                     type="button"
                     onClick={handleSave}
                   >
@@ -652,22 +640,26 @@ const WorkExperienceForm = ({
 
                 {formVisible && workExperiences.length !== 0 && (
                   <button
-                    className="bg-black flex gap-2 text-[#01F9E1] md:px-16 md:py-3 px-5 py-2 rounded-lg md:text-xl"
+                    className="delete-btn"
                     type="button"
                     onClick={() => {
                       setFormVisible(false);
                     }}
                   >
-                    Delete <MdDeleteForever style={{ alignSelf: "center" }} />
+                    Remove
                   </button>
                 )}
               </div>
+                </div>
+              )}
+
+              
             </>
           )}
 
-          <div className="w-full flex items-center justify-center mb-10 mt-10">
+          <div className="w-full flex items-center justify-end mb-10 mt-10">
             <button
-              className="bg-black text-[#01F9E1] px-16 py-3 rounded-lg text-xl"
+              className="assessment-next-step-btn"
               type="button"
               onClick={handleNext}
             >

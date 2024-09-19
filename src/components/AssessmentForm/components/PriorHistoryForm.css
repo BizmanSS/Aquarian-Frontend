@@ -1,0 +1,35 @@
+
+
+.visa-refused-country{
+    display:grid;
+    grid-template-columns: repeat(3,minmax(200px,550px));
+    gap:30px;
+}
+
+.prior-history-container, .gap-date{
+    display:grid;
+    grid-template-columns: repeat(2,minmax(100px,550px));
+    gap:30px;
+}
+
+@media screen and (max-width:1111px){
+    .visa-refused-country{
+  
+        grid-template-columns: repeat(2,1fr);
+     
+    }
+}
+
+@media screen and (max-width:755px){
+    .prior-history-container{
+        display:grid;
+        grid-template-columns: repeat(1,minmax(100px,500px));
+        gap:30px;
+    }
+
+    .visa-refused-country, .gap-date{
+  
+        grid-template-columns: repeat(1,minmax(100px,500px));
+     
+    }
+}
