@@ -234,7 +234,6 @@ import AquarianServices from "./components/Pages/AquarianServices/AquarianServic
 import PageNotFound from "./components/Pages/Error/Error.jsx";
 import MajorProvinces from "./components/News/Major-provinces-issue-PNP-invitations.js";
 import ResourcesAndTools from "./components/ResourcesAndTools/ResourcesAndTools.jsx";
-import SubmitPopUp from "./components/AssessmentForm/Ui/SubmitPopUp";
 import RefusalsLandingPage from "./components/SeperateLandingPages/Refusals/Refusals"
 import VisaExtensionLandingPage from "./components/SeperateLandingPages/Visa Extensions/visaExtensions.js";
 
@@ -265,7 +264,7 @@ const App = () => {
         <MobileProvider>
           <Sidebar />
           <Header setShowPopUp={setShowPopUp} />
-          {showPopUp && <SubmitPopUp setShowPopUp={setShowPopUp} />}
+          {/* {showPopUp && <SubmitPopUp setShowPopUp={setShowPopUp} />} */}
           {isMobile && (
             <div>
               {!showQuickLinks && (
