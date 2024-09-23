@@ -32,7 +32,7 @@ const AccordionServices = ({ item, isAccordionActive, setAccordionActive,setOpen
           contentRef.current.style.height = `485px`;
         }
         else{
-          contentRef.current.style.height = `470px`;
+          contentRef.current.style.height = `455px`;
         }
       
       } else {

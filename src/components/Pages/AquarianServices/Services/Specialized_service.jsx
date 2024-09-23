@@ -33,6 +33,7 @@ const data = [
     image: refusals,
     accordionImage: refusalsAccordion,
     name: "Refusals",
+    path:"",
     content: {
       item1: `Has your PR application to Canada been Refused? Your Visitor Visa or Study visa or Work Visa to Canada been denied and refused? Fret not! Aquarian Immigration specialises in resolving such issues and changing that refusal to acceptance. `,
       item2: `Options available to you, may be the possibility of appealing the decision, reapplying for the visa, or seeking alternative immigration pathways.  `,
@@ -44,6 +45,7 @@ const data = [
     image: interviewPreparation,
     accordionImage: interviewPreparationAccordion,
     name: "Interview Preparation",
+    path:"",
     content: {
       item1: `Whether it is an Interview at the Consulate for a Visa, or an interview with the Designated Employer or for your Start-up Visa or an interview with the University of your choice, we will guide you and prepare you for it so that you can achieve what you set out to. `,
       item2: `Having an insight to the purpose of the interview and what is expected out of you helps you prepare. We hand hold you through understanding aspects like commonly asked questions, body language & communication skills, thorough knowledge of your application related topics. `,
@@ -55,6 +57,7 @@ const data = [
     image: postArrivalServices,
     accordionImage: postArrivalServicesAccordion,
     name: "Post Arrival Service",
+    path:"/immigrate/after-permanent-residency",
     class:"accordion-row-pas",
     content: {
       item1: `Aquarian provides a range of essential support services to help you acclimate to your new environment and navigate the challenges of settling in a new country.`,
@@ -67,6 +70,7 @@ const data = [
     image: citizenshipApplication,
     accordionImage: citizenshipApplicationAccordion,
     name: "Citizenship Application",
+    path:"/immigrate/after-permanent-residency/canadian-citizenship",
     content: {
       item1: `You have successfully completed your residency obligations and now you are ready to apply for the Canadian Citizenship.`,
       item2: `It will begin with assessing your eligibility which we will conduct for you. Citizenship Application is submitted on your behalf after careful preparation of relevant documents including proof of residence, language proficiency and tax filing. `,
