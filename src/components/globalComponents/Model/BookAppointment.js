@@ -5,6 +5,8 @@ import { PhoneInput } from "react-international-phone";
 import "react-international-phone/style.css";
 import { AiOutlineClose } from "react-icons/ai";
 import bookAppointmenttick from "../../../Assets/BookAppointmentTick.gif";
+import bookAppointmentmobile from "../../../Assets/BookAppointmentMobile.png";
+
 import Datepicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -62,7 +64,7 @@ const BookAppointmentModel = ({ showForm, setShowForm, setShowPopUp }) => {
 
   const onSubmit = async () => {
     const formData = new FormData();
-    formData.append("access_key", "af1ca8bc-0cdd-478c-96ed-04239598ccbe");
+    formData.append("access_key", "cd83c7c5-591c-4a47-9495-f45538b8b7e7");
     formData.append("firstName", firstName);
     formData.append("lastName", lastName);
     formData.append("email", email);
@@ -133,14 +135,17 @@ const BookAppointmentModel = ({ showForm, setShowForm, setShowPopUp }) => {
   return (
     <>
       {showForm && (
-        <>
-          <div
-            onClick={(event) => event.stopPropagation()}
-            className="modal md:!overflow-visible"
-          >
-            <div className="modal-image">
-              <img src={formLogo} alt="modal" />
-            </div>
+      <>
+        <div
+          onClick={(event) => event.stopPropagation()}
+          className="modal md:!overflow-visible"
+        >
+          <div className="modal-image">
+            {/* Desktop Image */}
+            <img src={formLogo} alt="modal" className="desktop-image" />
+            {/* Mobile Image */}
+            <img src={bookAppointmentmobile} alt="Mobile Image" className="mobile-image" />
+          </div>
 
             <div className="form-field">
               <AiOutlineClose
@@ -165,7 +170,11 @@ const BookAppointmentModel = ({ showForm, setShowForm, setShowPopUp }) => {
                       The form will close in {countdown} seconds.
                     </p>
                     </div>
+                    <div class="modal-image">
+  <img src={bookAppointmentmobile} alt="Mobile Image" class="mobile-image"/>
+</div>
                   </div>
+                  
                 ) : (
                   <form className="form-fields" onSubmit={handleSubmit}>
                     <h2 className="form-header">Book Appointment</h2>
@@ -252,7 +261,7 @@ const BookAppointmentModel = ({ showForm, setShowForm, setShowPopUp }) => {
                           value={timeSlot}
                           className={errors.timeSlot ? "error" : ""}
                           onChange={handleInputChange(setTimeSlot, "timeSlot")}
-                        >
+                        id="date">
                           <option value="">Select Time Slot</option>
                           <option value="9 A.M. - 12 P.M.">
                             9 A.M. - 12 P.M.
@@ -266,7 +275,7 @@ const BookAppointmentModel = ({ showForm, setShowForm, setShowPopUp }) => {
                           <option value="Anytime">Anytime</option>
                         </select>
                       </div>
-
+               
                       <div className="form-group">
                         <label className={errors.date ? "error-label" : ""}>
                           Preferred Date *
@@ -290,7 +299,7 @@ const BookAppointmentModel = ({ showForm, setShowForm, setShowPopUp }) => {
                           value={service}
                           className={errors.service ? "error" : ""}
                           onChange={handleInputChange(setService, "service")}
-                        >
+                        id="srvc">
                           <option value="">Select Service</option>
                           <option value="Permanent Immigration">
                             Permanent Immigration
@@ -339,10 +348,12 @@ const BookAppointmentModel = ({ showForm, setShowForm, setShowPopUp }) => {
                     </button>
                   </form>
                 )}
+       
               </div>
             </div>
           </div>
           <div className="booking-from-background-overlay"></div>
+ 
         </>
       )}
     </>
