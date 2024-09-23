@@ -2,9 +2,18 @@ import React, { useRef, useEffect } from "react";
 import { MdArrowOutward } from "react-icons/md";
 import { AiOutlineClose } from "react-icons/ai";
 
+import { useNavigate } from 'react-router-dom';
+
 import "./AquarianServices.css";
 
 const AccordionServices = ({ item, isAccordionActive, setAccordionActive,setOpenItemId }) => {
+
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(item.path);
+  };
+
   const contentRef = useRef(null);
 
   useEffect(() => {
@@ -16,9 +25,11 @@ const AccordionServices = ({ item, isAccordionActive, setAccordionActive,setOpen
         if(window.innerWidth < 768){
           contentRef.current.style.height = `420px`;
         }
-
-        else if(window.innerWidth < 1067){
-          contentRef.current.style.height = `650px`;
+        else if(window.innerWidth < 830){
+          contentRef.current.style.height = `550px`;
+        }
+        else if(window.innerWidth < 1068){
+          contentRef.current.style.height = `485px`;
         }
         else{
           contentRef.current.style.height = `470px`;
@@ -47,7 +58,7 @@ const AccordionServices = ({ item, isAccordionActive, setAccordionActive,setOpen
 
   return (
     <div className="accordion-content" ref={contentRef}>
-      <div className="accordion-row">
+      <div className={`${item.class ? "accordion-row-pas accordion-row" : "accordion-row"}`}>
         <div className="accordion-row-inner">
 
         <AiOutlineClose
@@ -69,7 +80,7 @@ const AccordionServices = ({ item, isAccordionActive, setAccordionActive,setOpen
                   alt={item.name}
                   className="accordion-content-image"
                 />
-                <button className="aquarian-services-button">
+                <button className="aquarian-services-button" onClick={handleClick}>
                   Explore
                   <div className="aquarian-services-button-arrow">
                     <MdArrowOutward />

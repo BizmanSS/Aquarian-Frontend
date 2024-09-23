@@ -29,6 +29,7 @@ const data = [
     image: expressEntry,
     accordionImage: expressEntryAccordion,
     name: "Express Entry",
+    path:'/immigrate/express-entry',
     content: {
       item1: `Express Entry is the fastest and most popular way to immigrate to Canada permanently. It involves creating an EE Profile and subsequently getting a CRS score. `,
       item2: `Aquarian Immigration assists you to-
@@ -51,6 +52,7 @@ const data = [
     image: pnp,
     accordionImage: pnpAccordion,
     name: "Provincial Nominee Program",
+    path:'/immigrate/provincial-nominee-program',
     content: {
       item1: `Avail Aquarian Immigration’s PNP expertise to effortlessly achieve nomination from the province of your choice.`,
       item2: `We guide you through the various province-specific requirements, ensuring a smooth transition to Canadian residency tailored to your unique aspirations. `,
@@ -62,6 +64,7 @@ const data = [
     image: sponsorship,
     accordionImage: sponsorshipAccordion,
     name: "Sponsorship",
+    path:'/sponsorship/sponsorship',
     content: {
       item1: `Aquarian Immigration Services can help you bring your family together. `,
       item2: ` If you are a Permanent Resident in Canada or a Canadian citizen you can sponsor your spouse, children, parents and grandparents and have them join you in Canada. `,

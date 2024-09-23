@@ -49,6 +49,7 @@ const data = [
     image: studentVisa,
     accordionImage: studentVisaAccordion,
     name: "Student Visa",
+    path:"/study/life-work-in-canada/visa-study-permit-sds", // /visit/students-workers
     content: {
       item1: `Our team of experts will assist you in selecting the right universities and programs based on your interests, qualifications, and future career prospects. `,
       item2: `We guide you through the entire application process, including preparing and submitting applications to universities and colleges. We offer information on available scholarships, grants, and financial aid options. `,
@@ -60,6 +61,7 @@ const data = [
     image: visitorVisa,
     accordionImage: visitorVisaAccordion,
     name: "Visitor Visa",
+    path:"/visit/visitor-visa",
     content: {
       item1: `Looking at visiting Canada? Whether you want to visit friends or family, accompany your child to the University or just explore the country, Aquarian Immigration has got you covered. `,
       item2: `Starting from conducting an eligibility assessment to preparation and procurement of all necessary documents, such as identification, travel itinerary, financial statements, and proof of ties to the home country, we cover all bases. `,
@@ -71,6 +73,7 @@ const data = [
     image: workVisa,
     accordionImage: workVisaAccordion,
     name: "Work Visa",
+    path:"/work/work-without-a-permit/business-visas",
     content: {
       item1: `Acquiring a Canadian Work Permit involves a series of steps beginning with conducting a thorough assessment of your qualifications, work experience to verify your eligibility. Then comes the determination of the right type of Work Permit best suited for you.`,
       item2: `We aid in completion of your work permit application forms, ensuring accuracy and completeness to minimize the risk of delays or rejections. We assist you in organizing all required documentation, such as proof of identity, educational credentials, work experience.`,
@@ -82,6 +85,7 @@ const data = [
     image: buisnessVisa,
     accordionImage: buisnessVisaAccordion,
     name: "Business Visa",
+   path:"/work/work-without-a-permit/business-visas",  //  /visit/business
     content: {
       item1: `A Business Visa is a type of Visitor Visa, where the purpose of travel is to conduct a very short form of business or work such as attend meetings or conferences. It is different than a Work Visa.`,
       item2: `We, at Aquarian immigration, help individual entrepreneurs and companies acquire such Business Visitor Visas for their employees. Our expertise and experience in this field help businesses focus more on their work and gladly leave the visa processing to us. `,
@@ -93,6 +97,7 @@ const data = [
     image: startUpVisa,
     accordionImage: startUpVisaAccordion,
     name: "Startup Visa",
+    path:"/work/work-without-a-permit/business-visas",
     content: {
       item1: `Are you an entrepreneur who wishes to start a new venture in Canada? Aquarian Immigration offer a range of services tailored to assist entrepreneurs navigate the process of acquiring a Start-up Visa to Canada.`,
       item2: `After an eligibility criteria assessment to determine if you meet the requirements of the program, we will help you with Qualifying Business Idea Evaluation, Development of Business Plan, Document Preparation, Application Submission and Preparation for the Interview. `,
@@ -104,6 +109,7 @@ const data = [
     image: investorsVisa,
     accordionImage: investorsVisaAccordion,
     name: "Entrepreneur",
+    path:"/work/work-without-a-permit/business-visas",
     content: {
       item1: `Certain Provinces of Canada run Entrepreneur Programs. The requirements and criteria for these programs vary with each province. Mostly, applicants must have experience running a business and be willing to invest in a new or existing business in Canada.`,
       item2: `It is a two-step process – Acquiring a Work Visa for 24 months and Applying for Permanent Residency after running the business for 2 years and receiving PNP Nomination. We help you from beginning to end.  `,
@@ -115,6 +121,7 @@ const data = [
     image: superVisa,
     accordionImage: superVisaAccordion,
     name: "Super Visa",
+    path:"/visit/super-visa",
     content: {
       item1: `The Super Visa is a valuable option for families wishing to spend extended time together in Canada, facilitating the reunification of parents and grandparents with their Canadian relatives. `,
       item2: `You, as a sponsor of your parents/grandparents, must be a Canadian PR or Citizen and meet specific financial requirements, showing that you can support them during their stay.  `,
@@ -126,6 +133,7 @@ const data = [
     image: visaExtension,
     accordionImage: visaExtensionAccordion,
     name: "Visa extension",
+    path:"/visit/visa-extension",
     content: {
       item1: `Most categories of visas to Canada, including Visitor Visa, Work Visas, Study Visas, Super Visas may be extended. However, there is a system in place and all relevant conditions must be met and adhered to. `,
       item2: `By leveraging our expertise and knowledge of Canadian immigration processes, we strive to make the visa extension process as smooth and successful as possible for our clients, helping them maintain their legal status and continue their stay in Canada.`,

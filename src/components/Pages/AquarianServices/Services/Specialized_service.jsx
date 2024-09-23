@@ -55,6 +55,7 @@ const data = [
     image: postArrivalServices,
     accordionImage: postArrivalServicesAccordion,
     name: "Post Arrival Service",
+    class:"accordion-row-pas",
     content: {
       item1: `Aquarian provides a range of essential support services to help you acclimate to your new environment and navigate the challenges of settling in a new country.`,
       item2: `Once you land in Canada, whether as a new permanent immigrant or as a temporary one (student, worker), there are a series of actions you must take to ensure a smooth transition. `,
