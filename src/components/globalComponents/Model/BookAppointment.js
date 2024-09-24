@@ -6,7 +6,6 @@ import "react-international-phone/style.css";
 import { AiOutlineClose } from "react-icons/ai";
 import bookAppointmenttick from "../../../Assets/BookAppointmentTick.gif";
 import bookAppointmentmobile from "../../../Assets/BookAppointmentMobile.png";
-
 import Datepicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -178,7 +177,6 @@ const BookAppointmentModel = ({ showForm, setShowForm, setShowPopUp }) => {
                 ) : (
                   <form className="form-fields" onSubmit={handleSubmit}>
                     <h2 className="form-header">Book Appointment</h2>
-                    {/* Your form fields... */}
 
                     <div className="form-row-popup">
                       <div className="form-group form-name">
