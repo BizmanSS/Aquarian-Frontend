@@ -84,7 +84,7 @@ const BookAppointmentModel = ({ showForm, setShowForm, setShowPopUp }) => {
 
     if (data.success) {
       setThankYouMessage(
-        "Thank you for booking an appointment with us! We will get back to you shortly."
+        "Thank you For booking an appointment with us! We will get back to you shortly."
       );
       setIsSubmitted(true);
 
