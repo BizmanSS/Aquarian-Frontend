@@ -21,13 +21,15 @@ const ClbCalculator = () => {
   const [isDisabled, setIsDisabled] = useState(true);
   const [confettiActive, setConfettiActive] = useState(false);
   const [total, setTotal] = useState(null);
-  const [selectedExam, setSelectedExam] = useState("IELTS");
+  const [selectedExam, setSelectedExam] = useState("choose");
   const [inputData, setInputData] = useState({
     reading: null,
     writing: null,
     listening: null,
     speaking: null,
   });
+  // const [inputData, setInputData] = useState({ reading: '', writing: '', listening: '', speaking: '' });
+
   const [showResult, setShowResult] = useState(false);
 
   const handleInputChangeMinMax = (e) => {
@@ -48,7 +50,13 @@ const ClbCalculator = () => {
     });
   };
   const handleExamChange = (e) => {
-    setSelectedExam(e.target.value);
+    const selectedValue = e.target.value;
+    setSelectedExam(selectedValue);
+
+    // Alert if "Choose your exam" is selected
+    if (selectedValue === "choose") {
+      alert("Please select a valid exam.");
+    }
   };
   const handleClick = (e) => {
     e.preventDefault();
@@ -88,13 +96,14 @@ const ClbCalculator = () => {
       inputData.reading &&
       inputData.writing &&
       inputData.listening &&
-      inputData.speaking
+      inputData.speaking &&
+      selectedExam !== "choose"
     ) {
       setIsDisabled(false);
     } else {
       setIsDisabled(true);
     }
-  }, [inputData]);
+  }, [inputData, selectedExam]);
 
   const ResultData = () => {
     return (
@@ -115,7 +124,7 @@ const ClbCalculator = () => {
 
           <div className="flex flex-col items-start justify-center">
             <div className="text-xl mt-8 -mb-4">
-              Individual CLB Module Score
+              Individual CLB Module Score
             </div>
             <div className="flex items-center justify-between mt-10 w-full gap-6">
               <div className="text-lg bg-white w-[15rem] py-4 px-6 shadow-xl rounded-lg flex items-center justify-between shadow-gray-300 tracking-wide">
@@ -171,24 +180,19 @@ const ClbCalculator = () => {
               </div>
               <p className="text-[#D3D3D3] text-[18px] leading-normal pt-6 w-full mb-10">
                 The Federal Skilled Worker (FSW) program is one of the three
-                programs contained within Canada’s Express{" "}
+                programs contained within Canada’s Express{" "}
               </p>
             </div>
-
+            {/* CHANGED */}
             <div className="bg-white w-auto h-auto md:mt-[7rem] mx-auto md:mr-[6rem] px-1 py-3 rounded-2xl flex flex-col gap-2">
               <div className="px-4 pt-4">
-                {/* <input
-                  type='text'
-                  className='border-[2px] border-[rgba(1,153,137,0.7)] text-black focus:border-[#019989] placeholder-gray-500 text-md rounded-lg block w-full p-2.5 outline-none'
-                  placeholder='IELTS English'
-                /> */}
                 <select
                   id="countries"
-                  defaultValue={"IELTS"}
+                  defaultValue={"choose"}
                   onChange={handleExamChange}
-                  className="border-[2px] border-[rgba(1,153,137,0.7)] text-gray-500 focus:border-[#019989] placeholder-gray-500 text-md rounded-lg block w-full p-2.5 outline-none"
+                  className="border-[2px] border-[rgba(1,153,137,0.7)] text-gray-500 focus:border-[#019989] placeholder-gray-500 text-md rounded-lg block w-[350px] p-2.5 outline-none"
                 >
-                  <option disabled selected value="">
+                  <option disabled value="choose">
                     Choose your exam
                   </option>
                   <option className="text-black" value="IELTS">
@@ -204,735 +208,888 @@ const ClbCalculator = () => {
                     TCF (French)
                   </option>
                   <option className="text-black" value="TEF">
-                    TEF (French)
+                    TEF (French)
                   </option>
                 </select>
               </div>
+
               <div className="px-4 pt-4 flex items-center justify-between -mt-3 gap-4 min-w-full">
-                {/* <input
-                    type='number'
-                    className='border-[2px] border-[rgba(1,153,137,0.7)] text-black focus:border-[#019989] placeholder-gray-500 text-md rounded-lg block w-[10rem] p-2.5 outline-none'
-                    placeholder='Reading'
-                    name='reading'
-                    onChange={handleInputChange}
-                    min={0}
-                    max={10}
-                    step={0.5}
-                  /> */}
                 {selectedExam === "IELTS" && (
                   <>
                     {" "}
-                    <select
-                      id="reading"
-                      className="border-[2px] border-[rgba(1,153,137,0.7)] text-black focus:border-[#019989] placeholder-gray-500 text-md rounded-lg block w-[10rem] p-2.5 outline-none"
-                      placeholder="Reading"
-                      onChange={handleInputChange}
-                      name="reading"
-                    >
-                      <option disabled selected value="">
+                    <div className="relative">
+                      <label
+                        htmlFor="reading"
+                        className="absolute -top-3 left-3 bg-white px-1 text-sm text-gray-500"
+                      >
                         Reading
-                      </option>
-                      <option className="text-black" value="10">
-                        8-9
-                      </option>
-                      <option className="text-black" value="9">
-                        7-7.5
-                      </option>
-                      <option className="text-black" value="8">
-                        6.5
-                      </option>
-                      <option className="text-black" value="7">
-                        6
-                      </option>
-                      <option className="text-black" value="6">
-                        5-5.5
-                      </option>
-                      <option className="text-black" value="5">
-                        4-4.5
-                      </option>
-                      <option className="text-black" value="4">
-                        3.5
-                      </option>
-                    </select>
-                    <select
-                      id="listening"
-                      className="border-[2px] border-[rgba(1,153,137,0.7)] text-black focus:border-[#019989] placeholder-gray-500 text-md rounded-lg block w-[10rem] p-2.5 outline-none"
-                      placeholder="Listening"
-                      onChange={handleInputChange}
-                      name="listening"
-                    >
-                      <option disabled selected value="">
+                      </label>
+                      <select
+                        id="reading"
+                        className="border-[2px] border-[rgba(1,153,137,0.7)] text-black focus:border-[#019989] placeholder-gray-500 text-md rounded-lg block w-[10rem] p-2.5 outline-none"
+                        placeholder=""
+                        onChange={handleInputChange}
+                        name="reading"
+                        disabled={selectedExam === "choose"}
+                      >
+                        <option disabled selected value="">
+                          {}
+                        </option>
+                        <option className="text-black" value="10">
+                          8-9
+                        </option>
+                        <option className="text-black" value="9">
+                          7-7.5
+                        </option>
+                        <option className="text-black" value="8">
+                          6.5
+                        </option>
+                        <option className="text-black" value="7">
+                          6
+                        </option>
+                        <option className="text-black" value="6">
+                          5-5.5
+                        </option>
+                        <option className="text-black" value="5">
+                          4-4.5
+                        </option>
+                        <option className="text-black" value="4">
+                          3.5
+                        </option>
+                      </select>
+                    </div>
+                    <div className="relative">
+                      <label
+                        htmlFor="listening"
+                        className="absolute -top-3 left-3 bg-white px-1 text-sm text-gray-500"
+                      >
                         Listening
-                      </option>
-                      <option className="text-black" value="10">
-                        8.5-9
-                      </option>
-                      <option className="text-black" value="9">
-                        8
-                      </option>
-                      <option className="text-black" value="8">
-                        7.5
-                      </option>
-                      <option className="text-black" value="7">
-                        6-7
-                      </option>
-                      <option className="text-black" value="6">
-                        5.5
-                      </option>
-                      <option className="text-black" value="5">
-                        5
-                      </option>
-                      <option className="text-black" value="4">
-                        4.5
-                      </option>
-                    </select>
+                      </label>
+                      <select
+                        id="listening"
+                        className="border-[2px] border-[rgba(1,153,137,0.7)] text-black focus:border-[#019989] placeholder-gray-500 text-md rounded-lg block w-[10rem] p-2.5 outline-none"
+                        placeholder=""
+                        onChange={handleInputChange}
+                        name="listening"
+                        disabled={selectedExam === "choose"}
+                      >
+                        <option disabled selected value=""></option>
+                        <option className="text-black" value="10">
+                          8.5-9
+                        </option>
+                        <option className="text-black" value="9">
+                          8
+                        </option>
+                        <option className="text-black" value="8">
+                          7.5
+                        </option>
+                        <option className="text-black" value="7">
+                          6-7
+                        </option>
+                        <option className="text-black" value="6">
+                          5.5
+                        </option>
+                        <option className="text-black" value="5">
+                          5
+                        </option>
+                        <option className="text-black" value="4">
+                          4.5
+                        </option>
+                      </select>
+                    </div>
                   </>
                 )}
+
                 {selectedExam === "CELPIP" && (
                   <>
                     {" "}
-                    <select
-                      id="reading"
-                      className="border-[2px] border-[rgba(1,153,137,0.7)] text-black focus:border-[#019989] placeholder-gray-500 text-md rounded-lg block w-[10rem] p-2.5 outline-none"
-                      placeholder="Reading"
-                      onChange={handleInputChange}
-                      name="reading"
-                    >
-                      <option disabled selected value="">
+                    <div className="relative">
+                      <label
+                        htmlFor="reading"
+                        className="absolute -top-3 left-3 bg-white px-1 text-sm text-gray-500"
+                      >
                         Reading
-                      </option>
-                      <option className="text-black" value="10">
-                        10
-                      </option>
-                      <option className="text-black" value="9">
-                        9
-                      </option>
-                      <option className="text-black" value="8">
-                        8
-                      </option>
-                      <option className="text-black" value="7">
-                        7
-                      </option>
-                      <option className="text-black" value="6">
-                        6
-                      </option>
-                      <option className="text-black" value="5">
-                        5
-                      </option>
-                      <option className="text-black" value="4">
-                        4
-                      </option>
-                      <option className="text-black" value="3">
-                        3
-                      </option>
-                    </select>
-                    <select
-                      id="listening"
-                      className="border-[2px] border-[rgba(1,153,137,0.7)] text-black focus:border-[#019989] placeholder-gray-500 text-md rounded-lg block w-[10rem] p-2.5 outline-none"
-                      placeholder="Listening"
-                      onChange={handleInputChange}
-                      name="listening"
-                    >
-                      <option disabled selected value="">
+                      </label>
+                      <select
+                        id="reading"
+                        className="border-[2px] border-[rgba(1,153,137,0.7)] text-black focus:border-[#019989] placeholder-gray-500 text-md rounded-lg block w-[10rem] p-2.5 outline-none"
+                        onChange={handleInputChange}
+                        name="reading"
+                        disabled={selectedExam === "choose"}
+                      >
+                        <option disabled selected value="">
+                          {}{" "}
+                        </option>
+                        <option className="text-black" value="10">
+                          10
+                        </option>
+                        <option className="text-black" value="9">
+                          9
+                        </option>
+                        <option className="text-black" value="8">
+                          8
+                        </option>
+                        <option className="text-black" value="7">
+                          7
+                        </option>
+                        <option className="text-black" value="6">
+                          6
+                        </option>
+                        <option className="text-black" value="5">
+                          5
+                        </option>
+                        <option className="text-black" value="4">
+                          4
+                        </option>
+                        <option className="text-black" value="3">
+                          3
+                        </option>
+                      </select>
+                    </div>
+                    <div className="relative">
+                      <label
+                        htmlFor="listening"
+                        className="absolute -top-3 left-3 bg-white px-1 text-sm text-gray-500"
+                      >
                         Listening
-                      </option>
-                      <option className="text-black" value="10">
-                        10
-                      </option>
-                      <option className="text-black" value="9">
-                        9
-                      </option>
-                      <option className="text-black" value="8">
-                        8
-                      </option>
-                      <option className="text-black" value="7">
-                        7
-                      </option>
-                      <option className="text-black" value="6">
-                        6
-                      </option>
-                      <option className="text-black" value="5">
-                        5
-                      </option>
-                      <option className="text-black" value="4">
-                        4
-                      </option>
-                      <option className="text-black" value="3">
-                        3
-                      </option>
-                    </select>
+                      </label>
+                      <select
+                        id="listening"
+                        className="border-[2px] border-[rgba(1,153,137,0.7)] text-black focus:border-[#019989] placeholder-gray-500 text-md rounded-lg block w-[10rem] p-2.5 outline-none"
+                        onChange={handleInputChange}
+                        name="listening"
+                        disabled={selectedExam === "choose"}
+                      >
+                        <option disabled selected value="">
+                          {}{" "}
+                        </option>
+                        <option className="text-black" value="10">
+                          10
+                        </option>
+                        <option className="text-black" value="9">
+                          9
+                        </option>
+                        <option className="text-black" value="8">
+                          8
+                        </option>
+                        <option className="text-black" value="7">
+                          7
+                        </option>
+                        <option className="text-black" value="6">
+                          6
+                        </option>
+                        <option className="text-black" value="5">
+                          5
+                        </option>
+                        <option className="text-black" value="4">
+                          4
+                        </option>
+                        <option className="text-black" value="3">
+                          3
+                        </option>
+                      </select>
+                    </div>
                   </>
                 )}
+
                 {selectedExam === "PTE" && (
                   <>
                     {" "}
-                    <select
-                      id="reading"
-                      className="border-[2px] border-[rgba(1,153,137,0.7)] text-black focus:border-[#019989] placeholder-gray-500 text-md rounded-lg block w-[10rem] p-2.5 outline-none"
-                      placeholder="Reading"
-                      onChange={handleInputChange}
-                      name="reading"
-                    >
-                      <option disabled selected value="">
+                    <div className="relative">
+                      <label
+                        htmlFor="reading"
+                        className="absolute -top-3 left-3 bg-white px-1 text-sm text-gray-500"
+                      >
                         Reading
-                      </option>
-                      <option className="text-black" value="10">
-                        88-90
-                      </option>
-                      <option className="text-black" value="9">
-                        78-87
-                      </option>
-                      <option className="text-black" value="8">
-                        69-77
-                      </option>
-                      <option className="text-black" value="7">
-                        60-68
-                      </option>
-                      <option className="text-black" value="6">
-                        51-59
-                      </option>
-                      <option className="text-black" value="5">
-                        42-50
-                      </option>
-                      <option className="text-black" value="4">
-                        33-41
-                      </option>
-                      <option className="text-black" value="3">
-                        24-32
-                      </option>
-                    </select>
-                    <select
-                      id="listening"
-                      className="border-[2px] border-[rgba(1,153,137,0.7)] text-black focus:border-[#019989] placeholder-gray-500 text-md rounded-lg block w-[10rem] p-2.5 outline-none"
-                      placeholder="Listening"
-                      onChange={handleInputChange}
-                      name="listening"
-                    >
-                      <option disabled selected value="">
+                      </label>
+                      <select
+                        id="reading"
+                        className="border-[2px] border-[rgba(1,153,137,0.7)] text-black focus:border-[#019989] placeholder-gray-500 text-md rounded-lg block w-[10rem] p-2.5 outline-none"
+                        onChange={handleInputChange}
+                        name="reading"
+                        disabled={selectedExam === "choose"}
+                      >
+                        <option disabled selected value="">
+                          {}{" "}
+                        </option>
+                        <option className="text-black" value="10">
+                          88-90
+                        </option>
+                        <option className="text-black" value="9">
+                          78-87
+                        </option>
+                        <option className="text-black" value="8">
+                          69-77
+                        </option>
+                        <option className="text-black" value="7">
+                          60-68
+                        </option>
+                        <option className="text-black" value="6">
+                          51-59
+                        </option>
+                        <option className="text-black" value="5">
+                          42-50
+                        </option>
+                        <option className="text-black" value="4">
+                          33-41
+                        </option>
+                        <option className="text-black" value="3">
+                          24-32
+                        </option>
+                      </select>
+                    </div>
+                    <div className="relative">
+                      <label
+                        htmlFor="listening"
+                        className="absolute -top-3 left-3 bg-white px-1 text-sm text-gray-500"
+                      >
                         Listening
-                      </option>
-                      <option className="text-black" value="10">
-                        88-90
-                      </option>
-                      <option className="text-black" value="9">
-                        82-88
-                      </option>
-                      <option className="text-black" value="8">
-                        71-81
-                      </option>
-                      <option className="text-black" value="7">
-                        60-70
-                      </option>
-                      <option className="text-black" value="6">
-                        50-59
-                      </option>
-                      <option className="text-black" value="5">
-                        39-49
-                      </option>
-                      <option className="text-black" value="4">
-                        28-38
-                      </option>
-                      <option className="text-black" value="3">
-                        18-27
-                      </option>
-                    </select>
+                      </label>
+                      <select
+                        id="listening"
+                        className="border-[2px] border-[rgba(1,153,137,0.7)] text-black focus:border-[#019989] placeholder-gray-500 text-md rounded-lg block w-[10rem] p-2.5 outline-none"
+                        onChange={handleInputChange}
+                        name="listening"
+                        disabled={selectedExam === "choose"}
+                      >
+                        <option disabled selected value="">
+                          {}{" "}
+                        </option>
+                        <option className="text-black" value="10">
+                          10
+                        </option>
+                        <option className="text-black" value="9">
+                          9
+                        </option>
+                        <option className="text-black" value="8">
+                          8
+                        </option>
+                        <option className="text-black" value="7">
+                          7
+                        </option>
+                        <option className="text-black" value="6">
+                          6
+                        </option>
+                        <option className="text-black" value="5">
+                          5
+                        </option>
+                        <option className="text-black" value="4">
+                          4
+                        </option>
+                        <option className="text-black" value="3">
+                          3
+                        </option>
+                      </select>
+                    </div>
                   </>
                 )}
                 {selectedExam === "TCF" && (
                   <>
                     {" "}
-                    <select
-                      id="reading"
-                      className="border-[2px] border-[rgba(1,153,137,0.7)] text-black focus:border-[#019989] placeholder-gray-500 text-md rounded-lg block w-[10rem] p-2.5 outline-none"
-                      placeholder="Reading"
-                      onChange={handleInputChange}
-                      name="reading"
-                    >
-                      <option disabled selected value="">
+                    <div className="relative">
+                      <label
+                        htmlFor="reading"
+                        className="absolute -top-3 left-3 bg-white px-1 text-sm text-gray-500"
+                      >
                         Reading
-                      </option>
-                      <option className="text-black" value="10">
-                        549-699
-                      </option>
-                      <option className="text-black" value="9">
-                        524-548
-                      </option>
-                      <option className="text-black" value="8">
-                        499-523
-                      </option>
-                      <option className="text-black" value="7">
-                        453-498
-                      </option>
-                      <option className="text-black" value="6">
-                        406-452
-                      </option>
-                      <option className="text-black" value="5">
-                        375-405
-                      </option>
-                      <option className="text-black" value="4">
-                        342-374
-                      </option>
-                    </select>
-                    <select
-                      id="listening"
-                      className="border-[2px] border-[rgba(1,153,137,0.7)] text-black focus:border-[#019989] placeholder-gray-500 text-md rounded-lg block w-[10rem] p-2.5 outline-none"
-                      placeholder="Listening"
-                      onChange={handleInputChange}
-                      name="listening"
-                    >
-                      <option disabled selected value="">
+                      </label>
+                      <select
+                        id="reading"
+                        className="border-[2px] border-[rgba(1,153,137,0.7)] text-black focus:border-[#019989] placeholder-gray-500 text-md rounded-lg block w-[10rem] p-2.5 outline-none"
+                        onChange={handleInputChange}
+                        name="reading"
+                        disabled={selectedExam === "choose"}
+                      >
+                        <option disabled selected value="">
+                          {}{" "}
+                        </option>
+                        <option className="text-black" value="10">
+                          549-699
+                        </option>
+                        <option className="text-black" value="9">
+                          524-548
+                        </option>
+                        <option className="text-black" value="8">
+                          499-523
+                        </option>
+                        <option className="text-black" value="7">
+                          453-498
+                        </option>
+                        <option className="text-black" value="6">
+                          406-452
+                        </option>
+                        <option className="text-black" value="5">
+                          375-405
+                        </option>
+                        <option className="text-black" value="4">
+                          342-374
+                        </option>
+                      </select>
+                    </div>
+                    <div className="relative">
+                      <label
+                        htmlFor="listening"
+                        className="absolute -top-3 left-3 bg-white px-1 text-sm text-gray-500"
+                      >
                         Listening
-                      </option>
-                      <option className="text-black" value="10">
-                        549-699
-                      </option>
-                      <option className="text-black" value="9">
-                        523-548
-                      </option>
-                      <option className="text-black" value="8">
-                        503-522
-                      </option>
-                      <option className="text-black" value="7">
-                        458-502
-                      </option>
-                      <option className="text-black" value="6">
-                        406-452
-                      </option>
-                      <option className="text-black" value="5">
-                        375-405
-                      </option>
-                      <option className="text-black" value="4">
-                        342-374
-                      </option>
-                    </select>
+                      </label>
+                      <select
+                        disabled={selectedExam === "choose"}
+                        id="listening"
+                        className="border-[2px] border-[rgba(1,153,137,0.7)] text-black focus:border-[#019989] placeholder-gray-500 text-md rounded-lg block w-[10rem] p-2.5 outline-none"
+                        onChange={handleInputChange}
+                        name="listening"
+                      >
+                        <option disabled selected value="">
+                          {}{" "}
+                        </option>
+                        <option className="text-black" value="10">
+                          549-699
+                        </option>
+                        <option className="text-black" value="9">
+                          523-548
+                        </option>
+                        <option className="text-black" value="8">
+                          503-522
+                        </option>
+                        <option className="text-black" value="7">
+                          458-502
+                        </option>
+                        <option className="text-black" value="6">
+                          406-452
+                        </option>
+                        <option className="text-black" value="5">
+                          375-405
+                        </option>
+                        <option className="text-black" value="4">
+                          342-374
+                        </option>
+                      </select>
+                    </div>
                   </>
                 )}
                 {selectedExam === "TEF" && (
                   <>
                     {" "}
-                    <select
-                      id="reading"
-                      className="border-[2px] border-[rgba(1,153,137,0.7)] text-black focus:border-[#019989] placeholder-gray-500 text-md rounded-lg block w-[10rem] p-2.5 outline-none"
-                      placeholder="Reading"
-                      onChange={handleInputChange}
-                      name="reading"
-                    >
-                      <option disabled selected value="">
+                    <div className="relative">
+                      <label
+                        htmlFor="reading"
+                        className="absolute -top-3 left-3 bg-white px-1 text-sm text-gray-500"
+                      >
                         Reading
-                      </option>
-                      <option className="text-black" value="10">
-                        263-300
-                      </option>
-                      <option className="text-black" value="9">
-                        248-262
-                      </option>
-                      <option className="text-black" value="8">
-                        233-247
-                      </option>
-                      <option className="text-black" value="7">
-                        207-232
-                      </option>
-                      <option className="text-black" value="6">
-                        181-206
-                      </option>
-                      <option className="text-black" value="5">
-                        151-180
-                      </option>
-                      <option className="text-black" value="4">
-                        121-150
-                      </option>
-                    </select>
-                    <select
-                      id="listening"
-                      className="border-[2px] border-[rgba(1,153,137,0.7)] text-black focus:border-[#019989] placeholder-gray-500 text-md rounded-lg block w-[10rem] p-2.5 outline-none"
-                      placeholder="Listening"
-                      onChange={handleInputChange}
-                      name="listening"
-                    >
-                      <option disabled selected value="">
+                      </label>
+                      <select
+                        disabled={selectedExam === "choose"}
+                        id="reading"
+                        className="border-[2px] border-[rgba(1,153,137,0.7)] text-black focus:border-[#019989] placeholder-gray-500 text-md rounded-lg block w-[10rem] p-2.5 outline-none"
+                        onChange={handleInputChange}
+                        name="reading"
+                      >
+                        <option disabled selected value="">
+                          {}{" "}
+                        </option>
+                        <option className="text-black" value="10">
+                          263-300
+                        </option>
+                        <option className="text-black" value="9">
+                          248-262
+                        </option>
+                        <option className="text-black" value="8">
+                          233-247
+                        </option>
+                        <option className="text-black" value="7">
+                          207-232
+                        </option>
+                        <option className="text-black" value="6">
+                          181-206
+                        </option>
+                        <option className="text-black" value="5">
+                          151-180
+                        </option>
+                        <option className="text-black" value="4">
+                          121-150
+                        </option>
+                      </select>
+                    </div>
+                    <div className="relative">
+                      <label
+                        htmlFor="listening"
+                        className="absolute -top-3 left-3 bg-white px-1 text-sm text-gray-500"
+                      >
                         Listening
-                      </option>
-                      <option className="text-black" value="10">
-                        316-360
-                      </option>
-                      <option className="text-black" value="9">
-                        298-315
-                      </option>
-                      <option className="text-black" value="8">
-                        280-297
-                      </option>
-                      <option className="text-black" value="7">
-                        249-279
-                      </option>
-                      <option className="text-black" value="6">
-                        217-248
-                      </option>
-                      <option className="text-black" value="5">
-                        181-216
-                      </option>
-                      <option className="text-black" value="4">
-                        145-180
-                      </option>
-                    </select>
+                      </label>
+                      <select
+                        disabled={selectedExam === "choose"}
+                        id="listening"
+                        className="border-[2px] border-[rgba(1,153,137,0.7)] text-black focus:border-[#019989] placeholder-gray-500 text-md rounded-lg block w-[10rem] p-2.5 outline-none"
+                        onChange={handleInputChange}
+                        name="listening"
+                      >
+                        <option disabled selected value="">
+                          {}{" "}
+                        </option>
+                        <option className="text-black" value="10">
+                          316-360
+                        </option>
+                        <option className="text-black" value="9">
+                          298-315
+                        </option>
+                        <option className="text-black" value="8">
+                          280-297
+                        </option>
+                        <option className="text-black" value="7">
+                          249-279
+                        </option>
+                        <option className="text-black" value="6">
+                          217-248
+                        </option>
+                        <option className="text-black" value="5">
+                          181-216
+                        </option>
+                        <option className="text-black" value="4">
+                          145-180
+                        </option>
+                      </select>
+                    </div>
                   </>
                 )}
               </div>
               <div className="px-4 pt-4 flex items-center justify-between -mt-3 gap-4">
                 {selectedExam === "IELTS" && (
                   <>
-                    <select
-                      id="writing"
-                      className="border-[2px] border-[rgba(1,153,137,0.7)] text-black focus:border-[#019989] placeholder-gray-500 text-md rounded-lg block w-[10rem] p-2.5 outline-none"
-                      placeholder="Writing"
-                      onChange={handleInputChange}
-                      name="writing"
-                    >
-                      <option disabled selected value="">
+                    <div className="relative">
+                      <label
+                        htmlFor="writing"
+                        className="absolute -top-3 left-3 bg-white px-1 text-sm text-gray-500"
+                      >
                         Writing
-                      </option>
-                      <option className="text-black" value="10">
-                        7.5-9
-                      </option>
-                      <option className="text-black" value="9">
-                        7
-                      </option>
-                      <option className="text-black" value="8">
-                        6.5
-                      </option>
-                      <option className="text-black" value="7">
-                        6
-                      </option>
-                      <option className="text-black" value="6">
-                        5.5
-                      </option>
-                      <option className="text-black" value="5">
-                        5
-                      </option>
-                      <option className="text-black" value="4">
-                        4-4.5
-                      </option>
-                    </select>
+                      </label>
+                      <select
+                        disabled={selectedExam === "choose"}
+                        id="writing"
+                        className="border-[2px] border-[rgba(1,153,137,0.7)] text-black focus:border-[#019989] placeholder-gray-500 text-md rounded-lg block w-[10rem] p-2.5 outline-none"
+                        onChange={handleInputChange}
+                        name="writing"
+                      >
+                        <option disabled selected value="">
+                          {}{" "}
+                        </option>
+                        <option className="text-black" value="10">
+                          7.5-9
+                        </option>
+                        <option className="text-black" value="9">
+                          7
+                        </option>
+                        <option className="text-black" value="8">
+                          6.5
+                        </option>
+                        <option className="text-black" value="7">
+                          6
+                        </option>
+                        <option className="text-black" value="6">
+                          5.5
+                        </option>
+                        <option className="text-black" value="5">
+                          5
+                        </option>
+                        <option className="text-black" value="4">
+                          4-4.5
+                        </option>
+                      </select>
+                    </div>
 
-                    <select
-                      id="speaking"
-                      className="border-[2px] border-[rgba(1,153,137,0.7)] text-black focus:border-[#019989] placeholder-gray-500 text-md rounded-lg block w-[10rem] p-2.5 outline-none"
-                      placeholder="Speaking"
-                      onChange={handleInputChange}
-                      name="speaking"
-                    >
-                      <option disabled selected value="">
+                    <div className="relative">
+                      <label
+                        htmlFor="speaking"
+                        className="absolute -top-3 left-3 bg-white px-1 text-sm text-gray-500"
+                      >
                         Speaking
-                      </option>
-                      <option className="text-black" value="10">
-                        7.5-9
-                      </option>
-                      <option className="text-black" value="9">
-                        7
-                      </option>
-                      <option className="text-black" value="8">
-                        6.5
-                      </option>
-                      <option className="text-black" value="7">
-                        6
-                      </option>
-                      <option className="text-black" value="6">
-                        5.5
-                      </option>
-                      <option className="text-black" value="5">
-                        5
-                      </option>
-                      <option className="text-black" value="4">
-                        4-4.5
-                      </option>
-                    </select>
+                      </label>
+                      <select
+                        id="speaking"
+                        className="border-[2px] border-[rgba(1,153,137,0.7)] text-black focus:border-[#019989] placeholder-gray-500 text-md rounded-lg block w-[10rem] p-2.5 outline-none"
+                        onChange={handleInputChange}
+                        name="speaking"
+                        disabled={selectedExam === "choose"}
+                      >
+                        <option disabled selected value="">
+                          {}{" "}
+                        </option>
+                        <option className="text-black" value="10">
+                          7.5-9
+                        </option>
+                        <option className="text-black" value="9">
+                          7
+                        </option>
+                        <option className="text-black" value="8">
+                          6.5
+                        </option>
+                        <option className="text-black" value="7">
+                          6
+                        </option>
+                        <option className="text-black" value="6">
+                          5.5
+                        </option>
+                        <option className="text-black" value="5">
+                          5
+                        </option>
+                        <option className="text-black" value="4">
+                          4-4.5
+                        </option>
+                      </select>
+                    </div>
                   </>
                 )}
                 {selectedExam === "CELPIP" && (
                   <>
-                    <select
-                      id="writing"
-                      className="border-[2px] border-[rgba(1,153,137,0.7)] text-black focus:border-[#019989] placeholder-gray-500 text-md rounded-lg block w-[10rem] p-2.5 outline-none"
-                      placeholder="Writing"
-                      onChange={handleInputChange}
-                      name="writing"
-                    >
-                      <option disabled selected value="">
+                    <div className="relative">
+                      <label
+                        htmlFor="writing"
+                        className="absolute -top-3 left-3 bg-white px-1 text-sm text-gray-500"
+                      >
                         Writing
-                      </option>
-                      <option className="text-black" value="10">
-                        10
-                      </option>
-                      <option className="text-black" value="9">
-                        9
-                      </option>
-                      <option className="text-black" value="8">
-                        8
-                      </option>
-                      <option className="text-black" value="7">
-                        7
-                      </option>
-                      <option className="text-black" value="6">
-                        6
-                      </option>
-                      <option className="text-black" value="5">
-                        5
-                      </option>
-                      <option className="text-black" value="4">
-                        4
-                      </option>
-                      <option className="text-black" value="3">
-                        3
-                      </option>
-                    </select>
+                      </label>
+                      <select
+                        id="writing"
+                        className="border-[2px] border-[rgba(1,153,137,0.7)] text-black focus:border-[#019989] placeholder-gray-500 text-md rounded-lg block w-[10rem] p-2.5 outline-none"
+                        onChange={handleInputChange}
+                        name="writing"
+                        disabled={selectedExam === "choose"}
+                      >
+                        <option disabled selected value="">
+                          {}{" "}
+                        </option>
+                        <option className="text-black" value="10">
+                          10
+                        </option>
+                        <option className="text-black" value="9">
+                          9
+                        </option>
+                        <option className="text-black" value="8">
+                          8
+                        </option>
+                        <option className="text-black" value="7">
+                          7
+                        </option>
+                        <option className="text-black" value="6">
+                          6
+                        </option>
+                        <option className="text-black" value="5">
+                          5
+                        </option>
+                        <option className="text-black" value="4">
+                          4
+                        </option>
+                        <option className="text-black" value="3">
+                          3
+                        </option>
+                      </select>
+                    </div>
 
-                    <select
-                      id="speaking"
-                      className="border-[2px] border-[rgba(1,153,137,0.7)] text-black focus:border-[#019989] placeholder-gray-500 text-md rounded-lg block w-[10rem] p-2.5 outline-none"
-                      placeholder="Speaking"
-                      onChange={handleInputChange}
-                      name="speaking"
-                    >
-                      <option disabled selected value="">
+                    <div className="relative">
+                      <label
+                        htmlFor="speaking"
+                        className="absolute -top-3 left-3 bg-white px-1 text-sm text-gray-500"
+                      >
                         Speaking
-                      </option>
-                      <option className="text-black" value="10">
-                        10
-                      </option>
-                      <option className="text-black" value="9">
-                        9
-                      </option>
-                      <option className="text-black" value="8">
-                        8
-                      </option>
-                      <option className="text-black" value="7">
-                        7
-                      </option>
-                      <option className="text-black" value="6">
-                        6
-                      </option>
-                      <option className="text-black" value="5">
-                        5
-                      </option>
-                      <option className="text-black" value="4">
-                        4
-                      </option>
-                      <option className="text-black" value="3">
-                        3
-                      </option>
-                    </select>
+                      </label>
+                      <select
+                        id="speaking"
+                        className="border-[2px] border-[rgba(1,153,137,0.7)] text-black focus:border-[#019989] placeholder-gray-500 text-md rounded-lg block w-[10rem] p-2.5 outline-none"
+                        onChange={handleInputChange}
+                        name="speaking"
+                        disabled={selectedExam === "choose"}
+                      >
+                        <option disabled selected value="">
+                          {}{" "}
+                        </option>
+                        <option className="text-black" value="10">
+                          10
+                        </option>
+                        <option className="text-black" value="9">
+                          9
+                        </option>
+                        <option className="text-black" value="8">
+                          8
+                        </option>
+                        <option className="text-black" value="7">
+                          7
+                        </option>
+                        <option className="text-black" value="6">
+                          6
+                        </option>
+                        <option className="text-black" value="5">
+                          5
+                        </option>
+                        <option className="text-black" value="4">
+                          4
+                        </option>
+                        <option className="text-black" value="3">
+                          3
+                        </option>
+                      </select>
+                    </div>
                   </>
                 )}
                 {selectedExam === "PTE" && (
                   <>
-                    <select
-                      id="writing"
-                      className="border-[2px] border-[rgba(1,153,137,0.7)] text-black focus:border-[#019989] placeholder-gray-500 text-md rounded-lg block w-[10rem] p-2.5 outline-none"
-                      placeholder="Writing"
-                      onChange={handleInputChange}
-                      name="writing"
-                    >
-                      <option disabled selected value="">
+                    <div className="relative">
+                      <label
+                        htmlFor="writing"
+                        className="absolute -top-3 left-3 bg-white px-1 text-sm text-gray-500"
+                      >
                         Writing
-                      </option>
-                      <option className="text-black" value="10">
-                        90
-                      </option>
-                      <option className="text-black" value="9">
-                        88-89
-                      </option>
-                      <option className="text-black" value="8">
-                        79-87
-                      </option>
-                      <option className="text-black" value="7">
-                        69-78
-                      </option>
-                      <option className="text-black" value="6">
-                        60-68
-                      </option>
-                      <option className="text-black" value="5">
-                        51-59
-                      </option>
-                      <option className="text-black" value="4">
-                        41-50
-                      </option>
-                      <option className="text-black" value="3">
-                        32-40
-                      </option>
-                    </select>
+                      </label>
+                      <select
+                        id="writing"
+                        className="border-[2px] border-[rgba(1,153,137,0.7)] text-black focus:border-[#019989] placeholder-gray-500 text-md rounded-lg block w-[10rem] p-2.5 outline-none"
+                        onChange={handleInputChange}
+                        name="writing"
+                        disabled={selectedExam === "choose"}
+                      >
+                        <option disabled selected value="">
+                          {}{" "}
+                        </option>
+                        <option className="text-black" value="10">
+                          90
+                        </option>
+                        <option className="text-black" value="9">
+                          88-89
+                        </option>
+                        <option className="text-black" value="8">
+                          79-87
+                        </option>
+                        <option className="text-black" value="7">
+                          69-78
+                        </option>
+                        <option className="text-black" value="6">
+                          60-68
+                        </option>
+                        <option className="text-black" value="5">
+                          51-59
+                        </option>
+                        <option className="text-black" value="4">
+                          41-50
+                        </option>
+                        <option className="text-black" value="3">
+                          32-40
+                        </option>
+                      </select>
+                    </div>
 
-                    <select
-                      id="speaking"
-                      className="border-[2px] border-[rgba(1,153,137,0.7)] text-black focus:border-[#019989] placeholder-gray-500 text-md rounded-lg block w-[10rem] p-2.5 outline-none"
-                      placeholder="Speaking"
-                      onChange={handleInputChange}
-                      name="speaking"
-                    >
-                      <option disabled selected value="">
+                    <div className="relative">
+                      <label
+                        htmlFor="speaking"
+                        className="absolute -top-3 left-3 bg-white px-1 text-sm text-gray-500"
+                      >
                         Speaking
-                      </option>
-                      <option className="text-black" value="10">
-                        89-90
-                      </option>
-                      <option className="text-black" value="9">
-                        84-88
-                      </option>
-                      <option className="text-black" value="8">
-                        76-83
-                      </option>
-                      <option className="text-black" value="7">
-                        68-75
-                      </option>
-                      <option className="text-black" value="6">
-                        59-67
-                      </option>
-                      <option className="text-black" value="5">
-                        51-58
-                      </option>
-                      <option className="text-black" value="4">
-                        42-50
-                      </option>
-                      <option className="text-black" value="3">
-                        34-41
-                      </option>
-                    </select>
+                      </label>
+                      <select
+                        id="speaking"
+                        className="border-[2px] border-[rgba(1,153,137,0.7)] text-black focus:border-[#019989] placeholder-gray-500 text-md rounded-lg block w-[10rem] p-2.5 outline-none"
+                        onChange={handleInputChange}
+                        name="speaking"
+                        disabled={selectedExam === "choose"}
+                      >
+                        <option disabled selected value="">
+                          {}{" "}
+                        </option>
+                        <option className="text-black" value="10">
+                          89-90
+                        </option>
+                        <option className="text-black" value="9">
+                          84-88
+                        </option>
+                        <option className="text-black" value="8">
+                          76-83
+                        </option>
+                        <option className="text-black" value="7">
+                          68-75
+                        </option>
+                        <option className="text-black" value="6">
+                          59-67
+                        </option>
+                        <option className="text-black" value="5">
+                          51-58
+                        </option>
+                        <option className="text-black" value="4">
+                          42-50
+                        </option>
+                        <option className="text-black" value="3">
+                          34-41
+                        </option>
+                      </select>
+                    </div>
                   </>
                 )}
                 {selectedExam === "TCF" && (
                   <>
-                    <select
-                      id="writing"
-                      className="border-[2px] border-[rgba(1,153,137,0.7)] text-black focus:border-[#019989] placeholder-gray-500 text-md rounded-lg block w-[10rem] p-2.5 outline-none"
-                      placeholder="Writing"
-                      onChange={handleInputChange}
-                      name="writing"
-                    >
-                      <option disabled selected value="">
+                    <div className="relative">
+                      <label
+                        htmlFor="writing"
+                        className="absolute -top-3 left-3 bg-white px-1 text-sm text-gray-500"
+                      >
                         Writing
-                      </option>
-                      <option className="text-black" value="10">
-                        16-20
-                      </option>
-                      <option className="text-black" value="9">
-                        14-15
-                      </option>
-                      <option className="text-black" value="8">
-                        12-13
-                      </option>
-                      <option className="text-black" value="7">
-                        10-11
-                      </option>
-                      <option className="text-black" value="6">
-                        7-9
-                      </option>
-                      <option className="text-black" value="5">
-                        6-6
-                      </option>
-                      <option className="text-black" value="4">
-                        4-5
-                      </option>
-                    </select>
+                      </label>
+                      <select
+                        id="writing"
+                        className="border-[2px] border-[rgba(1,153,137,0.7)] text-black focus:border-[#019989] placeholder-gray-500 text-md rounded-lg block w-[10rem] p-2.5 outline-none"
+                        onChange={handleInputChange}
+                        name="writing"
+                        disabled={selectedExam === "choose"}
+                      >
+                        <option disabled selected value="">
+                          {}{" "}
+                        </option>
+                        <option className="text-black" value="10">
+                          16-20
+                        </option>
+                        <option className="text-black" value="9">
+                          14-15
+                        </option>
+                        <option className="text-black" value="8">
+                          12-13
+                        </option>
+                        <option className="text-black" value="7">
+                          10-11
+                        </option>
+                        <option className="text-black" value="6">
+                          7-9
+                        </option>
+                        <option className="text-black" value="5">
+                          6-6
+                        </option>
+                        <option className="text-black" value="4">
+                          4-5
+                        </option>
+                      </select>
+                    </div>
 
-                    <select
-                      id="speaking"
-                      className="border-[2px] border-[rgba(1,153,137,0.7)] text-black focus:border-[#019989] placeholder-gray-500 text-md rounded-lg block w-[10rem] p-2.5 outline-none"
-                      placeholder="Speaking"
-                      onChange={handleInputChange}
-                      name="speaking"
-                    >
-                      <option disabled selected value="">
+                    <div className="relative">
+                      <label
+                        htmlFor="speaking"
+                        className="absolute -top-3 left-3 bg-white px-1 text-sm text-gray-500"
+                      >
                         Speaking
-                      </option>
-                      <option className="text-black" value="10">
-                        16-20
-                      </option>
-                      <option className="text-black" value="9">
-                        14-15
-                      </option>
-                      <option className="text-black" value="8">
-                        12-13
-                      </option>
-                      <option className="text-black" value="7">
-                        10-11
-                      </option>
-                      <option className="text-black" value="6">
-                        7-9
-                      </option>
-                      <option className="text-black" value="5">
-                        6-6
-                      </option>
-                      <option className="text-black" value="4">
-                        4-5
-                      </option>
-                    </select>
+                      </label>
+                      <select
+                        id="speaking"
+                        className="border-[2px] border-[rgba(1,153,137,0.7)] text-black focus:border-[#019989] placeholder-gray-500 text-md rounded-lg block w-[10rem] p-2.5 outline-none"
+                        onChange={handleInputChange}
+                        name="speaking"
+                        disabled={selectedExam === "choose"}
+                      >
+                        <option disabled selected value="">
+                          {}{" "}
+                        </option>
+                        <option className="text-black" value="10">
+                          16-20
+                        </option>
+                        <option className="text-black" value="9">
+                          14-15
+                        </option>
+                        <option className="text-black" value="8">
+                          12-13
+                        </option>
+                        <option className="text-black" value="7">
+                          10-11
+                        </option>
+                        <option className="text-black" value="6">
+                          7-9
+                        </option>
+                        <option className="text-black" value="5">
+                          6-6
+                        </option>
+                        <option className="text-black" value="4">
+                          4-5
+                        </option>
+                      </select>
+                    </div>
                   </>
                 )}
                 {selectedExam === "TEF" && (
                   <>
-                    <select
-                      id="writing"
-                      className="border-[2px] border-[rgba(1,153,137,0.7)] text-black focus:border-[#019989] placeholder-gray-500 text-md rounded-lg block w-[10rem] p-2.5 outline-none"
-                      placeholder="Writing"
-                      onChange={handleInputChange}
-                      name="writing"
-                    >
-                      <option disabled selected value="">
+                    <div className="relative">
+                      <label
+                        htmlFor="writing"
+                        className="absolute -top-3 left-3 bg-white px-1 text-sm text-gray-500"
+                      >
                         Writing
-                      </option>
-                      <option className="text-black" value="10">
-                        393-450
-                      </option>
-                      <option className="text-black" value="9">
-                        371-392
-                      </option>
-                      <option className="text-black" value="8">
-                        349-370
-                      </option>
-                      <option className="text-black" value="7">
-                        310-348
-                      </option>
-                      <option className="text-black" value="6">
-                        271-309
-                      </option>
-                      <option className="text-black" value="5">
-                        226-270
-                      </option>
-                      <option className="text-black" value="4">
-                        181-225
-                      </option>
-                    </select>
+                      </label>
+                      <select
+                        id="writing"
+                        className="border-[2px] border-[rgba(1,153,137,0.7)] text-black focus:border-[#019989] placeholder-gray-500 text-md rounded-lg block w-[10rem] p-2.5 outline-none"
+                        onChange={handleInputChange}
+                        name="writing"
+                        disabled={selectedExam === "choose"}
+                      >
+                        <option disabled selected value="">
+                          {}{" "}
+                        </option>
+                        <option className="text-black" value="10">
+                          393-450
+                        </option>
+                        <option className="text-black" value="9">
+                          371-392
+                        </option>
+                        <option className="text-black" value="8">
+                          349-370
+                        </option>
+                        <option className="text-black" value="7">
+                          310-348
+                        </option>
+                        <option className="text-black" value="6">
+                          271-309
+                        </option>
+                        <option className="text-black" value="5">
+                          226-270
+                        </option>
+                        <option className="text-black" value="4">
+                          181-225
+                        </option>
+                      </select>
+                    </div>
 
-                    <select
-                      id="speaking"
-                      className="border-[2px] border-[rgba(1,153,137,0.7)] text-black focus:border-[#019989] placeholder-gray-500 text-md rounded-lg block w-[10rem] p-2.5 outline-none"
-                      placeholder="Speaking"
-                      onChange={handleInputChange}
-                      name="speaking"
-                    >
-                      <option disabled selected value="">
+                    <div className="relative">
+                      <label
+                        htmlFor="speaking"
+                        className="absolute -top-3 left-3 bg-white px-1 text-sm text-gray-500"
+                      >
                         Speaking
-                      </option>
-                      <option className="text-black" value="10">
-                        393-450
-                      </option>
-                      <option className="text-black" value="9">
-                        371-392
-                      </option>
-                      <option className="text-black" value="8">
-                        349-370
-                      </option>
-                      <option className="text-black" value="7">
-                        310-348
-                      </option>
-                      <option className="text-black" value="6">
-                        271-309
-                      </option>
-                      <option className="text-black" value="5">
-                        226-270
-                      </option>
-                      <option className="text-black" value="4">
-                        181-225
-                      </option>
-                    </select>
+                      </label>
+                      <select
+                        id="speaking"
+                        className="border-[2px] border-[rgba(1,153,137,0.7)] text-black focus:border-[#019989] placeholder-gray-500 text-md rounded-lg block w-[10rem] p-2.5 outline-none"
+                        onChange={handleInputChange}
+                        name="speaking"
+                        disabled={selectedExam === "choose"}
+                      >
+                        <option disabled selected value="">
+                          {}{" "}
+                        </option>
+                        <option className="text-black" value="10">
+                          393-450
+                        </option>
+                        <option className="text-black" value="9">
+                          371-392
+                        </option>
+                        <option className="text-black" value="8">
+                          349-370
+                        </option>
+                        <option className="text-black" value="7">
+                          310-348
+                        </option>
+                        <option className="text-black" value="6">
+                          271-309
+                        </option>
+                        <option className="text-black" value="5">
+                          226-270
+                        </option>
+                        <option className="text-black" value="4">
+                          181-225
+                        </option>
+                      </select>
+                    </div>
                   </>
                 )}
               </div>
