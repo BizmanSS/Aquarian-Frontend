@@ -150,17 +150,21 @@ const BookAppointmentModel = ({ showForm, setShowForm, setShowPopUp }) => {
  return (
    <>
      {showForm && (
-     <>
-       <div
-         onClick={(event) => event.stopPropagation()}
-         className="modal md:!overflow-visible"
-       >
-         <div className="modal-image">
-           {/* Desktop Image */}
-           <img src={formLogo} alt="modal" className="desktop-image" />
-           {/* Mobile Image */}
-           <img src={bookAppointmentmobile} alt="Mobile Image" className="mobile-image" />
-         </div>
+       <>
+         <div
+           onClick={(event) => event.stopPropagation()}
+           className="modal md:!overflow-visible"
+         >
+           <div className="modal-image">
+             {/* Desktop Image */}
+             <img src={formLogo} alt="modal" className="desktop-image" />
+             {/* Mobile Image */}
+             <img
+               src={bookAppointmentmobile}
+               alt="Mobile Image"
+               className="mobile-image"
+             />
+           </div>
 
 
            <div className="form-field">
@@ -181,17 +185,21 @@ const BookAppointmentModel = ({ showForm, setShowForm, setShowPopUp }) => {
                      alt="Thank You"
                      className="thank-you-image"
                    />
-                   <div className="thank-you"><h2 className="msg1">Thank You!</h2>
-                   <p className="thanksmessage">{thankYouMessage}</p>
-                   <p className="countdown-message">
-                     The form will close in {countdown} seconds.
-                   </p>
+                   <div className="thank-you">
+                     <h2 className="msg1">Thank You!</h2>
+                     <p className="thanksmessage">{thankYouMessage}</p>
+                     <p className="countdown-message">
+                       The form will close in {countdown} seconds.
+                     </p>
                    </div>
                    <div class="modal-image">
- <img src={bookAppointmentmobile} alt="Mobile Image" class="mobile-image"/>
-</div>
+                     <img
+                       src={bookAppointmentmobile}
+                       alt="Mobile Image"
+                       class="mobile-image"
+                     />
+                   </div>
                  </div>
-                
                ) : (
                  <form className="form-fields" onSubmit={handleSubmit}>
                    <h2 className="form-header">Book Appointment</h2>
@@ -281,7 +289,8 @@ const BookAppointmentModel = ({ showForm, setShowForm, setShowPopUp }) => {
                          value={timeSlot}
                          className={errors.timeSlot ? "error" : ""}
                          onChange={handleInputChange(setTimeSlot, "timeSlot")}
-                       id="date">
+                         id="date"
+                       >
                          <option value="">Select Time Slot</option>
                          <option value="9 A.M. - 12 P.M.">
                            9 A.M. - 12 P.M.
@@ -295,7 +304,8 @@ const BookAppointmentModel = ({ showForm, setShowForm, setShowPopUp }) => {
                          <option value="Anytime">Anytime</option>
                        </select>
                      </div>
-             
+
+
                      <div className="form-group">
                        <label className={errors.date ? "error-label" : ""}>
                          Preferred Date *
@@ -307,6 +317,7 @@ const BookAppointmentModel = ({ showForm, setShowForm, setShowPopUp }) => {
                          minDate={addDate(new Date(), 2)}
                          filterDate={isWeekday}
                          placeholderText="Select a Date"
+                         disabledKeyboardNavigation
                        />
                      </div>
                    </div>
@@ -319,7 +330,8 @@ const BookAppointmentModel = ({ showForm, setShowForm, setShowPopUp }) => {
                          value={service}
                          className={errors.service ? "error" : ""}
                          onChange={handleInputChange(setService, "service")}
-                       id="srvc">
+                         id="srvc"
+                       >
                          <option value="">Select Service</option>
                          <option value="Permanent Immigration">
                            Permanent Immigration
@@ -368,7 +380,6 @@ const BookAppointmentModel = ({ showForm, setShowForm, setShowPopUp }) => {
                    </button>
                  </form>
                )}
-     
              </div>
            </div>
          </div>
