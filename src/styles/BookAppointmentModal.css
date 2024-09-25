@@ -1,15 +1,11 @@
 * {
   box-sizing: border-box;
  }
- 
- 
  .form-row-popup {
   display: flex;
   gap: 20px;
   margin-bottom: 20px;
  }
- 
- 
  .form-header {
   color: #000;
   font-size: 40px;
@@ -18,8 +14,6 @@
   text-align: center;
   margin-top: -10px;
  }
- 
- 
  .form-group {
   position: relative;
   display: flex !important;
@@ -33,8 +27,6 @@
  #srvc{
   height: 58px;
  }
- 
- 
  .form-group label {
   position: absolute;
   top: 0;
@@ -48,14 +40,10 @@
   pointer-events: none;
   z-index: 1;
  }
- 
- 
  .form-field {
   width: 65%;
   height: 100%;
  }
- 
- 
  .form-group input,
  .form-group select {
   width: 100%;
@@ -66,25 +54,17 @@
   outline: none;
   transition: border-color 0.3s ease;
  }
- 
- 
  .form-row-popup .error,
  .book-date-error {
   border-color: #b90124 !important;
   background-color: #ffe6e6;
  }
- 
- 
  .error-label {
   color: #b90124;
  }
- 
- 
  .form-field .error-message {
   text-align: center;
  }
- 
- 
  .Submitbutton {
   background-color: #009889;
   padding: 0.5rem 8rem;
@@ -98,8 +78,6 @@
   font-size: 20px;
   width: 100%;
  }
- 
- 
  .closeIcon {
   position: relative;
   right: 2px;
@@ -114,8 +92,6 @@
   cursor: pointer;
   padding: 0.2rem;
  }
- 
- 
  .booking-from-background-overlay {
   position: fixed;
   top: 0;
@@ -126,106 +102,77 @@
   background-color: rgba(30, 30, 30, 0.4);
   backdrop-filter: blur(10px);
  }
- 
- 
  @media (max-width: 1024px) {
   .modal {
     width: 80%;
     height: auto;
     overflow-y: auto;
   }
- 
- 
   .modal-image {
     width: 45%;
   }
- 
- 
   .form-field {
     width: 65%;
   }
- 
- 
   .form-row-popup {
     gap: 15px;
   }
- 
- 
   .Submitbutton {
     padding: 0.5rem 6rem;
     font-size: 18px;
     margin-bottom: 1rem;
   }
  }
- 
- 
  @media (max-width: 769px) {
   .modal {
     flex-direction: column;
-    width: 100vw;
-    height: 100vh;
+    width: 90vw;
+    height: 94vh;
     overflow: auto;
-  }
- 
- 
+    border-radius: 10px;
+ }
   .modal-image {
     width: 100%;
     height: 30vh;
   }
- 
- 
   .form-header {
     font-size: 1.5rem;
     text-align: center;
   }
- 
- 
   .form-field {
     width: 100%;
     height: auto;
     /* padding: 1rem; */
-    margin-top: -33px;
+    margin-top: -63px;
   }
- 
- 
   .form-group input,
   .form-group select {
     width: 100%;
-    padding: 14px;
+    padding: 8px;
     font-size: 14px;
-    height: 56px;
+    height: 43px;
   }
- 
- 
   .custom-phone-input {
-    height: 50px;
+    height: 43px;
     font-size: 10px;
     padding: 10px;
     border: 2px solid #ccc;
     border-radius: 4px;
   }
- 
- 
   .form-row-popup {
     flex-direction: column;
   }
- 
- 
   .Submitbutton {
     width: 100%;
     padding: 10px;
     font-size: 16px;
   }
- 
- 
   .modal-image img {
     width: 100%;
     height: auto;
     object-fit: cover;
   }
  }
- 
- 
  .custom-phone-input {
   height: 60px;
   font-size: 16px;
@@ -233,8 +180,6 @@
   border: 2px solid #ccc;
   border-radius: 4px;
  }
- 
- 
  .thank-you-message {
   text-align: center;
   color: #009889;
@@ -246,71 +191,49 @@
   padding: 20px;
   gap: 20px;
  }
- 
- 
  .thank-you-image {
   width: 100px;
   height: auto;
  }
- 
- 
  .thank-you {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 190px;
  }
- 
- 
  .msg1 {
   font-size: 54px;
   font-weight: bold;
   margin-top: 9%;
   margin-bottom: 1px;
  }
- 
- 
  .thanksmessage {
   font-size: 18px;
   text-align: center;
  }
- 
- 
  .countdown-message {
   font-size: 20px;
   font-weight: bold;
   color: #fa9374;
   margin-left: -10%;
  }
- 
- 
  @media (max-width: 769px) {
   .thank-you-message {
     font-size: 12px;
   }
  }
- 
- 
  .desktop-image {
   display: block;
  }
- 
- 
  .mobile-image {
   display: none;
  }
- 
- 
  @media (max-width: 769px) {
   .desktop-image {
     display: none;
   }
- 
- 
   .mobile-image {
     display: block;
- 
- 
     width: 100%;
     height: 531px;
     object-fit: contain;
@@ -319,8 +242,6 @@
  * {
   box-sizing: border-box;
  }
- 
- 
  .modal {
   position: fixed;
   top: 50%;
@@ -336,42 +257,39 @@
   flex-direction: row;
   z-index: 150;
  }
- 
- 
  .modal-image {
   width: 35%;
   height: 100%;
  }
- 
- 
  .modal-image img {
   width: 100%;
   height: auto;
   object-fit: cover;
  }
- 
- 
  .desktop-image {
   display: block;
  }
- 
- 
  .mobile-image {
   display: none;
  }
- 
- 
  @media (max-width: 769px) {
   .modal {
     flex-direction: column;
-    width: 100vw;
-    height: 100vh;
+    width: 90vw;
+    height: 94vh;
     overflow: auto;
+    border-radius: 10px;
+ }
+  #date{
+    height: 43px;
+  }
+  #srvc{
+    height: 43px;
   }
   .custom-phone-input {
-    height: 56px;
+    height: 43px;
     font-size: 13px;
-    padding: 7px;
+    padding: 1px;
     border: 2px solid #ccc;
     border-radius: 4px;
   }
@@ -379,7 +297,7 @@
     position: relative;
     right: 2px;
     display: block;
-    margin-top: 1rem;
+    margin-top: 40px;
     align-self: center;
     margin-left: auto;
     margin-right: -1rem;
@@ -388,30 +306,22 @@
     justify-self: flex-end;
     cursor: pointer;
     padding: 0.2rem;
-    margin-bottom: -10px;
+    margin-bottom: -30px;
   }
   .modal-image {
     width: 100%;
-    height: 30vh;
+    height: 112px;
   }
- 
- 
   .desktop-image {
     display: block;
   }
- 
- 
   .mobile-image {
     display: none;
   }
- 
- 
   @media (max-width: 769px) {
     .desktop-image {
       display: none;
     }
- 
- 
     .mobile-image {
       display: block;
       width: 100%;
@@ -424,6 +334,4 @@
     }
   }
  }
- 
- 
  
