@@ -21,10 +21,21 @@
   padding-right: 10rem;
   padding-left: 5rem;
   font-family: Poppins;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 400;
   line-height: 32px;
-  margin-bottom: 48px;
+  margin-bottom: 72px;
+  max-width: 1600px;
+}
+
+.pages-content-text-wrapper-direct-pathway {
+  padding-right: 10rem;
+  padding-left: 5rem;
+  font-family: Poppins;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 32px;
+  margin-bottom: 72px;
   max-width: 1600px;
 }
 
@@ -32,17 +43,17 @@
   font-family: "GFS Didot";
   font-size: 40px;
   font-weight: 400;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
+  margin-top: 1.8rem;
+  margin-bottom: 3.5rem;
   line-height: 40px;
 }
 
 .pages-header-2 {
-  color: #373434;
+  color: #5d5858ae;
   font-family: Poppins;
   font-size: 32px;
   font-weight: 500;
-  padding-top: 48px;
+  padding-top: 70px;
 }
 
 .pages-header-3 {
@@ -60,7 +71,7 @@
 }
 
 .pages-paragraph {
-  padding-top: 32px;
+  padding-top: 14px;
 }
 
 .pages-content-div bold {
@@ -88,10 +99,10 @@
 .pages-current-page-link {
   color: #747474;
   font-family: Poppins;
-  font-size: 12px;
+  font-size: 11px;
   font-style: normal;
   font-weight: 400;
-  margin-top: 1rem;
+  margin-top: 2.5rem;
 }
 
 .pages-list {
@@ -170,11 +181,13 @@
 
 @media (min-width: 1025px) {
   .pages-content-text-wrapper {
-    font-size: 18px;
+    font-size: 15px;
   }
 
   .pages-header {
     font-size: 72px;
     line-height: 72px;
   }
+
+ 
 }

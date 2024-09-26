@@ -21,6 +21,8 @@ import { useMobile } from "../globalComponents/MobileContext/IsMobileContext";
 import BannerPages from "../Pages/Banner/BannerPages";
 import examData from "./data/examData";
 
+import './ResourceAndTools.css';
+
 const ResourcesAndTools = () => {
   const { isMobile } = useMobile();
 
@@ -226,7 +228,7 @@ const ResourcesAndTools = () => {
         className="flex flex-col w-full md:w-[95%] items-end justify-center relative right-[2rem] lg:right-[4rem]"
       >
         <div className="w-[90%] lg:w-[68%] flex flex-col items-center lg:items-start justify-center">
-          <div className="font-semibold text-[30px] lg:text-[40px] border-b-[4px] border-[#019989] border-w-[50%] mt-8">
+          <div className="font-semibold text-[30px] lg:text-[40px] border-b-[4px] border-[#019989] border-w-[50%] mt-8 ">
             Calculators & Tools
           </div>
           <p className="py-4 text-center lg:text-left">
@@ -242,15 +244,17 @@ const ResourcesAndTools = () => {
           <div
             style={{
               display: "flex",
-              marginLeft: "2%",
+
               paddingTop: "20%",
               width: "80%",
               justifyContent: "center",
               gap: "1rem",
             }}
+
+            className= "sideBox-resourceAndTools"
           >
             <div className="line-heading"></div>
-            <div style={{ display: "block" }}>
+            <div style={{ display: "block" }} className="sideBox-resourceAndTools-inner">
               <p
                 onClick={() => scrollToRef(calcRef)}
                 className={`sub-heading ${
@@ -599,6 +603,10 @@ const ResourcesAndTools = () => {
             </div>
           </div>
 
+          <div className="font-semibold text-[30px] lg:text-[40px] border-b-[4px] border-[#019989] border-w-[50%] mt-8 ">
+            Other Resources
+          </div>
+
           {/* quick links section */}
           <div ref={quickLinkRef} className="w-[90%] h-fit">
             <div
@@ -945,7 +953,7 @@ const ResourcesAndTools = () => {
         <div className="w-[95%] lg:w-[75%] flex flex-col items-start justify-center mt-8">
           <div className="font-medium text-3xl ml-5 lg:ml-20">Exam Guides</div>
           <div className="w-[90%] h-1 bg-[#019989] ml-5 lg:ml-20"></div>
-          <div className="w-full ml-0 pt-0 xl:pt-0 h-auto rounded-3xl mt-14 flex items-center justify-center gap-4 xl:ml-10 flex-wrap">
+          <div className="w-full ml-0 pt-0 xl:pt-0 h-auto rounded-3xl mt-14 flex items-center justify-center gap-4 xl:ml-10 flex-wrap exam-guide-inner-container">
             {examData.map((item, id) => (
               <div
                 key={id}

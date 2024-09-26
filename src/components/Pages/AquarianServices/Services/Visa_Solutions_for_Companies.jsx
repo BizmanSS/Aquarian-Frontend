@@ -25,6 +25,7 @@ const data = [
     image: buisnessVisits,
     accordionImage: buisnessVisitsAccordion,
     name: "Business visits",
+    path:"/employers/employers-outside-canada/business-visit-visa",
     content: {
       item1: `If you are a company or organisation based in India and wish to send your employee(s) to Canada for a short work visit, we offer you unique visa solutions. The purpose of the visit can be to attend a conference, meetings, research or meet potential buyers or sellers. `,
       item2: `As your expert visa consultants, our practised and experienced team will handle all the business visa needs of your employees. We understand both the Indian and Canadian Immigration systems well, lending us an edge to offer you the best possible professional services.  
@@ -39,6 +40,7 @@ const data = [
     image: pnp,
     accordionImage: intraCompanyTransferAccordion,
     name: "Intra-Company Transfers",
+    path:"/employers/employers-outside-canada/intra-company-transfer-of-employers",
     content: {
       item1: `The ICT program allows multinational companies to transfer specific employees from a foreign branch, subsidiary, affiliate, or parent company to a Canadian office without requiring a Labour Market Impact Assessment (LMIA). `,
       item2: `Aquarian offers ICT Work Permit and Visa solutions to companies. There are certain requirements that must be met by the employer and the employee both. We help the companies and the employees being transferred meet the eligibility criteria. Extensions of such WP is also on the menu.`,

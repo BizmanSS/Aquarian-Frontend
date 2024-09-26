@@ -5,6 +5,7 @@
     max-width: 398px;
     padding-left: 10px;
     padding-right: 10px;
+    margin-bottom:125px;
 }
 
 .rts-card-image-box {
@@ -145,6 +146,11 @@
         bottom: 200px;
         right: 100px;
         font-size: 16px;
+    }
+    .rts-card-button:hover{
+        background-color: #00a292;
+        color:white;
+        transition:color 0.2s ease;
     }
 
     .rts-card-text-box img {
