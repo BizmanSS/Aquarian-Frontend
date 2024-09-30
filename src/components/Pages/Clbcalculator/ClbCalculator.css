@@ -1,0 +1,938 @@
+.custom-select {
+  border: 2px solid rgba(1, 153, 137, 0.7);
+  color: black;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  display: block;
+  width: 10rem;
+  padding: 0.625rem;
+  outline: none;
+ }
+ 
+ 
+ .custom-select:focus {
+  border-color: #019989;
+ }
+ 
+ 
+ .custom-select::placeholder {
+  color: #6B7280;
+ }
+ 
+ 
+ .custom-label {
+  position: absolute;
+  top: -0.75rem;
+  left: 0.75rem;
+  background-color: white;
+  padding: 0 0.25rem;
+  font-size: 0.875rem;
+  color: #6B7280;
+ }
+ .custom-div {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: -0.75rem;
+  gap: 1rem;
+  min-width: 100%;
+ }
+ 
+ 
+ .custom-select-wrapper {
+  position: relative;
+ }
+ 
+ 
+ .custom-label {
+  position: absolute;
+  top: -0.75rem;
+  left: 0.75rem;
+  background-color: white;
+  padding: 0 0.25rem;
+  font-size: 0.875rem;
+  color: #6b7280;
+ }
+ 
+ 
+ .custom-select {
+  border: 2px solid rgba(1, 153, 137, 0.7);
+  color: black;
+  width: 10rem;
+  padding: 0.625rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  display: block;
+  outline: none;
+ }
+ 
+ 
+ .custom-select:focus {
+  border-color: #019989;
+ }
+ 
+ 
+ .custom-option {
+  color: black;
+ }
+ .result-container {
+  width: 100%;
+  height: 250px;
+  background-color: #f9fafb;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 24px 40px;
+  border-radius: 12px;
+  margin-bottom: 32px;
+  margin-top: 16px;
+ }
+ 
+ 
+ .result-header {
+  font-size: 2.25rem;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+ }
+ 
+ 
+ .header-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+ }
+ 
+ 
+ .trophy-img {
+  width: 6rem;
+ }
+ 
+ 
+ .score-badge {
+  margin-top: 24px;
+  margin-bottom: 12px;
+  color: white;
+  padding: 8px 12px;
+  background-color: #ef4444;
+  font-weight: bold;
+  border-radius: 12px;
+ }
+ 
+ 
+ .module-scores {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+ }
+ 
+ 
+ .module-title {
+  font-size: 1.25rem;
+  margin-top: 32px;
+  margin-bottom: -16px;
+ }
+ 
+ 
+ .score-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 40px;
+  width: 100%;
+  gap: 24px;
+ }
+ 
+ 
+ .score-item {
+  font-size: 1.125rem;
+  background-color: white;
+  width: 15rem;
+  padding: 16px 24px ;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  letter-spacing: 0.05em;
+ }
+ 
+ 
+ .score-value {
+  font-size: 1.5rem;
+ }
+ .flex-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+ }
+ 
+ 
+ @media (min-width: 768px) {
+  .flex-container {
+    width: 95%;
+  }
+ }
+ .custom-flex-container {
+  display: flex;           
+  flex-direction: column;    
+  align-items: flex-start;   
+  justify-content: space-between;
+  padding-left: 2rem;       
+ }
+ 
+ 
+ @media (min-width: 768px) {
+  .custom-flex-container {
+    padding-left: 3.5rem;    
+    padding-right: 3.5rem;
+  }
+ }
+ 
+ 
+ @media (min-width: 1024px) {
+  .custom-flex-container {
+    padding-left: 5rem;     
+    padding-right: 5rem;
+  }
+ }
+ .custom-paragraph {
+  color: #9ca3af;
+  padding-bottom: 0;
+  padding-top: 2.5rem;
+  font-size: 13px;
+  cursor: pointer;
+  position: relative;
+  top: 2.5rem;
+ }
+ 
+ 
+ @media (min-width: 1024px) {
+  .custom-paragraph {
+    padding-bottom: 5rem;
+    padding-top: 2.5rem; 
+  }
+ }
+ .custom-text {
+  font-size: 35px;
+  font-weight: 400;
+  font-family: serif;
+  line-height: 1.5;
+ }
+ 
+ 
+ @media (min-width: 768px) {
+  .custom-text {
+    font-size: 40px;
+  }
+ }
+ 
+ 
+ @media (min-width: 1024px) {
+  .custom-text {
+    font-size: 50px;
+  }
+ }
+ .custom-paragraph {
+  color: #D3D3D3;
+  font-size: 18px;
+  line-height: normal;
+  padding-top: 6px;
+  width: 100%;
+  margin-bottom: 10px;
+ }
+ 
+ 
+ .custom-box {
+  background-color: white;
+  width: auto;
+  height: auto;
+  margin-top: 0;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 3px 1px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+ }
+ 
+ 
+ @media (min-width: 768px) {
+  .custom-box {
+    margin-top: 7rem;
+    margin-right: 6rem;
+  }
+ }
+ .select-field-unique-1 {
+  border: 2px solid rgba(1, 153, 137, 0.7);
+  color: #6b7280;
+  font-size: 16px;
+  border-radius: 0.5rem;
+  display: block;
+  width: 350px;
+  padding: 0.625rem;
+  outline: none;
+ }
+ 
+ 
+ .select-field-unique-1:focus {
+  border-color: #019989;
+ }
+ 
+ 
+ .select-field-unique-1::placeholder {
+  color: #6b7280;
+ }
+ 
+ 
+ .label-unique-listening {
+  position: absolute;
+  top: -12px;
+  left: 12px;
+  background-color: white;
+  padding-left: 4px;
+  padding-right: 4px;
+  font-size: 0.875rem;
+  color: #6b7280;
+ }
+ 
+ 
+ 
+ 
+ .select-unique-listening {
+  border: 2px solid rgba(1, 153, 137, 0.7);
+  color: black;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  display: block;
+  width: 10rem;
+  padding: 0.625rem;
+  outline: none;
+ }
+ 
+ 
+ .select-unique-listening:focus {
+  border-color: #019989;
+ }
+ 
+ 
+ .select-unique-listening::placeholder {
+  color: #6b7280;
+ }
+ 
+ 
+ .container-reading-select {
+  position: relative;
+ }
+ 
+ 
+ .label-reading {
+  position: absolute;
+  top: -0.75rem;
+  left: 0.75rem;
+  background-color: white;
+  padding: 0 0.25rem;
+  font-size: 0.875rem;
+  color: #6b7280;
+ }
+ 
+ 
+ .select-unique-reading {
+  border: 2px solid rgba(1, 153, 137, 0.7);
+  color: black;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  display: block;
+  width: 10rem;
+  padding: 0.625rem;
+  outline: none;
+ }
+ 
+ 
+ .select-unique-reading:focus {
+  border-color: #019989;
+ }
+ 
+ 
+ .option-black {
+  color: black;
+ }
+ .container-listening-select {
+  position: relative;
+ }
+ 
+ 
+ .label-listening {
+  position: absolute;
+  top: -0.75rem;
+  left: 0.75rem;
+  background-color: white;
+  padding: 0 0.25rem;
+  font-size: 0.875rem;
+  color: #6b7280;
+ }
+ 
+ 
+ .select-unique-listening {
+  border: 2px solid rgba(1, 153, 137, 0.7);
+  color: black;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  display: block;
+  width: 10rem;
+  padding: 0.625rem;
+  outline: none;
+ }
+ 
+ 
+ .select-unique-listening:focus {
+  border-color: #019989;
+ }
+ 
+ 
+ .option-black {
+  color: black;
+ }
+ .custom-writing-container {
+  position: relative;
+ }
+ 
+ 
+ .custom-writing-label {
+  position: absolute;
+  top: -0.75rem;
+  left: 0.75rem;
+  background-color: white;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+  font-size: 0.875rem;
+  color: #6b7280;
+ }
+ 
+ 
+ .custom-writing-select {
+  border: 2px solid rgba(1, 153, 137, 0.7);
+  color: black;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  display: block;
+  width: 10rem;
+  padding: 0.625rem;
+  outline: none;
+ }
+ 
+ 
+ .custom-writing-select:focus {
+  border-color: #019989;
+ }
+ 
+ 
+ .custom-writing-select::placeholder {
+  color: #6b7280;
+ }
+ .custom-speaking-container {
+  position: relative;
+ }
+ 
+ 
+ .custom-speaking-label {
+  position: absolute;
+  top: -0.75rem;
+  left: 0.75rem;
+  background-color: white;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+  font-size: 0.875rem;
+  color: #6b7280;
+ }
+ 
+ 
+ .custom-speaking-select {
+  border: 2px solid rgba(1, 153, 137, 0.7);
+  color: black;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  display: block;
+  width: 10rem;
+  padding: 0.625rem;
+  outline: none;
+ }
+ 
+ 
+ .custom-speaking-select:focus {
+  border-color: #019989;
+ }
+ 
+ 
+ .custom-speaking-select::placeholder {
+  color: #6b7280;
+ }
+ .button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+ }
+ 
+ 
+ .button {
+  font-weight: normal;
+  padding: 0.625rem 3rem;
+  border-radius: 15px;
+  font-size: 17px;
+  transition: transform 0.15s ease-in 0.06s;
+ }
+ 
+ 
+ .button:hover {
+  transform: scale(1.05);
+ }
+ 
+ 
+ .button-disabled {
+  background-color: rgba(1, 153, 137, 0.4);
+  cursor: not-allowed;
+ }
+ 
+ 
+ .button-enabled {
+  background-color: #019989;
+  cursor: pointer;
+ }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ .container {
+  width: 90%;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+ }
+ 
+ 
+ @media (min-width: 640px) {
+  .container {
+    width: 80%;   }
+ }
+ 
+ 
+ .unique-custom-div {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: 2rem;
+ }
+ .CELPIP {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: 2rem;
+ }
+ 
+ 
+ .CELPIP-title {
+  font-weight: 600;
+  font-size: 1.875rem;
+  border-bottom: 4px solid #019989;
+  margin-top: 2rem;
+ }
+ 
+ 
+ .CELPIP-table-container {
+  width: 100%;
+  height: auto;
+  border-radius: 1.5rem;
+  margin-top: 3.5rem;
+ }
+ 
+ 
+ 
+ 
+ .exam-guides-container {
+  width: 100%;
+  margin-top: 2rem; /* Adjust as needed for your spacing */
+ }
+ 
+ 
+ @media (min-width: 640px) { /* Adjusts for small screens and up */
+  .exam-guides-container {
+    width: 90%;
+  }
+ }
+ 
+ 
+ .flex {
+  display: flex;
+ }
+ 
+ 
+ .flex-col {
+  flex-direction: column;
+ }
+ 
+ 
+ .items-start {
+  align-items: flex-start;
+ }
+ 
+ 
+ .justify-center {
+  justify-content: center;
+ }
+ .exam-guides-title {
+  font-weight: 600; /* Equivalent to 'font-semibold' */
+  font-size: 1.875rem; /* 3xl size */
+  border-bottom: 4px solid #019989; /* Border color */
+  margin-top: 2rem; /* Adjust as needed for your spacing */
+ }
+ 
+ 
+ .exam-guides-title {
+  font-weight: 600;
+  font-size: 1.875rem;
+  border-bottom: 4px solid #019989;
+  margin-top: 2rem;
+ }
+ 
+ 
+ .ielts-exam-box {
+  font-size: 14px;
+  color: #6b7280;
+  font-weight: 400;
+  text-decoration: underline;
+  margin-top: 0.5rem;
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.5rem;
+ }
+ 
+ 
+ .cursor-pointer {
+  cursor: pointer;
+ }
+ 
+ 
+ .ielts-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+ }
+ 
+ 
+ .ielts-box {
+  font-size: 14px;
+  color: #6b7280;
+  font-weight: 400;
+  text-decoration: underline;
+  margin-top: 0.5rem;
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.5rem;
+ }
+ 
+ 
+ 
+ 
+ .TOEFL-Container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  border-radius: 0.75rem; /* Equivalent to rounded-xl */
+  padding-left: 1rem; /* Equivalent to px-4 */
+  padding-right: 1rem; /* Equivalent to px-4 */
+  padding-top: 0.5rem; /* Equivalent to py-2 */
+  padding-bottom: 0.5rem; /* Equivalent to py-2 */
+  width: 100%; /* Equivalent to w-full */
+  min-width: 24rem; /* Equivalent to md:min-w-[24rem] */
+  border: 1px solid #d1d5db; /* Equivalent to border-gray-300 */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Equivalent to shadow-2xl */
+ }
+ .TOEFL-box {
+  display: flex;
+  align-items: center; /* Equivalent to items-center */
+  justify-content: space-between; /* Equivalent to justify-between */
+  width: 100%; /* Equivalent to w-full */
+  padding-left: 1rem; /* Equivalent to px-4 */
+  padding-right: 1rem; /* Equivalent to px-4 */
+  padding-top: 0.5rem; /* Equivalent to py-2 */
+  padding-bottom: 0.5rem; /* Equivalent to py-2 */
+ }
+ .toeflitems {
+  font-size: 14px; /* Equivalent to text-[14px] */
+  color: #6b7280; /* Equivalent to text-gray-500 */
+  font-weight: 400; /* Equivalent to font-normal */
+  text-decoration: underline; /* Equivalent to underline */
+  margin-top: 0.5rem; /* Equivalent to mt-2 */
+  letter-spacing: 0.05em; /* Equivalent to tracking-wider */
+  display: flex;
+  flex-direction: column; /* Equivalent to flex-col */
+  align-items: flex-start; /* Equivalent to items-start */
+  justify-content: center; /* Equivalent to justify-center */
+  gap: 0.5rem; /* Equivalent to gap-2 */
+ }
+ 
+ 
+ .cursor-pointer {
+  cursor: pointer; /* For pointer cursor */
+ }
+ 
+ 
+ .TOEFLitems2 {
+  font-size: 14px; /* Equivalent to text-[14px] */
+  color: #6b7280; /* Equivalent to text-gray-500 */
+  font-weight: 400; /* Equivalent to font-normal */
+  text-decoration: underline; /* Equivalent to underline */
+  margin-top: 0.5rem; /* Equivalent to mt-2 */
+  letter-spacing: 0.05em; /* Equivalent to tracking-wider */
+  display: flex;
+  flex-direction: column; /* Equivalent to flex-col */
+  align-items: flex-start; /* Equivalent to items-start */
+  justify-content: center; /* Equivalent to justify-center */
+  gap: 0.5rem; /* Equivalent to gap-2 */
+ }
+ 
+ 
+ .cursor-pointer {
+  cursor: pointer; /* For pointer cursor */
+ }
+ 
+ 
+ .duolingo-container {
+  display: flex; /* Equivalent to flex */
+  flex-direction: column; /* Equivalent to flex-col */
+  align-items: flex-start; /* Equivalent to items-start */
+  justify-content: center; /* Equivalent to justify-center */
+  border-radius: 0.75rem; /* Equivalent to rounded-xl */
+  padding-left: 1rem; /* Equivalent to px-4 */
+  padding-right: 1rem; /* Equivalent to px-4 */
+  padding-top: 0.5rem; /* Equivalent to py-2 */
+  padding-bottom: 0.5rem; /* Equivalent to py-2 */
+  width: 100%; /* Equivalent to w-full */
+  min-width: 24rem; /* Equivalent to md:min-w-[24rem] */
+  border: 1px solid #d1d5db; /* Equivalent to border-gray-300 */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Equivalent to shadow-2xl */
+ }
+ .duolingo-box {
+  display: flex; /* Equivalent to flex */
+  align-items: center; /* Equivalent to items-center */
+  justify-content: space-between; /* Equivalent to justify-between */
+  width: 100%; /* Equivalent to w-full */
+  padding-left: 1rem; /* Equivalent to px-4 */
+  padding-right: 1rem; /* Equivalent to px-4 */
+  padding-top: 0.5rem; /* Equivalent to py-2 */
+  padding-bottom: 0.5rem; /* Equivalent to py-2 */
+ }
+ .duoitem1 {
+  font-size: 14px; /* Equivalent to text-[14px] */
+  color: #6b7280; /* Equivalent to text-gray-500 */
+  font-weight: 400; /* Equivalent to font-normal */
+  text-decoration: underline; /* Equivalent to underline */
+  margin-top: 0.5rem; /* Equivalent to mt-2 */
+  letter-spacing: 0.05em; /* Equivalent to tracking-wider */
+  display: flex;
+  flex-direction: column; /* Equivalent to flex-col */
+  align-items: flex-start; /* Equivalent to items-start */
+  justify-content: center; /* Equivalent to justify-center */
+  gap: 0.5rem; /* Equivalent to gap-2 */
+ }
+ 
+ 
+ .cursor-pointer {
+  cursor: pointer; /* For pointer cursor */
+ }
+ .duolingo-item2 {
+  font-size: 14px; /* Equivalent to text-[14px] */
+  color: #6b7280; /* Equivalent to text-gray-500 */
+  font-weight: 400; /* Equivalent to font-normal */
+  text-decoration: underline; /* Equivalent to underline */
+  margin-top: 0.5rem; /* Equivalent to mt-2 */
+  letter-spacing: 0.05em; /* Equivalent to tracking-wider */
+  display: flex;
+  flex-direction: column; /* Equivalent to flex-col */
+  align-items: flex-start; /* Equivalent to items-start */
+  justify-content: center; /* Equivalent to justify-center */
+  gap: 0.5rem; /* Equivalent to gap-2 */
+ }
+ 
+ 
+ .cursor-pointer {
+  cursor: pointer; /* For pointer cursor */
+ }
+ .EXAM-GUIDE-sec {
+  width: 100%;
+  height: auto;
+  border-radius: 1.5rem;
+  margin-top: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 5rem;
+  flex-wrap: wrap;
+ }
+ 
+ 
+ @media (min-width: 1280px) {
+  .EXAM-GUIDE-sec {
+    margin-left: 5rem;
+    flex-wrap: nowrap;
+  }
+ }
+ .PTE-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  border-radius: 0.75rem; /* Equivalent to rounded-xl */
+  padding-left: 1rem; /* Equivalent to px-4 */
+  padding-right: 1rem; /* Equivalent to px-4 */
+  padding-top: 0.5rem; /* Equivalent to py-2 */
+  padding-bottom: 0.5rem; /* Equivalent to py-2 */
+  width: 100%; /* Equivalent to w-full */
+  min-width: 24rem; /* Equivalent to md:min-w-[24rem] */
+  border: 1px solid #d1d5db; /* Equivalent to border-gray-300 */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Equivalent to shadow-2xl */
+ }
+ .PTE-1 {
+  font-size: 14px; /* Equivalent to text-[14px] */
+  color: #6b7280; /* Equivalent to text-gray-500 */
+  font-weight: 400; /* Equivalent to font-normal */
+  text-decoration: underline; /* Equivalent to underline */
+  margin-top: 0.5rem; /* Equivalent to mt-2 */
+  letter-spacing: 0.05em; /* Equivalent to tracking-wider */
+  display: flex; /* Equivalent to flex */
+  flex-direction: column; /* Equivalent to flex-col */
+  align-items: flex-start; /* Equivalent to items-start */
+  justify-content: center; /* Equivalent to justify-center */
+  gap: 0.5rem; /* Equivalent to gap-2 */
+ }
+ 
+ 
+ 
+ 
+ .PTE-2 {
+  font-size: 14px; /* Equivalent to text-[14px] */
+  color: #6b7280; /* Equivalent to text-gray-500 */
+  font-weight: 400; /* Equivalent to font-normal */
+  text-decoration: underline; /* Equivalent to underline */
+  margin-top: 0.5rem; /* Equivalent to mt-2 */
+  letter-spacing: 0.05em; /* Equivalent to tracking-wider */
+  display: flex;
+  flex-direction: column; /* Equivalent to flex-col */
+  align-items: flex-start; /* Equivalent to items-start */
+  justify-content: center; /* Equivalent to justify-center */
+  gap: 0.5rem; /* Equivalent to gap-2 */
+ }
+ 
+ 
+ .EXAM-GUIDE-5 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  border-radius: 0.75rem; /* Rounded corners */
+  padding: 0.5rem 1rem; /* Padding on all sides */
+  width: 100%; /* Full width */
+  min-width: 24rem; /* Minimum width */
+  border: 1px solid #d1d5db; /* Light gray border */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+              0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Shadow effect */
+  margin: 1%; /* 10% margin */
+ }
+ .gre1 {
+  font-size: 14px;
+  color: #6b7280; /* Gray color */
+  font-weight: 400; /* Normal font weight */
+  text-decoration: underline; /* Underlined text */
+  margin-top: 0.5rem; /* Margin top */
+  letter-spacing: 0.05em; /* Wider letter spacing */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.5rem; /* Space between items */
+ }
+ .gre1 p {
+  cursor: pointer; /* Pointer cursor on hover */
+ }
+ .gre2 {
+  font-size: 14px;
+  color: #6b7280; /* Gray color */
+  font-weight: 400; /* Normal font weight */
+  text-decoration: underline; /* Underlined text */
+  margin-top: 0.5rem; /* Margin top */
+  letter-spacing: 0.05em; /* Wider letter spacing */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.5rem; /* Space between items */
+ }
+ .gre2 p {
+  cursor: pointer; /* Pointer cursor on hover */
+ }
+ .CELPIP1 {
+  font-size: 14px;
+  color: #6b7280; /* Gray color */
+  font-weight: 400; /* Normal font weight */
+  text-decoration: underline; /* Underlined text */
+  margin-top: 0.5rem; /* Margin top */
+  letter-spacing: 0.05em; /* Wider letter spacing */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.5rem; /* Space between items */
+ }
+ .CELPIP1 p {
+  cursor: pointer; /* Pointer cursor on hover */
+ }
+ .CELPIP2 {
+  font-size: 14px;
+  color: #6b7280; /* Gray color */
+  font-weight: 400; /* Normal font weight */
+  text-decoration: underline; /* Underlined text */
+  margin-top: 0.5rem; /* Margin top */
+  letter-spacing: 0.05em; /* Wider letter spacing */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.5rem; /* Space between items */
+ }
+ .CELPIP2 p {
+  cursor: pointer; /* Pointer cursor on hover */
+ }
+ 

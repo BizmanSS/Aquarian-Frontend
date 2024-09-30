@@ -20,6 +20,8 @@ import {
   MobileProvider,
 } from "./components/globalComponents/MobileContext/IsMobileContext";
 import ClbCalculator from "./components/Pages/Clbcalculator/ClbCalculator";
+import SuperVisaCalc from "./components/Pages/SuperVisaCalculator/SuperVisaCalc";
+
 import CrsCalculator from "./components/Pages/CrsCalculator/CrsCalculator";
 import Blogs from "./components/Pages/Blogs/Blogs";
 import FreeAssessment from "./components/AssessmentForm/FreeAssessment";
@@ -390,6 +392,8 @@ const App = () => {
             <Route path="/crs-calculator" element={<CrsCalculator />} />
             <Route path="/blogs" element={<Blogs />} />
             <Route path="/*" element={<PageNotFound />} />
+            <Route path="/supervisa-calculator" element={<SuperVisaCalc />} />
+
             <Route
               path="/blogs/top-10-universities-in-canada"
               element={<Top10UniversitiesInCanada />}
