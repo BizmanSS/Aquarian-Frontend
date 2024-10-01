@@ -2,7 +2,10 @@ import React from "react";
 import { GoArrowDownRight, GoArrowUpRight } from "react-icons/go";
 import SearchableDropdown from "../../SearchableDropdown/SearchableDropdown";
 import DatePicker from "react-datepicker";
+import './FinancialForm.css'
+
 function FinancialForm({
+
   selectForm,
   formData,
   setSelectForm,
@@ -41,27 +44,20 @@ function FinancialForm({
           )
             setSelectForm("financial");
         }}
-        className="text-base md:text-xl font-semibold tracking-[5px] md:tracking-[8px] bg-[#01997E] text-white w-full px-10 py-2 rounded-md flex items-center justify-between"
+        className="PI-heading-container"
       >
         Education, Work and Financial Information
-        <span className="text-black">
-          {selectForm === "financial" ? (
-            <GoArrowDownRight size={30} />
-          ) : (
-            <GoArrowUpRight size={30} />
-          )}
-        </span>
+       
       </div>
       {selectForm === "financial" && (
-        <form action="post" className="w-full">
+        <form action="post" className="w-full PI-form p-5">
           <div
-            className="w-full md:grid grid-cols-2"
-            style={{ columnGap: "10%" }}
+            className="PI-form-layout-financial"
           >
-            <div className="w-full mb-3">
-              <label className="mb-2 ml-2 block text-base font-medium text-[#07074D]">
-                What is your highest level of education?
-                <span className="text-red-400">*</span>
+            <div className="w-full mb-3 form-input">
+              <label className="mb-2 ml-2 block text-base font-medium text-[#07074D] styled">
+                *What is your highest level of education?
+                
               </label>
               <select
                 id="EducationLevel"
@@ -127,13 +123,13 @@ function FinancialForm({
                 <p className="text-red-500">{errors.EducationLevel}</p>
               )}
             </div>
-            <div className="w-full mb-3">
+            <div className="w-full mb-3 form-input">
               <label
                 for="occupation"
-                className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
+                className="mb-2 ml-2 block text-base font-medium text-[#07074D] styled"
               >
-                What is your occupation?
-                <span className="text-red-400">*</span>
+                *What is your occupation?
+               
               </label>
               <input
                 type="text"
@@ -155,62 +151,11 @@ function FinancialForm({
                 <p className="text-red-500">{errors.occupation}</p>
               )}
             </div>
-            <div className="w-full mb-3">
-              <label
-                for="occupationType"
-                className="mb-4 ml-2 block text-base font-medium text-[#07074D]"
-              >
-                What is the type of your occupation?
-                <span className="text-red-400">*</span>
-              </label>
-              <div className="flex items-center justify-start gap-6">
-                <div className="flex items-center mr-4 mb-4">
-                  <input
-                    id="occupationType001"
-                    type="radio"
-                    name="occupationType"
-                    className="hidden"
-                    value="Owned Business"
-                    checked={formData.occupationType === "Owned Business"}
-                    onChange={handleInputChange}
-                  />
-                  <label
-                    for="occupationType001"
-                    className="flex items-center cursor-pointer"
-                  >
-                    <span className="w-4 h-4 inline-block mr-1 border border-grey"></span>
-                    Owned Business
-                  </label>
-                </div>
-                <div className="flex items-center mr-4 mb-4">
-                  <input
-                    id="occupationType002"
-                    type="radio"
-                    name="occupationType"
-                    className="hidden"
-                    value="Service Employee"
-                    onChange={(e) => {
-                      handleInputChange(e);
-                    }}
-                    checked={formData.occupationType === "Service Employee"}
-                  />
-                  <label
-                    for="occupationType002"
-                    className="flex items-center cursor-pointer"
-                  >
-                    <span className="w-4 h-4 inline-block mr-1 border border-grey"></span>
-                    Service Employee
-                  </label>
-                </div>
-              </div>
-              {errors.occupationType && (
-                <p className="text-red-500">{errors.occupationType}</p>
-              )}
-            </div>
-            <div className="w-full mb-3">
-              <label className="mb-2 ml-2 block text-base font-medium text-[#07074D]">
-                How many years of work experience you have?
-                <span className="text-red-400">*</span>
+           
+            <div className="w-full mb-3 form-input">
+              <label className="mb-2 ml-2 block text-base font-medium text-[#07074D] styled">
+                *How many years of work experience you have?
+                
               </label>
               <select
                 id="workExperience"
@@ -258,10 +203,10 @@ function FinancialForm({
                 <p className="text-red-500">{errors.workExperience}</p>
               )}
             </div>
-            <div className="w-full mb-3">
-              <label className="mb-2 ml-2 block text-base font-medium text-[#07074D]">
-                What is your yearly Income?
-                <span className="text-red-400">*</span>
+            <div className="w-full mb-3 form-input">
+              <label className="mb-2 ml-2 block text-base font-medium text-[#07074D] styled">
+                *What is your yearly Income?
+               
               </label>
               <select
                 id="yearlyIncome"
@@ -309,13 +254,18 @@ function FinancialForm({
                 <p className="text-red-500">{errors.yearlyIncome}</p>
               )}
             </div>
-            <div className="w-full mb-3">
+
+            </div>
+
+            <div className="checkbox-container">
+
+            <div className="w-full mb-3 form-input">
               <label
                 for="regularITR"
-                className="mb-4 ml-2 block text-base font-medium text-[#07074D]"
+                className="mb-4 block text-base font-medium text-[#07074D]"
               >
-                Have you been regularly filing your Income Tax returns?
-                <span className="text-red-400">*</span>
+                *Have you been regularly filing your Income Tax returns?
+                
               </label>
               <div className="flex items-center justify-start gap-6">
                 <div className="flex items-center mr-4 mb-4">
@@ -361,14 +311,14 @@ function FinancialForm({
                 <p className="text-red-500">{errors.regularITR}</p>
               )}
             </div>
-            <div className="w-full mb-3">
+            <div className="w-full mb-3 form-input">
               <label
                 for="sponsorInCanada"
-                className="mb-4 ml-2 block text-base font-medium text-[#07074D]"
+                className="mb-4 block text-base font-medium text-[#07074D]"
               >
-                Do you have any relatives or friends in Canada who can sponsor
+                *Do you have any relatives or friends in Canada who can sponsor
                 you?
-                <span className="text-red-400">*</span>
+               
               </label>
               <div className="flex items-center justify-start gap-6">
                 <div className="flex items-center mr-4 mb-4">
@@ -414,10 +364,63 @@ function FinancialForm({
                 <p className="text-red-500">{errors.sponsorInCanada}</p>
               )}
             </div>
-            <div className="mb-3 w-full">
+            <div className="w-full mb-3">
+              <label
+                for="occupationType"
+                className="mb-4 block text-base font-medium text-[#07074D]"
+              >
+                *What is the type of your occupation?
+               
+              </label>
+              <div className="flex items-center justify-start gap-6">
+                <div className="flex items-center mr-4 mb-4">
+                  <input
+                    id="occupationType001"
+                    type="radio"
+                    name="occupationType"
+                    className="hidden"
+                    value="Owned Business"
+                    checked={formData.occupationType === "Owned Business"}
+                    onChange={handleInputChange}
+                  />
+                  <label
+                    for="occupationType001"
+                    className="flex items-center cursor-pointer"
+                  >
+                    <span className="w-4 h-4 inline-block mr-1 border border-grey"></span>
+                    Owned Business
+                  </label>
+                </div>
+                <div className="flex items-center mr-4 mb-4">
+                  <input
+                    id="occupationType002"
+                    type="radio"
+                    name="occupationType"
+                    className="hidden"
+                    value="Service Employee"
+                    onChange={(e) => {
+                      handleInputChange(e);
+                    }}
+                    checked={formData.occupationType === "Service Employee"}
+                  />
+                  <label
+                    for="occupationType002"
+                    className="flex items-center cursor-pointer"
+                  >
+                    <span className="w-4 h-4 inline-block mr-1 border border-grey"></span>
+                    Service Employee
+                  </label>
+                </div>
+              </div>
+              {errors.occupationType && (
+                <p className="text-red-500">{errors.occupationType}</p>
+              )}
+            </div>
+
+            <div className="mb-3 w-full form-input">
               <label className="mb-4 ml-2 block text-base font-medium text-[#07074D]">
-                Have you ever been refused visa for any country?
-                <span className="text-red-400">*</span>
+                *Have you ever been refused visa for any country?
+                
               </label>
               <div className="flex items-center justify-start gap-6">
                 <div className="flex items-center mr-4 mb-4">
@@ -461,13 +464,15 @@ function FinancialForm({
                 <p className="text-red-500">{errors.visaRefused}</p>
               )}
             </div>
+
+            <div className="visa-refused-container">
             {formData.visaRefused === "yes" && (
               <div className="mb-3 w-full">
                 <label
                   for="visaApplied"
                   className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
                 >
-                  Visa Applied Category <span className="text-red-400">*</span>
+                  *Visa Applied Category
                 </label>
                 <input
                   type="text"
@@ -489,8 +494,8 @@ function FinancialForm({
                   for="visaAppliedCountry"
                   className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
                 >
-                  Visa Applied for Which Country{" "}
-                  <span className="text-red-400">*</span>
+                  *Visa Applied for Which Country{" "}
+               
                 </label>
                 <Select
                   options={options}
@@ -513,7 +518,7 @@ function FinancialForm({
                   for="visaAppliedDate"
                   className="mb-2 ml-2 block text-base font-medium text-[#07074D]"
                 >
-                  Visa Applied Date <span className="text-red-400">*</span>
+                  *Visa Applied Date
                 </label>
                 <DatePicker
                   selected={formData.visaAppliedDate}
@@ -533,10 +538,14 @@ function FinancialForm({
                 )}
               </div>
             )}
-          </div>
-          <div className="w-full flex items-center justify-center mb-10 mt-6">
+            </div>
+
+            </div>
+
+         
+          <div className="w-full flex items-center justify-end mb-10 mt-6">
             <button
-              className="bg-black text-[#01F9E1] px-16 py-3 rounded-lg text-xl"
+              className="assessment-next-step-btn"
               type="button"
               onClick={() => {
                 setSubmitAttemptedFinancial(true);

@@ -134,6 +134,7 @@ const data = [
     accordionImage: visaExtensionAccordion,
     name: "Visa extension",
     path:"",
+    name: "Visa Extension",
     content: {
       item1: `Most categories of visas to Canada, including Visitor Visa, Work Visas, Study Visas, Super Visas may be extended. However, there is a system in place and all relevant conditions must be met and adhered to. `,
       item2: `By leveraging our expertise and knowledge of Canadian immigration processes, we strive to make the visa extension process as smooth and successful as possible for our clients, helping them maintain their legal status and continue their stay in Canada.`,
@@ -187,6 +188,7 @@ const Visa_immigration_service = () => {
   return (
     <div className="accordion-container">
       <div className="services-header">
+        <h2 className="services-header-text">Visa</h2>
         <h2 className="services-header-text">Visa</h2>
         <img src={share_3_line} alt="" className="" />
       </div>

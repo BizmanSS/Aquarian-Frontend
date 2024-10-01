@@ -1,0 +1,34 @@
+.PI-form-layout-study{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal columns for the first two rows */
+    grid-gap: 20px; /* Adjust space between input boxes */
+    width: 100%;
+    margin-top: 2rem;
+}
+
+
+.PI-form-layout-study div:nth-child(9){
+    margin-top:-10px;
+    grid-column:span 2;
+}
+
+
+
+@media screen and (max-width: 1278px) {
+  
+    .PI-form-layout-study {
+      grid-template-columns: repeat(2, 1fr);
+    }
+   
+  }
+
+  @media  screen and (max-width:670px){
+    .PI-form-layout-study {
+        grid-template-columns: 1fr;
+      }
+
+      .PI-form-layout-study div:nth-child(9){
+        grid-column:span 1;
+    }
+    }
+

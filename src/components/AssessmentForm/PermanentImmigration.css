@@ -1,0 +1,238 @@
+
+
+/* *{
+    border: 1px solid red;
+} */
+
+.PI-heading-container{
+    color: #909090;
+    font-family: Poppins;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height:30px;
+}
+  
+  .PI-heading-container {
+    border: 1px solid; /* border */
+    border-left-width: 7px; /* border-l-[7px] */
+    border-left-color: #01997e; /* border-l-[#01997e] */
+    color: grey; /* text-grey */
+    width: 100%; /* w-full */
+    padding-left: 2rem; /* px-10 */
+
+    padding-top: 0.5rem; /* py-2 */
+    padding-bottom: 0.5rem; /* py-2 */
+    border-radius: 0.375rem; /* rounded-md */
+    display: flex; /* flex */
+    align-items: center; /* items-center */
+    gap:20px;
+  }
+
+  .PI-form{
+    border: 1px solid; /* border */
+    border-left-width: 7px; /* border-l-[7px] */
+    border-left-color: #4a5a574e; /* border-l-[#01997e] */
+    color: grey; /* text-grey */
+    width: 100%; /* w-full */
+    padding-left: 2rem; /* px-10 */
+    padding-right: 2rem;
+    padding-top: 0.5rem; /* py-2 */
+    padding-bottom: 0.5rem; /* py-2 */
+    border-radius: 0.375rem;
+  }
+  
+
+.PI-form-layout {
+      display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 equal columns for the first two rows */
+  grid-gap: 20px; /* Adjust space between input boxes */
+  width: 100%;
+  margin-top: 2rem;
+  
+}
+
+.assessment-next-step-btn {
+    background-color:  #009889;
+    color: white; /* text-[#01F9E1] */
+    padding-left: 4rem; /* px-16 */
+    padding-right: 4rem; /* px-16 */
+    padding-top: 0.75rem; /* py-3 */
+    padding-bottom: 0.75rem; /* py-3 */
+    border-radius: 0.5rem; /* rounded-lg */
+    font-size: 1.25rem; /* text-xl */
+  }
+  
+
+.PI-form-layout div:nth-child(7){
+      grid-column: span 2;
+}
+
+.PI-form-layout div:nth-child(8){
+      grid-column: span 1;
+}
+
+.PI-form-layout div:nth-child(9){
+      grid-column: span 3;
+}
+
+
+.PI-form-layout div:nth-child(10){
+      grid-column: span 3;
+}
+
+.form-input{
+    position:relative;
+}
+
+.PI-form-layout .styled{
+  position: absolute;
+  top: 0;
+  transform: translateY(-50%);
+  background: white;
+  padding: 0 10px;
+  font-size: 14px;
+  color: rgba(14, 14, 14, 0.64);
+  transition: 0.3s ease;
+  pointer-events: none;
+  z-index:1;
+}
+
+.full{
+  margin-top:-10px;
+}
+
+.comment-section-adjust input{
+  max-width:500px;
+}
+
+.PI-form-layout div:nth-child(10){
+  /* background:red; */
+  margin-top:-30px;
+}
+
+
+.test-main-contanier .styled{
+   z-index:1;
+}
+
+.english-test-container , .french-test-container{
+  display:flex;
+  align-items:center;
+  gap:50px;
+  margin-top:30px;
+  
+}
+
+
+
+
+.french-test-container{
+  margin-top:50px !important;
+}
+
+.english-test-heading,.french-test-heading{
+  display:flex;
+  flex-direction:column;
+  align-items: center;
+}
+
+.english-test-options, .french-test-options{
+  display:flex;
+  align-items: center;
+  justify-content:center;
+  gap:20px;
+
+}
+
+.english-test-options label, .french-test-options label{
+  margin:auto;
+  margin-bottom:10px;
+}
+
+.english-test-options select, .french-test-options select{
+  padding: 15px 10px;
+  border-radius:5px;
+  border:1px solid black;
+  width:130px;
+}
+
+@media  screen and (max-width:450px){
+  .english-french-test-taken{
+    flex-wrap:wrap;
+    gap:1rem;
+  }
+
+  .french-test-container{
+    margin:auto;
+    display:flex;
+    justify-content: center;
+  }
+
+  .english-test-heading, .french-test-heading {
+    margin:auto;
+  }
+}
+
+
+@media  screen and (max-width:720px){
+
+  .PI-form-layout{
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+
+  .english-test-options, .french-test-options{
+   flex-wrap:wrap;
+   gap:30px;
+   max-width:400px;
+   margin:auto;
+  }
+
+  .english-test-container, .french-test-container{
+    align-items: center;
+  }
+
+  .PI-form-layout div:nth-child(9),
+  .PI-form-layout div:nth-child(10), .PI-form-layout div:nth-child(7),
+  .PI-form-layout div:nth-child(8){
+        grid-column: span 1 !important;
+  }
+
+
+}
+
+
+
+
+@media screen and (max-width: 1200px) {
+  
+    .PI-form-layout {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  
+    .PI-form-layout div:nth-child(7),
+  .PI-form-layout div:nth-child(8){
+        grid-column: span 1;
+  }
+
+  .PI-form-layout div:nth-child(9),
+  .PI-form-layout div:nth-child(10){
+        grid-column: span 2;
+  }
+  
+  .english-test-container, .french-test-container{
+    flex-direction: column;
+    gap:20px;
+    align-items:flex-start;
+    background-color: rgba(103, 107, 106, 0.087);
+    padding:20px;
+  }
+
+  .french-test-container{
+    margin-top:45px;
+  }
+   
+  }
+
+  
+

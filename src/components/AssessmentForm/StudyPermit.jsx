@@ -9,6 +9,8 @@ import EnglishSkillsForm from "./components/EnglishSkillsForm";
 import PriorHistoryForm from "./components/PriorHistoryForm";
 import AdditionalSectionForm from "./components/AdditionalSectionForm";
 
+import './StudyPermit.css';
+
 const StudyPermit = ({ selectedForm, studyPermitRef, formType }) => {
   const [selectForm, setSelectForm] = useState("PersonalInformation");
   const [selectedExam, setSelectedExam] = useState("IELTS");

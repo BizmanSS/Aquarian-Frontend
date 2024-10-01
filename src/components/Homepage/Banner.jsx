@@ -106,8 +106,8 @@ const Banner = () => {
           )}
         </>
       {/* )} */}
-      <div className="hidden md:flex flex-col items-center pointer-events-auto justify-center gap-4 absolute left-[7rem] xl:left-[9rem] top-[60vh] lg:top-[50vh]">
-        <div className=" text-white px-4 text-lg md:text-[3rem] lg:text-[3.5rem] xl:text-[3.5rem] font-bold mb-3">
+      <div className="hidden md:flex flex-col pointer-events-auto justify-center gap-4 absolute left-[7rem] xl:left-[9rem] top-[60vh] lg:top-[50vh]">
+        <div className=" text-white pr-4 text-lg md:text-[3rem] lg:text-[3.5rem] xl:text-[3.5rem] font-bold mb-3">
           Our goal is to help <br /> <br /> you achieve yours
         </div>
 
@@ -117,7 +117,7 @@ const Banner = () => {
           </button>
         </Link>
 
-        <div className="flex items-center justify-center gap-4">
+        <div className="flex items-center gap-4">
           {" "}
           <Link to={"/study/study-in-canada"}>
             <button className="mr-6 bg-transparent text-white px-4 md:px-8 lg:px-10 py-3 rounded-xl text-sm lg:text-lg border-[2px] border-[#01F9E1] font-bold transition ease-in-out delay-70 hover:scale-y-[1.1] hover:scale-x-[1.1] duration-300">

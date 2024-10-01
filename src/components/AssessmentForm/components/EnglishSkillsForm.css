@@ -1,0 +1,31 @@
+
+
+.future-test-english-yes{
+    display:flex;
+    gap: 25px;
+}
+
+.english-medium-yes{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.english-test-yes{
+    display:flex;
+    align-items:center;
+    gap:50px;
+    margin-top:30px;
+    
+  }
+
+
+  @media screen and (max-width:1200px){
+    .english-test-yes {
+        flex-direction: column;
+        gap: 20px;
+        align-items: flex-start;
+        background-color: rgba(103, 107, 106, 0.087);
+        padding: 20px;
+    }
+  }

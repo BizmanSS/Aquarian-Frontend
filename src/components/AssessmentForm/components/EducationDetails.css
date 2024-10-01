@@ -1,0 +1,233 @@
+/* *{
+  border:1px solid red;
+} */
+
+.react-datepicker__input-container{
+  position:static;
+}
+
+
+.special-field-label-adjust{
+     z-index: 1;
+}
+
+.education-form-layout {
+    display: grid;
+grid-template-columns: repeat(3, 1fr); /* 3 equal columns for the first two rows */
+grid-gap: 20px; /* Adjust space between input boxes */
+width: 100%;
+margin-top: 2rem;
+border: 2px dashed gray;
+border-radius: 40px;
+padding:40px;
+}
+
+.ed-head{
+  grid-column:span 3;
+}
+
+.PI-heading-container{
+    color: #909090;
+    font-family: Poppins;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+}
+  
+  .PI-heading-container {
+    border: 1px solid; /* border */
+    border-left-width: 7px; /* border-l-[7px] */
+    border-left-color: #01997e; /* border-l-[#01997e] */
+    color: grey; /* text-grey */
+    width: 100%; /* w-full */
+    padding-left: 2rem; /* px-10 */
+
+    padding-top: 0.5rem; /* py-2 */
+    padding-bottom: 0.5rem; /* py-2 */
+    border-radius: 0.375rem; /* rounded-md */
+    display: flex; /* flex */
+    align-items: center; /* items-center */
+    gap:20px;
+  }
+
+.react-datepicker-wrapper{
+    display:block;
+}
+
+
+
+.PI-form .styled {
+  position: absolute;
+  top: 0;
+  left: 10px;
+  transform: translateY(-50%);
+  background: white;
+  padding: 0 10px;
+  font-size: 14px;
+  color: #6666668c;
+  transition: 0.3s ease;
+  pointer-events: none;
+}
+
+.assessment-next-step-btn {
+    background-color:  #009889;
+    color: white; /* text-[#01F9E1] */
+    padding-left: 4rem; /* px-16 */
+    padding-right: 4rem; /* px-16 */
+    padding-top: 0.75rem; /* py-3 */
+    padding-bottom: 0.75rem; /* py-3 */
+    border-radius: 0.5rem; /* rounded-lg */
+    font-size: 1.25rem; /* text-xl */
+  }
+
+  .highest-education-qualifications {
+    width: 100%; /* w-full */
+    display: block; /* block */
+    margin-bottom: 1rem; /* mb-4 */
+  }
+  
+
+  
+  .highest-education-qualifications {
+    border-radius: 0.375rem; /* rounded-md */
+    border: 1px solid black; /* border border-black */
+    background-color: white; /* bg-white */
+    padding: 1rem 1.5rem;
+    font-size: 1rem; /* text-base */
+    font-weight: 500; /* font-medium */
+    color: #6B7280; /* text-[#6B7280] */
+    outline: none; /* outline-none */
+  }
+  
+  .highest-education-qualifications:focus {
+    border-color: #01997E; /* focus:border-[#01997E] */
+    box-shadow: 0 0 0 3px rgba(1, 153, 126, 0.5); /* focus:shadow-md */
+  }
+  
+
+  .education-save-btn{
+    border:2px solid #009889;
+    padding:10px 10px;
+    width:130px;
+    border-radius:90px;
+    color:#01997E;
+    font-weight: 600;
+  }
+
+.recent-education-details{
+  background-color:#cef5fdfb;
+  padding:30px;
+  border-radius: 0.75rem; 
+  position: relative;
+  display: flex; 
+  flex-direction: column;
+  /* gap: 0.75rem;  */
+  margin-bottom: 1.25rem; 
+  max-width:800px;
+}
+
+
+
+.recent-education-details-container {
+  display: grid;
+  grid-template-columns: 1fr 50px 3fr;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 0.75rem; /* Optional: Adds space between items */
+}
+
+.recent-education-details-key {
+  font-weight: 600;
+  color: black;
+  padding-right: 10px; /* Ensures space between key and colon */
+}
+
+.colon {
+  font-weight: bold;
+  /* width:50px; */
+}
+
+.recent-education-details-value {
+  color: #4a5568; /* text-gray-700 */
+}
+
+.delete-save-btn{
+  display:flex;
+ gap:30px;
+ align-items:center;
+}
+
+.delete-btn{
+ 
+ color:red;
+ font-size:17px;
+}
+
+/* .react-datepicker__triangle{
+  position: absolute;
+   pointer-events: none;
+    transform: translateY(-1px) !important; 
+    left: 112.001px; top: 100% !important;
+} */
+
+
+
+
+@media screen and (max-width: 1200px) {
+  
+    .education-form-layout {
+        display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 3 equal columns for the first two rows */
+    grid-gap: 20px; /* Adjust space between input boxes */
+    /* width: 100%; */
+    margin-top: 2rem;
+    
+    }
+
+    .highest-education-qualifications{
+      max-width: 345px;
+    }
+
+    .ed-head{
+      grid-column:span 2;
+    }
+
+   
+  }
+
+  @media screen and (max-width: 900px){
+    .recent-education-details-container {
+      margin-top:10px;
+      grid-template-columns: 2fr 10px 4fr;
+      
+    }
+  }
+
+  @media screen and (max-width:721px){
+    .education-form-layout{
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    .ed-head{
+      grid-column:span 1;
+    }
+
+    .recent-education-details-container {
+     
+      grid-template-columns: 2fr 10px 3fr;
+      margin-top:20px;
+      
+    }
+  }
+  
+
+  @media (min-width: 1024px) {
+    .highest-education-qualifications {
+      width: 334px;
+    }
+  }
+
+
+
+
+  

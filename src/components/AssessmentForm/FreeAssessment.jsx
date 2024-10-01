@@ -298,7 +298,7 @@ const FreeAssessment = () => {
             Choose your evaluation form
           </div>
         </div>
-        <div className="pl-8 w-[88%] border border-l-[7px] border-l-[#01997e] mx-6 lg:mx-20 mb-10 py-6 grid grid-cols-2 lg:grid-cols-3 gap-8 rounded-xl">
+        <div className="pl-8 w-[88%] border border-l-[7px] border-l-[#01997e] mx-6 lg:mx-20 mb-10 py-6 grid grid-cols-2 lg:grid-cols-3 gap-8 rounded-xl main-evaluation-form-container">
           <div className="flex items-center">
             <input
               id="radio5"
@@ -313,7 +313,7 @@ const FreeAssessment = () => {
               for="radio5"
               className="flex w-full justify-between items-center cursor-pointer"
             >
-              <span className="w-4 h-4 inline-block mr-1 border border-grey"></span>
+              <span className="w-4 h-4 inline-block mr-1 border border-grey radio-checkbox"></span>
               <p className="w-[calc(100%-1.5rem)] md:text-lg">
                 Permanent Immigration
               </p>
@@ -331,7 +331,7 @@ const FreeAssessment = () => {
               for="radio6"
               className="flex w-full justify-between items-center cursor-pointer"
             >
-              <span className="w-4 h-4 inline-block mr-1 border border-grey"></span>
+              <span className="w-4 h-4 inline-block mr-1 border border-grey radio-checkbox"></span>
               <p className="w-[calc(100%-1.5rem)] md:text-lg">Work Permit</p>
             </label>
           </div>
@@ -347,7 +347,7 @@ const FreeAssessment = () => {
               for="radio3"
               className="flex w-full justify-between items-center cursor-pointer"
             >
-              <span className="w-4 h-4 inline-block mr-1 border border-grey"></span>
+              <span className="w-4 h-4 inline-block mr-1 border border-grey radio-checkbox"></span>
               <p className="w-[calc(100%-1.5rem)] md:text-lg">
                 Study Permit/Visa
               </p>
@@ -365,7 +365,7 @@ const FreeAssessment = () => {
               for="radio4"
               className="flex w-full justify-between items-center cursor-pointer"
             >
-              <span className="w-4 h-4 inline-block mr-1 border border-grey"></span>
+              <span className="w-4 h-4 inline-block mr-1 border border-grey radio-checkbox"></span>
               <p className="w-[calc(100%-1.5rem)] md:text-lg">Tourist Visa</p>
             </label>
           </div>
@@ -375,7 +375,7 @@ const FreeAssessment = () => {
               for="radio24"
               className="flex w-full justify-between items-center cursor-pointer"
             >
-              <span className="w-4 h-4 inline-block mr-1 border border-grey"></span>
+              <span className="w-4 h-4 inline-block mr-1 border border-grey radio-checkbox"></span>
               <p className="w-[calc(100%-1.5rem)] md:text-lg">Business Visa</p>
             </label>
           </div>
@@ -385,7 +385,7 @@ const FreeAssessment = () => {
               for="radio25"
               className="flex w-full justify-between items-center cursor-pointer"
             >
-              <span className="w-4 h-4 inline-block mr-1 border border-grey"></span>
+              <span className="w-4 h-4 inline-block mr-1 border border-grey radio-checkbox"></span>
               <p className="w-[calc(100%-1.5rem)] md:text-lg">
                 Business Immigration
               </p>
@@ -397,7 +397,7 @@ const FreeAssessment = () => {
               for="radio26"
               className="flex w-full justify-between items-center cursor-pointer"
             >
-              <span className="w-4 h-4 inline-block mr-1 border border-grey"></span>
+              <span className="w-4 h-4 inline-block mr-1 border border-grey radio-checkbox"></span>
               <p className="w-[calc(100%-1.5rem)] md:text-lg">
                 Family Sponsorship
               </p>
@@ -409,7 +409,7 @@ const FreeAssessment = () => {
               for="radio27"
               className="flex w-full justify-between items-center cursor-pointer"
             >
-              <span className="w-4 h-4 inline-block mr-1 border border-grey"></span>
+              <span className="w-4 h-4 inline-block mr-1 border border-grey radio-checkbox"></span>
               <p className="w-[calc(100%-1.5rem)] md:text-lg">Dependent Visa</p>
             </label>
           </div>
@@ -419,7 +419,7 @@ const FreeAssessment = () => {
               for="radio28"
               className="flex w-full justify-between items-center cursor-pointer"
             >
-              <span className="w-4 h-4 inline-block mr-1 border border-grey"></span>
+              <span className="w-4 h-4 inline-block mr-1 border border-grey radio-checkbox"></span>
               <p className="w-[calc(100%-1.5rem)] md:text-lg">LMIA</p>
             </label>
           </div>
@@ -429,7 +429,7 @@ const FreeAssessment = () => {
               for="radio29"
               className="flex w-full justify-between items-center cursor-pointer"
             >
-              <span className="w-4 h-4 inline-block mr-1 border border-grey"></span>
+              <span className="w-4 h-4 inline-block mr-1 border border-grey radio-checkbox"></span>
               <p className="w-[calc(100%-1.5rem)] md:text-lg">Others</p>
             </label>
           </div>
