@@ -1,7 +1,8 @@
 .faq-box-container {
     /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
     padding-bottom: 24px;
-    padding-top: 8rem !important;
+    padding-top: 2rem !important;
+    padding-bottom:4rem;
     max-width: 100%;
 }
 
@@ -105,11 +106,19 @@
         max-width: 880px;
         margin-left: auto;
         margin-right: auto;
-        padding-top: 8rem !important;
     }
     .faq-box-card {
     border-radius: 32px;
     min-width: 890px;
     max-width: 1334px;
+    }
+}
+
+@media screen and (max-width:500px){
+    
+    .faq-box-card {
+        padding:15px 0;
+        margin-bottom: 22px;
+       
     }
 }

@@ -1,0 +1,13 @@
+
+.table-of-content li{
+    background-color: white;
+    margin: 3px 0;
+    border-radius: 20px;
+    padding: 0px 22px;
+    color: blue;
+    font-size: 12px;
+}
+ol li::marker {
+    font-weight: bold;
+  }
+  

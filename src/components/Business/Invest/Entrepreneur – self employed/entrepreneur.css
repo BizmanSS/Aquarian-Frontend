@@ -1,0 +1,131 @@
+.container-buisness {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
+}
+
+.content, .image {
+    padding: 10px;
+    /* box-sizing: border-box; */
+}
+
+/* *{
+    border:1px solid red;
+} */
+
+  .row-buisness {
+    display: flex;
+    align-items: center; 
+  }
+
+  .row-buisness:nth-child(2){
+    margin-top:20px;
+    margin-bottom:20px;
+  }
+
+  
+  .buisness-content {
+    flex: 1; 
+    padding: 10px;
+    border-radius: 5px;
+    margin-right: 20px; 
+  }
+
+  .row-buisness .reverse{
+    order:1;
+    padding:0 20px;
+  }
+  
+  .buisness-image {
+    flex: 0 0 150px; /* Prevent shrinking, maintain width */
+    height: auto; /* Maintain aspect ratio */
+    width:400px;
+  }
+
+  .buisness-circle {
+    width: 40px;  
+    height: 40px;       
+    border-radius: 50%;
+    display: flex;     
+    align-items: center;  
+    justify-content: center;
+    color: white;         
+    font-size: 20px;      
+    text-align: center;   
+    background-color: rgb(93, 203, 227);     
+  }
+.number-heading{
+    display:flex;
+    align-items: center;
+    gap:20px;
+}
+
+.number-row-buisness{
+    margin-top:20px;
+}
+
+.number-row-buisness-content{
+    margin-left:35px;
+    color:blue;
+}
+
+.benefit-immigration-buisness{
+    background-color: white;  
+    padding: 40px 30px;   
+    border-radius: 10px;     
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.465);        
+    margin: 20px auto;   
+}
+
+.benefit-fix{
+    padding-top:10px;
+}
+.benefit-immigration-buisness-content{
+    margin:20px 0;
+}
+
+.benefit-immigration-buisness-box-container{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.benefit-immigration-buisness-box{
+    border:2px solid grey;
+    padding:20px;
+}
+
+.benefit-immigration-buisness-box div{
+   margin:10px 0;
+}
+
+.boldd{
+    font-weight:bold;
+    margin-top:25px !important;
+}
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .row-buisness {
+      flex-direction: column; 
+      gap:20px;
+    }
+  
+    .buisness-content {
+      margin-right: 0; 
+      margin-bottom: 10px; 
+    }
+
+    .row-buisness img{
+        width:90%;
+    }
+
+    
+
+    .row-buisness .reverse{
+        order:0;
+    }
+  
+   
+  }
+  

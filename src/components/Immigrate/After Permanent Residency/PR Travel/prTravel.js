@@ -1,63 +1,180 @@
-import React from "react";
-import { Link } from "react-router-dom";
-export default function PRTravel() {
+import React, { useRef } from "react";
+import TableOfContent from "../../../shared/TableOfContent.jsx";
+import FaqBox from "../../../shared/FaqBox.jsx";
+import ReadyToStartCard from "../../../shared/ReadyToStart.jsx";
+
+import SiteMapMenu from "../../../globalComponents/Sidebar/SiteMapMenu.jsx";
+
+const faqItems = [
+  {
+    question:
+      "When do you need a PRTD?",
+    answer:
+      ` You may need a PRTD if:
+1. You are a permanent resident outside Canada and your PR card has expired.
+2. You are outside Canada and do not have a valid PR card.
+3. You are unable to renew your PR card while abroad.
+`,
+  },
+  {
+    question: " What if I don’t meet the residency obligations?",
+    answer:
+      "If you have not met the residency requirement, you can provide a detailed explanation and any relevant supporting documents to justify your absence from Canada.",
+  },
+  {
+    question: "What should I do if my PRTD is lost or stolen? ",
+    answer:
+      " You should contact the nearest Canadian embassy or consulate immediately to report the loss or theft and request a replacement.",
+  }
+];
+
+export default function PR() {
+  const aboutRef = useRef(null);
+  const eligibilityRef = useRef(null);
+  const applyRef = useRef(null);
+  const faqRef = useRef(null);
+
+  const tableContentData = [
+    {
+      id: 1,
+      content: "What is a Permanent Resident Travel Document (PRTD)?",
+      scrollTo: aboutRef,
+    },
+    {
+      id: 2,
+      content: "Eligibility Criteria for PRTD",
+      scrollTo: eligibilityRef,
+    },
+    {
+      id: 3,
+      content: "How to Apply for PRTD?",
+      scrollTo: applyRef,
+    },
+    {
+      id: 4,
+      content: "FAQs",
+      scrollTo: faqRef,
+    },
+  ];
+
   return (
     <div
       style={{
-        background: "#E0E0E0",
+        background: "#EEE",
       }}
     >
-      <div className="AboutUsHeader">
-        <p className="link">
-          <a href="/">Home</a>
-          {" > "}Immigrate
-          {" > "}
-          <Link to="/immigrate/after-permanent-residency">
-            After Permanent Residency
-          </Link>
-          {" > "}Permanent Resident Travel Document
-        </p>
-        <div className="header-content">
-          <h1 className="heading-about">Permanent Resident Travel Document</h1>
+      <div className="pages-content-wrapper">
+        {/* <SiteMapMenu type="I" h1="Permanent Residency"></SiteMapMenu> */}
+        <SiteMapMenu
+          type="I"
+          h1="After Permanent Residency"
+          h2="Permanent Resident Travel Document"
+        ></SiteMapMenu>
+
+        <div class="pages-content-div">
+          <div class="pages-content-text-wrapper ">
+            <div className="pages-current-page-link">
+              <a href="/">Home</a>
+              {" > "}After Permanent Residency
+              {" > "}Permanent Resident Travel Document
+            </div>
+            <div class="pages-header">Permanent Resident Travel Document</div>
+
+            <div class="pages-paragraph space-fix intro-size-fix">
+            All individuals need a valid travel document to enter Canada. For people with permanent resident status, the PR card serves this purpose. But if you are a permanent Canadian resident outside of Canada without a PR card, you need to apply for a Permanent Resident Travel Document to facilitate your return. The PRTD helps make the travel process smoother for individuals without a valid PR card.
+            
+            </div>
+            <div className="table-of-content-container">
+              <TableOfContent data={tableContentData} />
+            </div>
+
+            <div class="pages-header-2" ref={aboutRef}>
+            What is a Permanent Resident Travel Document (PRTD)?
+            </div>
+            <div className="pages-paragraph">
+            A PRTD is an official document issued by IRCC. 
+              <ul className='my-3'>
+                <li>
+                It allows permanent residents, who are outside Canada without a valid PR card, to re-enter the country. 
+                </li>
+                <li>
+                PRTDs are generally valid for a single entry.
+                </li>
+                <li>
+                They allow you to return to Canada and then apply for a new PR card.
+                </li>
+              </ul>
+              
+            </div>
+
+            <div className="note-cec">
+              <div>
+                <span style={{ fontWeight: "bold" }}>Note:</span> Dicover Your
+                CRS Score to Boost Your Immigration Journey!
+              </div>
+              <button className="button-cec">Calculate Now</button>
+            </div>
+
+            <div class="pages-header-2" ref={eligibilityRef}>
+            Eligibility Criteria for PRTD 
+            </div>
+
+            <div className="pages-paragraph">
+              The Federal Skilled Worker Program (FSWP) allows individuals to
+              apply for permanent residency in Canada, provided they meet
+              specific eligibility criteria like:
+              <ul className='my-3'>
+                <li>
+                You must have a valid permanent resident status in Canada.
+                </li>
+                <li>
+                You must have been physically present in Canada for at least 730 days within the last five years.
+                </li>
+                <li>
+                Provide proof of your residency days.
+                </li>
+              </ul>
+            </div>
+
+
+            <div class="pages-header-2" ref={applyRef}>
+            How to Apply for PRTD?
+            </div>
+            <div className="pages-paragraph">
+            You can apply for Permanent Resident Travel Document by following the given steps:
+            <ol style={{ listStyle: "decimal", listStylePosition: "inside" }} className='my-3'>
+                <li>
+                Collect documents like proof of your permanent residency, travel documents, and evidence supporting your residency days. 
+                
+                </li>
+
+                <li>
+                Fill out accurate details in the PRTD application form (IMM 5524). 
+                 
+                </li>
+
+                <li>
+                Send the application form and supporting documents to the visa office. 
+                </li>
+
+                <li>
+                Pay the processing fee with your application. 
+        
+                </li>
+
+                <li>
+                Processing times for PRTD applications can vary. Check the IRCC website for the latest updates on processing times.
+                </li>
+              </ol>
+              If your PRTD application is approved, you can use it to return back to Canada. Once you are back, you can then apply for a new PR card if needed. There can be long processing times for PRTD applications, so you need to apply in advance of your planned travel to avoid any complications.
+            </div>
+          </div>
+          <div ref={faqRef}>
+            <FaqBox faqItems={faqItems} />
+            <ReadyToStartCard />
+          </div>
         </div>
       </div>
-      <h2 className="pages-content-div">
-        Any person wishing to enter Canada’s borders must possess a valid travel
-        document. Canadian permanent residents are able to use their permanent
-        resident card (PR card) in order to enter the country. However, if a
-        permanent resident does not have a valid PR card and needs to enter
-        Canada, they may be eligible to apply for a permanent resident travel
-        document (PRTD).
-        <br />
-        <br />
-        Generally, PRTDs are valid for a single entry to Canada, allowing a
-        permanent resident to enter the country before obtaining a new PR card.
-        A permanent resident may only apply for a PR card from inside of Canada,
-        so the PRTD is often necessary to facilitate entry to Canada. A person
-        may apply for a permanent resident travel document if they meet the
-        following criteria:
-        <br /> <br />
-        <ul>
-          <li>They are a permanent resident of Canada;</li>
-          <li>They do not have a valid PR card showing PR status;</li>
-          <li>They are outside Canada, and;</li>
-          <li>They will return to Canada by airplane, boat, train, or bus.</li>
-        </ul>
-        <br />
-        If a person meets the criteria for a PRTD, they can submit an
-        application. Please note that upon submission of the application, a visa
-        officer will review it to ensure it is complete and that the applicant
-        has met their residency obligations. If the applicant has failed to meet
-        their residency obligations, then their status as a permanent resident
-        may fall into jeopardy. Please note that immigrants from countries
-        requiring a visa to enter Canada who have received their confirmation of
-        permanent residence (COPR) should be issued a travel visa with their
-        COPR. This travel visa allows them to travel to a Canadian Port of Entry
-        (POE) to enter Canada where they can begin the process of obtaining
-        their PR card. It is not necessary for a newly confirmed permanent
-        resident to obtain a PRTD, as the above-mentioned travel visa will be
-        issued to those immigrants who require it.
-      </h2>
     </div>
   );
 }

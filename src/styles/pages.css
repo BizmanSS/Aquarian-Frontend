@@ -41,11 +41,11 @@
 
 .pages-header {
   font-family: "GFS Didot";
-  font-size: 40px;
+  font-size: 50px;
   font-weight: 400;
   margin-top: 1.8rem;
   margin-bottom: 3.5rem;
-  line-height: 40px;
+  line-height: 47px;
 }
 
 .pages-header-2 {
@@ -54,6 +54,7 @@
   font-size: 32px;
   font-weight: 500;
   padding-top: 70px;
+  line-height:37px;
 }
 
 .pages-header-3 {
@@ -71,7 +72,7 @@
 }
 
 .pages-paragraph {
-  padding-top: 14px;
+  padding-top: 35px;
 }
 
 .pages-content-div bold {
