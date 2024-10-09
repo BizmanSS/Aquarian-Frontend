@@ -603,17 +603,8 @@ const EducationDetails = ({
                     <label for="field" className=" block styled special-field-label-adjust">
                       *Field / Stream
                     </label>
-                    {/* <input
-                      type="text"
-                      id="field"
-                      name="field"
-                      value={currentForm.field}
-                      onChange={handleInputChange}
-                      className="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#01997E] focus:shadow-md"
-                    /> */}
                     <SearchableDropdown
                       apiEndpoint={`${process.env.REACT_APP_API}/study_fields`}
-                      id="field"
                       name="field"
                       value={currentForm.field}
                       onChange={handleInputChange}
