@@ -3,9 +3,7 @@ import AsyncSelect from "react-select/async";
 import axios from "axios";
 import "./SearchableDropdown.css";
 
-const SearchableDropdown = ({ apiEndpoint, onSelect }) => {
-  const [selectedOption, setSelectedOption] = useState(null);
-
+const SearchableDropdown = ({ apiEndpoint, name, value, onChange }) => {
   const loadOptions = async (inputValue) => {
     if (inputValue.length < 2) {
       return [];
@@ -22,20 +20,23 @@ const SearchableDropdown = ({ apiEndpoint, onSelect }) => {
     }
   };
 
-  const handleChange = (option) => {
-    setSelectedOption(option);
-    if (onSelect) {
-      onSelect(option);
-    }
+  const handleChange = (selectedOption) => {
+    const event = {
+      target: {
+        name,
+        value: selectedOption ? selectedOption.value : "",
+      },
+    };
+    onChange(event);
   };
 
   return (
-    <div className="search-dropdown ">
+    <div className="search-dropdown">
       <AsyncSelect
         cacheOptions
         loadOptions={loadOptions}
         defaultOptions
-        value={selectedOption}
+        value={value ? { label: value, value } : null}
         onChange={handleChange}
         placeholder="Enter a minimum of 2 letters"
         className="search-dropdown"
