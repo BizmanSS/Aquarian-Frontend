@@ -1,0 +1,95 @@
+.Top-industry-container {
+  padding: 20px;
+  /* max-width: 1200px; */
+  
+  margin: 8%;
+  margin-Top: 8%;
+}
+
+.Top-industry-navigators {
+  display: flex;
+  justify-content: left;
+  margin-bottom: 20px;
+}
+
+.Top-industry-navigator-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: left;
+  gap: 5px;
+}
+
+.Top-industry-navigator-item {
+  cursor: pointer;
+  color: #3c3e3c;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.Top-industry-navigator-item:hover {
+  color: #007bff; 
+}
+
+.Top-industry-heading {
+  text-align: left;
+  text-decoration: underline;
+  margin: 20px 0;
+  font-size: 2rem;
+}
+
+.Top-industry-image-section {
+  width: 100%;
+  overflow: hidden; /* Ensures image does not overflow */
+}
+
+.Top-industry-responsive-image {
+  width: 90%;
+  height: 350px;
+}
+
+.Top-industry-content-section {
+  margin-Top: 20px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+.Top-industry-content-heading {
+  font-size: larger;
+  font-weight: 600;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.Top-industry-content-heading p{
+  width: 80%;
+}
+
+.mainpage-btn {
+  background-color: lightgray;
+  padding: 10px;
+  border-radius: 10px;
+  margin-Top: 5%;
+}
+
+.mainpage-btn:hover {
+  background-color: #646764;
+  color: white;
+  transition-duration: 100ms;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .Top-industry-page-heading {
+    font-size: 1.5rem; /* Smaller heading on mobile */
+  }
+
+  .Top-industry-navigator-list {
+    flex-direction: row; /* Stack navigators horizontally on mobile */
+    align-items: center;
+    margin-Top: 4%;
+  }
+
+  .Top-industry-navigator-item {
+    margin-bottom: 10px;
+  }
+}

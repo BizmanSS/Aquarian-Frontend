@@ -317,7 +317,6 @@ const BookAppointmentModel = ({ showForm, setShowForm, setShowPopUp }) => {
                          minDate={addDate(new Date(), 2)}
                          filterDate={isWeekday}
                          placeholderText="Select a Date"
-                         disabledKeyboardNavigation
                        />
                      </div>
                    </div>
