@@ -156,7 +156,7 @@ const Permanent_immigration_service = () => {
                   </div>
 
                   <img
-                    src={isOpenAccordion == true ? down_toggle : up_toggle}
+                    src={isOpenAccordion == true ? up_toggle : down_toggle}
                     alt=""
                     className="services_toggle"
                   />

@@ -290,6 +290,7 @@ background-color: #a6bbf1;
   transition: all 0.3s ease;
 }
 
+
 .item-header {
   display: flex;
   background-color: #f2efef;
@@ -320,7 +321,17 @@ background-color: #a6bbf1;
 
 .services_toggle {
   margin-right: 15px;
+  
+  transition: color 0.3s;
 }
+
+.item-header:hover .services_toggle {
+  filter: brightness(0) saturate(100%) invert(100%);
+  transition: filter 0.5s; 
+ 
+}
+
+
 
 .active {
   

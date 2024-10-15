@@ -12,7 +12,8 @@ import clip3 from "./Assets/clipart/resources and tools 2.png";
 import clip4 from "./Assets/clipart/aquarian services 2.png";
 import clip5 from "./Assets/clipart/blog 2.png";
 import { IoMdClose } from "react-icons/io";
-
+import AllBlogs from "./components/Pages/Blogs/AllBlogs";
+import TopUniversities from "./components/Pages/Blogs/TopUniversities"
 import Header from "./components/globalComponents/Header/Header";
 import ContactUsPage from "./components/Pages/ContactUs/Contact";
 import {
@@ -20,6 +21,8 @@ import {
   MobileProvider,
 } from "./components/globalComponents/MobileContext/IsMobileContext";
 import ClbCalculator from "./components/Pages/Clbcalculator/ClbCalculator";
+import SuperVisaCalc from "./components/Pages/SuperVisaCalculator/SuperVisaCalc";
+
 import CrsCalculator from "./components/Pages/CrsCalculator/CrsCalculator";
 import Blogs from "./components/Pages/Blogs/Blogs";
 import FreeAssessment from "./components/AssessmentForm/FreeAssessment";
@@ -236,6 +239,11 @@ import MajorProvinces from "./components/News/Major-provinces-issue-PNP-invitati
 import ResourcesAndTools from "./components/ResourcesAndTools/ResourcesAndTools.jsx";
 import RefusalsLandingPage from "./components/SeperateLandingPages/Refusals/Refusals"
 import VisaExtensionLandingPage from "./components/SeperateLandingPages/Visa Extensions/visaExtensions.js";
+import TopIndustries from "./components/Pages/Blogs/TopIndustries";
+import Newsroom from "./components/Pages/Blogs/Newsroom";
+import AllNews from "./components/Pages/Blogs/AllNews";
+import RecentNewsreadmore from "./components/Pages/Blogs/RecentNewsreadmore";
+import NewsWholePage from "./components/Pages/Blogs/NewsWholePage";
 
 
 const App = () => {
@@ -388,8 +396,12 @@ const App = () => {
             <Route path="/contact-us" element={<ContactUsPage />} />
             <Route path="/clb-calculator" element={<ClbCalculator />} />
             <Route path="/crs-calculator" element={<CrsCalculator />} />
+            {/* <Route path="/article/:id" element={<Article />} /> */}
+
             <Route path="/blogs" element={<Blogs />} />
             <Route path="/*" element={<PageNotFound />} />
+            <Route path="/supervisa-calculator" element={<SuperVisaCalc />} />
+
             <Route
               path="/blogs/top-10-universities-in-canada"
               element={<Top10UniversitiesInCanada />}
@@ -411,8 +423,11 @@ const App = () => {
               element={<WhatIsCategory />}
             />
             <Route path="/assessment" element={<FreeAssessment />} />
+            <Route path='/all-news-blogs' element={<AllNews/>}/>
             <Route path="/resources" element={<ResourcesAndTools />} />
             <Route path="/latest-news" element={<LatestNews />} />
+            <Route path="/news-room-wholearea" element={<NewsWholePage/>}/>
+            <Route path="/top-10-universitites" element={<RecentNewsreadmore/>}/>
             <Route
               path="/latest-news/french-proficiency-leads-category-based-selection"
               element={<FrenchProficiency />}
@@ -466,6 +481,12 @@ const App = () => {
               path="/immigrate/provincial-nominee-program/alberta-immigrant-nominee-program"
               element={<AlbertaImmigrantNomineeProgram />}
             />
+            {/* for all blogs */}
+            <Route path="/all-blogs" element={<AllBlogs />} />
+            <Route path="/news-room" element={<Newsroom />} />
+
+            <Route path="/top-universities" element={<TopUniversities />} />
+            <Route path ="/top-industries" element = {<TopIndustries/>}/>
             <Route
               path="/immigrate/provincial-nominee-program/alberta-immigrant-nominee-program/alberta-opportunity-stream"
               element={<AlbertaOpportunityStream />}
