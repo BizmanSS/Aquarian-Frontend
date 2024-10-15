@@ -1,0 +1,14 @@
+
+
+.col1-fix th:nth-child(1),
+  .responsive-table td:nth-child(1) {
+    width: 33% !important; 
+  }
+  
+  .col1-fix th:nth-child(2),
+  .col1-fix td:nth-child(2),
+  .col1-fix th:nth-child(3),
+  .col1-fix td:nth-child(3) {
+    width: 33% !important; /* 2x */
+    text-align: center;
+  }

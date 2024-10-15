@@ -1,0 +1,129 @@
+/* *{
+    border: 2px solid rgb(223, 8, 8);
+} */
+
+.space-fix{
+  margin-top:-30px;
+}
+
+
+.toc-heading{
+    font-size: 20px;
+    font-weight:550;
+}
+
+.table-of-content-container{
+  margin-top:3rem;
+    background-color: #F3F3F3;
+    padding-left:2rem;
+    padding-right:2rem;
+    padding-top: 1rem;
+    padding-bottom:1rem;
+}
+
+.note-cec{
+    margin-top:3rem;
+    background-color: #F3F3F3;
+    padding:18px 45px;
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+    gap:5px;
+}
+
+.button-cec{
+    background-color: #009889;
+    border-radius:5px;
+    color:white;
+    padding: 6px 5px;
+    line-height:23px;
+}
+
+.table-container {
+  margin-top: 20px !important;
+  margin-bottom:20px !important;
+    width: 80%;
+    overflow-x: auto; /* For mobile responsiveness */
+    margin:auto;
+  }
+  
+  .responsive-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .responsive-table th,
+  .responsive-table td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+  }
+  
+  .responsive-table th {
+    font-weight: bold;
+  }
+  
+  .responsive-table td.bold {
+    font-weight: bold;
+  }
+  
+  .responsive-table th:nth-child(1),
+  .responsive-table td:nth-child(1) {
+    width: 15%; /* x */
+  }
+  
+  .responsive-table th:nth-child(2),
+  .responsive-table td:nth-child(2),
+  .responsive-table th:nth-child(3),
+  .responsive-table td:nth-child(3) {
+    width: 42%; /* 2x */
+    text-align: left;
+  }
+  
+  /* Responsive behavior */
+  @media only screen and (max-width: 768px) {
+    .responsive-table th,
+    .responsive-table td {
+      font-size: 14px;
+      padding: 8px;
+    }
+    .note-cec{
+      text-align:center;
+      display:flex;
+      flex-direction:column;
+    }
+
+    .note-cec button{
+  
+      margin:20px;
+      padding:20px;
+    }
+  }
+
+  @media screen and (min-width:1025px){
+    .cec-font{
+      font-size:65px;
+      line-height:68px;
+    }
+  }
+
+  @media screen and (min-width:1385px){
+    .button-cec{
+      padding:6px 12px;
+      line-height: 35px;
+    }
+  }
+  @media screen and (min-width:1385px) and (max-width: 1399px){
+    .button-cec{
+      padding:6px 12px;
+      line-height: 20px;
+    }
+  }
+
+  @media (min-width: 957px) and (max-width: 1200px){
+    .button-cec{
+      padding:6px 12px;
+      line-height: 35px;
+    }
+  }
+  

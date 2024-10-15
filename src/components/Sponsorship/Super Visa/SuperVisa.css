@@ -1,0 +1,16 @@
+.table-of-content-container{
+    margin-top:3rem;
+      background-color: #F3F3F3;
+      padding-left:2rem;
+      padding-right:2rem;
+      padding-top: 1rem;
+      padding-bottom:1rem;
+  }
+
+  .intro-size-fix{
+    font-size: 20px !important;
+}
+
+.space-fix{
+  margin-top:-30px;
+}
