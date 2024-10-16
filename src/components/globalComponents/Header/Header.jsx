@@ -660,7 +660,7 @@ const Header = ({ setShowPopUp }) => {
               )}
               {isHovering && activeItem > 0 && (
                 <div
-                  className={`bg-[#FFFEFE] px-4 z-40 absolute shadow-2xl 2xl:top-[5.5rem] xl:top-[5.5rem] top-[4.8rem] left-[13rem] xl:left-[calc(30vw-5rem)] 2xl:left-[22rem] 3xl:left-[25rem] 4xl:left-[28vw] w-[46.0rem] xl:w-[48.0rem] 2xl:w-[54.5rem] rounded-b-xl transition-all ease-in-out delay-100 duration-300 ${isOpen ? "h-[25rem] opacity-100" : "h-0 opacity-0"
+                  className={`bg-[#FFFEFE] px-4 z-40 absolute shadow-2xl 2xl:top-[5.5rem] xl:top-[5.4rem] top-[4.8rem] left-[13rem] xl:left-[calc(30vw-5rem)] 2xl:left-[22rem] 3xl:left-[25rem] 4xl:left-[28vw] w-[46.0rem] xl:w-[48.0rem] 2xl:w-[54.5rem] rounded-b-xl transition-all ease-in-out delay-100 duration-300 ${isOpen ? "h-[25rem] opacity-100" : "h-0 opacity-0"
                     }`}
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
