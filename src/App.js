@@ -4,6 +4,7 @@ import Sidebar from "./components/globalComponents/Sidebar/Sidebar";
 // import Header from "./components/globalComponents/Header/Header";
 import Footer from "./components/globalComponents/Footer/Footer";
 import AboutUs from "./components/Pages/AboutUs/AboutUs";
+import AllBlogs from "./components/Pages/Blogs/AllBlogs";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import img4 from "./Assets/clipart/Vector.png";
 import clip1 from "./Assets/clipart/newsroom 2.png";
@@ -236,7 +237,8 @@ import MajorProvinces from "./components/News/Major-provinces-issue-PNP-invitati
 import ResourcesAndTools from "./components/ResourcesAndTools/ResourcesAndTools.jsx";
 import RefusalsLandingPage from "./components/SeperateLandingPages/Refusals/Refusals"
 import VisaExtensionLandingPage from "./components/SeperateLandingPages/Visa Extensions/visaExtensions.js";
-
+import Newsroom from "./components/Pages/Blogs/Newsroom";
+import AllNews from "./components/Pages/Blogs/AllNews";
 
 const App = () => {
   const { isMobile } = useMobile();
@@ -417,6 +419,11 @@ const App = () => {
               path="/latest-news/french-proficiency-leads-category-based-selection"
               element={<FrenchProficiency />}
             />
+            <Route path='/all-news-blogs' element={<AllNews/>}/>
+            <Route path="/all-blogs" element={<AllBlogs />} />
+            <Route path="/news-room" element={<Newsroom />} />
+            
+
             <Route
               path="/latest-news/changes-in-federal-business-programs-to-tackle-backlog-issue"
               element={<ChangesInFederal />}

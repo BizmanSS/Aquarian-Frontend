@@ -1,0 +1,113 @@
+.readmore-news-page-first {
+  padding: 20px;
+  max-width: 90%; /* Limit the width for readability */
+margin-top: 8%;
+margin-left: 25px;}
+
+.read-more-news-navigations {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.news-navigate-items {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  gap: 10px; 
+  cursor: pointer;
+}
+.aq-news-heading{
+  font-size: 1.5rem;
+  color: rgba(116, 116, 116, 1);
+
+}
+.aq-news-date{
+  color: rgba(105, 65, 198, 1);
+  font-weight: 600;
+  margin-bottom: 1%;
+}
+.aq-news-heading-2{
+  margin-top: 2%;
+  margin-bottom: 1%;
+  font-size: 2.3rem;
+
+}
+.news-rm-img{
+  height: 400px;
+}
+.news-navigate-items li {
+  font-size: 16px;
+  color: #007bff; /* Link color */
+}
+.news-facitlities-list{
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.news-navigate-items li:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+
+.RecentNews_heading {
+  font-size: 24px;
+  margin: 20px 0; /* Spacing around the heading */
+}
+
+.news-rm-img {
+  width: 100%; /* Responsive image */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 8px; /* Rounded corners */
+  margin-bottom: 20px; /* Spacing below the image */
+}
+
+.flex-list {
+  display: flex;
+  flex-wrap: wrap; /* Wrap items to next line if necessary */
+  gap: 15px; /* Spacing between items */
+  margin-bottom: 20px; /* Spacing below the list */
+}
+
+.flex-list li {
+  background: #f1f1f1; /* Light background for list items */
+  padding: 8px 12px;
+  border-radius: 5px; /* Rounded corners */
+  font-size: 14px;
+}
+
+.readmore-news-content {
+  margin-top: 20px; /* Spacing above the content */
+}
+
+.readmore-news-content p {
+  font-size: 16px;
+  line-height: 1.6; /* Improve readability */
+  margin-bottom: 10px; /* Spacing below paragraphs */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .RecentNews_heading {
+    font-size: 22px; /* Slightly smaller heading on tablets */
+  }
+
+  .flex-list li {
+    font-size: 12px; /* Smaller text on tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .RecentNews_heading {
+    font-size: 20px; /* Smaller heading on mobile */
+  }
+
+  .readmore-news-content p {
+    font-size: 14px; /* Smaller text on mobile */
+  }
+
+  .flex-list {
+    flex-direction: column; /* Stack items on mobile */
+    gap: 5px; /* Reduced spacing */
+  }
+}
