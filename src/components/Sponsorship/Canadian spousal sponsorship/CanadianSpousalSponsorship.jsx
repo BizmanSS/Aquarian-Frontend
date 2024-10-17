@@ -35,9 +35,7 @@ export default function CanadianSpousalSponsorship() {
   const otherRef = useRef(null);
   const eligibilityRef = useRef(null);
   const dependentRef = useRef(null);
-  const minimumRef = useRef(null);
   const faqRef = useRef(null);
-  const requirementsRef = useRef(null);
   const quebecRef = useRef(null);
   const costsRef = useRef(null);
 
@@ -78,6 +76,30 @@ export default function CanadianSpousalSponsorship() {
       scrollTo: faqRef,
     },
   ];
+
+  const costsTableData = [
+    {
+      fee:"Sponsorship Fee",
+      amount:"$75"
+    },
+    {
+      fee:"Principal Applicant Processing Fee",
+      amount:"$490"
+    },
+    {
+      fee:"Right of Permanent Residence Fee",
+      amount:"$515"
+    },
+    {
+      fee:"Biometrics Fee",
+      amount:"$85"
+    },
+    {
+      fee:"Total",
+      amount:"$1,165"
+    }
+  ]
+
   return (
     <div
       style={{
@@ -217,78 +239,122 @@ export default function CanadianSpousalSponsorship() {
             </div>
 
             <div class="pages-header-2" ref={dependentRef}>
-              Dependent Sponsorship in Quebec
+            Eligibility for Spousal Sponsorship
             </div>
             <div class="pages-paragraph">
-              Dependent Sponsorship in Quebec refers to the process of
-              sponsoring family members to join you in the province of Quebec,
-              Canada. Quebec has its own unique rules and requirements for
-              dependent sponsorship.
+            To sponsor your spouse or partner, you must meet the following criteria:
             </div>
             <ol
-              style={{ listStyle: "decimal", listStylePosition: "inside" }}
+              style={{ listStyle: "disc", listStylePosition: "inside" }}
               className="ordered-list"
             >
               <li>
-                You must demonstrate that you have the financial means to
-                support your dependents in Quebec.
+              Be a Canadian citizen or permanent resident.
               </li>
               <li>
-                If the dependent child is under 16, the sponsor must provide
-                financial support for 10 years or until the child turns 18,
-                whichever is longer.
+              Be at least 18 years old.
               </li>
               <li>
-                If the child is 16 years or older, the sponsor shall support
-                them financially for a period of three years or until they reach
-                the age of 25, whichever is the longer period of time.
+              Be able to provide for the basic needs of your spouse or partner, ensuring they do not need social assistance.
+              </li>
+              <li>
+              Not be in default on any previous Canadian sponsorships or have been convicted of certain criminal offences.
               </li>
             </ol>
+            <div style={{
+              textDecoration:"underline",
+              marginBottom:"12px"
+            }}><strong>5 Year Sponsorship Bar</strong></div>
 
-            <div class="pages-header-2" ref={minimumRef}>
-              Minimum Necessary Income for Dependent Child Sponsorship
+            <div>In Canada, a sponsor who has previously sponsored a spouse cannot sponsor another spouse for 5 years from the date they became a permanent resident, even if they are now divorced. </div>
+
+            <ol
+              style={{ listStyle: "disc", listStylePosition: "inside", marginTop:"8px" }}
+              className="ordered-list"
+            >
+              <li>
+              This applies regardless of any changes in marital status. 
+              </li>
+              <li>
+              The sponsor must also fulfil their financial obligations from the previous sponsorship, which includes a 3-year undertaking to provide for the basic needs of the sponsored spouse. 
+              </li>
+             
+            </ol>
+
+            <div style={{
+              textDecoration:"underline",
+              marginBottom:"12px"
+            }}><strong>Processing Time for Sponsorship Applications</strong></div>
+
+            <div>Sponsorship applications usually take about 12 months to process. Complications or additional proof requests may cause delays. To speed up the process, ensure your application is completed correctly. </div>
+
+            <ol
+              style={{ listStyle: "disc", listStylePosition: "inside", marginTop:"8px" }}
+              className="ordered-list"
+            >
+              <li>
+              You can submit your application by mail or via IRCC’s permanent residence portal.
+              </li>
+              <li>
+              Your spouse, conjugal partner, or common-law partner can include dependent children in their application for permanent residence.
+              </li>
+             
+            </ol>
+
+            <div class="pages-header-2" ref={costsRef}>
+            Spousal Sponsorship Costs
             </div>
 
             <div className="pages-paragraph">
-              Sponsors are exempt from MNI requirements unless the dependent
-              child has their own children. In such cases, the sponsor must meet
-              the MNI for their total family unit size, which includes everyone
-              they support in Canada as well as those they intend to sponsor.
-              For sponsors who live in Quebec, there is a specific financial
-              responsibility depending on the dependent child's age. For
-              example, if the dependent child is under 16 years of age, the
-              commitment is for 10 years or until he becomes 18, whichever is
-              longer.
-              <div className="mt-3">
-                The Child and Other Dependent Sponsorship program is a
-                fundamental part of the Canadian immigration system. This
-                reflects a commitment from the Canadian government for family
-                reunification. Such a program lets Canadian citizens and
-                permanent residents sponsor a dependent child: either a
-                biological child or an adopted child to join them in Canada as a
-                permanent resident.{" "}
-              </div>
-              <div className="mt-5">
-                <strong>
-                  <span
-                    style={{
-                      color: "red",
-                    }}
-                  >
-                    Check:{" "}
-                  </span>{" "}
-                  <a
-                    href="#"
-                    style={{
-                      color: "blue",
-                    }}
-                  >
-                    {" "}
-                    Minimum Necessary Income for Canadian Sponsorship
-                  </a>
-                </strong>
-              </div>
+            When sponsoring a spouse, conjugal partner, or common-law partner in Canada, the following government processing fees apply. If the applicant has dependent children, an additional payment of $150 is required for each child included in the application.
             </div>
+
+            <div>
+                <div className="table-container">
+                  <table className="responsive-table">
+                    <thead>
+                      <tr>
+                        <th>Fee Type</th>
+                        <th>Amount</th>
+                  
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {costsTableData.map((row, index) => (
+                        <tr key={index}>
+                          <td>{row.fee}</td>
+                          <td>{row.amount}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div>For those seeking sponsorship to reside in Quebec, it's important to note that additional documents and fees may be required. Quebec has specific requirements that go beyond the standard sponsorship process. </div>
+
+              <div class="pages-header-2" ref={quebecRef}>
+              Spousal Sponsorship in Quebec
+            </div>
+
+            <div className="pages-paragraph">
+            Quebec has its own immigration rules and processes, including specific requirements for spousal sponsorship. If you are residing in Quebec, you must:
+            </div> 
+
+            <ol
+              style={{ listStyle: "disc", listStylePosition: "inside", marginTop:"8px" }}
+              className="ordered-list"
+            >
+              <li>
+              Obtain a Certificate of Selection of Quebec (CSQ) after applying for spousal sponsorship.
+              </li>
+              <li>
+              Meet additional criteria set by the Quebec government, which may include demonstrating a higher level of financial stability and knowledge of French.
+              </li>
+             
+            </ol>
+
+            <div>Spousal sponsorship in Canada offers a pathway to permanent residency for many couples. No job offer or language requirement is required for spousal sponsorship. However, they need to take a language test for Canadian citizenship later. Applications may be denied if the relationship isn’t proven to be genuine. Immigration officers consider various factors, including documentation and cultural practices.</div>
           </div>
           <FaqBox faqItems={faqItems} />
           <ReadyToStartCard />
