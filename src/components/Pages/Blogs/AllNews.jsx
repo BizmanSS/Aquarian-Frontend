@@ -406,6 +406,9 @@ export default function AllNews() {
         </div>
       ) : (
         <>
+        <div className="Aquarian_News_heading">
+          Aquarian News
+        </div>
           <div className='news-search-area-section'>
             <input 
               type='text' 
@@ -415,17 +418,20 @@ export default function AllNews() {
             />
           </div>
 
+
           <div className="AllNews-all-news-section">
-            <h2>All News Articles</h2>
+            <h2 className="Allnews-heading">All News Articles</h2>
             <div className="AllNews-news-grid">
               {currentNews.map((news, index) => (
-                <div className="AllNews-news-card" key={news.id}>
+                <div className="AllNews-news-card" key={news.id} onClick={() => handleReadMore(index)}>
                   <img src={news.imgSrc} alt={news.title} className="AllNews-news-card-image" />
                   <div className="AllNews-news-card-content">
                     <p className="AllNews-news-date">{news.date}</p>
+                    <h1 className="AllNews_news-Heading">{news.title}</h1>
+
                     <p className="AllNews-news-description">{truncateDescription(news.description)}</p>
-                    <p className="AllNews-read-more" onClick={() => handleReadMore(index)}>Read More</p>
-                  <div className="BTN_BOX"> <p className="AllNews_BTN_CARDS">{news.button}</p>                    <p className="AllNews_BTN_CARDS">{news.button2}</p></div> 
+                    {/* <p className="AllNews-read-more" >Read More</p> */}
+                  <div className="AllNews_BTN_BOX"> <p className="AllNews_BTN_CARDS">{news.button}</p>                    <p className="AllNews_BTN_CARDS">{news.button2}</p></div> 
 
                   </div>
                 </div>
