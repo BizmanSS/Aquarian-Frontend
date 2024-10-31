@@ -1,0 +1,105 @@
+.study-circle-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    max-width: 830px;
+    margin-top: 2rem;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.study-circle-circle-inner-container {
+    position: relative
+}
+
+.study-circle-header {
+    color: #000;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.study-circle-logo {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 125px;
+    right: 125px;
+    filter: brightness(0) invert(1) contrast(1000%);
+}
+
+.study-cirlce-description {
+    position: absolute;
+    width: 137px;
+    text-align: center;
+    display: none;
+    color: #000;
+    font-family: Poppins;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.study-circle-description-header{
+    font-weight: 700;
+}
+
+.study-cirlce-description-1 {
+    top: 60px;
+    left: 105px;
+}
+
+.study-cirlce-description-2 {
+    top: 300px;
+    left: 0px;
+    padding-left: 1rem;
+}
+
+.study-cirlce-description-3 {
+    top: 550px;
+    left: 120px;
+}
+
+.study-cirlce-description-4{
+    top: 550px;
+    right: 120px;
+}
+
+.study-cirlce-description-5{
+    top: 300px;
+    right: 0px;
+    padding-right: 1rem;
+}
+
+.study-cirlce-description-6{
+    top: 60px;
+    right: 105px;
+}
+
+@media (min-width: 768px) {
+    .study-circle-inner-circle {
+        r: 90;
+    }
+
+    .study-circle-logo {
+        top: 195px;
+        right: 200px;
+    }
+
+    .study-circle-header {
+        margin-bottom: 5rem;
+    }
+
+    .study-cirlce-description {
+        display: inline
+    }
+
+    .study-circle-container {
+        height: 750px;
+    }
+}
