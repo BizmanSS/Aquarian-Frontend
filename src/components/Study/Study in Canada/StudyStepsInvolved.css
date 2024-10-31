@@ -1,0 +1,157 @@
+.study-steps-container {
+  padding-top: 1rem;
+  width: 100%;
+  min-width: 371px;
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+  margin-top: 10px;
+
+  color: #000;
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+
+}
+
+.study-steps-grid {
+  display: grid;
+  justify-content: center;
+  width: 100%;
+  gap: 2rem;
+}
+
+/* Individual card styling */
+.study-steps-card {
+  background-color: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 25px;
+  text-align: center;
+  width: 280px;
+  height: 280px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  overflow: hidden;
+}
+
+.study-steps-card:hover {
+  transform: translateY(-5px);
+
+  .study-steps-icon img {
+    transform: scale(1.2);
+  }
+
+  .study-steps-button {
+    color: white;
+    background-color: #464646;
+  }
+}
+
+.study-steps-icon img {
+  height: 56px;
+  transition: all 0.3s;
+  transform-origin: left center;
+}
+
+.study-steps-heading {
+  font-weight: 700;
+  font-size: 20px;
+  width: 100%;
+  text-align: left;
+  margin-top: 20px;
+}
+
+.study-steps-text {
+  text-align: left;
+  padding-right: 10px;
+}
+
+.study-steps-button {
+  border-radius: 45px;
+  padding: 4px 20px;
+  border-width: 1px;
+  border-color: black;
+  position: absolute;
+  bottom: 25px;
+  left: 25px;
+  transition: all 0.3s;
+}
+
+.study-steps-number {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 65px;
+  height: 65px;
+  border-bottom-left-radius: 40px;
+  font-size: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white
+}
+
+
+
+.square-color-1 {
+  background-color: #ff6347;
+  /* Tomato */
+}
+
+.square-color-2 {
+  background-color: #4682b4;
+  /* Steel Blue */
+}
+
+.square-color-3 {
+  background-color: #32cd32;
+  /* Lime Green */
+}
+
+.square-color-4 {
+  background-color: #ff8c00;
+  /* Dark Orange */
+}
+
+.square-color-5 {
+  background-color: #8a2be2;
+  /* Blue Violet */
+}
+
+.square-color-6 {
+  background-color: #ff1493;
+  /* Deep Pink */
+}
+
+@media (min-width: 744px) {
+  .study-steps-grid {
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    padding-right: 30px;
+    padding-left: 30px;
+    row-gap: 4rem;
+  }
+
+  /* gap: 20px;  */
+}
+
+
+@media (min-width: 1400px) {
+    .study-steps-grid {
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 5rem;
+  }
+  .study-steps-container {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /* .direct-pathways-container {
+        max-width: 880px;
+        min-width: 850px;
+        margin-left: auto;
+        margin-right: auto;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        margin-top: 2rem;
+    } */
+}
