@@ -1,5 +1,5 @@
 import React from 'react';
-import BlogImg from '../../../Assets/RecentBlogImg.jpeg';
+import UNIVERSITIES from "../../../Assets/CANADA_UNIVERSITIES.jpg";
 import './TopUniversities.css'; // Import your CSS file
 import { useNavigate } from 'react-router-dom';
 
@@ -22,7 +22,7 @@ export default function TopUniversities() {
       <h1 className="top-page-heading">Top 10 Universities in Canada</h1>
 
       <div className="top-image-section">
-        <img src={BlogImg} alt="Top Universities" className="top-responsive-image" />
+        <img src={UNIVERSITIES} alt="Top Universities" className="top-responsive-image" />
       </div>
 
       <div className="top-content-section">

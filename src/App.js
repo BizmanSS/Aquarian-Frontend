@@ -24,7 +24,7 @@ import ClbCalculator from "./components/Pages/Clbcalculator/ClbCalculator";
 import CrsCalculator from "./components/Pages/CrsCalculator/CrsCalculator";
 import Blogs from "./components/Pages/Blogs/Blogs";
 import FreeAssessment from "./components/AssessmentForm/FreeAssessment";
-import LatestNews from "./components/Pages/Latest News/LatestNews";
+import LatestNews from "./components/Pages/Latest News/Newsroom";
 import PR from "./components/Immigrate/Permanent Residency/pr";
 import FederalSkilledWorkerClass from "./components/Immigrate/Express Entry/Federal Skilled Worker Class/federal-skilled-worker-class";
 import FederalSkilledTradesClass from "./components/Immigrate/Express Entry/Federal Skilled Trades Class/federal-skilled-trades-class";
@@ -237,8 +237,9 @@ import MajorProvinces from "./components/News/Major-provinces-issue-PNP-invitati
 import ResourcesAndTools from "./components/ResourcesAndTools/ResourcesAndTools.jsx";
 import RefusalsLandingPage from "./components/SeperateLandingPages/Refusals/Refusals"
 import VisaExtensionLandingPage from "./components/SeperateLandingPages/Visa Extensions/visaExtensions.js";
-import Newsroom from "./components/Pages/Blogs/Newsroom";
+// import Newsroom from "./components/Pages/Blogs/Newsroom";
 import AllNews from "./components/Pages/Blogs/AllNews";
+import TopUniversities from "./components/Pages/Blogs/TopUniversities";
 
 const App = () => {
   const { isMobile } = useMobile();
@@ -396,6 +397,7 @@ const App = () => {
               path="/blogs/top-10-universities-in-canada"
               element={<Top10UniversitiesInCanada />}
             />
+            <Route path="/blogs/Top-universities" element={<TopUniversities/>}/>
             <Route
               path="/blogs/tips-and-tricks-on-preparing-for-ielts"
               element={<TipsAndTricks />}
@@ -421,7 +423,7 @@ const App = () => {
             />
             <Route path='/all-news-blogs' element={<AllNews/>}/>
             <Route path="/all-blogs" element={<AllBlogs />} />
-            <Route path="/news-room" element={<Newsroom />} />
+            {/* <Route path="/news-room" element={<Newsroom />} /> */}
             
 
             <Route
