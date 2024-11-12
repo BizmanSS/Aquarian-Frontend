@@ -28,9 +28,9 @@ export default function AllNews() {
     { 
       id: 1, 
       date: "Sunday , 7 June 2024", 
-      title: "IRCC reducing Spousal Open Work Permits by more than 100,000 over the next three years", 
+      title: "IRCC reducing Spousal Open Work Permits by more than 100,000 over three years", 
       imgSrc: Canada_A, 
-      description: "In a significant policy shift, the IRCC has announced plans to reduce the issuance of Spousal Open Work Permits by over 100,000 in the coming three years. This decision is poised to impact many families who rely on these permits for their reunification in Canada. The change aims to prioritize skilled immigration but raises concerns among those affected by the reduction. This article delves into the implications of this decision, potential alternatives for those seeking to reunite with their spouses, and the broader context of immigration policy changes in Canada.",
+      description: "The change aims to prioritize skilled immigration but raises concerns among those affected by the reduction. This decision is poised to impact many families who rely on these permits for their reunification in Canada.  This article delves into the implications of this decision, potential alternatives for those seeking to reunite with their spouses, and the broader context of immigration policy changes in Canada.",
       button: "Express Entry",
       button2: "Immigration",
       heading_first: "1. Impact on Families",
@@ -112,7 +112,7 @@ export default function AllNews() {
   { 
       id: 5, 
       date: "11 June, 2024", 
-      title: "Helpful advice for newcomers landing in Canada: A post-arrival checklist for newcomers to Canada", 
+      title: "Helpful advice for newcomers landing in Canada: A post-arrival checklist for newcomers", 
       imgSrc: Canada_E, 
       description: "For newcomers to Canada, the transition can be overwhelming. This article offers a detailed post-arrival checklist that covers essential tasks to help ease the transition. From setting up a bank account to understanding healthcare options and local customs, this guide provides newcomers with actionable steps to ensure a smooth start in their new home. Personal anecdotes and tips from experienced immigrants enrich the content.", 
       button: "Express Entry",
@@ -176,7 +176,7 @@ export default function AllNews() {
     date: "14 June, 2024", 
     title: "Navigating Public Transportation in Major Canadian Cities", 
     imgSrc: Canada_H, 
-    description: "Public transportation is an essential aspect of life in many Canadian cities. This article provides newcomers with practical advice on navigating the public transit systems in major urban centers like Toronto, Vancouver, and Montreal. It covers ticketing options, routes, and tips for efficient travel.", 
+    description: "This article provides newcomers with practical advice on navigating the public transit systems in major urban centers like Toronto, Vancouver, and Montreal. Public transportation is an essential aspect of life in many Canadian cities.  It covers ticketing options, routes, and tips for efficient travel.", 
     button: "Express Entry",
     button2: "Immigration",
     heading_first: "1. Overview of Public Transportation Systems",
@@ -197,7 +197,7 @@ export default function AllNews() {
     date: "15 June, 2024", 
     title: "Starting a Business in Canada: A Comprehensive Guide for Newcomers", 
     imgSrc: Canada_I, 
-    description: "For many newcomers, starting a business in Canada is an exciting opportunity. This article outlines the key steps involved in launching a business, from market research to understanding regulatory requirements. It also highlights resources available for aspiring entrepreneurs.", 
+    description: "This article outlines the key steps involved in launching a business, from market research to understanding regulatory requirements. For many newcomers, starting a business in Canada is an exciting opportunity.  It also highlights resources available for aspiring entrepreneurs.", 
     button: "Express Entry",
     button2: "Immigration",
     heading_first: "1. Researching the Canadian Market",
@@ -281,7 +281,7 @@ export default function AllNews() {
     date: "19 June, 2024", 
     title: "Exploring Canadian Arts and Culture: A Guide for Newcomers", 
     imgSrc: Canada_M, 
-    description: "Canada boasts a rich tapestry of arts and culture. This article invites newcomers to explore the diverse artistic expressions found across the country, from visual arts to music and theater. It highlights cultural institutions and festivals that celebrate Canadian creativity.", 
+    description: "This article invites newcomers to explore the diverse artistic expressions found across the country, from visual arts to music and theater. Canada boasts a rich tapestry of arts and culture.  It highlights cultural institutions and festivals that celebrate Canadian creativity.", 
     button: "Express Entry",
     button2: "Immigration",
     heading_first: "1. The Diversity of Canadian Arts",
@@ -321,9 +321,9 @@ export default function AllNews() {
 { 
     id: 15, 
     date: "21 June, 2024", 
-    title: "Building a Career in Canada: A Newcomer's Roadmap", 
+    title: "Building a Career in Canada: A Newcomer's Roadmap for career build", 
     imgSrc: Canada_O, 
-    description: "Building a career in Canada involves understanding the job market, networking, and skill development. This article provides newcomers with a roadmap for successfully integrating into the Canadian workforce, including tips for job searching and adapting resumes.", 
+    description: "This article provides newcomers with a roadmap for successfully integrating into the Canadian workforce, including tips for job searching and adapting resumes. Building a career in Canada involves understanding the job market, networking, and skill development. ", 
     button: "Express Entry",
     button2: "Immigration",
     heading_first: "1. Understanding the Canadian Job Market",
@@ -356,42 +356,47 @@ export default function AllNews() {
 
   const handleReadMore = (index) => {
     setSelectedNewsIndex(index);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
   };
 
   const handleBackToNews = () => {
     setSelectedNewsIndex(null);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
   };
 
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
-    setCurrentPage(1); // Reset to the first page when searching
+    setCurrentPage(1);
   };
 
   const truncateDescription = (description) => {
     const words = description.split(" ");
-    return words.length > 25 ? words.slice(0, 25).join(" ") + "..." : description;
+    return words.length > 25 ? words.slice(0, 25).join(" ") + "[...]" : description;
   };
 
   return (
     <div className="all-news-container">
-      <div className='AllNews-navigators'>
-        <li className='AllNews-navitems'>Home</li>
-        <li className='AllNews-navitems'>&gt;</li>
-        <li className='AllNews-navitems' onClick={() => navigate('/news')}>News</li>
-      </div>
+      
 
      
 
       {selectedNewsIndex !== null ? (
         <div className="newsDetailContainer">
+           <div className='AllNews-navigators'>
+        <li className='AllNews-navitems'>Home</li>
+        <li className='AllNews-navitems'>&gt;</li>
+        <li className='AllNews-navitems' onClick={() => navigate('/latest-news')}>News</li>
+      </div>
                     <h3 className="newsTitleDetail">{filteredNewsData[selectedNewsIndex].title}</h3>
 
           <p className="newsDate">{filteredNewsData[selectedNewsIndex].date}</p>
          
 
           <img src={filteredNewsData[selectedNewsIndex].imgSrc} alt={filteredNewsData[selectedNewsIndex].title} />
-         <div className="AllNews_BTN_BOX"> <p className="AllNews_BTN">{filteredNewsData[selectedNewsIndex].button} </p>
-         <p className="AllNews_BTN">{filteredNewsData[selectedNewsIndex].button2} </p></div>
+         <div className="news-button-container"> <p className="news-card-btn">{filteredNewsData[selectedNewsIndex].button} </p>
+         <p className="news-card-btn">{filteredNewsData[selectedNewsIndex].button2} </p></div>
 
           <p className="newsContentDetail">{filteredNewsData[selectedNewsIndex].description}</p>
           <p className="DESC_HEADINGS">{filteredNewsData[selectedNewsIndex].heading_first}</p>
@@ -406,6 +411,11 @@ export default function AllNews() {
         </div>
       ) : (
         <>
+         <div className='AllNews-navigators'>
+        <li className='AllNews-navitems'>Home</li>
+        <li className='AllNews-navitems'>&gt;</li>
+        <li className='AllNews-navitems' onClick={() => navigate('/latest-news')}>News</li>
+      </div>
         <div className="Aquarian_News_heading">
           Aquarian News
         </div>
@@ -417,6 +427,8 @@ export default function AllNews() {
               onChange={handleSearchChange}
             />
           </div>
+
+         
 
 
           <div className="AllNews-all-news-section">

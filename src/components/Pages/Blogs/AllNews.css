@@ -10,14 +10,17 @@
   display: flex;
   list-style: none;
   margin-bottom: 20px;
+  max-width: 1250px;
+  margin: auto;
 }
 
 .AllNews-navitems {
   margin-right: 10px;
-  color: #333;
+  color: #888787;
   cursor: pointer;
   font-weight: 600;
   font-size: 13px;
+  
 }
 
 .AllNews-navitems:hover {
@@ -173,9 +176,9 @@
 }
 
 .newsContentDetail {
-  font-style: italic;
-  margin-top: 20px;
-  font-weight: 400; /* Minor bold */
+  margin: 20px 5px;
+  font-weight: bold; 
+  text-align: left;
 }
 
 .newsCategoriesList {
@@ -232,22 +235,22 @@
     text-align: center;
   }
   .AllNews-pagination-section {
-    flex-direction: row; /* Stack pagination controls */
+    flex-direction: row; 
     gap: 10px;
   }
 
   .AllNews-pagination-button-prev {
-    width: 100%; /* Make pagination buttons take full width */
+    width: 100%; 
     text-align: left;
   }
   .AllNews-pagination-button-next {
-    width: 100%; /* Make pagination buttons take full width */
+    width: 100%; 
     text-align: right;
     position: relative;
   }
 
   .AllNews-pagination-number {
-    width: 100%; /* Make pagination buttons take full width */
+    width: 100%; 
     text-align: right;
   }
 
@@ -258,7 +261,7 @@
   }
   .AllNews_BTN_BOX {
     display: flex;
-    /* gap: 5px; */
+    gap: 5px;
     flex-direction: row;
     
     color: rgba(99, 99, 99, 1);
@@ -304,7 +307,7 @@
 .AllNews_BTN {
   border: 1px solid rgba(99, 99, 99, 1);
   padding: 0.5rem; 
-  width: 50%; 
+  width: 47%; 
   
   text-align: center; 
   cursor: pointer; 
@@ -318,7 +321,7 @@
 
 .AllNews_BTN_BOX {
   display: flex;
-  /* gap: 5px; */
+  gap: 5px;
   flex-direction: row;
   padding: 10px;
   color: rgba(99, 99, 99, 1);
@@ -339,11 +342,11 @@
 }
 .AllNews-news-card {
   transition: background-color 0.3s, color 0.3s;
-  background-color: white;
+  background-color: #ebebeb;
 }
 
 .AllNews-news-card:hover {
-  background-color: rgb(73, 72, 72);
+  background-color: #363535;
   color: black;
   cursor: pointer;
 }
@@ -357,7 +360,9 @@
   color: rgb(244, 241, 241);
   transition: background-color 0.3s, color 0.3s;
 }
-
+.AllNews-news-card:hover .AllNews_BTN_CARDS {
+  border: 1px solid white ;
+}
 .AllNews-news-date {
   font-weight: bold;
 }
@@ -373,7 +378,13 @@
 }
 .Allnews-heading {
   font-size: 30px;
-  margin-left: 20px;
+  margin-left: 0px;
   font-weight: bold;
   text-decoration: underline;
+  margin-bottom: 40px;
 }
+.news-button-container{
+  margin-top: 10px;
+  justify-content: center;
+}
+
