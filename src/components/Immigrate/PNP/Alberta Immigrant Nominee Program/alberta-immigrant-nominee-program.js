@@ -1,135 +1,337 @@
-import React from "react";
-import { Link } from "react-router-dom";
-export default function AlbertaImmigrantNomineeProgram() {
+import React, { useRef } from "react";
+
+import NestedTableOfContent from "../../../shared/NestedTableOfContent.jsx";
+import ReadyToStartCard from "../../../shared/ReadyToStart.jsx";
+import SiteMapMenu from "../../../globalComponents/Sidebar/SiteMapMenu.jsx";
+
+
+export default function AlberatImmigrantNomineeProgram() {
+  const wstreamRef = useRef(null);
+  const wexpressRef = useRef(null);
+  const wopportunityRef = useRef(null);
+  const wAcceleratedRef = useRef(null);
+  const wTourismRef = useRef(null);
+  const estreamRef = useRef(null);
+  const eGraduateskilledRef= useRef(null);
+  const eForeignRef = useRef(null);
+  const eStreamRef = useRef(null);
+  const eRuralRef = useRef(null);
+
+
+  const tableContentData = [
+    {
+      title: "Streams for Workers",
+      scrollTo: wstreamRef,
+      subItems: [
+        {
+          title: "Alberta Opportunity Stream (AOS)",
+          scrollTo: wopportunityRef,
+        },
+        {
+          title: "Alberta Express Entry Stream",
+          scrollTo: wexpressRef,
+        },
+        {
+          title: "Alberta Accelerated Tech Pathway",
+          scrollTo: wAcceleratedRef,
+        },
+        {
+          title: "Alberta Tourism and Hospitality Stream",
+          scrollTo: wTourismRef,
+        },
+      ],
+    },
+    {
+      title: "Stream for Entrepreneurs",
+      scrollTo: estreamRef,
+      subItems: [
+        {
+          title: "Alberta Graduate Entrepreneur Stream",
+          scrollTo: eGraduateskilledRef,
+        },
+        {
+          title: "Alberta Foreign Graduate Entrepreneur Stream",
+          scrollTo: eForeignRef,
+        },
+        {
+          title: "Alberta Farm Stream",
+          scrollTo: eStreamRef,
+        },
+        {
+          title: "Alberta Rural Entrepreneur Stream",
+          scrollTo: eRuralRef,
+        },
+      ],
+    },
+  ];
+
   return (
     <div
       style={{
-        background: "#E0E0E0",
+        background: "#EEE",
       }}
     >
-      <div className="AboutUsHeader">
-        <p className="link">
-          <a href="/">Home</a>
-          {" > "}Immigrate
-          {" > "}
-          <Link to="/immigrate/provincial-nominee-program">
-            Provincial Nominee Program
-          </Link>
-          {" > "}Alberta Immigrant Nominee Program
-        </p>
-        <div className="header-content">
-          <h1 className="heading-about">Alberta Immigrant Nominee Program</h1>
+      <div className="pages-content-wrapper">
+
+        <SiteMapMenu
+          type="I"
+          h1="Provincial Nominee Program"
+          h2="Alberta Immigrant Nominee Program"
+        ></SiteMapMenu>
+
+        <div class="pages-content-div">
+          <div class="pages-content-text-wrapper ">
+            <div className="pages-current-page-link">
+              <a href="/">Home</a>
+              {" > "}Provincial Nominee Program
+              {" > "} Alberta Provincial Nominee Program
+            </div>
+            <div class="pages-header">
+            Alberta Provincial Nominee Program (PNP)
+            </div>
+
+            <div class="pages-paragraph space-fix intro-size-fix">
+            Alberta is a province located in western Canada, known for its diverse geography, economy, and cultural significance. Alberta is situated in the western part of Canada and is bordered by British Columbia to the west, Saskatchewan to the east, and the Northwest Territories to the north. 
+              <div className="mt-5">
+              Alberta’s Provincial Nominee Program (PNP), the Alberta Advantage Immigration Program (AAIP), offers multiple streams to attract skilled workers and entrepreneurs to the province for its economic growth. The program seeks applicants with the skills required to fill job gaps or those interested in starting/acquiring a business in Alberta. Candidates also need to demonstrate their ability to provide for their families. 
+              </div>
+              <div className="mt-5">
+              Alberta province nominates candidates for PR who can then apply for permanent residency in Canada through Immigration, Refugees, and Citizenship Canada (IRCC), which handles the final decision on the application. The AAIP is divided into 2 based on two primary categories: skilled workers and entrepreneurs. 
+              </div>
+            </div>
+            <div className="table-of-content-container">
+              <NestedTableOfContent data={tableContentData} />
+            </div>
+
+            <div class="pages-header-2" ref={wstreamRef}>
+            Streams for Workers
+            </div>
+            <div className="pages-paragraph">
+              <div
+                style={{
+                  fontWeight: "bold",
+                  fontSize: "20px",
+                  margin: "20px 0",
+                }}
+              >
+              Alberta Opportunity Stream (AOS) 
+                </div>
+                <div className="">
+                The Alberta Opportunity Stream is aimed at foreign workers already in Alberta with a valid work permit. The stream was launched by the province in June 2018.
+                </div>
+           
+                <ul className="my-3">
+
+                  <li>
+                  It focuses on candidates who are working in high-demand occupations across various sectors such as health care, trades, and transportation. 
+                  </li>
+                  <li>
+                  Applicants must have a job offer from an Alberta employer, meet specific language proficiency levels, and demonstrate work experience in the province. 
+                  </li>
+                  <li>
+                  It’s an ideal option for those already working in Alberta looking to transition to permanent residency.
+                  </li>
+
+                </ul>
+            
+
+              <div
+                style={{
+                  fontWeight: "bold",
+                  fontSize: "20px",
+                  margin: "20px 0",
+                }}
+              >
+           Alberta Express Entry Stream 
+               </div>
+               <div className="mt-5">This stream aligns with the federal Express Entry system, allowing the province to select active candidates from the Express Entry pool who have strong ties to Alberta or are working in key industries that contribute to the province's economic growth. </div>
+               <ul className="my-3">
+                  <li>
+                  Those with a job offer, work experience in in-demand fields, or family ties in Alberta have a better chance of receiving a nomination. 
+                  </li>
+                  <li>
+                  Alberta also focuses on candidates with lower CRS (Comprehensive Ranking System) scores, making it more accessible than other provinces.
+
+                  </li>
+              
+                </ul>
+
+                <div className='mt-5'>Express Entry candidates who receive a provincial nomination through this stream gain 600 additional points to their Comprehensive Ranking System (CRS) score, ensuring they will receive an Invitation to Apply (ITA) for permanent residence in the next Express Entry draw.</div>
+            
+
+              <div
+                style={{
+                  fontWeight: "bold",
+                  fontSize: "20px",
+                  margin: "20px 0",
+                }}
+              >
+
+Alberta Accelerated Tech Pathway 
+             </div>
+             <div className="mt-5">This stream offers a fast-track to permanent residency for highly skilled tech professionals with job offers in Alberta's growing technology sector. </div>
+               <ul className="my-3">
+                  <li>
+                  Eligible occupations span areas like software development, artificial intelligence, and data analysis. 
+                  </li>
+                  <li>
+                  Candidates must be in the Express Entry pool and meet federal Express Entry criteria. 
+                  </li>
+
+                  <li>
+                  Expedited processing is available for those working in one of 38 in-demand tech occupations or employed by an Alberta-based tech company. 
+                  </li>
+                  <li>
+                  Nomination under this stream can significantly enhance their chances of securing permanent residency.
+                  </li>
+                 
+                </ul>
+
+                <div
+                style={{
+                  fontWeight: "bold",
+                  fontSize: "20px",
+                  margin: "20px 0",
+                }}
+              >
+
+Alberta Tourism and Hospitality Stream 
+             </div>
+             <div className="mt-5">
+             Aimed at addressing labor shortages in Alberta's tourism and hospitality sectors, this stream offers a pathway to permanent residency for individuals with experience in occupations such as chefs, food service supervisors, and hotel managers. Candidates must have a valid job offer, work experience in Alberta, and meet language and educational requirements.
+              </div>
+            
+            </div>
+
+            <div class="pages-header-2" ref={estreamRef}>
+            Stream for Entrepreneurs
+            </div>
+            <div className="pages-paragraph">
+              <div
+                style={{
+                  fontWeight: "bold",
+                  fontSize: "20px",
+                  margin: "20px 0",
+                }}
+              >
+       Alberta Graduate Entrepreneur Stream 
+                </div>
+                <div className="mt-5">
+                The Alberta Graduate Entrepreneur Stream is designed for recent international graduates from Alberta post-secondary institutions.
+                </div>
+           
+                <ul className="my-3">
+
+                  <li>
+                  It offers an opportunity to start or buy a business in the province.
+                  </li>
+                  <li>
+                  It uses a points based EOI or Expression of Interest system to rank the applicants.
+                  </li>
+                  <li>
+                  Applicants must have completed at least two years of full-time study, meet language requirements, and present a viable business plan. 
+                  </li>
+                  <li>
+                  This pathway aims to retain entrepreneurial talent within Alberta by fostering new business ventures that contribute to the economy.
+                  </li>
+
+                </ul>
+            
+
+              <div
+                style={{
+                  fontWeight: "bold",
+                  fontSize: "20px",
+                  margin: "20px 0",
+                }}
+              >
+       Alberta Foreign Graduate Entrepreneur Stream 
+               </div>
+               <div className="mt-5">The Foreign Entrepreneur Stream is tailored for recent graduates from outside Canada who have the skills and entrepreneurial spirit to start a business in Alberta. </div>
+               <ul className="my-3">
+                  <li>
+                  Candidates who meet the stream's requirements can create a profile via AAIP’s online portal and submit a Business Application.
+                  </li>
+                  <li>
+                  Candidates must have completed their studies outside Canada within the past 10 years, possess a minimum equity investment, and provide a detailed business plan that outlines job creation and economic benefits for Alberta. 
+
+                  </li>
+
+                  <li>
+                  This stream seeks to attract innovative entrepreneurs to the province.
+                  </li>
+              
+                </ul>
+
+              <div
+                style={{
+                  fontWeight: "bold",
+                  fontSize: "20px",
+                  margin: "20px 0",
+                }}
+              >
+
+Alberta Farm Stream 
+             </div>
+
+             <div className="mt-5">This Alberta Farm Stream pathway is designed for experienced farmers who intend to establish or purchase a farm in Alberta. </div>
+
+               <ul className="my-3">
+                  <li>
+                  Applicants must demonstrate proven farm management skills, present a solid business plan, and show that they have the financial capacity to operate the farm. 
+                  </li>
+                  <li>
+                  The stream specifically targets individuals who can contribute to Alberta’s agricultural sector, particularly in rural areas.
+                  </li>
+                 
+                </ul>
+
+                <div
+                style={{
+                  fontWeight: "bold",
+                  fontSize: "20px",
+                  margin: "20px 0",
+                }}
+              >
+Alberta Rural Entrepreneur Stream 
+             </div>
+
+             <ul className="my-3">
+                  <li>
+                  Applicants must conduct an exploratory visit to the rural community, meet minimum net worth and investment criteria, and have a strong business plan.  
+                  </li>
+                  <li>
+                  The goal is to boost economic activity in Alberta’s rural regions by attracting foreign entrepreneurs.
+                  </li>
+                 
+                </ul>
+
+             <div className="my-5">
+             Candidates meeting the Alberta Advantage Immigration Program (AAIP) business stream criteria can register a profile and submit their Business Application via the AAIP's online portal for a chance to establish a business in Alberta and eventually apply for permanent residency. Starting in June 2024, AAIP introduced monthly intake periods, allowing multiple opportunities for submission each year, rather than a one-time application window. Application acceptance closes once monthly intake limits are reached, with upcoming dates available on the official AAIP website. 
+              </div>
+            
+            </div>
+
+            <div>
+              {" "}
+              <div className="my-5">
+                In response to ongoing labor shortages, Manitoba implemented a
+                public policy in 2024 allowing temporary foreign workers who are
+                awaiting nomination to extend their work permits. This policy
+                covers over 6,000 individuals, allowing them to remain employed
+                while awaiting nomination, thereby minimizing labor market
+                disruptions. Additional updates also emphasize a focus on
+                in-demand occupations, ensuring that newcomers meet specific
+                needs in healthcare, agriculture, and technology sectors. This
+                focus on targeted skills underscores Manitoba’s commitment to
+                strengthening its economy through tailored immigration
+                policies​.
+              </div>
+            </div>
+          </div>
+          <ReadyToStartCard />
         </div>
       </div>
-      <h2 className="pages-content-div">
-        It supports Alberta’s economic growth by attracting and retaining
-        individuals who have the abilities and skills to cater to the labour
-        market scarcity in Alberta. The AINP nominates eligible candidates to
-        apply for Permanent Residency, with the intention of staying in Alberta,
-        to the IRCC (Immigrants, Refugees, and Citizenship Canada).
-        <br />
-        <br />
-        The province operates several immigration streams divided among two
-        categories:
-        <br />
-        <br />
-        <bold>Workers</bold>
-        <br />
-        <br />
-        <ul>
-          <li>Alberta Opportunity Stream</li>
-          <li>Alberta Express Entry</li>
-          <li>Alberta Accelerated Tech Pathway</li>
-        </ul>
-        <br />
-        <bold>Entrepreneurs</bold>
-        <br />
-        <br />
-        <ul>
-          <li>Farm Stream</li>
-          <li>Graduate Entrepreneur Stream</li>
-          <li>Foreign Graduate Entrepreneur Stream</li>
-        </ul>
-        <br />
-        <bold>Alberta Opportunity Stream</bold>
-        <br />
-        <br />
-        The Alberta Opportunity Stream was launched in June 2018. This stream
-        targets foreign nationals who are already working in Alberta and who
-        have an official offer of employment from their Alberta employer to
-        continue working full-time in the province. Candidates for this stream
-        must meet a range of eligibility requirements regarding work experience,
-        job offer, language proficiency, and education.
-        <br />
-        <br />
-        <bold>Alberta Express Entry Stream</bold>
-        <br />
-        <br />
-        The Alberta Express Entry stream was launched in June 2018. The stream
-        allows the province to offer provincial nominations to select candidates
-        with active profiles in the federal Express Entry system. Alberta will
-        automatically consider profiles in the federal Express Entry pool. While
-        the exact selection criteria are unknown, AAIP states that it will seek
-        candidates who demonstrate strong ties to Alberta and who can support
-        regional economic development and diversification.
-        <br />
-        <br />
-        Express Entry candidates who receive a provincial nomination through
-        this stream will a 600-point increase to their Comprehensive Ranking
-        System (CRS) Score, virtually guaranteeing they will receive an
-        Invitation to Apply (ITA) for Canadian permanent residence in the
-        subsequent Express Entry draw.
-        <br />
-        <br />
-        <bold>Alberta Accelerated Tech Pathway</bold>
-        <br />
-        <br />
-        The Accelerated Tech Pathway allows certain Express Entry candidates
-        with an Albertan job offer at a company in a tech industry or in an
-        eligible tech role to apply for nomination with expedited processing.
-        <br />
-        <br />
-        To be eligible for the Alberta Accelerated Tech Pathway, candidate must
-        be eligible under the Alberta Express Entry stream. Candidates must also
-        be working in one of 38 tech occupations identified as in-demand by the
-        AAIP, or hold a job offer with an Alberta employer that is part of an
-        eligible tech industry.
-        <br />
-        <br />
-        <bold>AAIP Farm Stream</bold>
-        <br />
-        <br />
-        The Alberta Farm Stream targets foreign nationals with extensive
-        experience owning and operating a farm who have the financial resources
-        to launch a new farming operation in Alberta. Candidates for this stream
-        must consult with the province and submit a highly detailed proposal
-        outlining their plan to launch a new agricultural farm in Alberta.
-        <br />
-        <br />
-        <bold>Graduate Entrepreneur</bold>
-        <br />
-        <br />
-        The Graduate Entrepreneur stream offers a pathway to permanent residence
-        to international graduates from Alberta post-secondary institutions that
-        wish to start and operate a business in the province. This stream uses a
-        points-based Expression of Interest to rank system candidates. Those
-        with the highest-ranking points will be invited to submit a detailed
-        Business Application. Successful applicants will be issued a nomination
-        by the province, which can be used to apply for Canadian permanent
-        residence.
-        <br />
-        <br />
-        <bold>Foreign Graduate Entrepreneur Stream</bold>
-        <br />
-        <br />
-        The Foreign Entrepreneur Stream offers a pathway to permanent residence
-        to recent graduates who have completed a foreign post-secondary
-        credential and who have an intention of starting and operating a
-        business in the province of Alberta. Candidates who meet the minimum
-        stream requirements can register a profile using AAIP’s online portal
-        and submit a Business Application for the chance to start a business in
-        Alberta, and eventually apply for permanent residence.
-      </h2>
     </div>
   );
 }

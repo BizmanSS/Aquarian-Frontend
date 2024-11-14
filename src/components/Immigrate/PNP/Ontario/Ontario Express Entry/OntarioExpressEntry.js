@@ -1,195 +1,240 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useRef } from "react";
+
+import NestedTableOfContent from "../../../../shared/NestedTableOfContent.jsx";
+import FaqBox from "../../../../shared/NestedFaqBox.jsx";
+import ReadyToStartCard from "../../../../shared/ReadyToStart.jsx";
+import SiteMapMenu from "../../../../globalComponents/Sidebar/SiteMapMenu.jsx";
+
+const faqItems = [
+  {
+    question: "What is a Notification of Interest (NOI)?",
+    answer:
+      "An NOI indicates that Ontario is interested in your profile. You’ll receive this through your IRCC account, inviting you to apply to the Ontario Immigrant Nominee Program (OINP). However, an NOI does not guarantee nomination.",
+  
+  },
+  {
+    question:
+      "How do I apply if I receive an NOI?",
+    answer:
+      " Submit an online application to the OINP within 45 days, showing you meet all stream requirements listed in your Express Entry profile. Misleading or incorrect information can result in denial and penalties.",
+    
+  },
+  {
+    question:
+      " What happens if I receive an ITA from IRCC while my OINP application is under review?",
+    answer:
+      "You must choose between the IRCC ITA and OINP nominations. If you accept the ITA, Ontario cannot nominate you.",
+  },
+  
+];
+
 export default function OntarioExpressEntry() {
+  const aboutRef = useRef(null);
+
+  const eligibilityRef = useRef(null);
+  const benefitRef = useRef(null);
+  const faqRef = useRef(null);
+  const requireRef = useRef(null);
+
+  const tableContentData = [
+    {
+      title: "Ontario Human Capital Priorities Stream",
+      scrollTo: aboutRef,
+    },
+    {
+      title: "Ontario French-Speaking Skilled Worker Stream",
+      scrollTo: benefitRef,
+    },
+    {
+      title: "Ontario Skilled Trades Stream",
+      scrollTo: requireRef,
+    },
+    {
+      title: "Application for Ontario Express Entry",
+      scrollTo: eligibilityRef,
+    },
+
+    {
+      title: "FAQs",
+      scrollTo: faqRef,
+    },
+  ];
+
   return (
     <div
       style={{
-        background: "#E0E0E0",
+        background: "#EEE",
       }}
     >
-      <div className="AboutUsHeader">
-        <p className="link">
-          <a href="/">Home</a>
-          {" > "}Immigrate
-          {" > "}
-          <Link to="/immigrate/provincial-nominee-program">
-            Provincial Nominee Program
-          </Link>
-          {" > "}
-          <Link to="/immigrate/provincial-nominee-program/ontario">
-            Ontario
-          </Link>
-          {" > "}Ontario Express Entry
-        </p>
-        <div className="header-content">
-          <h1 className="heading-about">Ontario Express Entry</h1>
+      <div className="pages-content-wrapper">
+        {/* <SiteMapMenu type="I" h1="Permanent Residency"></SiteMapMenu> */}
+        <SiteMapMenu
+          type="I"
+          h1="Provincial Nominee Program"
+          h2="Ontario"
+          h3="Ontario Express Entry"
+        ></SiteMapMenu>
+
+        <div class="pages-content-div">
+          <div class="pages-content-text-wrapper ">
+            <div className="pages-current-page-link">
+              <a href="/">Home</a>
+              {" > "}Immigrate
+              {" > "}Provincial Nominee Program
+              {" > "}Ontario
+              {" > "}Ontario Express Entry
+            </div>
+            <div class="pages-header">Ontario Express Entry</div>
+
+            <div class="pages-paragraph space-fix intro-size-fix">
+              The Ontario Express Entry system includes 3 immigration streams
+              for permanent residency for skilled workers who meet Ontario’s
+              labor needs. It is a part of the Ontario Immigrant Nominee Program
+              (OINP). Ontario’s Express Entry streams target skilled workers,
+              French-speaking skilled workers, and trades professionals through
+              Canada’s federal Express Entry system. To qualify for a
+              Notification of Interest (NOI) from the Ontario Immigrant Nominee
+              Program (OINP), candidates must have a valid Express Entry
+              profile.
+            </div>
+            <div className="table-of-content-container">
+              <NestedTableOfContent data={tableContentData} />
+            </div>
+
+            <div class="pages-header-2" ref={aboutRef}>
+              Ontario Human Capital Priorities Stream
+            </div>
+            <div className="pages-paragraph">
+              The Human Capital Priorities Stream targets skilled professionals
+              with a background in high-demand occupations in Ontario. This
+              stream enables candidates in the Express Entry pool, particularly
+              those meeting the requirements of the Federal Skilled Worker
+              Program (FSWP) or the Canadian Experience Class (CEC), to gain a
+              provincial nomination.
+              <div className="my-2 font-bold">Eligibility Criteria</div>
+              <div>
+                Candidates must have a Canadian bachelor's degree, master's, or
+                PhD or an equivalent foreign credential. Other eligibility
+                criteria include:
+              </div>
+              <ul className="my-3">
+                <li>
+                  At least one year of continuous, full-time work experience in
+                  a skilled occupation that aligns with FSWP or CEC
+                  requirements.
+                </li>
+                <li>
+                  Canadian Language Benchmark (CLB) level 7 or higher in either
+                  English or French.
+                </li>
+              </ul>
+              This stream frequently issues Notifications of Interest (NOIs) to
+              Express Entry candidates who have the skills and experience that
+              Ontario needs. Tech Draws are also conducted within this stream,
+              inviting candidates in tech fields such as software engineering
+              and computer programming.
+            </div>
+
+            <div className="note-cec">
+              <div>
+                <span style={{ fontWeight: "bold" }}>Note:</span> Dicover Your
+                CRS Score to Boost Your Immigration Journey!
+              </div>
+              <button className="button-cec">Calculate Now</button>
+            </div>
+
+            <div className="pages-header-2" ref={benefitRef}>
+              Ontario French-Speaking Skilled Worker Stream
+            </div>
+            <div className="pages-paragraph">
+              The French-speaking Skilled Worker Stream is for bilingual
+              French-speaking candidates who wish to settle in Ontario. This
+              stream emphasizes Ontario’s goal to attract bilingual talent who
+              can contribute to the province's cultural diversity and meet its
+              labor market needs.
+              <div className="my-2 font-bold">Eligibility Criteria</div>
+              <ul className="my-2 ml-3">
+                <li>
+                  Canadian degree (bachelor's, master's, or PhD) or an
+                  equivalent foreign credential.
+                </li>
+
+                <li>
+                  One year of continuous, full-time employment in a skilled
+                  position under either the FSWP or CEC criteria.
+                </li>
+
+                <li>
+                  CLB level 7 in French and at least CLB level 6 in English.
+                </li>
+
+                <li>
+                  Candidates must show intent to reside in Ontario and have
+                  settlement funds.
+                </li>
+              </ul>
+              The French-speaking skilled Worker Stream provides a unique
+              advantage for French-speaking Express Entry candidates, enhancing
+              Ontario’s bilingual workforce.
+            </div>
+
+            <div class="pages-header-2" ref={requireRef}>
+              Ontario Skilled Trades Stream
+            </div>
+            <div class="pages-paragraph">
+              The Ontario Skilled Trades Stream focuses on skilled tradespeople
+              residing in Ontario who work in high-demand sectors. This stream
+              is designed to meet the needs of the province’s trade industry,
+              making it an attractive option for candidates with relevant
+              experience in trade occupations.
+              <div className="my-2 font-bold">Eligibility Criteria</div>
+              <ul className="my-2 ml-3">
+                <li>A job offer is not required for this stream.</li>
+
+                <li>
+                A minimum of one year of full-time work experience in Ontario in an eligible skilled trade within National Occupational Classification (NOC) groups 73, 82, 83, and 93.
+                </li>
+
+                <li>
+                Minimum CLB level 5 in English or French.
+                </li>
+              </ul>
+              This stream allows Ontario to retain experienced tradespeople essential to its economy, especially in construction, maintenance, and manufacturing industries.
+             
+            </div>
+
+            <div class="pages-header-2" ref={eligibilityRef}>
+            Application for Ontario Express Entry
+            </div>
+            <div className="pages-paragraph">
+            To apply for Ontario’s Express Entry streams, begin by creating a profile in the IRCC's Express Entry system, where you’ll complete a questionnaire to determine which programs you qualify for. Key steps include:
+              <ul className="my-2 ml-3">
+                <li>
+                Complete a language test
+                </li>
+
+                <li>
+                Obtain an Educational Credential Assessment (if educated outside Canada)
+                </li>
+                <li>
+                Identify your NOC code based on work experience
+                </li>
+              </ul>
+              When completing your Express Entry profile, select "Ontario" or "All Provinces and Territories" to express interest in Ontario immigration. Be sure to provide accurate information, as errors may lead to application rejections or ineligibility.
+
+              <div className="mt-3">
+              To qualify for Ontario’s streams, you must meet the Federal Skilled Worker Program or <a href="https://www.iaquarian.com/immigrate/express-entry/canadian-experience-class" className="text-blue-700 font-bold" >Canadian Experience Class</a> requirements, indicating which program you are applying under in the OINP application. An Express Entry profile alone does not guarantee an invitation to apply through the OINP.
+              </div>
+            </div>
+
+          
+          </div>
+          <div ref={faqRef}>
+            <FaqBox faqItems={faqItems} />
+            <ReadyToStartCard />
+          </div>
         </div>
       </div>
-      <h2 className="pages-content-div">
-        Ontario Express Entry Streams are a collection of immigration streams of
-        the Ontario Immigrant Nominee Program (OINP). Operated by the province
-        of Ontario, this Provincial Nominee Program (PNP), encompasses three
-        immigration streams targeting foreign nationals who demonstrate a
-        collection of skills, experiences, and/or abilities which make them
-        ideal candidates for Ontario’s labour force.
-        <br />
-        <br />
-        Ontario Express Entry Stream includes the following streams:
-        <br />
-        <br />
-        <sp>Ontario Human Capital Priorities - Express Entry </sp>
-        <br />
-        <br />
-        Ontario Human Capital Priorities is one of the streams of Ontario Human
-        Capital. This stream is aligned with the federal Express Entry system,
-        so candidates must have an active Express Entry profile to be
-        considered. Ontario selects exceptional candidates from the Express
-        Entry pool and invites them to submit applications to the PNP.
-        <br />
-        <br />
-        <sp>Ontario French-Speaking Skilled Worker - Express Entry </sp>
-        <br />
-        <br />
-        Ontario French-Speaking Skilled Worker is one of the streams of Ontario
-        Human Capital. This stream is aligned with the federal Express Entry
-        system, so candidates must have an active Express Entry profile to be
-        considered. Ontario selects candidates from the Express Entry pool who
-        have valid language tests demonstrating intermediate proficiency in both
-        English and French. Those selected will be invited to submit an
-        application to the PNP.
-        <br />
-        <br />
-        <sp>Ontario Skilled Trades - Express Entry</sp>
-        <br />
-        <br />
-        Ontario Skilled Trades is one of the streams of Ontario Human Capital.
-        This stream is aligned with the federal Express Entry system, so
-        candidates must have an active Express Entry profile to be considered.
-        Ontario selects candidates from the Express Entry pool who demonstrate
-        recent work experience obtained within Ontario in one of Canada’s
-        skilled trade occupations. Those selected by the province will be
-        invited to submit an application to the PNP.
-        <br />
-        <br />
-        Applicants who are successful through any of the Ontario Human Capital
-        streams will receive an official provincial nomination from Ontario.
-        This provincial nomination makes applicants eligible to apply for
-        Canadian permanent resident status.
-        <br />
-        <br />
-        <sp>Before you apply: Create a profile in the Express Entry system</sp>
-        <br />
-        <br />
-        To embark on your immigration journey to Ontario through the Express
-        Entry system, you’ll first need to create a profile in the IRCC’s
-        Express Entry System. This profile is a crucial step to receive a
-        notification of interest, which is essential for applying to Ontario’s
-        Express Entry streams. Your process commences with the completion of a
-        questionnaire designed by IRCC to determine the immigration programs
-        that best suit your circumstances.
-        <br />
-        <br />
-        Within your Express Entry profile, you will need to indicate your
-        interest in immigration to Ontario by selecting either Ontario or All
-        Provinces and Territories. It’s imperative to provide accurate and
-        truthful information in your profile. Inaccuracies could lead to the
-        rejection of your OINP application, withdrawal of your nomination, or
-        even a finding of inadmissibility, along with a potential five-year ban
-        on applying for immigration to Canada.
-        <br />
-        <br />
-        Furthermore, to be eligible for Ontario’s Express Entry streams, you
-        must meet the requirements of one of the federal programs, either the
-        Federal Skilled Worker Program or the Canadian Experience Class. And
-        when you submit your application to the OINP, you must specify the
-        federal program under which you wish to be assessed. Please note that if
-        you are applying under the Skilled Trades stream, you must meet the
-        criteria of the Canadian Experience Class.
-        <br />
-        <br />
-        <bold>Important Note: </bold>An Express Entry profile does not guarantee
-        that you will be invited to apply to the OINP
-        <br />
-        <br />
-        <sp>Notifications of interest </sp>
-        <br />
-        <br />
-        We search IRCC’s Express Entry pool to find candidates who may meet the
-        criteria of one of Ontario’s Express Entry streams. If we identify you
-        as a candidate, we will send you a notification of interest through your
-        IRCC online account inviting you to submit an online application to the
-        OINP.If you are invited to apply, you will receive a Notification of
-        Interest in your IRCC online account. Important Note: A notification of
-        interest does not guarantee you will receive a certificate of
-        nomination.
-        <br />
-        <br />
-        <bold>How to apply?</bold>
-        <br />
-        <br />
-        If you receive a Notification of Interest, that means the province is
-        inviting you to submit an online application to the OINP. Then you must:
-        <br />
-        <br />
-        <ul>
-          <li>
-            Demonstrate that you meet all stream requirements at the time of
-            your application, including that you had the qualifications that you
-            claimed in your Express Entry profile.If it is determined that any
-            information provided in your Express Entry profile is not accurate,
-            is incorrect, or misleading, your application may be denied, and you
-            may be subject to penalties or prosecution.
-          </li>
-          <li>
-            Submit your application within<bold> 45 calendar days </bold>from
-            the date you receive the notification.
-          </li>
-        </ul>
-        <br />
-        <sp>Maintain an Updated Express Entry profile</sp>
-        <br />
-        <br />
-        To be eligible for nomination through Ontario’s Express Entry system,
-        you must maintain a valid profile throughout the application process. If
-        your profile expires while your application is being processed, you are
-        required to promptly notify the province. This notification should
-        include specific documentation, such as a copy of the letter from
-        Immigration, Refugees and Citizenship Canada (IRCC) acknowledging your
-        new Express Entry profile and a copy of the letter from IRCC explaining
-        the ineligibility of your old profile. Failing to inform the program
-        about your new profile will lead to the return of your application as
-        incomplete and a refund of your application fee.
-        <br />
-        <br />
-        Additionally, if you receive an Invitation to Apply (ITA) for permanent
-        residence from IRCC while your application is under review by the OINP,
-        your profile will no longer be available for nomination by Ontario. In
-        such a situation, you must make a choice between rejecting the ITA from
-        IRCC or withdrawing your application with the OINP. If you opt to reject
-        the ITA, you should also contact the province government.
-        <br />
-        <br />
-        <sp>What Happens If I Am Nominated?</sp>
-        <br />
-        <br />
-        If you are selected, you’ll receive a nomination approval letter and a
-        nomination certificate via email. These details will be recorded in the
-        IRCC Express Entry System, and you’ll also be notified of your
-        nomination through your IRCC online account. You’ll have 30 days to
-        either accept or decline the nomination in the Express Entry System. If
-        accepted, you’ll gain an additional 600 points, increasing your chances
-        of receiving an invitation to apply for permanent residence from IRCC in
-        the subsequent invitation round.
-        <br />
-        <br />
-        After accepting, you’ll have 60 days to submit your application for
-        permanent residence to IRCC, which should include your nomination
-        approval letter and nomination certificate. It’s crucial to note that a
-        nomination does not guarantee the approval of your application for
-        permanent residence with IRCC. Should your original Express Entry
-        profile become ineligible, you may request a transfer of your nomination
-        to a new Express Entry profile.
-      </h2>
     </div>
   );
 }

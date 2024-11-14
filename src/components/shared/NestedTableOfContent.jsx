@@ -7,7 +7,7 @@ const TableOfContents = ({ data }) => {
 
     if (ref.current) {
       
-        const offsetPosition = ref.current.offsetTop - 20; // Adjusting for 20px above
+        const offsetPosition = ref.current.offsetTop - 40; // Adjusting for 20px above
         window.scrollTo({
           top: offsetPosition,
           behavior: 'smooth',

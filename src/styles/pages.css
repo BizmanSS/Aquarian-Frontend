@@ -18,7 +18,7 @@
 }
 
 .pages-content-text-wrapper {
-  padding-right: 10rem;
+  padding-right: 7rem;
   padding-left: 5rem;
   font-family: Poppins;
   font-size: 20px;
@@ -29,7 +29,7 @@
 }
 
 .pages-content-text-wrapper-direct-pathway {
-  padding-right: 10rem;
+  padding-right: 5rem;
   padding-left: 5rem;
   font-family: Poppins;
   font-size: 15px;
@@ -157,6 +157,10 @@
   .pages-content-text-wrapper {
     margin-left: auto;
     margin-right: auto;
+    padding-right: 2rem;
+    padding-left: 2rem;
+  }
+  .pages-content-text-wrapper-direct-pathway {
     padding-right: 2rem;
     padding-left: 2rem;
   }
