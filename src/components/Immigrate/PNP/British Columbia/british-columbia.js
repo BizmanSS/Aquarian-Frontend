@@ -1,98 +1,125 @@
 import React from "react";
-import { Link } from "react-router-dom";
-export default function BritishColumbia() {
+
+import FaqBox from "../../../shared/NestedFaqBox.jsx";
+import ReadyToStartCard from "../../../shared/ReadyToStart.jsx";
+import SiteMapMenu from "../../../globalComponents/Sidebar/SiteMapMenu.jsx";
+
+export default function BritishColumbiaPNP() {
   return (
     <div
       style={{
-        background: "#E0E0E0",
+        background: "#EEE",
       }}
     >
-      <div className="AboutUsHeader">
-        <p className="link">
-          <a href="/">Home</a>
-          {" > "}Immigrate
-          {" > "}
-          <Link to="/immigrate/provincial-nominee-program">
-            Provincial Nominee Program
-          </Link>
-          {" > "}
-          British Columbia
-        </p>
-        <div className="header-content">
-          <h1 className="heading-about">British Columbia</h1>
+      <div className="pages-content-wrapper">
+        <SiteMapMenu
+          type="I"
+          h1="Provincial Nominee Program"
+          h2="British Columbia"
+        ></SiteMapMenu>
+
+        <div class="pages-content-div">
+          <div class="pages-content-text-wrapper ">
+            <div className="pages-current-page-link">
+              <a href="/">Home</a>
+              {" > "}Provincial Nominee Program
+              {" > "}British Columbia
+            </div>
+            <div class="pages-header">British Columbia – PNP</div>
+
+            <div class="pages-paragraph space-fix intro-size-fix">
+              The British Columbia Provincial Nominee Program (BC PNP) is a key
+              immigration pathway for individuals seeking to settle in the BC
+              province of Canada. The province is highly popular for its
+              immigration programs due to its labor force needs and economic
+              growth. This program is designed to attract skilled workers,
+              entrepreneurs, and graduates to contribute to the province’s
+              economy. It is designed to attract immigrants who are skilled
+              workers, entrepreneurs, and investors.
+            </div>
+
+            <div class="pages-header-2">British Columbia Skilled Worker</div>
+            <div className="pages-paragraph">
+              The Skilled Worker stream is for experienced professionals who
+              have a valid job offer from a British Columbia employer.
+              <ul>
+                <li>
+                  Applicants must have relevant work experience, suitable
+                  qualifications, and proficiency in English or French.{" "}
+                </li>
+                <li>
+                  The stream is points-based, evaluating candidates on factors
+                  such as age, education, work experience, and a job offer's
+                  wage level.{" "}
+                </li>
+                <li>
+                  Recent draws in 2024 have seen minimum score thresholds around
+                  128-134 points​.
+                </li>
+              </ul>
+            </div>
+
+            <div class="pages-header-2">
+              British Columbia Entrepreneur Immigration
+            </div>
+            <div className="pages-paragraph">
+              The Entrepreneur Immigration stream is designed for individuals
+              looking to establish or invest in a business in British Columbia.
+              <ul>
+                <li>
+                  Applicants must have a viable business proposal, relevant
+                  experience in managing or owning a business, and a minimum net
+                  worth.
+                </li>
+                <li>
+                  The program encourages investment in sectors that support the
+                  local economy.
+                </li>
+                <li>
+                  This stream not only promotes economic growth but also fosters
+                  innovation and job creation across the province.
+                </li>
+              </ul>
+            </div>
+
+            <div className="pages-header-2">British Columbia Pilot Program</div>
+            <div className="pages-paragraph">
+              The BC Pilot Program includes initiatives aimed at attracting
+              workers in high-demand occupations.
+              <div>
+                <ul>
+                  <li>
+                    It includes streams for technology workers, healthcare
+                    professionals, and other sectors facing labor shortages.{" "}
+                  </li>
+                  <li>
+                    This program allows employers to fill critical positions
+                    quickly, contributing to the province's economic resilience.{" "}
+                  </li>
+                  <li>
+                    As the labor market continues to evolve, the BC Pilot
+                    Program adapts to meet the needs of both employers and
+                    prospective immigrants, ensuring a robust workforce for
+                    British Columbia.
+                  </li>
+                </ul>
+
+                <div className="my-5">
+                  The British Columbia Provincial Nominee Program (BC PNP)
+                  serves as a pathway for skilled workers and entrepreneurs
+                  seeking permanent residency in Canada. This program not only
+                  enhances the province's economy by attracting diverse talent
+                  but also offers applicants a structured points-based system to
+                  assess their eligibility.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <ReadyToStartCard />
+          </div>
         </div>
       </div>
-      <h2 className="pages-content-div">
-        The British Columbia Provincial Nominee Program (BC PNP), a Provincial
-        Nominee Program (PNP), is a collection of immigration pathways enabling
-        foreign nationals to become Canadian permanent residents in BC. The PNP
-        is strategically designed to attract immigrants in areas which will
-        benefit the province: skilled workers, workers in sectors with labour
-        shortages, entrepreneurs, and investors. The province operates several
-        immigration streams divided among two categories:
-        <br />
-        <br />
-        <ul>
-          <li>British Columbia Skills Immigration</li>
-          <li>British Columbia Entrepreneur Immigration</li>
-        </ul>
-        <br />
-        <bold>BC Skills Immigration</bold>
-        <br />
-        <br />
-        British Columbia Skills Immigration targets foreign nationals who have
-        the skills to become meaningful members of BC’s workforce. The pathways
-        within BC Skills Immigration emphasise immigrants who have employment
-        prospects in BC and who demonstrate the experience needed to secure and
-        maintain employment as BC residents.
-        <br />
-        <br />
-        <ul>
-          <li>British Columbia Skilled Worker</li>
-          <li>British Columbia Healthcare Professional</li>
-          <li>British Columbia International Graduate</li>
-          <li>British Columbia International Post-Graduate</li>
-          <li>British Columbia Entry Level and Semi-Skilled Worker (ELSS)</li>
-        </ul>
-        <br />
-        <sp>British Columbia Express Entry</sp>
-        <br />
-        <br />
-        Candidates are not required to be eligible for Express Entry to apply to
-        the BC Skills Immigration streams. However, most of the programs
-        contained within BC Skills Immigration offer an accelerated pathway to
-        permanent residence for eligible candidates who have an active Express
-        Entry profile. Refer to the application procedure of each stream to
-        determine whether it offers an Express Entry pathway.
-        <br />
-        <br />
-        <bold>BC Entrepreneur Immigration</bold>
-        <br />
-        <br />
-        British Columbia Entrepreneur Immigration targets foreign nationals and
-        foreign companies who have demonstrated track records of success in
-        business ownership, management, and investment. Individual entrepreneurs
-        with significant personal net worth and international corporations with
-        high annual revenues may immigrate to BC through the establishment of
-        new enterprises in the province.
-        <br />
-        <br />
-        <ul>
-          <li>British Columbia Entrepreneur</li>
-          <li>British Columbia Entrepreneur Regional Pilot</li>
-          <li>British Columbia Strategic Projects</li>
-        </ul>
-        <br />
-        <sp>BC PNP Tech</sp>
-        <br />
-        <br />
-        BC PNP Tech targets skilled foreign nationals working in one of BC’s
-        in-demand tech occupations. The Tech program is aligned with BC Skills
-        Immigration, so interested applicants should review the various streams
-        contained within the Skills Immigration category. BC PNP Tech enables
-        eligible foreign nationals to receive faster processing and additional
-        resources through applications.
-      </h2>
     </div>
   );
 }

@@ -263,18 +263,18 @@ const PermanentImigration = ({
   const handleFormSubmit = async () => {
 
     try {
-      const response = await axios.post(
-        `${process.env.REACT_APP_API}/permanent_immigration_form`,
-        JSON.stringify(formData),
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      // const response = await axios.post(
+      //   `${process.env.REACT_APP_API}/permanent_immigration_form`,
+      //   JSON.stringify(formData),
+      //   {
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //     },
+      //   }
+      // );
 
-      if (response.status === 200) {
-        const data = response.data;
+      if (true) {
+        // const data = response.data;
         toast.success("You have successfully submited your form!", {
           position: "top-center",
         });
@@ -816,7 +816,7 @@ const PermanentImigration = ({
                       // setSelectForm('Education');
                       if (validate(true)) {
                         setSelectForm("education-experience");
-
+                        setSubmitAttempted(false);
                         // redirect('#others');
                       }
                       const element = personalInfoRef.current;
@@ -2462,6 +2462,7 @@ const PermanentImigration = ({
                       setSubmitAttemptedTest(true);
                       if (validateLanguageTests(true)) {
                         setSelectForm("other");
+                        setSubmitAttemptedTest(false);
                       }
                       const element = personalInfoRef.current;
                       const elementPosition =
@@ -2676,6 +2677,7 @@ const PermanentImigration = ({
                       setSubmitAttemptedOther(true);
                       if (validateOthers(true)) {
                         handleFormSubmit();
+                        setSubmitAttemptedOther(false);
                       }
                     }}
                   >

@@ -1,216 +1,231 @@
-import React from "react";
-import { Link } from "react-router-dom";
-const TableFactor = () => {
-  const data = [
+import React, { useRef } from "react";
+
+import NestedTableOfContent from "../../../shared/NestedTableOfContent.jsx";
+import ReadyToStartCard from "../../../shared/ReadyToStart.jsx";
+import SiteMapMenu from "../../../globalComponents/Sidebar/SiteMapMenu.jsx";
+
+const entrepreneurData = [
+  {
+    criterion: "Net Worth",
+    requirement: "Minimum CAD 500,000",
+  },
+  {
+    criterion: "Business Experience",
+    requirement:
+      "Minimum 3 years as an owner or senior manager in the last 5 years",
+  },
+  {
+    criterion: "Investment",
+    requirement:
+      "Minimum CAD 250,000 in Winnipeg; CAD 150,000 outside Winnipeg ",
+  },
+  {
+    criterion: "Language Proficiency",
+    requirement: "Minimum CLB/NCLC 5",
+  },
+  {
+    criterion: "Minimum Ownership",
+    requirement: "33.33% ownership required ",
+  },
+];
+
+export default function Manitoba() {
+  const keyRef = useRef(null);
+  const skilledRef = useRef(null);
+  const InternationalRef = useRef(null);
+  const businessRef = useRef(null);
+
+  const tableContentData = [
     {
-      "NOC 2021 Code": "10010",
-      TEER: 0,
-      "NOC 2021 Title": "Financial managers",
-      "Minimum CLB": 7,
-      "NOC 2016 Equivalent": "0111",
-      "NOC 2016 Skill Type/Level": 0,
-    },
-    {
-      "NOC 2021 Code": "10011",
-      TEER: 0,
-      "NOC 2021 Title": "Human resources managers",
-      "Minimum CLB": 7,
-      "NOC 2016 Equivalent": "0112",
-      "NOC 2016 Skill Type/Level": 0,
-    },
-    {
-      "NOC 2021 Code": "10019",
-      TEER: 0,
-      "NOC 2021 Title": "Other administrative services managers",
-      "Minimum CLB": 7,
-      "NOC 2016 Equivalent": "0114",
-      "NOC 2016 Skill Type/Level": 0,
-    },
-    {
-      "NOC 2021 Code": "10020",
-      TEER: 0,
-      "NOC 2021 Title":
-        "Insurance, real estate and financial brokerage managers",
-      "Minimum CLB": 7,
-      "NOC 2016 Equivalent": "0121",
-      "NOC 2016 Skill Type/Level": 0,
-    },
-    {
-      "NOC 2021 Code": "10021",
-      TEER: 0,
-      "NOC 2021 Title": "Banking, credit and other investment managers",
-      "Minimum CLB": 7,
-      "NOC 2016 Equivalent": "0122",
-      "NOC 2016 Skill Type/Level": 0,
+      title: "Eligibility Requirements for AOS",
+      scrollTo: keyRef,
+      subItems: [
+        {
+          title: "Residency and Work Permit Requirement",
+          scrollTo: skilledRef,
+        },
+        {
+          title: "Occupation",
+          scrollTo: InternationalRef,
+        },
+        {
+          title: "Language Proficiency",
+          scrollTo: businessRef,
+        },
+      ],
     },
   ];
 
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>NOC 2021 Code</th>
-          <th>TEER</th>
-          <th>NOC 2021 Title</th>
-          <th>Minimum CLB</th>
-          <th>NOC 2016 Equivalent</th>
-          <th>NOC 2016 Skill Type/Level</th>
-        </tr>
-      </thead>
-      <tbody>
-        {data.map((item, index) => (
-          <tr key={index}>
-            <td>{item["NOC 2021 Code"]}</td>
-            <td>{item.TEER}</td>
-            <td>{item["NOC 2021 Title"]}</td>
-            <td>{item["Minimum CLB"]}</td>
-            <td>{item["NOC 2016 Equivalent"]}</td>
-            <td>{item["NOC 2016 Skill Type/Level"]}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  );
-};
-export default function Manitoba() {
-  return (
     <div
       style={{
-        background: "#E0E0E0",
+        background: "#EEE",
       }}
     >
-      <div className="AboutUsHeader">
-        <p className="link">
-          <a href="/">Home</a>
-          {" > "}Immigrate
-          {" > "}
-          <Link to="/immigrate/provincial-nominee-program">
-            Provincial Nominee Program
-          </Link>
-          {" > "}
-          Manitoba
-        </p>
-        <div className="header-content">
-          <h1 className="heading-about">Manitoba</h1>
+      <div className="pages-content-wrapper">
+
+        <SiteMapMenu
+          type="I"
+          h1="Provincial Nominee Program"
+          h2="Manitoba"
+        ></SiteMapMenu>
+
+        <div class="pages-content-div">
+          <div class="pages-content-text-wrapper ">
+            <div className="pages-current-page-link">
+              <a href="/">Home</a>
+              {" > "}Provincial Nominee Program
+              {" > "}Manitoba
+            </div>
+            <div class="pages-header">
+              Manitoba Provincial Nominee Program (MPNP)
+            </div>
+
+            <div class="pages-paragraph space-fix intro-size-fix">
+              Manitoba is a province located in central Canada, bordered by
+              Ontario to the east and Saskatchewan to the west. It serves as a
+              significant entry point to western Canada and is known for its
+              diverse communities and welcoming atmosphere for immigrants.
+              <div className="mt-5">
+                The Manitoba Provincial Nominee Program (MPNP) is an immigration
+                pathway that enables Manitoba to nominate individuals for
+                Canadian permanent residency if they meet the province’s
+                economic needs and intend to settle there. The program is
+                designed to attract skilled workers, entrepreneurs, and recent
+                graduates who can support Manitoba’s labor market. To apply,
+                candidates submit an Expression of Interest (EOI) and are
+                awarded points based on criteria like education, work
+                experience, language proficiency, and adaptability. Selected
+                candidates receive a Letter of Advice to Apply (LAA), moving
+                them closer to obtaining permanent residency through federal
+                processing.{" "}
+              </div>
+            </div>
+            <div className="table-of-content-container">
+              <NestedTableOfContent data={tableContentData} />
+            </div>
+
+            <div class="pages-header-2" ref={skilledRef}>
+              Key Streams of the Manitoba PNP
+            </div>
+            <div className="pages-paragraph">
+              <div
+                style={{
+                  fontWeight: "bold",
+                  fontSize: "20px",
+                  margin: "20px 0",
+                }}
+              >
+                Skilled Worker Stream
+                </div>
+                <div className="my-5">
+                  The Skilled Worker Stream targets individuals with skills
+                  relevant to Manitoba’s labor market needs. It has two main
+                  categories:
+                </div>
+                <strong>Skilled Workers in Manitoba (SWM)</strong>
+                <ul className="my-3">
+                  <li>
+                    This category is for candidates already working in Manitoba
+                    and having established connections within the province.
+                  </li>
+                  <li>
+                    Applicants must have an ongoing job in Manitoba and meet the
+                    EOI score requirements at the time of the application.
+                  </li>
+                  <li>
+                    Candidates in this category benefit from quicker integration
+                    into the workforce due to their familiarity with the
+                    provincial economy and labour conditions.
+                  </li>
+                </ul>
+                <strong>Skilled Workers Overseas (SWO)</strong>
+                <ul className="my-3">
+                  <li>
+                    This pathway is for skilled workers with job offers from a
+                    Manitoba employer or family connections within the province.
+                  </li>
+                  <li>
+                    Applicants undergo a points-based selection and are required
+                    to have skills in high-demand occupations.
+                  </li>
+                  <li>
+                    The SWO pathway fills gaps in the labor market, drawing
+                    skilled professionals from outside Canada to meet provincial
+                    needs​.
+                  </li>
+                </ul>
+            
+
+              <div
+                style={{
+                  fontWeight: "bold",
+                  fontSize: "20px",
+                  margin: "20px 0",
+                }}
+              >
+               International Education Stream
+               </div>
+               <div className="mt-5">The International Education Stream targets recent graduates from Manitoba’s post-secondary institutions who are ready to contribute to the province’s economy. They must have work experience from after or during their graduation program.</div>
+               <ul className="my-3">
+                  <li>
+                  Career Employment Pathway is for graduates who have secured full-time employment in Manitoba in fields relevant to the provincial economy.
+                  </li>
+                  <li>
+                  Graduate Internship Pathway is open to master's and doctoral graduates with research or innovative experience, making them ideal candidates for Manitoba’s R&D sectors.
+
+                  </li>
+                  <li>
+                  Student Entrepreneur Pilot allows graduates with entrepreneurial aspirations to establish businesses in Manitoba. This pathway offers support and resources to young entrepreneurs aiming to innovate within the province​
+
+                  </li>
+                </ul>
+            
+
+              <div
+                style={{
+                  fontWeight: "bold",
+                  fontSize: "20px",
+                  margin: "20px 0",
+                }}
+              >
+
+             Business Investor Stream
+             </div>
+             <div className="mt-5">Manitoba’s Business Investor Stream enables individuals with business expertise to invest in Manitoba’s economy, whether in rural or urban areas. This stream is divided into two categories:</div>
+               <ul className="my-3">
+                  <li>
+                  Entrepreneur Pathway is for entrepreneurs who plan to start or purchase a business in Manitoba. A Business Performance Agreement (BPA) is required, detailing the business’s operations and contributions to Manitoba’s economy.
+                  </li>
+                  <li>
+                  Farm Investor Pathway encourages apcategory must demonstrate significant farming expertise and a viable business plan for establishing a farm​
+                  </li>
+                  plicants with farm management experience to invest in Manitoba’s agricultural sector, especially in rural regions. Applicants in this 
+                </ul>
+            
+
+            </div>
+
+            <div>
+              {" "}
+              <div className="my-5">
+                In response to ongoing labor shortages, Manitoba implemented a
+                public policy in 2024 allowing temporary foreign workers who are
+                awaiting nomination to extend their work permits. This policy
+                covers over 6,000 individuals, allowing them to remain employed
+                while awaiting nomination, thereby minimizing labor market
+                disruptions. Additional updates also emphasize a focus on
+                in-demand occupations, ensuring that newcomers meet specific
+                needs in healthcare, agriculture, and technology sectors. This
+                focus on targeted skills underscores Manitoba’s commitment to
+                strengthening its economy through tailored immigration
+                policies​.
+              </div>
+            </div>
+          </div>
+          <ReadyToStartCard />
         </div>
       </div>
-      <h2 className="pages-content-div">
-        Located in one of Canada’s western Prairie provinces, Manitoba is a
-        province built upon generations of rich agricultural production.
-        Manitoba hosts the city of Winnipeg and is bordered on the east by the
-        province of Ontario and on the west by the province of Saskatchewan.
-        <br />
-        <br />
-        <ul>
-          <li>Manitoba In-Demand Occupations</li>
-        </ul>
-        <br />
-        <br />
-        <a href="/assessment" className="button">
-          {" "}
-          GET STARTED
-        </a>
-        <br />
-        <br />
-        <br />
-        The Manitoba Provincial Nominee Program (MPNP), a Provincial Nominee
-        Program (PNP), is a collection of immigration pathways enabling foreign
-        nationals to become Canadian permanent residents. The PNP is
-        strategically designed to attract immigrants in areas which will benefit
-        the province: skilled workers, workers in sectors with labour shortages,
-        recent graduates, and agricultural entrepreneurs.
-        <br />
-        <br />
-        The province operates several immigration streams divided among four
-        categories:
-        <br />
-        <br />
-        <ul>
-          <li>Skilled Workers in Manitoba (SWM)</li>
-          <li>Skilled Workers Overseas (SWO)</li>
-          <li>International Education Stream (IES)</li>
-          <li>Business Investor Stream (BIS)</li>
-        </ul>
-        <br />
-        <bold>Skilled Workers in Manitoba</bold>
-        <br />
-        <br />
-        Skilled Workers in Manitoba encompasses three immigration streams
-        designed to target workers who have already gained employment experience
-        or offers of employment in Manitoba. Candidates for this stream must be
-        currently working and living in Manitoba at the time of their
-        application, or, in certain cases, they may be invited to apply after
-        attending a recruitment session with MPNP overseas.
-        <br />
-        <br />
-        <ul>
-          <li>Skilled Workers in Manitoba Stream</li>
-          <li>Manitoba Experience Pathway </li>
-          <li>Employer Direct Recruitment Pathway </li>
-        </ul>
-        <br />
-        <bold>Skilled Workers Overseas</bold>
-        <br />
-        <br />
-        Skilled Workers Overseas encompasses three immigration streams designed
-        to target skilled workers who have the ability to join Manitoba’s work
-        force and adapt easily to life in the province. All streams of this
-        category prioritise workers who have experience in Manitoba’s In-Demand
-        Occupations.
-        <br />
-        <br />
-        <ul>
-          <li>Manitoba Skilled Workers Overseas Stream</li>
-          <li>Manitoba Express Entry Pathway</li>
-          <li>Manitoba Human Capital Pathway </li>
-        </ul>
-        <br />
-        <bold>International Education Stream</bold>
-        <br />
-        <br />
-        The International Education Stream (IES) targets recent graduates from
-        designated post-secondary institutions located in the province of
-        Manitoba. Candidates for this category must have some amount of work
-        experience or business management experience from the province, either
-        completed after graduation or during their program of study as part of
-        an internship or co-op. There are three pathways within this stream:
-        <br />
-        <br />
-        <ul>
-          <li>Manitoba Career Employment Pathway </li>
-          <li>Manitoba Graduate Internship Pathway</li>
-          <li>Manitoba Student Entrepreneur Pathway</li>
-        </ul>
-        <br />
-        <bold>Business Investor Stream</bold>
-        <br />
-        <br />
-        Manitoba’s Business Investor Stream (BIS) is a collection of two
-        immigration streams designed for individuals with business management
-        experience who wish to launch a new business endeavour in Manitoba. The
-        entrepreneurial stream is for general entrepreneurs with business
-        proposals in a range of sectors, while the farm investor stream is
-        designed specifically for entrepreneurs in the farming sector.
-        <br />
-        <br />
-        <ul>
-          <li>Manitoba Entrepreneur Pathway </li>
-          <li>Manitoba Farm Investor Pathway</li>
-        </ul>
-        <br />
-        <bold>Manitoba In-Demand Occupations</bold>
-        <br />
-        <br />
-        Several streams of the MPNP prefer candidates who have work experience
-        in one of the province’s in-demand occupations listed below. This is not
-        a mandatory requirement for all of these streams, but in certain cases
-        will give the candidate an advantage for selection. Please note that
-        French-speakers are exempt from having experience in an in-demand
-        occupation to be eligible for MPNP.
-        <br />
-        <br />
-        <TableFactor />
-      </h2>
     </div>
   );
 }

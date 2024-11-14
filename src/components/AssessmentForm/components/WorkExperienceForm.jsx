@@ -193,6 +193,8 @@ const WorkExperienceForm = ({
       top: elementPosition + 70, // Adjust the offset here (100px)
       behavior: "smooth",
     });
+
+    setSubmitAttemptedWork(false);
   };
 
   const customStyles = {

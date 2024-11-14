@@ -202,6 +202,8 @@ const EducationDetails = ({
       top: elementPosition + 70, // Adjust the offset here (100px)
       behavior: "smooth",
     });
+
+    setSubmitAttemptededucation(false);
   };
 
   const customStyles = {
@@ -322,20 +324,14 @@ const EducationDetails = ({
           if (formData.educationExperience1)
             setSelectForm("education-experience");
         }}
-        className="text-base md:text-xl font-semibold tracking-[5px] md:tracking-[8px] bg-[#01997E] text-white w-full px-10 py-2 rounded-md flex items-center justify-between"
+        className="PI-heading-container"
       >
         Education & Training
-        <span className="text-black">
-          {selectForm === "education-experience" ? (
-            <GoArrowDownRight size={30} />
-          ) : (
-            <GoArrowUpRight size={30} />
-          )}
-        </span>
+      
       </div>
 
       {selectForm === "education-experience" && (
-        <form action="post" className="w-full mt-6">
+        <form action="post" className="w-full PI-form mt-6">
           <div className="mb-3 mt-4">
             <label
               for="educationexperience"
@@ -699,9 +695,9 @@ const EducationDetails = ({
             </>
           )}
 
-          <div className="w-full flex items-center justify-center mb-10 mt-10">
+          <div className="w-full flex items-center justify-end mb-10">
             <button
-              className="bg-black text-[#01F9E1] px-16 py-3 rounded-lg text-xl"
+              className="assessment-next-step-btn"
               type="button"
               onClick={handleNext}
             >

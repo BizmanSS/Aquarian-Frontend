@@ -1,0 +1,288 @@
+.fixing-calculator-width {
+  max-width: 1200px !important;
+  margin: auto !important;
+}
+
+.sw67-age,
+.sw67-education,
+.sw67-experience,
+.sw67-languageSkills,
+.sw67-frenchSkill,
+.sw67-workedInCanada,
+.sw67-studiedInCanada,
+.sw67-bloodRelativeInCanada,
+.sw67-arrangedEmployment,
+.sw67-married,
+.sw67-spouseProficientInLanguage,
+.sw67-spouseCanadianWorkExperience,
+.sw67-spouseStudiedInCanada,
+.adaptability-section {
+  margin-bottom: 1.5rem;
+  margin-top:10px;
+  padding: 1rem;
+}
+
+.sw67-age,
+.sw67-frenchSkill,
+.sw67-education,
+.sw67-experience,
+.sw67-languageSkills,
+.adaptability-section{
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+.sw67Calculator form {
+  max-width: 1000px;
+  margin: auto;
+  margin-top:5rem;
+  padding: 3rem;
+  background-color: #EEE;
+  border-radius: 12px;
+  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+}
+
+
+
+.label-style label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.sw67Calculator select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #cbd5e0;
+  border-radius: 6px;
+  background-color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+select:focus {
+  outline: none;
+  border-color: #4299e1;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
+}
+
+.sw67-skills {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.sw67-frenchSkillYes,
+.sw67-frenchSkillNo,
+.sw67-bloodRelativeInCanadaYes,
+.sw67-bloodRelativeInCanadaNo,
+.sw67-arrangedEmploymentYes,
+.sw67-arrangedEmploymentNo,
+.sw67-workedInCanadaNo,
+.sw67-workedInCanadaYes,
+.sw67-studiedInCanadaYes,
+.sw67-studiedInCanadaNo,
+.sw67-marriedYes,
+.sw67-marriedNo,
+.sw67-spouseProficientInLanguageYes,
+.sw67-spouseProficientInLanguageNo,
+.sw67-spouseCanadianWorkExperienceYes,
+.sw67-spouseCanadianWorkExperienceNo,
+.sw67-spouseStudiedInCanadaYes,
+.sw67-spouseStudiedInCanadaNo {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Radio Button Styles */
+input[type="radio"] {
+  margin-right: 0.5rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  cursor: pointer;
+}
+
+/* Question Text Styles */
+p {
+  /* margin-bottom: 1rem; */
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+/* Error Message Styles */
+p[style*="color: red"] {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Submit Button Styles */
+.sw67-submit-btn {
+  width: 100%;
+  padding: 1rem;
+  background-color: #4299e1;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-top: 2rem;
+}
+
+.sw67-submit-btn:hover {
+  background-color: #3182ce;
+}
+
+.sw67-submit-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.4);
+}
+
+.score-result {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: linear-gradient(135deg, #2f2fe6c7 0%, #4f46e5 100%);
+  border-radius: 16px;
+  box-shadow: 0 10px 20px rgba(79, 70, 229, 0.2);
+  transform: translateY(0);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (min-width: 1024px) and (max-width: 1300px) {
+  
+
+  .calculator-width-fix{
+    max-width: 850px !important;
+    padding-left:0 !important;
+    padding-right:2rem !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  form {
+    padding: 1rem;
+  }
+
+  .sw67-skills {
+    grid-template-columns: 1fr;
+  }
+
+  select {
+    padding: 0.625rem;
+  }
+
+  .sw67-submit-btn {
+    padding: 0.875rem;
+    font-size: 1rem;
+  }
+
+  .score-result {
+    margin: 1.5rem auto;
+    padding: 1.5rem;
+  }
+
+  .score-result p {
+    font-size: 1.5rem;
+  }
+
+  .score-result p strong {
+    font-size: 2.5rem;
+  }
+}
+
+
+@media screen and (max-width: 480px) {
+  .sw67Calculator form {
+    padding: 0.75rem;
+    /* max-width:400px; */
+    margin-left:-20px;
+    margin-right:-20px;
+  }
+
+
+  .sw67-age,
+  .sw67-education,
+  .sw67-experience,
+  .sw67-languageSkills,
+  .sw67-workedInCanada,
+  .sw67-studiedInCanada,
+  .sw67-bloodRelativeInCanada,
+  .sw67-arrangedEmployment,
+  .sw67-married,
+  .sw67-spouseProficientInLanguage,
+  .sw67-spouseCanadianWorkExperience,
+  .sw67-spouseStudiedInCanada {
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .score-result {
+    margin: 1rem auto;
+    padding: 1rem;
+  }
+
+  .score-result p {
+    font-size: 1.25rem;
+  }
+
+  .score-result p strong {
+    font-size: 2rem;
+  }
+}
+
+/* Score Text */
+.score-result p {
+  margin: 0;
+  color: white;
+  font-size: 1.75rem;
+  font-weight: 700;
+  text-align: center;
+  text-shadow: 0 2px 4px rgba(235, 16, 16, 0.79);
+  position: relative;
+  z-index: 1;
+}
+
+/* Decorative elements */
+.score-result::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 70%
+  );
+  transform: rotate(-45deg);
+  pointer-events: none;
+}
+
+/* Animation */
+@keyframes scoreReveal {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.score-result {
+  animation: scoreReveal 0.6s ease-out forwards;
+}

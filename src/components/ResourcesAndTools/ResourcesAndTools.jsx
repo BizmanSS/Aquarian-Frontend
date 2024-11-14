@@ -405,6 +405,7 @@ const ResourcesAndTools = () => {
                     </p> */}
                   <button
                     type="button"
+                    onClick={() => (window.location.href = "/sw67-calculator")}
                     className="w-40 h-10 border mt-4 border-[#D73835] text-[#D73835] rounded-full font-normal group-hover:bg-[#D73835] group-hover:text-white transition ease-in-out delay-60 duration-200"
                   >
                     Calculate Now
@@ -494,7 +495,7 @@ const ResourcesAndTools = () => {
               </div>
               <div className="bg-[#EFE6E6] w-[90%] h-[8.5rem] relative rounded-xl flex flex-col items-start justify-start pt-6 gap-3 px-4 group  hover:shadow-2xl transition-all ease-in-out delay-50 duration-200">
                 <div className="font-semibold text-lg tracking-tight ">
-                  SW 67 Points Calculator
+                   Points Calculator
                 </div>
                 <img
                   src={sw67}

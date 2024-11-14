@@ -18,7 +18,7 @@ const sitemapImmigrate = [
       },
       {
         title: 'Comprehensive Ranking System (CRS)',
-        linkTo: '/crs-calculator',
+        linkTo: '/immigrate/express-entry/crs-canadian-immigration',
       },
     ],
   },

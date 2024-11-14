@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import "../../styles/shared/FaqBox.css";
 import faqBoxIcon from '../../Assets/Pages/Permanent Residency/FaqBoxIcon.svg';
 import faqDropDownButton from '../../Assets/Pages/Permanent Residency/FaqDropDownButton.svg';
-
-function FaqBox({ title = "Permanent Residency FAQs", description = "Get your answers..", faqItems }) {
+function FaqBox({ title = "Would you like to know?", description = "Get your answers..", faqItems }) {
 
     const [activeIndex, setActiveIndex] = useState(null);
 
