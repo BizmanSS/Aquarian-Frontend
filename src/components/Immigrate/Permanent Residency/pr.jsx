@@ -25,7 +25,7 @@ export default function PR() {
             </div>
 
             <div class="pages-header">Permanent Residency</div>
-
+<div class='intro-size-fix'>
             Canada, with its reputation as a top immigration
             destination, offers a wealth of benefits to newcomers
             seeking a fresh start. Renowned for its robust economy,
@@ -47,7 +47,7 @@ export default function PR() {
             vibrant cities, Canada offers a blend of opportunities
             that cater to a fulfilling and prosperous life for newcomers.
           </div>
-
+          </div>
           <DirectPathwaysBox />
           <IndirectPathwaysBox />
           <MigrateProcessBox />

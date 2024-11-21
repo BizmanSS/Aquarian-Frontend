@@ -1672,7 +1672,7 @@ const Header = ({ setShowPopUp }) => {
                                   text={
                                     "Comprehensive Ranking System (CRS) Score"
                                   }
-                                  link={"/crs-calculator"}
+                                  link={"/immigrate/express-entry/crs-canadian-immigration"}
                                   textContent={["CRS Score Calculator"]}
                                 />
                               </li>

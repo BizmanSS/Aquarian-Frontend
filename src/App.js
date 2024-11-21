@@ -22,6 +22,7 @@ import {
 } from "./components/globalComponents/MobileContext/IsMobileContext";
 import ClbCalculator from "./components/Pages/Clbcalculator/ClbCalculator";
 import CrsCalculator from "./components/Pages/CrsCalculator/CrsCalculator";
+import Sw67Calculator from "./components/Pages/Sw67Calculator/Sw67Calculator";
 import Blogs from "./components/Pages/Blogs/Blogs";
 import FreeAssessment from "./components/AssessmentForm/FreeAssessment";
 import LatestNews from "./components/Pages/Latest News/Newsroom";
@@ -29,6 +30,7 @@ import PR from "./components/Immigrate/Permanent Residency/pr";
 import FederalSkilledWorkerClass from "./components/Immigrate/Express Entry/Federal Skilled Worker Class/federal-skilled-worker-class";
 import FederalSkilledTradesClass from "./components/Immigrate/Express Entry/Federal Skilled Trades Class/federal-skilled-trades-class";
 import CanadianExperienceClass from "./components/Immigrate/Express Entry/Canadian Experience Class/canadian-experience-class";
+import CrsCanadianImmigration from "./components/Immigrate/Express Entry/Crs Canadian Immigration/CrsCanadianImmigration";
 import PRCards from "./components/Immigrate/After Permanent Residency/PR Cards/prCards";
 import PRCardRenewal from "./components/Immigrate/After Permanent Residency/PR Card Renewal/prCardRenewal";
 import PRTravel from "./components/Immigrate/After Permanent Residency/PR Travel/prTravel";
@@ -391,6 +393,8 @@ const App = () => {
             <Route path="/contact-us" element={<ContactUsPage />} />
             <Route path="/clb-calculator" element={<ClbCalculator />} />
             <Route path="/crs-calculator" element={<CrsCalculator />} />
+            <Route path="/sw67-calculator" element={<Sw67Calculator/>} />
+            {/* <Route path="/crs-canadian-immigration" element={<CrsCanadianImmigration/>} /> */}
             <Route path="/blogs" element={<Blogs />} />
             <Route path="/*" element={<PageNotFound />} />
             <Route
@@ -465,6 +469,10 @@ const App = () => {
             <Route
               path="/immigrate/express-entry/canadian-experience-class"
               element={<CanadianExperienceClass />}
+            />
+              <Route
+              path="/immigrate/express-entry/crs-canadian-immigration"
+              element={<CrsCanadianImmigration />}
             />
             {/*Routes for Provincial Nominee Program*/}
             <Route
