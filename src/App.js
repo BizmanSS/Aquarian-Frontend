@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import HomePage from "./components/Pages/HomePages/HomePage";
 import Sidebar from "./components/globalComponents/Sidebar/Sidebar";
 // import Header from "./components/globalComponents/Header/Header";
+
 import Footer from "./components/globalComponents/Footer/Footer";
 import AboutUs from "./components/Pages/AboutUs/AboutUs";
 import AllBlogs from "./components/Pages/Blogs/AllBlogs";
@@ -119,7 +120,9 @@ import NovaScotiaOccupationsInDemand from "./components/Immigrate/PNP/Nova Scoti
 import NovaScotiaLabourMarketPriorities from "./components/Immigrate/PNP/Nova Scotia/Nova Scotia Labour Market Priorities/NovaScotiaLabourMarketPriorities";
 import NovaScotiaLabourMarketPrioritiesForPhysicians from "./components/Immigrate/PNP/Nova Scotia/Nova Scotia Labour Market Priorities for Physicians/NovaScotiaLabourMarketPrioritiesForPhysicians";
 import NovaScotiaPhysicianStream from "./components/Immigrate/PNP/Nova Scotia/Nova Scotia Physician Stream/NovaScotiaPhysicianStream";
-import NovaScotiaCriticalConstructionWorkerPilot from "./components/Immigrate/PNP/Nova Scotia/Nova Scotia Critical Construction Worker Pilot/NovaScotiaCriticalConstructionWorkerPilot";
+import NovaScotiaCriticalConstructionWorkerPilot from "./components/Immigrate/PNP/Nova Scotia/Pilots/Critical Construction Pilot/Critical Construction Pilot";
+import NovaScotiaImmigrationPilots from "./components/Immigrate/PNP/Nova Scotia/Pilots/Pilots";
+import HealthcareProfessionalsImmigrationPilot from "./components/Immigrate/PNP/Nova Scotia/Pilots/Healthcare Professionals Immigration Pilot/Healthcare Professionals Immigration Pilot";
 import OntarioEmployerJobOfferStream from "./components/Immigrate/PNP/Ontario/Ontario Employer Job Offer Stream/OntarioEmployerJobOfferStream";
 import OntarioPostGraduateStream from "./components/Immigrate/PNP/Ontario/Ontario Post Graduate Stream/OntarioPostGraduateStream";
 import OntarioExpressEntry from "./components/Immigrate/PNP/Ontario/Ontario Express Entry/OntarioExpressEntry";
@@ -766,9 +769,18 @@ const App = () => {
               path="/immigrate/provincial-nominee-program/nova-scotia/nova-scotia-physician-stream"
               element={<NovaScotiaPhysicianStream />}
             />
-            <Route
-              path="/immigrate/provincial-nominee-program/nova-scotia/nova-scotia-critical-construction-worker-pilot"
+
+<Route
+              path="/immigrate/provincial-nominee-program/nova-scotia/pilots/nova-scotia-critical-construction-worker-pilot"
               element={<NovaScotiaCriticalConstructionWorkerPilot />}
+            />
+             <Route
+              path="/immigrate/provincial-nominee-program/nova-scotia/pilots/nova-scotia-healthcare-professional-immigration-pilot"
+              element={<HealthcareProfessionalsImmigrationPilot/>}
+            />
+            <Route
+              path="/immigrate/provincial-nominee-program/nova-scotia/pilots/nova-scotia-pilots"
+              element={<NovaScotiaImmigrationPilots/>}
             />
 
             <Route

@@ -1,191 +1,224 @@
-import React from "react";
-import { Link } from "react-router-dom";
-const Table = () => {
-  const data = [
-    { name: "Express Entry Profile", amount: "No" },
+import React, { useRef } from "react";
+
+import NestedTableOfContent from "../../../../shared/NestedTableOfContent.jsx";
+import ReadyToStartCard from "../../../../shared/ReadyToStart.jsx";
+import SiteMapMenu from "../../../../globalComponents/Sidebar/SiteMapMenu.jsx";
+import FaqBox from "../../../../shared/NestedFaqBox.jsx";
+
+const faqItems = [
+  {
+    question: "What are the minimum requirements to apply for the NS Entrepreneur Pathway?",
+    answer:
+      "Applicants must be at least 21 years old, have a minimum personal net worth of CAD 600,000, and invest at least CAD 150,000 in a Nova Scotia business. They also need at least three years of business ownership experience or five years in a senior management role.",
+      
+  },
+  {
+    question:
+      "How does the points-based ranking system of NS Entrepreneur Pathway work?",
+    answer:
+      "Candidates are evaluated based on factors, including language proficiency, education, business experience, net worth, age, adaptability, and investment amount. ",
+   
+  },
+  {
+    question:
+      "Are there any restrictions on the type of business I can establish in NS Entrepreneur?",
+    answer:
+      " Yes, the business must be for-profit and cannot be in certain sectors such as payday loans, passive investments, or anything that could harm the reputation of the NSNP or Nova Scotia government.",
+   
+  },
+];
+
+export default function NSEntrepreneurStream() {
+  const EligibilityRef = useRef(null);
+  const ApplicationRef = useRef(null);
+  const faqRef = useRef(null);
+  const EntrepreneurRef = useRef(null);
+
+ 
+  const occupationTableData=[
     {
-      name: "Connection to Province",
-      amount: "No",
+      category:"Language Ability",
+      Points:"35"
     },
-    { name: "Job Offer", amount: "No" },
     {
-      name: "Language Proficiency",
-      amount: "CLB 5",
+      category:"Education",
+      Points:"25"
     },
     {
-      name: "Level of Education",
-      amount: "No minimum",
+      category:"Business Ownership/Management Experience      ",
+      Points:"35"
     },
     {
-      name: "Work Experience",
-      amount:
-        "3 years business ownership or 5 years senior business management",
+      category:"Net Worth",
+      Points:"10"
     },
     {
-      name: "Investment Requirement",
-      amount: "Investment: $150,000 CAD Personal Net Worth: $600,000 CAD",
+      category:"Age",
+      Points:"10"
+    },
+    {
+      category:"Adaptability",
+      Points:"10"
+    },
+    {
+      category:"Nova Scotia Economic Priorities",
+      Points:"10"
+    },
+    {
+      category:"Investment",
+      Points:"15"
+    }
+    ,
+    
+    
+    
+    
+  
+  ]
+  const tableContentData = [
+    {
+      title: "Eligibility Criteria for NS Entrepreneur Stream",
+      scrollTo: EligibilityRef,
+    },
+    {
+      title: "Application for NS Entrepreneur Stream",
+      scrollTo: ApplicationRef,
+    },
+    {
+      title: "NS Entrepreneur Ranking System",
+      scrollTo: EntrepreneurRef,
+    },
+    {
+      title: "FAQs",
+      scrollTo: faqRef,
     },
   ];
 
-  return (
-    <table>
-      <thead>
-        <tr>
-          <th style={{ width: "30%" }}>Requirement</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        {data.map((item, index) => (
-          <tr key={index}>
-            <td>{item.name}</td>
-            <td>{item.amount}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  );
-};
-const TableFactor = () => {
-  const data = [
-    { name: "Language", amount: "35" },
-    {
-      name: "Education",
-      amount: "25",
-    },
-    { name: "Business Ownership or Management Experience", amount: "35" },
-    {
-      name: "Net Worth",
-      amount: "10",
-    },
-    {
-      name: "Age",
-      amount: "10",
-    },
-    {
-      name: "Adaptability",
-      amount: "10",
-    },
-    {
-      name: "Economic Priorities",
-      amount: "10",
-    },
-    {
-      name: "Investment",
-      amount: "15",
-    },
-  ];
-
-  return (
-    <table>
-      <thead>
-        <tr>
-          <th>Selection Factor</th>
-          <th>Maximum Points</th>
-        </tr>
-      </thead>
-      <tbody>
-        {data.map((item, index) => (
-          <tr key={index}>
-            <td>{item.name}</td>
-            <td>{item.amount}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  );
-};
-export default function NovaScotiaEntrepreneurCategory() {
   return (
     <div
       style={{
-        background: "#E0E0E0",
+        background: "#EEE",
       }}
     >
-      <div className="AboutUsHeader">
-        <p className="link">
-          <a href="/">Home</a>
-          {" > "}Immigrate
-          {" > "}
-          <Link to="/immigrate/provincial-nominee-program">
-            Provincial Nominee Program
-          </Link>
-          {" > "}
-          <Link to="/immigrate/provincial-nominee-program/nova-scotia">
-            Nova Scotia
-          </Link>
-          {" > "}Nova Scotia Entrepreneur Category
-        </p>
-        <div className="header-content">
-          <h1 className="heading-about">Nova Scotia Entrepreneur Category</h1>
-        </div>
+      <div className="pages-content-wrapper">
+        <SiteMapMenu
+          type="I"
+          h1="Provincial Nominee Program"
+          h2="Nova Scotia"
+          h3="Nova Scotia Entrepreneur Category"
+        ></SiteMapMenu>
+
+        <div class="pages-content-div">
+          <div class="pages-content-text-wrapper ">
+            <div className="pages-current-page-link">
+              <a href="/">Home</a>
+              {" > "}Provincial Nominee Program
+              {" > "}Nova Scotia
+              {" > "}NS Entrepreneur Stream 
+
+            </div>
+            <div class="pages-header">
+            NS Entrepreneur Stream 
+
+            </div>
+
+            <div class="pages-paragraph space-fix intro-size-fix">
+            The Nova Scotia Nominee Program (NSNP) Entrepreneur Stream is a pathway for international entrepreneurs looking to establish or purchase a business in Nova Scotia, Canada. This program aims to target experienced business owners/ senior managers who can contribute to the province's economic growth. Through its Entrepreneur PNP, Nova Scotia aims to enhance its economic landscape through job creation and investment. The applicants are required to either start a new business or purchase an existing one where they manage day-to-day activities. After one year, the candidate can be nominated for PR in Canada.
+            </div>
+            <div className="table-of-content-container">
+              <NestedTableOfContent data={tableContentData} />
+            </div>
+
+            <div class="pages-header-2" ref={EligibilityRef}>
+            Eligibility Criteria for NS Entrepreneur Stream 
+
+
+            </div>
+            <div className="pages-paragraph">
+            Applicants must be at least 21 years old at the time of application. The other requirements include:
+
+              <ul className="my-3">
+                <li>
+                A minimum personal net worth of CAD 600,000. This net worth must be legally obtained and verifiable through documentation.
+                 
+                </li>
+                <li>
+                Minimum of 3 years of ownership experience in a business or 5 years of experience in a senior management role. 
+                </li>
+                <li>
+                A minimum investment of CAD 150,000 in a Nova Scotia business. 
+                </li>
+                <li>Language proficiency in English or French with CLB level 5 or higher. </li>
+              </ul>
+            
+            </div>
+            <div class="pages-header-2" ref={ApplicationRef}>
+            Application for NS Entrepreneur Stream
+
+
+            </div>
+            <div className="pages-paragraph">
+            The application process for the NSNP Entrepreneur Stream involves several key steps:
+ 
+
+              <ul className="my-3">
+                <li>
+                Interested candidates must submit an EOI through the NSNP online portal. 
+                  
+                </li>
+                <li>
+                Each EOI is assessed based on a points system that evaluates various factors such as age, education, language proficiency, work experience, and net worth.
+
+                </li>
+                <li>
+                The nomination must be accepted within 30 days in your Express Entry account, which will add 600 CRS points to the profile.
+
+                </li>
+                <li>High-scoring candidates will receive an ITA from the NSNP. This invitation allows them to submit a complete application within 90 days.</li>
+                <li>The application must include detailed documentation supporting claims made in the EOI.</li>
+                <li>Candidates may be required to attend an interview with NSNP officials. 
+</li>
+<li>Upon approval of their application, candidates will sign a Business Performance Agreement outlining their investment commitments.
+</li>
+{/* table */}
+<div class="pages-header-2" ref={EntrepreneurRef}>
+NS Entrepreneur Ranking System
+
+
+            </div>
+<div>
+                <div className="table-container">
+                  <table className="responsive-table">
+                    <thead>
+                      <tr>
+                        <th>Category</th>
+                        <th>Points</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {occupationTableData.map((row, index) => (
+                        <tr key={index}>
+                          <td>{row.category}</td>
+                          <td>{row.Points}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              </ul>
+              If an applicant is granted a temporary work permit, they can travel to Nova Scotia to establish their business. Upon meeting the conditions outlined in their Business Performance Agreement, they become eligible for a provincial nomination after operating their business for at least 12 months.
+
+            
+            </div>
+
+            
+          </div>
+          <div ref={faqRef}>
+            <FaqBox faqItems={faqItems} />
+            <ReadyToStartCard />
+          </div>        </div>
       </div>
-      <h2 className="pages-content-div">
-        This stream is designed to target experienced business owners or senior
-        business managers who want to live in Nova Scotia. Successful applicants
-        must start a new business or buy an existing business in which they
-        participate in the day-to-day management duties. Since this is a
-        business immigration stream, candidates must demonstrate that they have
-        enough business ownership or management experience to successfully
-        establish and run a business in Nova Scotia. After operating the
-        business for one year, the entrepreneur may be nominated for permanent
-        resident status.
-        <br />
-        <br />
-        <sp>Program Requirements</sp> <br /> <br />
-        <Table /> <br />
-        <bold>Application Procedure</bold>
-        <br />
-        <br />
-        The Nova Scotia Entrepreneur stream operates on an Expression of
-        Interest (EOI) system. Eligible candidates must submit a profile to a
-        pool of candidates. All the profiles are then assigned a score based on
-        the Nova Scotia Entrepreneur Ranking System. The candidates with the
-        highest-ranking profiles will be invited to apply to the stream in one
-        of the program’s periodic intakes. Candidates must include a business
-        establishment plan and a net worth verification report with their
-        application to the stream.
-        <br />
-        <br />
-        If the applicant successfully demonstrates that they meet the stream
-        requirements, they will be invited to participate in an interview with
-        an immigration officer in Nova Scotia. If the interview is successful,
-        the candidate will be invited to sign a business performance agreement.
-        Once the Nova Scotia Office of Immigration (NSOI) receives the signed
-        business performance agreement, it will issue the applicant a letter of
-        support for a work permit. The applicant must then apply to Immigration,
-        Refugees and Citizenship Canada (IRCC) for a temporary work permit. Work
-        permits issued to business immigration candidates generally do not
-        require a Labour Market Impact Assessment (LMIA).
-        <br />
-        <br />
-        If the applicant is issued a temporary work permit, they may then travel
-        to Nova Scotia to establish their business. If the applicant meets the
-        conditions described in the business performance agreement, they will be
-        eligible for a provincial nomination from Nova Scotia once the business
-        has been in operation for at least 12 months.
-        <br />
-        <br />
-        After receiving a provincial nomination, an applicant has six months to
-        submit a federal application for Canadian permanent residence.
-        Applicants in this program must complete and submit a paper-based
-        application for permanent residence and submit it by mail to the
-        appropriate application centre. Paper-based PNP applications for
-        permanent residence are generally processed within 18 months.
-        <br />
-        <br />
-        <bold>Nova Scotia Entrepreneur Ranking System</bold>
-        <br />
-        <br />
-        The Nova Scotia Entrepreneur stream uses the following system to rank
-        candidates who have submitted Expressions of Interest (EOIs). There is
-        no minimum score, but only those candidates with the most competitive
-        scores will be invited to apply to the program.
-        <br />
-        <br />
-        <sp>Overview of Factors</sp> <br /> <br />
-        <TableFactor />
-      </h2>
     </div>
   );
 }

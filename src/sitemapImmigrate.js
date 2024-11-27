@@ -400,10 +400,23 @@ const sitemapImmigrate = [
               '/immigrate/provincial-nominee-program/nova-scotia/nova-scotia-physician-stream',
           },
           {
-            title: 'Nova Scotia Critical Construction Worker Pilot',
+            title: 'Pilots',
             linkTo:
-              '/immigrate/provincial-nominee-program/nova-scotia/nova-scotia-critical-construction-worker-pilot',
+              '/immigrate/provincial-nominee-program/nova-scotia/pilots/nova-scotia-pilots',
+              nestLink: [
+                {
+                  title: 'Nova Scotia Critical Construction Worker Pilot',
+                  linkTo:
+                    '/immigrate/provincial-nominee-program/nova-scotia/pilots/nova-scotia-critical-construction-worker-pilot',
+                },
+                {
+                  title: 'Nova Scotia Healthcare Professionals Immigaration Pilot',
+                  linkTo:
+                    '/immigrate/provincial-nominee-program/nova-scotia/pilots/nova-scotia-healthcare-professional-immigration-pilot',
+                },
+              ],
           },
+          
         ],
       },
       {

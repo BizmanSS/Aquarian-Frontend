@@ -1,99 +1,244 @@
-import React from "react";
-import { Link } from "react-router-dom";
-export default function NovaScotiaInternationalGraduatesinDemand() {
+import React, { useRef } from "react";
+
+import NestedTableOfContent from "../../../../shared/NestedTableOfContent.jsx";
+import ReadyToStartCard from "../../../../shared/ReadyToStart.jsx";
+import SiteMapMenu from "../../../../globalComponents/Sidebar/SiteMapMenu.jsx";
+import FaqBox from "../../../../shared/NestedFaqBox.jsx";
+
+const faqItems = [
+  {
+    question: "What types of jobs qualify under the IGiD stream?    ",
+    answer:
+      "Jobs must fall under specific NOC codes related to health care and education, such as paramedical occupations, pharmacy technicians, nurse aides, and early childhood educators. ",
+      
+  },
+  {
+    question:
+      "Is there an application fee for the IGiD stream?",
+    answer:
+      " There is no application fee for the NSNP; however, applicants may incur costs related to document preparation and submission.      ",
+   
+  },
+  {
+    question:
+      "Can I apply if I studied outside of Nova Scotia?",
+    answer:
+      " No, candidates must have completed at least half of their educational program in Nova Scotia at an eligible DLI.      ",
+   
+  },
+];
+
+export default function NSInternationalGraduateInDemand() {
+  const EligibilityRef = useRef(null);
+  const ApplicationRef = useRef(null);
+  const faqRef = useRef(null);
+
+ 
+  const occupationTableData=[
+    {
+      NOCCode:"32102",
+      Occupation:"Paramedical occupations",
+
+RequiredEducationalCredential :"Diploma"
+
+
+    },
+    {
+      NOCCode:"32124",
+      Occupation:"Pharmacy technicians",
+
+RequiredEducationalCredential :"Diploma"
+
+
+    },
+    {
+      NOCCode:"33102",
+      Occupation:
+      " Nurse aides, orderlies, and patient service associates",
+
+RequiredEducationalCredential :"Certificate, Diploma, or Degree"
+
+
+    },
+    {
+      NOCCode:"42202",
+      Occupation:
+      " Early childhood educators and assistants",
+
+RequiredEducationalCredential :"Diploma or Degree"
+
+
+    },
+    
+  ]
+  const tableContentData = [
+    {
+      title: "NS International Graduate In Demand Eligibility      ",
+      scrollTo: EligibilityRef,
+    },
+    {
+      title: "NS International Graduate In Demand Application Process      ",
+      scrollTo: ApplicationRef,
+    },
+   
+    {
+      title: "FAQs",
+      scrollTo: faqRef,
+    },
+  ];
+
   return (
     <div
       style={{
-        background: "#E0E0E0",
+        background: "#EEE",
       }}
     >
-      <div className="AboutUsHeader">
-        <p className="link">
-          <a href="/">Home</a>
-          {" > "}Immigrate
-          {" > "}
-          <Link to="/immigrate/provincial-nominee-program">
-            Provincial Nominee Program
-          </Link>
-          {" > "}
-          <Link to="/immigrate/provincial-nominee-program/nova-scotia">
-            Nova Scotia
-          </Link>
-          {" > "}Nova Scotia International Graduates in Demand
-        </p>
-        <div className="header-content">
-          <h1 className="heading-about">
-            Nova Scotia International Graduates in Demand
-          </h1>
-        </div>
+      <div className="pages-content-wrapper">
+        <SiteMapMenu
+          type="I"
+          h1="Provincial Nominee Program"
+          h2="Nova Scotia"
+          h3="Nova Scotia International Graduates in Demand"
+        ></SiteMapMenu>
+
+        <div class="pages-content-div">
+          <div class="pages-content-text-wrapper ">
+            <div className="pages-current-page-link">
+              <a href="/">Home</a>
+              {" > "}Provincial Nominee Program
+              {" > "}Nova Scotia
+              {" > "}Nova Scotia International Graduates in Demand
+
+
+            </div>
+            <div class="pages-header">
+            NS International Graduate In Demand
+
+            </div>
+
+            <div class="pages-paragraph space-fix intro-size-fix">
+            The NS International Graduates in Demand (IGiD) stream is a part of the Nova Scotia Nominee Program (NSNP). The program attracts recent international graduates who have completed their studies in Nova Scotia and have a permanent job offer in specific high-demand occupations. This initiative aims to address labor shortages in the province while providing a pathway for international students to gain permanent residency in Canada. The stream is not a part of the Express Entry program, therefore, processing time of NS International Graduate in Demand is usually longer. 
+            </div>
+            <div className="table-of-content-container">
+              <NestedTableOfContent data={tableContentData} />
+            </div>
+
+            <div class="pages-header-2" ref={EligibilityRef}>
+            NS International Graduate In Demand Eligibility
+ 
+
+
+            </div>
+            <div className="pages-paragraph">
+            To qualify for the IGiD stream, candidates must meet requirements including:
+
+
+              <ul className="my-3">
+                <li>
+                Applicants must be between 19 and 55 years old.
+
+                 
+                </li>
+                <li>
+                A high school education is required. The program of study must be at least 30 weeks long or 24 weeks for NOC 33102  and completed in Nova Scotia.
+
+                </li>
+                <div>
+                <div className="table-container">
+                  <table className="responsive-table">
+                    <thead>
+                      <tr>
+                        <th>NOC Code</th>
+                        <th>Occupation</th>
+                        <th>
+Required Educational Credential
+
+</th>
+
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {occupationTableData.map((row, index) => (
+                        <tr key={index}>
+                          <td>{row.NOCCode}</td>
+                          <td>{row.Occupation}</td>
+                          <td>{row.RequiredEducationalCredential}</td>
+
+
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+                <li>
+                A permanent, full-time job offer is mandatory, specifically in one of the following NOC categories:
+<ul>
+  <li>NOC 32102: Paramedical occupations
+</li>
+  <li>NOC 32124: Pharmacy technicians
+</li>
+  <li>NOC 33102: Nurse aides, orderlies, and patient service associates
+</li>
+  <li>NOC 42202: Early childhood educators and assistants
+</li>
+
+</ul>
+                </li>
+                <li>Candidates must prove language ability equivalent to Canadian Language Benchmark (CLB) Level 5 in English or French.
+ </li>
+ <li>Proof of sufficient financial resources and genuine intention to settle in Nova Scotia is required.
+</li>
+              </ul>
+              The application won’t be approved if the family income is below the Low-Income Cutoff.
+
+            
+            </div>
+            <div class="pages-header-2" ref={ApplicationRef}>
+            NS International Graduate In Demand Application Process
+
+
+            </div>
+            <div className="pages-paragraph">
+            The application process for the IGiD stream involves following steps:
+
+ 
+
+              <ul className="my-3">
+                <li>
+                Candidates must submit their application online through the NSNP portal when the stream is open.
+
+                  
+                </li>
+                <li>
+                If approved, candidates receive a nomination certificate from Nova Scotia.
+
+
+                </li>
+                <li>
+                After receiving the nomination, candidates must apply for permanent residency through Immigration, Refugees and Citizenship Canada (IRCC) within 6 months.
+
+
+                </li>
+                <li>Candidates may request a letter of support from NSNP to apply for or renew a temporary work permit while waiting for their PR application to be processed.
+</li>
+             
+
+
+              </ul>
+              There is no application fee for NSNP streams. Processing times for applications under the Nova Scotia Nominee Program range from 3 to 6 months. The IGiD stream plays an important role in addressing labor shortages in Nova Scotia's economy by attracting skilled workers who are already familiar with the local culture and job market. 
+
+
+            
+            </div>
+
+            
+          </div>
+          <div ref={faqRef}>
+            <FaqBox faqItems={faqItems} />
+            <ReadyToStartCard />
+          </div>        </div>
       </div>
-      <h2 className="pages-content-div">
-        The International Graduates in Demand stream is for recent international
-        graduates whose skills and education match specific National
-        Occupational Classification (NOC) job categories. This stream is
-        currently open to workers in 2 NOC job categories:
-        <br />
-        <br />
-        <ul>
-          <li>
-            NOC 33102: nurse aides, orderlies, and patient service associates
-          </li>
-          <li>NOC 42202: early childhood educators and assistants</li>
-        </ul>
-        <br />
-        <bold>ELIGIBILITY</bold>
-        <br />
-        <br />
-        To apply you must:
-        <br />
-        <br />
-        <ul>
-          <li>
-            have a full-time permanent job offer from a Nova Scotia employer in
-            a job category listed above that corresponds with your recent field
-            of study;
-          </li>
-          <br />
-          <li>be 21 to 55 years old;</li>
-          <br />
-          <li>have a high school diploma;</li>
-          <br />
-          <li>
-            have met requirements for completing a course of study within three
-            years of your application. The program must have been at least 30
-            weeks in length. You must have completed at least 50% of the program
-            in Nova Scotia.
-            <br />
-            <br />
-            <ul>
-              <li>
-                If you are applying under NOC 33102, your program must grant a
-                certificate, diploma, or degree.
-              </li>
-              <br />
-              <li>
-                If you are applying under NOC 42202, your program must grant a
-                diploma or a degree.
-              </li>
-            </ul>
-          </li>
-          <br />
-          <li>
-            have certifications issued by NS regulatory bodies required for the
-            job;
-          </li>
-          <br />
-          <li>
-            prove language ability equal to Canadian Language Benchmark (CLB)
-            Level 5 even if your first language is English or French;
-          </li>
-          <br />
-          <li>
-            show enough financial resources to successfully settle in Nova
-            Scotia.
-          </li>
-        </ul>
-      </h2>
     </div>
   );
 }

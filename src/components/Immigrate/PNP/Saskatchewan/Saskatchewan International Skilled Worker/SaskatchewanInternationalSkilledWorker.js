@@ -1,257 +1,320 @@
-import React from "react";
-import { Link } from "react-router-dom";
-const TableFactor = () => {
-  const data = [
-    { name: <italic>Factor 1: Labour Market Success</italic>, amount: "" },
-    { name: "Education and Training", amount: "23" },
-    { name: "Skilled Work Experience", amount: "10" },
-    { name: "Language Ability", amount: "30" },
-    {
-      name: "Age",
-      amount: "12",
-    },
+import React, { useRef } from "react";
 
+import NestedTableOfContent from "../../../../shared/NestedTableOfContent.jsx";
+import ReadyToStartCard from "../../../../shared/ReadyToStart.jsx";
+import SiteMapMenu from "../../../../globalComponents/Sidebar/SiteMapMenu.jsx";
+import FaqBox from "../../../../shared/NestedFaqBox.jsx";
+
+const faqItems = [
+  {
+    question: "Can I apply for SISW if I am currently living outside Canada?",
+    answer:
+      "Yes, individuals living outside Canada can apply through any of the SISW substreams if they meet eligibility requirements.",
+      
+  },
+  {
+    question:
+      "What types of occupations are typically excluded from the Saskatchewan Immigrant Nominee Program?",
+    answer:
+      "Occupations that are often excluded include healthcare professionals (like general practitioners and dentists), educators (such as university professors and secondary school teachers), skilled trades (like electricians and plumbers), management positions (including senior managers), legal occupations (like lawyers), and certain artistic professions (such as musicians and actors).",
+   
+  },
+ 
+];
+
+export default function SaskatchewanInternationalSkilledWorkerProgram
+() {
+  const ExpressEntryRef = useRef(null);
+  const EmploymentOfferRef = useRef(null);
+  const faqRef = useRef(null);
+  const OccuupationRef = useRef(null);
+  const InternationalRef = useRef(null);
+  const SkillsRef = useRef(null);
+  const AssessmentRef = useRef(null);
+
+ 
+  const occupationTableData=[
     {
-      name: <italic>Factor 1 Maximum</italic>,
-      amount: <italic>70</italic>,
+      Factor:"Factor 1: Labour Market Success",
+     MaximumPoints:"70"
+    },
+    {
+      Factor:"Education and Training",
+     MaximumPoints:"23"
+    },
+    {
+      Factor:"Skilled Work Experience",
+      MaximumPoints:"10"
+    },
+    {
+      Factor:"Language Ability",
+     MaximumPoints:"30"
+    },
+    {
+      Factor:"Age",
+     MaximumPoints:"12"
+    },
+    {
+      Factor:"Factor 2: Connection to Saskatchewan and Labour Market",
+     MaximumPoints:"30"
+    },
+    {
+      Factor:"Employment Offer Subcategory - Connection to Saskatchewan",
+     MaximumPoints:"30"
+    },
+    {
+      Factor:"Occupation In-Demand and Saskatchewan Express Entry Subcategories - Connection to Saskatchewan",
+     MaximumPoints:"20"
+    }
+    ,
+    
+    
+    
+    
+  
+  ]
+  const tableContentData = [
+    {
+      title: "Saskatchewan Express Entry",
+      scrollTo: ExpressEntryRef,
+    },
+    {
+      title: "Saskatchewan Employment Offer",
+      scrollTo: EmploymentOfferRef,
+    },
+    {
+      title: "Saskatchewan In-Demand Occupation",
+      scrollTo: OccuupationRef,
+    },
+    {
+      title: "Saskatchewan International Skilled Worker Tech Talent Pathway",
+      scrollTo: InternationalRef,
+    },
+    {
+      title: "Saskatchewan Hard-to-Fill Skills Pilot",
+      scrollTo: SkillsRef,
+    },
+    {
+      title: "SINP Assessment Grid",
+      scrollTo: AssessmentRef,
+    },
+    {
+      title: "FAQs",
+      scrollTo: faqRef,
     },
   ];
 
-  return (
-    <table>
-      <thead>
-        <tr>
-          <th style={{ width: "30%" }}>Factor</th>
-          <th>Points</th>
-        </tr>
-      </thead>
-      <tbody>
-        {data.map((item, index) => (
-          <tr key={index}>
-            <td>{item.name}</td>
-            <td>{item.amount}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  );
-};
-const TableFactor2 = () => {
-  const data = [
-    {
-      name: (
-        <italic>Factor 2: Connection to Saskatchewan and Labour Market</italic>
-      ),
-      amount: "",
-    },
-    {
-      name: "Employment Offer Subcategory - Connection to Saskatchewan",
-      amount: "30",
-    },
-    {
-      name: "Occupation In-Demand and Saskatchewan Express Entry Subcategories - Connection to Saskatchewan",
-      amount: "20",
-    },
-    {
-      name: <italic>Factor 2 Maximum</italic>,
-      amount: <italic>30</italic>,
-    },
-    { name: <bold>Maximum</bold>, amount: <bold>100</bold> },
-  ];
-
-  return (
-    <table>
-      <thead>
-        <tr>
-          <th style={{ width: "30%" }}>Factor</th>
-          <th>Points</th>
-        </tr>
-      </thead>
-      <tbody>
-        {data.map((item, index) => (
-          <tr key={index}>
-            <td>{item.name}</td>
-            <td>{item.amount}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  );
-};
-const TableOccuations = () => {
-  const data = [
-    {
-      name: "Legislators",
-      amount: "0011",
-    },
-    {
-      name: "Senior government managers and officials",
-      amount: "0012",
-    },
-    {
-      name: "Senior managers - trade, broadcasting and other services, n.e.c.",
-      amount: "0015",
-    },
-    {
-      name: "Managers in health care",
-      amount: "0311",
-    },
-    {
-      name: "Government managers - health and social policy development and program administration",
-      amount: "0411",
-    },
-  ];
-
-  return (
-    <table>
-      <thead>
-        <tr>
-          <th style={{ width: "10%" }}>NOC</th>
-          <th>Occupation Title</th>
-        </tr>
-      </thead>
-      <tbody>
-        {data.map((item, index) => (
-          <tr key={index}>
-            <td>{item.amount}</td>
-            <td>{item.name}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  );
-};
-export default function SaskatchewanInternationalSkilledWorker() {
   return (
     <div
       style={{
-        background: "#E0E0E0",
+        background: "#EEE",
       }}
     >
-      <div className="AboutUsHeader">
-        <p className="link">
-          <a href="/">Home</a>
-          {" > "}Immigrate
-          {" > "}
-          <Link to="/immigrate/provincial-nominee-program">
-            Provincial Nominee Program
-          </Link>
-          {" > "}
-          <Link to="/immigrate/provincial-nominee-program/saskatchewan">
-            Saskatchewan
-          </Link>
-          {" > "}Saskatchewan International Skilled Worker
-        </p>
-        <div className="header-content">
-          <h1 className="heading-about">
-            Saskatchewan International Skilled Worker
-          </h1>
-        </div>
+      <div className="pages-content-wrapper">
+        <SiteMapMenu
+          type="I"
+          h1="Provincial Nominee Program"
+          h2="Saskatchewan"
+          h3="Saskatchewan International Skilled Worker"
+        ></SiteMapMenu>
+
+        <div class="pages-content-div">
+          <div class="pages-content-text-wrapper ">
+            <div className="pages-current-page-link">
+              <a href="/">Home</a>
+              {" > "}Provincial Nominee Program
+              {" > "}Saskatchewan
+              {" > "}Saskatchewan International Skilled Worker Program
+
+
+            </div>
+            <div class="pages-header">
+            Saskatchewan International Skilled Worker Program
+
+            </div>
+
+            <div class="pages-paragraph space-fix intro-size-fix">
+            The Saskatchewan International Skilled Worker (SISW) program is a key pathway of the Saskatchewan Immigrant Nominee Program (SINP). SINP is a PNP by the province of Saskatchewan designed to attract skilled workers from around the globe to fill labour shortages. Successful candidates receive a provincial nomination, increasing their chances of securing a Canadian PR. The candidates are assessed based on the SINP Assessment Grid and must secure at least 60 points to be eligible for the streams of the SISW program.
+            </div>
+            <div className="table-of-content-container">
+              <NestedTableOfContent data={tableContentData} />
+            </div>
+
+            <div class="pages-header-2" ref={ExpressEntryRef}>
+            Saskatchewan Express Entry
+
+
+            </div>
+            <div className="pages-paragraph">
+            The Saskatchewan Express Entry substream is for individuals with an active profile in Canada's Express Entry system. To qualify, applicants must meet specific criteria:
+
+              <ul className="my-3">
+                <li>
+                At least 1 year of work experience in a skilled occupation classified under National Occupational Classification (NOC) levels 0, A, or B.
+                 
+                </li>
+                <li>
+                Minimum of 60 points on the SINP Points Assessment Grid.
+                </li>
+          
+              </ul>
+              The experience is considered ineligible if it is an occupated under the SINP Excluded Occupation List. This substream allows Saskatchewan to select candidates who are already in the federal immigration pool and are likely to successfully integrate into the local labor market.
+
+            </div>
+            <div class="pages-header-2" ref={EmploymentOfferRef}>
+            Saskatchewan Employment Offer
+
+
+            </div>
+            <div className="pages-paragraph">
+            The Saskatchewan Employment Offer targets foreign skilled workers with a valid job offer from an employer in Saskatchewan. The eligibility criteria include:
+ 
+
+              <ul className="my-3">
+                <li>
+                A full-time, permanent job offer from a Saskatchewan employer.
+                  
+                </li>
+                <li>
+                Relevant work experience related to the job offer.
+
+                </li>
+                <li>
+                At least 60 points on the SINP Points Assessment Grid.
+
+                </li>
+                </ul>
+                This pathway is especially beneficial for those who have secured employment in Saskatchewan before applying for immigration.
+                </div>
+
+
+
+                <div class="pages-header-2" ref={OccuupationRef}>
+                Saskatchewan In-Demand Occupation
+
+
+            </div>
+                <div className="pages-paragraph">
+                The Saskatchewan In-Demand Occupation is for foreign workers with experience in specific high demand occupations in the province. To qualify, applicants must have:
+ 
+
+              <ul className="my-3">
+                <li>
+                At least one year of work experience in an occupation listed as "in-demand" by the province.
+                  
+                </li>
+                <li>
+                Unlike the Employment Offer substream, candidates do not need a job offer to apply.
+
+                </li>
+                <li>
+                A minimum score of 60 points on the SINP Points Assessment Grid.
+
+                </li>
+                </ul>
+                This stream provides an opportunity for skilled workers who may not yet have employment secured but has relevant qualifications aligning with Saskatchewan’s labor market needs.
+                </div>
+
+
+
+
+
+                <div class="pages-header-2" ref={InternationalRef}>
+                Saskatchewan International Skilled Worker Tech Talent Pathway
+
+
+            </div>
+                <div className="pages-paragraph">
+                The Tech Talent Pathway is aimed at attracting highly skilled workers in technology-related fields. 
+ 
+
+              <ul className="my-3">
+                <li>
+                Applicants must have a job offer from a Saskatchewan employer specifically in one of the tech occupations.
+                  
+                </li>
+                <li>
+                The pathway focuses on occupations that are critical to the tech sector's growth within Saskatchewan.
+
+                </li>
+          
+                </ul>
+                Candidates must still meet the minimum points requirement and have relevant skills and experience.
+                </div>
+
+
+                <div class="pages-header-2" ref={SkillsRef}>
+                Saskatchewan Hard-to-Fill Skills Pilot
+
+
+            </div>
+                <div className="pages-paragraph">
+                The Hard-to-Fill Skills Pilot addresses specific labor shortages by targeting skilled workers in occupations that are challenging for employers to fill.
+ 
+
+              <ul className="my-3">
+                <li>
+                Applicants must have relevant work experience in one of the identified hard-to-fill occupations.
+                  
+                </li>
+                <li>
+                A valid job offer from a Saskatchewan employer is necessary.
+
+                </li>
+                <li>At least 60 points on the SINP Points Assessment Grid.
+</li>
+          
+                </ul>
+                This pilot program helps employers find qualified candidates for specialized roles.
+                </div>
+
+
+                <div class="pages-header-2" ref={AssessmentRef}>
+                SINP Assessment Grid
+
+
+            </div>
+                <div className="pages-paragraph">
+                The SINP Points Assessment Grid operates on a scale of 100 points. To qualify for any of the Saskatchewan International Skilled Worker streams, candidates must achieve a minimum score of 60 points. 
+                <div>
+                <div className="table-container">
+                  <table className="responsive-table">
+                    <thead>
+                      <tr>
+                        <th>Factor</th>
+                        <th>Maximum Points</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {occupationTableData.map((row, index) => (
+                        <tr key={index}>
+                          <td>{row.Factor}</td>
+                          <td>{row.MaximumPoints}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              
+              The Saskatchewan International Skilled Worker program offers skilled immigrants a pathway to build their careers and lives in Canada. As labor market demands evolve, these programs remain flexible, ensuring that both employers and immigrants can find opportunities.
+                </div>
+
+
+              
+              
+
+            
+           
+
+            
+          </div>
+          <div ref={faqRef}>
+            <FaqBox faqItems={faqItems} />
+            <ReadyToStartCard />
+          </div>        </div>
       </div>
-      <h2 className="pages-content-div">
-        Saskatchewan International Skilled Worker is a collection of immigration
-        streams of the Saskatchewan Immigrant Nominee Program (SINP), a
-        Provincial Nominee Program (PNP) operated by the province of
-        Saskatchewan. Saskatchewan International Skilled Worker encompasses
-        three immigration streams which target foreign nationals who have
-        skilled work experience and who meet the unique needs and requirements
-        to fill gaps in Saskatchewan’s labour force.
-        <br />
-        <br />
-        <br />
-        <a href="/assessment" className="button">
-          {" "}
-          GET STARTED
-        </a>
-        <br />
-        <br />
-        <br />
-        Saskatchewan International Skilled Worker includes the following
-        streams:
-        <br />
-        <br />
-        <ul>
-          <li>Saskatchewan Express Entry</li>
-          <li>Saskatchewan Employment Offer</li>
-          <li>Saskatchewan In-Demand Occupation</li>
-        </ul>
-        <br />
-        Applicants who are successful through any of these Saskatchewan streams
-        will receive an official provincial nomination from Saskatchewan. This
-        provincial nomination makes applicants eligible to apply for Canadian
-        permanent resident status. Please note that in order to qualify for any
-        of these streams, candidates must score at least 60 points on the SINP
-        Points Assessment Grid.
-        <br />
-        <br />
-        <sp>Saskatchewan Express Entry</sp>
-        <br />
-        <br />
-        Saskatchewan Express Entry is a stream of Saskatchewan International
-        Skilled Worker targeting foreign workers with active profiles in
-        Canada’s Express Entry system. In order to qualify for this stream, the
-        applicant must have at least one year of experience at least one year of
-        experience in an occupation at NOC level “A”, “B” or “0”. The experience
-        will not be eligible if it was completed in an occupation listed on the
-        SINP Excluded Occupation List. The applicant must also score at least 60
-        points on the SINP Points Assessment Grid.
-        <br />
-        <br />
-        <sp>Saskatchewan Employment Offer</sp>
-        <br />
-        <br />
-        Saskatchewan Employment Offer is a stream of Saskatchewan International
-        Skilled Worker targeting foreign workers who have valid job offers from
-        Saskatchewan employers. In order to qualify, the applicant must meet
-        certain requirements regarding work experience and must score at least
-        60 points on the SINP Points Assessment Grid.
-        <br />
-        <br />
-        <sp>Saskatchewan Occupations In-Demand</sp>
-        <br />
-        <br />
-        Saskatchewan Occupation In-Demand is a stream of Saskatchewan
-        International Skilled Worker targeting foreign workers who have work
-        experience in specific occupations. In order to qualify, the applicant
-        must have at least one year of experience in an occupation at NOC level
-        “A”, “B” or “0”. The Occupation will not be eligible if it is listed on
-        the SINP Excluded Occupation List. As well the applicant must be able to
-        claim at least 60 points on the SINP Points Assessment Grid.
-        <br />
-        <br />
-        <sp>Saskatchewan Points Assessment Grid</sp>
-        <br />
-        <br />
-        The SINP Points Assessment Grid is out of 100 points. In order to be
-        eligible for all of the Saskatchewan International Skilled Worker
-        streams a candidate must score a minimum of 60 points. Please note that
-        candidates will be required to submit supporting documentation with
-        their SINP application demonstrating that they have met the 60 point
-        requirement.
-        <br />
-        <br />
-        <sp>Overview of Factors</sp>
-        <br />
-        <br />
-        <TableFactor />
-        <br />
-        <TableFactor2 />
-        <br />
-        <sp>Saskatchewan Excluded Occupations List</sp>
-        <br />
-        <br />
-        In order to qualify for Saskatchewan’s Occupation In-Demand and Express
-        Entry categories, a candidate must have a minimum of 12 months of
-        full-time work experience in an occupation at NOC level “A”, “B” or “0”.
-        The occupation will not be eligible if it is listed on the SINP Excluded
-        Occupation List which follows below:
-        <br />
-        <br />
-        <sp>SINP Excluded Occupations List</sp>
-        <br />
-        <br />
-        <TableOccuations />
-      </h2>
     </div>
   );
 }
