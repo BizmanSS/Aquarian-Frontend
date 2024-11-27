@@ -193,7 +193,7 @@ const popularBlogsData = [
   {
     id: 1,
     date: "Saturday, 16 Jan 2024",
-    title: "What is Category Based Selection?",
+    title: "What is Category Based Selection in canada? ",
     description:
       "Canada has long been recognized as a prominent destination for immigrants, attracting individuals and families from around the globe. This reputation stems from its commitment to diversity.[...]",
     imgSrc: BLOGS_A,
@@ -578,64 +578,37 @@ export default function Blogs() {
       ) : (
         
         <div className="Blogs-section">
-          <div className="Blogs-container">
-            {searchQuery === "" && (
-              <h1 className="Blogs-recent-blog-heading">Recent Blog Posts</h1>
-            )}
+  <div className="Blogs-container">
+    {searchQuery === "" && (
+      <h1 className="Blogs-recent-blog-heading">Recent Blog Posts</h1>
+    )}
 
-{searchQuery === "" && ( <div className="Blogs-content-box">
-              {searchQuery === "" && (
-                <div className="Blogs-left-side" onClick={handlenavigate}>
-                  {filteredBlogsDatarecent[0] && (
-                    <>
-                      <div className="Blogs-image-box">
-                        <img
-                          src={filteredBlogsDatarecent[0].imgSrc}
-                          alt={`Blog post ${filteredBlogsDatarecent[0].id}`}
-                          className="Blogs-recent-image"
-                        />
-                      </div>
-                      <div className="Blogs-content-below-image">
-                        <h1 className="Blogs-date-left">
-                          {filteredBlogsDatarecent[0].date}
-                        </h1>
-                        <h1 className="Blogs-top-10">
-                          {filteredBlogsDatarecent[0].title}
-                        </h1>
-                        <p className="Blogs-left-content">
-                          {filteredBlogsDatarecent[0].description}
-                        </p>
-                      </div>
-                    </>
-                  )}
-                </div>
-              )}
-
-{searchQuery === "" && (  <div className="Blogs-right-side">
-                {filteredBlogsDatarecent.slice(1).map((blog) => (
-                  <div
-                    className="Blogs-right-content-block"
-                    key={blog.id}
-                    onClick={handlenavigate}
-                  >
-                    <div className="Blogs-image-box-top">
-                      <img
-                        src={blog.imgSrc}
-                        alt={`Right blog post ${blog.id}`}
-                        className="Blogs-image"
-                      />
-                    </div>
-                    <div className="Blogs-content-right-side">
-                      <h2 className="Blogs-date-right">{blog.date}</h2>
-                      <h1 className="Blogs-top-10-right">{blog.title}</h1>
-                      <p className="Blogs-right-content">{blog.description}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>)}
-            </div>)}
-          </div>
+    {searchQuery === "" && (
+      <div className="Blogs-content-box">
+        {/* Blog posts combined in a single grid */}
+        <div className="Blogs-grid">
+          {filteredBlogsDatarecent.map((blog, index) => (
+            <div className="Blogs-grid-item" key={blog.id} onClick={handlenavigate}>
+              <div className="Blogs-image-box">
+                <img
+                  src={blog.imgSrc}
+                  alt={`Blog post ${blog.id}`}
+                  className="Blogs-recent-image"
+                />
+              </div>
+              <div className="Blogs-content-below-image">
+                <h1 className="Blogs-date-left">{blog.date}</h1>
+                <h1 className="Blogs-top-10">{blog.title}</h1>
+                <p className="Blogs-left-content">{blog.description}</p>
+              </div>
+            </div>
+          ))}
         </div>
+      </div>
+    )}
+  </div>
+</div>
+
       )}
 
       {!isBlogDetailVisible && (

@@ -1,137 +1,148 @@
-import React from "react";
-import { Link } from "react-router-dom";
-const Table = () => {
-  const data = [
-    { name: "Express Entry Profile", amount: "Yes" },
+import React, { useRef } from "react";
+
+import NestedTableOfContent from "../../../../shared/NestedTableOfContent.jsx";
+import ReadyToStartCard from "../../../../shared/ReadyToStart.jsx";
+import SiteMapMenu from "../../../../globalComponents/Sidebar/SiteMapMenu.jsx";
+import FaqBox from "../../../../shared/NestedFaqBox.jsx";
+
+const faqItems = [
+  {
+    question: "What types of physicians are eligible under NSLMP?",
+    answer:
+      "Eligible physicians include general practitioners, family physicians, and specialist physicians as classified under NOC codes 3111 and 3112.",
+      
+  },
+  {
+    question:
+      "Is there a limit on how many physicians can apply through the NSLMP Physicians stream?",
+    answer:
+      " Currently, there is no publicly stated cap on the number of applications accepted through this stream; however, it operates on an invitation-only basis.",
+   
+  },
+  
+];
+
+export default function NovaScotiaLabourMarketPrioritiesforPhysicians
+() {
+  const EligibilityRef = useRef(null);
+  const ApplicationRef = useRef(null);
+  const faqRef = useRef(null);
+
+ 
+  
+  const tableContentData = [
     {
-      name: "Connection to Province",
-      amount: "No",
+      title: "Eligibility Requirements",
+      scrollTo: EligibilityRef,
     },
-    { name: "Job Offer", amount: "Yes" },
     {
-      name: "Language Proficiency",
-      amount: "Entry requirements of CLB 7",
+      title: "Application for NSLMP for Physicians",
+      scrollTo: ApplicationRef,
     },
+    
     {
-      name: "Level of Education",
-      amount:
-        "A copy of an Educational Credential Assessment or proof of education and medical training required for licensure in Nova Scotia.",
-    },
-    {
-      name: "Work Experience",
-      amount: "Express Entry Requirement",
-    },
-    {
-      name: "Investment Requirement",
-      amount: "No",
+      title: "FAQs",
+      scrollTo: faqRef,
     },
   ];
 
   return (
-    <table>
-      <thead>
-        <tr>
-          <th style={{ width: "30%" }}>Requirement</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        {data.map((item, index) => (
-          <tr key={index}>
-            <td>{item.name}</td>
-            <td>{item.amount}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  );
-};
-export default function NovaScotiaLabourMarketPrioritiesForPhysicians() {
-  return (
     <div
       style={{
-        background: "#E0E0E0",
+        background: "#EEE",
       }}
     >
-      <div className="AboutUsHeader">
-        <p className="link">
-          <a href="/">Home</a>
-          {" > "}Immigrate
-          {" > "}
-          <Link to="/immigrate/provincial-nominee-program">
-            Provincial Nominee Program
-          </Link>
-          {" > "}
-          <Link to="/immigrate/provincial-nominee-program/nova-scotia">
-            Nova Scotia
-          </Link>
-          {" > "}Nova Scotia Labour Market Priorities for Physicians
-        </p>
-        <div className="header-content">
-          <h1 className="heading-about">
+      <div className="pages-content-wrapper">
+        <SiteMapMenu
+          type="I"
+          h1="Provincial Nominee Program"
+          h2="Nova Scotia"
+          h3="Nova Scotia Labour Market Priorities for Physicians"
+        ></SiteMapMenu>
+
+        <div class="pages-content-div">
+          <div class="pages-content-text-wrapper ">
+            <div className="pages-current-page-link">
+              <a href="/">Home</a>
+              {" > "}Provincial Nominee Program
+              {" > "}Nova Scotia
+              {" > "}Nova Scotia Labour Market Priorities for Physicians
+
+ 
+
+            </div>
+            <div class="pages-header">
             Nova Scotia Labour Market Priorities for Physicians
-          </h1>
-        </div>
+
+            </div>
+            The Nova Scotia Labour Market Priorities for Physicians stream is a targeted immigration pathway under the Provincial Nominee Program operated by Nova Scotia (NSNP). It is designed for foreign physicians with an active profile in the pool of Express Entry. The Nova Scotia Labour Market Priorities Stream for Physicians is a bridge between the Nova Scotia Labour Market Priorities Stream and the Express Stream. Selected candidates receive a provincial nomination, which can increase their chances of Canadian permanent residency.
+
+            
+            
+            <div className="table-of-content-container">
+              <NestedTableOfContent data={tableContentData} />
+            </div>
+            <div class="pages-header-2" ref={EligibilityRef}>
+            Eligibility for NSNP Labour Market Priorities for Physicians
+
+
+            </div>
+            <div className="pages-paragraph">
+            To qualify for the NSNP Labour Market Priorities for Physicians stream, candidates must meet several specific criteria:
+
+              <ul className="my-3">
+                <li>
+                Applicants must have a valid job offer from either the Nova Scotia Health Authority (NSHA) or the IWK Health Centre. The positions must fall under the National Occupational Classification (NOC) codes 3111 (specialist physician) or 3112 (general practitioner or family physician).
+                
+                </li>
+                <li>
+                Candidates must be registered in the federal Express Entry pool.
+                <ul>
+                  <li><strong>Federal Skilled Worker:</strong> Requires a high school diploma and at least one year of continuous full-time skilled work experience.
+</li>
+                  <li><strong>Canadian Experience Class:</strong> No minimum education requirement, but requires at least one year of full-time skilled work experience in Canada within the last three years.
+</li>
+                  <li><strong>Federal Skilled Trades:</strong> No minimum education requirement; candidates need two years of full-time work experience in a skilled trade and either a job offer or a Canadian certificate of qualification.
+</li>
+
+
+                </ul>
+                </li>
+                <li>A minimum Canadian Language Benchmark (CLB) score as claimed in the Express Entry profile.
+</li>
+              </ul>
+              Candidates are required to sign a Return for Service Agreement committing to live and work in Nova Scotia for a minimum of two years.
+
+            </div>
+            <div class="pages-header-2" ref={ApplicationRef}>
+            Application for NSLMP for Physicians
+
+
+            </div>
+            <div className="pages-paragraph">
+            Candidates must first create an Express Entry profile to indicate their interest in moving to Nova Scotia. If selected, candidates will receive an LOI from the Nova Scotia Office of Immigration, which must be accepted within 30 days.
+ <br></br>
+ <br></br>
+ Candidates must then submit their application along with supporting documents. The NSOI will review applications and issue nominations at its discretion. Successful applicants will receive confirmation via their IRCC online account. They will get 600 points in their Express Entry profile which increases their chances of receiving an ITA.
+
+
+          <br></br>   
+          <br></br>   
+
+             
+ As of now, the NSNP Labour Market Priorities for Physicians stream has not conducted any intake rounds since its start. However, it remains an important component of Nova Scotia's strategy to strengthen its healthcare workforce amidst ongoing shortages in various medical fields.
+            
+            </div>
+            
+            
+
+            
+          </div>
+          <div ref={faqRef}>
+            <FaqBox faqItems={faqItems} />
+            <ReadyToStartCard />
+          </div>        </div>
       </div>
-      <h2 className="pages-content-div">
-        This stream targets trained physicians with an active profile in the
-        Federal Express Entry pool.
-        <br />
-        <br />
-        The Nova Scotia Labour Market Priorities Stream for Physicians offers a
-        bridge between the Nova Scotia Labour Market Priorities Stream,
-        targeting candidates in the Federal Express Entry pool, and the
-        Physician Stream, targeting general practitioners, family physicians and
-        specialist physicians. Those who are selected by the province to receive
-        a nomination will earn an additional 600 points to their Express Entry
-        profile, making them very competitive for receiving an Invitation to
-        Apply (ITA) for Canadian permanent residence.
-        <br />
-        <br />
-        <sp>Eligibility Criteria</sp>
-        <br />
-        <br />
-        <Table />
-        <br />
-        <bold>Job Offer</bold>
-        <br />
-        <br />
-        In order to be considered eligible, a foreign national must have a job
-        offer from either the Nova Scotia Health Authority (NSHA) or the IWK
-        Health Centre. This job offer must be for a position at National
-        Occupational Classification (NOC) code 31100 (specialist physician) or
-        31102 (general practitioner or family physician).
-        <br />
-        <br />
-        <bold>Express Entry Requirement</bold>
-        <br />
-        <br />
-        To be eligible for the Nova Scotia Labour Market Priorities for
-        Physicians stream, applicants must be registered in the federal Express
-        Entry pool. To submit a profile to the pool, applicants must be eligible
-        for at least one of three federal Economic programs: Federal Skilled
-        Worker, Canadian Experience Class, Federal Skilled Trades
-        <br />
-        <br />
-        <bold>Application Procedure</bold>
-        <br />
-        <br />
-        To be eligible for Nova Scotia’s Labour Market Priorities for Physicians
-        stream candidates must first create a profile in the Federal Express
-        Entry pool. Those selected by the province to apply for the stream will
-        receive a Letter of Interest (LOI) from the province, appearing in their
-        Express Entry profile online. If the application is approved, the
-        candidate will be nominated by Nova Scotia for Canadian permanent
-        resident status and receive 600 points to their Express Entry profile.
-        This increase will virtually guarantee the candidate receives an ITA in
-        the next Express Entry draw.
-        <br />
-        <br />
-        With an invitation in hand, the candidate must prepare and submit an
-        official application for Canadian permanent residence within the
-        designated time frame. Applications for permanent residence submitted
-        through Express Entry are generally processed within six months.
-      </h2>
     </div>
   );
 }

@@ -328,10 +328,13 @@ Alberta Rural Entrepreneur Stream
                 policies​.
               </div>
             </div>
+
           </div>
+          
           <ReadyToStartCard />
         </div>
       </div>
+
     </div>
   );
 }

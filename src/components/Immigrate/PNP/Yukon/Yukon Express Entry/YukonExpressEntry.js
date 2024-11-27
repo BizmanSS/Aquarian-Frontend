@@ -1,222 +1,156 @@
-import React from "react";
-import { Link } from "react-router-dom";
-const Table = () => {
-  const data = [
-    { name: "Express Entry Profile", amount: "Yes" },
-    { name: "Connection to Province", amount: "No" },
-    { name: "Job Offer", amount: "Yes" },
+import React, { useRef } from "react";
+
+import NestedTableOfContent from "../../../../shared/NestedTableOfContent.jsx";
+import ReadyToStartCard from "../../../../shared/ReadyToStart.jsx";
+import SiteMapMenu from "../../../../globalComponents/Sidebar/SiteMapMenu.jsx";
+import FaqBox from "../../../../shared/NestedFaqBox.jsx";
+
+const faqItems = [
+  {
+    question:
+      "What is a Yukon Express Entry?",
+    answer:
+      "Yukon Express Entry is a stream of the Yukon Nominee Program that allows eligible candidates in the federal Express Entry pool to receive a provincial nomination for permanent residency.",
+  },
+  {
+    question: "How does YEE benefit employers?",
+    answer:
+      " It simplifies hiring foreign workers by eliminating the need for an LMIA and allows quicker recruitment to fill critical positions.",
+  },
+  {
+    question: "How much does YEE increase my CRS score?",
+    answer:
+      "  Receiving a nomination through YEE adds 600 points to your CRS score, greatly enhancing your chances of receiving an ITA",
+  },
+];
+
+export default function YukonExpressEntry
+() {
+  const faqRef = useRef(null);
+  const RequirementsRef = useRef(null);
+const ApplicationRef = useRef(null);
+  const tableContentData = [
     {
-      name: "Language Proficiency",
-      amount: "See Express Entry requirements",
+      title: "Yukon Express Entry Eligibility Criteria",
+      scrollTo: RequirementsRef,
     },
-    { name: "Level of Education", amount: "See Express Entry requirements" },
-    { name: "Work Experience", amount: "See Express Entry requirements" },
-    { name: "Investment Requirement", amount: "None" },
+    {
+      title: "Application Process for Yukon Express Entry",
+      scrollTo: ApplicationRef,
+    },
+    
+    {
+      title: "FAQs",
+      scrollTo: faqRef,
+    },
   ];
 
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>Requirement</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        {data.map((item, index) => (
-          <tr key={index}>
-            <td>{item.name}</td>
-            <td>{item.amount}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  );
-};
-export default function YukonExpressEntry() {
-  return (
     <div
       style={{
-        background: "#E0E0E0",
+        background: "#EEE",
       }}
     >
-      <div className="AboutUsHeader">
-        <p className="link">
-          <a href="/">Home</a>
-          {" > "}Immigrate
-          {" > "}
-          <Link to="/immigrate/provincial-nominee-program">
-            Provincial Nominee Program
-          </Link>
-          {" > "}
-          <Link to="/immigrate/provincial-nominee-program/yukon">Yukon</Link>
-          {" > "}Yukon Express Entry
-        </p>
-        <div className="header-content">
-          <h1 className="heading-about">Yukon Express Entry</h1>
+      <div className="pages-content-wrapper">
+        <SiteMapMenu
+          type="I"
+          h1="Provincial Nominee Program"
+          h2="Yukon"
+          h3="Yukon Express Entry"
+        ></SiteMapMenu>
+
+        <div class="pages-content-div">
+          <div class="pages-content-text-wrapper ">
+            <div className="pages-current-page-link">
+              <a href="/">Home</a>
+              {" > "}Provincial Nominee Program
+              {" > "}Yukon
+              {" > "}Yukon Express Entry
+
+            </div>
+            <div class="pages-header">Yukon Express Entry</div>
+            <div class="pages-paragraph space-fix intro-size-fix">
+            Yukon Express Entry (YEE) is a key component of the Yukon Nominee Program (YNP). It is designed to attract skilled workers to the Yukon Territory in Canada. Launched in March 2015, this stream allows eligible candidates from the federal Express Entry pool to receive provincial nominations. The successful applicants receive 600 CRS points on their Express entry profile. This enhances their chances of permanent residency in Canada. YEE allows employers to bypass the Labour Market Impact Assessment (LMIA) process, which can be time-consuming and costly. Employers can directly nominate foreign workers who meet their needs, thus filling critical positions more efficiently.
+
+            </div>
+            <div className="table-of-content-container">
+              <NestedTableOfContent data={tableContentData} />
+            </div>
+            <div class="pages-header-2" ref={RequirementsRef}>
+            Yukon Express Entry Eligibility Criteria
+            </div>
+            <div className="pages-paragraph">
+            Candidates must qualify for one of the three federal economic immigration programs: Federal Skilled Worker, Federal Skilled Trades, or Canadian Experience Class.
+
+             
+
+              <ul className="my-3" >
+                <li>
+                Applicants must create an online profile in the IRCC's Express Entry system and obtain a Profile Number.
+                <ul>
+                    <li> <strong>Federal Skilled Worker (FSW) Requirements:</strong> Minimum high school diploma and at least one year of continuous full-time skilled work experience in a position classified under NOC Skill Level 0, A, or B. They must also demonstrate language proficiency in English or French at Canadian Language Benchmark (CLB) level 7.
+</li>
+                    <li><strong>Canadian Experience Class (CEC) Requirements:</strong> No minimum education requirement for CEC candidates. Minimum of one year of full-time skilled work experience in Canada within the last three years, also classified under NOC Skill Level 0, A, or B. Language proficiency is required at CLB 7 for NOC Skill Level 0 or A and CLB 5 for NOC Skill Level B.
+</li>
+<li><strong>Federal Skilled Trades (FST) Requirements:</strong> No minimum education level but must have at least two years of full-time work experience in a skilled trade. Either a job offer in a skilled trade in Canada or a certificate of qualification. Language proficiency requirements include CLB 5 for speaking and listening and CLB 4 for reading and writing.
+</li>
+                  </ul>
+                </li>
+                <li>
+                A valid full-time permanent job offer from an eligible Yukon employer is essential. 
+
+                </li>
+                <li>
+                Candidates must have sufficient funds to support themselves and any accompanying family members upon arrival in Canada.
+
+                </li>
+                <li>
+                Applicants must show a genuine intention to live and work in Yukon.
+                 
+                </li>
+              </ul>
+            
+              
+            </div>
+            To hire a foreign worker under the Yukon Nominee Program (YNP), Yukon employers must fulfil specific requirements. They must offer a full-time, indeterminate position with a wage that meets industry standards. The business must have been operational in Yukon for at least one year (or three years for non-profits) and possess valid licenses. 
+
+            <div class="pages-header-2" ref={ApplicationRef}>
+            Application Process for Yukon Express Entry
+            </div>
+            <div className="pages-paragraph">
+            Applicants need to create an Express Entry profile to become eligible to apply for this program. The application process for Yukon Express Entry the following steps:
+
+              <ul className="my-3">
+                <li>
+                The employer identifies a foreign worker for a position that cannot be filled by a Canadian.
+
+                </li>
+                <li>
+                The employer offers a job after demonstrating recruitment efforts.
+
+                </li>
+                <li>
+                The worker applies through the IRCC's Express Entry system.
+
+                </li>
+                <li>
+                Upon meeting all criteria, the employer and worker submit the YEE application.
+
+                </li>
+                <li>If nominated, the worker receives an ITA from IRCC for permanent residency and a letter of support for a temporary work permit
+</li>
+              </ul>
+              
+            </div>
+            This allows the applicant to apply for a work permit from IRCC and start working in Yukon while awaiting permanent residence processing. Keep in mind that the temporary work permit application is separate.
+
+          </div>
+          <div ref={faqRef}>
+            <FaqBox faqItems={faqItems} />
+            <ReadyToStartCard />
+          </div>{" "}
         </div>
       </div>
-      <h2 className="pages-content-div">
-        While rich in land and resources, the sprawling Yukon territory is no
-        stranger to labour shortages due to its small population of just over
-        30,000 people.
-        <br />
-        <br />
-        <ul>
-          <li>Program Requirements </li>
-          <li>Employer Requirements</li>
-          <li>Application Procedure</li>
-        </ul>
-        <br />
-        <br />
-        <a href="/assessment" className="button">
-          {" "}
-          GET STARTED
-        </a>
-        <br />
-        <br />
-        <br />
-        The Yukon government opened Yukon Express Entry (YEE) in 2015, a stream
-        of the Yukon Nominee Program (YNP). YEE is aligned with the federal
-        Express Entry system, meaning applicants must have an active profile in
-        the Express Entry pool to be eligible. Individuals who meet the
-        requirements for YEE and have an intent to live and work in the Yukon
-        may be eligible to receive a Yukon provincial nomination. Successful
-        applicants may claim 600 additional Comprehensive Ranking System (CRS)
-        points on their Express Entry profile, and may receive expedited
-        permanent residence processing in order to quickly and efficiently
-        integrate into Yukon life and workforce.
-        <br />
-        <br />
-        <sp>Program Requirements</sp>
-        <br />
-        <br />
-        <Table />
-        <br />
-        <bold>Express Entry Requirement</bold>
-        <br />
-        <br />
-        Yukon Express Entry is aligned with the federal Express Entry system. To
-        be eligible for the stream, candidates must have an active profile in
-        the Express Entry pool. To submit a profile to the Express Entry pool,
-        applicants must be eligible for at least one of three federal Economic
-        programs:
-        <br />
-        <br />
-        <ul>
-          <li>
-            Federal Skilled Worker requires candidates to have, at minimum, a
-            high school diploma, as well as at least one year of continuous
-            full-time, skilled work experience. Work experience is considered
-            skilled if obtained in a position at National Occupational
-            Classification (NOC) Skill Level 0, A, or B. Candidates must also
-            demonstrate language proficiency in English or French consistent
-            with Canadian Language Benchmark (CLB) level 7.
-          </li>
-          <li>
-            Canadian Experience Class has no minimum education requirement. CEC
-            candidates must have a minimum of one year of full-time Canadian
-            skilled work experience in the last three years. Work experience is
-            considered skilled if obtained in a position at NOC Skill Level 0,
-            A, or B. Candidates must also demonstrate language proficiency in
-            English or French consistent with CLB level 7 for work experience
-            obtained at NOC Skill Level 0 or A and CLB 5 for work experience
-            obtained at NOC Skill Level B.
-          </li>
-          <li>
-            Federal Skilled Trades has no minimum education requirement. FST
-            candidates must have at least 2 years of full-time work experience
-            in a skilled trade occupation. Candidates must also have either an
-            offer of employment to work in a skilled trade in Canada or a
-            certificate of qualification in their skilled trade issued by a
-            Canadian authority. Candidates must also demonstrate language
-            proficiency in English or French at CLB Level 5 for speaking and
-            listening and CLB 4 for reading and writing.
-          </li>
-        </ul>
-        <br />
-        <bold>Job Offer</bold>
-        <br />
-        <br />
-        Candidates must also have a full-time, permanent job offer from an
-        eligible Yukon employer.
-        <br />
-        <br />
-        <bold>Settlement Funds</bold>
-        <br />
-        <br />
-        All candidates for the Yukon Express Entry stream must meet the
-        settlement funds requirement as determined by Immigration, Refugees and
-        Citizenship Canada (IRCC).
-        <br />
-        <br />
-        <sp>Employer Requirements</sp>
-        <br />
-        <br />
-        To be eligible to make a valid job offer to a foreign worker for the
-        Yukon Nominee Program (YNP), the Yukon employer must meet certain
-        requirements.
-        <br />
-        <br />
-        <bold>Job Offer Requirement</bold>
-        <br />
-        <br />
-        The employer must offer a full-time, indeterminate position with a wage
-        that meets industry standards.
-        <br />
-        <br />
-        <bold>Business Requirements</bold>
-        <br />
-        <br />
-        The Yukon business must have been operating in Yukon for at least one
-        year. If the business is a non-profit organisation, the business must
-        have been in operation for at least three years, and must have secured
-        funding for at least one year following the application to the YNP. The
-        business must also have current and valid licences to operate in Yukon.
-        <br />
-        <br />
-        <bold>Recruitment Requirements</bold>
-        <br />
-        <br />
-        The employer must demonstrate that reasonable efforts were made to
-        recruit a Canadian to fill the position prior to offering the position
-        to a foreign national. Employers must meet specific advertising
-        requirements, including advertising the position for at least four (4)
-        weeks in at least two local and one national recruitment mediums.
-        <br />
-        <br />
-        <sp>Application Procedure</sp>
-        <br />
-        <br />
-        The Yukon Express Entry stream is open to new applications at any time.
-        To apply to the stream, eligible candidates must create an Express Entry
-        profile. Once they have received a valid job offer from an employer,
-        both the candidate and the employer must submit documentation to support
-        their eligibility claims. Applications submitted to the YNP are
-        generally processed within eight to ten weeks.
-        <br />
-        <br />
-        If the application is approved, the candidate will receive a nomination
-        from Yukon to apply for permanent residence. The applicant will also
-        receive a letter of support for a temporary work permit, which the
-        applicant can use to apply to IRCC for a work permit so they can begin
-        working in Yukon while their application for permanent residence is
-        processed. Note that applying for a temporary work permit represents a
-        separate application.
-        <br />
-        <br />
-        The applicant must accept the nomination from Yukon on their Express
-        Entry profile. After accepting the provincial nomination, the
-        applicant’s Comprehensive Ranking System (CRS) score will increase by
-        600 points, virtually guaranteeing they will receive an Invitation to
-        Apply (ITA) for permanent residence in the next Express Entry draw.
-        After receiving an ITA, the applicant must prepare and submit an
-        official application for Canadian permanent residence within the
-        designated time frame. Applications for permanent residence submitted
-        through Express Entry are generally processed within six months.
-        <br />
-        <br />
-      </h2>
     </div>
   );
 }

@@ -1,190 +1,183 @@
-import React from "react";
-import { Link } from "react-router-dom";
-const Table = () => {
-  const data = [
-    { name: "Express Entry Profile", amount: "No" },
-    { name: "Connection to Province", amount: "No" },
-    { name: "Job Offer", amount: "Yes" },
+import React, { useRef } from "react";
+
+import NestedTableOfContent from "../../../../shared/NestedTableOfContent.jsx";
+import ReadyToStartCard from "../../../../shared/ReadyToStart.jsx";
+import SiteMapMenu from "../../../../globalComponents/Sidebar/SiteMapMenu.jsx";
+import FaqBox from "../../../../shared/NestedFaqBox.jsx";
+
+const faqItems = [
+  {
+    question:
+      "  Can I apply to the Yukon Skilled Worker stream without a job offer?",
+    answer:
+      "No, a valid job offer from an eligible employer in Yukon is mandatory.",
+  },
+  {
+    question: "Do I need to provide proof of funds for the YSW stream?",
+    answer:
+      "While proof of funds is not explicitly required for this program, applicants should be financially stable during their transition.",
+  },
+];
+
+export default function YukonSkilledWorker() {
+  const faqRef = useRef(null);
+  const RequirementsRef = useRef(null);
+  const ApplicantsRef = useRef(null);
+  const EmployerRef = useRef(null);
+const ApplicationRef = useRef(null);
+  const tableContentData = [
     {
-      name: "Language Proficiency",
-      amount: "CLB 7 for NOC 0 and A CLB 5 for NOC B",
+      title: "Eligibility Requirements for Yukon Skilled Worker",
+      scrollTo: RequirementsRef,
     },
-    { name: "Level of Education", amount: "High school" },
-    { name: "Work Experience", amount: "NOC 0, A, or B 1 year" },
-    { name: "Investment Requirement", amount: "None" },
+    {
+      title: "For Applicants",
+      scrollTo: ApplicantsRef,
+    },
+    {
+      title: "For Employers",
+      scrollTo: EmployerRef,
+    },
+    {
+      title: "Yukon Skilled Worker Application Process",
+      scrollTo: ApplicationRef,
+    },
+    {
+      title: "FAQs",
+      scrollTo: faqRef,
+    },
   ];
 
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>Requirement</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        {data.map((item, index) => (
-          <tr key={index}>
-            <td>{item.name}</td>
-            <td>{item.amount}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  );
-};
-export default function YukonSkilledWorker() {
-  return (
     <div
       style={{
-        background: "#E0E0E0",
+        background: "#EEE",
       }}
     >
-      <div className="AboutUsHeader">
-        <p className="link">
-          <a href="/">Home</a>
-          {" > "}Immigrate
-          {" > "}
-          <Link to="/immigrate/provincial-nominee-program">
-            Provincial Nominee Program
-          </Link>
-          {" > "}
-          <Link to="/immigrate/provincial-nominee-program/yukon">Yukon</Link>
-          {" > "}Yukon Skilled Worker
-        </p>
-        <div className="header-content">
-          <h1 className="heading-about">Yukon Skilled Worker</h1>
+      <div className="pages-content-wrapper">
+        <SiteMapMenu
+          type="I"
+          h1="Provincial Nominee Program"
+          h2="Yukon"
+          h3="Yukon Skilled Worker"
+        ></SiteMapMenu>
+
+        <div class="pages-content-div">
+          <div class="pages-content-text-wrapper ">
+            <div className="pages-current-page-link">
+              <a href="/">Home</a>
+              {" > "}Provincial Nominee Program
+              {" > "}Yukon
+              {" > "}Yukon Skilled Worker
+            </div>
+            <div class="pages-header">Yukon Skilled Worker</div>
+            <div class="pages-paragraph space-fix intro-size-fix">
+              The Yukon Skilled Worker Program is a component of the Yukon
+              Nominee Program (YNP), managed by the province. It is designed to
+              fill labor gaps and attract skilled labor to the Yukon Territory
+              in Canada. This program addresses labor shortages by allowing
+              employers in Yukon to nominate foreign skilled workers for
+              permanent residency. It allows eligible candidates to obtain a
+              provincial nomination, an important step for applying for Canadian
+              permanent residency. The program requires a full-time job offer
+              from an eligible Yukon employer.
+            </div>
+            <div className="table-of-content-container">
+              <NestedTableOfContent data={tableContentData} />
+            </div>
+            <div class="pages-header-2" ref={RequirementsRef}>
+              Eligibility Requirements for Yukon Skilled Worker
+            </div>
+            <div className="pages-paragraph">
+              To qualify for the Yukon Skilled Worker Program, both the
+              applicant and the employer must meet specific criteria:
+              <br></br>
+              <br></br>
+             <div ref={ApplicantsRef} class="text-2xl my-3">For Applicants</div> 
+
+              <ul className="my-3" ref={ApplicantsRef}>
+                <li>
+                  They must have a full-time, permanent job offer from a Yukon
+                  employer in a position classified under NOC skill level 0, A,
+                  or B.
+                </li>
+                <li>
+                  The applicant need to have a minimum of 12 months of full-time
+                  work experience.
+                </li>
+                <li>
+                  Candidates must have at least a high school diploma; higher
+                  education depending on the offered job.
+                </li>
+                <li>
+                  Language Proficiency:
+                  <ul>
+                    <li>CLB 7 or higher for NOC TEER 0 and A positions.</li>
+                    <li>CLB 5 or higher for NOC Level B positions.</li>
+                  </ul>
+                </li>
+              </ul>
+             <div ref={EmployerRef} class="text-2xl my-3" > For Employers</div> 
+              <ul >
+                <li>
+                  A Yukon business must operate for at least one year.
+                 <ul> <li>
+                    Non-profit organizations need at least 3 years of operation
+                    and funding for one year after applying to the Yukon Nominee
+                    Program (YNP).
+                  </li></ul>
+                </li>
+                <li>
+                  The job must pay wages that meet industry standards and
+                  demonstrate that efforts were made to hire Canadian citizens
+                  or permanent residents before offering the position to a
+                  foreign worker.
+                 <ul> <li>
+                    This includes advertising the position for a minimum of four
+                    weeks in at least two local and one national recruitment
+                    medium.
+                  </li></ul>
+                </li>
+              </ul>
+            </div>
+            <div class="pages-header-2" ref={ApplicationRef}>
+              Yukon Skilled Worker Application Process
+            </div>
+            <div className="pages-paragraph">
+              The applications to Yukon Skilled Worker are open at all times.
+              The application process involves given steps:
+              <ul className="my-3">
+                <li>
+                  The applicant and employer must prepare a complete application
+                  together.
+                </li>
+                <li>
+                  The employer submits the application for provincial nomination
+                  to the Yukon government.
+                </li>
+                <li>
+                  Applications are typically processed within 8 to 10 weeks.
+                </li>
+                <li>
+                  If nominated, applicants must submit their federal application
+                  for permanent residency within six months.
+                </li>
+              </ul>
+              The applicant will receive a letter of support for a temporary
+              work permit, enabling them to work in Yukon while their permanent
+              residence application is processed. This work permit application
+              is separate from the permanent residency application.
+            </div>
+            After obtaining a provincial nomination, the applicant has six
+            months to submit their federal application for permanent residence,
+            which must be mailed as a paper-based application.
+          </div>
+          <div ref={faqRef}>
+            <FaqBox faqItems={faqItems} />
+            <ReadyToStartCard />
+          </div>{" "}
         </div>
       </div>
-      <h2 className="pages-content-div">
-        Designed to fill important gaps within the Yukon workforce, the Skilled
-        Worker stream of the Yukon Nominee Program (YNP) gives employers the
-        opportunity to nominate skilled foreign nationals for permanent
-        residence in Canada.
-        <br />
-        <br />
-        <ul>
-          <li>Program Requirements</li>
-          <li>Applicant Requirements</li>
-          <li>Employer Requirements</li>
-          <li>Application Procedure</li>
-        </ul>
-        <br />
-        <br />
-        <a href="/assessment" className="button">
-          GET STARTED
-        </a>
-        <br />
-        <br />
-        <br />
-        <sp>Program Requirements</sp>
-        <br />
-        <br />
-        <Table />
-        <br />
-        Both the applicant and the employer must meet eligibility requirements
-        in order to qualify for the Yukon Nominee Skilled Worker program.
-        <br />
-        <br />
-        <sp>Applicant Requirements</sp>
-        <br />
-        <br />
-        <bold>Job Offer</bold>
-        <br />
-        <br />
-        To be eligible for the Yukon Skilled Worker stream, candidates must have
-        a full-time, permanent job offer from an eligible Yukon employer. The
-        job offer must be in a position at National Occupational Classification
-        (NOC) skill level 0, A, or B.
-        <br />
-        <br />
-        <bold>Language Proficiency</bold>
-        <br />
-        <br />
-        Candidates must have official language test results that demonstrate
-        sufficient language proficiency in English or French to perform the job
-        they have been offered. Candidates with a job offer at NOC skill level 0
-        or A must demonstrate proficiency equivalent to at least Canadian
-        Language Benchmark (CLB) level 7. Candidates with a job offer at NOC
-        skill level B must demonstrate proficiency equivalent to CLB level 5.
-        <br />
-        <br />
-        <bold>Level of Education</bold>
-        <br />
-        <br />
-        Candidates must have at least the equivalent of a Canadian high school
-        level education, and any education required to perform the job they have
-        been offered.
-        <br />
-        <br />
-        <bold>Work Experience</bold>
-        <br />
-        <br />
-        Candidates must have at least one year of work experience in a position
-        related to the job they have received from the Yukon employer.
-        <br />
-        <br />
-        <sp>Employer Requirements</sp>
-        <br />
-        <br />
-        To be eligible to make a valid job offer to a foreign worker for the
-        Yukon Nominee Program (YNP), the Yukon employer must meet certain
-        requirements.
-        <br />
-        <br />
-        <bold>Job Offer Requirement</bold>
-        <br />
-        <br />
-        The employer must offer a full-time, indeterminate position with a wage
-        that meets industry standards.
-        <br />
-        <br />
-        <bold>Business Requirements</bold>
-        <br />
-        <br />
-        The Yukon business must have been operating in Yukon for at least one
-        year. If the business is a non-profit organisation, the business must
-        have been in operation for at least three years, and must have secured
-        funding for at least one year following the application to the YNP. The
-        business must also have current and valid licences to operate in Yukon.
-        <br />
-        <br />
-        <bold>Recruitment Requirements</bold>
-        <br />
-        <br />
-        The employer must demonstrate that reasonable efforts were made to
-        recruit a Canadian to fill the position prior to offering the position
-        to a foreign national. Employers must meet specific advertising
-        requirements, including advertising the position for at least four (4)
-        weeks in at least two local and one national recruitment mediums.
-        <br />
-        <br />
-        <sp>Application Procedure</sp>
-        <br />
-        <br />
-        The Yukon Skilled Worker stream is open to new applications at all
-        times. Eligible candidates and Yukon employers must prepare a complete
-        application to the program together. The employer must then submit the
-        application for a provincial nomination. Applications submitted to the
-        YNP are generally processed within eight to ten weeks.
-        <br />
-        <br />
-        If the application is approved, the candidate will receive a nomination
-        from Yukon to apply for permanent residence. The applicant will also
-        receive a letter of support for a temporary work permit, which the
-        applicant can use to apply to IRCC for a work permit so they can begin
-        working in Yukon while their application for permanent residence is
-        processed. Note that applying for a temporary work permit represents a
-        separate application.
-        <br />
-        <br />
-        After receiving a provincial nomination, the applicant has six months to
-        submit a federal application for Canadian permanent residence.
-        Applicants in this program must complete and submit a paper-based
-        application for permanent residence and submit it by mail to the
-        appropriate application centre. Paper-based PNP applications for
-        permanent residence are generally processed within 18 months.
-      </h2>
     </div>
   );
 }

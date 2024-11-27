@@ -1,141 +1,179 @@
-import React from "react";
-import { Link } from "react-router-dom";
-const Table = () => {
-  const data = [
-    { name: "Express Entry Profile", amount: "No" },
+import React, { useRef } from "react";
+
+import NestedTableOfContent from "../../../../shared/NestedTableOfContent.jsx";
+import ReadyToStartCard from "../../../../shared/ReadyToStart.jsx";
+import SiteMapMenu from "../../../../globalComponents/Sidebar/SiteMapMenu.jsx";
+import FaqBox from "../../../../shared/NestedFaqBox.jsx";
+
+const occupationTableData = [
+  {
+    NOCCode: "3413",
+    Occupation: "Nurse aides, orderlies, and patient service associates",
+  },
+  {
+    NOCCode: "7511",
+    Occupation: "Transport truck drivers",
+  },
+  {
+    NOCCode: "7512",
+    Occupation: " Heavy equipment operators (except crane)",
+  },
+  {
+    NOCCode: "7611",
+    Occupation: "Construction trades helpers and labourers",
+  },
+];
+const faqItems = [
+  {
+    question:
+      "What types of job offers qualify for the Occupation in Demand Stream?",
+    answer:
+      "Only full-time, permanent job offers from registered Nova Scotia employers are eligible.",
+  },
+  {
+    question:
+      " How often is the Nova Scotia list of in-demand occupations updated?",
+    answer:
+      " The list is subject to change based on the evolving labor market needs of Nova Scotia.",
+  },
+];
+
+export default function NSInternationalGraduateInDemand() {
+  const EligibilityRef = useRef(null);
+  const ApplicationRef = useRef(null);
+  const faqRef = useRef(null);
+  const OccupationsRef = useRef(null);
+
+  const tableContentData = [
     {
-      name: "Connection to Province",
-      amount: "No",
+      title: "Eligibility Requirements of NS Occupation In-Demand",
+      scrollTo: EligibilityRef,
     },
     {
-      name: "Job Offer",
-      amount: "Yes- for a permanent, full-time position, in the stated NOC",
+      title: "In-Demand Occupations",
+      scrollTo: OccupationsRef,
     },
     {
-      name: "Language Proficiency",
-      amount: "CLB Level 4 even if your first language is English or French",
+      title: "Application Process",
+      scrollTo: ApplicationRef,
     },
+
     {
-      name: "Level of Education",
-      amount: (
-        <>
-          High school diploma
-          <br />
-          <br />
-          Have appropriate training, skills and/or accreditation for the job
-        </>
-      ),
-    },
-    {
-      name: "Work Experience",
-      amount: "1 year of work experience related to the job",
-    },
-    {
-      name: "Investment Requirement",
-      amount: "None",
+      title: "FAQs",
+      scrollTo: faqRef,
     },
   ];
 
   return (
-    <table>
-      <thead>
-        <tr>
-          <th style={{ width: "30%" }}>Requirement</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        {data.map((item, index) => (
-          <tr key={index}>
-            <td>{item.name}</td>
-            <td>{item.amount}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  );
-};
-export default function NovaScotiaOccupationsInDemand() {
-  return (
     <div
       style={{
-        background: "#E0E0E0",
+        background: "#EEE",
       }}
     >
-      <div className="AboutUsHeader">
-        <p className="link">
-          <a href="/">Home</a>
-          {" > "}Immigrate
-          {" > "}
-          <Link to="/immigrate/provincial-nominee-program">
-            Provincial Nominee Program
-          </Link>
-          {" > "}
-          <Link to="/immigrate/provincial-nominee-program/nova-scotia">
-            Nova Scotia
-          </Link>
-          {" > "}Nova Scotia Occupations in Demand
-        </p>
-        <div className="header-content">
-          <h1 className="heading-about">Nova Scotia Occupations in Demand</h1>
+      <div className="pages-content-wrapper">
+        <SiteMapMenu
+          type="I"
+          h1="Provincial Nominee Program"
+          h2="Nova Scotia"
+          h3="Nova Scotia Occupations In Demand"
+        ></SiteMapMenu>
+
+        <div class="pages-content-div">
+          <div class="pages-content-text-wrapper ">
+            <div className="pages-current-page-link">
+              <a href="/">Home</a>
+              {" > "}Provincial Nominee Program
+              {" > "}Nova Scotia
+              {" > "}Nova Scotia Occupations In Demand
+            </div>
+            <div class="pages-header">NS Occupations in Demand</div>
+
+            <div class="pages-paragraph space-fix intro-size-fix">
+              The Nova Scotia Occupation in Demand Stream is a immigration
+              pathway aimed at addressing labor shortages in the Nova Scotia
+              province. Launched in May 2019, this program targets
+              intermediate-skilled occupations that are in high demand, who
+              secure job offers from Nova Scotia employers. It is a 3 year pilot
+              program during which the eligible occupations will change.
+            </div>
+            <div className="table-of-content-container">
+              <NestedTableOfContent data={tableContentData} />
+            </div>
+
+            <div class="pages-header-2" ref={EligibilityRef}>
+              Eligibility Requirements of NS Occupation In-Demand
+            </div>
+            <div className="pages-paragraph">
+              Candidates must meet specific criteria to qualify for the
+              Occupation in Demand Stream:
+              <ul className="my-3">
+                <li>
+                  A full-time, permanent job offer from a Nova Scotia employer
+                  in the 3 valid eligible occupations.
+                </li>
+                <li>At least one year of relevant work experience.</li>
+
+                <li>Age between 21 and 55 years.</li>
+                <li>High school diploma or equivalent.</li>
+                <li>
+                  Language proficiency at Canadian Language Benchmark (CLB)
+                  Level 4.
+                </li>
+              </ul>
+            </div>
+            <div class="pages-header-2" ref={OccupationsRef}>
+              In-Demand Occupations
+            </div>
+            <div className="pages-paragraph">
+              The occupations targeted by this stream include:
+              <div className="table-container">
+                <table className="responsive-table">
+                  <thead>
+                    <tr>
+                      <th>NOC Code</th>
+                      <th>Occupation</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {occupationTableData.map((row, index) => (
+                      <tr key={index}>
+                        <td>{row.NOCCode}</td>
+                        <td>{row.Occupation}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              These roles are classified as Skill Level C under the National
+              Occupational Classification (NOC) system.
+            </div>
+            <div class="pages-header-2" ref={ApplicationRef}>
+              Application Process
+            </div>
+            <div className="pages-paragraph">
+              To apply, candidates must submit their application through the
+              Nova Scotia immigration portal after receiving a job offer.
+              <ul className="my-3">
+                <li>Successful applicants receive a provincial nomination.</li>
+                <li>
+                  The nomination allows them to apply for permanent residence
+                  through IRCC within six months.
+                </li>
+                <li>
+                  Applicants have 6 months to submit paper-based applications
+                  via mail.
+                </li>
+              </ul>
+              The Nova Scotia Occupation in Demand Stream addresses labour
+              shortages by attracting skilled foreign workers.
+            </div>
+          </div>
+          <div ref={faqRef}>
+            <FaqBox faqItems={faqItems} />
+            <ReadyToStartCard />
+          </div>{" "}
         </div>
       </div>
-      <h2 className="pages-content-div">
-        This stream targets workers holding a job offer from a Nova Scotian
-        employer in an in-demand field.
-        <br />
-        <br />
-        Presently, the only occupations eligible for this program are:
-        <br />
-        <br />
-        <ul>
-          <li>NOC 33102 (Nurse Aides)</li>
-          <li>NOC 65200 (Food and beverage servers)</li>
-          <li>
-            NOC 65201 (Food counter attendants, kitchen helpers and related
-            support occupations)
-          </li>
-          <li> NOC 65310 (Light duty cleaners)</li>
-          <li>NOC 73300 (Transport truck drivers)</li>
-          <li>NOC 73400 (Heavy equipment operators)</li>
-          <li>NOC 75110 (Construction trades helpers and labourers)</li>
-        </ul>
-        <br />
-        Nova Scotia has announced that this stream will be run as a three-year
-        pilot program, during which the eligible occupations will change.
-        Targeted professions will change based on the province’s labour needs.
-        <br />
-        <br />
-        <sp>Eligibility Criteria</sp>
-        <br />
-        <br />
-        Candidates must be between the ages of 21 and 55 to apply.
-        <br />
-        <br />
-        <Table />
-        <br />
-        <bold>Application Procedure</bold>
-        <br />
-        <br />
-        Applications for the Nova Scotia Occupations In Demand category are
-        accepted at all times, provided that an applicant meets program
-        requirements. Applicants may apply using the online portal on the Nova
-        Scotia immigration website. Successful applicants will be issued a
-        provincial nomination for permanent residence from Nova Scotia.
-        <br />
-        <br />
-        Once an applicant has been nominated, they will be issued a Letter of
-        Support, allowing them to apply for a temporary work permit so they can
-        travel to Nova Scotia to begin work.
-        <br />
-        <br />
-        After receiving a provincial nomination an applicant has six months to
-        submit a federal application for Canadian permanent residence.
-        Applicants in this program must complete and submit a paper-based
-        application for permanent residence and submit it by mail to the
-        appropriate application centre. Paper-based PNP applications for
-        permanent residence are generally processed within 18 months.
-      </h2>
     </div>
   );
 }

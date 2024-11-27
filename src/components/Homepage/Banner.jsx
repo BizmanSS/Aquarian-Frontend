@@ -83,28 +83,28 @@ const Banner = () => {
           </div>
         </>
       ) : ( */}
-        <>
-          {!showThumbnail ? (
-            <div className="w-full h-full object-cover flex items-start pointer-events-auto justify-center overflow-hidden">
-              <video
-                ref={videoRef}
-                autoPlay
-                muted
-                loop
-                webkit-playsinline
-                playsInline
-                className={`min-h-full object-cover min-w-full brightness-75 md:brightness-100`}
-                onClick={togglePlay}
-                onEnded={onVideoEnd}
-              >
-                <source src={banner} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            </div>
-          ) : (
-            <img src={thumbnail} alt="Thumbnail" className="w-[90%]" />
-          )}
-        </>
+      <>
+        {!showThumbnail ? (
+          <div className="w-full h-full object-cover flex items-start pointer-events-auto justify-center overflow-hidden">
+            <video
+              ref={videoRef}
+              autoPlay
+              muted
+              loop
+              webkit-playsinline
+              playsInline
+              className={`min-h-full object-cover min-w-full brightness-75 md:brightness-100`}
+              onClick={togglePlay}
+              onEnded={onVideoEnd}
+            >
+              <source src={banner} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        ) : (
+          <img src={thumbnail} alt="Thumbnail" className="w-[90%]" />
+        )}
+      </>
       {/* )} */}
       <div className="hidden md:flex flex-col pointer-events-auto justify-center gap-4 absolute left-[7rem] xl:left-[9rem] top-[60vh] lg:top-[50vh]">
         <div className=" text-white pr-4 text-lg md:text-[3rem] lg:text-[3.5rem] xl:text-[3.5rem] font-bold mb-3">
@@ -118,54 +118,58 @@ const Banner = () => {
         </Link>
 
         <div className="flex items-center">
-        <div className="flex items-center">
-          {" "}
-          <Link to={"/study/study-in-canada"}>
-            <button className="mr-6 bg-transparent text-white px-4 md:px-8 lg:px-10 py-3 rounded-xl text-sm lg:text-lg border-[2px] border-[#01F9E1] font-bold transition ease-in-out delay-70 hover:scale-y-[1.1] hover:scale-x-[1.1] duration-300">
-              ⁠I want to Study
-            </button>
-          </Link>
-          <Link to={"/work/work-in-canada"}>
-            <button className="mr-10 bg-transparent text-white px-4 md:px-10 lg:pr-12 py-3 rounded-xl text-sm lg:text-lg border-[2px] border-[#01F9E1] font-bold transition ease-in-out delay-70 hover:scale-y-[1.1] hover:scale-x-[1.1] duration-300">
-              ⁠I want to Work
-            </button>
-          </Link>
-        </div>
-      </div>
-
-      <div className="z-30 md:hidden absolute w-full h-full flex flex-col pb-[13rem] items-center justify-end gap-[4rem]">
-        <div className="flex  flex-col items-center justify-center gap-4 w-full h-fit">
-          <div className="pl-4 text-white text-[25px] sm:text-[28px] font-light mb-3 tracking-wide w-full flex flex-col items-start justify-center leading-tight">
-            Aquarian is a{" "}
-            <span className=" text-[32px] block font-semibold">
-              Canadian <br /> Immigration firm
-            </span>
-            <span className="relative w-[50%] max-w-[18rem] h-[1px] bg-white mt-3"></span>
-            <div className=" text-white text-[16px] sm:text-[18px] font-medium mb-1 tracking-wide mt-3">
-              Our goal is to help you achieve yours
-            </div>
-          </div>
-
-          <div className="flex items-center justify-center gap-4 w-full">
+          <div className="flex items-center">
             {" "}
             <Link to={"/study/study-in-canada"}>
-              <button className=" bg-[#00A292] absolute left-0 text-white px-8  py-3 rounded-r-3xl text-[12px] md:text-lg font-bold transition ease-in-out delay-70 hover:scale-y-[1.1] hover:scale-x-[1.1] duration-300">
-                ⁠I WANT TO STUDY
+              <button className="mr-6 bg-transparent text-white px-4 md:px-8 lg:px-10 py-3 rounded-xl text-sm lg:text-lg border-[2px] border-[#01F9E1] font-bold transition ease-in-out delay-70 hover:scale-y-[1.1] hover:scale-x-[1.1] duration-300">
+                ⁠I want to Study
               </button>
             </Link>
             <Link to={"/work/work-in-canada"}>
-              <button className=" bg-white text-[#00A292] absolute right-0 px-8  py-3 rounded-l-3xl text-[12px] md:text-lg font-bold transition ease-in-out delay-70 hover:scale-y-[1.1] hover:scale-x-[1.1] duration-300">
-                ⁠I WANT TO WORK
+              <button className="mr-10 bg-transparent text-white px-4 md:px-10 lg:pr-12 py-3 rounded-xl text-sm lg:text-lg border-[2px] border-[#01F9E1] font-bold transition ease-in-out delay-70 hover:scale-y-[1.1] hover:scale-x-[1.1] duration-300">
+                ⁠I want to Work
               </button>
             </Link>
           </div>
         </div>
 
-        <Link to={"/immigrate/permanent-residency"} className="relative top-[10px]">
-          <button className="bg-gray-400 text-nowrap lg:hidden bg-opacity-85  text-white px-8 py-3 rounded-3xl text-[12px] md:text-lg font-bold transition ease-in-out delay-70 hover:scale-y-[1.1] hover:scale-x-[1.1] duration-300">
-            IMMIGRATE TO CANADA PERMANENTLY
-          </button>
-        </Link>
+        <div className="z-30 md:hidden absolute w-full h-full flex flex-col pb-[13rem] items-center justify-end gap-[4rem]">
+          <div className="flex  flex-col items-center justify-center gap-4 w-full h-fit">
+            <div className="pl-4 text-white text-[25px] sm:text-[28px] font-light mb-3 tracking-wide w-full flex flex-col items-start justify-center leading-tight">
+              Aquarian is a{" "}
+              <span className=" text-[32px] block font-semibold">
+                Canadian <br /> Immigration firm
+              </span>
+              <span className="relative w-[50%] max-w-[18rem] h-[1px] bg-white mt-3"></span>
+              <div className=" text-white text-[16px] sm:text-[18px] font-medium mb-1 tracking-wide mt-3">
+                Our goal is to help you achieve yours
+              </div>
+            </div>
+
+            <div className="flex items-center justify-center gap-4 w-full">
+              {" "}
+              <Link to={"/study/study-in-canada"}>
+                <button className=" bg-[#00A292] absolute left-0 text-white px-8  py-3 rounded-r-3xl text-[12px] md:text-lg font-bold transition ease-in-out delay-70 hover:scale-y-[1.1] hover:scale-x-[1.1] duration-300">
+                  ⁠I WANT TO STUDY
+                </button>
+              </Link>
+              <Link to={"/work/work-in-canada"}>
+                <button className=" bg-white text-[#00A292] absolute right-0 px-8  py-3 rounded-l-3xl text-[12px] md:text-lg font-bold transition ease-in-out delay-70 hover:scale-y-[1.1] hover:scale-x-[1.1] duration-300">
+                  ⁠I WANT TO WORK
+                </button>
+              </Link>
+            </div>
+          </div>
+
+          <Link
+            to={"/immigrate/permanent-residency"}
+            className="relative top-[10px]"
+          >
+            <button className="bg-gray-400 text-nowrap lg:hidden bg-opacity-85  text-white px-8 py-3 rounded-3xl text-[12px] md:text-lg font-bold transition ease-in-out delay-70 hover:scale-y-[1.1] hover:scale-x-[1.1] duration-300">
+              IMMIGRATE TO CANADA PERMANENTLY
+            </button>
+          </Link>
+        </div>
       </div>
     </div>
   );
