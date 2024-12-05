@@ -119,7 +119,7 @@ export default function AlbertaRuralEntrepreneur() {
               <a href="/">Home</a>
               {" > "}Provincial Nominee Program
               {" > "}Alberta Immigrant Nominee Program
-              {" > "}Alberta Rural Renewal Stream
+              {" > "}Alberta Rural Entrepreneur
             </div>
             <div class="pages-header">
             Alberta Rural Entrepreneur

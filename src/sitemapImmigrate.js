@@ -1,643 +1,706 @@
 const sitemapImmigrate = [
-  { title: 'Permanent Residency', linkTo: '/immigrate/permanent-residency' },
+  { title: "Permanent Residency", linkTo: "/immigrate/permanent-residency" },
   {
-    title: 'Express Entry',
-    linkTo: '/immigrate/express-entry',
+    title: "Express Entry",
+    linkTo: "/immigrate/express-entry",
     nestedLinks: [
       {
-        title: 'Federal Skilled Worker Class',
-        linkTo: '/immigrate/express-entry/federal-skilled-worker-class',
+        title: "Federal Skilled Worker Class",
+        linkTo: "/immigrate/express-entry/federal-skilled-worker-class",
       },
       {
-        title: 'Federal Skilled Trades Class',
-        linkTo: '/immigrate/express-entry/federal-skilled-trades-class',
+        title: "Federal Skilled Trades Class",
+        linkTo: "/immigrate/express-entry/federal-skilled-trades-class",
       },
       {
-        title: 'Canadian Experience Class',
-        linkTo: '/immigrate/express-entry/canadian-experience-class',
+        title: "Canadian Experience Class",
+        linkTo: "/immigrate/express-entry/canadian-experience-class",
       },
       {
-        title: 'Comprehensive Ranking System (CRS)',
-        linkTo: '/immigrate/express-entry/crs-canadian-immigration',
+        title: "Comprehensive Ranking System (CRS)",
+        linkTo: "/immigrate/express-entry/crs-canadian-immigration",
       },
     ],
   },
   {
-    title: 'Provincial Nominee Program',
-    linkTo: '/immigrate/provincial-nominee-program',
+    title: "Provincial Nominee Program",
+    linkTo: "/immigrate/provincial-nominee-program",
     nestedLinks: [
       {
-        title: 'Alberta Immigrant Nominee Program',
+        title: "Alberta Immigrant Nominee Program",
         linkTo:
-          '/immigrate/provincial-nominee-program/alberta-immigrant-nominee-program',
+          "/immigrate/provincial-nominee-program/alberta-immigrant-nominee-program",
         nested: [
           {
-            title: 'Alberta Opportunity Stream',
+            title: "Alberta Opportunity Stream",
             linkTo:
-              '/immigrate/provincial-nominee-program/alberta-immigrant-nominee-program/alberta-opportunity-stream',
+              "/immigrate/provincial-nominee-program/alberta-immigrant-nominee-program/alberta-opportunity-stream",
           },
           {
-            title: 'Alberta Express Entry',
+            title: "Alberta Express Entry",
             linkTo:
-              '/immigrate/provincial-nominee-program/alberta-immigrant-nominee-program/alberta-express-entry',
+              "/immigrate/provincial-nominee-program/alberta-immigrant-nominee-program/alberta-express-entry",
           },
           {
-            title: 'Alberta Accelerated Tech Pathway',
+            title: "Alberta Accelerated Tech Pathway",
             linkTo:
-              '/immigrate/provincial-nominee-program/alberta-immigrant-nominee-program/alberta-accelerated-tech-pathway',
+              "/immigrate/provincial-nominee-program/alberta-immigrant-nominee-program/alberta-accelerated-tech-pathway",
           },
           {
-            title: 'Alberta Farm Stream',
+            title: "Alberta Farm Stream",
             linkTo:
-              '/immigrate/provincial-nominee-program/alberta-immigrant-nominee-program/alberta-farm-stream',
+              "/immigrate/provincial-nominee-program/alberta-immigrant-nominee-program/alberta-farm-stream",
           },
           {
-            title: 'Alberta Graduate Entrepreneur Stream',
+            title: "Alberta Graduate Entrepreneur Stream",
             linkTo:
-              '/immigrate/provincial-nominee-program/alberta-immigrant-nominee-program/alberta-graduate-entrepreneur-stream',
+              "/immigrate/provincial-nominee-program/alberta-immigrant-nominee-program/alberta-graduate-entrepreneur-stream",
           },
           {
-            title: 'Alberta Foreign Graduate Entrepreneur Stream',
+            title: "Alberta Foreign Graduate Entrepreneur Stream",
             linkTo:
-              '/immigrate/provincial-nominee-program/alberta-immigrant-nominee-program/alberta-foreign-graduate-entrepreneur-stream',
+              "/immigrate/provincial-nominee-program/alberta-immigrant-nominee-program/alberta-foreign-graduate-entrepreneur-stream",
           },
           {
-            title: 'Alberta Tourism and Hospitatlity Stream',
+            title: "Alberta Tourism and Hospitatlity Stream",
             linkTo:
-              '/immigrate/provincial-nominee-program/alberta-immigrant-nominee-program/alberta-tourism-and-hospitatlity-stream',
+              "/immigrate/provincial-nominee-program/alberta-immigrant-nominee-program/alberta-tourism-and-hospitatlity-stream",
           },
           {
-            title: 'Alberta Rural Renewal Stream',
+            title: "Alberta Rural Renewal Stream",
             linkTo:
-              '/immigrate/provincial-nominee-program/alberta-immigrant-nominee-program/alberta-rural-renewal-stream',
+              "/immigrate/provincial-nominee-program/alberta-immigrant-nominee-program/alberta-rural-renewal-stream",
           },
           {
-            title: 'Alberta Rural Entrepreneur',
+            title: "Alberta Rural Entrepreneur",
             linkTo:
-              '/immigrate/provincial-nominee-program/alberta-immigrant-nominee-program/alberta-rural-entrepreneur',
+              "/immigrate/provincial-nominee-program/alberta-immigrant-nominee-program/alberta-rural-entrepreneur",
           },
         ],
       },
       {
-        title: 'British Columbia',
-        linkTo: '/immigrate/provincial-nominee-program/british-columbia',
+        title: "British Columbia",
+        linkTo: "/immigrate/provincial-nominee-program/british-columbia",
         nested: [
           {
-            title: 'British Columbia Skilled Worker',
+            title: "British Columbia Skilled Worker",
             linkTo:
-              '/immigrate/provincial-nominee-program/british-columbia/british-columbia-skilled-worker',
+              "/immigrate/provincial-nominee-program/british-columbia/british-columbia-skilled-worker",
             nestLink: [
               {
-                title: 'British Columbia Healthcare Professional',
+                title: "British Columbia Healthcare Professional",
                 linkTo:
-                  'immigrate/provincial-nominee-program/british-columbia/british-columbia-skilled-worker/british-columbia-healthcare-professional',
+                  "immigrate/provincial-nominee-program/british-columbia/british-columbia-skilled-worker/british-columbia-healthcare-professional",
               },
               {
-                title: 'British Columbia International Graduate',
+                title: "British Columbia International Graduate",
                 linkTo:
-                  '/immigrate/provincial-nominee-program/british-columbia/british-columbia-skilled-worker/british-columbia-international-graduate',
+                  "/immigrate/provincial-nominee-program/british-columbia/british-columbia-skilled-worker/british-columbia-international-graduate",
               },
               {
-                title: 'British Columbia International Post-Graduate',
+                title: "British Columbia International Post-Graduate",
                 linkTo:
-                  '/immigrate/provincial-nominee-program/british-columbia/british-columbia-skilled-worker/british-columbia-international-post-graduate',
+                  "/immigrate/provincial-nominee-program/british-columbia/british-columbia-skilled-worker/british-columbia-international-post-graduate",
               },
               {
                 title:
-                  'British Columbia Entry Level and Semi-Skilled Worker (ELSS)',
+                  "British Columbia Entry Level and Semi-Skilled Worker (ELSS)",
                 linkTo:
-                  '/immigrate/provincial-nominee-program/british-columbia/british-columbia-skilled-worker/british-columbia-entry-level-and-semi-skilled-worker',
+                  "/immigrate/provincial-nominee-program/british-columbia/british-columbia-skilled-worker/british-columbia-entry-level-and-semi-skilled-worker",
               },
             ],
           },
           {
-            title: 'British Columbia Entrepreneur Immigration',
+            title: "British Columbia Entrepreneur Immigration",
             linkTo:
-              '/immigrate/provincial-nominee-program/british-columbia/british-columbia-entrepreneur-immigration',
+              "/immigrate/provincial-nominee-program/british-columbia/british-columbia-entrepreneur-immigration",
             nestLink: [
               {
-                title: 'British Columbia Entrepreneur Stream',
+                title: "British Columbia Entrepreneur Stream",
                 linkTo:
-                  '/immigrate/provincial-nominee-program/british-columbia/british-columbia-entrepreneur-immigration/british-columbia-entrepreneur-stream',
+                  "/immigrate/provincial-nominee-program/british-columbia/british-columbia-entrepreneur-immigration/british-columbia-entrepreneur-stream",
               },
               {
-                title: 'British Columbia Entrepreneur Regional Pilot',
+                title: "British Columbia Entrepreneur Regional Pilot",
                 linkTo:
-                  '/immigrate/provincial-nominee-program/british-columbia/british-columbia-entrepreneur-immigration/british-columbia-entrepreneur-regional-pilot',
+                  "/immigrate/provincial-nominee-program/british-columbia/british-columbia-entrepreneur-immigration/british-columbia-entrepreneur-regional-pilot",
               },
               {
-                title: 'British Columbia Strategic Projects',
+                title: "British Columbia Strategic Projects",
                 linkTo:
-                  '/immigrate/provincial-nominee-program/british-columbia/british-columbia-entrepreneur-immigration/british-columbia-strategic-projects',
+                  "/immigrate/provincial-nominee-program/british-columbia/british-columbia-entrepreneur-immigration/british-columbia-strategic-projects",
               },
             ],
           },
           {
-            title: 'British Columbia Pilot Program',
+            title: "British Columbia Pilot Program",
             linkTo:
-              '/immigrate/provincial-nominee-program/british-columbia/british-columbia-pilot-program',
+              "/immigrate/provincial-nominee-program/british-columbia/british-columbia-pilot-program",
             nestLink: [
               {
-                title: 'British Columbia PNP Tech Pilot',
+                title: "British Columbia PNP Tech Pilot",
                 linkTo:
-                  '/immigrate/provincial-nominee-program/british-columbia/british-columbia-pilot-program/british-columbia-pnp-tech-pilot',
+                  "/immigrate/provincial-nominee-program/british-columbia/british-columbia-pilot-program/british-columbia-pnp-tech-pilot",
               },
             ],
           },
         ],
       },
       {
-        title: 'Manitoba',
-        linkTo: '/immigrate/provincial-nominee-program/manitoba',
+        title: "Manitoba",
+        linkTo: "/immigrate/provincial-nominee-program/manitoba",
         nested: [
           {
-            title: 'Skilled Workers in Manitoba (SWM)',
+            title: "Skilled Workers in Manitoba (SWM)",
             linkTo:
-              '/immigrate/provincial-nominee-program/manitoba/skilled-workers-in-manitoba',
+              "/immigrate/provincial-nominee-program/manitoba/skilled-workers-in-manitoba",
             nestLink: [
               {
-                title: 'Skilled Workers in Manitoba Stream',
+                title: "Skilled Workers in Manitoba Stream",
                 linkTo:
-                  '/immigrate/provincial-nominee-program/manitoba/skilled-workers-in-manitoba/skilled-workers-in-manitoba-stream',
+                  "/immigrate/provincial-nominee-program/manitoba/skilled-workers-in-manitoba/skilled-workers-in-manitoba-stream",
               },
               {
-                title: 'Manitoba Experience Pathway',
+                title: "Manitoba Experience Pathway",
                 linkTo:
-                  '/immigrate/provincial-nominee-program/manitoba/skilled-workers-in-manitoba/manitoba-experience-pathway',
+                  "/immigrate/provincial-nominee-program/manitoba/skilled-workers-in-manitoba/manitoba-experience-pathway",
               },
               {
-                title: 'Manitoba Employer Direct Recruitment Pathway',
+                title: "Manitoba Employer Direct Recruitment Pathway",
                 linkTo:
-                  '/immigrate/provincial-nominee-program/manitoba/skilled-workers-in-manitoba/manitoba-employer-direct-recruitment-pathway',
+                  "/immigrate/provincial-nominee-program/manitoba/skilled-workers-in-manitoba/manitoba-employer-direct-recruitment-pathway",
               },
             ],
           },
           {
-            title: 'Skilled Workers Overseas (SWO)',
+            title: "Skilled Workers Overseas (SWO)",
             linkTo:
-              '/immigrate/provincial-nominee-program/manitoba/skilled-workers-overseas',
+              "/immigrate/provincial-nominee-program/manitoba/skilled-workers-overseas",
             nestLink: [
               {
-                title: 'Manitoba Skilled Workers Overseas Stream',
+                title: "Manitoba Skilled Workers Overseas Stream",
                 linkTo:
-                  '/immigrate/provincial-nominee-program/manitoba/skilled-workers-overseas/manitoba-skilled-workers-overseas-stream',
+                  "/immigrate/provincial-nominee-program/manitoba/skilled-workers-overseas/manitoba-skilled-workers-overseas-stream",
               },
               {
-                title: 'Manitoba Express Entry Pathway',
+                title: "Manitoba Express Entry Pathway",
                 linkTo:
-                  '/immigrate/provincial-nominee-program/manitoba/skilled-workers-overseas/manitoba-express-entry-pathway',
+                  "/immigrate/provincial-nominee-program/manitoba/skilled-workers-overseas/manitoba-express-entry-pathway",
               },
               {
-                title: 'Manitoba Human Capital Pathway',
+                title: "Manitoba Human Capital Pathway",
                 linkTo:
-                  '/immigrate/provincial-nominee-program/manitoba/skilled-workers-overseas/manitoba-human-capital-pathway',
+                  "/immigrate/provincial-nominee-program/manitoba/skilled-workers-overseas/manitoba-human-capital-pathway",
               },
             ],
           },
           {
-            title: 'Manitoba International Education Stream (IES)',
+            title: "Manitoba International Education Stream (IES)",
             linkTo:
-              '/immigrate/provincial-nominee-program/manitoba/manitoba-international-education-stream',
+              "/immigrate/provincial-nominee-program/manitoba/manitoba-international-education-stream",
             nestLink: [
               {
-                title: 'Manitoba Career Employment Pathway',
+                title: "Manitoba Career Employment Pathway",
                 linkTo:
-                  '/immigrate/provincial-nominee-program/manitoba/manitoba-international-education-stream/manitoba-career-employment-pathway',
+                  "/immigrate/provincial-nominee-program/manitoba/manitoba-international-education-stream/manitoba-career-employment-pathway",
               },
               {
-                title: 'Manitoba Graduate Internship Pathway',
+                title: "Manitoba Graduate Internship Pathway",
                 linkTo:
-                  '/immigrate/provincial-nominee-program/manitoba/manitoba-international-education-stream/manitoba-graduate-internship-pathway',
+                  "/immigrate/provincial-nominee-program/manitoba/manitoba-international-education-stream/manitoba-graduate-internship-pathway",
               },
               {
-                title: 'Manitoba International Student Entreprenuer Pilot',
+                title: "Manitoba International Student Entreprenuer Pilot",
                 linkTo:
-                  '/immigrate/provincial-nominee-program/manitoba/manitoba-international-education-stream/manitoba-international-student-entreprenuer-pilot',
+                  "/immigrate/provincial-nominee-program/manitoba/manitoba-international-education-stream/manitoba-international-student-entreprenuer-pilot",
               },
             ],
           },
           {
-            title: 'Manitoba Business Investor Stream (BIS)',
+            title: "Manitoba Business Investor Stream (BIS)",
             linkTo:
-              '/immigrate/provincial-nominee-program/manitoba/manitoba-business-investor-stream',
+              "/immigrate/provincial-nominee-program/manitoba/manitoba-business-investor-stream",
             nestLink: [
               {
-                title: 'Manitoba Entrepreneur Pathway',
+                title: "Manitoba Entrepreneur Pathway",
                 linkTo:
-                  '/immigrate/provincial-nominee-program/manitoba/manitoba-business-investor-stream/manitoba-entrepreneur-pathway',
+                  "/immigrate/provincial-nominee-program/manitoba/manitoba-business-investor-stream/manitoba-entrepreneur-pathway",
               },
               {
-                title: 'Manitoba Farm Investor Pathway',
+                title: "Manitoba Farm Investor Pathway",
                 linkTo:
-                  '/immigrate/provincial-nominee-program/manitoba/manitoba-business-investor-stream/manitoba-farm-investor-pathway',
+                  "/immigrate/provincial-nominee-program/manitoba/manitoba-business-investor-stream/manitoba-farm-investor-pathway",
               },
             ],
           },
         ],
       },
       {
-        title: 'New Brunswick',
-        linkTo: '/immigrate/provincial-nominee-program/new-brunswick',
+        title: "New Brunswick",
+        linkTo: "/immigrate/provincial-nominee-program/new-brunswick",
         nested: [
           {
-            title: 'New Brunswick Express Entry Labour Market Stream',
+            title: "Candidate Streams",
             linkTo:
-              '/immigrate/provincial-nominee-program/new-brunswick/new-brunswick-express-entry-labour-market-stream',
+              "/immigrate/provincial-nominee-program/new-brunswick/candidates-stream",
+            nestLink: [
+              {
+                title: "New Brunswick Express Entry Stream",
+                linkTo:
+                  "/immigrate/provincial-nominee-program/new-brunswick/new-brunswick-express-entry-stream",
+              },
+              {
+                title: "New Brunswick Strategic Initiative Stream",
+                linkTo:
+                  "/immigrate/provincial-nominee-program/new-brunswick/new-brunswick-strategic-initiative-stream",
+              },
+              {
+                title: "New Brunswick Private Career College Graduate Pilot Program",
+                linkTo:
+                  "/immigrate/provincial-nominee-program/new-brunswick/new-brunswick-private-career-college-graduate-pilot-program",
+              },
+              {
+                title: "New Brunswick Skilled Worker Stream",
+                linkTo:
+                  "/immigrate/provincial-nominee-program/new-brunswick/new-brunswick-skilled-worker-program",
+              },
+            ],
           },
           {
-            title: 'New Brunswick Skilled Workers with Employer Support',
+            title: "Business Stream",
             linkTo:
-              '/immigrate/provincial-nominee-program/new-brunswick/new-brunswick-skilled-workers-with-employer-support',
+              "/immigrate/provincial-nominee-program/new-brunswick/new-brunswick-business-stream",
+            nestLink: [
+              {
+                title: "New Brunswick Business Immigration Stream",
+                linkTo:
+                  "/immigrate/provincial-nominee-program/new-brunswick/new-brunswick-business-immigration-pilot",
+              },
+            ],
           },
           {
-            title: 'New Brunswick Strategic Initiative',
+            title: "Employer Streams",
             linkTo:
-              '/immigrate/provincial-nominee-program/new-brunswick/new-brunswick-strategic-initiative',
+              "/immigrate/provincial-nominee-program/new-brunswick/new-brunswick-employer-stream",
+            nestLink: [
+              {
+                title: "New Brunswick Atlantic Immigration Pilot (AIP)",
+                linkTo:
+                  "/immigrate/provincial-nominee-program/new-brunswick-atlantic-immigration-pilot-aip",
+              },
+              {
+                title: "New Brunswick Critical Worker Pilot",
+                linkTo:
+                  "/immigrate/provincial-nominee-program/new-brunswick/new-brunswick-critical-worker-pilot",
+              },
+            ],
           },
-          {
-            title: 'New Brunswick Business Immigration Stream',
-            linkTo:
-              '/immigrate/provincial-nominee-program/new-brunswick/new-brunswick-business-immigration-stream',
-          },
-          {
-            title: 'New Brunswick Atlantic Immigration  Program',
-            linkTo:
-              '/immigrate/provincial-nominee-program/new-brunswick/new-brunswick-atlantic-immigration-program',
-          },
-          {
-            title:
-              'New Brunswick Private Career College Graduate Pilot Program ',
-            linkTo:
-              '/immigrate/provincial-nominee-program/new-brunswick/new-brunswick-private-career-college-graduate-pilot-program',
-          },
-          {
-            title: 'New Brunswick Critical Worker Pilot',
-            linkTo:
-              '/immigrate/provincial-nominee-program/new-brunswick/new-brunswick-critical-worker-pilot',
-          },
+         
         ],
       },
+      // {
+      //   title: "New Brunswick",
+      //   linkTo: "/immigrate/provincial-nominee-program/new-brunswick",
+      //   nested: [
+      //     {
+      //       title: "New Brunswick Express Entry Labour Market Stream",
+      //       linkTo:
+      //         "/immigrate/provincial-nominee-program/new-brunswick/new-brunswick-express-entry-labour-market-stream",
+      //     },
+      //     {
+      //       title: "New Brunswick Skilled Workers with Employer Support",
+      //       linkTo:
+      //         "/immigrate/provincial-nominee-program/new-brunswick/new-brunswick-skilled-workers-with-employer-support",
+      //     },
+      //     {
+      //       title: "New Brunswick Strategic Initiative",
+      //       linkTo:
+      //         "/immigrate/provincial-nominee-program/new-brunswick/new-brunswick-strategic-initiative",
+      //     },
+      //     {
+      //       title: "New Brunswick Business Immigration Stream",
+      //       linkTo:
+      //         "/immigrate/provincial-nominee-program/new-brunswick/new-brunswick-business-immigration-stream",
+      //     },
+      //     {
+      //       title: "New Brunswick Atlantic Immigration  Program",
+      //       linkTo:
+      //         "/immigrate/provincial-nominee-program/new-brunswick/new-brunswick-atlantic-immigration-program",
+      //     },
+      //     {
+      //       title:
+      //         "New Brunswick Private Career College Graduate Pilot Program ",
+      //       linkTo:
+      //         "/immigrate/provincial-nominee-program/new-brunswick/new-brunswick-private-career-college-graduate-pilot-program",
+      //     },
+      //     {
+      //       title: "New Brunswick Critical Worker Pilot",
+      //       linkTo:
+      //         "/immigrate/provincial-nominee-program/new-brunswick/new-brunswick-critical-worker-pilot",
+      //     },
+      //   ],
+      // },
       {
-        title: 'Newfoundland and Labrador',
+        title: "Newfoundland and Labrador",
         linkTo:
-          '/immigrate/provincial-nominee-program/newfoundland-and-labrador',
+          "/immigrate/provincial-nominee-program/newfoundland-and-labrador",
         nested: [
           {
-            title: 'Newfoundland and Labrador Express Entry Skilled Worker',
+            title: "Newfoundland and Labrador Express Entry Skilled Worker",
             linkTo:
-              '/immigrate/provincial-nominee-program/newfoundland-and-labrador/newfoundland-and-labrador-express-entry-skilled-worker',
+              "/immigrate/provincial-nominee-program/newfoundland-and-labrador/newfoundland-and-labrador-express-entry-skilled-worker",
           },
           {
-            title: 'Newfoundland and Labrador Skilled Worker Category',
+            title: "Newfoundland and Labrador Skilled Worker Category",
             linkTo:
-              '/immigrate/provincial-nominee-program/newfoundland-and-labrador/newfoundland-and-labrador-skilled-worker-category',
+              "/immigrate/provincial-nominee-program/newfoundland-and-labrador/newfoundland-and-labrador-skilled-worker-category",
           },
           {
-            title: 'Newfoundland and Labrador International Graduate Category',
+            title: "Newfoundland and Labrador International Graduate Category",
             linkTo:
-              '/immigrate/provincial-nominee-program/newfoundland-and-labrador/newfoundland-and-labrador-international-graduate-category',
-          },
-          {
-            title:
-              'Newfoundland and Labrador International Entrepreneur Category',
-            linkTo:
-              '/immigrate/provincial-nominee-program/newfoundland-and-labrador/newfoundland-and-labrador-international-entrepreneur-category',
+              "/immigrate/provincial-nominee-program/newfoundland-and-labrador/newfoundland-and-labrador-international-graduate-category",
           },
           {
             title:
-              'Newfoundland and Labrador International Graduate Entrepreneur Category',
+              "Newfoundland and Labrador International Entrepreneur Category",
             linkTo:
-              '/immigrate/provincial-nominee-program/newfoundland-and-labrador/newfoundland-and-labrador-international-graduate-entrepreneur-category',
+              "/immigrate/provincial-nominee-program/newfoundland-and-labrador/newfoundland-and-labrador-international-entrepreneur-category",
+          },
+          {
+            title:
+              "Newfoundland and Labrador International Graduate Entrepreneur Category",
+            linkTo:
+              "/immigrate/provincial-nominee-program/newfoundland-and-labrador/newfoundland-and-labrador-international-graduate-entrepreneur-category",
           },
         ],
       },
       {
-        title: 'Northwest Territories',
-        linkTo: '/immigrate/provincial-nominee-program/northwest-territories',
+        title: "Northwest Territories",
+        linkTo: "/immigrate/provincial-nominee-program/northwest-territories",
         nested: [
           {
-            title: 'Northwest Territories Express Entry',
+            title: "Northwest Territories Express Entry",
             linkTo:
-              '/immigrate/provincial-nominee-program/northwest-territories/northwest-territories-express-entry',
+              "/immigrate/provincial-nominee-program/northwest-territories/northwest-territories-express-entry",
           },
           {
-            title: 'Northwest Territories Employer Driven',
+            title: "Northwest Territories Employer Driven",
             linkTo:
-              '/immigrate/provincial-nominee-program/northwest-territories/northwest-territories-employer-driven',
+              "/immigrate/provincial-nominee-program/northwest-territories/northwest-territories-employer-driven",
             nestLink: [
               {
                 title:
-                  'Northwest Territories Entry Level/ Semi-Skilled Occupation',
+                  "Northwest Territories Entry Level/ Semi-Skilled Occupation",
                 linkTo:
-                  '/immigrate/provincial-nominee-program/northwest-territories/northwest-territories-employer-driven/northwest-territories-entry-level/semi-skilled-occupation',
+                  "/immigrate/provincial-nominee-program/northwest-territories/northwest-territories-employer-driven/northwest-territories-entry-level/semi-skilled-occupation",
               },
               {
-                title: 'Northwest Territories Skilled Workers',
+                title: "Northwest Territories Skilled Workers",
                 linkTo:
-                  '/immigrate/provincial-nominee-program/northwest-territories/northwest-territories-employer-driven/northwest-territories-skilled-workers',
+                  "/immigrate/provincial-nominee-program/northwest-territories/northwest-territories-employer-driven/northwest-territories-skilled-workers",
               },
             ],
           },
           {
-            title: 'Northwest Territories Business Driven',
+            title: "Northwest Territories Business Driven",
             linkTo:
-              '/immigrate/provincial-nominee-program/northwest-territories/northwest-territories-business-driven',
+              "/immigrate/provincial-nominee-program/northwest-territories/northwest-territories-business-driven",
           },
           {
-            title: 'Northwest Territories French- Speaking',
+            title: "Northwest Territories Francophone",
             linkTo:
-              '/immigrate/provincial-nominee-program/northwest-territories/northwest-territories-french-speaking',
-          },
-        ],
-      },
-      {
-        title: 'Nova Scotia',
-        linkTo: '/immigrate/provincial-nominee-program/nova-scotia',
-        nested: [
-          {
-            title: 'Nova Scotia Experience: Express Entry',
-            linkTo:
-              '/immigrate/provincial-nominee-program/nova-scotia/nova-scotia-experience-express-entry',
-          },
-          {
-            title: 'Nova Scotia Entrepreneur Category',
-            linkTo:
-              '/immigrate/provincial-nominee-program/nova-scotia/nova-scotia-entrepreneur-category',
-          },
-          {
-            title: 'Nova Scotia International Graduate Entrepreneur Category',
-            linkTo:
-              '/immigrate/provincial-nominee-program/nova-scotia/nova-scotia-international-graduate-entrepreneur-category',
-          },
-          {
-            title: 'Nova Scotia International Graduates in Demand',
-            linkTo:
-              '/immigrate/provincial-nominee-program/nova-scotia/nova-scotia-international-graduates-in-demand',
-          },
-          {
-            title: 'Nova Scotia Skilled Worker Category',
-            linkTo:
-              '/immigrate/provincial-nominee-program/nova-scotia/nova-scotia-skilled-worker-category',
-          },
-          {
-            title: 'Nova Scotia Occupations In Demand',
-            linkTo:
-              '/immigrate/provincial-nominee-program/nova-scotia/nova-scotia-occupations-in-demand',
-          },
-          {
-            title: 'Nova Scotia Labour Market Priorities',
-            linkTo:
-              '/immigrate/provincial-nominee-program/nova-scotia/nova-scotia-labour-market-priorities',
-          },
-          {
-            title: 'Nova Scotia Labour Market Priorities for Physicians',
-            linkTo:
-              '/immigrate/provincial-nominee-program/nova-scotia/nova-scotia-labour-market-priorities-for-physicians',
-          },
-          {
-            title: 'Nova Scotia Physician Stream',
-            linkTo:
-              '/immigrate/provincial-nominee-program/nova-scotia/nova-scotia-physician-stream',
-          },
-          {
-            title: 'Nova Scotia Critical Construction Worker Pilot',
-            linkTo:
-              '/immigrate/provincial-nominee-program/nova-scotia/nova-scotia-critical-construction-worker-pilot',
+              "/immigrate/provincial-nominee-program/northwest-territories/northwest-territories-french-speaking",
           },
         ],
       },
       {
-        title: 'Ontario',
-        linkTo: '/immigrate/provincial-nominee-program/ontario',
+        title: "Nova Scotia",
+        linkTo: "/immigrate/provincial-nominee-program/nova-scotia",
         nested: [
           {
-            title: 'Ontario Employer Job Offer Stream',
+            title: "Nova Scotia Experience: Express Entry",
             linkTo:
-              '/immigrate/provincial-nominee-program/ontario/ontario-employer-job-offer-stream',
+              "/immigrate/provincial-nominee-program/nova-scotia/nova-scotia-experience-express-entry",
+          },
+          {
+            title: "Nova Scotia Entrepreneur Category",
+            linkTo:
+              "/immigrate/provincial-nominee-program/nova-scotia/nova-scotia-entrepreneur-category",
+          },
+          {
+            title: "Nova Scotia International Graduate Entrepreneur Category",
+            linkTo:
+              "/immigrate/provincial-nominee-program/nova-scotia/nova-scotia-international-graduate-entrepreneur-category",
+          },
+          {
+            title: "Nova Scotia International Graduates in Demand",
+            linkTo:
+              "/immigrate/provincial-nominee-program/nova-scotia/nova-scotia-international-graduates-in-demand",
+          },
+          {
+            title: "Nova Scotia Skilled Worker Category",
+            linkTo:
+              "/immigrate/provincial-nominee-program/nova-scotia/nova-scotia-skilled-worker-category",
+          },
+          {
+            title: "Nova Scotia Occupations In Demand",
+            linkTo:
+              "/immigrate/provincial-nominee-program/nova-scotia/nova-scotia-occupations-in-demand",
+          },
+          {
+            title: "Nova Scotia Labour Market Priorities",
+            linkTo:
+              "/immigrate/provincial-nominee-program/nova-scotia/nova-scotia-labour-market-priorities",
+          },
+          {
+            title: "Nova Scotia Labour Market Priorities for Physicians",
+            linkTo:
+              "/immigrate/provincial-nominee-program/nova-scotia/nova-scotia-labour-market-priorities-for-physicians",
+          },
+          {
+            title: "Nova Scotia Physician Stream",
+            linkTo:
+              "/immigrate/provincial-nominee-program/nova-scotia/nova-scotia-physician-stream",
+          },
+          {
+            title: "Nova Scotia Critical Construction Worker Pilot",
+            linkTo:
+              "/immigrate/provincial-nominee-program/nova-scotia/nova-scotia-critical-construction-worker-pilot",
+          },
+        ],
+      },
+      {
+        title: "Ontario",
+        linkTo: "/immigrate/provincial-nominee-program/ontario",
+        nested: [
+          {
+            title: "Ontario Employer Job Offer Stream",
+            linkTo:
+              "/immigrate/provincial-nominee-program/ontario/ontario-employer-job-offer-stream",
             nestLink: [
               {
-                title: 'Ontario Foreign Worker',
+                title: "Ontario Foreign Worker",
                 linkTo:
-                  '/immigrate/provincial-nominee-program/ontario/ontario-employer-job-offer-stream/ontario-foreign-worker',
+                  "/immigrate/provincial-nominee-program/ontario/ontario-employer-job-offer-stream/ontario-foreign-worker",
               },
               {
-                title: 'Ontario International Student',
+                title: "Ontario International Student",
                 linkTo:
-                  '/immigrate/provincial-nominee-program/ontario/ontario-employer-job-offer-stream/ontario-international-student',
+                  "/immigrate/provincial-nominee-program/ontario/ontario-employer-job-offer-stream/ontario-international-student",
               },
               {
-                title: 'Ontario In-Demand Stream',
+                title: "Ontario In-Demand Stream",
                 linkTo:
-                  '/immigrate/provincial-nominee-program/ontario/ontario-employer-job-offer-stream/ontario-in-demand-stream',
+                  "/immigrate/provincial-nominee-program/ontario/ontario-employer-job-offer-stream/ontario-in-demand-stream",
               },
             ],
           },
           {
-            title: 'Ontario Post Graduate Stream',
+            title: "Ontario Post Graduate Stream",
             linkTo:
-              '/immigrate/provincial-nominee-program/ontario/ontario-post-graduate-stream',
+              "/immigrate/provincial-nominee-program/ontario/ontario-post-graduate-stream",
             nestLink: [
               {
                 title: "Ontario Master's Graduate Stream",
                 linkTo:
-                  '/immigrate/provincial-nominee-program/ontario/ontario-post-graduate-stream/ontario-master-graduate-stream',
+                  "/immigrate/provincial-nominee-program/ontario/ontario-post-graduate-stream/ontario-master-graduate-stream",
               },
               {
-                title: 'Ontario PhD Graduate Stream',
+                title: "Ontario PhD Graduate Stream",
                 linkTo:
-                  '/immigrate/provincial-nominee-program/ontario/ontario-post-graduate-stream/ontario-phd-graduate-stream',
+                  "/immigrate/provincial-nominee-program/ontario/ontario-post-graduate-stream/ontario-phd-graduate-stream",
               },
             ],
           },
           {
-            title: 'Ontario Express Entry',
+            title: "Ontario Express Entry",
             linkTo:
-              '/immigrate/provincial-nominee-program/ontario/ontario-express-entry',
+              "/immigrate/provincial-nominee-program/ontario/ontario-express-entry",
             nestLink: [
               {
-                title: 'Ontario Human Capital Priority Stream',
+                title: "Ontario Human Capital Priority Stream",
                 linkTo:
-                  '/immigrate/provincial-nominee-program/ontario/ontario-express-entry/ontario-human-capital-priority-stream',
+                  "/immigrate/provincial-nominee-program/ontario/ontario-express-entry/ontario-human-capital-priority-stream",
               },
               {
-                title: 'Ontario Skilled Trade Stream',
+                title: "Ontario Skilled Trade Stream",
                 linkTo:
-                  '/immigrate/provincial-nominee-program/ontario/ontario-express-entry/ontario-skilled-trade-stream',
+                  "/immigrate/provincial-nominee-program/ontario/ontario-express-entry/ontario-skilled-trade-stream",
               },
               {
-                title: 'Ontario French-speaking Skilled Workers Stream',
+                title: "Ontario French-speaking Skilled Workers Stream",
                 linkTo:
-                  '/immigrate/provincial-nominee-program/ontario/ontario-express-entry/ontario-french-speaking-skilled-workers-stream',
+                  "/immigrate/provincial-nominee-program/ontario/ontario-express-entry/ontario-french-speaking-skilled-workers-stream",
               },
             ],
           },
         ],
       },
       {
-        title: 'Prince Edward Island',
-        linkTo: '/immigrate/provincial-nominee-program/prince-edward-island',
+        title: "Prince Edward Island",
+        linkTo: "/immigrate/provincial-nominee-program/prince-edward-island",
         nested: [
           {
-            title: 'PEI Express Entry',
+            title: "PEI Express Entry",
             linkTo:
-              '/immigrate/provincial-nominee-program/prince-edward-island/pei-express-entry',
+              "/immigrate/provincial-nominee-program/prince-edward-island/pei-express-entry",
           },
           {
-            title: 'PEI Labor Impact',
+            title: "PEI Labour Impact",
             linkTo:
-              '/immigrate/provincial-nominee-program/prince-edward-island/pei-labor-impact',
+              "/immigrate/provincial-nominee-program/prince-edward-island/pei-labor-impact",
             nestLink: [
               {
-                title: 'PEI Skilled Workers in PEI',
+                title: "PEI Skilled Workers in PEI",
                 linkTo:
-                  '/immigrate/provincial-nominee-program/prince-edward-island/pei-labor-impact/pei-skilled-workers-in-pei',
+                  "/immigrate/provincial-nominee-program/prince-edward-island/pei-labor-impact/pei-skilled-workers-in-pei",
               },
               {
-                title: 'PEI Skilled Workers Outside Canada',
+                title: "PEI Skilled Workers Outside Canada",
                 linkTo:
-                  '/immigrate/provincial-nominee-program/prince-edward-island/pei-labor-impact/pei-skilled-worker-outside-canada',
+                  "/immigrate/provincial-nominee-program/prince-edward-island/pei-labor-impact/pei-skilled-worker-outside-canada",
               },
               {
-                title: 'PEI International Graduate',
+                title: "PEI International Graduate",
                 linkTo:
-                  '/immigrate/provincial-nominee-program/prince-edward-island/pei-labor-impact/pei-international-graduate',
+                  "/immigrate/provincial-nominee-program/prince-edward-island/pei-labor-impact/pei-international-graduate",
               },
               {
-                title: 'PEI Critical Worker',
+                title: "PEI Critical Worker",
                 linkTo:
-                  '/immigrate/provincial-nominee-program/prince-edward-island/pei-labor-impact/pei-critical-worker',
+                  "/immigrate/provincial-nominee-program/prince-edward-island/pei-labor-impact/pei-critical-worker",
               },
             ],
           },
           {
-            title: 'PEI Business Impact',
+            title: "PEI Business Impact",
             linkTo:
-              '/immigrate/provincial-nominee-program/prince-edward-island/pei-business-impact',
+              "/immigrate/provincial-nominee-program/prince-edward-island/pei-business-impact",
           },
         ],
       },
       {
-        title: 'Saskatchewan',
-        linkTo: '/immigrate/provincial-nominee-program/saskatchewan',
+        title: "Saskatchewan",
+        linkTo: "/immigrate/provincial-nominee-program/saskatchewan",
         nested: [
           {
-            title: 'Saskatchewan International Skilled Worker',
+            title: "Saskatchewan International Skilled Worker",
             linkTo:
-              '/immigrate/provincial-nominee-program/saskatchewan/saskatchewan-international-skilled-worker',
+              "/immigrate/provincial-nominee-program/saskatchewan/saskatchewan-international-skilled-worker",
             nestLink: [
               {
-                title: 'Saskatchewan Express Entry',
+                title: "Saskatchewan Express Entry",
                 linkTo:
-                  '/immigrate/provincial-nominee-program/saskatchewan/saskatchewan-international-skilled-worker/saskatchewan-express-entry',
+                  "/immigrate/provincial-nominee-program/saskatchewan/saskatchewan-international-skilled-worker/saskatchewan-express-entry",
               },
               {
-                title: 'Saskatchewan Employment Offer',
+                title: "Saskatchewan Employment Offer",
                 linkTo:
-                  '/immigrate/provincial-nominee-program/saskatchewan/saskatchewan-international-skilled-worker/saskatchewan-employment-offer',
+                  "/immigrate/provincial-nominee-program/saskatchewan/saskatchewan-international-skilled-worker/saskatchewan-employment-offer",
               },
               {
-                title: 'Saskatchewan In-Demand Occupation',
+                title: "Saskatchewan In-Demand Occupation",
                 linkTo:
-                  '/immigrate/provincial-nominee-program/saskatchewan/saskatchewan-international-skilled-worker/saskatchewan-in-demand-occupation',
+                  "/immigrate/provincial-nominee-program/saskatchewan/saskatchewan-international-skilled-worker/saskatchewan-in-demand-occupation",
               },
               {
                 title:
-                  'Saskatchewan International Skilled Worker Tech Talent Pathway',
+                  "Saskatchewan International Skilled Worker Tech Talent Pathway",
                 linkTo:
-                  '/immigrate/provincial-nominee-program/saskatchewan/saskatchewan-international-skilled-worker/saskatchewan-international-skilled-worker-tech-talent-pathway',
+                  "/immigrate/provincial-nominee-program/saskatchewan/saskatchewan-international-skilled-worker/saskatchewan-international-skilled-worker-tech-talent-pathway",
               },
               {
-                title: 'Saskatchewan Hard-to-fill Skills Pilot',
+                title: "Saskatchewan Hard-to-fill Skills Pilot",
                 linkTo:
-                  '/immigrate/provincial-nominee-program/saskatchewan/saskatchewan-international-skilled-worker/saskatchewan-hard-to-fill-skills-pilot',
-              },
-            ],
-          },
-          {
-            title: 'Saskatchewan Experience',
-            linkTo:
-              '/immigrate/provincial-nominee-program/saskatchewan/saskatchewan-experience',
-            nestLink: [
-              {
-                title: 'Saskatchewan Existing Work Permit',
-                linkTo:
-                  '/immigrate/provincial-nominee-program/saskatchewan/saskatchewan-experience/saskatchewan-existing-work-permit',
-              },
-              {
-                title: 'Saskatchewan Health Professionals',
-                linkTo:
-                  '/immigrate/provincial-nominee-program/saskatchewan/saskatchewan-experience/saskatchewan-health-professionals',
-              },
-              {
-                title: 'Saskatchewan Hospitality Sector Project',
-                linkTo:
-                  '/immigrate/provincial-nominee-program/saskatchewan/saskatchewan-experience/saskatchewan-hospitality-sector-project',
-              },
-              {
-                title: 'Saskatchewan Long-Haul Truck Driver Project',
-                linkTo:
-                  '/immigrate/provincial-nominee-program/saskatchewan/saskatchewan-experience/saskatchewan-long-haul-truck-driver-project',
-              },
-              {
-                title: 'Saskatchewan Students',
-                linkTo:
-                  '/immigrate/provincial-nominee-program/saskatchewan/saskatchewan-experience/saskatchewan-students',
+                  "/immigrate/provincial-nominee-program/saskatchewan/saskatchewan-international-skilled-worker/saskatchewan-hard-to-fill-skills-pilot",
               },
             ],
           },
           {
-            title: 'Saskatchewan Entrepreneur and Farm',
+            title: "Saskatchewan Experience",
             linkTo:
-              '/immigrate/provincial-nominee-program/saskatchewan/saskatchewan-entrepreneur-and-farm',
+              "/immigrate/provincial-nominee-program/saskatchewan/saskatchewan-experience",
             nestLink: [
               {
-                title: 'Saskatchewan Entrepreneur',
+                title: "Saskatchewan Existing Work Permit",
                 linkTo:
-                  '/immigrate/provincial-nominee-program/saskatchewan/saskatchewan-entrepreneur-and-farm/saskatchewan-entrepreneur',
+                  "/immigrate/provincial-nominee-program/saskatchewan/saskatchewan-experience/saskatchewan-existing-work-permit",
               },
               {
-                title: 'Saskatchewan Farm Owners and Operators',
+                title: "Saskatchewan Health Professionals",
                 linkTo:
-                  '/immigrate/provincial-nominee-program/saskatchewan/saskatchewan-entrepreneur-and-farm/saskatchewan-farm-owners-and-operators',
+                  "/immigrate/provincial-nominee-program/saskatchewan/saskatchewan-experience/saskatchewan-health-professionals",
+              },
+              {
+                title: "Saskatchewan Hospitality Sector Project",
+                linkTo:
+                  "/immigrate/provincial-nominee-program/saskatchewan/saskatchewan-experience/saskatchewan-hospitality-sector-project",
+              },
+              {
+                title: "Saskatchewan Long-Haul Truck Driver Project",
+                linkTo:
+                  "/immigrate/provincial-nominee-program/saskatchewan/saskatchewan-experience/saskatchewan-long-haul-truck-driver-project",
+              },
+              {
+                title: "Saskatchewan Students",
+                linkTo:
+                  "/immigrate/provincial-nominee-program/saskatchewan/saskatchewan-experience/saskatchewan-students",
+              },
+            ],
+          },
+          {
+            title: "Saskatchewan Entrepreneur and Farm",
+            linkTo:
+              "/immigrate/provincial-nominee-program/saskatchewan/saskatchewan-entrepreneur-and-farm",
+            nestLink: [
+              {
+                title: "Saskatchewan Entrepreneur",
+                linkTo:
+                  "/immigrate/provincial-nominee-program/saskatchewan/saskatchewan-entrepreneur-and-farm/saskatchewan-entrepreneur",
+              },
+              {
+                title: "Saskatchewan Farm Owners and Operators",
+                linkTo:
+                  "/immigrate/provincial-nominee-program/saskatchewan/saskatchewan-entrepreneur-and-farm/saskatchewan-farm-owners-and-operators",
               },
               {
                 title:
-                  ' Saskatchewan International Graduate Entrepreneur category',
+                  " Saskatchewan International Graduate Entrepreneur category",
                 linkTo:
-                  '/immigrate/provincial-nominee-program/saskatchewan/saskatchewan-entrepreneur-and-farm/saskatchewan-international-graduate-entrepreneur-category',
+                  "/immigrate/provincial-nominee-program/saskatchewan/saskatchewan-entrepreneur-and-farm/saskatchewan-international-graduate-entrepreneur-category",
               },
             ],
           },
         ],
       },
       {
-        title: 'Yukon',
-        linkTo: '/immigrate/provincial-nominee-program/yukon',
+        title: "Yukon",
+        linkTo: "/immigrate/provincial-nominee-program/yukon",
         nested: [
           {
-            title: 'Yukon Skilled Worker',
+            title: "Yukon Skilled Worker",
             linkTo:
-              '/immigrate/provincial-nominee-program/yukon/yukon-skilled-worker',
+              "/immigrate/provincial-nominee-program/yukon/yukon-skilled-worker",
           },
           {
-            title: 'Yukon Express Entry',
+            title: "Yukon Express Entry",
             linkTo:
-              '/immigrate/provincial-nominee-program/yukon/yukon-express-entry',
+              "/immigrate/provincial-nominee-program/yukon/yukon-express-entry",
           },
           {
-            title: 'Yukon Critical Impact Worker',
+            title: "Yukon Critical Impact Worker",
             linkTo:
-              '/immigrate/provincial-nominee-program/yukon/yukon-critical-impact-worker',
+              "/immigrate/provincial-nominee-program/yukon/yukon-critical-impact-worker",
           },
           {
-            title: 'Yukon Business Nominee',
+            title: "Yukon Business Nominee",
             linkTo:
-              '/immigrate/provincial-nominee-program/yukon/yukon-business-nominee',
+              "/immigrate/provincial-nominee-program/yukon/yukon-business-nominee",
           },
           {
-            title: 'Yukon Community Pilot',
+            title: "Yukon Community Pilot",
             linkTo:
-              '/immigrate/provincial-nominee-program/yukon/yukon-community-pilot',
+              "/immigrate/provincial-nominee-program/yukon/yukon-community-pilot",
           },
         ],
       },
@@ -645,57 +708,57 @@ const sitemapImmigrate = [
   },
 
   {
-    title: 'Rural and Northern Immigration Pilot',
-    linkTo: '/immigrate/rural-and-northern-immigration-pilot',
+    title: "Rural and Northern Immigration Pilot",
+    linkTo: "/immigrate/rural-and-northern-immigration-pilot",
   },
   {
-    title: 'Caregiver Programs',
-    linkTo: '/immigrate/caregiver-programs',
+    title: "Caregiver Programs",
+    linkTo: "/immigrate/caregiver-programs",
     nestedLinks: [
       {
-        title: 'Home Child Care Provider Pilot',
-        linkTo: '/immigrate/caregiver-programs/home-child-care-provider-pilot',
+        title: "Home Child Care Provider Pilot",
+        linkTo: "/immigrate/caregiver-programs/home-child-care-provider-pilot",
       },
       {
-        title: 'Home Support Worker Pilot',
-        linkTo: '/immigrate/caregiver-programs/home-support-worker-pilot',
+        title: "Home Support Worker Pilot",
+        linkTo: "/immigrate/caregiver-programs/home-support-worker-pilot",
       },
     ],
   },
   {
-    title: 'AIP Atlantic Immigration Program',
-    linkTo: '/immigrate/aip-atlantic-immigration-program',
+    title: "AIP Atlantic Immigration Program",
+    linkTo: "/immigrate/aip-atlantic-immigration-program",
   },
-  { title: 'Agri-Food Pilot', linkTo: '/immigrate/agri-food-pilot' },
+  { title: "Agri-Food Pilot", linkTo: "/immigrate/agri-food-pilot" },
   {
-    title: 'After Permanent Residency',
-    linkTo: '/immigrate/after-permanent-residency',
+    title: "After Permanent Residency",
+    linkTo: "/immigrate/after-permanent-residency",
     nestedLinks: [
       {
-        title: 'Permanent Resident Cards',
-        linkTo: '/immigrate/after-permanent-residency/permanent-resident-cards',
+        title: "Permanent Resident Cards",
+        linkTo: "/immigrate/after-permanent-residency/permanent-resident-cards",
       },
       {
-        title: 'Permanent Resident Card Renewal',
+        title: "Permanent Resident Card Renewal",
         linkTo:
-          '/immigrate/after-permanent-residency/permanent-resident-card-renewal',
+          "/immigrate/after-permanent-residency/permanent-resident-card-renewal",
       },
       {
-        title: 'Permanent Resident Travel Document',
+        title: "Permanent Resident Travel Document",
         linkTo:
-          '/immigrate/after-permanent-residency/permanent-resident-travel-document',
+          "/immigrate/after-permanent-residency/permanent-resident-travel-document",
       },
       {
-        title: 'Residency Obligation',
-        linkTo: '/immigrate/after-permanent-residency/residency-obligation',
+        title: "Residency Obligation",
+        linkTo: "/immigrate/after-permanent-residency/residency-obligation",
       },
       {
-        title: 'Canadian Citizenship',
-        linkTo: '/immigrate/after-permanent-residency/canadian-citizenship',
+        title: "Canadian Citizenship",
+        linkTo: "/immigrate/after-permanent-residency/canadian-citizenship",
       },
     ],
   },
-  { title: 'PR FAQs', linkTo: '/immigrate/pr-faqs' },
+  { title: "PR FAQs", linkTo: "/immigrate/pr-faqs" },
 ];
 
 export default sitemapImmigrate;

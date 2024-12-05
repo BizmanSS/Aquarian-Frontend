@@ -1,4 +1,5 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
+import { useLocation } from 'react-router-dom';
 
 import NestedTableOfContent from "../../../../shared/NestedTableOfContent.jsx";
 import FaqBox from "../../../../shared/NestedFaqBox.jsx";
@@ -54,6 +55,7 @@ const rankingTableData=[
   },
 ]
 
+
 export default function SkilledWorkersInManitoba() {
   const skilledRef = useRef(null);
   const manitobaRef = useRef(null);
@@ -61,10 +63,26 @@ export default function SkilledWorkersInManitoba() {
   const eligibilityRef = useRef(null);
   const mpnpRef= useRef(null);
   const faqRef = useRef(null);
+  const sectionRefs = useRef({});
+  const location = useLocation();
+
+  useEffect(() => {
+    const section = location.state?.section;
+    if (section && sectionRefs.current[section]) {
+      const offsetPosition = sectionRefs.current[section].offsetTop - 40;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
+    }
+  }, [location]);
+
+
+  
 
   const tableContentData = [
     {
-      title: "Skilled Worker in Manitoba Stream",
+      title: "Skilled Worker in Manitoba Stream (SWM)",
       scrollTo: skilledRef,
     },
     {
@@ -89,6 +107,8 @@ export default function SkilledWorkersInManitoba() {
     },
     
   ];
+
+
 
   return (
     <div
@@ -124,7 +144,10 @@ export default function SkilledWorkersInManitoba() {
               <NestedTableOfContent data={tableContentData} />
             </div>
 
-            <div class="pages-header-2" ref={skilledRef}>
+            <div class="pages-header-2"  ref={(el) => {
+                skilledRef.current= el;
+                sectionRefs.current['Skilled Workers in Manitoba Stream'] = el;
+              }}>
             Skilled Worker in Manitoba Stream
             </div>
             <div className="pages-paragraph">
@@ -151,7 +174,10 @@ export default function SkilledWorkersInManitoba() {
               <button className="button-cec">Calculate Now</button>
             </div>
 
-            <div className="pages-header-2" ref={manitobaRef}>
+            <div className="pages-header-2" ref={(el) => {
+                manitobaRef.current= el;
+                sectionRefs.current['Manitoba Experience Pathway'] = el;
+              }}>
             Manitoba Experience Pathway
             </div>
             <div className="pages-paragraph">
@@ -169,7 +195,10 @@ export default function SkilledWorkersInManitoba() {
               </ul>
             </div>
 
-            <div className="pages-header-2" ref={employerRef}>
+            <div className="pages-header-2" ref={(el) => {
+                employerRef.current= el;
+                sectionRefs.current['Manitoba Employer Direct Recruitment Pathway'] = el;
+              }}>
             Manitoba Employer Direct Recruitment Pathway
             </div>
             <div className="pages-paragraph">

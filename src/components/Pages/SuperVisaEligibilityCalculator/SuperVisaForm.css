@@ -1,0 +1,133 @@
+/* General styles */
+
+  
+  .supervisa-eligibility-container {
+    background: rgb(180, 220, 217);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px 2px rgba(30, 25, 25, 0.1);
+    max-width: 600px;
+    margin: 150px auto;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .supervisa-eligibility-container h2 {
+    text-align: center;
+    color: #333;
+    font-weight: bold;
+    font-size: 32px;
+    margin: 20px 5px;
+    margin-bottom:40px;
+  }
+  
+  .supervisa-eligibility-form-group {
+    margin-bottom: 15px;
+  }
+  
+  .supervisa-eligibility-form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+  }
+  
+  .supervisa-eligibility-form-group input,
+  .supervisa-eligibility-form-group select {
+    width: 100%;
+    padding: 8px;
+    margin: 8px 2px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  .supervisa-eligibility-form-group input:focus,
+  .supervisa-eligibility-form-group select:focus {
+    outline: none;
+    border-color: #007bff;
+  }
+  
+  .supervisa-eligibility-error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  
+  .supervisa-eligibility-submit-btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin: 25px 0;
+    cursor: pointer;
+  }
+  
+  .supervisa-eligibility-submit-btn:hover {
+    background-color: #0056b3;
+  }
+  
+@media (min-width: 1024px){
+    .supervisa-eligibility-container {
+        
+        
+      }
+}
+
+
+  @media (max-width: 768px) {
+    .supervisa-eligibility-container {
+     margin-top: 110px;
+      padding: 15px;
+    }
+
+    form{
+        padding: 2px 20px;
+    }
+  
+    .supervisa-eligibility-container h2 {
+      font-size: 30px;
+    }
+  
+    .supervisa-eligibility-form-group label {
+      font-size: 14px;
+    }
+  
+    .supervisa-eligibility-form-group input,
+    .supervisa-eligibility-form-group select {
+      font-size: 13px;
+    }
+  
+    .supervisa-eligibility-submit-btn {
+      font-size: 14px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .supervisa-eligibility-container {
+        margin-top:80px;
+      padding: 10px;
+    }
+  
+    .supervisa-eligibility-container h2 {
+      font-size: 22px;
+    }
+  
+    .supervisa-eligibility-form-group label {
+      font-size: 12px;
+    }
+  
+    .supervisa-eligibility-form-group input,
+    .supervisa-eligibility-form-group select {
+      font-size: 12px;
+    }
+  
+    .supervisa-eligibility-submit-btn {
+      font-size: 12px;
+    }
+  }
+  

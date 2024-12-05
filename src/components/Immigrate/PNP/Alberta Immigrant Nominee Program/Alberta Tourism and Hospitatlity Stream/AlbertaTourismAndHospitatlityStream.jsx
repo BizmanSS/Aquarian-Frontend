@@ -134,8 +134,9 @@ export default function AlbertaTourismAndHospitalityStream() {
           <div class="pages-content-text-wrapper ">
             <div className="pages-current-page-link">
               <a href="/">Home</a>
-              {" > "}Immigrate
-              {" > "}Express Entry
+              {" > "}Provincial Nominee Program
+              {" > "}Alberta Immigrant Nominee Program
+              {" > "}Alberta Tourism and Hospitatlity Stream
             </div>
             <div class="pages-header">Alberta Tourism and Hospitality Stream</div>
 

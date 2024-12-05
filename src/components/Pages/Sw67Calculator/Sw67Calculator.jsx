@@ -232,7 +232,7 @@ export default function Sw67Calculator() {
     if (clbScoreSecondary >= 5) {
       setClbScore(4);
       
-    } else {
+    } else if (clbScoreSecondary < 5) {
       setClbScore(0);
     }
 
