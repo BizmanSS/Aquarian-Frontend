@@ -167,7 +167,7 @@ const Banner = () => {
         </Link>
       </div>
     </div>
-    </div>
+    
   );
 };
 
