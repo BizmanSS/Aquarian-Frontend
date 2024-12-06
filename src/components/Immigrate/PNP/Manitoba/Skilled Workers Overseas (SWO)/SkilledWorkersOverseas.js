@@ -1,273 +1,358 @@
-import React from "react";
-import { Link } from "react-router-dom";
-const Table = () => {
-  const data = [
-    { name: "Language Proficiency", points: 25 },
-    { name: "Age", points: 10 },
-    { name: "Work Experience", points: 15 },
-    { name: "Education", points: 25 },
-    { name: "Adaptability", points: 25 },
-    { name: <bold>Minimum Pass Score</bold>, points: <bold>60</bold> },
+import React, { useRef , useEffect} from "react";
+import { useLocation } from 'react-router-dom';
+
+import NestedTableOfContent from "../../../../shared/NestedTableOfContent.jsx";
+import FaqBox from "../../../../shared/NestedFaqBox.jsx";
+import ReadyToStartCard from "../../../../shared/ReadyToStart.jsx";
+import SiteMapMenu from "../../../../globalComponents/Sidebar/SiteMapMenu.jsx";
+
+const faqItems = [
+
+  {
+    question: "Can I apply to the Manitoba Skilled Workers Overseas stream if I don’t have a job offer?",
+    answer:
+      "Yes, you can apply without a job offer if you have a strong connection to Manitoba, such as family, past education or work experience in the province, or an invitation from Manitoba through a recruitment initiative.",
+  },
+  {
+    question:
+      "What happens if I receive an invitation through Manitoba’s recruitment initiative?",
+    answer:
+      "If you receive an invitation from Manitoba as part of a recruitment event, you can apply directly through the Skilled Workers Overseas stream. This invitation enhances your chances of being nominated, as it shows that the province is actively interested in your skills.",
+  },
+ 
+];
+
+const rankingTableData=[
+  {
+    factor:"Language Proficiency",
+    ranking:"CLB 8+",
+    maximum:"20"
+  },
+  {
+    factor:"",
+    ranking:"CLB 7",
+    maximum:"18"
+  },
+  {
+    factor:"",
+    ranking:"CLB 6",
+    maximum:"16"
+  },
+  {
+    factor:"",
+    ranking:"CLB 5",
+    maximum:"14"
+  },
+  {
+    factor:"",
+    ranking:"CLB 4",
+    maximum:"12"
+  },
+  {
+    factor:"",
+    ranking:"Second Language CLB 5+",
+    maximum:"5"
+  },
+
+  {
+    factor:"Age",
+    ranking:"21-45",
+    maximum:"10"
+  },
+  {
+    factor:"",
+    ranking:"18-20, 46-48",
+    maximum:"4-8"
+  },
+  {
+    factor:"",
+    ranking:"49+",
+    maximum:"0-2"
+  },
+  {
+    factor:"Work Experience",
+    ranking:"4+ years",
+    maximum:"15"
+  },
+  {
+    factor:"",
+    ranking:"1-3 years",
+    maximum:"8-12"
+  },
+  {
+    factor:"Education",
+    ranking:"Master’s/Doctorate",
+    maximum:"25"
+  },
+  {
+    factor:"",
+    ranking:"Two post-secondary programs",
+    maximum:"23"
+  },
+  {
+    factor:"",
+    ranking:"One post-secondary (2+ years)",
+    maximum:"20"
+  },
+  {
+    factor:"",
+    ranking:"Trade certificate or 1-year post-secondary",
+    maximum:"14"
+  },
+  {
+    factor:"Adaptability",
+    ranking:"Close relative/MPNP invitation",
+    maximum:"20"
+  },
+  {
+    factor:"",
+    ranking:"Work or education in Manitoba",
+    maximum:"10-12"
+  },
+  {
+    factor:"",
+    ranking:"Regional immigration",
+    maximum:"5"
+  },
+]
+
+export default function SkilledWorkersInManitoba() {
+  const skilledRef = useRef(null);
+  const manitobaRef = useRef(null);
+  const humanRef = useRef(null);
+  const eligibilityRef = useRef(null);
+  const rankingRef= useRef(null);
+  const faqRef = useRef(null);
+
+  const sectionRefs = useRef({});
+  const location = useLocation();
+
+  const tableContentData = [
+    {
+      title: "Skilled Workers Overseas Stream",
+      scrollTo: skilledRef,
+    },
+    {
+      title: "Manitoba Express Entry Pathway",
+      scrollTo: manitobaRef,
+    },
+    {
+      title: "Manitoba Human Capital Pathway",
+      scrollTo: humanRef,
+    },
+    {
+      title: "Eligibility Requirements ",
+      scrollTo: eligibilityRef,
+    },
+    {
+      title: "Ranking System",
+      scrollTo: rankingRef,
+    },
+    {
+      title: "FAQs",
+      scrollTo: faqRef,
+    },
+    
   ];
 
-  return (
-    <table>
-      <thead>
-        <tr>
-          <th>Factor</th>
-          <th>Maximum Points</th>
-        </tr>
-      </thead>
-      <tbody>
-        {data.map((item, index) => (
-          <tr key={index}>
-            <td>{item.name}</td>
-            <td>{item.points}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  );
-};
-const TableFactor = () => {
-  const data = [
-    {
-      "NOC 2021 Code": "10010",
-      TEER: 0,
-      "NOC 2021 Title": "Financial managers",
-      "Minimum CLB": 7,
-      "NOC 2016 Equivalent": "0111",
-      "NOC 2016 Skill Type/Level": 0,
-    },
-    {
-      "NOC 2021 Code": "10011",
-      TEER: 0,
-      "NOC 2021 Title": "Human resources managers",
-      "Minimum CLB": 7,
-      "NOC 2016 Equivalent": "0112",
-      "NOC 2016 Skill Type/Level": 0,
-    },
-    {
-      "NOC 2021 Code": "10019",
-      TEER: 0,
-      "NOC 2021 Title": "Other administrative services managers",
-      "Minimum CLB": 7,
-      "NOC 2016 Equivalent": "0114",
-      "NOC 2016 Skill Type/Level": 0,
-    },
-    {
-      "NOC 2021 Code": "10020",
-      TEER: 0,
-      "NOC 2021 Title":
-        "Insurance, real estate and financial brokerage managers",
-      "Minimum CLB": 7,
-      "NOC 2016 Equivalent": "0121",
-      "NOC 2016 Skill Type/Level": 0,
-    },
-    {
-      "NOC 2021 Code": "10021",
-      TEER: 0,
-      "NOC 2021 Title": "Banking, credit and other investment managers",
-      "Minimum CLB": 7,
-      "NOC 2016 Equivalent": "0122",
-      "NOC 2016 Skill Type/Level": 0,
-    },
-    {
-      "NOC 2021 Code": "10022",
-      TEER: 0,
-      "NOC 2021 Title": "Advertising, marketing and public relations managers",
-      "Minimum CLB": 7,
-      "NOC 2016 Equivalent": "0124",
-      "NOC 2016 Skill Type/Level": 0,
-    },
-    {
-      "NOC 2021 Code": "11100",
-      TEER: 1,
-      "NOC 2021 Title": "Financial auditors and accountants",
-      "Minimum CLB": 7,
-      "NOC 2016 Equivalent": "1111",
-      "NOC 2016 Skill Type/Level": "A",
-    },
-    {
-      "NOC 2021 Code": "11101",
-      TEER: 1,
-      "NOC 2021 Title": "Financial and investment analysts",
-      "Minimum CLB": 5,
-      "NOC 2016 Equivalent": "1112",
-      "NOC 2016 Skill Type/Level": "A",
-    },
-    {
-      "NOC 2021 Code": "11102",
-      TEER: 1,
-      "NOC 2021 Title": "Financial advisors",
-      "Minimum CLB": 5,
-      "NOC 2016 Equivalent": "1114",
-      "NOC 2016 Skill Type/Level": "A",
-    },
-    {
-      "NOC 2021 Code": "11109",
-      TEER: 1,
-      "NOC 2021 Title": "Other financial officers",
-      "Minimum CLB": 5,
-      "NOC 2016 Equivalent": "1114",
-      "NOC 2016 Skill Type/Level": "A",
-    },
-  ];
+  useEffect(() => {
+    const section = location.state?.section;
+    if (section && sectionRefs.current[section]) {
+      const offsetPosition = sectionRefs.current[section].offsetTop - 40;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
+    }
+  }, [location]);
 
-  return (
-    <table>
-      <thead>
-        <tr>
-          <th>NOC 2021 Code</th>
-          <th>TEER</th>
-          <th>NOC 2021 Title</th>
-          <th>Minimum CLB</th>
-          <th>NOC 2016 Equivalent</th>
-          <th>NOC 2016 Skill Type/Level</th>
-        </tr>
-      </thead>
-      <tbody>
-        {data.map((item, index) => (
-          <tr key={index}>
-            <td>{item["NOC 2021 Code"]}</td>
-            <td>{item.TEER}</td>
-            <td>{item["NOC 2021 Title"]}</td>
-            <td>{item["Minimum CLB"]}</td>
-            <td>{item["NOC 2016 Equivalent"]}</td>
-            <td>{item["NOC 2016 Skill Type/Level"]}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  );
-};
-export default function SkilledWorkersOverseas() {
   return (
     <div
       style={{
-        background: "#E0E0E0",
+        background: "#EEE",
       }}
     >
-      <div className="AboutUsHeader">
-        <p className="link">
-          <a href="/">Home</a>
-          {" > "}Immigrate
-          {" > "}
-          <Link to="/immigrate/provincial-nominee-program">
-            Provincial Nominee Program
-          </Link>
-          {" > "}
-          <Link to="/immigrate/provincial-nominee-program/manitoba">
-            Manitoba
-          </Link>
-          {" > "}Skilled Workers Overseas (SWO)
-        </p>
-        <div className="header-content">
-          <h1 className="heading-about">Skilled Workers Overseas (SWO)</h1>
+      <div className="pages-content-wrapper">
+        {/* <SiteMapMenu type="I" h1="Permanent Residency"></SiteMapMenu> */}
+        <SiteMapMenu
+          type="I"
+          h1="Provincial Nominee Program"
+          h2= "Manitoba"
+          h3= "Skilled Workers Overseas (SWO)"
+
+        ></SiteMapMenu>
+
+        <div class="pages-content-div">
+          <div class="pages-content-text-wrapper ">
+            <div className="pages-current-page-link">
+              <a href="/">Home</a>
+              {" > "}Provincial Nominee Program
+              {" > "}Manitoba
+              {" > "}Manitoba Skilled Workers Overseas
+            </div>
+            <div class="pages-header">Manitoba Skilled Workers Overseas</div>
+
+            <div class="pages-paragraph space-fix intro-size-fix">
+            The Skilled Workers Overseas stream of the Manitoba Provincial Nominee Program is for individuals having skills and experience to fill labor market gaps in Manitoba but currently residing outside Canada. The candidates are nominated on the basis of an established connection to Manitoba through family members/friends, previous education, or an ITA directly from MPNP. The 3 sub streams of the program are Skilled Workers Overseas Stream, Manitoba Express Entry Pathway, and Manitoba Human Capital Pathway. Applicants with successful nomination can further apply for Canadian permanent residency. The minimum score required to be eligible for the streams of Manitoba Skilled Workers Overseas Program is 60 points on MPNP Assessment Grid.
+             
+            </div>
+            <div className="table-of-content-container">
+              <NestedTableOfContent data={tableContentData} />
+            </div>
+
+            <div class="pages-header-2" ref={(el) => {
+                skilledRef.current= el;
+                sectionRefs.current['Manitoba Skilled Workers Overseas Stream'] = el;
+              }}>
+            Skilled Worker in Manitoba Stream
+            </div>
+            <div className="pages-paragraph">
+            Skilled Workers Overseas Stream
+            <div className='my-3'>The stream targets skilled individuals with strong connection to Manitoba through:</div>
+              <ul className="my-3">
+                <li>
+                Applicants need a valid work permit with atleast 6 months of full-time employment with their current employer.
+                </li>
+                <li>
+                This stream operates on an Expression of Interest system where candidates submit profiles online. 
+                </li>
+                <li>
+                The profiles are then ranked, with the highest-ranking candidates receiving a Letter of Advice to Apply (LAA) for provincial nomination
+                </li>
+              </ul>
+              This stream is ideal for those who may not currently live in Manitoba but have the potential to establish themselves in the province.
+            
+            </div>
+
+            <div className="note-cec">
+              <div >
+                <span style={{ fontWeight: "bold" }}>Note:</span> Dicover Your
+                CRS Score to Boost Your Immigration Journey!
+              </div>
+              <button className="button-cec">Calculate Now</button>
+            </div>
+
+            <div className="pages-header-2" ref={(el) => {
+                manitobaRef.current= el;
+                sectionRefs.current['Manitoba Express Entry Pathway'] = el;
+              }}> 
+            Manitoba Express Entry Pathway
+            </div>
+            <div className="pages-paragraph">
+            The Manitoba Express Entry Pathway is for candidates already in the Express Entry pool with skills aligned with the province’s in-demand occupations.  
+              <ul className="my-2 ml-3">
+                <li>
+                The pathway is for highly skilled workers with qualifications in healthcare, trades, and information technology, or other sectors. 
+
+                </li>
+
+                <li>
+                Manitoba nominates candidates from this stream, giving them an extra 600 points in the Express Entry system, which increases their chances of receiving an ITA for permanent residency.
+
+                </li>
+
+               
+              </ul>
+            </div>
+
+            <div className="pages-header-2" ref={(el) => {
+                humanRef.current= el;
+                sectionRefs.current['Manitoba Human Capital Pathway'] = el;
+              }}>
+            Manitoba Human Capital Pathway
+            </div>
+            <div className="pages-paragraph">
+            This pathway of Manitoba Skilled Worker Overseas Program focuses on individuals with the skills and experience needed to fill Manitoba's current labor shortages.  
+              <ul className="my-2 ml-3">
+                <li>
+                Candidates must demonstrate the ability to contribute to the economy and integrate into the community, based on their training, work experience, language skills, and other factors. 
+                </li>
+
+                <li>
+                The Human Capital Pathway seeks individuals with strong potential for employment in industries facing critical shortages, ensuring the long-term sustainability of Manitoba’s workforce.
+
+                </li>
+
+               
+              </ul>
+            </div>
+
+            <div class="pages-header-2" ref={eligibilityRef}>
+            Eligibility Requirements for the Skilled Workers Overseas Stream
+            </div>
+            <div className="pages-paragraph">
+            To be eligible for the Skilled Workers Overseas stream, candidates must meet the following criteria:
+            <div style={{ 
+              fontWeight:"bold",
+              fontSize:"22px",
+              marginTop:"20px"
+            }}>Manitoba Support:</div>
+
+            <div className="my-5">The candidate must have a close relative or friend residing in Manitoba who can endorse their settlement plan. The supporter must have lived in Manitoba for at least one year and be a Canadian citizen or permanent resident.</div>
+             
+
+
+              <div style={{ 
+              fontWeight:"bold",
+              fontSize:"22px",
+              marginTop:"20px"
+            }}>Manitoba Experience:</div>
+
+            <div className="my-5">Applicants with previous work experience or education in Manitoba can apply under this category. Temporary foreign workers must have worked in Manitoba for at least six months, while international students must have completed a post-secondary program in the province.</div>
+
+            <div style={{ 
+              fontWeight:"bold",
+              fontSize:"22px",
+              marginTop:"20px"
+            }}> Manitoba Invitation:</div>
+
+            <div className="my-5">This is for individuals who have received a direct Invitation to Apply from the MPNP as part of a recruitment initiative or exploratory visit.
+            </div>
+         
+           
+            </div>
+
+            <div class="pages-header-2" ref={rankingRef}>
+            Ranking System for Manitoba’s Skilled Workers Overseas Stream
+            </div>
+            <div class="pages-paragraph">
+            <div>
+                <div className="table-container">
+                  <table className="responsive-table">
+                    <thead>
+                      <tr>
+                        <th>Factor</th>
+                        <th>Criteria</th>
+                        <th>Points</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {rankingTableData.map((row, index) => (
+                        <tr key={index}>
+                          <td>{row.factor}</td>
+                          <td>{row.ranking}</td>
+                          <td>{row.maximum}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+          
+
+              <div className='my-5'>The Skilled Worker Overseas stream provides a pathway for skilled workers with a connection to Manitoba to apply for PR. By fulfilling the connection requirements and scoring well, applicants can enhance their chances of being selected for the Manitoba Provincial Nominee Program (MPNP).</div>
+            </div>
+
+           
+
+          </div>
+          <div ref={faqRef}>
+            <FaqBox faqItems={faqItems} />
+            <ReadyToStartCard />
+          </div>
         </div>
       </div>
-      <h2 className="pages-content-div">
-        Manitoba Skilled Workers Overseas (SWO) is a collection of immigration
-        streams of the Manitoba Provincial Nominee Program (MPNP), a Provincial
-        Nominee Program (PNP) operated by the province of Manitoba. Manitoba
-        Skilled Workers Overseas encompasses three immigration streams which
-        target foreign nationals who have the skills and experience needed to
-        make lasting contributions to Manitoba’s labour force.
-        <br />
-        <br />
-        <ul>
-          <li>Skilled Workers Overseas Stream</li>
-          <li>Manitoba Express Entry Pathway</li>
-          <li>Manitoba Human Capital Pathway</li>
-          <li>MPNP Points Assessment Grid</li>
-          <li>MPNP In-Demand Occupations List</li>
-        </ul>
-        <br /> <br />
-        <a href="/assessment" className="button">
-          {" "}
-          GET STARTED
-        </a>
-        <br />
-        <br />
-        <br />
-        Manitoba Skilled Workers Overseas includes the following streams:
-        <br />
-        <br />
-        <ul>
-          <li>Manitoba Skilled Workers Overseas Stream</li>
-          <li>Manitoba Express Entry Pathway</li>
-          <li>Manitoba Human Capital Pathway </li>
-        </ul>
-        <br />
-        Applicants who are successful through any of these Manitoba streams will
-        receive an official provincial nomination from Manitoba. This provincial
-        nomination makes applicants eligible to apply for Canadian permanent
-        resident status.
-        <br />
-        <br />
-        In order to be eligible for all three streams included in the Manitoba
-        Skilled Workers Overseas category, candidates must score a minimum of 60
-        points on the MPNP Points Assessment Grid.
-        <br />
-        <br />
-        <bold>Skilled Workers Overseas Stream</bold>
-        <br />
-        <br />
-        Manitoba Skilled Workers Overseas is a stream of Manitoba’s Skilled
-        Workers Overseas Category which targets foreign nationals who have the
-        skills and foreign work experience required to contribute to Manitoba’s
-        labour force and who can demonstrate a connection to the province. This
-        stream is highly competitive, only selecting applicants with the most
-        competitive profiles and who have experience in one of Manitoba’s
-        In-Demand Occupations.
-        <br />
-        <br />
-        <bold>Manitoba Express Entry Pathway</bold>
-        <br />
-        <br />
-        The Manitoba Express Entry Pathway is a stream of Manitoba’s Skilled
-        Workers Overseas Category which targets foreign nationals who have
-        active Express Entry profiles along with the skills and foreign work
-        experience required to contribute to Manitoba’s labour force. Applicants
-        must have experience, training, and skills in one of the
-        <bold>In-Demand Occupations in Manitoba </bold> and a close family link
-        to the province.
-        <br />
-        <br />
-        <bold>Manitoba Human Capital Pathway</bold>
-        <br />
-        <br />
-        The Manitoba Human Capital Pathway is a stream of Manitoba’s Skilled
-        Workers Overseas Category which targets overseas skilled workers who
-        have experience, training, and skills in one of the In-Demand
-        Occupations in Manitoba and must also prove the potential to find a job
-        immediately upon arrival to Manitoba.
-        <br />
-        <br />
-        <bold>MPNP Points Assessment Grid</bold>
-        <br />
-        <br />
-        In order to be eligible to submit an Expression of Interest (EOI) to the
-        Skilled Workers Overseas category, a candidate must score at least 60
-        points on the MPNP Points Assessment Grid.
-        <br />
-        <br />
-        <sp>Overview of Factors</sp>
-        <br />
-        <br />
-        <Table />
-        <br />
-        <bold>MPNP In-Demand Occupations List</bold>
-        <br />
-        <br />
-        Manitoba prefers candidates who have work experience in one of the
-        province’s in-demand occupations listed below. Please note that
-        French-speakers are exempt from having experience in an in-demand
-        occupation to be eligible for MPNP.
-        <br />
-        <br />
-        <TableFactor />
-      </h2>
     </div>
   );
 }

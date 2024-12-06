@@ -386,6 +386,7 @@ const ResourcesAndTools = () => {
                     </p> */}
                   <button
                     type="button"
+                    onClick={() => (window.location.href = "/super-visa-eligibility-calculator")}
                     className="w-40 h-10 border mt-4 border-[#C09C40] text-[#C09C40] rounded-full font-normal group-hover:bg-[#C09C40] group-hover:text-white transition ease-in-out delay-60 duration-200"
                   >
                     Calculate Now
@@ -488,6 +489,7 @@ const ResourcesAndTools = () => {
                     </p> */}
                 <button
                   type="button"
+                  onClick={() => (window.location.href = "/super-visa-eligibility-calculator")}
                   className="w-40 h-10 border mt-4 border-[#C09C40] text-[#C09C40] rounded-full font-normal group-hover:bg-[#C09C40] group-hover:text-white transition ease-in-out delay-60 duration-200"
                 >
                   Calculate Now

@@ -1,179 +1,246 @@
-import React from "react";
-import { Link } from "react-router-dom";
-const Table = () => {
-  const data = [
-    { name: "Express Entry Profile", amount: "Yes" },
-    { name: "Connection to Province", amount: "No" },
-    { name: "Job Offer", amount: "Yes, (NOC) Skill Level 0, A, or B." },
+import React, { useRef } from "react";
+
+import NestedTableOfContent from "../../../../shared/NestedTableOfContent.jsx";
+import FaqBox from "../../../../shared/NestedFaqBox.jsx";
+import ReadyToStartCard from "../../../../shared/ReadyToStart.jsx";
+import SiteMapMenu from "../../../../globalComponents/Sidebar/SiteMapMenu.jsx";
+
+const faqItems = [
+  {
+    question:
+      "How does the Express Entry Skilled Worker stream work?",
+    answer:
+      "This stream is linked with Canada's Express Entry system; candidates nominated through it receive an additional 600 CRS points, increasing their chances for an ITA for permanent residency.",
+  },
+  {
+    question: " Who can apply under the International Graduate stream for NLPNP?",
+    answer:
+      "Recent graduates from eligible Canadian post-secondary institutions with job offers related to their field of study can apply under this stream.",
+  },
+
+  {
+    question:
+      " How is the NLPNP points grid structured?",
+    answer:
+      "The points grid evaluates education, language proficiency, age, work experience, and connection to the labor market; applicants must score at least 67 points to qualify for nomination.",
+  },
+];
+
+const nlpnpTableData=[
+     {
+      factor:'Age',
+      points:'12',
+     },
+     {
+      factor:'Connection to Labour Market',
+      points:'13',
+     },
+     {
+      factor:'Work Experience',
+      points:'20',
+     },
+     {
+      factor:'Language Proficiency',
+      points:'27',
+     },
+     {
+      factor:'Education',
+      points:'28',
+     },
+     {
+      factor:'Minimum Pass Score',
+      points:'67',
+     },
+]
+
+export default function NLNPExpressEntrySkilledWorkers() {
+  const eligibilityRef = useRef(null);
+  const eeRef = useRef(null);
+  const processRef = useRef(null);
+  const faqRef = useRef(null);
+
+  const tableContentData = [
     {
-      name: "Language Proficiency",
-      amount: "See Express Entry requirements",
+      title: "Eligibility Requirements for NLPNP Express Entry Skilled Worker",
+      scrollTo: eligibilityRef,
     },
-    { name: "Level of Education", amount: "Post-secondary" },
     {
-      name: "Work Experience",
-      amount: "NOC 0, A, or B 1 year",
+      title: "NLPNP Express Entry Skilled Worker Points Assessment Grid",
+      scrollTo: eeRef,
     },
     {
-      name: "Investment Requirement",
-      amount: "None",
+      title:
+        "Application Process for NLPNP Express Entry Skilled Worker",
+      scrollTo: processRef,
+    },
+    {
+      title: "FAQs",
+      scrollTo: faqRef,
     },
   ];
 
-  return (
-    <table>
-      <thead>
-        <tr>
-          <th style={{ width: "30%" }}>Requirement</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        {data.map((item, index) => (
-          <tr key={index}>
-            <td>{item.name}</td>
-            <td>{item.amount}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  );
-};
-const TableFactor = () => {
-  const data = [
-    { name: "Education", amount: "28" },
-    { name: "Language Proficiency", amount: "27" },
-    { name: "Age", amount: "12" },
-    { name: "Work Experience", amount: "20" },
-    {
-      name: "Connection to Labour Market and Adaptability",
-      amount: "13",
-    },
-
-    {
-      name: <bold>Minimum Pass Score</bold>,
-      amount: <bold>67</bold>,
-    },
-  ];
-
-  return (
-    <table>
-      <thead>
-        <tr>
-          <th style={{ width: "30%" }}>Factor</th>
-          <th>Points</th>
-        </tr>
-      </thead>
-      <tbody>
-        {data.map((item, index) => (
-          <tr key={index}>
-            <td>{item.name}</td>
-            <td>{item.amount}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  );
-};
-export default function NewfoundlandAndLabradorExpressEntrySkilledWorker() {
   return (
     <div
       style={{
-        background: "#E0E0E0",
+        background: "#EEE",
       }}
     >
-      <div className="AboutUsHeader">
-        <p className="link">
-          <a href="/">Home</a>
-          {" > "}Immigrate
-          {" > "}
-          <Link to="/immigrate/provincial-nominee-program">
-            Provincial Nominee Program
-          </Link>
-          {" > "}
-          <Link to="/immigrate/provincial-nominee-program/newfoundland-and-labrador">
-            New Foundland and Labrador
-          </Link>
-          {" > "}Newfoundland and Labrador Express Entry Skilled Worker
-        </p>
-        <div className="header-content">
-          <h1 className="heading-about">
-            Newfoundland and Labrador Express Entry Skilled Worker
-          </h1>
+      <div className="pages-content-wrapper">
+        {/* <SiteMapMenu type="I" h1="Permanent Residency"></SiteMapMenu> */}
+        <SiteMapMenu
+          type="I"
+          h1="Provincial Nominee Program"
+          h2="Newfoundland and Labrador"
+          h3="Newfoundland and Labrador Express Entry Skilled Worker"
+
+        ></SiteMapMenu>
+
+        <div class="pages-content-div">
+          <div class="pages-content-text-wrapper ">
+            <div className="pages-current-page-link">
+              <a href="/">Home</a>
+              {" > "}Provincial Nominee Program
+              {" > "}Newfoundland and Labrador
+              {" > "}Newfoundland and Labrador Express Entry Skilled Worker
+            </div>
+            <div class="pages-header">NLPNP Express Entry Skilled Worker</div>
+
+            <div class="pages-paragraph space-fix intro-size-fix">
+            The Newfoundland and Labrador Provincial Nominee Program (NLPNP) offers a streamlined pathway for skilled workers seeking PR in Canada through the Express Entry system. This program is for individuals who can contribute to the province's economy and hold a job offer. They should demonstrate a genuine intention to settle in Newfoundland and Labrador. To qualify, applicants must first be accepted into the federal Express Entry pool managed by Immigration, Refugees, and Citizenship Canada (IRCC). Once in the pool, candidates can apply for a provincial nomination from Newfoundland and Labrador, which enhances their Comprehensive Ranking System (CRS) score.
+
+
+             
+
+            </div>
+            <div className="table-of-content-container">
+              <NestedTableOfContent data={tableContentData} />
+            </div>
+
+            <div class="pages-header-2"  ref={eligibilityRef}>
+            Eligibility Requirements for NLPNP Express Entry Skilled Worker
+            </div>
+            <div className="pages-paragraph">
+            To be eligible for the NLPNP Express Entry Skilled Worker category, candidates must have:
+
+              {/* <div className='font-bold mt-2'>Eligibility Requirements:</div> */}
+
+              <ul className="my-2 ">
+                <li>
+                They must have an active profile in the federal Express Entry system.
+
+                </li>
+
+                <li>
+                A full-time job offer from a Newfoundland and Labrador employer in National Occupational Classification (NOC) TEER categories 0, 1, 2, or 3.
+
+                </li>
+
+                <li>
+                A minimum of a Canadian post-secondary degree or diploma is required, or an equivalent foreign credential is assessed through an Educational Credential Assessment (ECA)13.
+                </li>
+
+                <li>
+                Candidates must provide official language test results demonstrating proficiency in English or French as claimed in their Express Entry profile. 
+                </li>
+
+                <li>
+                At least one year of relevant work experience in the past ten years in NOC TEER 0,1,2, or 3 category is necessary.
+                </li>
+
+                <li>
+                Candidates must score at least 67 points on the NLPNP Points Assessment Grid.
+                </li>
+
+                <li>
+                They must demonstrate sufficient settlement funds as determined by IRCC guidelines.
+                </li>
+
+                <li>
+                The applicants must demonstrate a genuine intention to reside in the Newfoundland and Labrador province.
+                </li>
+              </ul>
+
+            </div>
+
+            <div className="note-cec">
+              <div>
+                <span style={{ fontWeight: "bold" }}>Note:</span> Dicover Your
+                CRS Score to Boost Your Immigration Journey!
+              </div>
+              <button className="button-cec">Calculate Now</button>
+            </div>
+
+            <div className="pages-header-2" ref={eeRef}>
+            NLPNP Express Entry Skilled Worker Points Assessment Grid
+
+            </div>
+            <div className="pages-paragraph">
+            Candidates must have a minimum of 67 scores in the following grid used to assess or allocate points for NLPNP Express Entry Skilled Worker:
+        
+            <div>
+                <div className="table-container">
+                  <table className="responsive-table">
+                    <thead>
+                      <tr>
+                        <th>Factor</th>
+                        <th>Maximum Points</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {nlpnpTableData.map((row, index) => (
+                        <tr key={index}>
+                          <td>{row.factor}</td>
+                          <td>{row.points}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+            </div>
+
+            <div className="pages-header-2" ref={processRef}>
+            Application Process for NLPNP Express Entry Skilled Worke
+            </div>
+            <div className="pages-paragraph">
+            There is no deadline for application submission for the NLPNP Express Entry Skilled Worker Stream. The application process consists of the following steps:
+            
+              <ul className="my-2">
+
+                <li>
+                Candidates must establish their profile in the federal Express Entry system.
+                </li>
+
+                <li>
+                They need to secure a valid job offer from a Newfoundland and Labrador employer.
+                </li>
+
+                <li>
+                After receiving a job offer, candidates can apply to the NLPNP for provincial nomination.
+
+                </li>
+
+                <li>
+                If successful, candidates receive a provincial nomination that boosts their CRS score.
+                </li>
+                <li>
+                Following nomination, applicants must submit their application for permanent residency to IRCC within six months.
+                </li>
+
+              </ul>
+              The NLPNP Express Entry Skilled Worker category provides an efficient pathway for skilled workers aiming to make Newfoundland and Labrador their new homes. This program addresses local labor shortages and enriches the province's cultural and economic landscape by integrating skilled immigrants.
+
+            </div>
+
+          </div>
+
+          <div ref={faqRef}>
+            <FaqBox faqItems={faqItems} />
+            <ReadyToStartCard />
+          </div>
         </div>
       </div>
-      <h2 className="pages-content-div">
-        A potentially accelerated path to Canadian permanent residence for
-        provincially nominated candidates, the Express Entry Skilled Worker
-        stream of the Newfoundland and Labrador Provincial Nominee Program
-        (NLNP) is open to skilled workers of NOC Skill Level 0, A, or B
-        occupations who are in the federal Express Entry pool and who wish to
-        settle in Newfoundland and Labrador, provided they meet certain
-        eligibility requirements, and hold a guaranteed, full-time job offer.
-        <br />
-        <br />
-        <sp>Program Requirements</sp>
-        <br />
-        <br />
-        <Table />
-        <br />
-        <bold>Points Assessment Grid</bold>
-        <br />
-        <br />
-        Candidates must score at least 67 points on the Newfoundland and
-        Labrador Express Entry Skilled Worker Points Assessment Grid.
-        <br />
-        <br />
-        <bold>Settlement Funds</bold>
-        <br />
-        <br />
-        Candidates must meet the settlement funds requirement as determined by
-        Immigration, Refugees and Citizenship Canada (IRCC). This can be
-        demonstrated through their own finances, or through maintaining a valid
-        offer of employment.
-        <br />
-        <br />
-        <bold>Intention to Reside</bold>
-        <br />
-        <br />
-        Candidates must demonstrate an intention to reside in Newfoundland and
-        Labrador.
-        <br />
-        <br />
-        <bold>Points Assessment Grid</bold>
-        <br />
-        <br />
-        In addition to meeting the above requirements, applicants must also
-        score at least 67 out of a possible 100 on the Points Assessment Grid
-        for the NLNP Express Entry Skilled Worker stream. Applicants will be
-        graded on their connection to the labour market, adaptability,
-        education, work experience, age, and language abilities.
-        <br />
-        <br />
-        <sp>Overview of Factors</sp>
-        <br />
-        <br />
-        <TableFactor />
-        <br />
-        <bold>Application Procedure </bold>
-        The Newfoundland and Labrador Express Entry Skilled Worker stream
-        accepts applications at any time. Skilled workers hoping to immigrate to
-        Newfoundland and Labrador must first submit a profile to the federal
-        Express Entry pool. Once a candidate has been accepted into the Federal
-        Express Entry pool and has a job offer from a Newfoundland and Labrador
-        employer, they may submit their application. Successful applicants will
-        receive a nomination from Newfoundland and Labrador.
-        <br />
-        <br />
-        After accepting the provincial nomination, the applicant’s Comprehensive
-        Ranking System (CRS) score will increase by 600 points, virtually
-        guaranteeing they will receive an Invitation to Apply (ITA) for
-        permanent residence in the next Express Entry draw. After receiving an
-        ITA, the applicant must prepare and submit an official application for
-        Canadian permanent residence within the designated timeframe.
-        Applications for permanent residence submitted through Express Entry are
-        generally processed within six months.
-      </h2>
     </div>
   );
 }

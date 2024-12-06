@@ -1,151 +1,222 @@
-import React from "react";
-import { Link } from "react-router-dom";
-export default function BOWP() {
+import React, { useRef } from "react";
+
+import NestedTableOfContent from "../../../shared/NestedTableOfContent.jsx";
+import FaqBox from "../../../shared/NestedFaqBox.jsx";
+import ReadyToStartCard from "../../../shared/ReadyToStart.jsx";
+import SiteMapMenu from "../../../globalComponents/Sidebar/SiteMapMenu.jsx";
+
+const faqItems = [
+  {
+    question: "Can I leave Canada while on a Bridging Open Work Permit?",
+    answer:
+      "Yes, but you must ensure you have a valid travel document (e.g., eTA or temporary resident visa) to return to Canada.",
+
+  },
+  {
+    question:
+      " What happens if my Bridging Open Work Permit application is denied?",
+    answer:
+      "If your application is denied, you must cease working immediately and may need to apply to restore your status in Canada.",
+
+  },
+  {
+    question:
+      "What should I do if my current work permit expires before my BOWP is approved?",
+    answer:
+      " If you apply before your current permit expires, you can continue working under implied status until a decision on your BOWP is made.",
+  },
+
+];
+
+export default function BridgingOpenWorkPermit() {
+  const purposeRef = useRef(null);
+  const eligibilityRef = useRef(null);
+  const applicationRef = useRef(null);
+  const importantRef = useRef(null);
+  const faqRef = useRef(null);
+
+  const tableContentData = [
+    {
+      title: "Purpose of BOWP",
+      scrollTo: purposeRef,
+    },
+    {
+      title: "Eligibility Criteria for Bridging Open Work Permit",
+      scrollTo: eligibilityRef,
+    },
+    {
+      title: "Application Process for Bridging Open Work Permit",
+      scrollTo: applicationRef,
+    },
+    {
+      title: "Important Considerations",
+      scrollTo: importantRef,
+    },
+
+    {
+      title: "FAQs",
+      scrollTo: faqRef,
+    },
+  ];
+
   return (
     <div
       style={{
-        background: "#E0E0E0",
+        background: "#EEE",
       }}
     >
-      <div className="AboutUsHeader">
-        <p className="link">
-          <a href="/">Home</a>
-          {" > "}Work
-          {" > "}
-          <Link to="/work/open-work-permits">Open Work Permit</Link>
-          {" > "}Bridging Open Work Permit(BOWP)
-        </p>
-        <div className="header-content">
-          <h1 className="heading-about">Bridging Open Work Permit(BOWP)</h1>
+      <div className="pages-content-wrapper">
+        {/* <SiteMapMenu type="I" h1="Permanent Residency"></SiteMapMenu> */}
+        <SiteMapMenu
+          type="W"
+          h1="Open Work Permits"
+          h2="Bridging Open Work Permit (BOWP)"
+
+        ></SiteMapMenu>
+
+        <div class="pages-content-div">
+          <div class="pages-content-text-wrapper ">
+            <div className="pages-current-page-link">
+              <a href="/">Home</a>
+              {" > "}Work
+              {" > "}Canada Open Work Permit
+              {" > "}Bridging Open Work Permit (BOWP) in Canada
+            </div>
+            <div class="pages-header">Bridging Open Work Permit (BOWP)</div>
+
+            <div class="pages-paragraph space-fix intro-size-fix">
+            The Bridging Open Work Permit (BOWP) is a temporary work permit designed for foreign nationals in Canada who are awaiting a decision on their permanent residency application. It allows these individuals to continue working legally while ensuring that they do not lose their status in Canada during the processing of their PR application.
+          
+            </div>
+            <div className="table-of-content-container">
+              <NestedTableOfContent data={tableContentData} />
+            </div>
+
+            <div class="pages-header-2" ref={purposeRef}>
+            Purpose of BOWP
+            </div>
+            <div className="pages-paragraph">
+            The BOWP serves as a crucial bridge between the expiration of a current work permit and the final decision on a permanent residency application. This permit is beneficial for individuals who have applied for PR under various immigration programs, allowing them to maintain employment without being tied to a specific job or employer, unlike closed work permits.
+
+              <ul className="my-3">
+                <li>
+                Holders can work for any employer across Canada.
+                </li>
+                <li>
+                It enables applicants to switch jobs or explore different industries while waiting for their PR status.
+
+                </li>
+                <li>
+                Typically issued for up to 24 months, with the possibility of extension if the PR application is still under review.
+                </li>
+               
+              </ul>
+
+            </div>
+
+            <div className="note-cec">
+              <div >
+                <span style={{ fontWeight: "bold" }}>Note:</span> Dicover Your
+                CRS Score to Boost Your Immigration Journey!
+              </div>
+              <button className="button-cec">Calculate Now</button>
+            </div>
+
+            <div className="pages-header-2" ref={eligibilityRef}>
+            Eligibility Criteria for Bridging Open Work Permit
+            </div>
+            <div className="pages-paragraph">
+            To qualify for a BOWP, applicants must meet several conditions:
+              <ul className="my-2 ml-3">
+                <li>
+                The applicant must be physically present in Canada with valid temporary resident status.
+                </li>
+
+                <li>
+                They must hold a valid work permit or be eligible to restore their status.
+
+                </li>
+
+                <li>
+                The applicant must have submitted a PR application under one of the following categories:
+
+                <ul>
+                  <li>Federal Skilled Worker Program (FSWP)</li>
+                  <li>Canadian Experience Class (CEC)</li>
+                  <li>Federal Skilled Trades Program (FSTP)</li>
+                  <li>Provincial Nominee Program (PNP)
+                  </li>
+                  <li>Quebec Skilled Worker Program (QSWP)</li>
+                  <li>Agri-Food Pilot Program</li>
+                </ul>
+
+                </li>
+
+              </ul>
+              The application must have passed the completeness check or received a positive eligibility assessment from Immigration, Refugees and Citizenship Canada (IRCC).
+
+            </div>
+
+            <div class="pages-header-2" ref={applicationRef}>
+            Application Process for Bridging Open Work Permit
+            </div>
+            <div class="pages-paragraph">
+            The application process for obtaining a BOWP involves several steps:
+              <ul className="my-2 ml-3">
+                <li>
+                Ensure that you meet all eligibility criteria.
+                </li>
+
+                <li>
+                Gather documents like proof of your current work permit, confirmation of your PR application submission, and identification documents.
+                </li>
+
+                <li>
+                Select "Open Work Permit" as the type of work permit when filling out the form.
+                </li>
+                <li>
+                The total fee for applying is CAD $255, which includes processing and open work permit holder fees.
+
+                </li>
+                <li>
+                Applications can typically be submitted online through the IRCC secure account, although paper applications are accepted in certain situations.
+                </li>
+             
+              </ul>
+              If required, schedule and attend an appointment to provide biometrics.
+            </div>
+
+            <div class="pages-header-2" ref={importantRef}>
+            Important Considerations
+            </div>
+            <div class="pages-paragraph">
+          
+              <ul className="my-2 ml-3">
+                <li>
+                While BOWP holders generally can work anywhere in Canada, those applying through PNP may have employment location restrictions based on their nomination province.
+                </li>
+
+                <li>
+                BOWPs are usually valid for 24 months but cannot extend beyond the validity of the applicant's passport.
+                </li>
+
+                <li>
+                Spouses and dependents may apply for their own open work permits if the primary applicant is employed in a skilled occupation.
+                </li>
+              
+             
+              </ul>
+              BOWP applications are processed within 3 to 4 months. It is advisable to apply well before your current work permit expires to maintain legal status in Canada.
+            </div>
+
+
+          </div>
+          <div ref={faqRef}>
+            <FaqBox faqItems={faqItems} />
+            <ReadyToStartCard />
+          </div>
         </div>
       </div>
-      <h2 className="pages-content-div">
-        The Bridging Open Work Permit (BOWP) lets foreign nationals continue to
-        work in Canada while they await a decision on their permanent residency
-        application.
-        <br />
-        <br />
-        <a href="/contact-us">
-          {" "}
-          <sp>CONTACT US TO DISCUSS YOUR WORK PERMIT NEEDS</sp>
-        </a>
-        <br />
-        <br />
-        <sp>What is a bridging open work permit?</sp>
-        <br />
-        <br />
-        The Bridging Open Work Permit (BOWP) allows foreign nationals who are
-        currently working in Canada to extend their status while awaiting a
-        decision on their permanent residency application. The BOWP is only
-        available to those who have submitted a permanent residency application
-        and are already in possession of a valid work permit. A successful BOWP
-        application results in an open work permit, enabling the holder to work
-        for multiple employers in multiple locations, of their own choosing.
-        <br />
-        <br />
-        <sp>Who is eligible for a bridging open work permit?</sp>
-        <br />
-        <br />
-        In order to apply for a Bridging Open Work Permit (BOWP) a foreign
-        national must first meet the following conditions:
-        <br /> <br />
-        <ul>
-          <li>Reside in Canada with valid temporary resident status</li> <br />
-          <li>
-            Meet one of the following criteria: <br />
-            <ul>
-              <li>
-                hold a valid work permit with valid temporary resident status
-              </li>
-              <li>
-                have submitted to renew their work permit and are on maintained
-                status in Canada
-              </li>
-              <li>
-                are eligible to restore their temporary resident status with
-                authorization to work on a work permit
-              </li>
-            </ul>
-            <br />
-          </li>
-          <li>
-            Have applied for Canadian permanent residence as the{" "}
-            <bold> principal applicant </bold> under one of the following
-            classes:
-            <br />{" "}
-            <ul>
-              <li>Federal Skilled Worker Program (FSWP)</li>
-              <li>Canadian Experience Class (CEC)</li>
-              <li>Federal Skilled Trades (FST)</li>
-              <li>
-                Provincial Nominee Program (PNP) (given there are no employer
-                restrictions on the nomination)
-              </li>
-              <li>Agri-Food Pilot (AFP)</li>
-              <li>Quebec Skilled Worker Class (QSWC)</li>
-            </ul>{" "}
-            <br />
-          </li>
-          <li>
-            Have passed the section R10 completeness check for an QSWC
-            application or Express Entry application OR a positive eligibility
-            assessment after applying under an eligible non-Express Entry
-            permanent residence stream
-          </li>
-        </ul>{" "}
-        <br />
-        <sp>Bridging open work permit fee</sp>
-        <br />
-        <br />
-        The fee for an open work permit is $255 CAD – $155 for the processing
-        fee, and $100 CAD for the open work permit holder fee.
-        <br />
-        <br />
-        <sp>Bridging open work permit processing time</sp>
-        <br />
-        <br />
-        Bridging open work permits are typically processed within 3-4 months.
-        <br />
-        <br />
-        <sp>
-          Can I apply for a bridging open work permit from outside of Canada?
-        </sp>
-        <br />
-        <br />
-        Foreign nationals must be residing in Canada to apply for a BOWP.
-        <br />
-        <br />
-        <sp>Why was my bridging open work permit rejected?</sp>
-        <br />
-        <br />
-        One common reason that a BOWP is refused is if applicants submit an
-        incomplete permanent residence application. As applications for
-        permanent residence must be passed the completeness check as part of the
-        eligibility requirement, incomplete applications may result in a BOWP
-        refusal.
-        <br />
-        <br />
-        <sp>Can I work while waiting for a bridging open work permit?</sp>
-        <br />
-        <br />A foreign national is required to submit a BOWP application before
-        their current work permit expires. If their current work permit expires
-        before they have received a decision regarding their BOWP application,
-        they may continue to work in Canada under
-        <bold> maintained status </bold>until a final decision has been issued
-        regarding the BOWP application. However, if the BOWP application is
-        denied, the foreign national must cease working in Canada immediately.
-        If a foreign national works in Canada without a valid work permit, they
-        will jeopardise all future applications for Canadian immigration.
-        <br />
-        <br />
-        <sp>Can a bridging open work permit be extended?</sp>
-        <br />
-        <br />
-        If a permanent residence application is not finalised by the time a BOWP
-        expires, IRCC may issue extensions of 12 months.
-        <br />
-        <br />
-      </h2>
     </div>
   );
 }

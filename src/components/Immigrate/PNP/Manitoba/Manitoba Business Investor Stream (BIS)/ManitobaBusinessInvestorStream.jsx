@@ -1,4 +1,5 @@
-import React, { useRef } from "react";
+import React, { useRef , useEffect} from "react";
+import { useLocation } from 'react-router-dom';
 
 import NestedTableOfContent from "../../../../shared/NestedTableOfContent.jsx";
 import FaqBox from "../../../../shared/NestedFaqBox.jsx";
@@ -83,11 +84,13 @@ const farmTableData = [
   },
 ];
 
-export default function ManitobaInternationalEducationStream() {
+export default function ManitobaBusinessStream() {
   const skilledRef = useRef(null);
   const manitobaRef = useRef(null);
-  const employerRef = useRef(null);
   const faqRef = useRef(null);
+
+  const sectionRefs = useRef({});
+  const location = useLocation();
 
   const tableContentData = [
     {
@@ -103,6 +106,18 @@ export default function ManitobaInternationalEducationStream() {
       scrollTo: faqRef,
     },
   ];
+
+  
+  useEffect(() => {
+    const section = location.state?.section;
+    if (section && sectionRefs.current[section]) {
+      const offsetPosition = sectionRefs.current[section].offsetTop - 40;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
+    }
+  }, [location]);
 
   return (
     <div
@@ -142,7 +157,10 @@ export default function ManitobaInternationalEducationStream() {
               <NestedTableOfContent data={tableContentData} />
             </div>
 
-            <div class="pages-header-2" ref={skilledRef}>
+            <div class="pages-header-2" ref={(el) => {
+                skilledRef.current= el;
+                sectionRefs.current['Manitoba Entrepreneur Pathway'] = el;
+              }}>
               Manitoba Entrepreneur Pathway
             </div>
             <div className="pages-paragraph">
@@ -213,7 +231,10 @@ export default function ManitobaInternationalEducationStream() {
               <button className="button-cec">Calculate Now</button>
             </div>
 
-            <div className="pages-header-2" ref={manitobaRef}>
+            <div className="pages-header-2" ref={(el) => {
+                manitobaRef.current= el;
+                sectionRefs.current['Manitoba Farm Investor Pathway'] = el;
+              }}>
             Manitoba Farm Investor Pathway
             </div>
             <div className="pages-paragraph">

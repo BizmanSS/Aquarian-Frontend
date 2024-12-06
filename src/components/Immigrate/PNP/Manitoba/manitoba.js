@@ -4,30 +4,7 @@ import NestedTableOfContent from "../../../shared/NestedTableOfContent.jsx";
 import ReadyToStartCard from "../../../shared/ReadyToStart.jsx";
 import SiteMapMenu from "../../../globalComponents/Sidebar/SiteMapMenu.jsx";
 
-const entrepreneurData = [
-  {
-    criterion: "Net Worth",
-    requirement: "Minimum CAD 500,000",
-  },
-  {
-    criterion: "Business Experience",
-    requirement:
-      "Minimum 3 years as an owner or senior manager in the last 5 years",
-  },
-  {
-    criterion: "Investment",
-    requirement:
-      "Minimum CAD 250,000 in Winnipeg; CAD 150,000 outside Winnipeg ",
-  },
-  {
-    criterion: "Language Proficiency",
-    requirement: "Minimum CLB/NCLC 5",
-  },
-  {
-    criterion: "Minimum Ownership",
-    requirement: "33.33% ownership required ",
-  },
-];
+
 
 export default function Manitoba() {
   const keyRef = useRef(null);

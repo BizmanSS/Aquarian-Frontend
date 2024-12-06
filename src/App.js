@@ -49,7 +49,7 @@ import PNP from "./components/Immigrate/PNP/provincial-nominee-program";
 import AlbertaImmigrantNomineeProgram from "./components/Immigrate/PNP/Alberta Immigrant Nominee Program/alberta-immigrant-nominee-program";
 import BritishColumbia from "./components/Immigrate/PNP/British Columbia/british-columbia";
 import Manitoba from "./components/Immigrate/PNP/Manitoba/manitoba";
-import NewBrunswick from "./components/Immigrate/PNP/New Brunswick/new-brunswick";
+// import NewBrunswick from "./components/Immigrate/PNP/New Brunswick/NewBrunswick.jsx";
 import NewFoundlandAndLabrador from "./components/Immigrate/PNP/Newfoundland and Labrador/newfoundland-and-Labrador";
 import NorthwestTerritories from "./components/Immigrate/PNP/Northwest Territories/northwestTerritories";
 import NovaScotia from "./components/Immigrate/PNP/Nova Scotia/nova-scotia";
@@ -93,18 +93,50 @@ import ManitobaInternationalStudentEntreprenuerPilot from "./components/Immigrat
 import ManitobaEntrepreneurPathway from "./components/Immigrate/PNP/Manitoba/Manitoba Business Investor Stream (BIS)/Manitoba Entrepreneur Pathway/ManitobaEntrepreneurPathway";
 import ManitobaFarmInvestorPathway from "./components/Immigrate/PNP/Manitoba/Manitoba Business Investor Stream (BIS)/Manitoba Farm Investor Pathway/ManitobaFarmInvestorPathway";
 import NewBrunswickExpressEntryLabourMarketStream from "./components/Immigrate/PNP/New Brunswick/New Brunswick Express Entry Labour Market Stream/NewBrunswickExpressEntryLabourMarketStream";
-import NewBrunswickCriticalWorkerPilot from "./components/Immigrate/PNP/New Brunswick/New Brunswick Critical Worker Pilot/NewBrunswickCriticalWorkerPilot";
+// import NewBrunswickCriticalWorkerPilot from "./components/Immigrate/PNP/New Brunswick/New Brunswick Critical Worker Pilot/NewBrunswickCriticalWorkerPilot";
 import NewBrunswickSkilledWorkersWithEmployerSupport from "./components/Immigrate/PNP/New Brunswick/New Brunswick Skilled Workers with Employer Support/NewBrunswickSkilledWorkersWithEmployerSupport";
 import NewBrunswickStrategicInitiative from "./components/Immigrate/PNP/New Brunswick/New Brunswick Strategic Initiative/NewBrunswickStrategicInitiative";
-import NewBrunswickBusinessImmigrationStream from "./components/Immigrate/PNP/New Brunswick/New Brunswick Business Immigration Stream/NewBrunswickBusinessImmigrationStream";
+// import NewBrunswickBusinessImmigrationStream from "./components/Immigrate/PNP/New Brunswick/New Brunswick Business Immigration Stream/NewBrunswickBusinessImmigrationStream";
 import NewBrunswickAtlanticImmigrationProgram from "./components/Immigrate/PNP/New Brunswick/New Brunswick Atlantic Immigration Program/NewBrunswickAtlanticImmigrationProgram";
-import NewBrunswickPrivateCareerCollegeGraduatePilotProgram from "./components/Immigrate/PNP/New Brunswick/New Brunswick Private Career College Graduate Pilot Program/NewBrunswickPrivateCareerCollegeGraduatePilotProgram";
+// import NewBrunswickPrivateCareerCollegeGraduatePilotProgram from "./components/Immigrate/PNP/New Brunswick/New Brunswick Private Career College Graduate Pilot Program/NewBrunswickPrivateCareerCollegeGraduatePilotProgram";
+
+
+import NewBrunswick from "./components/Immigrate/PNP/New Brunswick/NewBrunswick.jsx";
+
+import CandidateStreams from "./components/Immigrate/PNP/New Brunswick/Candidate Streams/CandidateStreams.jsx";
+
+import NewBrunswickExpressEntryStream  from "./components/Immigrate/PNP/New Brunswick/Candidate Streams/New Brunswick Express Entry Stream/New Brunswick Express Entry Stream.jsx";
+
+import NewBrunswickStrategicInitiativeStream
+from "./components/Immigrate/PNP/New Brunswick/Candidate Streams/New Brunswick Strategic Initiative Stream/New Brunswick Strategic Initiative Stream.jsx";
+
+import NewBrunswickPrivateCareerCollegeGraduatePilotProgram
+from "./components/Immigrate/PNP/New Brunswick/Candidate Streams/New Brunswick Private Career College Graduate Pilot Program/New Brunswick Private Career College Graduate Pilot Program.jsx";
+
+import NewBrunswickSkilledWorkerStream
+from "./components/Immigrate/PNP/New Brunswick/Candidate Streams/New Brunswick Skilled Worker Stream/New Brunswick Skilled Worker Stream.jsx";
+
+import BuisnessStream
+from "./components/Immigrate/PNP/New Brunswick/Busniness Stream/BuisnessStream.jsx";
+
+import NewBrunswickBusinessImmigrationStream
+from "./components/Immigrate/PNP/New Brunswick/Busniness Stream/New Brunswick Business Immigration Stream/New Brunswick Business Immigration Stream.jsx";
+
+import EmployerStreams from "./components/Immigrate/PNP/New Brunswick/Employer Streams/EmployerStreams.jsx";
+
+import AtlanticImmigrationPilotAIP from "./components/Immigrate/PNP/New Brunswick/Employer Streams/Atlantic Immigration Pilot AIP/Atlantic Immigration Pilot AIP.jsx";
+
+import NewBrunswickCriticalWorkerPilot from "./components/Immigrate/PNP/New Brunswick/Employer Streams/New Brunswick Critical Worker Pilot/New Brunswick Critical Worker Pilot.jsx";
+
+
+
+
 import NewfoundlandAndLabradorExpressEntrySkilledWorker from "./components/Immigrate/PNP/Newfoundland and Labrador/Newfoundland and Labrador Express Entry Skilled Worker/NewfoundlandAndLabradorExpressEntrySkilledWorker";
 import NewfoundlandAndLabradorSkilledWorkerCategory from "./components/Immigrate/PNP/Newfoundland and Labrador/Newfoundland and Labrador Skilled Worker Category/NewfoundlandAndLabradorSkilledWorkerCategory";
 import NewfoundlandAndLabradorInternationalGraduateCategory from "./components/Immigrate/PNP/Newfoundland and Labrador/Newfoundland and Labrador International Graduate Category/NewfoundlandAndLabradorInternationalGraduateCategory";
 import NewfoundlandAndLabradorInternationalEntrepreneurCategory from "./components/Immigrate/PNP/Newfoundland and Labrador/Newfoundland and Labrador International Entrepreneur Category/NewfoundlandAndLabradorInternationalEntrepreneurCategory";
 import NewfoundlandAndLabradorInternationalGraduateEntrepreneurCategory from "./components/Immigrate/PNP/Newfoundland and Labrador/Newfoundland and Labrador International Graduate Entrepreneur Category/NewfoundlandAndLabradorInternationalGraduateEntrepreneurCategory";
-import NorthwestTerritoriesFrenchSpeaking from "./components/Immigrate/PNP/Northwest Territories/Northwest Territories French- Speaking/northwest-territories-french-speaking";
+import NorthwestTerritoriesFrancophone from "./components/Immigrate/PNP/Northwest Territories/Northwest Territories French- Speaking/northwest-territories-french-speaking";
 import NorthwestTerritoriesBusinessDriven from "./components/Immigrate/PNP/Northwest Territories/Northwest Territories Business Driven/NorthwestTerritoriesBusinessDriven";
 import NorthwestTerritoriesSkilledWorkers from "./components/Immigrate/PNP/Northwest Territories/Northwest Territories Employer Driven/Northwest Territories Skilled Workers/NorthwestTerritoriesSkilledWorkers";
 import NorthwestTerritoriesEntryLevel from "./components/Immigrate/PNP/Northwest Territories/Northwest Territories Employer Driven/Northwest Territories Entry Level/NorthwestTerritoriesEntryLevel";
@@ -242,6 +274,7 @@ import VisaExtensionLandingPage from "./components/SeperateLandingPages/Visa Ext
 // import Newsroom from "./components/Pages/Blogs/Newsroom";
 import AllNews from "./components/Pages/Blogs/AllNews";
 import TopUniversities from "./components/Pages/Blogs/TopUniversities";
+import SuperVisaEligibilityCalculator from "./components/Pages/SuperVisaEligibilityCalculator/SuperVisaEligibilityCalculator.jsx";
 
 const App = () => {
   const { isMobile } = useMobile();
@@ -394,6 +427,7 @@ const App = () => {
             <Route path="/clb-calculator" element={<ClbCalculator />} />
             <Route path="/crs-calculator" element={<CrsCalculator />} />
             <Route path="/sw67-calculator" element={<Sw67Calculator/>} />
+            <Route path="/super-visa-eligibility-calculator" element={<SuperVisaEligibilityCalculator/>} />
             {/* <Route path="/crs-canadian-immigration" element={<CrsCanadianImmigration/>} /> */}
             <Route path="/blogs" element={<Blogs />} />
             <Route path="/*" element={<PageNotFound />} />
@@ -635,29 +669,35 @@ const App = () => {
               element={<ManitobaFarmInvestorPathway />}
             />
 
+
+
+
+
+
             <Route
               path="/immigrate/provincial-nominee-program/new-brunswick"
               element={<NewBrunswick />}
             />
+
             <Route
-              path="/immigrate/provincial-nominee-program/new-brunswick/new-brunswick-express-entry-labour-market-stream"
-              element={<NewBrunswickExpressEntryLabourMarketStream />}
+              path="/immigrate/provincial-nominee-program/new-brunswick/candidates-stream"
+              element={<CandidateStreams />}
             />
             <Route
-              path="/immigrate/provincial-nominee-program/new-brunswick/new-brunswick-skilled-workers-with-employer-support"
-              element={<NewBrunswickSkilledWorkersWithEmployerSupport />}
+              path="/immigrate/provincial-nominee-program/new-brunswick/new-brunswick-express-entry-stream"
+              element={<NewBrunswickExpressEntryStream />}
             />
             <Route
-              path="/immigrate/provincial-nominee-program/new-brunswick/new-brunswick-strategic-initiative"
-              element={<NewBrunswickStrategicInitiative />}
+              path="/immigrate/provincial-nominee-program/new-brunswick/new-brunswick-strategic-initiative-stream"
+              element={<NewBrunswickStrategicInitiativeStream />}
             />
             <Route
-              path="/immigrate/provincial-nominee-program/new-brunswick/new-brunswick-business-immigration-stream"
-              element={<NewBrunswickBusinessImmigrationStream />}
+              path="/immigrate/provincial-nominee-program/new-brunswick/new-brunswick-business-stream"
+              element={<BuisnessStream/>}
             />
             <Route
-              path="/immigrate/provincial-nominee-program/new-brunswick/new-brunswick-atlantic-immigration-program"
-              element={<NewBrunswickAtlanticImmigrationProgram />}
+              path="/immigrate/provincial-nominee-program/new-brunswick/new-brunswick-skilled-worker-program"
+              element={<NewBrunswickSkilledWorkerStream />}
             />
             <Route
               path="/immigrate/provincial-nominee-program/new-brunswick/new-brunswick-private-career-college-graduate-pilot-program"
@@ -667,11 +707,29 @@ const App = () => {
               path="/immigrate/provincial-nominee-program/new-brunswick/new-brunswick-critical-worker-pilot"
               element={<NewBrunswickCriticalWorkerPilot />}
             />
+             <Route
+              path="/immigrate/provincial-nominee-program/new-brunswick/new-brunswick-business-immigration-pilot"
+              element={<NewBrunswickBusinessImmigrationStream />}
+            />
+             <Route
+              path="/immigrate/provincial-nominee-program/new-brunswick/new-brunswick-employer-stream"
+              element={<EmployerStreams/>}
+            />
 
             <Route
+              path="/immigrate/provincial-nominee-program/new-brunswick-atlantic-immigration-pilot-aip"
+              element={<AtlanticImmigrationPilotAIP />}
+            />
+
+
+
+
+
+<Route
               path="/immigrate/provincial-nominee-program/newfoundland-and-labrador"
               element={<NewFoundlandAndLabrador />}
             />
+
             <Route
               path="/immigrate/provincial-nominee-program/newfoundland-and-labrador/newfoundland-and-labrador-express-entry-skilled-worker"
               element={<NewfoundlandAndLabradorExpressEntrySkilledWorker />}
@@ -723,7 +781,7 @@ const App = () => {
             />
             <Route
               path="/immigrate/provincial-nominee-program/northwest-territories/northwest-territories-french-speaking"
-              element={<NorthwestTerritoriesFrenchSpeaking />}
+              element={<NorthwestTerritoriesFrancophone />}
             />
 
             <Route

@@ -73,8 +73,9 @@ export default function AlbertaFarmStream() {
           <div class="pages-content-text-wrapper ">
             <div className="pages-current-page-link">
               <a href="/">Home</a>
-              {" > "}Immigrate
-              {" > "}Express Entry
+              {" > "}Provincial Nominee Program
+              {" > "}Alberta Immigrant Nominee Program
+              {" > "}Alberta Farm Stream
             </div>
             <div class="pages-header">Alberta Farm Stream</div>
 
