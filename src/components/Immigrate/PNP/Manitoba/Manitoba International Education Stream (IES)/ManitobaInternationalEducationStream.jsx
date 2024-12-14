@@ -1,4 +1,5 @@
-import React, { useRef } from "react";
+import React, { useRef , useEffect} from "react";
+import { useLocation } from 'react-router-dom';
 
 import NestedTableOfContent from "../../../../shared/NestedTableOfContent.jsx";
 import FaqBox from "../../../../shared/NestedFaqBox.jsx";
@@ -113,6 +114,10 @@ export default function ManitobaInternationalEducationStream() {
   const employerRef = useRef(null);
   const faqRef = useRef(null);
 
+  
+  const sectionRefs = useRef({});
+  const location = useLocation();
+
   const tableContentData = [
     {
       title: "Manitoba Career Employment Pathway",
@@ -132,6 +137,17 @@ export default function ManitobaInternationalEducationStream() {
     },
   ];
 
+  useEffect(() => {
+    const section = location.state?.section;
+    if (section && sectionRefs.current[section]) {
+      const offsetPosition = sectionRefs.current[section].offsetTop - 40;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
+    }
+  }, [location]);
+
   return (
     <div
       style={{
@@ -144,8 +160,7 @@ export default function ManitobaInternationalEducationStream() {
           type="I"
           h1="Provincial Nominee Program"
           h2="Manitoba"
-          h3="Skilled Workers Overseas (SWO)"
-          h4="Manitoba Skilled Workers Overseas Stream"
+          h3="Manitoba International Education Stream (IES)"
         ></SiteMapMenu>
 
         <div class="pages-content-div">
@@ -154,10 +169,10 @@ export default function ManitobaInternationalEducationStream() {
               <a href="/">Home</a>
               {" > "}Provincial Nominee Program
               {" > "}Manitoba
-              {" > "}Skilled Workers Overseas (SWO)
-              {" > "}Manitoba Skilled Workers Overseas Stream
+              {" > "}Manitoba International Education Stream (IES)
             </div>
-            <div class="pages-header">Manitoba Skilled Workers Overseas</div>
+            <div class="pages-header">Manitoba International Education Stream (IES)
+            </div>
 
             <div class="pages-paragraph space-fix intro-size-fix">
               The Manitoba International Education Stream (IES) provides an
@@ -180,7 +195,10 @@ export default function ManitobaInternationalEducationStream() {
               <NestedTableOfContent data={tableContentData} />
             </div>
 
-            <div class="pages-header-2" ref={skilledRef}>
+            <div class="pages-header-2" ref={(el) => {
+                skilledRef.current= el;
+                sectionRefs.current['Manitoba Career Employment Pathway'] = el;
+              }}>
               Manitoba Career Employment Pathway
             </div>
             <div className="pages-paragraph">
@@ -243,7 +261,10 @@ export default function ManitobaInternationalEducationStream() {
               <button className="button-cec">Calculate Now</button>
             </div>
 
-            <div className="pages-header-2" ref={manitobaRef}>
+            <div className="pages-header-2" ref={(el) => {
+                manitobaRef.current= el;
+                sectionRefs.current['Manitoba Graduate Internship Pathway'] = el;
+              }}>
             Manitoba Graduate Internship Pathway
             </div>
             <div className="pages-paragraph">
@@ -292,7 +313,10 @@ export default function ManitobaInternationalEducationStream() {
 
             </div>
 
-            <div className="pages-header-2" ref={employerRef}>
+            <div className="pages-header-2" ref={(el) => {
+                employerRef.current= el;
+                sectionRefs.current['Manitoba International Student Entreprenuer Pilot'] = el;
+              }}>
             Manitoba International Student Entrepreneur Pilot
             </div>
             <div className="pages-paragraph">

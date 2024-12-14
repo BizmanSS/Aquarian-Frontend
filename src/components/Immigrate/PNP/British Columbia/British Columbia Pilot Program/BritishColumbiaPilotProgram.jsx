@@ -1,4 +1,5 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
+import { useLocation } from 'react-router-dom';
 
 import NestedTableOfContent from "../../../../shared/NestedTableOfContent.jsx";
 import FaqBox from "../../../../shared/NestedFaqBox.jsx";
@@ -199,6 +200,22 @@ export default function BritishColumbiaPilotProgram() {
 
  ]
 
+ const sectionRefs = useRef({});
+ const location = useLocation();
+
+
+ useEffect(() => {
+   console.log(sectionRefs)
+   const section = location.state?.section;
+   if (section && sectionRefs.current[section]) {
+     const offsetPosition = sectionRefs.current[section].offsetTop - 40;
+     window.scrollTo({
+       top: offsetPosition,
+       behavior: 'smooth',
+     });
+   }
+ }, [location]);
+
   return (
     <div
       style={{
@@ -255,7 +272,12 @@ export default function BritishColumbiaPilotProgram() {
             </div>
 
 
-            <div class="pages-header-2" ref={techRef}>
+            <div class="pages-header-2"
+            ref={(el) => {
+              techRef.current= el;
+              sectionRefs.current['British Columbia PNP Tech Pilot'] = el;
+            }}
+            >
               British Columbia PNP Tech Pilot
             </div>
             <div className="pages-paragraph">

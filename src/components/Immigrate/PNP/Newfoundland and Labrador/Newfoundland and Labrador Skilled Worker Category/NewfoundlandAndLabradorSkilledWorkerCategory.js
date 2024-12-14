@@ -1,103 +1,179 @@
-import React from "react";
-import { Link } from "react-router-dom";
-const Table = () => {
-  const data = [
-    { name: "Express Entry Profile", amount: "No" },
-    { name: "Connection to Province", amount: "No" },
-    { name: "Job Offer", amount: "Yes" },
+import React, { useRef } from "react";
+
+import NestedTableOfContent from "../../../../shared/NestedTableOfContent.jsx";
+import FaqBox from "../../../../shared/NestedFaqBox.jsx";
+import ReadyToStartCard from "../../../../shared/ReadyToStart.jsx";
+import SiteMapMenu from "../../../../globalComponents/Sidebar/SiteMapMenu.jsx";
+
+const faqItems = [
+  {
+    question:
+      " Is there an application fee for the NLPNP Skilled Worker Stream?",
+    answer:
+      "Yes, there is an application fee of CAD 250 for the NLPNP Skilled Worker Stream, while there is no fee for the International Graduate Stream.",
+  },
+  {
+    question: "Can applicants apply if they are currently in Canada on a visitor visa?",
+    answer:
+      "Yes, applicants currently in Canada on a visitor visa can apply for the NLPNP Skilled Worker Stream, provided they meet all eligibility criteria, including having a valid job offer and work permit.",
+  },
+
+  {
+    question:
+      "What happens if an applicant is denied under the NLPNP Skilled Worker Stream?",
+    answer:
+      " If an applicant is denied under the NLPNP Skilled Worker Stream, they will receive a notification explaining the reasons for the denial. Applicants can reapply if they address the issues cited in their previous application, but they must ensure they meet all eligibility requirements before submitting again.",
+  },
+];
+
+const nlpnpTableData=[
+     {
+      factor:'Age',
+      points:'12',
+     },
+     {
+      factor:'Connection to Labour Market',
+      points:'13',
+     },
+     {
+      factor:'Work Experience',
+      points:'20',
+     },
+     {
+      factor:'Language Proficiency',
+      points:'27',
+     },
+     {
+      factor:'Education',
+      points:'28',
+     },
+     {
+      factor:'Minimum Pass Score',
+      points:'67',
+     },
+]
+
+export default function NLNPExpressEntrySkilledWorkers() {
+  const eligibilityRef = useRef(null);
+  const eeRef = useRef(null);
+  const processRef = useRef(null);
+  const faqRef = useRef(null);
+
+  const tableContentData = [
     {
-      name: "Language Proficiency",
-      amount: "None for NOC 0, A or B CLB 4 for NOC C or D",
+      title: "NLPNP Skilled Worker Eligibility Criteria",
+      scrollTo: eligibilityRef,
     },
-    { name: "Level of Education", amount: "No minimum" },
     {
-      name: "Work Experience",
-      amount: "No minimum",
+      title: "NLPNP Skilled Worker Application Process",
+      scrollTo: eeRef,
     },
     {
-      name: "Investment Requirement",
-      amount: "None",
+      title: "FAQs",
+      scrollTo: faqRef,
     },
   ];
 
   return (
-    <table>
-      <thead>
-        <tr>
-          <th style={{ width: "30%" }}>Requirement</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        {data.map((item, index) => (
-          <tr key={index}>
-            <td>{item.name}</td>
-            <td>{item.amount}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  );
-};
-export default function NewfoundlandAndLabradorSkilledWorkerCategory() {
-  return (
     <div
       style={{
-        background: "#E0E0E0",
+        background: "#EEE",
       }}
     >
-      <div className="AboutUsHeader">
-        <p className="link">
-          <a href="/">Home</a>
-          {" > "}Immigrate
-          {" > "}
-          <Link to="/immigrate/provincial-nominee-program">
-            Provincial Nominee Program
-          </Link>
-          {" > "}
-          <Link to="/immigrate/provincial-nominee-program/newfoundland-and-labrador">
-            New Foundland and Labrador
-          </Link>
-          {" > "}Newfoundland and Labrador Skilled Worker Category
-        </p>
-        <div className="header-content">
-          <h1 className="heading-about">
-            Newfoundland and Labrador Skilled Worker Category
-          </h1>
+      <div className="pages-content-wrapper">
+        {/* <SiteMapMenu type="I" h1="Permanent Residency"></SiteMapMenu> */}
+        <SiteMapMenu
+          type="I"
+          h1="Provincial Nominee Program"
+          h2="Newfoundland and Labrador"
+          h3="Newfoundland and Labrador Skilled Worker Category"
+
+        ></SiteMapMenu>
+
+        <div class="pages-content-div">
+          <div class="pages-content-text-wrapper ">
+            <div className="pages-current-page-link">
+              <a href="/">Home</a>
+              {" > "}Provincial Nominee Program
+              {" > "}Newfoundland and Labrador
+              {" > "}Newfoundland and Labrador Skilled Worker Category
+            </div>
+            <div class="pages-header">NLPNP Skilled Worker Category</div>
+
+            <div class="pages-paragraph space-fix intro-size-fix">
+            The Newfoundland and Labrador Provincial Nominee Program Skilled Worker Stream is an important immigration pathway. It allows employers in Newfoundland and Labrador to nominate individuals with specialized skills essential for their operations. It welcomes foreign workers of all NOC Skill Levels for its province nomination.
+
+            </div>
+            <div className="table-of-content-container">
+              <NestedTableOfContent data={tableContentData} />
+            </div>
+
+            <div class="pages-header-2"  ref={eligibilityRef}>
+            NLPNP Skilled Worker Eligibility Criteria
+            </div>
+            <div className="pages-paragraph">
+            To qualify for the NLPNP Skilled Worker Stream, applicants must meet several criteria:
+
+              {/* <div className='font-bold mt-2'>Eligibility Requirements:</div> */}
+
+              <ul className="my-2 ">
+                <li>
+                They must have a full-time job offer from an eligible employer in Newfoundland and Labrador. This offer must comply with provincial employment standards and prevailing wage rates.
+
+                </li>
+
+                <li>
+                Successful candidates must prove they have sufficient funds to support themselves and any dependents for at least three months upon arrival in Newfoundland and Labrador.
+                </li>
+
+              </ul>
+
+              Applicants must demonstrate that they have the necessary qualifications, training, skills, and/or accreditation required for the job.
+
+            </div>
+
+            <div className="note-cec">
+              <div>
+                <span style={{ fontWeight: "bold" }}>Note:</span> Dicover Your
+                CRS Score to Boost Your Immigration Journey!
+              </div>
+              <button className="button-cec">Calculate Now</button>
+            </div>
+
+            <div className="pages-header-2" ref={eeRef}>
+            NLPNP Skilled Worker Application Process
+            </div>
+            <div className="pages-paragraph">
+            The application process for the NLPNP Skilled Worker Stream key steps include:
+        
+            <ul className="my-2 ">
+                <li>
+                Candidates can submit their complete applications via paper forms. The fee is CAD 250.
+
+                </li>
+
+                <li>
+                If the application is approved, applicants will receive a confirmation of nomination from the NLPNP, which allows them to apply for permanent residency through the federal government within 6 months.
+                </li>
+
+                <li>
+                Following nomination, candidates must submit their application for permanent residency. 
+                </li>
+
+              </ul>
+
+              Those applying through the Express Entry stream will use the online system, while others will send paper applications to the IRCC Centralized Intake Office. The applications are generally processed within 18 months.
+
+            </div>
+
+          </div>
+
+          <div ref={faqRef}>
+            <FaqBox faqItems={faqItems} />
+            <ReadyToStartCard />
+          </div>
         </div>
       </div>
-      <h2 className="pages-content-div">
-        The Skilled Worker stream of the Newfoundland and Labrador Provincial
-        Nominee Program (NLNP) welcomes experienced foreign workers of all NOC
-        Skill Levels with a guaranteed job offer from a Newfoundland and
-        Labrador to apply for provincial nomination. The applicant must have a
-        specialised skill set that meets the needs of the employer from which
-        they receive a full-time job offer.
-        <br />
-        <br />
-        Foreign nationals with NOC Skill Level 0, A, or B experience may also be
-        eligible to apply under the Express Entry Skilled Worker stream of NLNP
-        if they have been accepted into the federal Express Entry pool.
-        <br />
-        <br />
-        <sp>Program Requirements</sp> <br />
-        <br />
-        <Table />
-        <br />
-        <bold> Application Procedure</bold>
-        <br />
-        <br />
-        The Newfoundland and Labrador Skilled Worker stream accepts applications
-        at any time. Eligible candidates must submit a complete application to
-        the stream. The application fee is $250 CAD. Successful applicants will
-        receive a provincial nomination from Newfoundland and Labrador. After
-        receiving a provincial nomination an applicant has six months to submit
-        a federal application for Canadian permanent residence. Applicants in
-        this program must complete and submit a paper-based application for
-        permanent residence and submit it by mail to the appropriate application
-        centre. Paper-based PNP applications for permanent residence are
-        generally processed within 18 months.
-      </h2>
     </div>
   );
 }

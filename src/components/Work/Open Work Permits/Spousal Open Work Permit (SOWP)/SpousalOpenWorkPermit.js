@@ -1,216 +1,322 @@
-import React from "react";
-import { Link } from "react-router-dom";
-export default function SOWP() {
+import React, { useRef } from "react";
+
+import NestedTableOfContent from "../../../shared/NestedTableOfContent.jsx";
+import FaqBox from "../../../shared/NestedFaqBox.jsx";
+import ReadyToStartCard from "../../../shared/ReadyToStart.jsx";
+import SiteMapMenu from "../../../globalComponents/Sidebar/SiteMapMenu.jsx";
+
+const faqItems = [
+  {
+    question: "How long does it take to process a Spousal Open Work Permit?",
+    answer:
+      "Processing times vary based on several factors, including the type of application submitted and current IRCC workloads. It is advisable to check IRCC’s official website for updated processing times.",
+
+  },
+
+  {
+    question:
+      "Can my spouse extend their open work permit?",
+    answer:
+      "Yes, if your spouse continues to meet eligibility requirements and your status in Canada remains valid, they may apply to extend their open work permit before it expires.",
+  },
+  {
+    question:
+      "What happens if my spouse’s study or work permit expires?",
+    answer:
+      "If your spouse’s study or work permit expires, your SOWP will also become invalid. You must reapply based on your spouse’s new status.",
+  },
+  {
+    question:
+      "Can I apply for an open work permit if my spouse or partner has applied to sponsor me?",
+    answer:
+      "Yes, you can apply for a spousal sponsorship open work permit if you have applied for permanent residency through the in-Canada stream of the spousal sponsorship program.",
+    listAnswer: [
+      "If you haven't submitted your sponsorship application yet, you can submit the sponsorship, permanent residence, and open work permit applications together in one envelope to the Case Processing Centre in Mississauga (CPC-M), Ontario.",
+      "If your permanent residence application is submitted but not yet approved in principle, you can apply for the open work permit in hard copy to the Case Processing Centre in Vegreville (CPC-V), Alberta.",
+      "If your permanent residence application has been approved in principle (AIP), you can submit your open work permit application online or in hard copy to CPC-V, Alberta.",
+    ],
+  },
+
+
+];
+
+const spousalWorkPermitData = [
+  {
+    category: "Spouses or Common-Law Partners of Atlantic Immigration Program (AIP) Work Permit Holders",
+    skillLevelRequirement: "TEER 0, 1, 2, or 3",
+    workPermitLength: "6 months",
+  },
+  {
+    category: "Spouses or Common-Law Partners of Quebec Selection Certificate (CSQ) Holders",
+    skillLevelRequirement: "Any occupational skill level",
+    workPermitLength: "6 months",
+  },
+  {
+    category: "Spouses or Common-Law Partners of Provincial Nominees",
+    skillLevelRequirement: "Any occupational skill level",
+    workPermitLength: "6 months",
+  },
+  {
+    category: "Spouses or Common-Law Partners of Bridging Open Work Permit (BOWP) Holders",
+    skillLevelRequirement: "Varies depending on the program",
+    workPermitLength: "6 months",
+  },
+  {
+    category: "Spouses or Common-Law Partners of Open Work Permit Holders (excluding BOWP)",
+    skillLevelRequirement: "TEER 0, 1, 2, or 3",
+    workPermitLength: "N/A",
+  },
+  {
+    category: "Spouses or Common-Law Partners of Study Permit Holders",
+    skillLevelRequirement: "N/A",
+    workPermitLength: "N/A",
+  },
+  {
+    category: "In Canada Spousal/Common-Law Sponsorship Applicants",
+    skillLevelRequirement: "N/A",
+    workPermitLength: "N/A",
+  },
+];
+
+
+
+export default function SpousalOpenWorkPermit() {
+  const reasonsRef = useRef(null);
+
+  const eligibilityRef = useRef(null);
+  const applicationRef = useRef(null);
+
+  const faqRef = useRef(null);
+
+  const tableContentData = [
+
+    {
+      title: "Eligibility Criteria",
+      scrollTo: eligibilityRef,
+    },
+    {
+      title: "Application Process for SOWP",
+      scrollTo: applicationRef,
+    },
+    {
+      title: "Reasons for Rejection of SOWP",
+      scrollTo: reasonsRef,
+    },
+    {
+      title: "FAQs",
+      scrollTo: faqRef,
+    },
+  ];
+
   return (
     <div
       style={{
-        background: "#E0E0E0",
+        background: "#EEE",
       }}
     >
-      <div className="AboutUsHeader">
-        <p className="link">
-          <a href="/">Home</a>
-          {" > "}Work
-          {" > "}
-          <Link to="/work/open-work-permits">Open Work Permit</Link>
-          {" > "}Spousal Open Work Permit(SOWP)
-        </p>
-        <div className="header-content">
-          <h1 className="heading-about">Spousal Open Work Permit(SOWP)</h1>
+      <div className="pages-content-wrapper">
+        {/* <SiteMapMenu type="I" h1="Permanent Residency"></SiteMapMenu> */}
+        <SiteMapMenu
+          type="W"
+          h1="Open Work Permits"
+          h2="Spousal Open Work Permit (SOWP)"
+
+        ></SiteMapMenu>
+
+        <div class="pages-content-div">
+          <div class="pages-content-text-wrapper ">
+            <div className="pages-current-page-link">
+              <a href="/">Home</a>
+              {" > "}Work
+              {" > "}Canada Open Work Permit
+              {" > "}Spousal Open Work Permit
+            </div>
+            <div class="pages-header">Spousal Open Work Permit </div>
+
+            <div class="pages-paragraph space-fix intro-size-fix">
+              The Spousal Open Work Permit is a significant immigration provision in Canada. A spousal open work permit allows the spouse or common-law partner of a temporary resident in Canada (such as a student or worker) to work for any employer in Canada without a specific job offer. This type of permit is particularly beneficial for maintaining financial stability while the primary applicant's immigration status is being processed.
+
+            </div>
+
+            <div className="table-of-content-container">
+              <NestedTableOfContent data={tableContentData} />
+            </div>
+
+            <div class="pages-header-2" ref={eligibilityRef}>
+              Eligibility for Spousal Open Work Permit
+            </div>
+            <div className="pages-paragraph">
+              To qualify for a Spousal Open Work Permit, applicants must meet specific conditions based on their spouse's status in Canada:
+
+              <div className='mt-4 font-bold text-[18px]'>For Spouses of Study Permit Holders:</div>
+
+              <ul className="my-3">
+                <li>
+                  The applicant must be the spouse or common-law partner of a full-time student who holds a valid study permit.
+                </li>
+                <li>
+                  The SOWP will be valid for the same duration as the study permit.
+
+                </li>
+
+              </ul>
+
+              <div className='mt-4 font-bold text-[18px]'>For Spouses of Work Permit Holders:</div>
+
+              <ul className="my-3">
+                <li>
+                  The applicant can be the spouse or common-law partner of an individual with a valid Post-Graduation Work Permit (PGWP) or other work permits.
+                </li>
+                <li>
+                  The duration of the SOWP will align with the work permit held by the spouse.
+
+                </li>
+
+              </ul>
+
+              <div className='mt-4 font-bold text-[18px]'>For Sponsored Spouses:</div>
+
+              <ul className="my-3">
+                <li>
+                  If a foreign national has applied for permanent residency under spousal sponsorship, they may apply for an open work permit while their application is being processed.
+                </li>
+
+              </ul>
+
+              <div>
+                <div className="table-container">
+                  <table className="responsive-table">
+                    <thead>
+                      <tr>
+                        <th>Category</th>
+                        <th>Occupational Skill Level Requirement</th>
+                        <th>Minimum Work Permit Length</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {spousalWorkPermitData.map((row, index) => (
+                        <tr key={index}>
+                          <td>{row.category}</td>
+                          <td>{row.skillLevelRequirement}</td>
+                          <td>{row.workPermitLength}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+
+
+            </div>
+
+            <div className="note-cec">
+              <div >
+                <span style={{ fontWeight: "bold" }}>Note:</span> Dicover Your
+                CRS Score to Boost Your Immigration Journey!
+              </div>
+              <button className="button-cec">Calculate Now</button>
+            </div>
+
+            <div className="pages-header-2" ref={applicationRef}>
+            Application Process for SOWP
+            </div>
+            <div className="pages-paragraph">
+
+            The application process for a Spousal Open Work Permit varies depending on the applicant's location and their spouse's status:
+
+              <ul className="my-2 ml-3">
+                <li>
+                  <strong>Inside Canada: </strong>If the spouse is already in Canada as a visitor, they can apply for an open work permit online or through paper applications submitted to IRCC.
+                </li>
+
+                <li>
+                  <strong>Outside Canada: </strong>Applicants may apply at a visa office in their home country or enter Canada as visitors and then apply for the work permit.
+                </li>
+
+              </ul>
+
+              <div>Required Documents:</div>
+
+              <ul className="my-2 ml-3">
+                <li>
+                A marriage certificate or statutory declaration of common-law union.
+                </li>
+
+                <li>
+                Proof of the spouse’s status in Canada (e.g., study or work permit).
+                </li>
+                <li>
+                Employment details if applicable (for spouses of PGWP holders).
+                </li>
+                <li>
+                Acknowledgement of Receipt (AOR) letter
+                </li>
+                <li>
+                Provincial nomination certificate
+                </li>
+
+                <li>
+                Certificat d’acceptation du Québec (CAQ) (Quebec Acceptance Certificate) (if applicable)
+                </li>
+                <li>
+                Proof of relationship to the principal applicant
+                </li>
+                <li>
+                A valid copy of your passport
+                </li>
+                <li>
+                Medical exam results (if requested)
+                </li>
+
+              </ul>
+
+              The SOWP is typically issued for the same duration as the primary applicant's permit. The application fee is CAD 255, which includes processing and open work permit holder fees.
+
+            </div>
+
+            <div class="pages-header-2" ref={reasonsRef}>
+            Reasons for Rejection of SOWP
+            </div>
+            <div class="pages-paragraph">
+            Several factors may lead to the rejection of a Spousal Open Work Permit application:
+              <ul className="my-2 ml-3">
+                <li>
+                Missing required documents can result in automatic denial.
+                </li>
+
+                <li>
+                Failure to meet eligibility criteria based on the sponsor's status.
+                </li>
+
+                <li>
+                If there are doubts about the genuineness of the relationship, such as divorce or separation during processing.
+                </li>
+                <li>
+                Past issues with immigration status can negatively impact eligibility.
+
+                </li>
+                <li>
+                Certain occupations require medical exams; failure to comply can lead to rejection.
+                </li>
+
+
+
+              </ul>
+
+              Individuals who have submitted an application for permanent residency under spousal sponsorship can apply for an open work permit while their application is being processed. This provision aims to facilitate family reunification and support financial stability during the waiting period. Renewal is not permitted, but reapplication is possible if the principal spouse retains eligible status in Canada. Applications can be tracked online or by linking paper applications to an IRCC account. Rejections often occur due to insufficient proof of relationship, funds, or ties to the home country. Divorce or separation after approval does not revoke the permit, but changes during processing must be reported to IRCC.
+
+            </div>
+
+         
+
+          </div>
+          <div ref={faqRef}>
+            <FaqBox faqItems={faqItems} />
+            <ReadyToStartCard />
+          </div>
         </div>
       </div>
-      <h2 className="pages-content-div">
-        If your spouse is currently working or studying in Canada, or if you
-        have applied to be sponsored for permanent residence by your spouse or
-        partner in Canada, you may be eligible for an open work permit.
-        <br />
-        <br />
-        <a href="/contact-us">
-          <sp>CONTACT US TO DISCUSS YOUR WORK PERMIT NEEDS</sp>
-        </a>
-        <br />
-        <br />
-        If a foreign national is successful in their work permit application,
-        they will be issued an open work permit authorising them to work for
-        multiple employers in any location in Canada while their permanent
-        residency application is processing, or while their spouse has valid
-        status in Canada. The application procedure for the spousal sponsorship
-        open work permit varies depending on the applicant’s status in Canada or
-        the stage of their permanent residency application. Foreign nationals
-        cannot work in Canada without the appropriate authorization. Engaging in
-        any form of employment in Canada without the proper work permit is
-        unlawful and can jeopardise future immigration applications.
-        <br />
-        <br />
-        <sp>What is a spouse open work permit?</sp> <br />
-        <br />
-        A spouse open work permit allows the spouse of certain temporary
-        Canadian permit holders to work anywhere in Canada, for any employer,
-        with few restrictions.
-        <br />
-        <br />
-        <sp>Who can apply for a spouse open work permit?</sp> <br />
-        <br />
-        Individuals who have applied to be sponsored by their spouse, or those
-        whose spouses are in Canada on a study or work permit may be able to
-        apply for a spousal open work permit. The requirements for applying for
-        a spousal open work permit depend on the type of status your spouse has
-        in Canada.
-        <br />
-        <br />
-        <sp>
-          Can I apply for an open work permit if my spouse or partner has
-          applied to sponsor me?
-        </sp>
-        <br />
-        <br />
-        In order to be eligible to apply for a spousal sponsorship open work
-        permit, a foreign national must have applied for permanent residency
-        sponsorship from within Canada through the in Canada stream of the
-        spousal sponsorship program.
-        <br />
-        <br />A foreign national must have valid status in Canada (visitor,
-        student, worker, etc.) in order to submit a work permit application at
-        the same time as their permanent residence application. If an applicant
-        is out of status in Canada, they must wait until their permanent
-        residence application has received approval in principle to submit their
-        work permit application.
-        <br />
-        <br />
-        <sp>Eligibility requirements for a spousal work permit and visa</sp>
-        <br />
-        <br />
-        In order to qualify for a spousal open work permit, you must meet
-        certain minimum requirements, including:
-        <br />
-        <br />
-        <ul>
-          <li>
-            Must be in a genuine relationship with a qualifying foreign national
-            principal applicant, permanent resident, or citizen;{" "}
-          </li>{" "}
-          <li>
-            Must be eligible to apply as the spouse of a qualifying foreign
-            national, or as an in Canada sponsorship applicant (see above); and{" "}
-          </li>{" "}
-          <li>Are not criminally or medically inadmissible to Canada</li>
-        </ul>
-        <br />
-        Additional criteria will vary depending on the category of SOWP you are
-        applying under.
-        <br />
-        <br />
-        <sp>How long does a spouse's open work permit take to process?</sp>
-        <br />
-        <br />
-        The processing time for a spousal open work permit will depend on what
-        type of permit your spouse applied for. To check the approximate
-        processing time for a particular application, visit Canada’s dedicated
-        webpage.
-        <br />
-        <br />
-        <sp>Can a spouse's open work permit be extended?</sp>
-        <br />
-        <br />A SOWP is tied to the permit of the spouse, or ‘lead applicant’,
-        and will only be valid for as long as the lead applicant’s permit. If
-        your SOWP expires, you will need to reapply based on your spouse’s
-        permit.
-        <br />
-        <br />
-        <sp>Spouse open work permit fees</sp>
-        <br />
-        <br />
-        The fee for a spouse open work permit is $255 CAD – $155 for the
-        processing fee, and $100 CAD for the open work permit holder fee.
-        <br />
-        <br />
-        <sp>How to apply for a spouse open work permit</sp>
-        <br />
-        <br />
-        The spouse open work permit application procedure will differ depending
-        on which type of spouse open work permit you need. The first step is
-        determining which work permit is best for you. If you need help figuring
-        out the application, simply contact us and a member of our team will
-        assist you with scheduling a consultation.
-        <br />
-        <br />
-        <sp>Spousal open work permit proof of funds requirement</sp>
-        <br />
-        <br />
-        Spousal open work permit candidates should be able to demonstrate that
-        they have sufficient funds for their stay in Canada. If an officer is
-        not convinced that an applicant will be able to support themselves while
-        in Canada, this may result in a refusal.
-        <br />
-        <br />
-        <sp>How to renew your spouse open work permit</sp>
-        <br />
-        <br />
-        It is not possible to renew a spousal open work permit. If your permit
-        expires, but your spouse or partner still has eligible status in Canada,
-        you may re-apply for a new SOWP.
-        <br />
-        <br />
-        <sp>Why was my spouse's open work permit refused?</sp>
-        <br />
-        <br />
-        One of the main reasons spousal open work permits are refused is that
-        the applicant is unable to demonstrate sufficient proof of their
-        relationship to their eligible spouse. If your application was refused,
-        contact us to learn more about your options.
-        <br />
-        <br />
-        <sp>What happens if my spouse's open work permit is refused?</sp>
-        <br />
-        <br />
-        If your spousal open work permit is refused, you may be eligible to
-        re-apply. You should only re-apply if you can provide additional
-        information or documentation to address the reason or refusal. Contact
-        us to learn more about your options.
-        <br />
-        <br />
-        <sp>
-          Can I stay in Canada if my visitor permit expires while waiting for my
-          SOWP to process?
-        </sp>
-        <br />
-        <br />
-        If you applied for In-Canada sponsorship on a visitor permit that is
-        expiring, and you have applied for a spousal open work permit, you will
-        be on maintained status. This means you can remain in Canada without a
-        valid permit under the same conditions while awaiting a decision on your
-        SOWP application.
-        <br />
-        <br />
-        <sp>Reasons spouse open work permit are rejected</sp>
-        <br />
-        <br />
-        There are many reasons a spousal open work permit may be rejected. Here
-        are six of the most common reasons:
-        <br />
-        <br />
-        <ul>
-          1. Principal applicant is living outside Canada <br />
-          2. No evidence that your spouse is attending a DLI <br />
-          3. Lacking proof of funds <br />
-          4. Missing proof of employment <br />
-          5. Insufficient ties to home country
-          <br />
-          6. Absence of proof of a genuine relationship
-        </ul>
-        <br />
-        <sp>
-          What happens to my spouse’s open work permit application if my spouse
-          and I separate or divorce?
-        </sp>
-        <br />
-        <br />
-        If you and your spouse divorce or your common-law relationship ends
-        after you’ve received your spousal open work permit, your permit will
-        not be revoked. However, if your relationship ends while your
-        application is still processing, you must inform IRCC of your updated
-        relationship status, and will no longer be eligible for a SOWP.
-      </h2>
     </div>
   );
 }

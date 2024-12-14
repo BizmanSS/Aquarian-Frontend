@@ -56,11 +56,12 @@ const EligibilityProfile = ({
           <div className="text-center mb-6">
             <h2 className="text-xl font-semibold">
               Your Score :{" "}
-              {languageScore +
-                educationScore +
-                workScore +
-                ageScore +
-                adaptabilityScore}
+              {languageScore+
+    educationScore+
+    workScore+
+    ageScore+
+    arrangedScore+
+    adaptabilityScore}
             </h2>
           </div>
 

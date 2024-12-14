@@ -1,4 +1,5 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
+import { useLocation } from 'react-router-dom';
 
 import NestedTableOfContent from "../../../../shared/NestedTableOfContent.jsx";
 import FaqBox from "../../../../shared/NestedFaqBox.jsx";
@@ -39,6 +40,22 @@ export default function BritishColumbiaSkilledImmigrationStream() {
   const elRef = useRef(null);
   const eligibilityRef = useRef(null);
   const faqRef = useRef(null);
+
+  const sectionRefs = useRef({});
+  const location = useLocation();
+
+
+  useEffect(() => {
+    console.log(sectionRefs)
+    const section = location.state?.section;
+    if (section && sectionRefs.current[section]) {
+      const offsetPosition = sectionRefs.current[section].offsetTop - 40;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
+    }
+  }, [location]);
 
   const tableContentData = [
     {
@@ -110,6 +127,7 @@ export default function BritishColumbiaSkilledImmigrationStream() {
       Points: "30",
     },
   ];
+
 
   return (
     <div
@@ -205,7 +223,9 @@ export default function BritishColumbiaSkilledImmigrationStream() {
                
               </ul>
 
-              <div className='my-3 font-bold'>British Columbia Healthcare Professional Stream </div>
+              <div className='my-3 font-bold' ref={(el) => {
+                sectionRefs.current['British Columbia Healthcare Professional'] = el;
+              }}>British Columbia Healthcare Professional Stream </div>
             <div>The BC Healthcare Professional stream targets skilled workers in the healthcare industry, an essential sector of BC's economy. </div>
               <ul className="my-2 ml-3">
                 <li>This stream is designed for healthcare professionals such as physicians, nurses, and allied health professionals who have job offers from BC healthcare authorities.</li>
@@ -219,7 +239,9 @@ export default function BritishColumbiaSkilledImmigrationStream() {
                
               </ul>
 
-              <div className='my-3 font-bold'>British Columbia International Graduate Stream</div>
+              <div className='my-3 font-bold' ref={(el) => {
+                sectionRefs.current['British Columbia International Graduate'] = el;
+              }}>British Columbia International Graduate Stream</div>
             <div>This stream is for individuals who have graduated from a Canadian university or college within the last 3 years. </div>
               <ul className="my-2 ml-3">
                 <li>These are for people who have a job offer from a BC employer.</li>
@@ -233,7 +255,9 @@ export default function BritishColumbiaSkilledImmigrationStream() {
                
               </ul>
 
-              <div className='my-3 font-bold'>British Columbia International Post-Graduate Stream</div>
+              <div className='my-3 font-bold' ref={(el) => {
+                sectionRefs.current['British Columbia International Post-Graduate'] = el;
+              }}>British Columbia International Post-Graduate Stream</div>
             <div>This is for recent graduates with advanced degrees - Masters or PhD in the sciences from a BC university.</div>
               <ul className="my-2 ml-3">
                 <li>This stream does not require a job offer.</li>
@@ -245,7 +269,9 @@ export default function BritishColumbiaSkilledImmigrationStream() {
 
               </ul>
               
-              <div className='my-3 font-bold'>British Columbia Entry Level and Semi-Skilled Worker (ELSS) Stream</div>
+              <div className='my-3 font-bold' ref={(el) => {
+                sectionRefs.current['British Columbia Entry Level and Semi-Skilled Worker (ELSS)'] = el;
+              }}>British Columbia Entry Level and Semi-Skilled Worker (ELSS) Stream</div>
             <div>This ELSS stream is for workers in high-demand, entry-level, and semi-skilled occupations, primarily in hospitality, tourism, food processing, and long-haul trucking sectors. </div>
               <ul className="my-2 ml-3">
                 <li>This stream also covers workers in the Northeast Development Region of BC, regardless of the industry.</li>
