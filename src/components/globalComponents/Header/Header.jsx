@@ -991,6 +991,10 @@ const Header = ({ setShowPopUp }) => {
                               >
                                 Study In Canada
                               </a>
+
+                              <SvgComponent
+                                program={"Life & Work in Canada"}
+                              />
                             </li>
                             <li
                               // onMouseEnter={() =>
@@ -1007,9 +1011,7 @@ const Header = ({ setShowPopUp }) => {
                                 Life & Work in Canada
                               </a>
 
-                              <SvgComponent
-                                program={"Life & Work in Canada"}
-                              />
+                              
                             </li>
                             <li
                               // onMouseEnter={() =>

@@ -1,7 +1,5 @@
 const sitemapStudy = [
-  { title: "Study In Canada", linkTo: "/study/study-in-canada" },
-  {
-    title: "Life & Work in Canada", linkTo: "/study/life-work-in-canada",
+  { title: "Study In Canada", linkTo: "/study/study-in-canada",
     nestedLinks: [
       {
         title: "Counselling",
@@ -28,7 +26,12 @@ const sitemapStudy = [
         linkTo: "/study/life-work-in-canada/pre-departure-breifing"
       }
     ]
+   },
+  {
+    title: "Life & Work in Canada", linkTo: "/study/life-work-in-canada",
+    
   },
+  
   {
     title: "Study Pathways to Permanent Residence",
     linkTo: "/study/study-pathways-to-permanent-residence",

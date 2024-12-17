@@ -1,5 +1,10 @@
+
+:root {
+  --sidebar-width: 6rem; /* Define variable globally for both children */
+}
+
 .sidebar {
-  width: 6rem;
+  width: var(--sidebar-width);
   position: fixed;
   height: 100vh;
   --tw-bg-opacity: 1;
@@ -15,6 +20,7 @@
   visibility: hidden;
   font-size: 12px;
 }
+
 .sidebar-img {
   filter: invert(100%) brightness(200%);
   transition: filter 0.3s ease-in-out;

@@ -163,7 +163,7 @@ export default function ExpressEntry() {
         {/* <SiteMapMenu type="I" h1="Permanent Residency"></SiteMapMenu> */}
         <SiteMapMenu
           type="I"
-          h1="Express Entry"
+          h1="PR FAQs"
 
         ></SiteMapMenu>
 
