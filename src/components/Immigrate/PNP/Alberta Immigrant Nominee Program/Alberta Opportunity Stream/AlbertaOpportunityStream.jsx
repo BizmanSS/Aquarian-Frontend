@@ -9,7 +9,6 @@ const faqItems = [
   {
     question: "What are the income requirements for the Alberta Opportunity Stream?",
     answer: "The income requirements for the Alberta Opportunity Stream have changed as of November 1, 2018. There is no requirement for applicants to demonstrate a minimum annual income. Applicants still must demonstrate sufficient funds to support themselves and their family members upon moving to Alberta.",
-   
   },
   {
     question:
