@@ -1314,7 +1314,7 @@ const Header = ({ setShowPopUp }) => {
                                 Super Visa- Children/Grandparents
                               </a>
                             </li>
-                            <li
+                            {/* <li
                               className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${selectedProgram === "eta" &&
                                 "text-[#01997E] font-semibold"
                                 }`}
@@ -1325,7 +1325,7 @@ const Header = ({ setShowPopUp }) => {
                               >
                                 Electronic Travel Authorisation
                               </a>
-                            </li>
+                            </li> */}
                             <li
                               className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${selectedProgram === "Visa Extension for Visitor Visa" &&
                                 "text-[#01997E] font-semibold"
@@ -1335,10 +1335,10 @@ const Header = ({ setShowPopUp }) => {
                                 href="/visit/visa-extension"
                                 className="hover:text-[#01997E] hover:font-semibold hover:scale-105 transition ease-in delay-40 duration-200"
                               >
-                                Visa Extension for Visitor Visa
+                              Visitor Visa Extensions, Refusals and Appeals
                               </a>
                             </li>
-                            <li
+                            {/* <li
                               className={`flex items-center justify-between w-full transition ease-in delay-40 duration-200 cursor-pointer ${selectedProgram === "Refusals" &&
                                 "text-[#01997E] font-semibold"
                                 }`}
@@ -1349,7 +1349,7 @@ const Header = ({ setShowPopUp }) => {
                               >
                                 Refusals
                               </a>
-                            </li>
+                            </li> */}
                           </ul>
 
                         </div>

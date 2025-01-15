@@ -80,7 +80,7 @@ export default function CanadaVisitorVisaExtensions() {
     >
       <div className="pages-content-wrapper">
         {/* <SiteMapMenu type="I" h1="Permanent Residency"></SiteMapMenu> */}
-        <SiteMapMenu type="V" h1="Visa Extension for Visitor Visa"></SiteMapMenu>
+        <SiteMapMenu type="V" h1="Visitor Visa Extensions, Refusals and Appeals"></SiteMapMenu>
 
         <div class="pages-content-div">
           <div class="pages-content-text-wrapper ">

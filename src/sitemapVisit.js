@@ -20,17 +20,10 @@ const sitemapVisit = [
     linkTo: "/visit/super-visa"
   },
   {
-    title: "Electronic Travel Authorisation",
-    linkTo: "/visit/eta"
-  },
-  {
-    title: "Visa Extension for Visitor Visa",
+    title: "Visitor Visa Extensions, Refusals and Appeals",
     linkTo: "/visit/visa-extension",
   },
-  {
-    title: "Refusals",
-    linkTo: "/visit/refusals"
-  }
+
 
 ];
 
