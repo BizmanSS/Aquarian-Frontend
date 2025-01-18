@@ -1,496 +1,280 @@
-import React from "react";
-export default function VisaExtension() {
+import React, { useRef } from "react";
+
+import NestedTableOfContent from "../../shared/NestedTableOfContent.jsx";
+import FaqBox from "../../shared/NestedFaqBox.jsx";
+import ReadyToStartCard from "../../shared/ReadyToStart.jsx";
+import SiteMapMenu from "../../globalComponents/Sidebar/SiteMapMenu.jsx";
+
+const faqItems = [
+  {
+    question: "What are the specific grounds for refusal of a Canada Visitor Visa?",
+    answer:
+      "Common grounds for refusal include:",
+    listAnswer: [
+      "The officer may believe the applicant intends to remain in Canada beyond their authorized stay.",
+      "This includes criminal records or previous immigration violations.",
+      "Applicants must demonstrate they can support themselves financially during their stay.",
+    ]
+  },
+  {
+    question: "What financial requirements must be met when applying for a visitor visa?",
+    answer:
+      "Applicants should demonstrate an average daily income of at least 150 Canadian dollars, translating to approximately 4,500 Canadian dollars per month, to cover living expenses while in Canada.",
+  },
+  {
+    question:
+      "What steps should I take if my visitor visa extension application is refused?",
+    answer:
+      " If your extension application is refused, you should:",
+    listAnswer: [
+      "Review the refusal letter carefully",
+      "Consider reapplying with new information",
+      "If you believe there was an error in your case, you may appeal the decision to the Federal Court within 15 days if in Canada or 60 days if outside Canada."
+    ],
+  },
+];
+
+export default function CanadaVisitorVisaExtensions() {
+  const VisitorRef = useRef(null);
+  const ReasonsRef = useRef(null);
+  const EligibilityRef = useRef(null);
+  const CanadaRef = useRef(null);
+  const faqRef= useRef(null);
+
+  const tableContentData = [
+    {
+      title: "Visitor Visa Extensions",
+      scrollTo: VisitorRef,
+    },
+    {
+      title: "Eligibility for Visitor Visa Extension",
+      scrollTo: EligibilityRef,
+    },
+    {
+      title: "Reasons for Canada Visitor Visa Refusals",
+      scrollTo: ReasonsRef,
+      // subItems: [
+      //   {
+      //     title: "Impact of SDS Closure on International Students",
+      //     scrollTo: impactRef,
+      //   },
+      // ],
+    },
+    {
+      title: "Canada Visitor Visa Appeals",
+      scrollTo: CanadaRef,
+    },
+
+    {
+      title: "FAQs",
+      scrollTo: faqRef,
+    },
+
+  ];
+
   return (
     <div
       style={{
-        background: "#E0E0E0",
+        background: "#EEE",
       }}
     >
-      <div className="AboutUsHeader">
-        <p className="link">
-          <a href="/">Home</a>
-          {" > "}Visit
-          {" > "}Visa Extension and Refusal
-        </p>
-        <div className="header-content">
-          <h1 className="heading-about">Visa Extension and Refusal</h1>
+      <div className="pages-content-wrapper">
+        {/* <SiteMapMenu type="I" h1="Permanent Residency"></SiteMapMenu> */}
+        <SiteMapMenu type="V" h1="Visitor Visa Extensions, Refusals and Appeals"></SiteMapMenu>
+
+        <div class="pages-content-div">
+          <div class="pages-content-text-wrapper ">
+            <div className="pages-current-page-link">
+              <a href="/">Home</a>
+              {" > "}Visit
+              {" > "}Canada Visitor Visa
+            </div>
+            <div class="pages-header">Canada Visitor Visa Extensions, Refusals, and Appeals</div>
+
+            <div class="pages-paragraph space-fix intro-size-fix">
+              Canada's visitor visa process has become increasingly complex, with a notable rise in visa refusals and a tightening of immigration policies. In the first half of 2024, Canada experienced a 20% increase in entry refusals, averaging nearly 3,700 refusals per month by the Canada Border Services Agency (CBSA). This surge in refusals is coupled with a significant drop in visa approvals; for instance, more applications were denied than approved during several months in 2024, marking the highest refusal rates since the pandemic.
+
+              <div className="pages-paragraph">
+                The reasons for these refusals often stem from concerns about applicants overstaying their visas or failing to meet eligibility criteria under the Immigration and Refugee Protection Act. However, applicants have options for recourse, including appeals to the Federal Court if they believe their application was unjustly denied 6. Understanding the grounds for refusal and the appeal process is essential for prospective visitors seeking to navigate Canada's immigration landscape effectively.
+
+              </div>
+
+              <div className="pages-paragraph">
+                At Aquarian Immigration Services, we have over 30 years of experience in helping individuals with their Visitor Visa applications. Our team is equipped to provide personalized assistance, ensuring that your application has the highest chance of approval.
+              </div>
+
+            </div>
+            <div className="table-of-content-container">
+              <NestedTableOfContent data={tableContentData} />
+            </div>
+
+            <div class="pages-header-2" ref={VisitorRef}>
+              Visitor Visa Extensions
+            </div>
+            <div className="pages-paragraph">
+              A Visitor Visa extension allows you to stay in Canada beyond the period granted by your initial visa. Canada typically grants Visitor Visas for up to six months. However, there are situations where you may need to stay longer, such as attending family events, tourism, or business meetings. If you want to continue your stay, applying for an extension before your current visa expires is necessary.
+
+              <div className="my-2">
+                It’s essential to apply for your Visitor Visa extension at least 30 days before your current visa expires. Failing to apply in advance could result in overstaying your visa, which can lead to complications for future visa applications or immigration status in Canada. The sooner you apply, the better, as processing times may vary.
+              </div>
+
+            </div>
+
+            <div className="pages-header-2" ref={EligibilityRef}>
+              Eligibility for Visitor Visa Extension
+            </div>
+
+            <div className="pages-paragraph">
+              To be eligible for an extension, you must meet the following criteria:
+
+              <ul className="my-2 ml-3">
+                <li>
+                  You must remain in Canada legally at the time of applying.
+                </li>
+                <li>
+                  Your passport should remain valid throughout the extension period.
+                </li>
+
+                <li>
+                  You need to demonstrate that you can support yourself during the extended stay, including accommodation, food, and travel.
+                </li>
+
+                <li>
+                  You must prove that you will leave Canada at the end of your extended stay.
+                </li>
+              </ul>
+
+              At Aquarian Immigration Services, we provide personalized assistance to ensure that your Visitor Visa extension application is complete, accurate, and submitted on time. Our team helps gather and organize the necessary documents, including financial support evidence, travel plans, and proof of ties to your home country, ensuring that your application meets the requirements of Immigration, Refugees and Citizenship Canada (IRCC). We also assist with filling out the necessary forms and submitting them correctly to avoid any delays or complications.
+
+            </div>
+
+            <div class="pages-header-2" ref={ReasonsRef}>
+              Reasons for Canada Visitor Visa Refusals
+            </div>
+            <div className="pages-paragraph">
+              Visitor visas are often denied due to various reasons. Understanding these reasons can help prevent your application from being refused.
+
+              <div className="my-2">Some common grounds for Visitor Visa refusals include:</div>
+
+
+              <ul className="my-2 ml-3">
+                <li>
+                  Missing key documents such as invitation letters, proof of financial support, or travel plans.
+                </li>
+                <li>
+                  Failure to demonstrate that you have enough funds to cover your stay in Canada.
+                </li>
+
+                <li>
+                  If you cannot show strong ties (e.g., employment, family, property) to your home country, visa officers may doubt your intention to leave Canada.
+                </li>
+
+                <li>
+                  Providing false or misleading information in your application can lead to an automatic refusal.
+                </li>
+
+                <li>
+                  If you have a history of overstaying your visa or violating Canadian immigration laws, your application is likely to be denied.
+
+                </li>
+
+                <li>
+                  Health issues or criminal background checks that raise concerns about public safety can lead to a refusal.
+                </li>
+
+              </ul>
+
+
+            </div>
+
+            <div class="pages-header-2">
+              What to Do if Your Visitor Visa is Refused?
+            </div>
+
+            <div className="pages-paragraph">
+              If your visa extension application is denied, don’t panic. There are still options available:
+
+
+              <ul className="my-2 ml-3">
+                <li>
+                  <strong>Reapply: </strong>
+                  You can reapply with additional or corrected information. It’s essential to address the reasons for refusal in your new application, providing all missing documents and clarifications.
+                </li>
+                <li>
+                  <strong>Apply for Restoration of Status: </strong>
+                  If you applied for an extension but were denied, you may still be eligible for a restoration of status if your visa has expired and you apply within 90 days.
+                </li>
+
+                <li>
+                  <strong>Appeal: </strong>
+                  If you believe that your visa refusal was unfair or based on incorrect information, you can challenge the decision by filing an appeal.
+                </li>
+
+              </ul>
+
+              At Aquarian Immigration Services, we provide a thorough analysis of your case if your Visitor Visa extension is denied. Our team will carefully review the refusal notice and help identify the issues that led to the rejection. We’ll guide you in gathering the necessary supporting documents, correcting any errors, and submitting a stronger application to improve your chances of success. Additionally, we will explain your rights and options if you wish to reapply or restore your status.
+
+
+            </div>
+
+            <div class="pages-header-2" ref={CanadaRef}>
+              Canada Visitor Visa Appeals
+            </div>
+
+            <div className="pages-paragraph">
+              If your application for a Visitor Visa extension is refused, you have the option to appeal the decision. Here’s what you need to know about the appeal process.
+
+              <div className="my-2">A Visitor Visa appeal is a formal request to the Federal Court of Canada to review the decision made by IRCC. If you believe the refusal was made in error or that your application was misunderstood, an appeal may be your best option.</div>
+
+              You can file an appeal if:
+
+              <ul className="my-2 ml-3">
+                <li>
+                  You believe there was a misapplication of the law or procedural error in your case.
+                </li>
+
+                <li>
+                  You have new evidence or information that was not available at the time of your initial application.
+                </li>
+
+              </ul>
+
+              <div className='font-bold text-[17px] mt-5 mb-3'>The Appeal Process</div>
+
+              <ul className="my-2 ml-3">
+                <li>
+                  <strong>Timeline for Appeals: </strong>
+                  You generally have 60 days from the date of refusal to file an appeal with the Federal Court.
+                </li>
+
+                <li>
+                  <strong>Filing the Appeal:  </strong>
+                  To initiate an appeal, you will need to submit a Notice of Application along with supporting documents, explaining why the refusal was unjustified.
+                </li>
+
+                <li>
+                  <strong>Review by the Federal Court:  </strong>
+                  The Federal Court will review the case and determine if the refusal should be upheld or overturned. In some cases, the court may refer the case back to IRCC for a reevaluation.
+                </li>
+
+              </ul>
+
+              At Aquarian Immigration Services, we provide comprehensive support during the appeal process. Our team will review the refusal decision, gather all necessary evidence, and prepare a robust argument for your case. We’ll help you understand the legal framework and ensure that your appeal is properly filed within the required time frame. Our experienced consultants work closely with immigration lawyers to ensure that your case is presented effectively in court.
+
+              <div className='my-2'>Navigating the Visitor Visa extension, refusal, and appeal processes can be complex and stressful. At Aquarian Immigration Services, we provide expert advice and personalized support to help you succeed at every stage of your visa journey.</div>
+
+              With over 30 years of experience, our consultants are dedicated to ensuring that your Visitor Visa application is properly completed and submitted, maximizing your chances of approval. Whether you're applying for an extension, facing a refusal, or considering an appeal, we’re here to guide you through the process.
+
+            </div>
+
+          </div>
+
+          <div ref={faqRef}>
+            <FaqBox faqItems={faqItems} />
+            <ReadyToStartCard />
+          </div>
         </div>
       </div>
-      <h2 className="pages-content-div">
-        Visitor visas allow foreign nationals to legally reside in Canada for up
-        to six months, regardless of whether they have single-entry or
-        multiple-entry visas. After the six-month period, the visa holder's
-        legal status in Canada will expire, and they will need to leave the
-        country. However, foreign nationals who wish to extend their stay beyond
-        six months must apply for an extension while their temporary resident
-        status is still valid. electronic travel authorization (eTA), or a valid
-        passport or travel document to enter. If you wish to extend your stay in
-        Canada as a visitor, you would need to apply for a visitor record, which
-        is separate from a visa. The visitor record allows you to legally stay
-        in Canada for a longer duration.
-        <br />
-        <br />
-        It is important to apply for an extension at least 30 days before the
-        expiration of the current visa. If the extension is still being
-        processed when the visa expires, the visa holder may remain in Canada
-        under implied status. Under this status, the individual can legally wait
-        in Canada for a decision to be made on their extension application.
-        Additionally, if eligible for one of Canada's immigration programs, a
-        foreign national can apply for permanent resident status. It is
-        important to comply with all applicable regulations and guidelines
-        provided by the Canadian authorities throughout your stay in Canada.
-        <br />
-        <br />
-        <sp>
-          <bold>What is Visitor Record</bold>
-        </sp>
-        <br />
-        <br /> When you initially come to Canada as a visitor, you can use a
-        visitor visa, an electronic travel authorization (eTA), or a valid
-        passport or travel document to enter. However, if you want to extend
-        your stay in Canada as a visitor and stay longer, you need to apply for
-        a visitor record. It's important to note that a visitor record is not a
-        visa. A visitor record is a document that allows you to extend your stay
-        in Canada as a visitor, a worker authorized to work without a work
-        permit, or a student authorized to study without a study permit. It
-        includes a new expiry date, which is the date by which you must leave
-        Canada.
-        <br />
-        <br />
-        Having a visitor record does not guarantee that you can leave Canada and
-        then re-enter. If you plan to travel outside of Canada or the United
-        States during your stay, you will need a valid entry document, such as a
-        visitor visa or an electronic travel authorization (eTA), in order to
-        return to Canada. It's important to ensure that your entry document is
-        valid and up to date to avoid any issues when re-entering Canada.
-        <br />
-        <br />
-        <sp>
-          <bold>Who can apply for Visitor Record</bold>
-        </sp>
-        <br />
-        <br />
-        Visitor record is required for individuals who want to extend their stay
-        within Canada as a visitor, or if they are a worker or student
-        authorized to work or study without a work or study permit. It is also
-        used for individuals who want to change their temporary resident
-        category from a study or work permit holder to a visitor. This rule
-        applies irrespective of the document they used to enter Canada, whether
-        it is a visitor visa, eTA, or any other document.
-        <br />
-        <br />
-        <sp>
-          <bold> When you should apply for Visitor Record</bold>
-        </sp>
-        <br />
-        <br />
-        If you want to extend your stay as a visitor or change your status, it's
-        recommended that you apply at least 30 days before your current status
-        expires. You can find the expiry date for your status on the stamp in
-        your passport (which is not the same as the date on your visitor visa),
-        your study permit, your work permit, or your visitor record (if you have
-        already extended your stay). If you don't have a stamp in your passport,
-        the expiry date for your status is typically six months from the day you
-        entered Canada.
-        <br />
-        <br />
-        <sp>
-          <bold> REFUSAL</bold>
-        </sp>
-        <br />
-        <br />
-        Refusals can be a frustrating and disheartening experience for
-        individuals seeking to migrate to Canada. Visa applications can be
-        refused for various reasons, including incomplete or inaccurate
-        documentation, inadequate preparation, insufficient financial resources,
-        and lack of eligibility criteria. It is crucial for individuals to
-        carefully review the requirements and eligibility criteria before
-        submitting their applications.
-        <br />
-        <br />
-        <ul>
-          <sp>
-            <bold>I. Visitor Visa Refusals:</bold>
-          </sp>
-          <br />
-          <br />
-          <ul>
-            <bold>1. Insufficient Financial Resources:</bold>
-            <br />
-            <br />
-            <ul>
-              - Visa officers expect individuals seeking visitor visas to
-              demonstrate that they have enough funds to cover their expenses
-              during their stay in Canada. This includes travel expenses,
-              accommodation, and general living expenses.
-              <br />
-              <br />- Insufficient financial resources can be a reason for visa
-              refusals, as it raises concerns that the individual may be unable
-              to support themselves during their visit to Canada.
-            </ul>
-            <br />
-            <bold>2. Lack of Ties to the Home Country:</bold>
-            <br />
-            <br />
-            <ul>
-              - The Canadian government expects individuals seeking visitor
-              visas to have strong ties to their home country to ensure they
-              will return home after their visit to Canada.
-              <br />
-              <br />- Strong ties can include employment, property ownership,
-              family commitments, and community involvement.
-              <br />
-              <br />- Lack of such ties can raise concerns that the individual
-              may overstay their authorized period in Canada, resulting in visa
-              refusals.
-            </ul>
-            <br />
-
-            <bold>3. Incomplete or Inaccurate Documentation:</bold>
-            <br />
-            <br />
-            <ul>
-              - Individuals seeking visitor visas must provide complete and
-              accurate documentation to support their application. This includes
-              a valid passport, a letter of invitation if applicable, and other
-              supporting documents.
-              <br />
-              <br />- Failing to provide all necessary documents or submitting
-              incomplete or incorrect documentation can lead to visa refusals.
-            </ul>
-          </ul>
-          <br />
-
-          <sp>
-            <bold>II. Work Permit Refusals:</bold>
-          </sp>
-          <br />
-          <br />
-          <ul>
-            <bold>1. Insufficient Job Offer:</bold>
-            <br />
-            <br />
-            <ul>
-              - Work permits require the applicant to have a valid job offer
-              from a Canadian employer. If the job offer is incomplete or does
-              not meet the requirements set out by the Canadian government, this
-              can result in visa refusals.
-              <br />
-              <br />- Incomplete information in the job offer letter, such as
-              missing details on the job duties, salary, or duration of
-              employment, can raise concerns about the validity of the job
-              offer.
-            </ul>
-            <br />
-            <bold>2. Lack of Qualifications:</bold>
-            <br />
-            <br />
-            <ul>
-              - Work permits require applicants to have the necessary
-              qualifications or work experience required for the specific
-              occupation in which they intend to work.
-              <br />
-              <br />- Lack of qualifications or other relevant work experience
-              can result in visa refusals.
-            </ul>
-            <br />
-            <bold>3. Failure to Demonstrate Intent to Return:</bold>
-            <br />
-            <br />
-            <ul>
-              - Visa officers expect individuals applying for work permits to
-              have strong ties to their home country to ensure they will return
-              home after their work permit expires.
-              <br />
-              <br />- Failure to demonstrate sufficient ties to the home
-              country, such as family, property ownership, and community
-              involvement, can raise concerns about the applicant's intent to
-              return and result in visa refusals.
-            </ul>
-          </ul>
-          <br />
-          <sp>
-            <bold>III. Study Permit Refusals:</bold>
-          </sp>
-          <br />
-          <br />
-          <ul>
-            <bold>1. Inadequate Academic Preparation:</bold>
-            <br />
-            <br />
-            <ul>
-              - Study permits require applicants to demonstrate that they are
-              academically prepared for the program they intend to study in
-              Canada. This includes providing evidence of previous education,
-              language proficiency, and transcripts.
-              <br />
-              <br />- Lack of academic preparation, insufficient language
-              proficiency or incorrect or incomplete documents can result in
-              visa refusals.
-            </ul>
-
-            <br />
-            <bold>2. Financial Inability:</bold>
-            <br />
-            <br />
-            <ul>
-              - Similar to visitor visas, study permits require applicants to
-              provide proof of sufficient funds to support themselves while
-              studying in Canada.
-              <br />
-              <br />- Lack of funds, failing to provide adequate financial
-              documentation or providing an unreliable source of funding can
-              lead to study permit refusals.
-            </ul>
-
-            <br />
-            <bold>3. Dubious Educational Institutions:</bold>
-            <br />
-            <br />
-            <ul>
-              - Study permit applications may be refused if the designated
-              learning institution (DLI) is found to be unaccredited or lacks
-              the necessary credentials.
-              <br />
-              <br />- It is crucial for students to verify the legitimacy and
-              accreditation status of the educational institution before
-              applying for a study permit.
-            </ul>
-          </ul>
-          <br />
-          <sp>
-            <bold>IV. Permanent Residency Refusals:</bold>
-          </sp>
-          <br />
-          <br />
-          <ul>
-            <bold>1. Incomplete or Incorrect Forms/Documents:</bold>
-            <br />
-            <br />
-            <ul>
-              - Permanent residency applications require an extensive list of
-              documents to support an application. Missing documents, incomplete
-              forms or incorrect information on the application can lead to visa
-              refusals.
-              <br />
-              <br />- It is vital to carefully review and verify all documents
-              and information before submitting a permanent residency
-              application.
-            </ul>
-            <br />
-            <bold>2. Failure to Meet Eligibility Criteria:</bold>
-            <br />
-            <br />
-            <ul>
-              - Permanent residency applications require applicants to meet
-              specific eligibility criteria, such as work experience, language
-              proficiency, and education.
-              <br />
-              <br />- Failure to meet eligibility criteria can lead to visa
-              refusals.
-            </ul>
-            <br />
-            <bold>3. Misrepresentation or Non-Disclosure of Information:</bold>
-            <br />
-            <br />
-            <ul>
-              - Misrepresentation or non-disclosure of information can lead to
-              permanent residency refusals. Providing false information or
-              omitting crucial information on an application can lead to future
-              refusals and render an individual inadmissible to Canada.
-            </ul>
-          </ul>
-          <br />
-          <sp>
-            <bold> V. Sponsorship Refusals:</bold>
-          </sp>
-          <br />
-          <br />
-          <ul>
-            <bold> 1. Inadequate Proof of Relationship:</bold>
-            <br />
-            <br />
-            <ul>
-              - Sponsorship applications require proof of a genuine relationship
-              between the sponsor and the sponsored individual. Evidence can
-              include marriage certificates, joint bank accounts, photographs,
-              and correspondence.
-              <br />
-              <br />- Inadequate proof of relationship can raise concerns about
-              the validity of the relationship and result in sponsorship
-              refusals.
-            </ul>
-            <br />
-
-            <bold> 2. Insufficient Financial Support:</bold>
-            <br />
-            <br />
-            <ul>
-              - Sponsors must demonstrate that they have the financial means to
-              support their sponsored individual(s) during their stay in Canada.
-              This includes providing financial support for basic living
-              expenses, such as food, accommodation, and transportation.
-              <br />
-              <br />- Insufficient financial support can lead to sponsorship
-              refusals.
-            </ul>
-            <br />
-            <bold>3. Failure to Meet Sponsorship Obligations:</bold>
-            <br />
-            <br />
-            <ul>
-              - Sponsors have specific obligations to support their sponsored
-              individuals for a specified period. These obligations include
-              providing financial support, ensuring their sponsored individuals
-              are not in need of social assistance, and supporting their
-              sponsored individuals' efforts to become self-sufficient.
-              <br />
-              <br />- Failure to meet these sponsorship obligations can result
-              in sponsorship refusals.
-            </ul>
-          </ul>
-          <br />
-          <sp>
-            <bold>VI. Business Investor Refusals:</bold>
-          </sp>
-          <br />
-          <br />
-          <ul>
-            <bold>1. Incomplete Business Plan:</bold>
-            <br />
-            <br />
-            <ul>
-              - Business investor visa applications require a detailed business
-              plan outlining the investor's proposed business venture in Canada.
-              <br />
-              <br />- An incomplete business plan, lacking detailed financial
-              information or failing to show the viability of the proposed
-              business, can lead to visa refusals.
-            </ul>
-            <br />
-            <bold>2. Insufficient Investment Funds:</bold>
-            <br />
-            <br />
-            <ul>
-              - Business investor visa applications require a certain level of
-              investment funds to demonstrate that the investor has the
-              necessary capital to establish their business in Canada.
-              <br />
-              <br />- Insufficient investment funds, providing unreliable
-              sources of funding, or failing to demonstrate the legal
-              acquisition of the investment capital can lead to visa refusals.
-            </ul>
-            <br />
-            <bold>
-              3. Lack of Sustainable Benefits to the Canadian Economy:
-            </bold>
-            <br />
-            <br />
-            <ul>
-              - Business investor visa applications must demonstrate sustainable
-              benefits to the Canadian economy.
-              <br />
-              <br />- Failure to show substantial benefits or providing
-              incomplete information about the proposed benefit of the
-              investor's business can lead to visa refusals.
-            </ul>
-          </ul>
-          <br />
-          <sp>
-            <bold>VII. Inadmissibility Refusals:</bold>
-          </sp>
-          <br />
-          <br />
-          <ul>
-            <bold>1. Criminal History or Security Concerns:</bold>
-            <br />
-            <br />
-            <ul>
-              - Persons with a criminal record or those who pose a security
-              threat are inadmissible to Canada.
-              <br />
-              <br />- Failure to disclose a criminal record or security concerns
-              or providing false information can lead to inadmissibility
-              refusals.
-            </ul>
-            <br />
-            <bold> 2. Health-Related Inadmissibility:</bold>
-            <br />
-            <br />
-            <ul>
-              - Individuals who pose a risk to public health or safety are
-              inadmissible to Canada. This includes individuals with infectious
-              diseases, such as TB, or those with a history of mental health
-              issues that could pose a danger to themselves or others.
-              <br />
-              <br />- Failing to disclose a health concern or knowingly
-              providing false information can lead to inadmissibility refusals.
-            </ul>
-            <br />
-            <bold>3. Misrepresentation or Fraudulent Activities:</bold>
-            <br />
-            <br />
-            <ul>
-              - Providing false information, misrepresenting facts, or
-              committing fraudulent activities can lead to inadmissibility
-              refusals.
-              <br />
-              <br />- It is essential to provide complete and truthful
-              information when submitting visa applications and to be
-              transparent about any concerns that may arise.
-            </ul>
-          </ul>
-        </ul>
-        <br />
-        <bold>
-          <sp>How Aquarian Immigration Can help you?</sp>
-        </bold>
-        <br />
-        <br />
-        Aquarian Immigration(AI) is a trusted immigration consultancy with
-        expertise in navigating the complexities of Canadian immigration laws
-        and regulations. Our team of experienced professionals understand the
-        intricacies of visa refusals and have a track record of successfully
-        overcoming such challenges. Here's how they we assist individuals:
-        <br />
-        <br />
-        <ul>
-          <bold>1. Comprehensive Assessment: </bold>AI conducts a thorough
-          assessment of each case, identifying the reasons for the visa refusal
-          and analyzing the applicant's profile. This assessment helps us
-          determine the best course of action for overcoming the refusal.
-          <br />
-          <br />
-          <bold>2. Tailored Solutions: </bold>Based on the assessment, AI
-          provides personalized solutions, guiding applicants on improving their
-          chances of visa approval. We offer valuable advice on gathering
-          additional supporting documents, addressing the specific concerns
-          raised by immigration authorities, and presenting a stronger case.
-          <br />
-          <br />
-          <bold>3. Expert Guidance: </bold>At AI we provide skilled step-by-step
-          guidance throughout the application process. We ensure that all
-          necessary forms and documents are accurately filled out and submitted,
-          minimizing the risk of refusal due to incomplete or incorrect
-          information.
-          <br />
-          <br />
-          <bold>4. Appeals and Reviews: </bold>In case of a refusal, AI will
-          assist you in filing appeals or requesting reviews to challenge the
-          decision. Our expertise in preparing strong appeals and presenting
-          compelling arguments can significantly increase the chances of a
-          successful outcome.
-        </ul>
-        <br />
-        Visa refusals in Canada can be challenging, but with the help of
-        Aquarian Immigration, individuals can overcome these obstacles and
-        achieve their immigration goals. Through comprehensive assessments,
-        tailored solutions, expert guidance, and support in appeals or reviews,
-        Aquarian Immigration ensures that applicants have the best possible
-        chance of success. By putting your trust in Aquarian Immigration's
-        expertise, you can navigate the complexities of visa refusals and move
-        closer towards a positive immigration outcome in Canada.
-      </h2>
     </div>
   );
 }

@@ -1,9 +1,6 @@
 .all-blogs-container {
   padding: 20px;
-  width: 80%;
   max-width: 1200px;
-  margin: auto;
-  margin-top: 8%;
 }
 
 .AllBlogs-navigators {
@@ -35,6 +32,8 @@
   font-size: 62px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 .AllBlogs-heading{
   text-decoration: underline;
@@ -375,7 +374,7 @@ cursor: pointer;
 }
 
 .blogDetailContainer img {
-  height: 40vh; /* 40% of viewport height */
+  height: 60vh; /* 60% of viewport height */
   width: 100%; /* Full width */
   object-fit: cover; /* Maintain aspect ratio */
 }
@@ -384,12 +383,14 @@ cursor: pointer;
   color: purple;
   font-weight: bold;
   text-align: start;
+  margin:4px;
 }
 
 .blogTitleDetail {
   font-size: 2em; /* Bigger heading */
-  margin: 10px 0;
+  margin: 40px 0;
   text-align: start;
+  font-weight: bold;
 }
 
 .blogDescriptionDetail {
@@ -397,9 +398,12 @@ cursor: pointer;
   margin-top: 20px;
   font-weight: 400; /* Minor bold */
   /* margin: 10px 0; */
+  text-align: start;
 }
 
 .blogCategoriesList {
+  margin:30px;
+  margin-top: 60px !important;
   list-style: none;
   padding: 0;
 }
@@ -414,6 +418,7 @@ cursor: pointer;
 
 .backToBlogsButton {
   margin-top: 20px;
+  margin-bottom:140px;
   padding: 10px 20px;
   background-color: rgb(99, 96, 99);
   color: white;
@@ -429,6 +434,7 @@ cursor: pointer;
   font-weight: 600;
   text-align: left; /* Aligns text to the left */
   margin-bottom: 0.5rem;
+  margin-top:50px;
 }
 
 .BLOGS_DESC
@@ -568,11 +574,4 @@ cursor: pointer;
   .AllBlogs-blogs-grid {
     grid-template-columns: 1fr; /* 1 column for screens <= 768px */
   }
-  .all-blogs-container {
-    padding: 20px;
-    width: 100%;
-    max-width: 1200px;
-    margin: auto;
-    margin-top: 8%;
-}
 }

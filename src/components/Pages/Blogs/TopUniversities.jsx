@@ -9,6 +9,7 @@ export default function TopUniversities() {
   const handleNavigatemain = () => {
     navigate('/blogs');}
   return (
+    <div className="blogs-container-main">
     <div className="top-universities-container">
       <nav className="top-navigators">
         <ul className="top-navigator-list">
@@ -64,6 +65,7 @@ export default function TopUniversities() {
       </div>
       <div className='mainpage-button-top-universities'>
          <button className='mainpage-btn' onClick={handleNavigatemain}>Go to Main Page</button></div>
+    </div>
     </div>
   );
 }

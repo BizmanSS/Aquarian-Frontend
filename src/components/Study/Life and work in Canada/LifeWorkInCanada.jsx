@@ -1,119 +1,341 @@
-import React from "react";
-export default function ExtendAStudyPermit() {
+import React, { useRef } from "react";
+
+import NestedTableOfContent from "./../../shared/NestedTableOfContent.jsx";
+// import FaqBox from "./../../shared/NestedFaqBox.jsx";
+import ReadyToStartCard from "./../../shared/ReadyToStart.jsx";
+import SiteMapMenu from "./../../globalComponents/Sidebar/SiteMapMenu.jsx";
+
+// const faqItems = [
+//   {
+//     question:
+//       "How does the closure of the SDS affect processing times for study permits?",
+//     answer:
+//       "With the closure of the SDS as of November 8, 2024, applicants can expect longer processing times for study permits. While SDS applications were typically processed within 20 days, standard applications may now take 6-8 weeks or longer, depending on various factors such as application volume and completeness.",
+//   },
+//   {
+//     question:
+//       "What is the Provincial Attestation Letter (PAL), and how do I obtain one?",
+//     answer:
+//       "The Provincial Attestation Letter is a new requirement introduced after the closure of SDS. It verifies that you meet specific provincial criteria for studying in Canada. To obtain a PAL:",
+//     listAnswer: [
+//       "Contact the provincial government or educational institution where you plan to study.",
+//       "Provide necessary documentation proving your acceptance and financial stability.",
+//       "Follow any additional provincial guidelines to receive the attestation.",
+//     ],
+//   },
+//   {
+//     question:
+//       "Are there any specific provinces that have additional requirements for international students?",
+//     answer:
+//       "Yes, some provinces may have additional requirements or processes for international students. For instance:",
+//     listAnswer: [
+//       "Quebec: Students must apply for a Certificat d'acceptation du Québec (CAQ) before applying for a study permit.",
+//       "British Columbia: Some institutions may require additional documentation related to health insurance or housing arrangements.",
+//     ],
+//   },
+// ];
+
+export default function WorkWhileStudyinginCanada() {
+  const aboutRef = useRef(null);
+  const eligibilityRef = useRef(null);
+  const benefitsRef = useRef(null);
+  const directRef = useRef(null);
+ 
+
+  // const tableContentData = [
+  //   {
+  //     title: "Canada Study Permit and Visa",
+  //     scrollTo: aboutRef,
+  //     subItems: [
+  //       {
+  //         title: "Eligibility Requirements for a Study Permit",
+  //         scrollTo: eligibilityRef,
+  //       },
+  //     ],
+  //   },
+  //   {
+  //     title: "Student Direct Stream (SDS)",
+  //     scrollTo: directRef,
+  //     subItems: [
+  //       {
+  //         title: "Key Benefits of the SDS Program",
+  //         scrollTo: benefitsRef,
+  //       },
+  //     ],
+  //   },
+  //   {
+  //     title: "Closure of the SDS Program",
+  //     scrollTo: closureRef,
+  //     subItems: [
+  //       {
+  //         title: "Impact of SDS Closure on International Students",
+  //         scrollTo: impactRef,
+  //       },
+  //     ],
+  //   },
+  //   {
+  //     title: "Study Permit Application Process Post-SDS",
+  //     scrollTo:  studyRef,
+  //   },
+  //   {
+  //     title: "Implications for Indian Students",
+  //     scrollTo: implicationsRef,
+  //   },
+
+  //   {
+  //     title: "FAQs",
+  //     scrollTo: faqRef,
+  //   },
+  // ];
+
   return (
     <div
       style={{
-        background: "#E0E0E0",
+        background: "#EEE",
       }}
     >
-      <div className="AboutUsHeader">
-        <p className="link">
-          <a href="/">Home</a>
-          {" > "}Study
-          {" > "}Extend a Study Permit
-        </p>
-        <div className="header-content">
-          <h1 className="heading-about">Extend a Study Permit</h1>
+      <div className="pages-content-wrapper">
+        {/* <SiteMapMenu type="I" h1="Permanent Residency"></SiteMapMenu> */}
+        <SiteMapMenu
+          type="ST"
+          h1="Life & Work in Canada"
+        ></SiteMapMenu>
+
+        <div class="pages-content-div">
+          <div class="pages-content-text-wrapper ">
+            <div className="pages-current-page-link">
+              <a href="/">Home</a>
+              {" > "}Study
+              {" > "}Work While Studying in Canada
+            </div>
+            <div class="pages-header">Work While Studying in Canada</div>
+
+            <div class="pages-paragraph space-fix intro-size-fix">
+            Working while studying in Canada allows international students the opportunities to gain practical experience, earn income, and enhance their resumes. As of November 2024, students can work off-campus for up to 24 hours per week without needing a work permit. This allows them to balance their studies and work commitments effectively. 
+
+              <div className="pages-paragraph">
+              To qualify, students must be enrolled full-time in a program lasting at least six months at a designated learning institution (DLI) and have a valid Social Insurance Number (SIN).
+              </div>
+              <div className="pages-paragraph">
+              On-campus employment is also available to full-time students without a work permit, allowing them to work in various roles within their educational institution. Many programs in Canada also include co-op placements or internships. This is important to the curriculum and provide hands-on experience in the field.
+              </div>
+
+            </div>
+            {/* <div className="table-of-content-container">
+              <NestedTableOfContent data={tableContentData} />
+            </div> */}
+
+            <div class="pages-header-2" ref={aboutRef}>
+           Work Regulations for International Students in Canada
+            </div>
+            <div className="pages-paragraph">
+            To work in Canada, international students must have a valid study permit. This permit allows students to study at a Designated Learning Institution. DLI is an accredited institution recognized by the Canadian government. However, in order to work off-campus, there are additional criteria to meet:
+
+              <ul className="my-2 ml-3">
+                <li>
+                 Your study permit must explicitly allow off-campus work. 
+                </li>
+
+                <li>
+                Some study permits may not include this condition, so it’s important to review the terms on your study permit.
+                </li>
+
+                <li>
+                You must be enrolled as a full-time student in a program that is at least six months long, leading to a degree, diploma, or certificate.
+                </li>
+
+              </ul>
+
+              Before you can begin working in Canada, you must apply for a Social Insurance Number (SIN). The SIN is required for tax reporting and to track your earnings. You can apply for your SIN online or visit a Service Canada office once you arrive in Canada. Without a SIN, you cannot legally work in Canada.
+
+              <ul className="my-2 ml-3">
+                <li>
+                  <strong>On-Campus Work: </strong>
+                  International students can work on campus without a work permit if they have a valid study permit that allows such work and are enrolled full-time at the DLI. On-campus employment includes working for the institution itself or for private contractors providing services on campus.
+                </li>
+
+                <li>
+                <strong>Off-Campus Work: </strong>
+                As of November 8, 2024, eligible international students can work up to 24 hours per week off-campus while classes are in session. This is an increase from the previous limit of 20 hours. Students may also work full-time during scheduled breaks, such as summer or winter holidays.
+                </li>
+
+                <li>
+                <strong>Co-op Programs: </strong>
+                If your program requires a co-op or internship component, you must apply for a separate co-op work permit in addition to your study permit.
+                </li>
+
+              </ul>
+
+              Students cannot start working until their study program begins and must stop working if they cease to be full-time students or if their study permit expires.
+            </div>
+
+            <div className="pages-header-2" ref={eligibilityRef}>
+            Work Hours Regulations for Students in Canada
+            </div>
+
+            <div className="pages-paragraph">
+            Canada has clear regulations on the number of hours international students can work during their studies. These rules are designed to ensure that students focus on their studies while also providing them with the opportunity to earn money.
+
+              <ul className="my-2 ml-3">
+                <li>
+                  <strong>Undergraduate Programs: </strong>
+                  For students with high school diplomas.
+                </li>
+
+                <li>
+                  <strong>Graduate Programs: </strong>
+                  For students with a bachelor's degree or equivalent.
+                </li>
+
+                <li>
+                  <strong>Diploma/Certificate Programs: </strong>
+                  Often offered by colleges for students who want practical,
+                  career-focused training.
+                </li>
+
+                <li>
+                  <strong>Pathway Programs: </strong>
+                  Some universities offer pre-university programs for students
+                  who do not meet direct entry requirements.
+                </li>
+              </ul>
+
+              <div className="font-bold text-[17px] mt-4 mb-2">Work During Academic Sessions (School Terms)</div>
+
+              <div>International students can work up to 24 hours per week during regular academic terms. This increase from the previous 20-hour limit was introduced to provide students with more financial flexibility, while also ensuring that they focus on their studies.</div>
+
+              <div className="font-bold text-[17px] mt-4 mb-2">Work During Scheduled Breaks (Winter and Summer Holidays)</div>
+
+              <div>During scheduled breaks, such as winter and summer holidays or reading weeks, international students are permitted to work unlimited hours.</div>
+
+              <ul>
+                <li>These breaks offer a great opportunity for students to earn more money and gain more work experience.</li>
+                <li>To qualify for unlimited work hours during breaks, you must be enrolled as a full-time student both before and after the break.</li>
+              </ul>
+
+
+
+            </div>
+
+            <div class="pages-header-2" ref={directRef}>
+             Types of Jobs International Students Can Pursue in Canada
+            </div>
+
+            <div class="pages-paragraph">
+            Canada offers ob opportunities for international students. Whether you are looking for a part-time position during the school term or full-time work during breaks, there are plenty of options.
+
+              <div className="font-bold mt-4 mb-2 text-[17px]">
+               On-Campus Jobs
+              </div>
+              On-campus jobs are a great option for students as they are usually more flexible with academic schedules. 
+
+              <ul className="my-2 ml-3">
+                <li>
+                On-campus jobs are also exempt from the 24-hour work restriction during the academic term.
+                </li>
+                <li>
+                Common on-campus roles include positions such as research assistant, teaching assistant, library assistant, and working in campus food services or administration.
+                </li>
+
+              </ul>
+
+              On-campus employment allows students to stay connected with the academic environment and university community, which can be valuable for networking and professional development.
+
+              <div className="font-bold mt-4 mb-2 text-[17px]">
+              Off-Campus Jobs
+              </div>
+              International students can also work off-campus in a variety of industries. These jobs are subject to the 24-hour weekly limit during academic sessions but are an excellent way to gain Canadian work experience.
+
+              <ul className="my-2 ml-3">
+                <li>
+                  <strong>Retail: </strong>
+                  Many students work in stores or as cashiers, stock clerks, and sales assistants.
+                </li>
+                <li>
+                <strong>Hospitality: </strong>
+                Jobs in restaurants, cafes, and hotels are popular among students, including positions like servers, bartenders, or housekeepers.
+                </li>
+                <li>
+                <strong>Internships and Co-op Placements: </strong>
+                Students in fields such as engineering, business, and IT often participate in internships or co-op placements to gain industry-specific experience while studying.
+                </li>
+
+              </ul>
+
+              Off-campus work is a great way to build a professional network in Canada and develop skills that are highly valued by Canadian employers.
+
+
+              <div className="font-bold mt-4 mb-2 text-[17px]">
+              Freelance and Remote Work
+              </div>
+              Freelancing and remote work can be done from home or from anywhere with an internet connection.
+
+              <ul className="my-2 ml-3">
+              
+                <li>
+                Students can pursue work in graphic design, web development, writing, video editing, and digital marketing. 
+                </li>
+                <li>
+                Websites like Upwork, Fiverr, and Freelancer offer platforms to find freelance work.
+                </li>
+
+              </ul>
+
+              Freelancing allows students to control their work hours, making it easier to balance work with academic commitments. 
+
+            </div>
+
+            <div class="pages-header-2" ref={benefitsRef}>
+            Benefits of Working While Studying in Canada
+            </div>
+            <div className="pages-paragraph">
+            Working while studying in Canada offers many advantages beyond just earning money. Here’s how having a job can benefit international students:
+
+            <div className="font-bold mt-4 mb-2 text-[17px]">
+            Financial Support
+              </div>
+              One of the most obvious benefits of working while studying is the financial support it provides. Tuition fees, accommodation, books, and daily expenses can quickly add up, and a part-time job can help reduce the financial burden. Students often use their earnings to pay for essentials like rent, food, and transportation, reducing their reliance on family support or student loans.
+
+              <div className="font-bold mt-4 mb-2 text-[17px]">
+              Skill Development
+              </div>
+              In addition to the financial benefits, working while studying in Canada helps students build a wide range of transferable skills, such as:
+
+              <ul className="my-3">
+                <li>Communication, teamwork, customer service, and time management.</li>
+                <li>Depending on the job, students can gain hands-on experience in fields like marketing, IT, retail, or customer service.</li>
+                <li>Jobs in Canada offer opportunities to network with local professionals, which can be valuable when looking for full-time work after graduation.</li>
+              </ul>
+
+              Employers in Canada value work experience, especially Canadian work experience, and having a part-time job during your studies can improve your employability after graduation.
+
+
+              <div className="font-bold mt-4 mb-2 text-[17px]">
+              Post-Graduation Work Opportunities
+              </div>
+              Students who work while studying are better positioned to apply for a Post-Graduation Work Permit (PGWP), which allows graduates to work full-time in Canada after completing their studies.
+
+              <ul className="my-3">
+                <li>To qualify for a PGWP, you must have completed a program of at least eight months at a Designated Learning Institution (DLI). </li>
+                <li>The permit is typically issued for the same length as your program of study (e.g., a two-year program would qualify for a three-year work permit).</li>
+              </ul>
+
+              Having Canadian work experience through part-time jobs during your studies can significantly enhance your resume and increase your chances of securing a full-time position in Canada after graduation.
+
+              <div className='my-2'>Working while studying in Canada offers international students the opportunity to support themselves financially, gain valuable work experience, and develop skills that will benefit their future careers. By understanding the work regulations, exploring job opportunities, and managing your time effectively, you can make the most of your student experience in Canada.</div>
+
+        
+            </div>
+
+          
+          </div>
+          {/* <div ref={faqRef}>
+            <FaqBox faqItems={faqItems} />
+       
+          </div> */}
+               <ReadyToStartCard />
         </div>
       </div>
-      <h2 className="pages-content-div">
-        Most foreign nationals wishing to study in Canada must have a valid
-        study permit. In the event that an international student will take
-        longer than expected to complete their program of study, or if they
-        transfer to a longer program of study, there is a strong likelihood that
-        they will have to apply to extend their study permit.
-        <br />
-        <br />
-        <ul>
-          <li>Temporary Resident Visa (TRV)</li>
-          <li>Quebec Study Permit Extension</li>
-        </ul>
-        <br />
-        <br />
-        <a href="/assessment" className="button">
-          GET STARTED
-        </a>
-        <br />
-        <br />
-        <br />
-        A study permit extension is required if an international student in
-        Canada wishes to continue studying for longer than the validity period
-        of their study permit. To extend the permit, the international student
-        must submit an application to Immigration, Refugees and Citizenship
-        Canada (IRCC) to extend their stay in Canada as a student.
-        <br />
-        <br />
-        This application must be submitted electronically unless otherwise
-        specified. The Canadian government requires that most temporary
-        residence applications made from within Canada be made through
-        electronic application, including:
-        <br />
-        <br />
-        <ul>
-          <li>
-            all applications for extensions of temporary resident status made
-            from within Canada
-          </li>
-          <li>
-            all applications for study or work permits made from within Canada
-          </li>
-          <li>
-            all applications for renewals of study or work permits made from
-            within Canada
-          </li>
-        </ul>
-        <br />
-        The student should plan ahead to ensure this application is submitted in
-        advance of the expiration date of their current permit.
-        <br />
-        <br />
-        As long as the application is submitted before this date they will be
-        authorised to remain in Canada as a student through implied status until
-        a decision is made on the extension application, so long as the
-        conditions of their permit have not changed. However, if the conditions
-        of the permit have changed, then the foreign national does not have
-        implied status and must wait until they receive a decision on their
-        application.
-        <br />
-        <br />
-        If a student fails to apply for a study permit extension before their
-        permit expires, they can apply for a restoration of status for up to 90
-        days following the expiration. If a foreign national wants to change
-        their study permit, such as changing levels of study, transferring
-        institutions, or altering conditions listed on their study permit, then
-        it may not be sufficient to simply apply to extend their study permit.
-        In these cases, it may be necessary to apply for a new study permit.
-        <br />
-        <br />
-        <sp>Temporary Resident Visa (TRV)</sp>
-        <br />
-        <br />
-        Any foreign national from a country that requires a visa to enter Canada
-        should be aware that there is a high likelihood that their Temporary
-        Resident Visa (TRV) will expire on the same date as their study permit.
-        Maintaining a valid TRV is not mandatory for a foreign national studying
-        in Canada, since it is the study permit which grants authority to
-        participate in study activities. However, the TRV authorises entry and
-        re-entry to Canada. If you intend to travel outside Canada during the
-        course of your studies, you may need to renew your TRV.
-        <br />
-        <br />
-        <sp>Quebec Study Permit Extension</sp>
-        <br />
-        <br />
-        In the province of Quebec, international students must possess both a
-        valid study permit and a valid{" "}
-        <italic>certificat d’acceptation du Québec </italic>(CAQ). If an
-        international student wishes to continue their studies after the expiry
-        date indicated on their CAQ, then they must apply for a new CAQ from the
-        <italic>
-          {" "}
-          Ministère de l’Immigration, de la Diversité et de l’Inclusion{" "}
-        </italic>
-        (MIDI).
-        <br />
-        <br />
-      </h2>
     </div>
   );
 }

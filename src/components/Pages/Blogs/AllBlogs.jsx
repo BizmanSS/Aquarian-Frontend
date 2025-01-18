@@ -39,6 +39,26 @@ export default function AllBlogs() {
 
   const blogsData = [
     {
+      date: "Tuesday, 10 December 2024",
+      title: "PGWP in Canada: Recent Changes & Impact on International Students",
+      description:
+        "Post Graduation Work Permit in Canada is a significant driving factor of interest for international students. It allows international students who have completed their studies at designated learning institutions (DLIs) in Canada to work for any employer without needing a job offer. This work experience is important for those seeking permanent residency in Canada. Over the years, the PGWP has attracted over a million international students, making it a cornerstone of Canada's appeal as a study destination.",
+      imgSrc: Universities,
+      categories: ["Study", "Canada", "Aquarian"],
+      heading_first: "1. Overview of Canadian Universities",
+      para_first:
+        "Canada is home to numerous world-renowned universities, each offering unique programs and vibrant student life. From the University of Toronto to the University of British Columbia, these institutions are known for their academic excellence and diverse communities. The welcoming atmosphere and strong international student support systems make Canada an ideal choice for students from around the globe.",
+      heading_second: "2. Admission Requirements",
+      para_second:
+        "Understanding the admission requirements is crucial for prospective students. Most Canadian universities require specific academic qualifications, English language proficiency, and standardized test scores. Additionally, students should prepare a compelling application, including personal statements and letters of recommendation, to enhance their chances of acceptance.",
+      heading_third: "3. Campus Life and Support",
+      para_third:
+        "The campus life in Canadian universities is vibrant and inclusive. Students can participate in various extracurricular activities, clubs, and organizations that promote cultural exchange and personal growth. Moreover, universities offer comprehensive support services, including counseling, academic advising, and international student offices, ensuring that students feel at home and can thrive in their studies.",
+      heading_fourth: "4. Career Opportunities After Graduation",
+      para_fourth:
+        "Graduating from a top Canadian university opens up numerous career opportunities. Many institutions have strong ties with local industries, providing students with networking opportunities, internships, and job placements. Moreover, the Canadian job market values international experience and education, giving graduates an edge in their job search.",
+    },
+    {
       date: "Sunday, 27 May 2024",
       title: "Top 10 universities in Canada for Education",
       description:
@@ -438,6 +458,7 @@ export default function AllBlogs() {
   };
 
   return (
+    <div className="blogs-container-main">
     <div className="all-blogs-container">
       <div className="AllBlogs-navigators">
         <li className="AllBlogs-navitems">Home</li>
@@ -605,6 +626,7 @@ export default function AllBlogs() {
           )}
         </>
       )}
+    </div>
     </div>
   );
 }

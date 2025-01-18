@@ -2,7 +2,7 @@ import React from "react";
 const NewsCard = ({ data }) => {
   return (
     <a href={data.path}>
-      <div className="relative min-w-[20rem] max-w-[23rem] hover:bg-[#E2E7EC] cursor-pointer h-[31rem] overflow-hidden bg-[#E1E7ED] md:bg-[#EDF1F6] rounded-lg py-4 px-2 transition ease-in delay-40 duration-200">
+      <div className="relative min-w-[20rem] max-w-[23rem] hover:bg-[#8F8F8F] cursor-pointer h-[31rem] overflow-hidden bg-[#E1E7ED] md:bg-[#EDF1F6] rounded-lg py-4 px-2 transition ease-in delay-40 duration-200">
         <img
           className="object-cover object-center w-full h-[11rem]"
           src={data.image}
