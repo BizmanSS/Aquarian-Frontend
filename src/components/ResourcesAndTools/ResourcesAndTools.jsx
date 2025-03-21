@@ -344,7 +344,7 @@ const ResourcesAndTools = () => {
           {/* calculators section */}
           <div
             ref={calcRef}
-            className="border-[2px] border-[#E0E0E0] w-[95%]  h-auto rounded-[50px] mt-6 mb-10"
+            className="border-[2px] border-[#E0E0E0] w-[95%]  h-auto rounded-[50px] mt-6 mb-10 pb-10"
           >
             <div className="font-semibold text-3xl mt-8 ml-[4rem] mb-8">
               General Calculators
@@ -515,7 +515,7 @@ const ResourcesAndTools = () => {
                 </button>
               </div>
             </div>
-            <div className="font-semibold text-3xl mt-16 ml-[4rem] mb-8">
+            {/* <div className="font-semibold text-3xl mt-16 ml-[4rem] mb-8">
               PNP Calculators
             </div>
             <div className="flex items-center justify-center gap-0 mb-14">
@@ -603,7 +603,7 @@ const ResourcesAndTools = () => {
                   </>
                 )}
               </div>
-            </div>
+            </div> */}
           </div>
 
           <div className="font-semibold text-[30px] lg:text-[40px] border-b-[4px] border-[#019989] border-w-[50%] mt-8 ">

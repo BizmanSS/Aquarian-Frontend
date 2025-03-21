@@ -1,33 +1,73 @@
-* {
-  box-sizing: border-box;
- }
- .form-row-popup {
+.book-appointment-form__modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: auto;
+  overflow-y: auto;
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  gap: 2rem;
+  flex-direction: row;
+  z-index: 150;
+  border-radius: 10px;
+}
+
+.book-appointment-form__modal-image {
+  width: 35%;
+}
+
+.book-appointment-form__modal-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.book-appointment-form__form-row-popup {
   display: flex;
   gap: 20px;
   margin-bottom: 20px;
- }
- .form-header {
+}
+
+.book-appointment-form__form-header {
   color: #000;
   font-size: 40px;
   font-weight: 900;
   margin-bottom: 15px;
   text-align: center;
   margin-top: -10px;
- }
- .form-group {
+}
+
+.book-appointment-form__form-group {
   position: relative;
   display: flex !important;
   flex-direction: column;
   flex: 1 !important;
-  /* height: 58px !important; */
- }
- #date {
+  justify-content: center;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+}
+
+/* .book-appointment-form__custom-phone-input{
+  z-index: 2;
+} */
+
+.react-international-phone-country-selector-dropdown{ 
+  z-index: 2 !important;
+}
+
+#date {
   height: 58px;
- }
- #srvc{
+}
+
+#srvc {
   height: 58px;
- }
- .form-group label {
+}
+
+.book-appointment-form__form-group label {
   position: absolute;
   top: 0;
   left: 20px;
@@ -39,33 +79,43 @@
   transition: 0.3s ease;
   pointer-events: none;
   z-index: 1;
- }
- .form-field {
+}
+
+.book-appointment-form__form-field {
   width: 65%;
   height: 100%;
- }
- .form-group input,
- .form-group select {
+}
+
+.book-appointment-form__form-fields {
+  padding: 0!important;
+}
+
+.book-appointment-form__form-group input,
+.book-appointment-form__form-group select {
   width: 100%;
   padding: 15px 14px;
-  border: 2px solid #ccc;
-  border-radius: 4px;
+  /* border: 2px solid #ccc; */
+  /* border-radius: 4px; */
   font-size: 16px;
   outline: none;
   transition: border-color 0.3s ease;
- }
- .form-row-popup .error,
- .book-date-error {
+}
+
+.book-appointment-form__form-row-popup .book-appointment-form__error,
+.book-appointment-form__book-date-error {
   border-color: #b90124 !important;
   background-color: #ffe6e6;
- }
- .error-label {
+}
+
+.book-appointment-form__error-label {
   color: #b90124;
- }
- .form-field .error-message {
+}
+
+.book-appointment-form__form-field .book-appointment-form__error-message {
   text-align: center;
- }
- .Submitbutton {
+}
+
+.book-appointment-form__Submitbutton {
   background-color: #009889;
   padding: 0.5rem 8rem;
   color: #fff;
@@ -77,8 +127,9 @@
   cursor: pointer;
   font-size: 20px;
   width: 100%;
- }
- .closeIcon {
+}
+
+.book-appointment-form__closeIcon {
   position: relative;
   right: 2px;
   display: block;
@@ -91,8 +142,9 @@
   justify-self: flex-end;
   cursor: pointer;
   padding: 0.2rem;
- }
- .booking-from-background-overlay {
+}
+
+.book-appointment-form__booking-from-background-overlay {
   position: fixed;
   top: 0;
   right: 0;
@@ -101,237 +153,124 @@
   z-index: 40;
   background-color: rgba(30, 30, 30, 0.4);
   backdrop-filter: blur(10px);
- }
- @media (max-width: 1024px) {
-  .modal {
-    width: 80%;
-    height: auto;
-    overflow-y: auto;
+}
+
+.book-appointment-form__mobile-image {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .book-appointment-form__modal {
+    flex-direction: column;
+    height: 95vh;
+    overflow: auto;
+    max-width: 500px;
+    width: 95%;
   }
-  .modal-image {
-    width: 45%;
-  }
-  .form-field {
+
+  .book-appointment-form__form-field {
     width: 65%;
   }
-  .form-row-popup {
+
+  .book-appointment-form__form-row-popup {
     gap: 15px;
   }
-  .Submitbutton {
+
+  .book-appointment-form__Submitbutton {
     padding: 0.5rem 6rem;
     font-size: 18px;
     margin-bottom: 1rem;
   }
- }
- @media (max-width: 769px) {
-  .modal {
-    flex-direction: column;
-    width: 90vw;
-    height: 94vh;
-    overflow: auto;
-    border-radius: 10px;
- }
-  .modal-image {
-    width: 100%;
-    height: 30vh;
-  }
-  .form-header {
+
+  .book-appointment-form__form-header {
     font-size: 1.5rem;
     text-align: center;
   }
-  .form-field {
+
+  .book-appointment-form__form-field {
     width: 100%;
     height: auto;
-    /* padding: 1rem; */
     margin-top: -63px;
   }
-  .form-group input,
-  .form-group select {
+
+  .book-appointment-form__form-group input,
+  .book-appointment-form__form-group select {
     width: 100%;
     padding: 8px;
     font-size: 14px;
     height: 43px;
   }
-  .custom-phone-input {
+
+  .book-appointment-form__custom-phone-input {
     height: 43px;
     font-size: 10px;
     padding: 10px;
-    border: 2px solid #ccc;
-    border-radius: 4px;
+    /* border: 2px solid #ccc;
+    border-radius: 4px; */
+    border: 0px
   }
-  .form-row-popup {
+
+  .book-appointment-form__form-row-popup {
     flex-direction: column;
   }
-  .Submitbutton {
+
+  .book-appointment-form__Submitbutton {
     width: 100%;
     padding: 10px;
     font-size: 16px;
   }
-  .modal-image img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-  }
- }
- .custom-phone-input {
-  height: 60px;
-  font-size: 16px;
-  padding: 10px;
-  border: 2px solid #ccc;
-  border-radius: 4px;
- }
- .thank-you-message {
-  text-align: center;
-  color: #009889;
-  margin-top: 20px;
-  z-index: 111;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  gap: 20px;
- }
- .thank-you-image {
-  width: 100px;
-  height: auto;
- }
- .thank-you {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 190px;
- }
- .msg1 {
-  font-size: 54px;
-  font-weight: bold;
-  margin-top: 9%;
-  margin-bottom: 1px;
- }
- .thanksmessage {
-  font-size: 18px;
-  text-align: center;
- }
- .countdown-message {
-  font-size: 20px;
-  font-weight: bold;
-  color: #fa9374;
-  margin-left: -10%;
- }
- @media (max-width: 769px) {
-  .thank-you-message {
+
+  .book-appointment-form__thank-you-message {
     font-size: 12px;
   }
- }
- .desktop-image {
-  display: block;
- }
- .mobile-image {
-  display: none;
- }
- @media (max-width: 769px) {
-  .desktop-image {
+
+  .book-appointment-form__desktop-image {
     display: none;
   }
-  .mobile-image {
+
+  .book-appointment-form__modal-image {
+    width: 100%;
+  }
+
+  .book-appointment-form__mobile-image {
     display: block;
     width: 100%;
-    height: 531px;
-    object-fit: contain;
+    height: 100%;
   }
- }
- * {
-  box-sizing: border-box;
- }
- .modal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 60rem;
-  height: 36rem;
-  background-color: white;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  display: flex;
-  gap: 2rem;
-  flex-direction: row;
-  z-index: 150;
- }
- .modal-image {
-  width: 35%;
-  height: 100%;
- }
- .modal-image img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
- }
- .desktop-image {
-  display: block;
- }
- .mobile-image {
-  display: none;
- }
- @media (max-width: 769px) {
-  .modal {
-    flex-direction: column;
-    width: 90vw;
-    height: 94vh;
-    overflow: auto;
-    border-radius: 10px;
- }
-  #date{
+
+  .book-appointment-form__mobile-image img {
+    width: 100%;
+    height: 481px;
+    object-fit: cover;
+    object-position: top;
+  }
+
+  .book-appointment-form__closeIcon {
+    margin-top: 40px;
+    margin-bottom: -30px;
+  }
+
+  #date {
     height: 43px;
   }
-  #srvc{
+  
+  #srvc {
     height: 43px;
   }
-  .custom-phone-input {
+
+  .book-appointment-form__custom-phone-input {
     height: 43px;
     font-size: 13px;
     padding: 1px;
-    border: 2px solid #ccc;
+    /* border: 2px solid #ccc; */
     border-radius: 4px;
   }
-  .closeIcon {
-    position: relative;
-    right: 2px;
-    display: block;
-    margin-top: 40px;
-    align-self: center;
-    margin-left: auto;
-    margin-right: -1rem;
-    font-size: 1.7rem;
-    border-radius: 50%;
-    justify-self: flex-end;
-    cursor: pointer;
-    padding: 0.2rem;
-    margin-bottom: -30px;
-  }
-  .modal-image {
-    width: 100%;
-    height: 112px;
-  }
-  .desktop-image {
-    display: block;
-  }
-  .mobile-image {
-    display: none;
-  }
-  @media (max-width: 769px) {
-    .desktop-image {
-      display: none;
-    }
-    .mobile-image {
-      display: block;
-      width: 100%;
-      height: 100%;
-    }
-    .mobile-image img {
-      width: 100%;
-      height: 481px;
-      object-fit: cover;
-    }
-  }
- }
- 
+}
+
+
+@media (max-width: 500px){
+.book-appointment-form__form-group label{
+  padding: 0px;
+  left: 0px;
+}
+}

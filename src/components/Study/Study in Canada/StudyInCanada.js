@@ -31,9 +31,8 @@ export default function PR() {
             <div className="pages-paragraph">The country offers affordable tuition fees compared to other popular destinations like the US and UK, with average annual costs ranging from CAD 7,000 to CAD 40,000 depending on the program. The opportunity for post-study work permits allows graduates to gain valuable work experience in Canada, further enhancing their employability. </div>
 
             <div className="pages-paragraph">With its combination of quality education, cultural richness, and favorable immigration policies, Canada stands out as a premier destination for those seeking to further their studies abroad.</div>
-
-
-</div>
+            </div>
+        </div>
 
 
 <StudyStepsInvolved/>
@@ -44,6 +43,7 @@ export default function PR() {
       <StudyCircle/>
 </div>
 
+<div class="pages-content-text-wrapper">
 <div className="pages-paragraph">Canada’s reputation for providing high-quality education is well-established. From its top-tier universities to its diverse and inclusive society, Canada offers academic success and personal growth.
 
 <div className="mt-3 mb-2 font-bold text-[17px]">

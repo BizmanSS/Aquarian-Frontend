@@ -38,7 +38,7 @@ export default function AgriFoodPilot() {
     >
       <div className="pages-content-wrapper">
         {/* <SiteMapMenu type="I" h1="Permanent Residency"></SiteMapMenu> */}
-        <SiteMapMenu type="I" h1="Agri-Food Pilot"></SiteMapMenu>
+        <SiteMapMenu type="B" h1="Business/Investment Streams"></SiteMapMenu>
 
         <div class="pages-content-div">
           <div class="pages-content-text-wrapper ">
